@@ -1,6 +1,8 @@
 const fsx = require("fs-extra");
 const path = require("path");
 
+const DENO_STD_VERSION = "0.79.0";
+
 async function copyPackage(packageName, packageDir, destinationDir) {
   if (packageName.endsWith("-deno")) {
     // skip here - copy instead at the end
@@ -113,10 +115,10 @@ async function denoifyTsFile(file, depth) {
     let replaced = line;
 
     if (line.match(/\bBuffer\b/)) {
-      extraHeaderLines["buffer"] = 'import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";';
+      extraHeaderLines["buffer"] = `import { Buffer } from "https://deno.land/std@${DENO_STD_VERSION}/node/buffer.ts";`;
     }
     if (line.match(/\bprocess\b/)) {
-      extraHeaderLines["process"] = 'import process from "https://deno.land/std@0.79.0/node/process.ts";';
+      extraHeaderLines["process"] = `import process from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;
     }
 
     if (
@@ -212,15 +214,15 @@ async function denoifyTsFile(file, depth) {
                 continue;
               }
             } else if (importFrom === "fs") {
-              replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/fs.ts";`;
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/fs.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "os") {
-              replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/os.ts";`;
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/os.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "path") {
-              replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/path.ts";`;
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/path.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "crypto") {
