@@ -2,7 +2,7 @@ import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ProviderError } from "../property-provider/mod.ts";
 import { Provider } from "../types/mod.ts";
 
-export type GetterFromEnv<T> = (env: NodeJS.ProcessEnv) => T | undefined;
+export type GetterFromEnv<T> = (env: {[key: string]: string}) => T | undefined;
 
 /**
  * Get config value given the environment variable name or getter from

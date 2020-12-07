@@ -121,6 +121,10 @@ async function denoifyTsFile(file, depth) {
       extraHeaderLines["process"] = `import process from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;
     }
 
+    if (line.match(/\bNodeJS\.ProcessEnv\b/)) {
+      replaced = line.replace("NodeJS.ProcessEnv", "{[key: string]: string}");
+    }
+
     if (line === 'import { Hash } from "@aws-sdk/hash-node";') {
       output.push('import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";');
       continue;
