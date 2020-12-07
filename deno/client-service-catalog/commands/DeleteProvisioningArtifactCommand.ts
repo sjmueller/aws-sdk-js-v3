@@ -1,0 +1,94 @@
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
+import { DeleteProvisioningArtifactInput, DeleteProvisioningArtifactOutput } from "../models/models_0.ts";
+import {
+  deserializeAws_json1_1DeleteProvisioningArtifactCommand,
+  serializeAws_json1_1DeleteProvisioningArtifactCommand,
+} from "../protocols/Aws_json1_1.ts";
+import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
+import { Command as $Command } from "../../smithy-client/mod.ts";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "../../types/mod.ts";
+
+export type DeleteProvisioningArtifactCommandInput = DeleteProvisioningArtifactInput;
+export type DeleteProvisioningArtifactCommandOutput = DeleteProvisioningArtifactOutput & __MetadataBearer;
+
+/**
+ * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
+ *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
+ *          You cannot delete the last provisioning artifact for a product, because a product must have at
+ *          least one provisioning artifact.</p>
+ */
+export class DeleteProvisioningArtifactCommand extends $Command<
+  DeleteProvisioningArtifactCommandInput,
+  DeleteProvisioningArtifactCommandOutput,
+  ServiceCatalogClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DeleteProvisioningArtifactCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: ServiceCatalogClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DeleteProvisioningArtifactCommandInput, DeleteProvisioningArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DeleteProvisioningArtifactCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: DeleteProvisioningArtifactInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteProvisioningArtifactOutput.filterSensitiveLog,
+    };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: DeleteProvisioningArtifactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteProvisioningArtifactCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteProvisioningArtifactCommandOutput> {
+    return deserializeAws_json1_1DeleteProvisioningArtifactCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

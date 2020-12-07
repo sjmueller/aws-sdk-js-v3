@@ -1,0 +1,57 @@
+import { CloudDirectory } from "../CloudDirectory.ts";
+import { CloudDirectoryClient } from "../CloudDirectoryClient.ts";
+import {
+  ListObjectAttributesCommand,
+  ListObjectAttributesCommandInput,
+  ListObjectAttributesCommandOutput,
+} from "../commands/ListObjectAttributesCommand.ts";
+import { CloudDirectoryPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: CloudDirectoryClient,
+  input: ListObjectAttributesCommandInput,
+  ...args: any
+): Promise<ListObjectAttributesCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListObjectAttributesCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: CloudDirectory,
+  input: ListObjectAttributesCommandInput,
+  ...args: any
+): Promise<ListObjectAttributesCommandOutput> => {
+  // @ts-ignore
+  return await client.listObjectAttributes(input, ...args);
+};
+export async function* paginateListObjectAttributes(
+  config: CloudDirectoryPaginationConfiguration,
+  input: ListObjectAttributesCommandInput,
+  ...additionalArguments: any
+): Paginator<ListObjectAttributesCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListObjectAttributesCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
+    if (config.client instanceof CloudDirectory) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof CloudDirectoryClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");
+    }
+    yield page;
+    token = page.NextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

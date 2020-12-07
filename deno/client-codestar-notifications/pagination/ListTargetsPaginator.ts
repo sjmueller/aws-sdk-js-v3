@@ -1,0 +1,53 @@
+import { CodestarNotifications } from "../CodestarNotifications.ts";
+import { CodestarNotificationsClient } from "../CodestarNotificationsClient.ts";
+import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/ListTargetsCommand.ts";
+import { CodestarNotificationsPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: CodestarNotificationsClient,
+  input: ListTargetsCommandInput,
+  ...args: any
+): Promise<ListTargetsCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListTargetsCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: CodestarNotifications,
+  input: ListTargetsCommandInput,
+  ...args: any
+): Promise<ListTargetsCommandOutput> => {
+  // @ts-ignore
+  return await client.listTargets(input, ...args);
+};
+export async function* paginateListTargets(
+  config: CodestarNotificationsPaginationConfiguration,
+  input: ListTargetsCommandInput,
+  ...additionalArguments: any
+): Paginator<ListTargetsCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListTargetsCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
+    if (config.client instanceof CodestarNotifications) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof CodestarNotificationsClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected CodestarNotifications | CodestarNotificationsClient");
+    }
+    yield page;
+    token = page.NextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

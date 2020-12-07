@@ -1,0 +1,57 @@
+import { SageMaker } from "../SageMaker.ts";
+import { SageMakerClient } from "../SageMakerClient.ts";
+import {
+  ListEdgePackagingJobsCommand,
+  ListEdgePackagingJobsCommandInput,
+  ListEdgePackagingJobsCommandOutput,
+} from "../commands/ListEdgePackagingJobsCommand.ts";
+import { SageMakerPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: SageMakerClient,
+  input: ListEdgePackagingJobsCommandInput,
+  ...args: any
+): Promise<ListEdgePackagingJobsCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListEdgePackagingJobsCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: SageMaker,
+  input: ListEdgePackagingJobsCommandInput,
+  ...args: any
+): Promise<ListEdgePackagingJobsCommandOutput> => {
+  // @ts-ignore
+  return await client.listEdgePackagingJobs(input, ...args);
+};
+export async function* paginateListEdgePackagingJobs(
+  config: SageMakerPaginationConfiguration,
+  input: ListEdgePackagingJobsCommandInput,
+  ...additionalArguments: any
+): Paginator<ListEdgePackagingJobsCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListEdgePackagingJobsCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
+    if (config.client instanceof SageMaker) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof SageMakerClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected SageMaker | SageMakerClient");
+    }
+    yield page;
+    token = page.NextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

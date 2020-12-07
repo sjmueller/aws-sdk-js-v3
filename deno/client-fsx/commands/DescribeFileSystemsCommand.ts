@@ -1,0 +1,120 @@
+import process from "https://deno.land/std@0.79.0/node/process.ts";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient.ts";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0.ts";
+import {
+  deserializeAws_json1_1DescribeFileSystemsCommand,
+  serializeAws_json1_1DescribeFileSystemsCommand,
+} from "../protocols/Aws_json1_1.ts";
+import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
+import { Command as $Command } from "../../smithy-client/mod.ts";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "../../types/mod.ts";
+
+export type DescribeFileSystemsCommandInput = DescribeFileSystemsRequest;
+export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse & __MetadataBearer;
+
+/**
+ * <p>Returns the description of specific Amazon FSx file systems, if a
+ *                 <code>FileSystemIds</code> value is provided for that file system. Otherwise, it
+ *             returns descriptions of all file systems owned by your AWS account in the AWS Region of
+ *             the endpoint that you're calling.</p>
+ *
+ *         <p>When retrieving all file system descriptions, you can optionally specify the
+ *                 <code>MaxResults</code> parameter to limit the number of descriptions in a response.
+ *             If more file system descriptions remain, Amazon FSx returns a <code>NextToken</code>
+ *             value in the response. In this case, send a later request with the
+ *                 <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
+ *             from the last response.</p>
+ *
+ *         <p>This action is used in an iterative process to retrieve a list of your file system
+ *             descriptions. <code>DescribeFileSystems</code> is called first without a
+ *                 <code>NextToken</code>value. Then the action continues to be called with the
+ *                 <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>
+ *             value until a response has no <code>NextToken</code>.</p>
+ *
+ *         <p>When using this action, keep the following in mind:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>The implementation might return fewer than <code>MaxResults</code> file
+ *                     system descriptions while still including a <code>NextToken</code>
+ *                     value.</p>
+ *
+ *             </li>
+ *             <li>
+ *                 <p>The order of file systems returned in the response of one
+ *                         <code>DescribeFileSystems</code> call and the order of file systems returned
+ *                     across the responses of a multicall iteration is unspecified.</p>
+ *             </li>
+ *          </ul>
+ */
+export class DescribeFileSystemsCommand extends $Command<
+  DescribeFileSystemsCommandInput,
+  DescribeFileSystemsCommandOutput,
+  FSxClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DescribeFileSystemsCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: FSxClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DescribeFileSystemsCommandInput, DescribeFileSystemsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "FSxClient";
+    const commandName = "DescribeFileSystemsCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: DescribeFileSystemsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFileSystemsResponse.filterSensitiveLog,
+    };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: DescribeFileSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeFileSystemsCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemsCommandOutput> {
+    return deserializeAws_json1_1DescribeFileSystemsCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

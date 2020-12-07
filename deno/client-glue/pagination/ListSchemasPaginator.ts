@@ -1,0 +1,53 @@
+import { Glue } from "../Glue.ts";
+import { GlueClient } from "../GlueClient.ts";
+import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand.ts";
+import { GluePaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: GlueClient,
+  input: ListSchemasCommandInput,
+  ...args: any
+): Promise<ListSchemasCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListSchemasCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: Glue,
+  input: ListSchemasCommandInput,
+  ...args: any
+): Promise<ListSchemasCommandOutput> => {
+  // @ts-ignore
+  return await client.listSchemas(input, ...args);
+};
+export async function* paginateListSchemas(
+  config: GluePaginationConfiguration,
+  input: ListSchemasCommandInput,
+  ...additionalArguments: any
+): Paginator<ListSchemasCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListSchemasCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
+    if (config.client instanceof Glue) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof GlueClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected Glue | GlueClient");
+    }
+    yield page;
+    token = page.NextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

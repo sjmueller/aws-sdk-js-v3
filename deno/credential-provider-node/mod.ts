@@ -1,0 +1,68 @@
+import process from "https://deno.land/std@0.79.0/node/process.ts";
+import { fromEnv } from "../credential-provider-env/mod.ts";
+import {
+  ENV_CMDS_FULL_URI,
+  ENV_CMDS_RELATIVE_URI,
+  fromContainerMetadata,
+  fromInstanceMetadata,
+  RemoteProviderInit,
+} from "../credential-provider-imds/mod.ts";
+import { ENV_PROFILE, fromIni, FromIniInit } from "../credential-provider-ini/mod.ts";
+import { fromProcess, FromProcessInit } from "../credential-provider-process/mod.ts";
+import { chain, memoize, ProviderError } from "../property-provider/mod.ts";
+import { CredentialProvider } from "../types/mod.ts";
+
+export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
+
+/**
+ * Creates a credential provider that will attempt to find credentials from the
+ * following sources (listed in order of precedence):
+ *   * Environment variables exposed via `process.env`
+ *   * Shared credentials and config ini files
+ *   * The EC2/ECS Instance Metadata Service
+ *
+ * The default credential provider will invoke one provider at a time and only
+ * continue to the next if no credentials have been located. For example, if
+ * the process finds values defined via the `AWS_ACCESS_KEY_ID` and
+ * `AWS_SECRET_ACCESS_KEY` environment variables, the files at
+ * `~/.aws/credentials` and `~/.aws/config` will not be read, nor will any
+ * messages be sent to the Instance Metadata Service.
+ *
+ * @param init                  Configuration that is passed to each individual
+ *                              provider
+ *
+ * @see fromEnv                 The function used to source credentials from
+ *                              environment variables
+ * @see fromIni                 The function used to source credentials from INI
+ *                              files
+ * @see fromProcess             The functino used to sources credentials from
+ *                              credential_process in INI files
+ * @see fromInstanceMetadata    The function used to source credentials from the
+ *                              EC2 Instance Metadata Service
+ * @see fromContainerMetadata   The function used to source credentials from the
+ *                              ECS Container Metadata Service
+ */
+export function defaultProvider(init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider {
+  const { profile = process.env[ENV_PROFILE] } = init;
+  const providerChain = profile
+    ? fromIni(init)
+    : chain(fromEnv(), fromIni(init), fromProcess(init), remoteProvider(init));
+
+  return memoize(
+    providerChain,
+    (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000,
+    (credentials) => credentials.expiration !== undefined
+  );
+}
+
+function remoteProvider(init: RemoteProviderInit): CredentialProvider {
+  if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
+    return fromContainerMetadata(init);
+  }
+
+  if (process.env[ENV_IMDS_DISABLED]) {
+    return () => Promise.reject(new ProviderError("EC2 Instance Metadata Service access disabled"));
+  }
+
+  return fromInstanceMetadata(init);
+}

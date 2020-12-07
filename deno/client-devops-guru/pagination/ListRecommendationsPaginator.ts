@@ -1,0 +1,56 @@
+import { DevOpsGuru } from "../DevOpsGuru.ts";
+import { DevOpsGuruClient } from "../DevOpsGuruClient.ts";
+import {
+  ListRecommendationsCommand,
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "../commands/ListRecommendationsCommand.ts";
+import { DevOpsGuruPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: DevOpsGuruClient,
+  input: ListRecommendationsCommandInput,
+  ...args: any
+): Promise<ListRecommendationsCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListRecommendationsCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: DevOpsGuru,
+  input: ListRecommendationsCommandInput,
+  ...args: any
+): Promise<ListRecommendationsCommandOutput> => {
+  // @ts-ignore
+  return await client.listRecommendations(input, ...args);
+};
+export async function* paginateListRecommendations(
+  config: DevOpsGuruPaginationConfiguration,
+  input: ListRecommendationsCommandInput,
+  ...additionalArguments: any
+): Paginator<ListRecommendationsCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListRecommendationsCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    if (config.client instanceof DevOpsGuru) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof DevOpsGuruClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected DevOpsGuru | DevOpsGuruClient");
+    }
+    yield page;
+    token = page.NextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

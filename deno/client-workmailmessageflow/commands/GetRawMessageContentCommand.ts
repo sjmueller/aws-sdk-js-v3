@@ -1,0 +1,92 @@
+import {
+  ServiceInputTypes,
+  ServiceOutputTypes,
+  WorkMailMessageFlowClientResolvedConfig,
+} from "../WorkMailMessageFlowClient.ts";
+import { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0.ts";
+import {
+  deserializeAws_restJson1GetRawMessageContentCommand,
+  serializeAws_restJson1GetRawMessageContentCommand,
+} from "../protocols/Aws_restJson1.ts";
+import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
+import { Command as $Command } from "../../smithy-client/mod.ts";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "../../types/mod.ts";
+
+export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
+export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse & __MetadataBearer;
+
+/**
+ * <p>Retrieves the raw content of an in-transit email message, in MIME format. </p>
+ */
+export class GetRawMessageContentCommand extends $Command<
+  GetRawMessageContentCommandInput,
+  GetRawMessageContentCommandOutput,
+  WorkMailMessageFlowClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: GetRawMessageContentCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: WorkMailMessageFlowClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<GetRawMessageContentCommandInput, GetRawMessageContentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "WorkMailMessageFlowClient";
+    const commandName = "GetRawMessageContentCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: GetRawMessageContentRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetRawMessageContentResponse.filterSensitiveLog,
+    };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: GetRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetRawMessageContentCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRawMessageContentCommandOutput> {
+    return deserializeAws_restJson1GetRawMessageContentCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

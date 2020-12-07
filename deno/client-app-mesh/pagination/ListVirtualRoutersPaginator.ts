@@ -1,0 +1,57 @@
+import { AppMesh } from "../AppMesh.ts";
+import { AppMeshClient } from "../AppMeshClient.ts";
+import {
+  ListVirtualRoutersCommand,
+  ListVirtualRoutersCommandInput,
+  ListVirtualRoutersCommandOutput,
+} from "../commands/ListVirtualRoutersCommand.ts";
+import { AppMeshPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: AppMeshClient,
+  input: ListVirtualRoutersCommandInput,
+  ...args: any
+): Promise<ListVirtualRoutersCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListVirtualRoutersCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: AppMesh,
+  input: ListVirtualRoutersCommandInput,
+  ...args: any
+): Promise<ListVirtualRoutersCommandOutput> => {
+  // @ts-ignore
+  return await client.listVirtualRouters(input, ...args);
+};
+export async function* paginateListVirtualRouters(
+  config: AppMeshPaginationConfiguration,
+  input: ListVirtualRoutersCommandInput,
+  ...additionalArguments: any
+): Paginator<ListVirtualRoutersCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListVirtualRoutersCommandOutput;
+  while (hasNext) {
+    input.nextToken = token;
+    input["limit"] = config.pageSize;
+    if (config.client instanceof AppMesh) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof AppMeshClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected AppMesh | AppMeshClient");
+    }
+    yield page;
+    token = page.nextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

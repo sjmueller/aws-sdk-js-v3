@@ -1,0 +1,57 @@
+import { IoT } from "../IoT.ts";
+import { IoTClient } from "../IoTClient.ts";
+import {
+  ListThingsInBillingGroupCommand,
+  ListThingsInBillingGroupCommandInput,
+  ListThingsInBillingGroupCommandOutput,
+} from "../commands/ListThingsInBillingGroupCommand.ts";
+import { IoTPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: IoTClient,
+  input: ListThingsInBillingGroupCommandInput,
+  ...args: any
+): Promise<ListThingsInBillingGroupCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListThingsInBillingGroupCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: IoT,
+  input: ListThingsInBillingGroupCommandInput,
+  ...args: any
+): Promise<ListThingsInBillingGroupCommandOutput> => {
+  // @ts-ignore
+  return await client.listThingsInBillingGroup(input, ...args);
+};
+export async function* paginateListThingsInBillingGroup(
+  config: IoTPaginationConfiguration,
+  input: ListThingsInBillingGroupCommandInput,
+  ...additionalArguments: any
+): Paginator<ListThingsInBillingGroupCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListThingsInBillingGroupCommandOutput;
+  while (hasNext) {
+    input.nextToken = token;
+    input["maxResults"] = config.pageSize;
+    if (config.client instanceof IoT) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof IoTClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected IoT | IoTClient");
+    }
+    yield page;
+    token = page.nextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

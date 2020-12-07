@@ -1,0 +1,57 @@
+import { SWF } from "../SWF.ts";
+import { SWFClient } from "../SWFClient.ts";
+import {
+  GetWorkflowExecutionHistoryCommand,
+  GetWorkflowExecutionHistoryCommandInput,
+  GetWorkflowExecutionHistoryCommandOutput,
+} from "../commands/GetWorkflowExecutionHistoryCommand.ts";
+import { SWFPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+/**
+ * @private
+ */
+const makePagedClientRequest = async (
+  client: SWFClient,
+  input: GetWorkflowExecutionHistoryCommandInput,
+  ...args: any
+): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new GetWorkflowExecutionHistoryCommand(input), ...args);
+};
+/**
+ * @private
+ */
+const makePagedRequest = async (
+  client: SWF,
+  input: GetWorkflowExecutionHistoryCommandInput,
+  ...args: any
+): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
+  // @ts-ignore
+  return await client.getWorkflowExecutionHistory(input, ...args);
+};
+export async function* paginateGetWorkflowExecutionHistory(
+  config: SWFPaginationConfiguration,
+  input: GetWorkflowExecutionHistoryCommandInput,
+  ...additionalArguments: any
+): Paginator<GetWorkflowExecutionHistoryCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: GetWorkflowExecutionHistoryCommandOutput;
+  while (hasNext) {
+    input.nextPageToken = token;
+    input["maximumPageSize"] = config.pageSize;
+    if (config.client instanceof SWF) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof SWFClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected SWF | SWFClient");
+    }
+    yield page;
+    token = page.nextPageToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}
