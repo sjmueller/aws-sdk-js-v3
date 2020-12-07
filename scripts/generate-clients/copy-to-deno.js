@@ -125,6 +125,10 @@ async function denoifyTsFile(file, depth) {
       replaced = line.replace("NodeJS.ProcessEnv", "{[key: string]: string}");
     }
 
+    if (line.match(/\bhomedir()\b/)) {
+      replaced = line.replace("homedir()", "homedir()!");
+    }
+
     if (line === 'import { Hash } from "@aws-sdk/hash-node";') {
       output.push('import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";');
       continue;

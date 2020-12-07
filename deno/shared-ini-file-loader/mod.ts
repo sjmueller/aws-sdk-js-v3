@@ -113,5 +113,5 @@ function getHomeDir(): string {
   if (USERPROFILE) return USERPROFILE;
   if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
 
-  return homedir();
+  return homedir()!;
 }
