@@ -299,6 +299,12 @@ async function denoifyTsFile(file, depth) {
       }
     }
 
+    if (file === "deno/shared-ini-file-loader/mod.ts") {
+      if (line.match(/resolve\(data\);/)) {
+        replaced = line.replace("data", "data!");
+      }
+    }
+
     output.push(replaced);
   }
 

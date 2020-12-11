@@ -100,7 +100,7 @@ function slurpFile(path: string): Promise<string> {
       if (err) {
         reject(err);
       } else {
-        resolve(data);
+        resolve(data!);
       }
     });
   });
