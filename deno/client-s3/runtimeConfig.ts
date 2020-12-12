@@ -11,7 +11,7 @@ import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "../middleware-retry/mod.ts";
 import { loadConfig as loadNodeConfig } from "../node-config-provider/mod.ts";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
 import { HashConstructor as __HashConstructor } from "../types/mod.ts";
-import { parseUrl } from "../url-parser-browser/mod.ts";
+import { parseUrl } from "../url-parser-node/mod.ts";
 import { fromBase64, toBase64 } from "../util-base64-node/mod.ts";
 import { calculateBodyLength } from "../util-body-length-node/mod.ts";
 import { fromUtf8, toUtf8 } from "../util-utf8-node/mod.ts";

@@ -292,11 +292,6 @@ async function denoifyTsFile(file, depth) {
           'import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";'
         );
       }
-
-      // Use url-parser-browser
-      else if ((match = line.match(/import .* parseUrl,? .* from .*/))) {
-        replaced = line.replace(match[0], 'import { parseUrl } from "../url-parser-browser/mod.ts";');
-      }
     }
 
     if (file === "deno/shared-ini-file-loader/mod.ts") {
