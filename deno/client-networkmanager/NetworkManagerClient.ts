@@ -3,6 +3,11 @@ import {
   AssociateCustomerGatewayCommandOutput,
 } from "./commands/AssociateCustomerGatewayCommand.ts";
 import { AssociateLinkCommandInput, AssociateLinkCommandOutput } from "./commands/AssociateLinkCommand.ts";
+import {
+  AssociateTransitGatewayConnectPeerCommandInput,
+  AssociateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/AssociateTransitGatewayConnectPeerCommand.ts";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand.ts";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "./commands/CreateDeviceCommand.ts";
 import {
   CreateGlobalNetworkCommandInput,
@@ -10,6 +15,7 @@ import {
 } from "./commands/CreateGlobalNetworkCommand.ts";
 import { CreateLinkCommandInput, CreateLinkCommandOutput } from "./commands/CreateLinkCommand.ts";
 import { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand.ts";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand.ts";
 import { DeleteDeviceCommandInput, DeleteDeviceCommandOutput } from "./commands/DeleteDeviceCommand.ts";
 import {
   DeleteGlobalNetworkCommandInput,
@@ -31,6 +37,11 @@ import {
 } from "./commands/DisassociateCustomerGatewayCommand.ts";
 import { DisassociateLinkCommandInput, DisassociateLinkCommandOutput } from "./commands/DisassociateLinkCommand.ts";
 import {
+  DisassociateTransitGatewayConnectPeerCommandInput,
+  DisassociateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/DisassociateTransitGatewayConnectPeerCommand.ts";
+import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand.ts";
+import {
   GetCustomerGatewayAssociationsCommandInput,
   GetCustomerGatewayAssociationsCommandOutput,
 } from "./commands/GetCustomerGatewayAssociationsCommand.ts";
@@ -41,6 +52,10 @@ import {
 } from "./commands/GetLinkAssociationsCommand.ts";
 import { GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand.ts";
 import { GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand.ts";
+import {
+  GetTransitGatewayConnectPeerAssociationsCommandInput,
+  GetTransitGatewayConnectPeerAssociationsCommandOutput,
+} from "./commands/GetTransitGatewayConnectPeerAssociationsCommand.ts";
 import {
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
@@ -55,6 +70,7 @@ import {
 } from "./commands/RegisterTransitGatewayCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand.ts";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand.ts";
 import {
   UpdateGlobalNetworkCommandInput,
@@ -114,10 +130,13 @@ import {
 export type ServiceInputTypes =
   | AssociateCustomerGatewayCommandInput
   | AssociateLinkCommandInput
+  | AssociateTransitGatewayConnectPeerCommandInput
+  | CreateConnectionCommandInput
   | CreateDeviceCommandInput
   | CreateGlobalNetworkCommandInput
   | CreateLinkCommandInput
   | CreateSiteCommandInput
+  | DeleteConnectionCommandInput
   | DeleteDeviceCommandInput
   | DeleteGlobalNetworkCommandInput
   | DeleteLinkCommandInput
@@ -126,16 +145,20 @@ export type ServiceInputTypes =
   | DescribeGlobalNetworksCommandInput
   | DisassociateCustomerGatewayCommandInput
   | DisassociateLinkCommandInput
+  | DisassociateTransitGatewayConnectPeerCommandInput
+  | GetConnectionsCommandInput
   | GetCustomerGatewayAssociationsCommandInput
   | GetDevicesCommandInput
   | GetLinkAssociationsCommandInput
   | GetLinksCommandInput
   | GetSitesCommandInput
+  | GetTransitGatewayConnectPeerAssociationsCommandInput
   | GetTransitGatewayRegistrationsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterTransitGatewayCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateConnectionCommandInput
   | UpdateDeviceCommandInput
   | UpdateGlobalNetworkCommandInput
   | UpdateLinkCommandInput
@@ -144,10 +167,13 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateCustomerGatewayCommandOutput
   | AssociateLinkCommandOutput
+  | AssociateTransitGatewayConnectPeerCommandOutput
+  | CreateConnectionCommandOutput
   | CreateDeviceCommandOutput
   | CreateGlobalNetworkCommandOutput
   | CreateLinkCommandOutput
   | CreateSiteCommandOutput
+  | DeleteConnectionCommandOutput
   | DeleteDeviceCommandOutput
   | DeleteGlobalNetworkCommandOutput
   | DeleteLinkCommandOutput
@@ -156,16 +182,20 @@ export type ServiceOutputTypes =
   | DescribeGlobalNetworksCommandOutput
   | DisassociateCustomerGatewayCommandOutput
   | DisassociateLinkCommandOutput
+  | DisassociateTransitGatewayConnectPeerCommandOutput
+  | GetConnectionsCommandOutput
   | GetCustomerGatewayAssociationsCommandOutput
   | GetDevicesCommandOutput
   | GetLinkAssociationsCommandOutput
   | GetLinksCommandOutput
   | GetSitesCommandOutput
+  | GetTransitGatewayConnectPeerAssociationsCommandOutput
   | GetTransitGatewayRegistrationsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterTransitGatewayCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateConnectionCommandOutput
   | UpdateDeviceCommandOutput
   | UpdateGlobalNetworkCommandOutput
   | UpdateLinkCommandOutput
@@ -235,9 +265,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * The service name with which to sign requests.
+   * Unique service identifier.
+   * @internal
    */
-  signingName?: string;
+  serviceId?: string;
 
   /**
    * Default credentials provider; Not available in browser runtime
@@ -286,6 +317,7 @@ export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<_
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
  *             AWS and on-premises networks that are built around transit gateways.</p>
+ *         <p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>
  */
 export class NetworkManagerClient extends __Client<
   __HttpHandlerOptions,

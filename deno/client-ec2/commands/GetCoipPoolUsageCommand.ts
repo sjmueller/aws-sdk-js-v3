@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { GetCoipPoolUsageRequest, GetCoipPoolUsageResult } from "../models/models_3.ts";
+import { GetCoipPoolUsageRequest, GetCoipPoolUsageResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2GetCoipPoolUsageCommand,
   serializeAws_ec2GetCoipPoolUsageCommand,

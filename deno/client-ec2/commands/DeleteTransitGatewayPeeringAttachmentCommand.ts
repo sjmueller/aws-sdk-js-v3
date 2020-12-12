@@ -1,6 +1,8 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteTransitGatewayPeeringAttachmentRequest } from "../models/models_1.ts";
-import { DeleteTransitGatewayPeeringAttachmentResult } from "../models/models_2.ts";
+import {
+  DeleteTransitGatewayPeeringAttachmentRequest,
+  DeleteTransitGatewayPeeringAttachmentResult,
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
   serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,

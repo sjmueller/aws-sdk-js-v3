@@ -1,5 +1,5 @@
 const name = "@aws-sdk/client-glacier";
-const version = "1.0.0-rc.8";
+const version = "1.0.0-rc.9";
 
 import { bodyChecksumGenerator } from "../body-checksum-node/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";

@@ -1,5 +1,5 @@
 const name = "@aws-sdk/client-forecast";
-const version = "1.0.0-rc.8";
+const version = "1.0.0-rc.9";
 
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";

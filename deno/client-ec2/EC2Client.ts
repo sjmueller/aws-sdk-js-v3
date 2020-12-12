@@ -3,6 +3,10 @@ import {
   AcceptReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/AcceptReservedInstancesExchangeQuoteCommand.ts";
 import {
+  AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
+  AcceptTransitGatewayMulticastDomainAssociationsCommandOutput,
+} from "./commands/AcceptTransitGatewayMulticastDomainAssociationsCommand.ts";
+import {
   AcceptTransitGatewayPeeringAttachmentCommandInput,
   AcceptTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/AcceptTransitGatewayPeeringAttachmentCommand.ts";
@@ -197,6 +201,10 @@ import {
   CreateNetworkAclEntryCommandOutput,
 } from "./commands/CreateNetworkAclEntryCommand.ts";
 import {
+  CreateNetworkInsightsPathCommandInput,
+  CreateNetworkInsightsPathCommandOutput,
+} from "./commands/CreateNetworkInsightsPathCommand.ts";
+import {
   CreateNetworkInterfaceCommandInput,
   CreateNetworkInterfaceCommandOutput,
 } from "./commands/CreateNetworkInterfaceCommand.ts";
@@ -246,6 +254,14 @@ import {
   CreateTransitGatewayCommandInput,
   CreateTransitGatewayCommandOutput,
 } from "./commands/CreateTransitGatewayCommand.ts";
+import {
+  CreateTransitGatewayConnectCommandInput,
+  CreateTransitGatewayConnectCommandOutput,
+} from "./commands/CreateTransitGatewayConnectCommand.ts";
+import {
+  CreateTransitGatewayConnectPeerCommandInput,
+  CreateTransitGatewayConnectPeerCommandOutput,
+} from "./commands/CreateTransitGatewayConnectPeerCommand.ts";
 import {
   CreateTransitGatewayMulticastDomainCommandInput,
   CreateTransitGatewayMulticastDomainCommandOutput,
@@ -350,6 +366,14 @@ import {
   DeleteNetworkAclEntryCommandOutput,
 } from "./commands/DeleteNetworkAclEntryCommand.ts";
 import {
+  DeleteNetworkInsightsAnalysisCommandInput,
+  DeleteNetworkInsightsAnalysisCommandOutput,
+} from "./commands/DeleteNetworkInsightsAnalysisCommand.ts";
+import {
+  DeleteNetworkInsightsPathCommandInput,
+  DeleteNetworkInsightsPathCommandOutput,
+} from "./commands/DeleteNetworkInsightsPathCommand.ts";
+import {
   DeleteNetworkInterfaceCommandInput,
   DeleteNetworkInterfaceCommandOutput,
 } from "./commands/DeleteNetworkInterfaceCommand.ts";
@@ -398,6 +422,14 @@ import {
   DeleteTransitGatewayCommandInput,
   DeleteTransitGatewayCommandOutput,
 } from "./commands/DeleteTransitGatewayCommand.ts";
+import {
+  DeleteTransitGatewayConnectCommandInput,
+  DeleteTransitGatewayConnectCommandOutput,
+} from "./commands/DeleteTransitGatewayConnectCommand.ts";
+import {
+  DeleteTransitGatewayConnectPeerCommandInput,
+  DeleteTransitGatewayConnectPeerCommandOutput,
+} from "./commands/DeleteTransitGatewayConnectPeerCommand.ts";
 import {
   DeleteTransitGatewayMulticastDomainCommandInput,
   DeleteTransitGatewayMulticastDomainCommandOutput,
@@ -672,6 +704,14 @@ import {
   DescribeNetworkAclsCommandOutput,
 } from "./commands/DescribeNetworkAclsCommand.ts";
 import {
+  DescribeNetworkInsightsAnalysesCommandInput,
+  DescribeNetworkInsightsAnalysesCommandOutput,
+} from "./commands/DescribeNetworkInsightsAnalysesCommand.ts";
+import {
+  DescribeNetworkInsightsPathsCommandInput,
+  DescribeNetworkInsightsPathsCommandOutput,
+} from "./commands/DescribeNetworkInsightsPathsCommand.ts";
+import {
   DescribeNetworkInterfaceAttributeCommandInput,
   DescribeNetworkInterfaceAttributeCommandOutput,
 } from "./commands/DescribeNetworkInterfaceAttributeCommand.ts";
@@ -787,6 +827,14 @@ import {
   DescribeTransitGatewayAttachmentsCommandInput,
   DescribeTransitGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeTransitGatewayAttachmentsCommand.ts";
+import {
+  DescribeTransitGatewayConnectPeersCommandInput,
+  DescribeTransitGatewayConnectPeersCommandOutput,
+} from "./commands/DescribeTransitGatewayConnectPeersCommand.ts";
+import {
+  DescribeTransitGatewayConnectsCommandInput,
+  DescribeTransitGatewayConnectsCommandOutput,
+} from "./commands/DescribeTransitGatewayConnectsCommand.ts";
 import {
   DescribeTransitGatewayMulticastDomainsCommandInput,
   DescribeTransitGatewayMulticastDomainsCommandOutput,
@@ -1246,6 +1294,10 @@ import {
   RegisterTransitGatewayMulticastGroupSourcesCommandOutput,
 } from "./commands/RegisterTransitGatewayMulticastGroupSourcesCommand.ts";
 import {
+  RejectTransitGatewayMulticastDomainAssociationsCommandInput,
+  RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
+} from "./commands/RejectTransitGatewayMulticastDomainAssociationsCommand.ts";
+import {
   RejectTransitGatewayPeeringAttachmentCommandInput,
   RejectTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/RejectTransitGatewayPeeringAttachmentCommand.ts";
@@ -1360,6 +1412,10 @@ import {
 } from "./commands/SendDiagnosticInterruptCommand.ts";
 import { StartInstancesCommandInput, StartInstancesCommandOutput } from "./commands/StartInstancesCommand.ts";
 import {
+  StartNetworkInsightsAnalysisCommandInput,
+  StartNetworkInsightsAnalysisCommandOutput,
+} from "./commands/StartNetworkInsightsAnalysisCommand.ts";
+import {
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,
   StartVpcEndpointServicePrivateDnsVerificationCommandOutput,
 } from "./commands/StartVpcEndpointServicePrivateDnsVerificationCommand.ts";
@@ -1438,6 +1494,7 @@ import {
 
 export type ServiceInputTypes =
   | AcceptReservedInstancesExchangeQuoteCommandInput
+  | AcceptTransitGatewayMulticastDomainAssociationsCommandInput
   | AcceptTransitGatewayPeeringAttachmentCommandInput
   | AcceptTransitGatewayVpcAttachmentCommandInput
   | AcceptVpcEndpointConnectionsCommandInput
@@ -1503,6 +1560,7 @@ export type ServiceInputTypes =
   | CreateNatGatewayCommandInput
   | CreateNetworkAclCommandInput
   | CreateNetworkAclEntryCommandInput
+  | CreateNetworkInsightsPathCommandInput
   | CreateNetworkInterfaceCommandInput
   | CreateNetworkInterfacePermissionCommandInput
   | CreatePlacementGroupCommandInput
@@ -1520,6 +1578,8 @@ export type ServiceInputTypes =
   | CreateTrafficMirrorSessionCommandInput
   | CreateTrafficMirrorTargetCommandInput
   | CreateTransitGatewayCommandInput
+  | CreateTransitGatewayConnectCommandInput
+  | CreateTransitGatewayConnectPeerCommandInput
   | CreateTransitGatewayMulticastDomainCommandInput
   | CreateTransitGatewayPeeringAttachmentCommandInput
   | CreateTransitGatewayPrefixListReferenceCommandInput
@@ -1554,6 +1614,8 @@ export type ServiceInputTypes =
   | DeleteNatGatewayCommandInput
   | DeleteNetworkAclCommandInput
   | DeleteNetworkAclEntryCommandInput
+  | DeleteNetworkInsightsAnalysisCommandInput
+  | DeleteNetworkInsightsPathCommandInput
   | DeleteNetworkInterfaceCommandInput
   | DeleteNetworkInterfacePermissionCommandInput
   | DeletePlacementGroupCommandInput
@@ -1570,6 +1632,8 @@ export type ServiceInputTypes =
   | DeleteTrafficMirrorSessionCommandInput
   | DeleteTrafficMirrorTargetCommandInput
   | DeleteTransitGatewayCommandInput
+  | DeleteTransitGatewayConnectCommandInput
+  | DeleteTransitGatewayConnectPeerCommandInput
   | DeleteTransitGatewayMulticastDomainCommandInput
   | DeleteTransitGatewayPeeringAttachmentCommandInput
   | DeleteTransitGatewayPrefixListReferenceCommandInput
@@ -1651,6 +1715,8 @@ export type ServiceInputTypes =
   | DescribeMovingAddressesCommandInput
   | DescribeNatGatewaysCommandInput
   | DescribeNetworkAclsCommandInput
+  | DescribeNetworkInsightsAnalysesCommandInput
+  | DescribeNetworkInsightsPathsCommandInput
   | DescribeNetworkInterfaceAttributeCommandInput
   | DescribeNetworkInterfacePermissionsCommandInput
   | DescribeNetworkInterfacesCommandInput
@@ -1683,6 +1749,8 @@ export type ServiceInputTypes =
   | DescribeTrafficMirrorSessionsCommandInput
   | DescribeTrafficMirrorTargetsCommandInput
   | DescribeTransitGatewayAttachmentsCommandInput
+  | DescribeTransitGatewayConnectPeersCommandInput
+  | DescribeTransitGatewayConnectsCommandInput
   | DescribeTransitGatewayMulticastDomainsCommandInput
   | DescribeTransitGatewayPeeringAttachmentsCommandInput
   | DescribeTransitGatewayRouteTablesCommandInput
@@ -1817,6 +1885,7 @@ export type ServiceInputTypes =
   | RegisterInstanceEventNotificationAttributesCommandInput
   | RegisterTransitGatewayMulticastGroupMembersCommandInput
   | RegisterTransitGatewayMulticastGroupSourcesCommandInput
+  | RejectTransitGatewayMulticastDomainAssociationsCommandInput
   | RejectTransitGatewayPeeringAttachmentCommandInput
   | RejectTransitGatewayVpcAttachmentCommandInput
   | RejectVpcEndpointConnectionsCommandInput
@@ -1850,6 +1919,7 @@ export type ServiceInputTypes =
   | SearchTransitGatewayRoutesCommandInput
   | SendDiagnosticInterruptCommandInput
   | StartInstancesCommandInput
+  | StartNetworkInsightsAnalysisCommandInput
   | StartVpcEndpointServicePrivateDnsVerificationCommandInput
   | StopInstancesCommandInput
   | TerminateClientVpnConnectionsCommandInput
@@ -1863,6 +1933,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AcceptReservedInstancesExchangeQuoteCommandOutput
+  | AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
   | AcceptTransitGatewayPeeringAttachmentCommandOutput
   | AcceptTransitGatewayVpcAttachmentCommandOutput
   | AcceptVpcEndpointConnectionsCommandOutput
@@ -1928,6 +1999,7 @@ export type ServiceOutputTypes =
   | CreateNatGatewayCommandOutput
   | CreateNetworkAclCommandOutput
   | CreateNetworkAclEntryCommandOutput
+  | CreateNetworkInsightsPathCommandOutput
   | CreateNetworkInterfaceCommandOutput
   | CreateNetworkInterfacePermissionCommandOutput
   | CreatePlacementGroupCommandOutput
@@ -1945,6 +2017,8 @@ export type ServiceOutputTypes =
   | CreateTrafficMirrorSessionCommandOutput
   | CreateTrafficMirrorTargetCommandOutput
   | CreateTransitGatewayCommandOutput
+  | CreateTransitGatewayConnectCommandOutput
+  | CreateTransitGatewayConnectPeerCommandOutput
   | CreateTransitGatewayMulticastDomainCommandOutput
   | CreateTransitGatewayPeeringAttachmentCommandOutput
   | CreateTransitGatewayPrefixListReferenceCommandOutput
@@ -1979,6 +2053,8 @@ export type ServiceOutputTypes =
   | DeleteNatGatewayCommandOutput
   | DeleteNetworkAclCommandOutput
   | DeleteNetworkAclEntryCommandOutput
+  | DeleteNetworkInsightsAnalysisCommandOutput
+  | DeleteNetworkInsightsPathCommandOutput
   | DeleteNetworkInterfaceCommandOutput
   | DeleteNetworkInterfacePermissionCommandOutput
   | DeletePlacementGroupCommandOutput
@@ -1995,6 +2071,8 @@ export type ServiceOutputTypes =
   | DeleteTrafficMirrorSessionCommandOutput
   | DeleteTrafficMirrorTargetCommandOutput
   | DeleteTransitGatewayCommandOutput
+  | DeleteTransitGatewayConnectCommandOutput
+  | DeleteTransitGatewayConnectPeerCommandOutput
   | DeleteTransitGatewayMulticastDomainCommandOutput
   | DeleteTransitGatewayPeeringAttachmentCommandOutput
   | DeleteTransitGatewayPrefixListReferenceCommandOutput
@@ -2076,6 +2154,8 @@ export type ServiceOutputTypes =
   | DescribeMovingAddressesCommandOutput
   | DescribeNatGatewaysCommandOutput
   | DescribeNetworkAclsCommandOutput
+  | DescribeNetworkInsightsAnalysesCommandOutput
+  | DescribeNetworkInsightsPathsCommandOutput
   | DescribeNetworkInterfaceAttributeCommandOutput
   | DescribeNetworkInterfacePermissionsCommandOutput
   | DescribeNetworkInterfacesCommandOutput
@@ -2108,6 +2188,8 @@ export type ServiceOutputTypes =
   | DescribeTrafficMirrorSessionsCommandOutput
   | DescribeTrafficMirrorTargetsCommandOutput
   | DescribeTransitGatewayAttachmentsCommandOutput
+  | DescribeTransitGatewayConnectPeersCommandOutput
+  | DescribeTransitGatewayConnectsCommandOutput
   | DescribeTransitGatewayMulticastDomainsCommandOutput
   | DescribeTransitGatewayPeeringAttachmentsCommandOutput
   | DescribeTransitGatewayRouteTablesCommandOutput
@@ -2242,6 +2324,7 @@ export type ServiceOutputTypes =
   | RegisterInstanceEventNotificationAttributesCommandOutput
   | RegisterTransitGatewayMulticastGroupMembersCommandOutput
   | RegisterTransitGatewayMulticastGroupSourcesCommandOutput
+  | RejectTransitGatewayMulticastDomainAssociationsCommandOutput
   | RejectTransitGatewayPeeringAttachmentCommandOutput
   | RejectTransitGatewayVpcAttachmentCommandOutput
   | RejectVpcEndpointConnectionsCommandOutput
@@ -2275,6 +2358,7 @@ export type ServiceOutputTypes =
   | SearchTransitGatewayRoutesCommandOutput
   | SendDiagnosticInterruptCommandOutput
   | StartInstancesCommandOutput
+  | StartNetworkInsightsAnalysisCommandOutput
   | StartVpcEndpointServicePrivateDnsVerificationCommandOutput
   | StopInstancesCommandOutput
   | TerminateClientVpnConnectionsCommandOutput
@@ -2350,9 +2434,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * The service name with which to sign requests.
+   * Unique service identifier.
+   * @internal
    */
-  signingName?: string;
+  serviceId?: string;
 
   /**
    * Default credentials provider; Not available in browser runtime

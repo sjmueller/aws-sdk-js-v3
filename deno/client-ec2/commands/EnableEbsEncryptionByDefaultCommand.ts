@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResult } from "../models/models_3.ts";
+import { EnableEbsEncryptionByDefaultRequest, EnableEbsEncryptionByDefaultResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2EnableEbsEncryptionByDefaultCommand,
   serializeAws_ec2EnableEbsEncryptionByDefaultCommand,

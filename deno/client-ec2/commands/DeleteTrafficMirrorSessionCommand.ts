@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteTrafficMirrorSessionRequest, DeleteTrafficMirrorSessionResult } from "../models/models_1.ts";
+import { DeleteTrafficMirrorSessionRequest, DeleteTrafficMirrorSessionResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteTrafficMirrorSessionCommand,
   serializeAws_ec2DeleteTrafficMirrorSessionCommand,

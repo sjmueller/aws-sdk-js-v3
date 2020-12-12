@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_4.ts";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_5.ts";
 import {
   deserializeAws_ec2TerminateInstancesCommand,
   serializeAws_ec2TerminateInstancesCommand,

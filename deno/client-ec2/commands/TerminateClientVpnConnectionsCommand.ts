@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { TerminateClientVpnConnectionsRequest, TerminateClientVpnConnectionsResult } from "../models/models_4.ts";
+import { TerminateClientVpnConnectionsRequest, TerminateClientVpnConnectionsResult } from "../models/models_5.ts";
 import {
   deserializeAws_ec2TerminateClientVpnConnectionsCommand,
   serializeAws_ec2TerminateClientVpnConnectionsCommand,

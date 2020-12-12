@@ -17,10 +17,6 @@ import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./c
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand.ts";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand.ts";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand.ts";
-import {
-  CreatePresignedPortalUrlCommandInput,
-  CreatePresignedPortalUrlCommandOutput,
-} from "./commands/CreatePresignedPortalUrlCommand.ts";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand.ts";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand.ts";
@@ -70,6 +66,10 @@ import {
 } from "./commands/GetAssetPropertyValueHistoryCommand.ts";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand.ts";
 import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "./commands/ListAssetModelsCommand.ts";
+import {
+  ListAssetRelationshipsCommandInput,
+  ListAssetRelationshipsCommandOutput,
+} from "./commands/ListAssetRelationshipsCommand.ts";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand.ts";
 import {
   ListAssociatedAssetsCommandInput,
@@ -166,7 +166,6 @@ export type ServiceInputTypes =
   | CreateDashboardCommandInput
   | CreateGatewayCommandInput
   | CreatePortalCommandInput
-  | CreatePresignedPortalUrlCommandInput
   | CreateProjectCommandInput
   | DeleteAccessPolicyCommandInput
   | DeleteAssetCommandInput
@@ -192,6 +191,7 @@ export type ServiceInputTypes =
   | GetAssetPropertyValueHistoryCommandInput
   | ListAccessPoliciesCommandInput
   | ListAssetModelsCommandInput
+  | ListAssetRelationshipsCommandInput
   | ListAssetsCommandInput
   | ListAssociatedAssetsCommandInput
   | ListDashboardsCommandInput
@@ -225,7 +225,6 @@ export type ServiceOutputTypes =
   | CreateDashboardCommandOutput
   | CreateGatewayCommandOutput
   | CreatePortalCommandOutput
-  | CreatePresignedPortalUrlCommandOutput
   | CreateProjectCommandOutput
   | DeleteAccessPolicyCommandOutput
   | DeleteAssetCommandOutput
@@ -251,6 +250,7 @@ export type ServiceOutputTypes =
   | GetAssetPropertyValueHistoryCommandOutput
   | ListAccessPoliciesCommandOutput
   | ListAssetModelsCommandOutput
+  | ListAssetRelationshipsCommandOutput
   | ListAssetsCommandOutput
   | ListAssociatedAssetsCommandOutput
   | ListDashboardsCommandOutput
@@ -337,9 +337,10 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * The service name with which to sign requests.
+   * Unique service identifier.
+   * @internal
    */
-  signingName?: string;
+  serviceId?: string;
 
   /**
    * Default credentials provider; Not available in browser runtime

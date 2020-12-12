@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResult } from "../models/models_4.ts";
+import { SearchTransitGatewayRoutesRequest, SearchTransitGatewayRoutesResult } from "../models/models_5.ts";
 import {
   deserializeAws_ec2SearchTransitGatewayRoutesCommand,
   serializeAws_ec2SearchTransitGatewayRoutesCommand,
