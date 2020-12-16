@@ -228,7 +228,7 @@ export const serializeAws_queryAddTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -244,7 +244,7 @@ export const serializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -260,7 +260,7 @@ export const serializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -276,7 +276,7 @@ export const serializeAws_queryConfigureHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -292,7 +292,7 @@ export const serializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -308,7 +308,7 @@ export const serializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -324,7 +324,7 @@ export const serializeAws_queryCreateLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -340,7 +340,7 @@ export const serializeAws_queryCreateLoadBalancerListenersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -356,7 +356,7 @@ export const serializeAws_queryCreateLoadBalancerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -372,7 +372,7 @@ export const serializeAws_queryDeleteLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -388,7 +388,7 @@ export const serializeAws_queryDeleteLoadBalancerListenersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -404,7 +404,7 @@ export const serializeAws_queryDeleteLoadBalancerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -420,7 +420,7 @@ export const serializeAws_queryDeregisterInstancesFromLoadBalancerCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -436,7 +436,7 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -452,7 +452,7 @@ export const serializeAws_queryDescribeInstanceHealthCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -468,7 +468,7 @@ export const serializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -484,7 +484,7 @@ export const serializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -500,7 +500,7 @@ export const serializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -516,7 +516,7 @@ export const serializeAws_queryDescribeLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -532,7 +532,7 @@ export const serializeAws_queryDescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -548,7 +548,7 @@ export const serializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -564,7 +564,7 @@ export const serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -580,7 +580,7 @@ export const serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -596,7 +596,7 @@ export const serializeAws_queryModifyLoadBalancerAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -612,7 +612,7 @@ export const serializeAws_queryRegisterInstancesWithLoadBalancerCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -628,7 +628,7 @@ export const serializeAws_queryRemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -644,7 +644,7 @@ export const serializeAws_querySetLoadBalancerListenerSSLCertificateCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -660,7 +660,7 @@ export const serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -676,7 +676,7 @@ export const serializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -3012,17 +3012,17 @@ const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
 
 const serializeAws_queryAccessLog = (input: AccessLog, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.S3BucketPrefix !== undefined) {
-    entries["S3BucketPrefix"] = input.S3BucketPrefix;
+  if (input.Enabled !== undefined && input.Enabled !== null) {
+    entries["Enabled"] = input.Enabled;
   }
-  if (input.S3BucketName !== undefined) {
+  if (input.S3BucketName !== undefined && input.S3BucketName !== null) {
     entries["S3BucketName"] = input.S3BucketName;
   }
-  if (input.EmitInterval !== undefined) {
+  if (input.EmitInterval !== undefined && input.EmitInterval !== null) {
     entries["EmitInterval"] = input.EmitInterval;
   }
-  if (input.Enabled !== undefined) {
-    entries["Enabled"] = input.Enabled;
+  if (input.S3BucketPrefix !== undefined && input.S3BucketPrefix !== null) {
+    entries["S3BucketPrefix"] = input.S3BucketPrefix;
   }
   return entries;
 };
@@ -3032,10 +3032,10 @@ const serializeAws_queryAddAvailabilityZonesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.AvailabilityZones !== undefined) {
+  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
@@ -3047,10 +3047,10 @@ const serializeAws_queryAddAvailabilityZonesInput = (
 
 const serializeAws_queryAdditionalAttribute = (input: AdditionalAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -3060,6 +3060,9 @@ const serializeAws_queryAdditionalAttributes = (input: AdditionalAttribute[], co
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryAdditionalAttribute(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3071,14 +3074,14 @@ const serializeAws_queryAdditionalAttributes = (input: AdditionalAttribute[], co
 
 const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined) {
+  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3093,10 +3096,10 @@ const serializeAws_queryApplySecurityGroupsToLoadBalancerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.SecurityGroups !== undefined) {
+  if (input.SecurityGroups !== undefined && input.SecurityGroups !== null) {
     const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SecurityGroups.${key}`;
@@ -3111,15 +3114,15 @@ const serializeAws_queryAttachLoadBalancerToSubnetsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Subnets !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.Subnets !== undefined && input.Subnets !== null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3128,6 +3131,9 @@ const serializeAws_queryAvailabilityZones = (input: string[], context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3139,33 +3145,33 @@ const serializeAws_queryConfigureHealthCheckInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HealthCheck !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.HealthCheck !== undefined && input.HealthCheck !== null) {
     const memberEntries = serializeAws_queryHealthCheck(input.HealthCheck, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HealthCheck.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
-  }
   return entries;
 };
 
 const serializeAws_queryConnectionDraining = (input: ConnectionDraining, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Timeout !== undefined) {
-    entries["Timeout"] = input.Timeout;
-  }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
+  }
+  if (input.Timeout !== undefined && input.Timeout !== null) {
+    entries["Timeout"] = input.Timeout;
   }
   return entries;
 };
 
 const serializeAws_queryConnectionSettings = (input: ConnectionSettings, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IdleTimeout !== undefined) {
+  if (input.IdleTimeout !== undefined && input.IdleTimeout !== null) {
     entries["IdleTimeout"] = input.IdleTimeout;
   }
   return entries;
@@ -3173,46 +3179,46 @@ const serializeAws_queryConnectionSettings = (input: ConnectionSettings, context
 
 const serializeAws_queryCreateAccessPointInput = (input: CreateAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AvailabilityZones !== undefined) {
-    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `AvailabilityZones.${key}`;
-      entries[loc] = value;
-    });
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Subnets !== undefined) {
-    const memberEntries = serializeAws_querySubnets(input.Subnets, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Subnets.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.SecurityGroups !== undefined) {
-    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SecurityGroups.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Scheme !== undefined) {
-    entries["Scheme"] = input.Scheme;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Listeners !== undefined) {
+  if (input.Listeners !== undefined && input.Listeners !== null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
+    const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZones.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Subnets !== undefined && input.Subnets !== null) {
+    const memberEntries = serializeAws_querySubnets(input.Subnets, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Subnets.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecurityGroups !== undefined && input.SecurityGroups !== null) {
+    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroups.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Scheme !== undefined && input.Scheme !== null) {
+    entries["Scheme"] = input.Scheme;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -3222,13 +3228,13 @@ const serializeAws_queryCreateAppCookieStickinessPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.CookieName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+    entries["PolicyName"] = input.PolicyName;
+  }
+  if (input.CookieName !== undefined && input.CookieName !== null) {
     entries["CookieName"] = input.CookieName;
   }
   return entries;
@@ -3239,13 +3245,13 @@ const serializeAws_queryCreateLBCookieStickinessPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyName !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.CookieExpirationPeriod !== undefined) {
+  if (input.CookieExpirationPeriod !== undefined && input.CookieExpirationPeriod !== null) {
     entries["CookieExpirationPeriod"] = input.CookieExpirationPeriod;
   }
   return entries;
@@ -3256,15 +3262,15 @@ const serializeAws_queryCreateLoadBalancerListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Listeners !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.Listeners !== undefined && input.Listeners !== null) {
     const memberEntries = serializeAws_queryListeners(input.Listeners, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Listeners.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3274,28 +3280,28 @@ const serializeAws_queryCreateLoadBalancerPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.PolicyAttributes !== undefined) {
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+    entries["PolicyName"] = input.PolicyName;
+  }
+  if (input.PolicyTypeName !== undefined && input.PolicyTypeName !== null) {
+    entries["PolicyTypeName"] = input.PolicyTypeName;
+  }
+  if (input.PolicyAttributes !== undefined && input.PolicyAttributes !== null) {
     const memberEntries = serializeAws_queryPolicyAttributes(input.PolicyAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyAttributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PolicyTypeName !== undefined) {
-    entries["PolicyTypeName"] = input.PolicyTypeName;
-  }
   return entries;
 };
 
 const serializeAws_queryCrossZoneLoadBalancing = (input: CrossZoneLoadBalancing, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
   return entries;
@@ -3303,7 +3309,7 @@ const serializeAws_queryCrossZoneLoadBalancing = (input: CrossZoneLoadBalancing,
 
 const serializeAws_queryDeleteAccessPointInput = (input: DeleteAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
@@ -3314,15 +3320,15 @@ const serializeAws_queryDeleteLoadBalancerListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerPorts !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.LoadBalancerPorts !== undefined && input.LoadBalancerPorts !== null) {
     const memberEntries = serializeAws_queryPorts(input.LoadBalancerPorts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerPorts.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3332,26 +3338,26 @@ const serializeAws_queryDeleteLoadBalancerPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
 
 const serializeAws_queryDeregisterEndPointsInput = (input: DeregisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Instances !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.Instances !== undefined && input.Instances !== null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3361,17 +3367,17 @@ const serializeAws_queryDescribeAccessPointsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.LoadBalancerNames !== undefined) {
+  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PageSize !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize !== undefined && input.PageSize !== null) {
     entries["PageSize"] = input.PageSize;
   }
   return entries;
@@ -3382,11 +3388,11 @@ const serializeAws_queryDescribeAccountLimitsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PageSize !== undefined) {
-    entries["PageSize"] = input.PageSize;
-  }
-  if (input.Marker !== undefined) {
+  if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize !== undefined && input.PageSize !== null) {
+    entries["PageSize"] = input.PageSize;
   }
   return entries;
 };
@@ -3396,10 +3402,10 @@ const serializeAws_queryDescribeEndPointStateInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Instances !== undefined) {
+  if (input.Instances !== undefined && input.Instances !== null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
@@ -3414,7 +3420,7 @@ const serializeAws_queryDescribeLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
@@ -3425,15 +3431,15 @@ const serializeAws_queryDescribeLoadBalancerPoliciesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyNames !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3443,7 +3449,7 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyTypeNames !== undefined) {
+  if (input.PolicyTypeNames !== undefined && input.PolicyTypeNames !== null) {
     const memberEntries = serializeAws_queryPolicyTypeNames(input.PolicyTypeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyTypeNames.${key}`;
@@ -3455,7 +3461,7 @@ const serializeAws_queryDescribeLoadBalancerPolicyTypesInput = (
 
 const serializeAws_queryDescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined) {
+  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
     const memberEntries = serializeAws_queryLoadBalancerNamesMax20(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
@@ -3470,10 +3476,10 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.Subnets !== undefined) {
+  if (input.Subnets !== undefined && input.Subnets !== null) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Subnets.${key}`;
@@ -3485,27 +3491,27 @@ const serializeAws_queryDetachLoadBalancerFromSubnetsInput = (
 
 const serializeAws_queryHealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.HealthyThreshold !== undefined) {
-    entries["HealthyThreshold"] = input.HealthyThreshold;
-  }
-  if (input.UnhealthyThreshold !== undefined) {
-    entries["UnhealthyThreshold"] = input.UnhealthyThreshold;
-  }
-  if (input.Target !== undefined) {
+  if (input.Target !== undefined && input.Target !== null) {
     entries["Target"] = input.Target;
   }
-  if (input.Interval !== undefined) {
+  if (input.Interval !== undefined && input.Interval !== null) {
     entries["Interval"] = input.Interval;
   }
-  if (input.Timeout !== undefined) {
+  if (input.Timeout !== undefined && input.Timeout !== null) {
     entries["Timeout"] = input.Timeout;
+  }
+  if (input.UnhealthyThreshold !== undefined && input.UnhealthyThreshold !== null) {
+    entries["UnhealthyThreshold"] = input.UnhealthyThreshold;
+  }
+  if (input.HealthyThreshold !== undefined && input.HealthyThreshold !== null) {
+    entries["HealthyThreshold"] = input.HealthyThreshold;
   }
   return entries;
 };
 
 const serializeAws_queryInstance = (input: Instance, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceId !== undefined) {
+  if (input.InstanceId !== undefined && input.InstanceId !== null) {
     entries["InstanceId"] = input.InstanceId;
   }
   return entries;
@@ -3515,6 +3521,9 @@ const serializeAws_queryInstances = (input: Instance[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryInstance(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3526,20 +3535,20 @@ const serializeAws_queryInstances = (input: Instance[], context: __SerdeContext)
 
 const serializeAws_queryListener = (input: Listener, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerPort !== undefined) {
+  if (input.Protocol !== undefined && input.Protocol !== null) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.InstancePort !== undefined) {
-    entries["InstancePort"] = input.InstancePort;
-  }
-  if (input.InstanceProtocol !== undefined) {
+  if (input.InstanceProtocol !== undefined && input.InstanceProtocol !== null) {
     entries["InstanceProtocol"] = input.InstanceProtocol;
   }
-  if (input.SSLCertificateId !== undefined) {
-    entries["SSLCertificateId"] = input.SSLCertificateId;
+  if (input.InstancePort !== undefined && input.InstancePort !== null) {
+    entries["InstancePort"] = input.InstancePort;
   }
-  if (input.Protocol !== undefined) {
-    entries["Protocol"] = input.Protocol;
+  if (input.SSLCertificateId !== undefined && input.SSLCertificateId !== null) {
+    entries["SSLCertificateId"] = input.SSLCertificateId;
   }
   return entries;
 };
@@ -3548,6 +3557,9 @@ const serializeAws_queryListeners = (input: Listener[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryListener(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3559,38 +3571,38 @@ const serializeAws_queryListeners = (input: Listener[], context: __SerdeContext)
 
 const serializeAws_queryLoadBalancerAttributes = (input: LoadBalancerAttributes, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AccessLog !== undefined) {
-    const memberEntries = serializeAws_queryAccessLog(input.AccessLog, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `AccessLog.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ConnectionSettings !== undefined) {
-    const memberEntries = serializeAws_queryConnectionSettings(input.ConnectionSettings, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ConnectionSettings.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.AdditionalAttributes !== undefined) {
-    const memberEntries = serializeAws_queryAdditionalAttributes(input.AdditionalAttributes, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `AdditionalAttributes.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.CrossZoneLoadBalancing !== undefined) {
+  if (input.CrossZoneLoadBalancing !== undefined && input.CrossZoneLoadBalancing !== null) {
     const memberEntries = serializeAws_queryCrossZoneLoadBalancing(input.CrossZoneLoadBalancing, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CrossZoneLoadBalancing.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionDraining !== undefined) {
+  if (input.AccessLog !== undefined && input.AccessLog !== null) {
+    const memberEntries = serializeAws_queryAccessLog(input.AccessLog, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AccessLog.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ConnectionDraining !== undefined && input.ConnectionDraining !== null) {
     const memberEntries = serializeAws_queryConnectionDraining(input.ConnectionDraining, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionDraining.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ConnectionSettings !== undefined && input.ConnectionSettings !== null) {
+    const memberEntries = serializeAws_queryConnectionSettings(input.ConnectionSettings, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectionSettings.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AdditionalAttributes !== undefined && input.AdditionalAttributes !== null) {
+    const memberEntries = serializeAws_queryAdditionalAttributes(input.AdditionalAttributes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AdditionalAttributes.${key}`;
       entries[loc] = value;
     });
   }
@@ -3601,6 +3613,9 @@ const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3611,6 +3626,9 @@ const serializeAws_queryLoadBalancerNamesMax20 = (input: string[], context: __Se
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3622,10 +3640,10 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.LoadBalancerAttributes !== undefined) {
+  if (input.LoadBalancerAttributes !== undefined && input.LoadBalancerAttributes !== null) {
     const memberEntries = serializeAws_queryLoadBalancerAttributes(input.LoadBalancerAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerAttributes.${key}`;
@@ -3637,11 +3655,11 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
 
 const serializeAws_queryPolicyAttribute = (input: PolicyAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AttributeValue !== undefined) {
-    entries["AttributeValue"] = input.AttributeValue;
-  }
-  if (input.AttributeName !== undefined) {
+  if (input.AttributeName !== undefined && input.AttributeName !== null) {
     entries["AttributeName"] = input.AttributeName;
+  }
+  if (input.AttributeValue !== undefined && input.AttributeValue !== null) {
+    entries["AttributeValue"] = input.AttributeValue;
   }
   return entries;
 };
@@ -3650,6 +3668,9 @@ const serializeAws_queryPolicyAttributes = (input: PolicyAttribute[], context: _
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryPolicyAttribute(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3663,6 +3684,9 @@ const serializeAws_queryPolicyNames = (input: string[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3673,6 +3697,9 @@ const serializeAws_queryPolicyTypeNames = (input: string[], context: __SerdeCont
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3683,6 +3710,9 @@ const serializeAws_queryPorts = (input: number[], context: __SerdeContext): any 
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3691,15 +3721,15 @@ const serializeAws_queryPorts = (input: number[], context: __SerdeContext): any 
 
 const serializeAws_queryRegisterEndPointsInput = (input: RegisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Instances !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.Instances !== undefined && input.Instances !== null) {
     const memberEntries = serializeAws_queryInstances(input.Instances, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Instances.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3709,10 +3739,10 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
     entries["LoadBalancerName"] = input.LoadBalancerName;
   }
-  if (input.AvailabilityZones !== undefined) {
+  if (input.AvailabilityZones !== undefined && input.AvailabilityZones !== null) {
     const memberEntries = serializeAws_queryAvailabilityZones(input.AvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AvailabilityZones.${key}`;
@@ -3724,14 +3754,14 @@ const serializeAws_queryRemoveAvailabilityZonesInput = (
 
 const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames !== undefined) {
+  if (input.LoadBalancerNames !== undefined && input.LoadBalancerNames !== null) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.LoadBalancerNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3745,6 +3775,9 @@ const serializeAws_querySecurityGroups = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3756,14 +3789,14 @@ const serializeAws_querySetLoadBalancerListenerSSLCertificateInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerPort !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
     entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
-  if (input.SSLCertificateId !== undefined) {
+  if (input.SSLCertificateId !== undefined && input.SSLCertificateId !== null) {
     entries["SSLCertificateId"] = input.SSLCertificateId;
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3773,18 +3806,18 @@ const serializeAws_querySetLoadBalancerPoliciesForBackendServerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyNames !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.InstancePort !== undefined && input.InstancePort !== null) {
+    entries["InstancePort"] = input.InstancePort;
+  }
+  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.InstancePort !== undefined) {
-    entries["InstancePort"] = input.InstancePort;
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
   }
   return entries;
 };
@@ -3794,18 +3827,18 @@ const serializeAws_querySetLoadBalancerPoliciesOfListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyNames !== undefined) {
+  if (input.LoadBalancerName !== undefined && input.LoadBalancerName !== null) {
+    entries["LoadBalancerName"] = input.LoadBalancerName;
+  }
+  if (input.LoadBalancerPort !== undefined && input.LoadBalancerPort !== null) {
+    entries["LoadBalancerPort"] = input.LoadBalancerPort;
+  }
+  if (input.PolicyNames !== undefined && input.PolicyNames !== null) {
     const memberEntries = serializeAws_queryPolicyNames(input.PolicyNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerName !== undefined) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
-  }
-  if (input.LoadBalancerPort !== undefined) {
-    entries["LoadBalancerPort"] = input.LoadBalancerPort;
   }
   return entries;
 };
@@ -3814,6 +3847,9 @@ const serializeAws_querySubnets = (input: string[], context: __SerdeContext): an
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3822,10 +3858,10 @@ const serializeAws_querySubnets = (input: string[], context: __SerdeContext): an
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -3835,6 +3871,9 @@ const serializeAws_queryTagKeyList = (input: TagKeyOnly[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTagKeyOnly(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3846,7 +3885,7 @@ const serializeAws_queryTagKeyList = (input: TagKeyOnly[], context: __SerdeConte
 
 const serializeAws_queryTagKeyOnly = (input: TagKeyOnly, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
   return entries;
@@ -3856,6 +3895,9 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -3867,13 +3909,13 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 
 const deserializeAws_queryAccessLog = (output: any, context: __SerdeContext): AccessLog => {
   let contents: any = {
-    S3BucketPrefix: undefined,
+    Enabled: undefined,
     S3BucketName: undefined,
     EmitInterval: undefined,
-    Enabled: undefined,
+    S3BucketPrefix: undefined,
   };
-  if (output["S3BucketPrefix"] !== undefined) {
-    contents.S3BucketPrefix = output["S3BucketPrefix"];
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = output["Enabled"] == "true";
   }
   if (output["S3BucketName"] !== undefined) {
     contents.S3BucketName = output["S3BucketName"];
@@ -3881,8 +3923,8 @@ const deserializeAws_queryAccessLog = (output: any, context: __SerdeContext): Ac
   if (output["EmitInterval"] !== undefined) {
     contents.EmitInterval = parseInt(output["EmitInterval"]);
   }
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+  if (output["S3BucketPrefix"] !== undefined) {
+    contents.S3BucketPrefix = output["S3BucketPrefix"];
   }
   return contents;
 };
@@ -3934,7 +3976,14 @@ const deserializeAws_queryAdditionalAttribute = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryAdditionalAttributes = (output: any, context: __SerdeContext): AdditionalAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAdditionalAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAdditionalAttribute(entry, context);
+    });
 };
 
 const deserializeAws_queryAddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
@@ -3946,7 +3995,14 @@ const deserializeAws_queryAppCookieStickinessPolicies = (
   output: any,
   context: __SerdeContext
 ): AppCookieStickinessPolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAppCookieStickinessPolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAppCookieStickinessPolicy(entry, context);
+    });
 };
 
 const deserializeAws_queryAppCookieStickinessPolicy = (
@@ -4002,7 +4058,14 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsOutput = (
 };
 
 const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryBackendServerDescription = (
@@ -4010,9 +4073,12 @@ const deserializeAws_queryBackendServerDescription = (
   context: __SerdeContext
 ): BackendServerDescription => {
   let contents: any = {
-    PolicyNames: undefined,
     InstancePort: undefined,
+    PolicyNames: undefined,
   };
+  if (output["InstancePort"] !== undefined) {
+    contents.InstancePort = parseInt(output["InstancePort"]);
+  }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   }
@@ -4022,9 +4088,6 @@ const deserializeAws_queryBackendServerDescription = (
       context
     );
   }
-  if (output["InstancePort"] !== undefined) {
-    contents.InstancePort = parseInt(output["InstancePort"]);
-  }
   return contents;
 };
 
@@ -4032,7 +4095,14 @@ const deserializeAws_queryBackendServerDescriptions = (
   output: any,
   context: __SerdeContext
 ): BackendServerDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryBackendServerDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryBackendServerDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryCertificateNotFoundException = (
@@ -4063,14 +4133,14 @@ const deserializeAws_queryConfigureHealthCheckOutput = (
 
 const deserializeAws_queryConnectionDraining = (output: any, context: __SerdeContext): ConnectionDraining => {
   let contents: any = {
-    Timeout: undefined,
     Enabled: undefined,
+    Timeout: undefined,
   };
-  if (output["Timeout"] !== undefined) {
-    contents.Timeout = parseInt(output["Timeout"]);
-  }
   if (output["Enabled"] !== undefined) {
     contents.Enabled = output["Enabled"] == "true";
+  }
+  if (output["Timeout"] !== undefined) {
+    contents.Timeout = parseInt(output["Timeout"]);
   }
   return contents;
 };
@@ -4215,17 +4285,17 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   context: __SerdeContext
 ): DescribeAccountLimitsOutput => {
   let contents: any = {
-    NextMarker: undefined,
     Limits: undefined,
+    NextMarker: undefined,
   };
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = output["NextMarker"];
-  }
   if (output.Limits === "") {
     contents.Limits = [];
   }
   if (output["Limits"] !== undefined && output["Limits"]["member"] !== undefined) {
     contents.Limits = deserializeAws_queryLimits(__getArrayIfSingleItem(output["Limits"]["member"]), context);
+  }
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = output["NextMarker"];
   }
   return contents;
 };
@@ -4389,18 +4459,12 @@ const deserializeAws_queryDuplicateTagKeysException = (
 
 const deserializeAws_queryHealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
   let contents: any = {
-    HealthyThreshold: undefined,
-    UnhealthyThreshold: undefined,
     Target: undefined,
     Interval: undefined,
     Timeout: undefined,
+    UnhealthyThreshold: undefined,
+    HealthyThreshold: undefined,
   };
-  if (output["HealthyThreshold"] !== undefined) {
-    contents.HealthyThreshold = parseInt(output["HealthyThreshold"]);
-  }
-  if (output["UnhealthyThreshold"] !== undefined) {
-    contents.UnhealthyThreshold = parseInt(output["UnhealthyThreshold"]);
-  }
   if (output["Target"] !== undefined) {
     contents.Target = output["Target"];
   }
@@ -4409,6 +4473,12 @@ const deserializeAws_queryHealthCheck = (output: any, context: __SerdeContext): 
   }
   if (output["Timeout"] !== undefined) {
     contents.Timeout = parseInt(output["Timeout"]);
+  }
+  if (output["UnhealthyThreshold"] !== undefined) {
+    contents.UnhealthyThreshold = parseInt(output["UnhealthyThreshold"]);
+  }
+  if (output["HealthyThreshold"] !== undefined) {
+    contents.HealthyThreshold = parseInt(output["HealthyThreshold"]);
   }
   return contents;
 };
@@ -4424,15 +4494,22 @@ const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Ins
 };
 
 const deserializeAws_queryInstances = (output: any, context: __SerdeContext): Instance[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInstance(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInstance(entry, context);
+    });
 };
 
 const deserializeAws_queryInstanceState = (output: any, context: __SerdeContext): InstanceState => {
   let contents: any = {
     InstanceId: undefined,
     State: undefined,
-    Description: undefined,
     ReasonCode: undefined,
+    Description: undefined,
   };
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = output["InstanceId"];
@@ -4440,17 +4517,24 @@ const deserializeAws_queryInstanceState = (output: any, context: __SerdeContext)
   if (output["State"] !== undefined) {
     contents.State = output["State"];
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
   if (output["ReasonCode"] !== undefined) {
     contents.ReasonCode = output["ReasonCode"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   return contents;
 };
 
 const deserializeAws_queryInstanceStates = (output: any, context: __SerdeContext): InstanceState[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryInstanceState(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryInstanceState(entry, context);
+    });
 };
 
 const deserializeAws_queryInvalidConfigurationRequestException = (
@@ -4516,7 +4600,14 @@ const deserializeAws_queryLBCookieStickinessPolicies = (
   output: any,
   context: __SerdeContext
 ): LBCookieStickinessPolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryLBCookieStickinessPolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryLBCookieStickinessPolicy(entry, context);
+    });
 };
 
 const deserializeAws_queryLBCookieStickinessPolicy = (
@@ -4524,14 +4615,14 @@ const deserializeAws_queryLBCookieStickinessPolicy = (
   context: __SerdeContext
 ): LBCookieStickinessPolicy => {
   let contents: any = {
-    CookieExpirationPeriod: undefined,
     PolicyName: undefined,
+    CookieExpirationPeriod: undefined,
   };
-  if (output["CookieExpirationPeriod"] !== undefined) {
-    contents.CookieExpirationPeriod = parseInt(output["CookieExpirationPeriod"]);
-  }
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = output["PolicyName"];
+  }
+  if (output["CookieExpirationPeriod"] !== undefined) {
+    contents.CookieExpirationPeriod = parseInt(output["CookieExpirationPeriod"]);
   }
   return contents;
 };
@@ -4551,40 +4642,50 @@ const deserializeAws_queryLimit = (output: any, context: __SerdeContext): Limit 
 };
 
 const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryLimit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryLimit(entry, context);
+    });
 };
 
 const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
   let contents: any = {
-    LoadBalancerPort: undefined,
-    InstancePort: undefined,
-    InstanceProtocol: undefined,
-    SSLCertificateId: undefined,
     Protocol: undefined,
+    LoadBalancerPort: undefined,
+    InstanceProtocol: undefined,
+    InstancePort: undefined,
+    SSLCertificateId: undefined,
   };
+  if (output["Protocol"] !== undefined) {
+    contents.Protocol = output["Protocol"];
+  }
   if (output["LoadBalancerPort"] !== undefined) {
     contents.LoadBalancerPort = parseInt(output["LoadBalancerPort"]);
-  }
-  if (output["InstancePort"] !== undefined) {
-    contents.InstancePort = parseInt(output["InstancePort"]);
   }
   if (output["InstanceProtocol"] !== undefined) {
     contents.InstanceProtocol = output["InstanceProtocol"];
   }
+  if (output["InstancePort"] !== undefined) {
+    contents.InstancePort = parseInt(output["InstancePort"]);
+  }
   if (output["SSLCertificateId"] !== undefined) {
     contents.SSLCertificateId = output["SSLCertificateId"];
-  }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
   }
   return contents;
 };
 
 const deserializeAws_queryListenerDescription = (output: any, context: __SerdeContext): ListenerDescription => {
   let contents: any = {
-    PolicyNames: undefined,
     Listener: undefined,
+    PolicyNames: undefined,
   };
+  if (output["Listener"] !== undefined) {
+    contents.Listener = deserializeAws_queryListener(output["Listener"], context);
+  }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   }
@@ -4594,14 +4695,18 @@ const deserializeAws_queryListenerDescription = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["Listener"] !== undefined) {
-    contents.Listener = deserializeAws_queryListener(output["Listener"], context);
-  }
   return contents;
 };
 
 const deserializeAws_queryListenerDescriptions = (output: any, context: __SerdeContext): ListenerDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryListenerDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryListenerDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryListenerNotFoundException = (
@@ -4632,14 +4737,23 @@ const deserializeAws_queryLoadBalancerAttributeNotFoundException = (
 
 const deserializeAws_queryLoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBalancerAttributes => {
   let contents: any = {
+    CrossZoneLoadBalancing: undefined,
     AccessLog: undefined,
+    ConnectionDraining: undefined,
     ConnectionSettings: undefined,
     AdditionalAttributes: undefined,
-    CrossZoneLoadBalancing: undefined,
-    ConnectionDraining: undefined,
   };
+  if (output["CrossZoneLoadBalancing"] !== undefined) {
+    contents.CrossZoneLoadBalancing = deserializeAws_queryCrossZoneLoadBalancing(
+      output["CrossZoneLoadBalancing"],
+      context
+    );
+  }
   if (output["AccessLog"] !== undefined) {
     contents.AccessLog = deserializeAws_queryAccessLog(output["AccessLog"], context);
+  }
+  if (output["ConnectionDraining"] !== undefined) {
+    contents.ConnectionDraining = deserializeAws_queryConnectionDraining(output["ConnectionDraining"], context);
   }
   if (output["ConnectionSettings"] !== undefined) {
     contents.ConnectionSettings = deserializeAws_queryConnectionSettings(output["ConnectionSettings"], context);
@@ -4653,60 +4767,51 @@ const deserializeAws_queryLoadBalancerAttributes = (output: any, context: __Serd
       context
     );
   }
-  if (output["CrossZoneLoadBalancing"] !== undefined) {
-    contents.CrossZoneLoadBalancing = deserializeAws_queryCrossZoneLoadBalancing(
-      output["CrossZoneLoadBalancing"],
-      context
-    );
-  }
-  if (output["ConnectionDraining"] !== undefined) {
-    contents.ConnectionDraining = deserializeAws_queryConnectionDraining(output["ConnectionDraining"], context);
-  }
   return contents;
 };
 
 const deserializeAws_queryLoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
   let contents: any = {
-    CanonicalHostedZoneNameID: undefined,
     LoadBalancerName: undefined,
-    VPCId: undefined,
-    Subnets: undefined,
     DNSName: undefined,
-    Policies: undefined,
     CanonicalHostedZoneName: undefined,
-    BackendServerDescriptions: undefined,
-    SecurityGroups: undefined,
-    SourceSecurityGroup: undefined,
-    AvailabilityZones: undefined,
-    Instances: undefined,
-    Scheme: undefined,
-    CreatedTime: undefined,
-    HealthCheck: undefined,
+    CanonicalHostedZoneNameID: undefined,
     ListenerDescriptions: undefined,
+    Policies: undefined,
+    BackendServerDescriptions: undefined,
+    AvailabilityZones: undefined,
+    Subnets: undefined,
+    VPCId: undefined,
+    Instances: undefined,
+    HealthCheck: undefined,
+    SourceSecurityGroup: undefined,
+    SecurityGroups: undefined,
+    CreatedTime: undefined,
+    Scheme: undefined,
   };
-  if (output["CanonicalHostedZoneNameID"] !== undefined) {
-    contents.CanonicalHostedZoneNameID = output["CanonicalHostedZoneNameID"];
-  }
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = output["LoadBalancerName"];
-  }
-  if (output["VPCId"] !== undefined) {
-    contents.VPCId = output["VPCId"];
-  }
-  if (output.Subnets === "") {
-    contents.Subnets = [];
-  }
-  if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = deserializeAws_querySubnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
   }
   if (output["DNSName"] !== undefined) {
     contents.DNSName = output["DNSName"];
   }
-  if (output["Policies"] !== undefined) {
-    contents.Policies = deserializeAws_queryPolicies(output["Policies"], context);
-  }
   if (output["CanonicalHostedZoneName"] !== undefined) {
     contents.CanonicalHostedZoneName = output["CanonicalHostedZoneName"];
+  }
+  if (output["CanonicalHostedZoneNameID"] !== undefined) {
+    contents.CanonicalHostedZoneNameID = output["CanonicalHostedZoneNameID"];
+  }
+  if (output.ListenerDescriptions === "") {
+    contents.ListenerDescriptions = [];
+  }
+  if (output["ListenerDescriptions"] !== undefined && output["ListenerDescriptions"]["member"] !== undefined) {
+    contents.ListenerDescriptions = deserializeAws_queryListenerDescriptions(
+      __getArrayIfSingleItem(output["ListenerDescriptions"]["member"]),
+      context
+    );
+  }
+  if (output["Policies"] !== undefined) {
+    contents.Policies = deserializeAws_queryPolicies(output["Policies"], context);
   }
   if (output.BackendServerDescriptions === "") {
     contents.BackendServerDescriptions = [];
@@ -4720,18 +4825,6 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
       context
     );
   }
-  if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  }
-  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = deserializeAws_querySecurityGroups(
-      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
-      context
-    );
-  }
-  if (output["SourceSecurityGroup"] !== undefined) {
-    contents.SourceSecurityGroup = deserializeAws_querySourceSecurityGroup(output["SourceSecurityGroup"], context);
-  }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
   }
@@ -4741,29 +4834,41 @@ const deserializeAws_queryLoadBalancerDescription = (output: any, context: __Ser
       context
     );
   }
+  if (output.Subnets === "") {
+    contents.Subnets = [];
+  }
+  if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
+    contents.Subnets = deserializeAws_querySubnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+  }
+  if (output["VPCId"] !== undefined) {
+    contents.VPCId = output["VPCId"];
+  }
   if (output.Instances === "") {
     contents.Instances = [];
   }
   if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
     contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
   }
-  if (output["Scheme"] !== undefined) {
-    contents.Scheme = output["Scheme"];
+  if (output["HealthCheck"] !== undefined) {
+    contents.HealthCheck = deserializeAws_queryHealthCheck(output["HealthCheck"], context);
+  }
+  if (output["SourceSecurityGroup"] !== undefined) {
+    contents.SourceSecurityGroup = deserializeAws_querySourceSecurityGroup(output["SourceSecurityGroup"], context);
+  }
+  if (output.SecurityGroups === "") {
+    contents.SecurityGroups = [];
+  }
+  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
+    contents.SecurityGroups = deserializeAws_querySecurityGroups(
+      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
+      context
+    );
   }
   if (output["CreatedTime"] !== undefined) {
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
-  if (output["HealthCheck"] !== undefined) {
-    contents.HealthCheck = deserializeAws_queryHealthCheck(output["HealthCheck"], context);
-  }
-  if (output.ListenerDescriptions === "") {
-    contents.ListenerDescriptions = [];
-  }
-  if (output["ListenerDescriptions"] !== undefined && output["ListenerDescriptions"]["member"] !== undefined) {
-    contents.ListenerDescriptions = deserializeAws_queryListenerDescriptions(
-      __getArrayIfSingleItem(output["ListenerDescriptions"]["member"]),
-      context
-    );
+  if (output["Scheme"] !== undefined) {
+    contents.Scheme = output["Scheme"];
   }
   return contents;
 };
@@ -4772,7 +4877,14 @@ const deserializeAws_queryLoadBalancerDescriptions = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryLoadBalancerDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryLoadBalancerDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
@@ -4780,17 +4892,17 @@ const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): ModifyLoadBalancerAttributesOutput => {
   let contents: any = {
-    LoadBalancerAttributes: undefined,
     LoadBalancerName: undefined,
+    LoadBalancerAttributes: undefined,
   };
+  if (output["LoadBalancerName"] !== undefined) {
+    contents.LoadBalancerName = output["LoadBalancerName"];
+  }
   if (output["LoadBalancerAttributes"] !== undefined) {
     contents.LoadBalancerAttributes = deserializeAws_queryLoadBalancerAttributes(
       output["LoadBalancerAttributes"],
       context
     );
-  }
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = output["LoadBalancerName"];
   }
   return contents;
 };
@@ -4810,10 +4922,22 @@ const deserializeAws_queryOperationNotPermittedException = (
 
 const deserializeAws_queryPolicies = (output: any, context: __SerdeContext): Policies => {
   let contents: any = {
+    AppCookieStickinessPolicies: undefined,
     LBCookieStickinessPolicies: undefined,
     OtherPolicies: undefined,
-    AppCookieStickinessPolicies: undefined,
   };
+  if (output.AppCookieStickinessPolicies === "") {
+    contents.AppCookieStickinessPolicies = [];
+  }
+  if (
+    output["AppCookieStickinessPolicies"] !== undefined &&
+    output["AppCookieStickinessPolicies"]["member"] !== undefined
+  ) {
+    contents.AppCookieStickinessPolicies = deserializeAws_queryAppCookieStickinessPolicies(
+      __getArrayIfSingleItem(output["AppCookieStickinessPolicies"]["member"]),
+      context
+    );
+  }
   if (output.LBCookieStickinessPolicies === "") {
     contents.LBCookieStickinessPolicies = [];
   }
@@ -4832,18 +4956,6 @@ const deserializeAws_queryPolicies = (output: any, context: __SerdeContext): Pol
   if (output["OtherPolicies"] !== undefined && output["OtherPolicies"]["member"] !== undefined) {
     contents.OtherPolicies = deserializeAws_queryPolicyNames(
       __getArrayIfSingleItem(output["OtherPolicies"]["member"]),
-      context
-    );
-  }
-  if (output.AppCookieStickinessPolicies === "") {
-    contents.AppCookieStickinessPolicies = [];
-  }
-  if (
-    output["AppCookieStickinessPolicies"] !== undefined &&
-    output["AppCookieStickinessPolicies"]["member"] !== undefined
-  ) {
-    contents.AppCookieStickinessPolicies = deserializeAws_queryAppCookieStickinessPolicies(
-      __getArrayIfSingleItem(output["AppCookieStickinessPolicies"]["member"]),
       context
     );
   }
@@ -4871,7 +4983,14 @@ const deserializeAws_queryPolicyAttributeDescriptions = (
   output: any,
   context: __SerdeContext
 ): PolicyAttributeDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyAttributeDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyAttributeDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyAttributeTypeDescription = (
@@ -4879,23 +4998,23 @@ const deserializeAws_queryPolicyAttributeTypeDescription = (
   context: __SerdeContext
 ): PolicyAttributeTypeDescription => {
   let contents: any = {
-    Description: undefined,
-    DefaultValue: undefined,
     AttributeName: undefined,
     AttributeType: undefined,
+    Description: undefined,
+    DefaultValue: undefined,
     Cardinality: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = output["DefaultValue"];
-  }
   if (output["AttributeName"] !== undefined) {
     contents.AttributeName = output["AttributeName"];
   }
   if (output["AttributeType"] !== undefined) {
     contents.AttributeType = output["AttributeType"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["DefaultValue"] !== undefined) {
+    contents.DefaultValue = output["DefaultValue"];
   }
   if (output["Cardinality"] !== undefined) {
     contents.Cardinality = output["Cardinality"];
@@ -4907,7 +5026,14 @@ const deserializeAws_queryPolicyAttributeTypeDescriptions = (
   output: any,
   context: __SerdeContext
 ): PolicyAttributeTypeDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyAttributeTypeDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyAttributeTypeDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyDescription = (output: any, context: __SerdeContext): PolicyDescription => {
@@ -4938,11 +5064,25 @@ const deserializeAws_queryPolicyDescription = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryPolicyDescriptions = (output: any, context: __SerdeContext): PolicyDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryPolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
@@ -4957,10 +5097,16 @@ const deserializeAws_queryPolicyNotFoundException = (output: any, context: __Ser
 
 const deserializeAws_queryPolicyTypeDescription = (output: any, context: __SerdeContext): PolicyTypeDescription => {
   let contents: any = {
-    PolicyAttributeTypeDescriptions: undefined,
-    Description: undefined,
     PolicyTypeName: undefined,
+    Description: undefined,
+    PolicyAttributeTypeDescriptions: undefined,
   };
+  if (output["PolicyTypeName"] !== undefined) {
+    contents.PolicyTypeName = output["PolicyTypeName"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
   if (output.PolicyAttributeTypeDescriptions === "") {
     contents.PolicyAttributeTypeDescriptions = [];
   }
@@ -4973,17 +5119,18 @@ const deserializeAws_queryPolicyTypeDescription = (output: any, context: __Serde
       context
     );
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["PolicyTypeName"] !== undefined) {
-    contents.PolicyTypeName = output["PolicyTypeName"];
-  }
   return contents;
 };
 
 const deserializeAws_queryPolicyTypeDescriptions = (output: any, context: __SerdeContext): PolicyTypeDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPolicyTypeDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPolicyTypeDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryPolicyTypeNotFoundException = (
@@ -5037,7 +5184,14 @@ const deserializeAws_queryRemoveTagsOutput = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_querySecurityGroups = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_querySetLoadBalancerListenerSSLCertificateOutput = (
@@ -5066,14 +5220,14 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerOutput = (
 
 const deserializeAws_querySourceSecurityGroup = (output: any, context: __SerdeContext): SourceSecurityGroup => {
   let contents: any = {
-    GroupName: undefined,
     OwnerAlias: undefined,
+    GroupName: undefined,
   };
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = output["GroupName"];
-  }
   if (output["OwnerAlias"] !== undefined) {
     contents.OwnerAlias = output["OwnerAlias"];
+  }
+  if (output["GroupName"] !== undefined) {
+    contents.GroupName = output["GroupName"];
   }
   return contents;
 };
@@ -5089,7 +5243,14 @@ const deserializeAws_querySubnetNotFoundException = (output: any, context: __Ser
 };
 
 const deserializeAws_querySubnets = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -5108,27 +5269,41 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
   let contents: any = {
-    Tags: undefined,
     LoadBalancerName: undefined,
+    Tags: undefined,
   };
+  if (output["LoadBalancerName"] !== undefined) {
+    contents.LoadBalancerName = output["LoadBalancerName"];
+  }
   if (output.Tags === "") {
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_queryTagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = output["LoadBalancerName"];
-  }
   return contents;
 };
 
 const deserializeAws_queryTagDescriptions = (output: any, context: __SerdeContext): TagDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTagDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTagDescription(entry, context);
+    });
 };
 
 const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTag(entry, context);
+    });
 };
 
 const deserializeAws_queryTooManyAccessPointsException = (

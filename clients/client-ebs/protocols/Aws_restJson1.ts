@@ -35,15 +35,14 @@ export const serializeAws_restJson1CompleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.ChangedBlocksCount) && {
       "x-amz-ChangedBlocksCount": input.ChangedBlocksCount!.toString(),
     }),
+    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
     ...(isSerializableHeaderValue(input.ChecksumAggregationMethod) && {
       "x-amz-Checksum-Aggregation-Method": input.ChecksumAggregationMethod!,
     }),
-    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
-    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
   };
   let resolvedPath = "/snapshots/completion/{SnapshotId}";
   if (input.SnapshotId !== undefined) {
@@ -72,9 +71,7 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
   input: GetSnapshotBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
@@ -115,9 +112,7 @@ export const serializeAws_restJson1ListChangedBlocksCommand = async (
   input: ListChangedBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/snapshots/{SecondSnapshotId}/changedblocks";
   if (input.SecondSnapshotId !== undefined) {
     const labelValue: string = input.SecondSnapshotId;
@@ -152,9 +147,7 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
   input: ListSnapshotBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/snapshots/{SnapshotId}/blocks";
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
@@ -166,9 +159,9 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {
+    ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
-    ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -189,11 +182,11 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
-    ...(isSerializableHeaderValue(input.Progress) && { "x-amz-Progress": input.Progress!.toString() }),
     ...(isSerializableHeaderValue(input.DataLength) && { "x-amz-Data-Length": input.DataLength!.toString() }),
+    ...(isSerializableHeaderValue(input.Progress) && { "x-amz-Progress": input.Progress!.toString() }),
+    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
     ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
   };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
@@ -236,19 +229,20 @@ export const serializeAws_restJson1StartSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/snapshots";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
-    ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.ParentSnapshotId !== undefined && { ParentSnapshotId: input.ParentSnapshotId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
-    ...(input.VolumeSize !== undefined && { VolumeSize: input.VolumeSize }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
+    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.ParentSnapshotId !== undefined &&
+      input.ParentSnapshotId !== null && { ParentSnapshotId: input.ParentSnapshotId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Timeout !== undefined && input.Timeout !== null && { Timeout: input.Timeout }),
+    ...(input.VolumeSize !== undefined && input.VolumeSize !== null && { VolumeSize: input.VolumeSize }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -374,11 +368,11 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   if (output.headers["x-amz-data-length"] !== undefined) {
     contents.DataLength = parseInt(output.headers["x-amz-data-length"], 10);
   }
-  if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
-  }
   if (output.headers["x-amz-checksum"] !== undefined) {
     contents.Checksum = output.headers["x-amz-checksum"];
+  }
+  if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
   }
   const data: any = output.body;
   contents.BlockData = data;
@@ -696,11 +690,11 @@ export const deserializeAws_restJson1PutSnapshotBlockCommand = async (
     Checksum: undefined,
     ChecksumAlgorithm: undefined,
   };
-  if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
-    contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
-  }
   if (output.headers["x-amz-checksum"] !== undefined) {
     contents.Checksum = output.headers["x-amz-checksum"];
+  }
+  if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1088,13 +1082,20 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Block = (output: any, context: __SerdeContext): Block => {
@@ -1105,7 +1106,14 @@ const deserializeAws_restJson1Block = (output: any, context: __SerdeContext): Bl
 };
 
 const deserializeAws_restJson1Blocks = (output: any, context: __SerdeContext): Block[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Block(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Block(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChangedBlock = (output: any, context: __SerdeContext): ChangedBlock => {
@@ -1119,7 +1127,14 @@ const deserializeAws_restJson1ChangedBlock = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1ChangedBlocks = (output: any, context: __SerdeContext): ChangedBlock[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChangedBlock(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChangedBlock(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -1130,7 +1145,14 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1153,6 +1175,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

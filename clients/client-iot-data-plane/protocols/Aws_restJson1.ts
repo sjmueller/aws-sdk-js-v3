@@ -34,9 +34,7 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -68,9 +66,7 @@ export const serializeAws_restJson1GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -102,9 +98,7 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
   input: ListNamedShadowsForThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/api/things/shadow/ListNamedShadowsForThing/{thingName}";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
@@ -116,8 +110,8 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -138,7 +132,7 @@ export const serializeAws_restJson1PublishCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/topics/{topic}";
   if (input.topic !== undefined) {
@@ -175,7 +169,7 @@ export const serializeAws_restJson1UpdateThingShadowCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
@@ -899,7 +893,14 @@ const deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse = asy
 };
 
 const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -922,6 +923,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
