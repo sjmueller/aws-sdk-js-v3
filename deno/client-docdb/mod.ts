@@ -29,6 +29,7 @@ export * from "./commands/DescribeDBEngineVersionsCommand.ts";
 export * from "./pagination/DescribeDBEngineVersionsPaginator.ts";
 export * from "./commands/DescribeDBInstancesCommand.ts";
 export * from "./pagination/DescribeDBInstancesPaginator.ts";
+export * from "./waiters/waitForDBInstanceAvailable.ts";
 export * from "./commands/DescribeDBSubnetGroupsCommand.ts";
 export * from "./pagination/DescribeDBSubnetGroupsPaginator.ts";
 export * from "./commands/DescribeEngineDefaultClusterParametersCommand.ts";

@@ -21,14 +21,14 @@ export namespace BatchGetNamedQueryInput {
  */
 export interface NamedQuery {
   /**
+   * <p>The query name.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The query description.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The name of the workgroup that contains the named query.</p>
-   */
-  WorkGroup?: string;
 
   /**
    * <p>The database to which the query belongs.</p>
@@ -36,9 +36,9 @@ export interface NamedQuery {
   Database: string | undefined;
 
   /**
-   * <p>The query name.</p>
+   * <p>The SQL query statements that comprise the query.</p>
    */
-  Name: string | undefined;
+  QueryString: string | undefined;
 
   /**
    * <p>The unique identifier of the query.</p>
@@ -46,9 +46,9 @@ export interface NamedQuery {
   NamedQueryId?: string;
 
   /**
-   * <p>The SQL query statements that comprise the query.</p>
+   * <p>The name of the workgroup that contains the named query.</p>
    */
-  QueryString: string | undefined;
+  WorkGroup?: string;
 }
 
 export namespace NamedQuery {
@@ -159,14 +159,14 @@ export namespace BatchGetQueryExecutionInput {
  */
 export interface QueryExecutionContext {
   /**
-   * <p>The name of the data catalog used in the query execution.</p>
-   */
-  Catalog?: string;
-
-  /**
    * <p>The name of the database used in the query execution.</p>
    */
   Database?: string;
+
+  /**
+   * <p>The name of the data catalog used in the query execution.</p>
+   */
+  Catalog?: string;
 }
 
 export namespace QueryExecutionContext {
@@ -261,16 +261,9 @@ export interface QueryExecutionStatistics {
   EngineExecutionTimeInMillis?: number;
 
   /**
-   * <p>The number of milliseconds that Athena took to run the query.</p>
+   * <p>The number of bytes in the data that was queried.</p>
    */
-  TotalExecutionTimeInMillis?: number;
-
-  /**
-   * <p>The number of milliseconds that the query was in your query queue waiting for
-   *             resources. Note that if transient errors occur, Athena might automatically add the query
-   *             back to the queue.</p>
-   */
-  QueryQueueTimeInMillis?: number;
+  DataScannedInBytes?: number;
 
   /**
    * <p>The location and file name of a data manifest file. The manifest file is saved to the
@@ -283,9 +276,16 @@ export interface QueryExecutionStatistics {
   DataManifestLocation?: string;
 
   /**
-   * <p>The number of bytes in the data that was queried.</p>
+   * <p>The number of milliseconds that Athena took to run the query.</p>
    */
-  DataScannedInBytes?: number;
+  TotalExecutionTimeInMillis?: number;
+
+  /**
+   * <p>The number of milliseconds that the query was in your query queue waiting for
+   *             resources. Note that if transient errors occur, Athena might automatically add the query
+   *             back to the queue.</p>
+   */
+  QueryQueueTimeInMillis?: number;
 
   /**
    * <p>The number of milliseconds that Athena took to plan the query processing flow. This
@@ -322,16 +322,6 @@ export enum QueryExecutionState {
  */
 export interface QueryExecutionStatus {
   /**
-   * <p>The date and time that the query was submitted.</p>
-   */
-  SubmissionDateTime?: Date;
-
-  /**
-   * <p>Further detail about the status of the query.</p>
-   */
-  StateChangeReason?: string;
-
-  /**
    * <p>The state of query execution. <code>QUEUED</code> indicates that the query has been
    *             submitted to the service, and Athena will execute the query as soon as resources are
    *             available. <code>RUNNING</code> indicates that the query is in execution phase.
@@ -346,6 +336,16 @@ export interface QueryExecutionStatus {
    *         </note>
    */
   State?: QueryExecutionState | string;
+
+  /**
+   * <p>Further detail about the status of the query.</p>
+   */
+  StateChangeReason?: string;
+
+  /**
+   * <p>The date and time that the query was submitted.</p>
+   */
+  SubmissionDateTime?: Date;
 
   /**
    * <p>The date and time that the query completed.</p>
@@ -364,6 +364,16 @@ export namespace QueryExecutionStatus {
  */
 export interface QueryExecution {
   /**
+   * <p>The unique identifier for each query execution.</p>
+   */
+  QueryExecutionId?: string;
+
+  /**
+   * <p>The SQL query statements which the query execution ran.</p>
+   */
+  Query?: string;
+
+  /**
    * <p>The type of query statement that was run. <code>DDL</code> indicates DDL query
    *             statements. <code>DML</code> indicates DML (Data Manipulation Language) query
    *             statements, such as <code>CREATE TABLE AS SELECT</code>. <code>UTILITY</code> indicates
@@ -373,20 +383,12 @@ export interface QueryExecution {
   StatementType?: StatementType | string;
 
   /**
-   * <p>The SQL query statements which the query execution ran.</p>
+   * <p>The location in Amazon S3 where query results were stored and the encryption option,
+   *             if any, used for query results. These are known as "client-side settings". If workgroup
+   *             settings override client-side settings, then the query uses the location for the query
+   *             results and the encryption configuration that are specified for the workgroup.</p>
    */
-  Query?: string;
-
-  /**
-   * <p>The name of the workgroup in which the query ran.</p>
-   */
-  WorkGroup?: string;
-
-  /**
-   * <p>Query execution statistics, such as the amount of data scanned, the amount of time
-   *             that the query took to process, and the type of statement that was run.</p>
-   */
-  Statistics?: QueryExecutionStatistics;
+  ResultConfiguration?: ResultConfiguration;
 
   /**
    * <p>The database in which the query execution occurred.</p>
@@ -400,17 +402,15 @@ export interface QueryExecution {
   Status?: QueryExecutionStatus;
 
   /**
-   * <p>The location in Amazon S3 where query results were stored and the encryption option,
-   *             if any, used for query results. These are known as "client-side settings". If workgroup
-   *             settings override client-side settings, then the query uses the location for the query
-   *             results and the encryption configuration that are specified for the workgroup.</p>
+   * <p>Query execution statistics, such as the amount of data scanned, the amount of time
+   *             that the query took to process, and the type of statement that was run.</p>
    */
-  ResultConfiguration?: ResultConfiguration;
+  Statistics?: QueryExecutionStatistics;
 
   /**
-   * <p>The unique identifier for each query execution.</p>
+   * <p>The name of the workgroup in which the query ran.</p>
    */
-  QueryExecutionId?: string;
+  WorkGroup?: string;
 }
 
 export namespace QueryExecution {
@@ -424,10 +424,9 @@ export namespace QueryExecution {
  */
 export interface UnprocessedQueryExecutionId {
   /**
-   * <p>The error message returned when the query execution failed to process, if
-   *             applicable.</p>
+   * <p>The unique identifier of the query execution.</p>
    */
-  ErrorMessage?: string;
+  QueryExecutionId?: string;
 
   /**
    * <p>The error code returned when the query execution failed to process, if
@@ -436,9 +435,10 @@ export interface UnprocessedQueryExecutionId {
   ErrorCode?: string;
 
   /**
-   * <p>The unique identifier of the query execution.</p>
+   * <p>The error message returned when the query execution failed to process, if
+   *             applicable.</p>
    */
-  QueryExecutionId?: string;
+  ErrorMessage?: string;
 }
 
 export namespace UnprocessedQueryExecutionId {
@@ -507,16 +507,6 @@ export enum DataCatalogType {
 
 export interface CreateDataCatalogInput {
   /**
-   * <p>A description of the data catalog to be created.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of comma separated tags to add to the data catalog that is created.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The name of the data catalog to create. The catalog name must be unique for the AWS
    *             account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen
    *             characters.</p>
@@ -529,6 +519,11 @@ export interface CreateDataCatalogInput {
    *             metastore.</p>
    */
   Type: DataCatalogType | string | undefined;
+
+  /**
+   * <p>A description of the data catalog to be created.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Specifies the Lambda function or functions to use for creating the data catalog. This
@@ -576,6 +571,11 @@ export interface CreateDataCatalogInput {
    *          </ul>
    */
   Parameters?: { [key: string]: string };
+
+  /**
+   * <p>A list of comma separated tags to add to the data catalog that is created.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateDataCatalogInput {
@@ -599,6 +599,11 @@ export interface CreateNamedQueryInput {
   Name: string | undefined;
 
   /**
+   * <p>The query description.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The database to which the query belongs.</p>
    */
   Database: string | undefined;
@@ -607,11 +612,6 @@ export interface CreateNamedQueryInput {
    * <p>The contents of the query with all query statements.</p>
    */
   QueryString: string | undefined;
-
-  /**
-   * <p>The query description.</p>
-   */
-  Description?: string;
 
   /**
    * <p>A unique case-sensitive string used to ensure the request to create the query is
@@ -661,12 +661,6 @@ export namespace CreateNamedQueryOutput {
  */
 export interface WorkGroupConfiguration {
   /**
-   * <p>If set to "true", the settings for the workgroup override client-side settings. If set
-   *             to "false", client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-   */
-  EnforceWorkGroupConfiguration?: boolean;
-
-  /**
    * <p>The configuration for the workgroup, which includes the location in Amazon S3 where
    *             query results are stored and the encryption option, if any, used for query results. To
    *             run the query, you must specify the query results location using one of the ways: either
@@ -676,6 +670,12 @@ export interface WorkGroupConfiguration {
    *             Results</a>.</p>
    */
   ResultConfiguration?: ResultConfiguration;
+
+  /**
+   * <p>If set to "true", the settings for the workgroup override client-side settings. If set
+   *             to "false", client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
+   */
+  EnforceWorkGroupConfiguration?: boolean;
 
   /**
    * <p>Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.</p>
@@ -712,11 +712,6 @@ export interface CreateWorkGroupInput {
   Name: string | undefined;
 
   /**
-   * <p>A list of comma separated tags to add to the workgroup that is created.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The configuration for the workgroup, which includes the location in Amazon S3 where
    *             query results are stored, the encryption configuration, if any, used for encrypting
    *             query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, the
@@ -730,6 +725,11 @@ export interface CreateWorkGroupInput {
    * <p>The workgroup description.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A list of comma separated tags to add to the workgroup that is created.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateWorkGroupInput {
@@ -909,6 +909,17 @@ export namespace GetDataCatalogInput {
  */
 export interface DataCatalog {
   /**
+   * <p>The name of the data catalog. The catalog name must be unique for the AWS account and
+   *             can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An optional description of the data catalog.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The type of data catalog: <code>LAMBDA</code> for a federated catalog,
    *                 <code>GLUE</code> for AWS Glue Catalog, or <code>HIVE</code> for an external hive
    *             metastore.</p>
@@ -961,17 +972,6 @@ export interface DataCatalog {
    *          </ul>
    */
   Parameters?: { [key: string]: string };
-
-  /**
-   * <p>An optional description of the data catalog.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the data catalog. The catalog name must be unique for the AWS account and
-   *             can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace DataCatalog {
@@ -1048,11 +1048,6 @@ export namespace GetQueryExecutionOutput {
 
 export interface GetQueryResultsInput {
   /**
-   * <p>The maximum number of results (rows) to return in this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The unique ID of the query execution.</p>
    */
   QueryExecutionId: string | undefined;
@@ -1063,6 +1058,11 @@ export interface GetQueryResultsInput {
    *                 <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results (rows) to return in this request.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetQueryResultsInput {
@@ -1082,14 +1082,34 @@ export enum ColumnNullable {
  */
 export interface ColumnInfo {
   /**
-   * <p>Indicates the column's nullable status.</p>
+   * <p>The catalog to which the query results belong.</p>
    */
-  Nullable?: ColumnNullable | string;
+  CatalogName?: string;
+
+  /**
+   * <p>The schema name (database name) to which the query results belong.</p>
+   */
+  SchemaName?: string;
 
   /**
    * <p>The table name for the query results.</p>
    */
   TableName?: string;
+
+  /**
+   * <p>The name of the column.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A column label.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>The data type of the column.</p>
+   */
+  Type: string | undefined;
 
   /**
    * <p>For <code>DECIMAL</code> data types, specifies the total number of digits, up to 38.
@@ -1098,35 +1118,15 @@ export interface ColumnInfo {
   Precision?: number;
 
   /**
-   * <p>The data type of the column.</p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>The catalog to which the query results belong.</p>
-   */
-  CatalogName?: string;
-
-  /**
-   * <p>A column label.</p>
-   */
-  Label?: string;
-
-  /**
-   * <p>The name of the column.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The schema name (database name) to which the query results belong.</p>
-   */
-  SchemaName?: string;
-
-  /**
    * <p>For <code>DECIMAL</code> data types, specifies the total number of digits in the
    *             fractional part of the value. Defaults to 0.</p>
    */
   Scale?: number;
+
+  /**
+   * <p>Indicates the column's nullable status.</p>
+   */
+  Nullable?: ColumnNullable | string;
 
   /**
    * <p>Indicates whether values in the column are case-sensitive.</p>
@@ -1214,14 +1214,14 @@ export namespace ResultSet {
 
 export interface GetQueryResultsOutput {
   /**
-   * <p>The results of the query execution.</p>
-   */
-  ResultSet?: ResultSet;
-
-  /**
    * <p>The number of rows inserted with a CREATE TABLE AS SELECT statement. </p>
    */
   UpdateCount?: number;
+
+  /**
+   * <p>The results of the query execution.</p>
+   */
+  ResultSet?: ResultSet;
 
   /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
@@ -1239,15 +1239,15 @@ export namespace GetQueryResultsOutput {
 
 export interface GetTableMetadataInput {
   /**
-   * <p>The name of the database that contains the table metadata to return.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
    * <p>The name of the data catalog that contains the database and table metadata to
    *             return.</p>
    */
   CatalogName: string | undefined;
+
+  /**
+   * <p>The name of the database that contains the table metadata to return.</p>
+   */
+  DatabaseName: string | undefined;
 
   /**
    * <p>The name of the table for which metadata is returned.</p>
@@ -1266,6 +1266,11 @@ export namespace GetTableMetadataInput {
  */
 export interface Column {
   /**
+   * <p>The name of the column.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The data type of the column.</p>
    */
   Type?: string;
@@ -1274,11 +1279,6 @@ export interface Column {
    * <p>Optional information about the column.</p>
    */
   Comment?: string;
-
-  /**
-   * <p>The name of the column.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace Column {
@@ -1307,9 +1307,9 @@ export interface TableMetadata {
   LastAccessTime?: Date;
 
   /**
-   * <p>A list of the partition keys in the table.</p>
+   * <p>The type of table. In Athena, only <code>EXTERNAL_TABLE</code> is supported.</p>
    */
-  PartitionKeys?: Column[];
+  TableType?: string;
 
   /**
    * <p>A list of the columns in the table.</p>
@@ -1317,14 +1317,14 @@ export interface TableMetadata {
   Columns?: Column[];
 
   /**
+   * <p>A list of the partition keys in the table.</p>
+   */
+  PartitionKeys?: Column[];
+
+  /**
    * <p>A set of custom key/value pairs for table properties.</p>
    */
   Parameters?: { [key: string]: string };
-
-  /**
-   * <p>The type of table. In Athena, only <code>EXTERNAL_TABLE</code> is supported.</p>
-   */
-  TableType?: string;
 }
 
 export namespace TableMetadata {
@@ -1376,19 +1376,14 @@ export enum WorkGroupState {
  */
 export interface WorkGroup {
   /**
-   * <p>The workgroup description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The date and time the workgroup was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
    * <p>The workgroup name.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The state of the workgroup: ENABLED or DISABLED.</p>
+   */
+  State?: WorkGroupState | string;
 
   /**
    * <p>The configuration of the workgroup, which includes the location in Amazon S3 where
@@ -1401,9 +1396,14 @@ export interface WorkGroup {
   Configuration?: WorkGroupConfiguration;
 
   /**
-   * <p>The state of the workgroup: ENABLED or DISABLED.</p>
+   * <p>The workgroup description.</p>
    */
-  State?: WorkGroupState | string;
+  Description?: string;
+
+  /**
+   * <p>The date and time the workgroup was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace WorkGroup {
@@ -1427,9 +1427,9 @@ export namespace GetWorkGroupOutput {
 
 export interface ListDatabasesInput {
   /**
-   * <p>Specifies the maximum number of results to return.</p>
+   * <p>The name of the data catalog that contains the databases to return.</p>
    */
-  MaxResults?: number;
+  CatalogName: string | undefined;
 
   /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
@@ -1439,9 +1439,9 @@ export interface ListDatabasesInput {
   NextToken?: string;
 
   /**
-   * <p>The name of the data catalog that contains the databases to return.</p>
+   * <p>Specifies the maximum number of results to return.</p>
    */
-  CatalogName: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListDatabasesInput {
@@ -1452,16 +1452,16 @@ export namespace ListDatabasesInput {
 
 export interface ListDatabasesOutput {
   /**
+   * <p>A list of databases from a data catalog.</p>
+   */
+  DatabaseList?: Database[];
+
+  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
    *             from the response object of the previous page call.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of databases from a data catalog.</p>
-   */
-  DatabaseList?: Database[];
 }
 
 export namespace ListDatabasesOutput {
@@ -1472,16 +1472,16 @@ export namespace ListDatabasesOutput {
 
 export interface ListDataCatalogsInput {
   /**
-   * <p>Specifies the maximum number of data catalogs to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
    *             from the response object of the previous page call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies the maximum number of data catalogs to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListDataCatalogsInput {
@@ -1495,14 +1495,14 @@ export namespace ListDataCatalogsInput {
  */
 export interface DataCatalogSummary {
   /**
-   * <p>The data catalog type.</p>
-   */
-  Type?: DataCatalogType | string;
-
-  /**
    * <p>The name of the data catalog.</p>
    */
   CatalogName?: string;
+
+  /**
+   * <p>The data catalog type.</p>
+   */
+  Type?: DataCatalogType | string;
 }
 
 export namespace DataCatalogSummary {
@@ -1513,16 +1513,16 @@ export namespace DataCatalogSummary {
 
 export interface ListDataCatalogsOutput {
   /**
+   * <p>A summary list of data catalogs.</p>
+   */
+  DataCatalogsSummary?: DataCatalogSummary[];
+
+  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the NextToken
    *             from the response object of the previous page call.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A summary list of data catalogs.</p>
-   */
-  DataCatalogsSummary?: DataCatalogSummary[];
 }
 
 export namespace ListDataCatalogsOutput {
@@ -1532,13 +1532,6 @@ export namespace ListDataCatalogsOutput {
 }
 
 export interface ListNamedQueriesInput {
-  /**
-   * <p>The name of the workgroup from which the named queries are being returned. If a
-   *             workgroup is not specified, the saved queries for the primary workgroup are
-   *             returned.</p>
-   */
-  WorkGroup?: string;
-
   /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the
@@ -1550,6 +1543,13 @@ export interface ListNamedQueriesInput {
    * <p>The maximum number of queries to return in this request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The name of the workgroup from which the named queries are being returned. If a
+   *             workgroup is not specified, the saved queries for the primary workgroup are
+   *             returned.</p>
+   */
+  WorkGroup?: string;
 }
 
 export namespace ListNamedQueriesInput {
@@ -1560,16 +1560,16 @@ export namespace ListNamedQueriesInput {
 
 export interface ListNamedQueriesOutput {
   /**
+   * <p>The list of unique query IDs.</p>
+   */
+  NamedQueryIds?: string[];
+
+  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the
    *                 <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The list of unique query IDs.</p>
-   */
-  NamedQueryIds?: string[];
 }
 
 export namespace ListNamedQueriesOutput {
@@ -1580,16 +1580,16 @@ export namespace ListNamedQueriesOutput {
 
 export interface ListQueryExecutionsInput {
   /**
-   * <p>The maximum number of query executions to return in this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the
    *                 <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of query executions to return in this request.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The name of the workgroup from which queries are being returned. If a workgroup is not
@@ -1607,14 +1607,14 @@ export namespace ListQueryExecutionsInput {
 
 export interface ListQueryExecutionsOutput {
   /**
-   * <p>A token to be used by the next request if this request is truncated.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The unique IDs of each query execution as an array of strings.</p>
    */
   QueryExecutionIds?: string[];
+
+  /**
+   * <p>A token to be used by the next request if this request is truncated.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListQueryExecutionsOutput {
@@ -1625,9 +1625,9 @@ export namespace ListQueryExecutionsOutput {
 
 export interface ListTableMetadataInput {
   /**
-   * <p>Specifies the maximum number of results to return.</p>
+   * <p>The name of the data catalog for which table metadata should be returned.</p>
    */
-  MaxResults?: number;
+  CatalogName: string | undefined;
 
   /**
    * <p>The name of the database for which table metadata should be returned.</p>
@@ -1648,9 +1648,9 @@ export interface ListTableMetadataInput {
   NextToken?: string;
 
   /**
-   * <p>The name of the data catalog for which table metadata should be returned.</p>
+   * <p>Specifies the maximum number of results to return.</p>
    */
-  CatalogName: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListTableMetadataInput {
@@ -1681,10 +1681,9 @@ export namespace ListTableMetadataOutput {
 
 export interface ListTagsForResourceInput {
   /**
-   * <p>The maximum number of results to be returned per request that lists the tags for the
-   *             resource.</p>
+   * <p>Lists the tags for the resource with the specified ARN.</p>
    */
-  MaxResults?: number;
+  ResourceARN: string | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results for
@@ -1694,9 +1693,10 @@ export interface ListTagsForResourceInput {
   NextToken?: string;
 
   /**
-   * <p>Lists the tags for the resource with the specified ARN.</p>
+   * <p>The maximum number of results to be returned per request that lists the tags for the
+   *             resource.</p>
    */
-  ResourceARN: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListTagsForResourceInput {
@@ -1741,16 +1741,16 @@ export namespace ResourceNotFoundException {
 
 export interface ListWorkGroupsInput {
   /**
-   * <p>The maximum number of workgroups to return in this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the
    *                 <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of workgroups to return in this request.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListWorkGroupsInput {
@@ -1765,9 +1765,9 @@ export namespace ListWorkGroupsInput {
  */
 export interface WorkGroupSummary {
   /**
-   * <p>The workgroup description.</p>
+   * <p>The name of the workgroup.</p>
    */
-  Description?: string;
+  Name?: string;
 
   /**
    * <p>The state of the workgroup.</p>
@@ -1775,14 +1775,14 @@ export interface WorkGroupSummary {
   State?: WorkGroupState | string;
 
   /**
+   * <p>The workgroup description.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The workgroup creation date and time.</p>
    */
   CreationTime?: Date;
-
-  /**
-   * <p>The name of the workgroup.</p>
-   */
-  Name?: string;
 }
 
 export namespace WorkGroupSummary {
@@ -1793,17 +1793,17 @@ export namespace WorkGroupSummary {
 
 export interface ListWorkGroupsOutput {
   /**
+   * <p>The list of workgroups, including their names, descriptions, creation times, and
+   *             states.</p>
+   */
+  WorkGroups?: WorkGroupSummary[];
+
+  /**
    * <p>A token generated by the Athena service that specifies where to continue pagination if
    *             a previous request was truncated. To obtain the next set of pages, pass in the
    *                 <code>NextToken</code> from the response object of the previous page call.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The list of workgroups, including their names, descriptions, creation times, and
-   *             states.</p>
-   */
-  WorkGroups?: WorkGroupSummary[];
 }
 
 export namespace ListWorkGroupsOutput {
@@ -1832,11 +1832,6 @@ export interface StartQueryExecutionInput {
   ClientRequestToken?: string;
 
   /**
-   * <p>The name of the workgroup in which the query is being started.</p>
-   */
-  WorkGroup?: string;
-
-  /**
    * <p>The database within which the query executes.</p>
    */
   QueryExecutionContext?: QueryExecutionContext;
@@ -1848,6 +1843,11 @@ export interface StartQueryExecutionInput {
    *             EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</p>
    */
   ResultConfiguration?: ResultConfiguration;
+
+  /**
+   * <p>The name of the workgroup in which the query is being started.</p>
+   */
+  WorkGroup?: string;
 }
 
 export namespace StartQueryExecutionInput {
@@ -1916,16 +1916,16 @@ export namespace StopQueryExecutionOutput {
 
 export interface TagResourceInput {
   /**
-   * <p>A collection of one or more tags, separated by commas, to be added to an Athena
-   *             workgroup or data catalog resource.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>Specifies the ARN of the Athena resource (workgroup or data catalog) to which tags are
    *             to be added.</p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>A collection of one or more tags, separated by commas, to be added to an Athena
+   *             workgroup or data catalog resource.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceInput {
@@ -1971,9 +1971,11 @@ export namespace UntagResourceOutput {
 
 export interface UpdateDataCatalogInput {
   /**
-   * <p>New or modified text that describes the data catalog.</p>
+   * <p>The name of the data catalog to update. The catalog name must be unique for the AWS
+   *             account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen
+   *             characters.</p>
    */
-  Description?: string;
+  Name: string | undefined;
 
   /**
    * <p>Specifies the type of data catalog to update. Specify <code>LAMBDA</code> for a
@@ -1981,6 +1983,11 @@ export interface UpdateDataCatalogInput {
    *             external hive metastore.</p>
    */
   Type: DataCatalogType | string | undefined;
+
+  /**
+   * <p>New or modified text that describes the data catalog.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Specifies the Lambda function or functions to use for updating the data catalog. This
@@ -2028,13 +2035,6 @@ export interface UpdateDataCatalogInput {
    *          </ul>
    */
   Parameters?: { [key: string]: string };
-
-  /**
-   * <p>The name of the data catalog to update. The catalog name must be unique for the AWS
-   *             account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen
-   *             characters.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace UpdateDataCatalogInput {
@@ -2056,17 +2056,6 @@ export namespace UpdateDataCatalogOutput {
  *             encryption configuration for the query results.</p>
  */
 export interface ResultConfigurationUpdates {
-  /**
-   * <p>If set to "true", indicates that the previously-specified encryption configuration
-   *             (also known as the client-side setting) for queries in this workgroup should be ignored
-   *             and set to null. If set to "false" or not set, and a value is present in the
-   *             EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the
-   *             EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the
-   *             new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
-   *                 Client-Side Settings</a>.</p>
-   */
-  RemoveEncryptionConfiguration?: boolean;
-
   /**
    * <p>The location in Amazon S3 where your query results are stored, such as
    *                 <code>s3://path/to/query/bucket/</code>. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> If
@@ -2092,6 +2081,17 @@ export interface ResultConfigurationUpdates {
    * <p>The encryption configuration for the query results.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>If set to "true", indicates that the previously-specified encryption configuration
+   *             (also known as the client-side setting) for queries in this workgroup should be ignored
+   *             and set to null. If set to "false" or not set, and a value is present in the
+   *             EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the
+   *             EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the
+   *             new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
+   *                 Client-Side Settings</a>.</p>
+   */
+  RemoveEncryptionConfiguration?: boolean;
 }
 
 export namespace ResultConfigurationUpdates {
@@ -2109,10 +2109,35 @@ export namespace ResultConfigurationUpdates {
  */
 export interface WorkGroupConfigurationUpdates {
   /**
+   * <p>If set to "true", the settings for the workgroup override client-side settings. If set
+   *             to "false" client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
+   */
+  EnforceWorkGroupConfiguration?: boolean;
+
+  /**
+   * <p>The result configuration information about the queries in this workgroup that will be
+   *             updated. Includes the updated results location and an updated option for encrypting
+   *             query results.</p>
+   */
+  ResultConfigurationUpdates?: ResultConfigurationUpdates;
+
+  /**
+   * <p>Indicates whether this workgroup enables publishing metrics to Amazon
+   *             CloudWatch.</p>
+   */
+  PublishCloudWatchMetricsEnabled?: boolean;
+
+  /**
    * <p>The upper limit (cutoff) for the amount of bytes a single query in a workgroup is
    *             allowed to scan.</p>
    */
   BytesScannedCutoffPerQuery?: number;
+
+  /**
+   * <p>Indicates that the data usage control limit per query is removed. <a>WorkGroupConfiguration$BytesScannedCutoffPerQuery</a>
+   *          </p>
+   */
+  RemoveBytesScannedCutoffPerQuery?: boolean;
 
   /**
    * <p>If set to <code>true</code>, allows members assigned to a workgroup to specify Amazon
@@ -2123,31 +2148,6 @@ export interface WorkGroupConfigurationUpdates {
    *             in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   RequesterPaysEnabled?: boolean;
-
-  /**
-   * <p>Indicates whether this workgroup enables publishing metrics to Amazon
-   *             CloudWatch.</p>
-   */
-  PublishCloudWatchMetricsEnabled?: boolean;
-
-  /**
-   * <p>The result configuration information about the queries in this workgroup that will be
-   *             updated. Includes the updated results location and an updated option for encrypting
-   *             query results.</p>
-   */
-  ResultConfigurationUpdates?: ResultConfigurationUpdates;
-
-  /**
-   * <p>If set to "true", the settings for the workgroup override client-side settings. If set
-   *             to "false" client-side settings are used. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
-   */
-  EnforceWorkGroupConfiguration?: boolean;
-
-  /**
-   * <p>Indicates that the data usage control limit per query is removed. <a>WorkGroupConfiguration$BytesScannedCutoffPerQuery</a>
-   *          </p>
-   */
-  RemoveBytesScannedCutoffPerQuery?: boolean;
 }
 
 export namespace WorkGroupConfigurationUpdates {
@@ -2157,11 +2157,6 @@ export namespace WorkGroupConfigurationUpdates {
 }
 
 export interface UpdateWorkGroupInput {
-  /**
-   * <p>The workgroup state that will be updated for the given workgroup.</p>
-   */
-  State?: WorkGroupState | string;
-
   /**
    * <p>The specified workgroup that will be updated.</p>
    */
@@ -2176,6 +2171,11 @@ export interface UpdateWorkGroupInput {
    * <p>The workgroup configuration that will be updated for the given workgroup.</p>
    */
   ConfigurationUpdates?: WorkGroupConfigurationUpdates;
+
+  /**
+   * <p>The workgroup state that will be updated for the given workgroup.</p>
+   */
+  State?: WorkGroupState | string;
 }
 
 export namespace UpdateWorkGroupInput {

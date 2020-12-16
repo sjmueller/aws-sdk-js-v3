@@ -15,6 +15,8 @@ export * from "./commands/DescribeProjectsCommand.ts";
 export * from "./pagination/DescribeProjectsPaginator.ts";
 export * from "./commands/DescribeProjectVersionsCommand.ts";
 export * from "./pagination/DescribeProjectVersionsPaginator.ts";
+export * from "./waiters/waitForProjectVersionRunning.ts";
+export * from "./waiters/waitForProjectVersionTrainingCompleted.ts";
 export * from "./commands/DescribeStreamProcessorCommand.ts";
 export * from "./commands/DetectCustomLabelsCommand.ts";
 export * from "./commands/DetectFacesCommand.ts";

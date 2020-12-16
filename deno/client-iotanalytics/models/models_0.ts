@@ -1157,13 +1157,22 @@ export namespace ServiceManagedDatastoreS3Storage {
  *         <code>serviceManagedS3</code>. You cannot change this storage option after the data store is
  *       created.</p>
  */
-export interface DatastoreStorage {
+export type DatastoreStorage =
+  | DatastoreStorage.CustomerManagedS3Member
+  | DatastoreStorage.ServiceManagedS3Member
+  | DatastoreStorage.$UnknownMember;
+
+export namespace DatastoreStorage {
   /**
    * <p>Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You
    *       cannot change the choice of service-managed or customer-managed S3 storage after the data
    *       store is created.</p>
    */
-  serviceManagedS3?: ServiceManagedDatastoreS3Storage;
+  export interface ServiceManagedS3Member {
+    serviceManagedS3: ServiceManagedDatastoreS3Storage;
+    customerManagedS3?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>Use this to store data store data in an S3 bucket that you manage. When customer managed
@@ -1171,13 +1180,37 @@ export interface DatastoreStorage {
    *       service-managed or customer-managed S3 storage cannot be changed after creation of the data
    *       store.</p>
    */
-  customerManagedS3?: CustomerManagedDatastoreS3Storage;
-}
+  export interface CustomerManagedS3Member {
+    serviceManagedS3?: never;
+    customerManagedS3: CustomerManagedDatastoreS3Storage;
+    $unknown?: never;
+  }
 
-export namespace DatastoreStorage {
-  export const filterSensitiveLog = (obj: DatastoreStorage): any => ({
-    ...obj,
-  });
+  export interface $UnknownMember {
+    serviceManagedS3?: never;
+    customerManagedS3?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    serviceManagedS3: (value: ServiceManagedDatastoreS3Storage) => T;
+    customerManagedS3: (value: CustomerManagedDatastoreS3Storage) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DatastoreStorage, visitor: Visitor<T>): T => {
+    if (value.serviceManagedS3 !== undefined) return visitor.serviceManagedS3(value.serviceManagedS3);
+    if (value.customerManagedS3 !== undefined) return visitor.customerManagedS3(value.customerManagedS3);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: DatastoreStorage): any => {
+    if (obj.serviceManagedS3 !== undefined)
+      return { serviceManagedS3: ServiceManagedDatastoreS3Storage.filterSensitiveLog(obj.serviceManagedS3) };
+    if (obj.customerManagedS3 !== undefined)
+      return { customerManagedS3: CustomerManagedDatastoreS3Storage.filterSensitiveLog(obj.customerManagedS3) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export interface CreateDatastoreRequest {
@@ -1209,6 +1242,7 @@ export interface CreateDatastoreRequest {
 export namespace CreateDatastoreRequest {
   export const filterSensitiveLog = (obj: CreateDatastoreRequest): any => ({
     ...obj,
+    ...(obj.datastoreStorage && { datastoreStorage: DatastoreStorage.filterSensitiveLog(obj.datastoreStorage) }),
   });
 }
 
@@ -2034,6 +2068,7 @@ export interface Datastore {
 export namespace Datastore {
   export const filterSensitiveLog = (obj: Datastore): any => ({
     ...obj,
+    ...(obj.storage && { storage: DatastoreStorage.filterSensitiveLog(obj.storage) }),
   });
 }
 
@@ -2069,6 +2104,7 @@ export interface DescribeDatastoreResponse {
 export namespace DescribeDatastoreResponse {
   export const filterSensitiveLog = (obj: DescribeDatastoreResponse): any => ({
     ...obj,
+    ...(obj.datastore && { datastore: Datastore.filterSensitiveLog(obj.datastore) }),
   });
 }
 
@@ -3187,6 +3223,7 @@ export interface UpdateDatastoreRequest {
 export namespace UpdateDatastoreRequest {
   export const filterSensitiveLog = (obj: UpdateDatastoreRequest): any => ({
     ...obj,
+    ...(obj.datastoreStorage && { datastoreStorage: DatastoreStorage.filterSensitiveLog(obj.datastoreStorage) }),
   });
 }
 

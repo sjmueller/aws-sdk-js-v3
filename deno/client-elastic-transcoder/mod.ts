@@ -15,6 +15,7 @@ export * from "./pagination/ListPipelinesPaginator.ts";
 export * from "./commands/ListPresetsCommand.ts";
 export * from "./pagination/ListPresetsPaginator.ts";
 export * from "./commands/ReadJobCommand.ts";
+export * from "./waiters/waitForJobComplete.ts";
 export * from "./commands/ReadPipelineCommand.ts";
 export * from "./commands/ReadPresetCommand.ts";
 export * from "./commands/TestRoleCommand.ts";

@@ -3,6 +3,7 @@ export * from "./ACM.ts";
 export * from "./commands/AddTagsToCertificateCommand.ts";
 export * from "./commands/DeleteCertificateCommand.ts";
 export * from "./commands/DescribeCertificateCommand.ts";
+export * from "./waiters/waitForCertificateValidated.ts";
 export * from "./commands/ExportCertificateCommand.ts";
 export * from "./commands/GetCertificateCommand.ts";
 export * from "./commands/ImportCertificateCommand.ts";

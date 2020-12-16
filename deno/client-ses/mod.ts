@@ -31,6 +31,7 @@ export * from "./commands/GetIdentityMailFromDomainAttributesCommand.ts";
 export * from "./commands/GetIdentityNotificationAttributesCommand.ts";
 export * from "./commands/GetIdentityPoliciesCommand.ts";
 export * from "./commands/GetIdentityVerificationAttributesCommand.ts";
+export * from "./waiters/waitForIdentityExists.ts";
 export * from "./commands/GetSendQuotaCommand.ts";
 export * from "./commands/GetSendStatisticsCommand.ts";
 export * from "./commands/GetTemplateCommand.ts";

@@ -17,6 +17,7 @@ export * from "./pagination/DescribeBudgetActionsForAccountPaginator.ts";
 export * from "./commands/DescribeBudgetActionsForBudgetCommand.ts";
 export * from "./pagination/DescribeBudgetActionsForBudgetPaginator.ts";
 export * from "./commands/DescribeBudgetPerformanceHistoryCommand.ts";
+export * from "./pagination/DescribeBudgetPerformanceHistoryPaginator.ts";
 export * from "./commands/DescribeBudgetsCommand.ts";
 export * from "./pagination/DescribeBudgetsPaginator.ts";
 export * from "./commands/DescribeNotificationsForBudgetCommand.ts";

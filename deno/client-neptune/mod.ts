@@ -34,6 +34,7 @@ export * from "./commands/DescribeDBEngineVersionsCommand.ts";
 export * from "./pagination/DescribeDBEngineVersionsPaginator.ts";
 export * from "./commands/DescribeDBInstancesCommand.ts";
 export * from "./pagination/DescribeDBInstancesPaginator.ts";
+export * from "./waiters/waitForDBInstanceAvailable.ts";
 export * from "./commands/DescribeDBParameterGroupsCommand.ts";
 export * from "./pagination/DescribeDBParameterGroupsPaginator.ts";
 export * from "./commands/DescribeDBParametersCommand.ts";

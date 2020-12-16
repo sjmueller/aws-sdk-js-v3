@@ -64,6 +64,7 @@ export * from "./commands/GetGroupCommand.ts";
 export * from "./pagination/GetGroupPaginator.ts";
 export * from "./commands/GetGroupPolicyCommand.ts";
 export * from "./commands/GetInstanceProfileCommand.ts";
+export * from "./waiters/waitForInstanceProfileExists.ts";
 export * from "./commands/GetLoginProfileCommand.ts";
 export * from "./commands/GetOpenIDConnectProviderCommand.ts";
 export * from "./commands/GetOrganizationsAccessReportCommand.ts";

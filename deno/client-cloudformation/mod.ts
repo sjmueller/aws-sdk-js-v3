@@ -28,6 +28,7 @@ export * from "./commands/DescribeStackSetCommand.ts";
 export * from "./commands/DescribeStackSetOperationCommand.ts";
 export * from "./commands/DescribeTypeCommand.ts";
 export * from "./commands/DescribeTypeRegistrationCommand.ts";
+export * from "./waiters/waitForTypeRegistrationComplete.ts";
 export * from "./commands/DetectStackDriftCommand.ts";
 export * from "./commands/DetectStackResourceDriftCommand.ts";
 export * from "./commands/DetectStackSetDriftCommand.ts";

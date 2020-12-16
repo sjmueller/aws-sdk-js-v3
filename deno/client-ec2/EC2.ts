@@ -775,6 +775,11 @@ import {
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
+  DescribeAddressesAttributeCommand,
+  DescribeAddressesAttributeCommandInput,
+  DescribeAddressesAttributeCommandOutput,
+} from "./commands/DescribeAddressesAttributeCommand.ts";
+import {
   DescribeAddressesCommand,
   DescribeAddressesCommandInput,
   DescribeAddressesCommandOutput,
@@ -1647,6 +1652,11 @@ import {
   ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand.ts";
 import {
+  ModifyAddressAttributeCommand,
+  ModifyAddressAttributeCommandInput,
+  ModifyAddressAttributeCommandOutput,
+} from "./commands/ModifyAddressAttributeCommand.ts";
+import {
   ModifyAvailabilityZoneGroupCommand,
   ModifyAvailabilityZoneGroupCommandInput,
   ModifyAvailabilityZoneGroupCommandOutput,
@@ -1988,6 +1998,11 @@ import {
   RequestSpotInstancesCommandInput,
   RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand.ts";
+import {
+  ResetAddressAttributeCommand,
+  ResetAddressAttributeCommandInput,
+  ResetAddressAttributeCommandOutput,
+} from "./commands/ResetAddressAttributeCommand.ts";
 import {
   ResetEbsDefaultKmsKeyIdCommand,
   ResetEbsDefaultKmsKeyIdCommandInput,
@@ -8093,6 +8108,35 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeAddressesCommandOutput) => void
   ): Promise<DescribeAddressesCommandOutput> | void {
     const command = new DescribeAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddressesAttributeCommandOutput>;
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    cb: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
+  ): void;
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
+  ): void;
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressesAttributeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
+  ): Promise<DescribeAddressesAttributeCommandOutput> | void {
+    const command = new DescribeAddressesAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -14260,6 +14304,35 @@ export class EC2 extends EC2Client {
     }
   }
 
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyAddressAttributeCommandOutput>;
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): void;
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): void;
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAddressAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): Promise<ModifyAddressAttributeCommandOutput> | void {
+    const command = new ModifyAddressAttributeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
    *       account.</p>
@@ -16958,6 +17031,35 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: RequestSpotInstancesCommandOutput) => void
   ): Promise<RequestSpotInstancesCommandOutput> | void {
     const command = new RequestSpotInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetAddressAttributeCommandOutput>;
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    cb: (err: any, data?: ResetAddressAttributeCommandOutput) => void
+  ): void;
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetAddressAttributeCommandOutput) => void
+  ): void;
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetAddressAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ResetAddressAttributeCommandOutput) => void
+  ): Promise<ResetAddressAttributeCommandOutput> | void {
+    const command = new ResetAddressAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

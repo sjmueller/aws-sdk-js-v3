@@ -27,6 +27,9 @@ export * from "./pagination/DescribeEnvironmentManagedActionHistoryPaginator.ts"
 export * from "./commands/DescribeEnvironmentManagedActionsCommand.ts";
 export * from "./commands/DescribeEnvironmentResourcesCommand.ts";
 export * from "./commands/DescribeEnvironmentsCommand.ts";
+export * from "./waiters/waitForEnvironmentExists.ts";
+export * from "./waiters/waitForEnvironmentTerminated.ts";
+export * from "./waiters/waitForEnvironmentUpdated.ts";
 export * from "./commands/DescribeEventsCommand.ts";
 export * from "./pagination/DescribeEventsPaginator.ts";
 export * from "./commands/DescribeInstancesHealthCommand.ts";

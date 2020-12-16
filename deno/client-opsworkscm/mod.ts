@@ -11,6 +11,7 @@ export * from "./pagination/DescribeBackupsPaginator.ts";
 export * from "./commands/DescribeEventsCommand.ts";
 export * from "./pagination/DescribeEventsPaginator.ts";
 export * from "./commands/DescribeNodeAssociationStatusCommand.ts";
+export * from "./waiters/waitForNodeAssociated.ts";
 export * from "./commands/DescribeServersCommand.ts";
 export * from "./pagination/DescribeServersPaginator.ts";
 export * from "./commands/DisassociateNodeCommand.ts";

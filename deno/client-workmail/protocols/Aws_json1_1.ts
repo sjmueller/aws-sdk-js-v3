@@ -6,41 +6,23 @@ import {
   AssociateMemberToGroupCommandInput,
   AssociateMemberToGroupCommandOutput,
 } from "../commands/AssociateMemberToGroupCommand.ts";
-import {
-  CancelMailboxExportJobCommandInput,
-  CancelMailboxExportJobCommandOutput,
-} from "../commands/CancelMailboxExportJobCommand.ts";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/CreateAliasCommand.ts";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand.ts";
-import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "../commands/CreateOrganizationCommand.ts";
 import { CreateResourceCommandInput, CreateResourceCommandOutput } from "../commands/CreateResourceCommand.ts";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand.ts";
-import {
-  DeleteAccessControlRuleCommandInput,
-  DeleteAccessControlRuleCommandOutput,
-} from "../commands/DeleteAccessControlRuleCommand.ts";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand.ts";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand.ts";
 import {
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
 } from "../commands/DeleteMailboxPermissionsCommand.ts";
-import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "../commands/DeleteOrganizationCommand.ts";
 import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "../commands/DeleteResourceCommand.ts";
-import {
-  DeleteRetentionPolicyCommandInput,
-  DeleteRetentionPolicyCommandOutput,
-} from "../commands/DeleteRetentionPolicyCommand.ts";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand.ts";
 import {
   DeregisterFromWorkMailCommandInput,
   DeregisterFromWorkMailCommandOutput,
 } from "../commands/DeregisterFromWorkMailCommand.ts";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand.ts";
-import {
-  DescribeMailboxExportJobCommandInput,
-  DescribeMailboxExportJobCommandOutput,
-} from "../commands/DescribeMailboxExportJobCommand.ts";
 import {
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
@@ -55,26 +37,10 @@ import {
   DisassociateMemberFromGroupCommandInput,
   DisassociateMemberFromGroupCommandOutput,
 } from "../commands/DisassociateMemberFromGroupCommand.ts";
-import {
-  GetAccessControlEffectCommandInput,
-  GetAccessControlEffectCommandOutput,
-} from "../commands/GetAccessControlEffectCommand.ts";
-import {
-  GetDefaultRetentionPolicyCommandInput,
-  GetDefaultRetentionPolicyCommandOutput,
-} from "../commands/GetDefaultRetentionPolicyCommand.ts";
 import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "../commands/GetMailboxDetailsCommand.ts";
-import {
-  ListAccessControlRulesCommandInput,
-  ListAccessControlRulesCommandOutput,
-} from "../commands/ListAccessControlRulesCommand.ts";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand.ts";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "../commands/ListGroupMembersCommand.ts";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand.ts";
-import {
-  ListMailboxExportJobsCommandInput,
-  ListMailboxExportJobsCommandOutput,
-} from "../commands/ListMailboxExportJobsCommand.ts";
 import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
@@ -85,28 +51,13 @@ import {
   ListResourceDelegatesCommandOutput,
 } from "../commands/ListResourceDelegatesCommand.ts";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand.ts";
-import {
-  ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
-} from "../commands/ListTagsForResourceCommand.ts";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand.ts";
-import {
-  PutAccessControlRuleCommandInput,
-  PutAccessControlRuleCommandOutput,
-} from "../commands/PutAccessControlRuleCommand.ts";
 import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "../commands/PutMailboxPermissionsCommand.ts";
-import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "../commands/PutRetentionPolicyCommand.ts";
 import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "../commands/RegisterToWorkMailCommand.ts";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "../commands/ResetPasswordCommand.ts";
-import {
-  StartMailboxExportJobCommandInput,
-  StartMailboxExportJobCommandOutput,
-} from "../commands/StartMailboxExportJobCommand.ts";
-import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
-import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
 import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "../commands/UpdateMailboxQuotaCommand.ts";
 import {
   UpdatePrimaryEmailAddressCommandInput,
@@ -114,87 +65,62 @@ import {
 } from "../commands/UpdatePrimaryEmailAddressCommand.ts";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "../commands/UpdateResourceCommand.ts";
 import {
-  AccessControlRule,
   AssociateDelegateToResourceRequest,
   AssociateDelegateToResourceResponse,
   AssociateMemberToGroupRequest,
   AssociateMemberToGroupResponse,
   BookingOptions,
-  CancelMailboxExportJobRequest,
-  CancelMailboxExportJobResponse,
   CreateAliasRequest,
   CreateAliasResponse,
   CreateGroupRequest,
   CreateGroupResponse,
-  CreateOrganizationRequest,
-  CreateOrganizationResponse,
   CreateResourceRequest,
   CreateResourceResponse,
   CreateUserRequest,
   CreateUserResponse,
   Delegate,
-  DeleteAccessControlRuleRequest,
-  DeleteAccessControlRuleResponse,
   DeleteAliasRequest,
   DeleteAliasResponse,
   DeleteGroupRequest,
   DeleteGroupResponse,
   DeleteMailboxPermissionsRequest,
   DeleteMailboxPermissionsResponse,
-  DeleteOrganizationRequest,
-  DeleteOrganizationResponse,
   DeleteResourceRequest,
   DeleteResourceResponse,
-  DeleteRetentionPolicyRequest,
-  DeleteRetentionPolicyResponse,
   DeleteUserRequest,
   DeleteUserResponse,
   DeregisterFromWorkMailRequest,
   DeregisterFromWorkMailResponse,
   DescribeGroupRequest,
   DescribeGroupResponse,
-  DescribeMailboxExportJobRequest,
-  DescribeMailboxExportJobResponse,
   DescribeOrganizationRequest,
   DescribeOrganizationResponse,
   DescribeResourceRequest,
   DescribeResourceResponse,
   DescribeUserRequest,
   DescribeUserResponse,
-  DirectoryInUseException,
   DirectoryServiceAuthenticationFailedException,
   DirectoryUnavailableException,
   DisassociateDelegateFromResourceRequest,
   DisassociateDelegateFromResourceResponse,
   DisassociateMemberFromGroupRequest,
   DisassociateMemberFromGroupResponse,
-  Domain,
   EmailAddressInUseException,
   EntityAlreadyRegisteredException,
   EntityNotFoundException,
   EntityStateException,
-  FolderConfiguration,
-  GetAccessControlEffectRequest,
-  GetAccessControlEffectResponse,
-  GetDefaultRetentionPolicyRequest,
-  GetDefaultRetentionPolicyResponse,
   GetMailboxDetailsRequest,
   GetMailboxDetailsResponse,
   Group,
   InvalidConfigurationException,
   InvalidParameterException,
   InvalidPasswordException,
-  LimitExceededException,
-  ListAccessControlRulesRequest,
-  ListAccessControlRulesResponse,
   ListAliasesRequest,
   ListAliasesResponse,
   ListGroupMembersRequest,
   ListGroupMembersResponse,
   ListGroupsRequest,
   ListGroupsResponse,
-  ListMailboxExportJobsRequest,
-  ListMailboxExportJobsResponse,
   ListMailboxPermissionsRequest,
   ListMailboxPermissionsResponse,
   ListOrganizationsRequest,
@@ -203,13 +129,10 @@ import {
   ListResourceDelegatesResponse,
   ListResourcesRequest,
   ListResourcesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
   ListUsersRequest,
   ListUsersResponse,
   MailDomainNotFoundException,
   MailDomainStateException,
-  MailboxExportJob,
   Member,
   NameAvailabilityException,
   OrganizationNotFoundException,
@@ -217,28 +140,15 @@ import {
   OrganizationSummary,
   Permission,
   PermissionType,
-  PutAccessControlRuleRequest,
-  PutAccessControlRuleResponse,
   PutMailboxPermissionsRequest,
   PutMailboxPermissionsResponse,
-  PutRetentionPolicyRequest,
-  PutRetentionPolicyResponse,
   RegisterToWorkMailRequest,
   RegisterToWorkMailResponse,
   ReservedNameException,
   ResetPasswordRequest,
   ResetPasswordResponse,
   Resource,
-  ResourceNotFoundException,
-  StartMailboxExportJobRequest,
-  StartMailboxExportJobResponse,
-  Tag,
-  TagResourceRequest,
-  TagResourceResponse,
-  TooManyTagsException,
   UnsupportedOperationException,
-  UntagResourceRequest,
-  UntagResourceResponse,
   UpdateMailboxQuotaRequest,
   UpdateMailboxQuotaResponse,
   UpdatePrimaryEmailAddressRequest,
@@ -256,14 +166,13 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
-import { v4 as generateIdempotencyToken } from "../../uuid/mod.ts";
 
 export const serializeAws_json1_1AssociateDelegateToResourceCommand = async (
   input: AssociateDelegateToResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.AssociateDelegateToResource",
   };
   let body: any;
@@ -276,24 +185,11 @@ export const serializeAws_json1_1AssociateMemberToGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.AssociateMemberToGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateMemberToGroupRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1CancelMailboxExportJobCommand = async (
-  input: CancelMailboxExportJobCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.CancelMailboxExportJob",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1CancelMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -302,7 +198,7 @@ export const serializeAws_json1_1CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.CreateAlias",
   };
   let body: any;
@@ -315,24 +211,11 @@ export const serializeAws_json1_1CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.CreateGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1CreateOrganizationCommand = async (
-  input: CreateOrganizationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.CreateOrganization",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1CreateOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -341,7 +224,7 @@ export const serializeAws_json1_1CreateResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.CreateResource",
   };
   let body: any;
@@ -354,24 +237,11 @@ export const serializeAws_json1_1CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.CreateUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DeleteAccessControlRuleCommand = async (
-  input: DeleteAccessControlRuleCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteAccessControlRule",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteAccessControlRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -380,7 +250,7 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DeleteAlias",
   };
   let body: any;
@@ -393,7 +263,7 @@ export const serializeAws_json1_1DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DeleteGroup",
   };
   let body: any;
@@ -406,24 +276,11 @@ export const serializeAws_json1_1DeleteMailboxPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DeleteMailboxPermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMailboxPermissionsRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DeleteOrganizationCommand = async (
-  input: DeleteOrganizationCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteOrganization",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -432,24 +289,11 @@ export const serializeAws_json1_1DeleteResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DeleteResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourceRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DeleteRetentionPolicyCommand = async (
-  input: DeleteRetentionPolicyCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteRetentionPolicy",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1DeleteRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -458,7 +302,7 @@ export const serializeAws_json1_1DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DeleteUser",
   };
   let body: any;
@@ -471,7 +315,7 @@ export const serializeAws_json1_1DeregisterFromWorkMailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DeregisterFromWorkMail",
   };
   let body: any;
@@ -484,24 +328,11 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DescribeGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGroupRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1DescribeMailboxExportJobCommand = async (
-  input: DescribeMailboxExportJobCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DescribeMailboxExportJob",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1DescribeMailboxExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -510,7 +341,7 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DescribeOrganization",
   };
   let body: any;
@@ -523,7 +354,7 @@ export const serializeAws_json1_1DescribeResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DescribeResource",
   };
   let body: any;
@@ -536,7 +367,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DescribeUser",
   };
   let body: any;
@@ -549,7 +380,7 @@ export const serializeAws_json1_1DisassociateDelegateFromResourceCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DisassociateDelegateFromResource",
   };
   let body: any;
@@ -562,37 +393,11 @@ export const serializeAws_json1_1DisassociateMemberFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.DisassociateMemberFromGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateMemberFromGroupRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1GetAccessControlEffectCommand = async (
-  input: GetAccessControlEffectCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.GetAccessControlEffect",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetAccessControlEffectRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
-  input: GetDefaultRetentionPolicyCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.GetDefaultRetentionPolicy",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1GetDefaultRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -601,24 +406,11 @@ export const serializeAws_json1_1GetMailboxDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.GetMailboxDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMailboxDetailsRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1ListAccessControlRulesCommand = async (
-  input: ListAccessControlRulesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListAccessControlRules",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListAccessControlRulesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -627,7 +419,7 @@ export const serializeAws_json1_1ListAliasesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListAliases",
   };
   let body: any;
@@ -640,7 +432,7 @@ export const serializeAws_json1_1ListGroupMembersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListGroupMembers",
   };
   let body: any;
@@ -653,24 +445,11 @@ export const serializeAws_json1_1ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1ListMailboxExportJobsCommand = async (
-  input: ListMailboxExportJobsCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListMailboxExportJobs",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListMailboxExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -679,7 +458,7 @@ export const serializeAws_json1_1ListMailboxPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListMailboxPermissions",
   };
   let body: any;
@@ -692,7 +471,7 @@ export const serializeAws_json1_1ListOrganizationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListOrganizations",
   };
   let body: any;
@@ -705,7 +484,7 @@ export const serializeAws_json1_1ListResourceDelegatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListResourceDelegates",
   };
   let body: any;
@@ -718,24 +497,11 @@ export const serializeAws_json1_1ListResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListResources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourcesRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1ListTagsForResourceCommand = async (
-  input: ListTagsForResourceCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListTagsForResource",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -744,24 +510,11 @@ export const serializeAws_json1_1ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ListUsers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1PutAccessControlRuleCommand = async (
-  input: PutAccessControlRuleCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.PutAccessControlRule",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutAccessControlRuleRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -770,24 +523,11 @@ export const serializeAws_json1_1PutMailboxPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.PutMailboxPermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutMailboxPermissionsRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1PutRetentionPolicyCommand = async (
-  input: PutRetentionPolicyCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.PutRetentionPolicy",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1PutRetentionPolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -796,7 +536,7 @@ export const serializeAws_json1_1RegisterToWorkMailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.RegisterToWorkMail",
   };
   let body: any;
@@ -809,50 +549,11 @@ export const serializeAws_json1_1ResetPasswordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.ResetPassword",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResetPasswordRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1StartMailboxExportJobCommand = async (
-  input: StartMailboxExportJobCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.StartMailboxExportJob",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1StartMailboxExportJobRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1TagResourceCommand = async (
-  input: TagResourceCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.TagResource",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
-  return buildHttpRpcRequest(context, headers, "/", undefined, body);
-};
-
-export const serializeAws_json1_1UntagResourceCommand = async (
-  input: UntagResourceCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.UntagResource",
-  };
-  let body: any;
-  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -861,7 +562,7 @@ export const serializeAws_json1_1UpdateMailboxQuotaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.UpdateMailboxQuota",
   };
   let body: any;
@@ -874,7 +575,7 @@ export const serializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.UpdatePrimaryEmailAddress",
   };
   let body: any;
@@ -887,7 +588,7 @@ export const serializeAws_json1_1UpdateResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkMailService.UpdateResource",
   };
   let body: any;
@@ -922,8 +623,7 @@ const deserializeAws_json1_1AssociateDelegateToResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -1009,8 +709,7 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -1093,85 +792,6 @@ const deserializeAws_json1_1AssociateMemberToGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CancelMailboxExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMailboxExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CancelMailboxExportJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1CancelMailboxExportJobResponse(data, context);
-  const response: CancelMailboxExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1CancelMailboxExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMailboxExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1CreateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1199,8 +819,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EmailAddressInUseException":
     case "com.amazonaws.workmail#EmailAddressInUseException":
@@ -1230,14 +849,6 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
     case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1318,8 +929,7 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -1402,93 +1012,6 @@ const deserializeAws_json1_1CreateGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1CreateOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1CreateOrganizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1CreateOrganizationResponse(data, context);
-  const response: CreateOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1CreateOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "DirectoryInUseException":
-    case "com.amazonaws.workmail#DirectoryInUseException":
-      response = {
-        ...(await deserializeAws_json1_1DirectoryInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1DirectoryUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      response = {
-        ...(await deserializeAws_json1_1NameAvailabilityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1CreateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1516,8 +1039,7 @@ const deserializeAws_json1_1CreateResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -1619,8 +1141,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -1711,69 +1232,6 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1DeleteAccessControlRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessControlRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteAccessControlRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAccessControlRuleResponse(data, context);
-  const response: DeleteAccessControlRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DeleteAccessControlRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessControlRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1801,8 +1259,7 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -1888,8 +1345,7 @@ const deserializeAws_json1_1DeleteGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -1991,8 +1447,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -2010,77 +1465,6 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DeleteOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteOrganizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DeleteOrganizationResponse(data, context);
-  const response: DeleteOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DeleteOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
       response = {
@@ -2149,8 +1533,7 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityStateException":
     case "com.amazonaws.workmail#EntityStateException":
@@ -2160,77 +1543,6 @@ const deserializeAws_json1_1DeleteResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DeleteRetentionPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRetentionPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DeleteRetentionPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRetentionPolicyResponse(data, context);
-  const response: DeleteRetentionPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
       response = {
@@ -2299,8 +1611,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -2402,8 +1713,7 @@ const deserializeAws_json1_1DeregisterFromWorkMailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -2489,87 +1799,7 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1DescribeMailboxExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMailboxExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1DescribeMailboxExportJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMailboxExportJobResponse(data, context);
-  const response: DescribeMailboxExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1DescribeMailboxExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMailboxExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -2647,8 +1877,7 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
@@ -2710,8 +1939,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -2789,8 +2017,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -2868,8 +2095,7 @@ const deserializeAws_json1_1DisassociateDelegateFromResourceCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -2955,8 +2181,7 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -3039,164 +2264,6 @@ const deserializeAws_json1_1DisassociateMemberFromGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1GetAccessControlEffectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessControlEffectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetAccessControlEffectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetAccessControlEffectResponse(data, context);
-  const response: GetAccessControlEffectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetAccessControlEffectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessControlEffectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1GetDefaultRetentionPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultRetentionPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1GetDefaultRetentionPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1GetDefaultRetentionPolicyResponse(data, context);
-  const response: GetDefaultRetentionPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1GetDefaultRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1GetMailboxDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3224,8 +2291,7 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -3235,69 +2301,6 @@ const deserializeAws_json1_1GetMailboxDetailsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListAccessControlRulesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessControlRulesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListAccessControlRulesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListAccessControlRulesResponse(data, context);
-  const response: ListAccessControlRulesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListAccessControlRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessControlRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
     case "OrganizationNotFoundException":
     case "com.amazonaws.workmail#OrganizationNotFoundException":
       response = {
@@ -3358,8 +2361,7 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -3445,8 +2447,7 @@ const deserializeAws_json1_1ListGroupMembersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -3532,8 +2533,7 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -3543,77 +2543,6 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListMailboxExportJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMailboxExportJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListMailboxExportJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListMailboxExportJobsResponse(data, context);
-  const response: ListMailboxExportJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListMailboxExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMailboxExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
       response = {
@@ -3682,8 +2611,7 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -3761,8 +2689,7 @@ const deserializeAws_json1_1ListOrganizationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
@@ -3816,8 +2743,7 @@ const deserializeAws_json1_1ListResourceDelegatesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -3903,8 +2829,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
@@ -3926,61 +2851,6 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
     case "com.amazonaws.workmail#OrganizationStateException":
       response = {
         ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4029,100 +2899,12 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1PutAccessControlRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccessControlRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutAccessControlRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1PutAccessControlRuleResponse(data, context);
-  const response: PutAccessControlRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccessControlRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4187,8 +2969,7 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -4210,85 +2991,6 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
     case "com.amazonaws.workmail#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1PutRetentionPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRetentionPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1PutRetentionPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1PutRetentionPolicyResponse(data, context);
-  const response: PutRetentionPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4353,8 +3055,7 @@ const deserializeAws_json1_1RegisterToWorkMailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -4488,8 +3189,7 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -4580,219 +3280,6 @@ const deserializeAws_json1_1ResetPasswordCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_json1_1StartMailboxExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMailboxExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1StartMailboxExportJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1StartMailboxExportJobResponse(data, context);
-  const response: StartMailboxExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1StartMailboxExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMailboxExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(data, context);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "TooManyTagsException":
-    case "com.amazonaws.workmail#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_json1_1UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return deserializeAws_json1_1UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return Promise.resolve(response);
-};
-
-const deserializeAws_json1_1UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_json1_1UpdateMailboxQuotaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4820,8 +3307,7 @@ const deserializeAws_json1_1UpdateMailboxQuotaCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
@@ -4907,8 +3393,7 @@ const deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryServiceAuthenticationFailedException":
     case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
@@ -5042,8 +3527,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectoryUnavailableException":
     case "com.amazonaws.workmail#DirectoryUnavailableException":
@@ -5140,21 +3624,6 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
-};
-
-const deserializeAws_json1_1DirectoryInUseExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DirectoryInUseException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DirectoryInUseException(body, context);
-  const contents: DirectoryInUseException = {
-    name: "DirectoryInUseException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  };
-  return contents;
 };
 
 const deserializeAws_json1_1DirectoryServiceAuthenticationFailedExceptionResponse = async (
@@ -5292,21 +3761,6 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_json1_1LimitExceededExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<LimitExceededException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  };
-  return contents;
-};
-
 const deserializeAws_json1_1MailDomainNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5397,36 +3851,6 @@ const deserializeAws_json1_1ReservedNameExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<ResourceNotFoundException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  };
-  return contents;
-};
-
-const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<TooManyTagsException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  };
-  return contents;
-};
-
 const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5442,18 +3866,15 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1ActionsList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
-};
-
 const serializeAws_json1_1AssociateDelegateToResourceRequest = (
   input: AssociateDelegateToResourceRequest,
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5462,103 +3883,78 @@ const serializeAws_json1_1AssociateMemberToGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1BookingOptions = (input: BookingOptions, context: __SerdeContext): any => {
   return {
-    ...(input.AutoAcceptRequests !== undefined && { AutoAcceptRequests: input.AutoAcceptRequests }),
-    ...(input.AutoDeclineConflictingRequests !== undefined && {
-      AutoDeclineConflictingRequests: input.AutoDeclineConflictingRequests,
-    }),
-    ...(input.AutoDeclineRecurringRequests !== undefined && {
-      AutoDeclineRecurringRequests: input.AutoDeclineRecurringRequests,
-    }),
-  };
-};
-
-const serializeAws_json1_1CancelMailboxExportJobRequest = (
-  input: CancelMailboxExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.AutoAcceptRequests !== undefined &&
+      input.AutoAcceptRequests !== null && { AutoAcceptRequests: input.AutoAcceptRequests }),
+    ...(input.AutoDeclineConflictingRequests !== undefined &&
+      input.AutoDeclineConflictingRequests !== null && {
+        AutoDeclineConflictingRequests: input.AutoDeclineConflictingRequests,
+      }),
+    ...(input.AutoDeclineRecurringRequests !== undefined &&
+      input.AutoDeclineRecurringRequests !== null && {
+        AutoDeclineRecurringRequests: input.AutoDeclineRecurringRequests,
+      }),
   };
 };
 
 const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias !== undefined && { Alias: input.Alias }),
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1CreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-  };
-};
-
-const serializeAws_json1_1CreateOrganizationRequest = (
-  input: CreateOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Alias !== undefined && { Alias: input.Alias }),
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Domains !== undefined && { Domains: serializeAws_json1_1Domains(input.Domains, context) }),
-    ...(input.EnableInteroperability !== undefined && { EnableInteroperability: input.EnableInteroperability }),
-    ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1CreateResourceRequest = (input: CreateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-  };
-};
-
-const serializeAws_json1_1DeleteAccessControlRuleRequest = (
-  input: DeleteAccessControlRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
   };
 };
 
 const serializeAws_json1_1DeleteAliasRequest = (input: DeleteAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias !== undefined && { Alias: input.Alias }),
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5567,44 +3963,26 @@ const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.GranteeId !== undefined && { GranteeId: input.GranteeId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-  };
-};
-
-const serializeAws_json1_1DeleteOrganizationRequest = (
-  input: DeleteOrganizationRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DeleteDirectory !== undefined && { DeleteDirectory: input.DeleteDirectory }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.GranteeId !== undefined && input.GranteeId !== null && { GranteeId: input.GranteeId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DeleteResourceRequest = (input: DeleteResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-  };
-};
-
-const serializeAws_json1_1DeleteRetentionPolicyRequest = (
-  input: DeleteRetentionPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
@@ -5613,25 +3991,17 @@ const serializeAws_json1_1DeregisterFromWorkMailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-  };
-};
-
-const serializeAws_json1_1DescribeMailboxExportJobRequest = (
-  input: DescribeMailboxExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5640,21 +4010,24 @@ const serializeAws_json1_1DescribeOrganizationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1DescribeResourceRequest = (input: DescribeResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
@@ -5663,9 +4036,10 @@ const serializeAws_json1_1DisassociateDelegateFromResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5674,53 +4048,10 @@ const serializeAws_json1_1DisassociateMemberFromGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-  };
-};
-
-const serializeAws_json1_1Domain = (input: Domain, context: __SerdeContext): any => {
-  return {
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.HostedZoneId !== undefined && { HostedZoneId: input.HostedZoneId }),
-  };
-};
-
-const serializeAws_json1_1Domains = (input: Domain[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Domain(entry, context));
-};
-
-const serializeAws_json1_1FolderConfiguration = (input: FolderConfiguration, context: __SerdeContext): any => {
-  return {
-    ...(input.Action !== undefined && { Action: input.Action }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Period !== undefined && { Period: input.Period }),
-  };
-};
-
-const serializeAws_json1_1FolderConfigurations = (input: FolderConfiguration[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1FolderConfiguration(entry, context));
-};
-
-const serializeAws_json1_1GetAccessControlEffectRequest = (
-  input: GetAccessControlEffectRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Action !== undefined && { Action: input.Action }),
-    ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
-  };
-};
-
-const serializeAws_json1_1GetDefaultRetentionPolicyRequest = (
-  input: GetDefaultRetentionPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5729,58 +4060,38 @@ const serializeAws_json1_1GetMailboxDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
-  };
-};
-
-const serializeAws_json1_1IpRangeList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
-};
-
-const serializeAws_json1_1ListAccessControlRulesRequest = (
-  input: ListAccessControlRulesRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
 const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListGroupMembersRequest = (input: ListGroupMembersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-  };
-};
-
-const serializeAws_json1_1ListMailboxExportJobsRequest = (
-  input: ListMailboxExportJobsRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5789,10 +4100,11 @@ const serializeAws_json1_1ListMailboxPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -5801,8 +4113,8 @@ const serializeAws_json1_1ListOrganizationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5811,60 +4123,41 @@ const serializeAws_json1_1ListResourceDelegatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-  };
-};
-
-const serializeAws_json1_1ListTagsForResourceRequest = (
-  input: ListTagsForResourceRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1PermissionValues = (input: (PermissionType | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
-};
-
-const serializeAws_json1_1PutAccessControlRuleRequest = (
-  input: PutAccessControlRuleRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Actions !== undefined && { Actions: serializeAws_json1_1ActionsList(input.Actions, context) }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Effect !== undefined && { Effect: input.Effect }),
-    ...(input.IpRanges !== undefined && { IpRanges: serializeAws_json1_1IpRangeList(input.IpRanges, context) }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.NotActions !== undefined && { NotActions: serializeAws_json1_1ActionsList(input.NotActions, context) }),
-    ...(input.NotIpRanges !== undefined && {
-      NotIpRanges: serializeAws_json1_1IpRangeList(input.NotIpRanges, context),
-    }),
-    ...(input.NotUserIds !== undefined && { NotUserIds: serializeAws_json1_1UserIdList(input.NotUserIds, context) }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserIds !== undefined && { UserIds: serializeAws_json1_1UserIdList(input.UserIds, context) }),
-  };
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PutMailboxPermissionsRequest = (
@@ -5872,27 +4165,14 @@ const serializeAws_json1_1PutMailboxPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.GranteeId !== undefined && { GranteeId: input.GranteeId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.PermissionValues !== undefined && {
-      PermissionValues: serializeAws_json1_1PermissionValues(input.PermissionValues, context),
-    }),
-  };
-};
-
-const serializeAws_json1_1PutRetentionPolicyRequest = (
-  input: PutRetentionPolicyRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.FolderConfigurations !== undefined && {
-      FolderConfigurations: serializeAws_json1_1FolderConfigurations(input.FolderConfigurations, context),
-    }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.GranteeId !== undefined && input.GranteeId !== null && { GranteeId: input.GranteeId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.PermissionValues !== undefined &&
+      input.PermissionValues !== null && {
+        PermissionValues: serializeAws_json1_1PermissionValues(input.PermissionValues, context),
+      }),
   };
 };
 
@@ -5901,62 +4181,19 @@ const serializeAws_json1_1RegisterToWorkMailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1ResetPasswordRequest = (input: ResetPasswordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
-  };
-};
-
-const serializeAws_json1_1StartMailboxExportJobRequest = (
-  input: StartMailboxExportJobRequest,
-  context: __SerdeContext
-): any => {
-  return {
-    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
-    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
-  };
-};
-
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
-  };
-};
-
-const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
-};
-
-const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
-};
-
-const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-  };
-};
-
-const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
-  return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
@@ -5965,9 +4202,10 @@ const serializeAws_json1_1UpdateMailboxQuotaRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MailboxQuota !== undefined && { MailboxQuota: input.MailboxQuota }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.MailboxQuota !== undefined && input.MailboxQuota !== null && { MailboxQuota: input.MailboxQuota }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
@@ -5976,81 +4214,35 @@ const serializeAws_json1_1UpdatePrimaryEmailAddressRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Email !== undefined && { Email: input.Email }),
-    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
+    ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
 const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BookingOptions !== undefined && {
-      BookingOptions: serializeAws_json1_1BookingOptions(input.BookingOptions, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.BookingOptions !== undefined &&
+      input.BookingOptions !== null && {
+        BookingOptions: serializeAws_json1_1BookingOptions(input.BookingOptions, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
-const serializeAws_json1_1UserIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
-};
-
-const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeContext): AccessControlRule => {
-  return {
-    Actions:
-      output.Actions !== undefined && output.Actions !== null
-        ? deserializeAws_json1_1ActionsList(output.Actions, context)
-        : undefined,
-    DateCreated:
-      output.DateCreated !== undefined && output.DateCreated !== null
-        ? new Date(Math.round(output.DateCreated * 1000))
-        : undefined,
-    DateModified:
-      output.DateModified !== undefined && output.DateModified !== null
-        ? new Date(Math.round(output.DateModified * 1000))
-        : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Effect: output.Effect !== undefined && output.Effect !== null ? output.Effect : undefined,
-    IpRanges:
-      output.IpRanges !== undefined && output.IpRanges !== null
-        ? deserializeAws_json1_1IpRangeList(output.IpRanges, context)
-        : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NotActions:
-      output.NotActions !== undefined && output.NotActions !== null
-        ? deserializeAws_json1_1ActionsList(output.NotActions, context)
-        : undefined,
-    NotIpRanges:
-      output.NotIpRanges !== undefined && output.NotIpRanges !== null
-        ? deserializeAws_json1_1IpRangeList(output.NotIpRanges, context)
-        : undefined,
-    NotUserIds:
-      output.NotUserIds !== undefined && output.NotUserIds !== null
-        ? deserializeAws_json1_1UserIdList(output.NotUserIds, context)
-        : undefined,
-    UserIds:
-      output.UserIds !== undefined && output.UserIds !== null
-        ? deserializeAws_json1_1UserIdList(output.UserIds, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1AccessControlRuleNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1AccessControlRulesList = (output: any, context: __SerdeContext): AccessControlRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AccessControlRule(entry, context));
-};
-
-const deserializeAws_json1_1ActionsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1Aliases = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AssociateDelegateToResourceResponse = (
@@ -6084,13 +4276,6 @@ const deserializeAws_json1_1BookingOptions = (output: any, context: __SerdeConte
   } as any;
 };
 
-const deserializeAws_json1_1CancelMailboxExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): CancelMailboxExportJobResponse => {
-  return {} as any;
-};
-
 const deserializeAws_json1_1CreateAliasResponse = (output: any, context: __SerdeContext): CreateAliasResponse => {
   return {} as any;
 };
@@ -6098,16 +4283,6 @@ const deserializeAws_json1_1CreateAliasResponse = (output: any, context: __Serde
 const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   return {
     GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1CreateOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateOrganizationResponse => {
-  return {
-    OrganizationId:
-      output.OrganizationId !== undefined && output.OrganizationId !== null ? output.OrganizationId : undefined,
   } as any;
 };
 
@@ -6130,13 +4305,6 @@ const deserializeAws_json1_1Delegate = (output: any, context: __SerdeContext): D
   } as any;
 };
 
-const deserializeAws_json1_1DeleteAccessControlRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteAccessControlRuleResponse => {
-  return {} as any;
-};
-
 const deserializeAws_json1_1DeleteAliasResponse = (output: any, context: __SerdeContext): DeleteAliasResponse => {
   return {} as any;
 };
@@ -6152,25 +4320,7 @@ const deserializeAws_json1_1DeleteMailboxPermissionsResponse = (
   return {} as any;
 };
 
-const deserializeAws_json1_1DeleteOrganizationResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteOrganizationResponse => {
-  return {
-    OrganizationId:
-      output.OrganizationId !== undefined && output.OrganizationId !== null ? output.OrganizationId : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-  } as any;
-};
-
 const deserializeAws_json1_1DeleteResourceResponse = (output: any, context: __SerdeContext): DeleteResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1DeleteRetentionPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): DeleteRetentionPolicyResponse => {
   return {} as any;
 };
 
@@ -6202,39 +4352,11 @@ const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMailboxExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeMailboxExportJobResponse => {
-  return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
-    EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
-    ErrorInfo: output.ErrorInfo !== undefined && output.ErrorInfo !== null ? output.ErrorInfo : undefined,
-    EstimatedProgress:
-      output.EstimatedProgress !== undefined && output.EstimatedProgress !== null
-        ? output.EstimatedProgress
-        : undefined,
-    KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
-    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
-    S3Path: output.S3Path !== undefined && output.S3Path !== null ? output.S3Path : undefined,
-    S3Prefix: output.S3Prefix !== undefined && output.S3Prefix !== null ? output.S3Prefix : undefined,
-    StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
-        : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-  } as any;
-};
-
 const deserializeAws_json1_1DescribeOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeOrganizationResponse => {
   return {
-    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     CompletedDate:
       output.CompletedDate !== undefined && output.CompletedDate !== null
@@ -6295,15 +4417,6 @@ const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __Serd
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
     UserRole: output.UserRole !== undefined && output.UserRole !== null ? output.UserRole : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1DirectoryInUseException = (
-  output: any,
-  context: __SerdeContext
-): DirectoryInUseException => {
-  return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -6372,46 +4485,6 @@ const deserializeAws_json1_1EntityStateException = (output: any, context: __Serd
   } as any;
 };
 
-const deserializeAws_json1_1FolderConfiguration = (output: any, context: __SerdeContext): FolderConfiguration => {
-  return {
-    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    Period: output.Period !== undefined && output.Period !== null ? output.Period : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1FolderConfigurations = (output: any, context: __SerdeContext): FolderConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FolderConfiguration(entry, context));
-};
-
-const deserializeAws_json1_1GetAccessControlEffectResponse = (
-  output: any,
-  context: __SerdeContext
-): GetAccessControlEffectResponse => {
-  return {
-    Effect: output.Effect !== undefined && output.Effect !== null ? output.Effect : undefined,
-    MatchedRules:
-      output.MatchedRules !== undefined && output.MatchedRules !== null
-        ? deserializeAws_json1_1AccessControlRuleNameList(output.MatchedRules, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1GetDefaultRetentionPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetDefaultRetentionPolicyResponse => {
-  return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FolderConfigurations:
-      output.FolderConfigurations !== undefined && output.FolderConfigurations !== null
-        ? deserializeAws_json1_1FolderConfigurations(output.FolderConfigurations, context)
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-  } as any;
-};
-
 const deserializeAws_json1_1GetMailboxDetailsResponse = (
   output: any,
   context: __SerdeContext
@@ -6440,7 +4513,14 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
 };
 
 const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Group[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Group(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Group(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InvalidConfigurationException = (
@@ -6467,32 +4547,6 @@ const deserializeAws_json1_1InvalidPasswordException = (
 ): InvalidPasswordException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1IpRangeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): MailboxExportJob[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MailboxExportJob(entry, context));
-};
-
-const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListAccessControlRulesResponse = (
-  output: any,
-  context: __SerdeContext
-): ListAccessControlRulesResponse => {
-  return {
-    Rules:
-      output.Rules !== undefined && output.Rules !== null
-        ? deserializeAws_json1_1AccessControlRulesList(output.Rules, context)
-        : undefined,
   } as any;
 };
 
@@ -6525,17 +4579,6 @@ const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeC
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1Groups(output.Groups, context)
         : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1ListMailboxExportJobsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListMailboxExportJobsResponse => {
-  return {
-    Jobs:
-      output.Jobs !== undefined && output.Jobs !== null ? deserializeAws_json1_1Jobs(output.Jobs, context) : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
@@ -6589,18 +4632,6 @@ const deserializeAws_json1_1ListResourcesResponse = (output: any, context: __Ser
   } as any;
 };
 
-const deserializeAws_json1_1ListTagsForResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): ListTagsForResourceResponse => {
-  return {
-    Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1TagList(output.Tags, context)
-        : undefined,
-  } as any;
-};
-
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -6608,27 +4639,6 @@ const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeCo
       output.Users !== undefined && output.Users !== null
         ? deserializeAws_json1_1Users(output.Users, context)
         : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1MailboxExportJob = (output: any, context: __SerdeContext): MailboxExportJob => {
-  return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    EndTime:
-      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
-    EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
-    EstimatedProgress:
-      output.EstimatedProgress !== undefined && output.EstimatedProgress !== null
-        ? output.EstimatedProgress
-        : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
-    S3Path: output.S3Path !== undefined && output.S3Path !== null ? output.S3Path : undefined,
-    StartTime:
-      output.StartTime !== undefined && output.StartTime !== null
-        ? new Date(Math.round(output.StartTime * 1000))
-        : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
   } as any;
 };
 
@@ -6668,7 +4678,14 @@ const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Mem
 };
 
 const deserializeAws_json1_1Members = (output: any, context: __SerdeContext): Member[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Member(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Member(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NameAvailabilityException = (
@@ -6699,16 +4716,19 @@ const deserializeAws_json1_1OrganizationStateException = (
 };
 
 const deserializeAws_json1_1OrganizationSummaries = (output: any, context: __SerdeContext): OrganizationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1OrganizationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OrganizationSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1OrganizationSummary = (output: any, context: __SerdeContext): OrganizationSummary => {
   return {
     Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
-    DefaultMailDomain:
-      output.DefaultMailDomain !== undefined && output.DefaultMailDomain !== null
-        ? output.DefaultMailDomain
-        : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     OrganizationId:
       output.OrganizationId !== undefined && output.OrganizationId !== null ? output.OrganizationId : undefined,
@@ -6728,31 +4748,31 @@ const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1Permissions = (output: any, context: __SerdeContext): Permission[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Permission(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Permission(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PermissionValues = (output: any, context: __SerdeContext): (PermissionType | string)[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
-const deserializeAws_json1_1PutAccessControlRuleResponse = (
-  output: any,
-  context: __SerdeContext
-): PutAccessControlRuleResponse => {
-  return {} as any;
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1PutMailboxPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): PutMailboxPermissionsResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1PutRetentionPolicyResponse = (
-  output: any,
-  context: __SerdeContext
-): PutRetentionPolicyResponse => {
   return {} as any;
 };
 
@@ -6792,50 +4812,25 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_json1_1ResourceDelegates = (output: any, context: __SerdeContext): Delegate[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Delegate(entry, context));
-};
-
-const deserializeAws_json1_1ResourceNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): ResourceNotFoundException => {
-  return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-  } as any;
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Delegate(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Resources = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Resource(entry, context));
-};
-
-const deserializeAws_json1_1StartMailboxExportJobResponse = (
-  output: any,
-  context: __SerdeContext
-): StartMailboxExportJobResponse => {
-  return {
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
-  return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
-  } as any;
-};
-
-const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
-};
-
-const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {} as any;
-};
-
-const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-  } as any;
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Resource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UnsupportedOperationException = (
@@ -6845,10 +4840,6 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
-};
-
-const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateMailboxQuotaResponse = (
@@ -6888,12 +4879,15 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
   } as any;
 };
 
-const deserializeAws_json1_1UserIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
-};
-
 const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1User(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1User(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -6946,3 +4940,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

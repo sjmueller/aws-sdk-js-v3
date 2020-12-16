@@ -41,7 +41,7 @@ export const serializeAws_json1_0DescribeStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "DynamoDBStreams_20120810.DescribeStream",
   };
   let body: any;
@@ -54,7 +54,7 @@ export const serializeAws_json1_0GetRecordsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "DynamoDBStreams_20120810.GetRecords",
   };
   let body: any;
@@ -67,7 +67,7 @@ export const serializeAws_json1_0GetShardIteratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "DynamoDBStreams_20120810.GetShardIterator",
   };
   let body: any;
@@ -80,7 +80,7 @@ export const serializeAws_json1_0ListStreamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "DynamoDBStreams_20120810.ListStreams",
   };
   let body: any;
@@ -115,8 +115,7 @@ const deserializeAws_json1_0DescribeStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
@@ -178,8 +177,7 @@ const deserializeAws_json1_0GetRecordsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredIteratorException":
     case "com.amazonaws.dynamodbstreams#ExpiredIteratorException":
@@ -265,8 +263,7 @@ const deserializeAws_json1_0GetShardIteratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
@@ -336,8 +333,7 @@ const deserializeAws_json1_0ListStreamsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodbstreams#InternalServerError":
@@ -449,33 +445,37 @@ const deserializeAws_json1_0TrimmedDataAccessExceptionResponse = async (
 
 const serializeAws_json1_0DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId !== undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.StreamArn !== undefined && { StreamArn: input.StreamArn }),
+    ...(input.ExclusiveStartShardId !== undefined &&
+      input.ExclusiveStartShardId !== null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.StreamArn !== undefined && input.StreamArn !== null && { StreamArn: input.StreamArn }),
   };
 };
 
 const serializeAws_json1_0GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ShardIterator !== undefined && { ShardIterator: input.ShardIterator }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.ShardIterator !== undefined && input.ShardIterator !== null && { ShardIterator: input.ShardIterator }),
   };
 };
 
 const serializeAws_json1_0GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
   return {
-    ...(input.SequenceNumber !== undefined && { SequenceNumber: input.SequenceNumber }),
-    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType !== undefined && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StreamArn !== undefined && { StreamArn: input.StreamArn }),
+    ...(input.SequenceNumber !== undefined &&
+      input.SequenceNumber !== null && { SequenceNumber: input.SequenceNumber }),
+    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
+    ...(input.ShardIteratorType !== undefined &&
+      input.ShardIteratorType !== null && { ShardIteratorType: input.ShardIteratorType }),
+    ...(input.StreamArn !== undefined && input.StreamArn !== null && { StreamArn: input.StreamArn }),
   };
 };
 
 const serializeAws_json1_0ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartStreamArn !== undefined && { ExclusiveStartStreamArn: input.ExclusiveStartStreamArn }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.ExclusiveStartStreamArn !== undefined &&
+      input.ExclusiveStartStreamArn !== null && { ExclusiveStartStreamArn: input.ExclusiveStartStreamArn }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
   };
 };
 
@@ -483,47 +483,80 @@ const deserializeAws_json1_0AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_0AttributeValue(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  return {
-    B: output.B !== undefined && output.B !== null ? context.base64Decoder(output.B) : undefined,
-    BOOL: output.BOOL !== undefined && output.BOOL !== null ? output.BOOL : undefined,
-    BS:
-      output.BS !== undefined && output.BS !== null
-        ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
-        : undefined,
-    L:
-      output.L !== undefined && output.L !== null
-        ? deserializeAws_json1_0ListAttributeValue(output.L, context)
-        : undefined,
-    M:
-      output.M !== undefined && output.M !== null
-        ? deserializeAws_json1_0MapAttributeValue(output.M, context)
-        : undefined,
-    N: output.N !== undefined && output.N !== null ? output.N : undefined,
-    NS:
-      output.NS !== undefined && output.NS !== null
-        ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
-        : undefined,
-    NULL: output.NULL !== undefined && output.NULL !== null ? output.NULL : undefined,
-    S: output.S !== undefined && output.S !== null ? output.S : undefined,
-    SS:
-      output.SS !== undefined && output.SS !== null
-        ? deserializeAws_json1_0StringSetAttributeValue(output.SS, context)
-        : undefined,
-  } as any;
+  if (output.B !== undefined && output.B !== null) {
+    return {
+      B: context.base64Decoder(output.B),
+    };
+  }
+  if (output.BOOL !== undefined && output.BOOL !== null) {
+    return {
+      BOOL: output.BOOL,
+    };
+  }
+  if (output.BS !== undefined && output.BS !== null) {
+    return {
+      BS: deserializeAws_json1_0BinarySetAttributeValue(output.BS, context),
+    };
+  }
+  if (output.L !== undefined && output.L !== null) {
+    return {
+      L: deserializeAws_json1_0ListAttributeValue(output.L, context),
+    };
+  }
+  if (output.M !== undefined && output.M !== null) {
+    return {
+      M: deserializeAws_json1_0MapAttributeValue(output.M, context),
+    };
+  }
+  if (output.N !== undefined && output.N !== null) {
+    return {
+      N: output.N,
+    };
+  }
+  if (output.NS !== undefined && output.NS !== null) {
+    return {
+      NS: deserializeAws_json1_0NumberSetAttributeValue(output.NS, context),
+    };
+  }
+  if (output.NULL !== undefined && output.NULL !== null) {
+    return {
+      NULL: output.NULL,
+    };
+  }
+  if (output.S !== undefined && output.S !== null) {
+    return {
+      S: output.S,
+    };
+  }
+  if (output.SS !== undefined && output.SS !== null) {
+    return {
+      SS: deserializeAws_json1_0StringSetAttributeValue(output.SS, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __SerdeContext): Uint8Array[] => {
-  return (output || []).map((entry: any) => context.base64Decoder(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return context.base64Decoder(entry);
+    });
 };
 
 const deserializeAws_json1_0DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
@@ -578,7 +611,14 @@ const deserializeAws_json1_0InternalServerError = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): KeySchemaElement[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0KeySchemaElement(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0KeySchemaElement(entry, context);
+    });
 };
 
 const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
@@ -596,7 +636,14 @@ const deserializeAws_json1_0LimitExceededException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeContext): AttributeValue[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0AttributeValue(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0AttributeValue(entry, context);
+    });
 };
 
 const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
@@ -616,17 +663,26 @@ const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_0AttributeValue(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _Record => {
@@ -648,7 +704,14 @@ const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _R
 };
 
 const deserializeAws_json1_0RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0_Record(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0_Record(entry, context);
+    });
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
@@ -686,7 +749,14 @@ const deserializeAws_json1_0Shard = (output: any, context: __SerdeContext): Shar
 };
 
 const deserializeAws_json1_0ShardDescriptionList = (output: any, context: __SerdeContext): Shard[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Shard(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Shard(entry, context);
+    });
 };
 
 const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _Stream => {
@@ -725,7 +795,14 @@ const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_0StreamList = (output: any, context: __SerdeContext): _Stream[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0_Stream(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0_Stream(entry, context);
+    });
 };
 
 const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext): StreamRecord => {
@@ -755,7 +832,14 @@ const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_0StringSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_0TrimmedDataAccessException = (
@@ -817,3 +901,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

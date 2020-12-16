@@ -4,14 +4,14 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AcceptResourceShareInvitationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace AcceptResourceShareInvitationRequest {
@@ -34,39 +34,14 @@ export type ResourceShareAssociationStatus =
  */
 export interface ResourceShareAssociation {
   /**
-   * <p>A message about the status of the association.</p>
-   */
-  statusMessage?: string;
-
-  /**
-   * <p>The association type.</p>
-   */
-  associationType?: ResourceShareAssociationType | string;
-
-  /**
-   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
-   */
-  external?: boolean;
-
-  /**
-   * <p>The name of the resource share.</p>
-   */
-  resourceShareName?: string;
-
-  /**
-   * <p>The time when the association was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
 
   /**
-   * <p>The status of the association.</p>
+   * <p>The name of the resource share.</p>
    */
-  status?: ResourceShareAssociationStatus | string;
+  resourceShareName?: string;
 
   /**
    * <p>The associated entity. For resource associations, this is the ARN of the resource.
@@ -76,9 +51,34 @@ export interface ResourceShareAssociation {
   associatedEntity?: string;
 
   /**
+   * <p>The association type.</p>
+   */
+  associationType?: ResourceShareAssociationType | string;
+
+  /**
+   * <p>The status of the association.</p>
+   */
+  status?: ResourceShareAssociationStatus | string;
+
+  /**
+   * <p>A message about the status of the association.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The time when the association was created.</p>
+   */
+  creationTime?: Date;
+
+  /**
    * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
+
+  /**
+   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
+   */
+  external?: boolean;
 }
 
 export namespace ResourceShareAssociation {
@@ -94,36 +94,19 @@ export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" |
  */
 export interface ResourceShareInvitation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
-
-  /**
-   * <p>The ID of the AWS account that received the invitation.</p>
-   */
-  receiverAccountId?: string;
-
-  /**
-   * <p>To view the resources associated with a pending resource share invitation, use
-   *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
-   *       		ListPendingInvitationResources</a>.</p>
-   */
-  resourceShareAssociations?: ResourceShareAssociation[];
-
-  /**
-   * <p>The date and time when the invitation was sent.</p>
-   */
-  invitationTimestamp?: Date;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn?: string;
 
   /**
-   * <p>The status of the invitation.</p>
+   * <p>The name of the resource share.</p>
    */
-  status?: ResourceShareInvitationStatus | string;
+  resourceShareName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+   */
+  resourceShareArn?: string;
 
   /**
    * <p>The ID of the AWS account that sent the invitation.</p>
@@ -131,9 +114,26 @@ export interface ResourceShareInvitation {
   senderAccountId?: string;
 
   /**
-   * <p>The name of the resource share.</p>
+   * <p>The ID of the AWS account that received the invitation.</p>
    */
-  resourceShareName?: string;
+  receiverAccountId?: string;
+
+  /**
+   * <p>The date and time when the invitation was sent.</p>
+   */
+  invitationTimestamp?: Date;
+
+  /**
+   * <p>The status of the invitation.</p>
+   */
+  status?: ResourceShareInvitationStatus | string;
+
+  /**
+   * <p>To view the resources associated with a pending resource share invitation, use
+   *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
+   *       		ListPendingInvitationResources</a>.</p>
+   */
+  resourceShareAssociations?: ResourceShareAssociation[];
 }
 
 export namespace ResourceShareInvitation {
@@ -144,14 +144,14 @@ export namespace ResourceShareInvitation {
 
 export interface AcceptResourceShareInvitationResponse {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the invitation.</p>
    */
   resourceShareInvitation?: ResourceShareInvitation;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace AcceptResourceShareInvitationResponse {
@@ -341,14 +341,14 @@ export namespace AssociateResourceShareRequest {
 
 export interface AssociateResourceShareResponse {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: ResourceShareAssociation[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace AssociateResourceShareResponse {
@@ -424,11 +424,6 @@ export interface AssociateResourceSharePermissionRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The ARN of the AWS RAM permission to associate with the resource share.</p>
    */
   permissionArn: string | undefined;
@@ -439,6 +434,11 @@ export interface AssociateResourceSharePermissionRequest {
    *         	Use <code>false</code> to add the permission to the current permission.</p>
    */
   replace?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace AssociateResourceSharePermissionRequest {
@@ -488,32 +488,20 @@ export namespace Tag {
 
 export interface CreateResourceShareRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The name of the resource share.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
+   */
+  resourceArns?: string[];
 
   /**
    * <p>The principals to associate with the resource share. The possible values are IDs of AWS accounts,
    *           the ARN of an OU or organization from AWS Organizations.</p>
    */
   principals?: string[];
-
-  /**
-   * <p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN
-   * 			for the permission, AWS RAM automatically attaches the default version of the permission
-   * 			for each resource type.</p>
-   */
-  permissionArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources to associate with the resource share.</p>
-   */
-  resourceArns?: string[];
 
   /**
    * <p>One or more tags.</p>
@@ -524,6 +512,18 @@ export interface CreateResourceShareRequest {
    * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
    */
   allowExternalPrincipals?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The ARNs of the permissions to associate with the resource share. If you do not specify an ARN
+   * 			for the permission, AWS RAM automatically attaches the default version of the permission
+   * 			for each resource type.</p>
+   */
+  permissionArns?: string[];
 }
 
 export namespace CreateResourceShareRequest {
@@ -541,9 +541,9 @@ export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" |
  */
 export interface ResourceShare {
   /**
-   * <p>The time when the resource share was last updated.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
-  lastUpdatedTime?: Date;
+  resourceShareArn?: string;
 
   /**
    * <p>The name of the resource share.</p>
@@ -556,9 +556,34 @@ export interface ResourceShare {
   owningAccountId?: string;
 
   /**
+   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
+   */
+  allowExternalPrincipals?: boolean;
+
+  /**
+   * <p>The status of the resource share.</p>
+   */
+  status?: ResourceShareStatus | string;
+
+  /**
    * <p>A message about the status of the resource share.</p>
    */
   statusMessage?: string;
+
+  /**
+   * <p>The tags for the resource share.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The time when the resource share was created.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The time when the resource share was last updated.</p>
+   */
+  lastUpdatedTime?: Date;
 
   /**
    * <p>Indicates how the resource share was created. Possible values include:</p>
@@ -585,31 +610,6 @@ export interface ResourceShare {
    *          </ul>
    */
   featureSet?: ResourceShareFeatureSet | string;
-
-  /**
-   * <p>The time when the resource share was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
-
-  /**
-   * <p>The tags for the resource share.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The status of the resource share.</p>
-   */
-  status?: ResourceShareStatus | string;
-
-  /**
-   * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
-   */
-  allowExternalPrincipals?: boolean;
 }
 
 export namespace ResourceShare {
@@ -694,9 +694,9 @@ export interface DisassociateResourceShareRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
-  clientToken?: string;
+  resourceArns?: string[];
 
   /**
    * <p>The principals.</p>
@@ -704,9 +704,9 @@ export interface DisassociateResourceShareRequest {
   principals?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the resources.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  resourceArns?: string[];
+  clientToken?: string;
 }
 
 export namespace DisassociateResourceShareRequest {
@@ -740,14 +740,14 @@ export interface DisassociateResourceSharePermissionRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The ARN of the permission to disassociate from the resource share.</p>
    */
   permissionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace DisassociateResourceSharePermissionRequest {
@@ -758,14 +758,14 @@ export namespace DisassociateResourceSharePermissionRequest {
 
 export interface DisassociateResourceSharePermissionResponse {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Indicates whether the request succeeded.</p>
    */
   returnValue?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace DisassociateResourceSharePermissionResponse {
@@ -797,14 +797,14 @@ export namespace EnableSharingWithAwsOrganizationResponse {
 
 export interface GetPermissionRequest {
   /**
-   * <p>The identifier for the version of the permission.</p>
-   */
-  permissionVersion?: number;
-
-  /**
    * <p>The ARN of the permission.</p>
    */
   permissionArn: string | undefined;
+
+  /**
+   * <p>The identifier for the version of the permission.</p>
+   */
+  permissionVersion?: number;
 }
 
 export namespace GetPermissionRequest {
@@ -818,24 +818,30 @@ export namespace GetPermissionRequest {
  */
 export interface ResourceSharePermissionDetail {
   /**
+   * <p>The ARN of the permission.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The identifier for the version of the permission.</p>
    */
   version?: string;
 
   /**
-   * <p>The date and time when the permission was created.</p>
+   * <p>The identifier for the version of the permission that is set as the
+   *     		default version.</p>
    */
-  creationTime?: Date;
+  defaultVersion?: boolean;
+
+  /**
+   * <p>The name of the permission.</p>
+   */
+  name?: string;
 
   /**
    * <p>The resource type to which the permission applies.</p>
    */
   resourceType?: string;
-
-  /**
-   * <p>The date and time when the permission was last updated.</p>
-   */
-  lastUpdatedTime?: Date;
 
   /**
    * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates whether
@@ -845,20 +851,14 @@ export interface ResourceSharePermissionDetail {
   permission?: string;
 
   /**
-   * <p>The name of the permission.</p>
+   * <p>The date and time when the permission was created.</p>
    */
-  name?: string;
+  creationTime?: Date;
 
   /**
-   * <p>The ARN of the permission.</p>
+   * <p>The date and time when the permission was last updated.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The identifier for the version of the permission that is set as the
-   *     		default version.</p>
-   */
-  defaultVersion?: boolean;
+  lastUpdatedTime?: Date;
 }
 
 export namespace ResourceSharePermissionDetail {
@@ -882,25 +882,25 @@ export namespace GetPermissionResponse {
 
 export interface GetResourcePoliciesRequest {
   /**
+   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   */
+  resourceArns: string[] | undefined;
+
+  /**
    * <p>The principal.</p>
    */
   principal?: string;
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the resources.</p>
+   * <p>The token for the next page of results.</p>
    */
-  resourceArns: string[] | undefined;
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetResourcePoliciesRequest {
@@ -911,14 +911,14 @@ export namespace GetResourcePoliciesRequest {
 
 export interface GetResourcePoliciesResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A key policy document, in JSON format.</p>
    */
   policies?: string[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourcePoliciesResponse {
@@ -959,15 +959,11 @@ export namespace ResourceArnNotFoundException {
 
 export interface GetResourceShareAssociationsRequest {
   /**
-   * <p>The association status.</p>
+   * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
+   *    		associated with the specified resource share. Specify <code>RESOURCE</code> to list
+   *    		the resources that are associated with the specified resource share.</p>
    */
-  associationStatus?: ResourceShareAssociationStatus | string;
-
-  /**
-   * <p>The principal. You cannot specify this parameter if the association type is
-   *      	<code>RESOURCE</code>.</p>
-   */
-  principal?: string;
+  associationType: ResourceShareAssociationType | string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
@@ -981,22 +977,26 @@ export interface GetResourceShareAssociationsRequest {
   resourceArn?: string;
 
   /**
-   * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals that are
-   *    		associated with the specified resource share. Specify <code>RESOURCE</code> to list
-   *    		the resources that are associated with the specified resource share.</p>
+   * <p>The principal. You cannot specify this parameter if the association type is
+   *      	<code>RESOURCE</code>.</p>
    */
-  associationType: ResourceShareAssociationType | string | undefined;
+  principal?: string;
+
+  /**
+   * <p>The association status.</p>
+   */
+  associationStatus?: ResourceShareAssociationStatus | string;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetResourceShareAssociationsRequest {
@@ -1007,14 +1007,14 @@ export namespace GetResourceShareAssociationsRequest {
 
 export interface GetResourceShareAssociationsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the associations.</p>
    */
   resourceShareAssociations?: ResourceShareAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourceShareAssociationsResponse {
@@ -1025,9 +1025,9 @@ export namespace GetResourceShareAssociationsResponse {
 
 export interface GetResourceShareInvitationsRequest {
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The Amazon Resource Names (ARN) of the invitations.</p>
    */
-  nextToken?: string;
+  resourceShareInvitationArns?: string[];
 
   /**
    * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
@@ -1035,9 +1035,9 @@ export interface GetResourceShareInvitationsRequest {
   resourceShareArns?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the invitations.</p>
+   * <p>The token for the next page of results.</p>
    */
-  resourceShareInvitationArns?: string[];
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -1054,14 +1054,14 @@ export namespace GetResourceShareInvitationsRequest {
 
 export interface GetResourceShareInvitationsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the invitations.</p>
    */
   resourceShareInvitations?: ResourceShareInvitation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetResourceShareInvitationsResponse {
@@ -1095,14 +1095,14 @@ export enum ResourceOwner {
  */
 export interface TagFilter {
   /**
-   * <p>The tag values.</p>
-   */
-  tagValues?: string[];
-
-  /**
    * <p>The tag key.</p>
    */
   tagKey?: string;
+
+  /**
+   * <p>The tag values.</p>
+   */
+  tagValues?: string[];
 }
 
 export namespace TagFilter {
@@ -1118,9 +1118,9 @@ export interface GetResourceSharesRequest {
   resourceShareArns?: string[];
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The status of the resource share.</p>
    */
-  nextToken?: string;
+  resourceShareStatus?: ResourceShareStatus | string;
 
   /**
    * <p>The type of owner.</p>
@@ -1133,20 +1133,20 @@ export interface GetResourceSharesRequest {
   name?: string;
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>One or more tag filters.</p>
    */
   tagFilters?: TagFilter[];
 
   /**
-   * <p>The status of the resource share.</p>
+   * <p>The token for the next page of results.</p>
    */
-  resourceShareStatus?: ResourceShareStatus | string;
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace GetResourceSharesRequest {
@@ -1175,14 +1175,14 @@ export namespace GetResourceSharesResponse {
 
 export interface ListPendingInvitationResourcesRequest {
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -1204,25 +1204,9 @@ export type ResourceStatus = "AVAILABLE" | "LIMIT_EXCEEDED" | "PENDING" | "UNAVA
  */
 export interface Resource {
   /**
-   * <p>The ARN of the resource group. This value is returned only if the resource is a resource
-   * 			group.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
-  resourceGroupArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
-   */
-  resourceShareArn?: string;
-
-  /**
-   * <p>The time when the resource was associated with the resource share.</p>
-   */
-  creationTime?: Date;
-
-  /**
-   * <p>The status of the resource.</p>
-   */
-  status?: ResourceStatus | string;
+  arn?: string;
 
   /**
    * <p>The resource type.</p>
@@ -1230,19 +1214,35 @@ export interface Resource {
   type?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+   */
+  resourceShareArn?: string;
+
+  /**
+   * <p>The ARN of the resource group. This value is returned only if the resource is a resource
+   * 			group.</p>
+   */
+  resourceGroupArn?: string;
+
+  /**
+   * <p>The status of the resource.</p>
+   */
+  status?: ResourceStatus | string;
+
+  /**
    * <p>A message about the status of the resource.</p>
    */
   statusMessage?: string;
 
   /**
+   * <p>The time when the resource was associated with the resource share.</p>
+   */
+  creationTime?: Date;
+
+  /**
    * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  arn?: string;
 }
 
 export namespace Resource {
@@ -1253,14 +1253,14 @@ export namespace Resource {
 
 export interface ListPendingInvitationResourcesResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the resources included the resource share.</p>
    */
   resources?: Resource[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPendingInvitationResourcesResponse {
@@ -1286,6 +1286,12 @@ export namespace MissingRequiredParameterException {
 
 export interface ListPermissionsRequest {
   /**
+   * <p>Specifies the resource type for which to list permissions. For example, to list only
+   * 		permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>
+   */
+  resourceType?: string;
+
+  /**
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
@@ -1295,12 +1301,6 @@ export interface ListPermissionsRequest {
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>Specifies the resource type for which to list permissions. For example, to list only
-   * 		permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.</p>
-   */
-  resourceType?: string;
 }
 
 export namespace ListPermissionsRequest {
@@ -1314,14 +1314,29 @@ export namespace ListPermissionsRequest {
  */
 export interface ResourceSharePermissionSummary {
   /**
+   * <p>The ARN of the permission.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The identifier for the version of the permission.</p>
+   */
+  version?: string;
+
+  /**
    * <p>The identifier for the version of the permission that is set as the default version.</p>
    */
   defaultVersion?: boolean;
 
   /**
-   * <p>The date and time when the permission was last updated.</p>
+   * <p>The name of the permission.</p>
    */
-  lastUpdatedTime?: Date;
+  name?: string;
+
+  /**
+   * <p>The type of resource to which the permission applies.</p>
+   */
+  resourceType?: string;
 
   /**
    * <p>The current status of the permission.</p>
@@ -1334,24 +1349,9 @@ export interface ResourceSharePermissionSummary {
   creationTime?: Date;
 
   /**
-   * <p>The identifier for the version of the permission.</p>
+   * <p>The date and time when the permission was last updated.</p>
    */
-  version?: string;
-
-  /**
-   * <p>The name of the permission.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The ARN of the permission.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The type of resource to which the permission applies.</p>
-   */
-  resourceType?: string;
+  lastUpdatedTime?: Date;
 }
 
 export namespace ResourceSharePermissionSummary {
@@ -1362,14 +1362,14 @@ export namespace ResourceSharePermissionSummary {
 
 export interface ListPermissionsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Information about the permissions.</p>
    */
   permissions?: ResourceSharePermissionSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPermissionsResponse {
@@ -1380,9 +1380,19 @@ export namespace ListPermissionsResponse {
 
 export interface ListPrincipalsRequest {
   /**
-   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
+   * <p>The type of owner.</p>
    */
-  resourceShareArns?: string[];
+  resourceOwner: ResourceOwner | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The principals.</p>
+   */
+  principals?: string[];
 
   /**
    * <p>The resource type.</p>
@@ -1393,9 +1403,9 @@ export interface ListPrincipalsRequest {
   resourceType?: string;
 
   /**
-   * <p>The type of owner.</p>
+   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  resourceShareArns?: string[];
 
   /**
    * <p>The token for the next page of results.</p>
@@ -1407,16 +1417,6 @@ export interface ListPrincipalsRequest {
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  resourceArn?: string;
-
-  /**
-   * <p>The principals.</p>
-   */
-  principals?: string[];
 }
 
 export namespace ListPrincipalsRequest {
@@ -1430,14 +1430,14 @@ export namespace ListPrincipalsRequest {
  */
 export interface Principal {
   /**
+   * <p>The ID of the principal.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn?: string;
-
-  /**
-   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
-   */
-  external?: boolean;
 
   /**
    * <p>The time when the principal was associated with the resource share.</p>
@@ -1445,14 +1445,14 @@ export interface Principal {
   creationTime?: Date;
 
   /**
-   * <p>The ID of the principal.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The time when the association was last updated.</p>
    */
   lastUpdatedTime?: Date;
+
+  /**
+   * <p>Indicates whether the principal belongs to the same AWS organization as the AWS account that owns the resource share.</p>
+   */
+  external?: boolean;
 }
 
 export namespace Principal {
@@ -1463,14 +1463,14 @@ export namespace Principal {
 
 export interface ListPrincipalsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The principals.</p>
    */
   principals?: Principal[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPrincipalsResponse {
@@ -1496,10 +1496,9 @@ export namespace InvalidResourceTypeException {
 
 export interface ListResourcesRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The type of owner.</p>
    */
-  maxResults?: number;
+  resourceOwner: ResourceOwner | string | undefined;
 
   /**
    * <p>The principal.</p>
@@ -1515,11 +1514,6 @@ export interface ListResourcesRequest {
   resourceType?: string;
 
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The Amazon Resource Names (ARN) of the resources.</p>
    */
   resourceArns?: string[];
@@ -1530,9 +1524,15 @@ export interface ListResourcesRequest {
   resourceShareArns?: string[];
 
   /**
-   * <p>The type of owner.</p>
+   * <p>The token for the next page of results.</p>
    */
-  resourceOwner: ResourceOwner | string | undefined;
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListResourcesRequest {
@@ -1561,12 +1561,6 @@ export namespace ListResourcesResponse {
 
 export interface ListResourceSharePermissionsRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
@@ -1575,6 +1569,12 @@ export interface ListResourceSharePermissionsRequest {
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListResourceSharePermissionsRequest {
@@ -1585,14 +1585,14 @@ export namespace ListResourceSharePermissionsRequest {
 
 export interface ListResourceSharePermissionsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The permissions associated with the resource share.</p>
    */
   permissions?: ResourceSharePermissionSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListResourceSharePermissionsResponse {
@@ -1603,15 +1603,15 @@ export namespace ListResourceSharePermissionsResponse {
 
 export interface ListResourceTypesRequest {
   /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of results to return with a single call.
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListResourceTypesRequest {
@@ -1643,14 +1643,14 @@ export namespace ServiceNameAndResourceType {
 
 export interface ListResourceTypesResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The shareable resource types supported by AWS RAM.</p>
    */
   resourceTypes?: ServiceNameAndResourceType[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListResourceTypesResponse {
@@ -1687,14 +1687,14 @@ export namespace PromoteResourceShareCreatedFromPolicyResponse {
 
 export interface RejectResourceShareInvitationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the invitation.</p>
    */
   resourceShareInvitationArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace RejectResourceShareInvitationRequest {
@@ -1705,14 +1705,14 @@ export namespace RejectResourceShareInvitationRequest {
 
 export interface RejectResourceShareInvitationResponse {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the invitation.</p>
    */
   resourceShareInvitation?: ResourceShareInvitation;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace RejectResourceShareInvitationResponse {
@@ -1738,14 +1738,14 @@ export namespace TagLimitExceededException {
 
 export interface TagResourceRequest {
   /**
-   * <p>One or more tags.</p>
-   */
-  tags: Tag[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1764,14 +1764,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The tag keys of the tags to remove.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource share.</p>
    */
   resourceShareArn: string | undefined;
+
+  /**
+   * <p>The tag keys of the tags to remove.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1795,9 +1795,9 @@ export interface UpdateResourceShareRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>The name of the resource share.</p>
    */
-  clientToken?: string;
+  name?: string;
 
   /**
    * <p>Indicates whether principals outside your AWS organization can be associated with a resource share.</p>
@@ -1805,9 +1805,9 @@ export interface UpdateResourceShareRequest {
   allowExternalPrincipals?: boolean;
 
   /**
-   * <p>The name of the resource share.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  name?: string;
+  clientToken?: string;
 }
 
 export namespace UpdateResourceShareRequest {
@@ -1818,14 +1818,14 @@ export namespace UpdateResourceShareRequest {
 
 export interface UpdateResourceShareResponse {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>Information about the resource share.</p>
    */
   resourceShare?: ResourceShare;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 }
 
 export namespace UpdateResourceShareResponse {

@@ -22,6 +22,8 @@ export * from "./commands/DeleteUsageReportSubscriptionCommand.ts";
 export * from "./commands/DeleteUserCommand.ts";
 export * from "./commands/DescribeDirectoryConfigsCommand.ts";
 export * from "./commands/DescribeFleetsCommand.ts";
+export * from "./waiters/waitForFleetStarted.ts";
+export * from "./waiters/waitForFleetStopped.ts";
 export * from "./commands/DescribeImageBuildersCommand.ts";
 export * from "./commands/DescribeImagePermissionsCommand.ts";
 export * from "./pagination/DescribeImagePermissionsPaginator.ts";

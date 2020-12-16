@@ -89,6 +89,7 @@ export * from "./pagination/DescribeSessionsPaginator.ts";
 export * from "./commands/GetAutomationExecutionCommand.ts";
 export * from "./commands/GetCalendarStateCommand.ts";
 export * from "./commands/GetCommandInvocationCommand.ts";
+export * from "./waiters/waitForCommandExecuted.ts";
 export * from "./commands/GetConnectionStatusCommand.ts";
 export * from "./commands/GetDefaultPatchBaselineCommand.ts";
 export * from "./commands/GetDeployablePatchSnapshotForInstanceCommand.ts";

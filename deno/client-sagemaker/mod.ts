@@ -117,6 +117,8 @@ export * from "./commands/DescribeModelPackageGroupCommand.ts";
 export * from "./commands/DescribeModelQualityJobDefinitionCommand.ts";
 export * from "./commands/DescribeMonitoringScheduleCommand.ts";
 export * from "./commands/DescribeNotebookInstanceCommand.ts";
+export * from "./waiters/waitForNotebookInstanceInService.ts";
+export * from "./waiters/waitForNotebookInstanceStopped.ts";
 export * from "./commands/DescribeNotebookInstanceLifecycleConfigCommand.ts";
 export * from "./commands/DescribePipelineCommand.ts";
 export * from "./commands/DescribePipelineDefinitionForExecutionCommand.ts";

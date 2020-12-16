@@ -9,6 +9,7 @@ export * from "./commands/DeleteResourcePolicyCommand.ts";
 export * from "./commands/DeleteSchemaCommand.ts";
 export * from "./commands/DeleteSchemaVersionCommand.ts";
 export * from "./commands/DescribeCodeBindingCommand.ts";
+export * from "./waiters/waitForCodeBindingExists.ts";
 export * from "./commands/DescribeDiscovererCommand.ts";
 export * from "./commands/DescribeRegistryCommand.ts";
 export * from "./commands/DescribeSchemaCommand.ts";

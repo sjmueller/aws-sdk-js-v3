@@ -3,6 +3,7 @@ export * from "./Signer.ts";
 export * from "./commands/AddProfilePermissionCommand.ts";
 export * from "./commands/CancelSigningProfileCommand.ts";
 export * from "./commands/DescribeSigningJobCommand.ts";
+export * from "./waiters/waitForSuccessfulSigningJob.ts";
 export * from "./commands/GetSigningPlatformCommand.ts";
 export * from "./commands/GetSigningProfileCommand.ts";
 export * from "./commands/ListProfilePermissionsCommand.ts";

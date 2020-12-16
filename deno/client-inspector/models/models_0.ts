@@ -20,9 +20,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   name: "AccessDeniedException";
   $fault: "client";
   /**
-   * <p>You can immediately retry your request.</p>
+   * <p>Details of the exception error.</p>
    */
-  canRetry: boolean | undefined;
+  message: string | undefined;
 
   /**
    * <p>Code that indicates the type of error that is generated.</p>
@@ -30,9 +30,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   errorCode: AccessDeniedErrorCode | string | undefined;
 
   /**
-   * <p>Details of the exception error.</p>
+   * <p>You can immediately retry your request.</p>
    */
-  message: string | undefined;
+  canRetry: boolean | undefined;
 }
 
 export namespace AccessDeniedException {
@@ -95,15 +95,15 @@ export enum FailedItemErrorCode {
  */
 export interface FailedItemDetails {
   /**
+   * <p>The status code of a failed item.</p>
+   */
+  failureCode: FailedItemErrorCode | string | undefined;
+
+  /**
    * <p>Indicates whether you can immediately retry a request for this item for a specified
    *          resource.</p>
    */
   retryable: boolean | undefined;
-
-  /**
-   * <p>The status code of a failed item.</p>
-   */
-  failureCode: FailedItemErrorCode | string | undefined;
 }
 
 export namespace FailedItemDetails {
@@ -133,14 +133,14 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
   $fault: "server";
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace InternalException {
@@ -214,11 +214,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   name: "InvalidInputException";
   $fault: "client";
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
@@ -227,6 +222,11 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
    * <p>Code that indicates the type of error that is generated.</p>
    */
   errorCode: InvalidInputErrorCode | string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace InvalidInputException {
@@ -254,11 +254,6 @@ export interface NoSuchEntityException extends __SmithyException, $MetadataBeare
   name: "NoSuchEntityException";
   $fault: "client";
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
@@ -267,6 +262,11 @@ export interface NoSuchEntityException extends __SmithyException, $MetadataBeare
    * <p>Code that indicates the type of error that is generated.</p>
    */
   errorCode: NoSuchEntityErrorCode | string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace NoSuchEntityException {
@@ -282,14 +282,14 @@ export interface ServiceTemporarilyUnavailableException extends __SmithyExceptio
   name: "ServiceTemporarilyUnavailableException";
   $fault: "server";
   /**
-   * <p>You can wait and then retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>You can wait and then retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace ServiceTemporarilyUnavailableException {
@@ -343,14 +343,14 @@ export enum AgentHealth {
  */
 export interface AgentFilter {
   /**
-   * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
-   */
-  agentHealthCodes: (AgentHealthCode | string)[] | undefined;
-
-  /**
    * <p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>
    */
   agentHealths: (AgentHealth | string)[] | undefined;
+
+  /**
+   * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
+   */
+  agentHealthCodes: (AgentHealthCode | string)[] | undefined;
 }
 
 export namespace AgentFilter {
@@ -364,15 +364,30 @@ export namespace AgentFilter {
  */
 export interface AgentPreview {
   /**
-   * <p>The kernel version of the operating system running on the EC2 instance on which the
-   *          Amazon Inspector Agent is installed.</p>
+   * <p>The hostname of the EC2 instance on which the Amazon Inspector Agent is
+   *          installed.</p>
    */
-  kernelVersion?: string;
+  hostname?: string;
+
+  /**
+   * <p>The ID of the EC2 instance where the agent is installed.</p>
+   */
+  agentId: string | undefined;
 
   /**
    * <p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>
    */
   autoScalingGroup?: string;
+
+  /**
+   * <p>The health status of the Amazon Inspector Agent.</p>
+   */
+  agentHealth?: AgentHealth | string;
+
+  /**
+   * <p>The version of the Amazon Inspector Agent.</p>
+   */
+  agentVersion?: string;
 
   /**
    * <p>The operating system running on the EC2 instance on which the Amazon Inspector Agent
@@ -381,31 +396,16 @@ export interface AgentPreview {
   operatingSystem?: string;
 
   /**
-   * <p>The version of the Amazon Inspector Agent.</p>
+   * <p>The kernel version of the operating system running on the EC2 instance on which the
+   *          Amazon Inspector Agent is installed.</p>
    */
-  agentVersion?: string;
+  kernelVersion?: string;
 
   /**
    * <p>The IP address of the EC2 instance on which the Amazon Inspector Agent is
    *          installed.</p>
    */
   ipv4Address?: string;
-
-  /**
-   * <p>The hostname of the EC2 instance on which the Amazon Inspector Agent is
-   *          installed.</p>
-   */
-  hostname?: string;
-
-  /**
-   * <p>The health status of the Amazon Inspector Agent.</p>
-   */
-  agentHealth?: AgentHealth | string;
-
-  /**
-   * <p>The ID of the EC2 instance where the agent is installed.</p>
-   */
-  agentId: string | undefined;
 }
 
 export namespace AgentPreview {
@@ -422,16 +422,6 @@ export interface AgentsAlreadyRunningAssessmentException extends __SmithyExcepti
   name: "AgentsAlreadyRunningAssessmentException";
   $fault: "client";
   /**
-   * <p></p>
-   */
-  agents: AgentAlreadyRunningAssessment[] | undefined;
-
-  /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
@@ -439,7 +429,17 @@ export interface AgentsAlreadyRunningAssessmentException extends __SmithyExcepti
   /**
    * <p></p>
    */
+  agents: AgentAlreadyRunningAssessment[] | undefined;
+
+  /**
+   * <p></p>
+   */
   agentsTruncated: boolean | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace AgentsAlreadyRunningAssessmentException {
@@ -477,14 +477,19 @@ export enum AssessmentRunNotificationSnsStatusCode {
  */
 export interface AssessmentRunNotification {
   /**
-   * <p>The status code of the SNS notification.</p>
-   */
-  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
-
-  /**
    * <p>The date of the notification.</p>
    */
   date: Date | undefined;
+
+  /**
+   * <p>The event for which a notification is sent.</p>
+   */
+  event: InspectorEvent | string | undefined;
+
+  /**
+   * <p>The message included in the notification.</p>
+   */
+  message?: string;
 
   /**
    * <p>The Boolean value that specifies whether the notification represents an
@@ -498,14 +503,9 @@ export interface AssessmentRunNotification {
   snsTopicArn?: string;
 
   /**
-   * <p>The event for which a notification is sent.</p>
+   * <p>The status code of the SNS notification.</p>
    */
-  event: InspectorEvent | string | undefined;
-
-  /**
-   * <p>The message included in the notification.</p>
-   */
-  message?: string;
+  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
 }
 
 export namespace AssessmentRunNotification {
@@ -536,14 +536,14 @@ export enum AssessmentRunState {
  */
 export interface AssessmentRunStateChange {
   /**
-   * <p>The assessment run state.</p>
-   */
-  state: AssessmentRunState | string | undefined;
-
-  /**
    * <p>The last time the assessment run state changed.</p>
    */
   stateChangedAt: Date | undefined;
+
+  /**
+   * <p>The assessment run state.</p>
+   */
+  state: AssessmentRunState | string | undefined;
 }
 
 export namespace AssessmentRunStateChange {
@@ -560,12 +560,6 @@ export namespace AssessmentRunStateChange {
  */
 export interface AssessmentRun {
   /**
-   * <p>A Boolean value (true or false) that specifies whether the process of collecting data
-   *          from the agents is completed.</p>
-   */
-  dataCollected: boolean | undefined;
-
-  /**
    * <p>The ARN of the assessment run.</p>
    */
   arn: string | undefined;
@@ -576,24 +570,15 @@ export interface AssessmentRun {
   name: string | undefined;
 
   /**
-   * <p>The last time when the assessment run's state changed.</p>
+   * <p>The ARN of the assessment template that is associated with the assessment
+   *          run.</p>
    */
-  stateChangedAt: Date | undefined;
+  assessmentTemplateArn: string | undefined;
 
   /**
-   * <p>A list of the assessment run state changes.</p>
+   * <p>The state of the assessment run.</p>
    */
-  stateChanges: AssessmentRunStateChange[] | undefined;
-
-  /**
-   * <p>The time when <a>StartAssessmentRun</a> was called.</p>
-   */
-  startedAt?: Date;
-
-  /**
-   * <p>The time when <a>StartAssessmentRun</a> was called.</p>
-   */
-  createdAt: Date | undefined;
+  state: AssessmentRunState | string | undefined;
 
   /**
    * <p>The duration of the assessment run.</p>
@@ -611,15 +596,36 @@ export interface AssessmentRun {
   userAttributesForFindings: Attribute[] | undefined;
 
   /**
-   * <p>Provides a total count of generated findings per severity.</p>
+   * <p>The time when <a>StartAssessmentRun</a> was called.</p>
    */
-  findingCounts: { [key: string]: number } | undefined;
+  createdAt: Date | undefined;
 
   /**
-   * <p>The ARN of the assessment template that is associated with the assessment
-   *          run.</p>
+   * <p>The time when <a>StartAssessmentRun</a> was called.</p>
    */
-  assessmentTemplateArn: string | undefined;
+  startedAt?: Date;
+
+  /**
+   * <p>The assessment run completion time that corresponds to the rules packages evaluation
+   *          completion time or failure.</p>
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>The last time when the assessment run's state changed.</p>
+   */
+  stateChangedAt: Date | undefined;
+
+  /**
+   * <p>A Boolean value (true or false) that specifies whether the process of collecting data
+   *          from the agents is completed.</p>
+   */
+  dataCollected: boolean | undefined;
+
+  /**
+   * <p>A list of the assessment run state changes.</p>
+   */
+  stateChanges: AssessmentRunStateChange[] | undefined;
 
   /**
    * <p>A list of notifications for the event subscriptions. A notification about a
@@ -628,15 +634,9 @@ export interface AssessmentRun {
   notifications: AssessmentRunNotification[] | undefined;
 
   /**
-   * <p>The state of the assessment run.</p>
+   * <p>Provides a total count of generated findings per severity.</p>
    */
-  state: AssessmentRunState | string | undefined;
-
-  /**
-   * <p>The assessment run completion time that corresponds to the rules packages evaluation
-   *          completion time or failure.</p>
-   */
-  completedAt?: Date;
+  findingCounts: { [key: string]: number } | undefined;
 }
 
 export namespace AssessmentRun {
@@ -651,14 +651,14 @@ export namespace AssessmentRun {
  */
 export interface TelemetryMetadata {
   /**
-   * <p>The count of messages that the agent sends to the Amazon Inspector service.</p>
-   */
-  count: number | undefined;
-
-  /**
    * <p>A specific type of behavioral data that is collected by the agent.</p>
    */
   messageType: string | undefined;
+
+  /**
+   * <p>The count of messages that the agent sends to the Amazon Inspector service.</p>
+   */
+  count: number | undefined;
 
   /**
    * <p>The data size of messages that the agent sends to the Amazon Inspector
@@ -679,9 +679,29 @@ export namespace TelemetryMetadata {
  */
 export interface AssessmentRunAgent {
   /**
+   * <p>The AWS account of the EC2 instance where the agent is installed.</p>
+   */
+  agentId: string | undefined;
+
+  /**
    * <p>The ARN of the assessment run that is associated with the agent.</p>
    */
   assessmentRunArn: string | undefined;
+
+  /**
+   * <p>The current health state of the agent.</p>
+   */
+  agentHealth: AgentHealth | string | undefined;
+
+  /**
+   * <p>The detailed health state of the agent.</p>
+   */
+  agentHealthCode: AgentHealthCode | string | undefined;
+
+  /**
+   * <p>The description for the agent health code.</p>
+   */
+  agentHealthDetails?: string;
 
   /**
    * <p>The Auto Scaling group of the EC2 instance that is specified by the agent
@@ -690,30 +710,10 @@ export interface AssessmentRunAgent {
   autoScalingGroup?: string;
 
   /**
-   * <p>The detailed health state of the agent.</p>
-   */
-  agentHealthCode: AgentHealthCode | string | undefined;
-
-  /**
-   * <p>The current health state of the agent.</p>
-   */
-  agentHealth: AgentHealth | string | undefined;
-
-  /**
-   * <p>The AWS account of the EC2 instance where the agent is installed.</p>
-   */
-  agentId: string | undefined;
-
-  /**
    * <p>The Amazon Inspector application data metrics that are collected by the
    *          agent.</p>
    */
   telemetryMetadata: TelemetryMetadata[] | undefined;
-
-  /**
-   * <p>The description for the agent health code.</p>
-   */
-  agentHealthDetails?: string;
 }
 
 export namespace AssessmentRunAgent {
@@ -728,14 +728,14 @@ export namespace AssessmentRunAgent {
  */
 export interface TimestampRange {
   /**
-   * <p>The maximum value of the timestamp range.</p>
-   */
-  endDate?: Date;
-
-  /**
    * <p>The minimum value of the timestamp range.</p>
    */
   beginDate?: Date;
+
+  /**
+   * <p>The maximum value of the timestamp range.</p>
+   */
+  endDate?: Date;
 }
 
 export namespace TimestampRange {
@@ -750,15 +750,15 @@ export namespace TimestampRange {
  */
 export interface DurationRange {
   /**
+   * <p>The minimum value of the duration range. Must be greater than zero.</p>
+   */
+  minSeconds?: number;
+
+  /**
    * <p>The maximum value of the duration range. Must be less than or equal to 604800 seconds
    *          (1 week).</p>
    */
   maxSeconds?: number;
-
-  /**
-   * <p>The minimum value of the duration range. Must be greater than zero.</p>
-   */
-  minSeconds?: number;
 }
 
 export namespace DurationRange {
@@ -773,18 +773,25 @@ export namespace DurationRange {
  */
 export interface AssessmentRunFilter {
   /**
-   * <p>For a record to match a filter, the value that is specified for this data type
-   *          property must inclusively match any value between the specified minimum and maximum values
-   *          of the <b>startTime</b> property of the <a>AssessmentRun</a> data type.</p>
-   */
-  startTimeRange?: TimestampRange;
-
-  /**
    * <p>For a record to match a filter, an explicit value or a string containing a wildcard
    *          that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a>
    *          data type.</p>
    */
   namePattern?: string;
+
+  /**
+   * <p>For a record to match a filter, one of the values specified for this data type
+   *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
+   *          type.</p>
+   */
+  states?: (AssessmentRunState | string)[];
+
+  /**
+   * <p>For a record to match a filter, the value that is specified for this data type
+   *          property must inclusively match any value between the specified minimum and maximum values
+   *          of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>
+   */
+  durationRange?: DurationRange;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -796,23 +803,9 @@ export interface AssessmentRunFilter {
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
    *          property must inclusively match any value between the specified minimum and maximum values
-   *          of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>
+   *          of the <b>startTime</b> property of the <a>AssessmentRun</a> data type.</p>
    */
-  durationRange?: DurationRange;
-
-  /**
-   * <p>For a record to match a filter, one of the values specified for this data type
-   *          property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data
-   *          type.</p>
-   */
-  states?: (AssessmentRunState | string)[];
-
-  /**
-   * <p>For a record to match a filter, the value that is specified for this data type
-   *          property must match the <b>stateChangedAt</b> property of the
-   *             <a>AssessmentRun</a> data type.</p>
-   */
-  stateChangeTimeRange?: TimestampRange;
+  startTimeRange?: TimestampRange;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -820,6 +813,13 @@ export interface AssessmentRunFilter {
    *          of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.</p>
    */
   completionTimeRange?: TimestampRange;
+
+  /**
+   * <p>For a record to match a filter, the value that is specified for this data type
+   *          property must match the <b>stateChangedAt</b> property of the
+   *             <a>AssessmentRun</a> data type.</p>
+   */
+  stateChangeTimeRange?: TimestampRange;
 }
 
 export namespace AssessmentRunFilter {
@@ -836,11 +836,6 @@ export interface AssessmentRunInProgressException extends __SmithyException, $Me
   name: "AssessmentRunInProgressException";
   $fault: "client";
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Details of the exception error.</p>
    */
   message: string | undefined;
@@ -855,6 +850,11 @@ export interface AssessmentRunInProgressException extends __SmithyException, $Me
    *          truncated.</p>
    */
   assessmentRunArnsTruncated: boolean | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace AssessmentRunInProgressException {
@@ -869,19 +869,14 @@ export namespace AssessmentRunInProgressException {
  */
 export interface AssessmentTarget {
   /**
-   * <p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>
+   * <p>The ARN that specifies the Amazon Inspector assessment target.</p>
    */
-  updatedAt: Date | undefined;
+  arn: string | undefined;
 
   /**
    * <p>The name of the Amazon Inspector assessment target.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The ARN that specifies the Amazon Inspector assessment target.</p>
-   */
-  arn: string | undefined;
 
   /**
    * <p>The ARN that specifies the resource group that is associated with the assessment
@@ -893,6 +888,11 @@ export interface AssessmentTarget {
    * <p>The time at which the assessment target is created.</p>
    */
   createdAt: Date | undefined;
+
+  /**
+   * <p>The time at which <a>UpdateAssessmentTarget</a> is called.</p>
+   */
+  updatedAt: Date | undefined;
 }
 
 export namespace AssessmentTarget {
@@ -927,44 +927,14 @@ export namespace AssessmentTargetFilter {
  */
 export interface AssessmentTemplate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the most recent assessment run associated with this
-   *          assessment template. This value exists only when the value of assessmentRunCount is
-   *          greaterpa than zero.</p>
+   * <p>The ARN of the assessment template.</p>
    */
-  lastAssessmentRunArn?: string;
-
-  /**
-   * <p>The duration in seconds specified for this assessment template. The default value is
-   *          3600 seconds (one hour). The maximum value is 86400 seconds (one day).</p>
-   */
-  durationInSeconds: number | undefined;
-
-  /**
-   * <p>The user-defined attributes that are assigned to every generated finding from the
-   *          assessment run that uses this assessment template.</p>
-   */
-  userAttributesForFindings: Attribute[] | undefined;
-
-  /**
-   * <p>The time at which the assessment template is created.</p>
-   */
-  createdAt: Date | undefined;
+  arn: string | undefined;
 
   /**
    * <p>The name of the assessment template.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The number of existing assessment runs associated with this assessment template. This
-   *          value can be zero or a positive integer.</p>
-   */
-  assessmentRunCount: number | undefined;
-
-  /**
-   * <p>The ARN of the assessment template.</p>
-   */
-  arn: string | undefined;
 
   /**
    * <p>The ARN of the assessment target that corresponds to this assessment
@@ -973,9 +943,39 @@ export interface AssessmentTemplate {
   assessmentTargetArn: string | undefined;
 
   /**
+   * <p>The duration in seconds specified for this assessment template. The default value is
+   *          3600 seconds (one hour). The maximum value is 86400 seconds (one day).</p>
+   */
+  durationInSeconds: number | undefined;
+
+  /**
    * <p>The rules packages that are specified for this assessment template.</p>
    */
   rulesPackageArns: string[] | undefined;
+
+  /**
+   * <p>The user-defined attributes that are assigned to every generated finding from the
+   *          assessment run that uses this assessment template.</p>
+   */
+  userAttributesForFindings: Attribute[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the most recent assessment run associated with this
+   *          assessment template. This value exists only when the value of assessmentRunCount is
+   *          greaterpa than zero.</p>
+   */
+  lastAssessmentRunArn?: string;
+
+  /**
+   * <p>The number of existing assessment runs associated with this assessment template. This
+   *          value can be zero or a positive integer.</p>
+   */
+  assessmentRunCount: number | undefined;
+
+  /**
+   * <p>The time at which the assessment template is created.</p>
+   */
+  createdAt: Date | undefined;
 }
 
 export namespace AssessmentTemplate {
@@ -1047,14 +1047,14 @@ export namespace PrivateIp {
  */
 export interface SecurityGroup {
   /**
-   * <p>The ID of the security group.</p>
-   */
-  groupId?: string;
-
-  /**
    * <p>The name of the security group.</p>
    */
   groupName?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  groupId?: string;
 }
 
 export namespace SecurityGroup {
@@ -1070,24 +1070,19 @@ export namespace SecurityGroup {
  */
 export interface NetworkInterface {
   /**
-   * <p>The ID of a VPC associated with the network interface.</p>
-   */
-  vpcId?: string;
-
-  /**
-   * <p>The IP addresses associated with the network interface.</p>
-   */
-  ipv6Addresses?: string[];
-
-  /**
    * <p>The ID of the network interface.</p>
    */
   networkInterfaceId?: string;
 
   /**
-   * <p>The public IP address from which the network interface is reachable.</p>
+   * <p>The ID of a subnet associated with the network interface.</p>
    */
-  publicIp?: string;
+  subnetId?: string;
+
+  /**
+   * <p>The ID of a VPC associated with the network interface.</p>
+   */
+  vpcId?: string;
 
   /**
    * <p>The name of a private DNS associated with the network interface.</p>
@@ -1106,20 +1101,25 @@ export interface NetworkInterface {
   privateIpAddresses?: PrivateIp[];
 
   /**
-   * <p>The ID of a subnet associated with the network interface.</p>
+   * <p>The name of a public DNS associated with the network interface.</p>
    */
-  subnetId?: string;
+  publicDnsName?: string;
+
+  /**
+   * <p>The public IP address from which the network interface is reachable.</p>
+   */
+  publicIp?: string;
+
+  /**
+   * <p>The IP addresses associated with the network interface.</p>
+   */
+  ipv6Addresses?: string[];
 
   /**
    * <p>A list of the security groups associated with the network interface. Includes the
    *          groupId and groupName.</p>
    */
   securityGroups?: SecurityGroup[];
-
-  /**
-   * <p>The name of a public DNS associated with the network interface.</p>
-   */
-  publicDnsName?: string;
 }
 
 export namespace NetworkInterface {
@@ -1133,14 +1133,14 @@ export namespace NetworkInterface {
  */
 export interface Tag {
   /**
-   * <p>A value assigned to a tag key.</p>
-   */
-  value?: string;
-
-  /**
    * <p>A tag key.</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>A value assigned to a tag key.</p>
+   */
+  value?: string;
 }
 
 export namespace Tag {
@@ -1154,15 +1154,9 @@ export namespace Tag {
  */
 export interface AssetAttributes {
   /**
-   * <p>The hostname of the EC2 instance where the finding is generated.</p>
+   * <p>The schema version of this data type.</p>
    */
-  hostname?: string;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where
-   *          the finding is generated.</p>
-   */
-  amiId?: string;
+  schemaVersion: number | undefined;
 
   /**
    * <p>The ID of the agent that is installed on the EC2 instance where the finding is
@@ -1171,20 +1165,20 @@ export interface AssetAttributes {
   agentId?: string;
 
   /**
-   * <p>An array of the network interfaces interacting with the EC2 instance where the
-   *          finding is generated.</p>
-   */
-  networkInterfaces?: NetworkInterface[];
-
-  /**
    * <p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>
    */
   autoScalingGroup?: string;
 
   /**
-   * <p>The tags related to the EC2 instance where the finding is generated.</p>
+   * <p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where
+   *          the finding is generated.</p>
    */
-  tags?: Tag[];
+  amiId?: string;
+
+  /**
+   * <p>The hostname of the EC2 instance where the finding is generated.</p>
+   */
+  hostname?: string;
 
   /**
    * <p>The list of IP v4 addresses of the EC2 instance where the finding is
@@ -1193,9 +1187,15 @@ export interface AssetAttributes {
   ipv4Addresses?: string[];
 
   /**
-   * <p>The schema version of this data type.</p>
+   * <p>The tags related to the EC2 instance where the finding is generated.</p>
    */
-  schemaVersion: number | undefined;
+  tags?: Tag[];
+
+  /**
+   * <p>An array of the network interfaces interacting with the EC2 instance where the
+   *          finding is generated.</p>
+   */
+  networkInterfaces?: NetworkInterface[];
 }
 
 export namespace AssetAttributes {
@@ -1210,17 +1210,17 @@ export enum AssetType {
 
 export interface CreateAssessmentTargetRequest {
   /**
+   * <p>The user-defined name that identifies the assessment target that you want to create.
+   *          The name must be unique within the AWS account.</p>
+   */
+  assessmentTargetName: string | undefined;
+
+  /**
    * <p>The ARN that specifies the resource group that is used to create the assessment
    *          target. If resourceGroupArn is not specified, all EC2 instances in the current AWS account
    *          and region are included in the assessment target.</p>
    */
   resourceGroupArn?: string;
-
-  /**
-   * <p>The user-defined name that identifies the assessment target that you want to create.
-   *          The name must be unique within the AWS account.</p>
-   */
-  assessmentTargetName: string | undefined;
 }
 
 export namespace CreateAssessmentTargetRequest {
@@ -1260,14 +1260,14 @@ export interface InvalidCrossAccountRoleException extends __SmithyException, $Me
   message: string | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
   errorCode: InvalidCrossAccountRoleErrorCode | string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace InvalidCrossAccountRoleException {
@@ -1297,14 +1297,14 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message: string | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
-   */
-  canRetry: boolean | undefined;
-
-  /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
   errorCode: LimitExceededErrorCode | string | undefined;
+
+  /**
+   * <p>You can immediately retry your request.</p>
+   */
+  canRetry: boolean | undefined;
 }
 
 export namespace LimitExceededException {
@@ -1315,6 +1315,12 @@ export namespace LimitExceededException {
 
 export interface CreateAssessmentTemplateRequest {
   /**
+   * <p>The ARN that specifies the assessment target for which you want to create the
+   *          assessment template.</p>
+   */
+  assessmentTargetArn: string | undefined;
+
+  /**
    * <p>The user-defined name that identifies the assessment template that you want to
    *          create. You can create several assessment templates for an assessment target. The names of
    *          the assessment templates that correspond to a particular assessment target must be
@@ -1323,16 +1329,15 @@ export interface CreateAssessmentTemplateRequest {
   assessmentTemplateName: string | undefined;
 
   /**
+   * <p>The duration of the assessment run in seconds.</p>
+   */
+  durationInSeconds: number | undefined;
+
+  /**
    * <p>The ARNs that specify the rules packages that you want to attach to the assessment
    *          template.</p>
    */
   rulesPackageArns: string[] | undefined;
-
-  /**
-   * <p>The ARN that specifies the assessment target for which you want to create the
-   *          assessment template.</p>
-   */
-  assessmentTargetArn: string | undefined;
 
   /**
    * <p>The user-defined attributes that are assigned to every finding that is generated by
@@ -1341,11 +1346,6 @@ export interface CreateAssessmentTemplateRequest {
    *          unique.</p>
    */
   userAttributesForFindings?: Attribute[];
-
-  /**
-   * <p>The duration of the assessment run in seconds.</p>
-   */
-  durationInSeconds: number | undefined;
 }
 
 export namespace CreateAssessmentTemplateRequest {
@@ -1548,15 +1548,15 @@ export namespace DescribeAssessmentTargetsRequest {
 
 export interface DescribeAssessmentTargetsResponse {
   /**
+   * <p>Information about the assessment targets.</p>
+   */
+  assessmentTargets: AssessmentTarget[] | undefined;
+
+  /**
    * <p>Assessment target details that cannot be described. An error code is provided for
    *          each failed item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
-
-  /**
-   * <p>Information about the assessment targets.</p>
-   */
-  assessmentTargets: AssessmentTarget[] | undefined;
 }
 
 export namespace DescribeAssessmentTargetsResponse {
@@ -1596,16 +1596,16 @@ export namespace DescribeAssessmentTemplatesResponse {
 
 export interface DescribeCrossAccountAccessRoleResponse {
   /**
-   * <p>A Boolean value that specifies whether the IAM role has the necessary policies
-   *          attached to enable Amazon Inspector to access your AWS account.</p>
-   */
-  valid: boolean | undefined;
-
-  /**
    * <p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS
    *          account.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether the IAM role has the necessary policies
+   *          attached to enable Amazon Inspector to access your AWS account.</p>
+   */
+  valid: boolean | undefined;
 
   /**
    * <p>The date when the cross-account access role was registered.</p>
@@ -1653,14 +1653,14 @@ export enum ScopeType {
  */
 export interface Scope {
   /**
-   * <p>The resource identifier for the specified scope type.</p>
-   */
-  value?: string;
-
-  /**
    * <p>The type of the scope.</p>
    */
   key?: ScopeType | string;
+
+  /**
+   * <p>The resource identifier for the specified scope type.</p>
+   */
+  value?: string;
 }
 
 export namespace Scope {
@@ -1679,6 +1679,21 @@ export interface Exclusion {
   arn: string | undefined;
 
   /**
+   * <p>The name of the exclusion.</p>
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The description of the exclusion.</p>
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The recommendation for the exclusion.</p>
+   */
+  recommendation: string | undefined;
+
+  /**
    * <p>The AWS resources for which the exclusion pertains.</p>
    */
   scopes: Scope[] | undefined;
@@ -1687,21 +1702,6 @@ export interface Exclusion {
    * <p>The system-defined attributes for the exclusion.</p>
    */
   attributes?: Attribute[];
-
-  /**
-   * <p>The description of the exclusion.</p>
-   */
-  description: string | undefined;
-
-  /**
-   * <p>The name of the exclusion.</p>
-   */
-  title: string | undefined;
-
-  /**
-   * <p>The recommendation for the exclusion.</p>
-   */
-  recommendation: string | undefined;
 }
 
 export namespace Exclusion {
@@ -1731,15 +1731,15 @@ export namespace DescribeExclusionsResponse {
 
 export interface DescribeFindingsRequest {
   /**
+   * <p>The ARN that specifies the finding that you want to describe.</p>
+   */
+  findingArns: string[] | undefined;
+
+  /**
    * <p>The locale into which you want to translate a finding description, recommendation,
    *          and the short description that identifies the finding.</p>
    */
   locale?: Locale | string;
-
-  /**
-   * <p>The ARN that specifies the finding that you want to describe.</p>
-   */
-  findingArns: string[] | undefined;
 }
 
 export namespace DescribeFindingsRequest {
@@ -1758,14 +1758,14 @@ export interface InspectorServiceAttributes {
   schemaVersion: number | undefined;
 
   /**
-   * <p>The ARN of the rules package that is used to generate the finding.</p>
-   */
-  rulesPackageArn?: string;
-
-  /**
    * <p>The ARN of the assessment run during which the finding is generated.</p>
    */
   assessmentRunArn?: string;
+
+  /**
+   * <p>The ARN of the rules package that is used to generate the finding.</p>
+   */
+  rulesPackageArn?: string;
 }
 
 export namespace InspectorServiceAttributes {
@@ -1780,19 +1780,14 @@ export namespace InspectorServiceAttributes {
  */
 export interface Finding {
   /**
-   * <p>A collection of attributes of the host from which the finding is generated.</p>
+   * <p>The ARN that specifies the finding.</p>
    */
-  assetAttributes?: AssetAttributes;
+  arn: string | undefined;
 
   /**
-   * <p>The type of the host from which the finding is generated.</p>
+   * <p>The schema version of this data type.</p>
    */
-  assetType?: AssetType | string;
-
-  /**
-   * <p>The description of the finding.</p>
-   */
-  description?: string;
+  schemaVersion?: number;
 
   /**
    * <p>The data element is set to "Inspector".</p>
@@ -1800,9 +1795,45 @@ export interface Finding {
   service?: string;
 
   /**
-   * <p>This data element is currently not used.</p>
+   * <p>This data type is used in the <a>Finding</a> data type.</p>
    */
-  indicatorOfCompromise?: boolean;
+  serviceAttributes?: InspectorServiceAttributes;
+
+  /**
+   * <p>The type of the host from which the finding is generated.</p>
+   */
+  assetType?: AssetType | string;
+
+  /**
+   * <p>A collection of attributes of the host from which the finding is generated.</p>
+   */
+  assetAttributes?: AssetAttributes;
+
+  /**
+   * <p>The ID of the finding.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the finding.</p>
+   */
+  title?: string;
+
+  /**
+   * <p>The description of the finding.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The recommendation for the finding.</p>
+   */
+  recommendation?: string;
+
+  /**
+   * <p>The finding severity. Values can be set to High, Medium, Low, and
+   *          Informational.</p>
+   */
+  severity?: Severity | string;
 
   /**
    * <p>The numeric value of the finding severity.</p>
@@ -1815,50 +1846,9 @@ export interface Finding {
   confidence?: number;
 
   /**
-   * <p>The time when <a>AddAttributesToFindings</a> is called.</p>
+   * <p>This data element is currently not used.</p>
    */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The user-defined attributes that are assigned to the finding.</p>
-   */
-  userAttributes: Attribute[] | undefined;
-
-  /**
-   * <p>The ID of the finding.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The finding severity. Values can be set to High, Medium, Low, and
-   *          Informational.</p>
-   */
-  severity?: Severity | string;
-
-  /**
-   * <p>The ARN that specifies the finding.</p>
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The name of the finding.</p>
-   */
-  title?: string;
-
-  /**
-   * <p>The schema version of this data type.</p>
-   */
-  schemaVersion?: number;
-
-  /**
-   * <p>The recommendation for the finding.</p>
-   */
-  recommendation?: string;
-
-  /**
-   * <p>This data type is used in the <a>Finding</a> data type.</p>
-   */
-  serviceAttributes?: InspectorServiceAttributes;
+  indicatorOfCompromise?: boolean;
 
   /**
    * <p>The system-defined attributes for the finding.</p>
@@ -1866,9 +1856,19 @@ export interface Finding {
   attributes: Attribute[] | undefined;
 
   /**
+   * <p>The user-defined attributes that are assigned to the finding.</p>
+   */
+  userAttributes: Attribute[] | undefined;
+
+  /**
    * <p>The time when the finding was generated.</p>
    */
   createdAt: Date | undefined;
+
+  /**
+   * <p>The time when <a>AddAttributesToFindings</a> is called.</p>
+   */
+  updatedAt: Date | undefined;
 }
 
 export namespace Finding {
@@ -1879,15 +1879,15 @@ export namespace Finding {
 
 export interface DescribeFindingsResponse {
   /**
+   * <p>Information about the finding.</p>
+   */
+  findings: Finding[] | undefined;
+
+  /**
    * <p>Finding details that cannot be described. An error code is provided for each failed
    *          item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
-
-  /**
-   * <p>Information about the finding.</p>
-   */
-  findings: Finding[] | undefined;
 }
 
 export namespace DescribeFindingsResponse {
@@ -1917,9 +1917,9 @@ export namespace DescribeResourceGroupsRequest {
  */
 export interface ResourceGroup {
   /**
-   * <p>The time at which resource group is created.</p>
+   * <p>The ARN of the resource group.</p>
    */
-  createdAt: Date | undefined;
+  arn: string | undefined;
 
   /**
    * <p>The tags (key and value pairs) of the resource group. This data type property is used
@@ -1928,9 +1928,9 @@ export interface ResourceGroup {
   tags: ResourceGroupTag[] | undefined;
 
   /**
-   * <p>The ARN of the resource group.</p>
+   * <p>The time at which resource group is created.</p>
    */
-  arn: string | undefined;
+  createdAt: Date | undefined;
 }
 
 export namespace ResourceGroup {
@@ -1941,15 +1941,15 @@ export namespace ResourceGroup {
 
 export interface DescribeResourceGroupsResponse {
   /**
+   * <p>Information about a resource group.</p>
+   */
+  resourceGroups: ResourceGroup[] | undefined;
+
+  /**
    * <p>Resource group details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
-
-  /**
-   * <p>Information about a resource group.</p>
-   */
-  resourceGroups: ResourceGroup[] | undefined;
 }
 
 export namespace DescribeResourceGroupsResponse {
@@ -1982,9 +1982,9 @@ export namespace DescribeRulesPackagesRequest {
  */
 export interface RulesPackage {
   /**
-   * <p>The version ID of the rules package.</p>
+   * <p>The ARN of the rules package.</p>
    */
-  version: string | undefined;
+  arn: string | undefined;
 
   /**
    * <p>The name of the rules package.</p>
@@ -1992,14 +1992,14 @@ export interface RulesPackage {
   name: string | undefined;
 
   /**
+   * <p>The version ID of the rules package.</p>
+   */
+  version: string | undefined;
+
+  /**
    * <p>The provider of the rules package.</p>
    */
   provider: string | undefined;
-
-  /**
-   * <p>The ARN of the rules package.</p>
-   */
-  arn: string | undefined;
 
   /**
    * <p>The description of the rules package.</p>
@@ -2015,15 +2015,15 @@ export namespace RulesPackage {
 
 export interface DescribeRulesPackagesResponse {
   /**
+   * <p>Information about the rules package.</p>
+   */
+  rulesPackages: RulesPackage[] | undefined;
+
+  /**
    * <p>Rules package details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
   failedItems: { [key: string]: FailedItemDetails } | undefined;
-
-  /**
-   * <p>Information about the rules package.</p>
-   */
-  rulesPackages: RulesPackage[] | undefined;
 }
 
 export namespace DescribeRulesPackagesResponse {
@@ -2037,15 +2037,15 @@ export namespace DescribeRulesPackagesResponse {
  */
 export interface EventSubscription {
   /**
-   * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
-   */
-  subscribedAt: Date | undefined;
-
-  /**
    * <p>The event for which Amazon Simple Notification Service (SNS) notifications are
    *          sent.</p>
    */
   event: InspectorEvent | string | undefined;
+
+  /**
+   * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
+   */
+  subscribedAt: Date | undefined;
 }
 
 export namespace EventSubscription {
@@ -2070,6 +2070,11 @@ export interface ExclusionPreview {
   description: string | undefined;
 
   /**
+   * <p>The recommendation for the exclusion preview.</p>
+   */
+  recommendation: string | undefined;
+
+  /**
    * <p>The AWS resources for which the exclusion preview pertains.</p>
    */
   scopes: Scope[] | undefined;
@@ -2078,11 +2083,6 @@ export interface ExclusionPreview {
    * <p>The system-defined attributes for the exclusion preview.</p>
    */
   attributes?: Attribute[];
-
-  /**
-   * <p>The recommendation for the exclusion preview.</p>
-   */
-  recommendation: string | undefined;
 }
 
 export namespace ExclusionPreview {
@@ -2096,37 +2096,6 @@ export namespace ExclusionPreview {
  *          action.</p>
  */
 export interface FindingFilter {
-  /**
-   * <p>The time range during which the finding is generated.</p>
-   */
-  creationTimeRange?: TimestampRange;
-
-  /**
-   * <p>For a record to match a filter, the value that is specified for this data type
-   *          property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data
-   *          type.</p>
-   */
-  userAttributes?: Attribute[];
-
-  /**
-   * <p>For a record to match a filter, the list of values that are specified for this data
-   *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
-   */
-  attributes?: Attribute[];
-
-  /**
-   * <p>For a record to match a filter, one of the values that is specified for this data
-   *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
-   */
-  severities?: (Severity | string)[];
-
-  /**
-   * <p>For a record to match a filter, one of the values that is specified for this data
-   *          type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data
-   *          type.</p>
-   */
-  rulesPackageArns?: string[];
-
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>
@@ -2145,6 +2114,37 @@ export interface FindingFilter {
    *          type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type.</p>
    */
   ruleNames?: string[];
+
+  /**
+   * <p>For a record to match a filter, one of the values that is specified for this data
+   *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
+   */
+  severities?: (Severity | string)[];
+
+  /**
+   * <p>For a record to match a filter, one of the values that is specified for this data
+   *          type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data
+   *          type.</p>
+   */
+  rulesPackageArns?: string[];
+
+  /**
+   * <p>For a record to match a filter, the list of values that are specified for this data
+   *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
+   */
+  attributes?: Attribute[];
+
+  /**
+   * <p>For a record to match a filter, the value that is specified for this data type
+   *          property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data
+   *          type.</p>
+   */
+  userAttributes?: Attribute[];
+
+  /**
+   * <p>The time range during which the finding is generated.</p>
+   */
+  creationTimeRange?: TimestampRange;
 }
 
 export namespace FindingFilter {
@@ -2165,13 +2165,6 @@ export enum ReportType {
 
 export interface GetAssessmentReportRequest {
   /**
-   * <p>Specifies the type of the assessment report that you want to generate. There are two
-   *          types of assessment reports: a finding report and a full report. For more information, see
-   *             <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html">Assessment Reports</a>. </p>
-   */
-  reportType: ReportType | string | undefined;
-
-  /**
    * <p>The ARN that specifies the assessment run for which you want to generate a
    *          report.</p>
    */
@@ -2182,6 +2175,13 @@ export interface GetAssessmentReportRequest {
    *          generate.</p>
    */
   reportFileFormat: ReportFileFormat | string | undefined;
+
+  /**
+   * <p>Specifies the type of the assessment report that you want to generate. There are two
+   *          types of assessment reports: a finding report and a full report. For more information, see
+   *             <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html">Assessment Reports</a>. </p>
+   */
+  reportType: ReportType | string | undefined;
 }
 
 export namespace GetAssessmentReportRequest {
@@ -2198,15 +2198,15 @@ export enum ReportStatus {
 
 export interface GetAssessmentReportResponse {
   /**
+   * <p>Specifies the status of the request to generate an assessment report. </p>
+   */
+  status: ReportStatus | string | undefined;
+
+  /**
    * <p>Specifies the URL where you can find the generated assessment report. This parameter
    *          is only returned if the report is successfully generated.</p>
    */
   url?: string;
-
-  /**
-   * <p>Specifies the status of the request to generate an assessment report. </p>
-   */
-  status: ReportStatus | string | undefined;
 }
 
 export namespace GetAssessmentReportResponse {
@@ -2237,27 +2237,15 @@ export namespace UnsupportedFeatureException {
 
 export interface GetExclusionsPreviewRequest {
   /**
-   * <p>The unique identifier associated of the exclusions preview.</p>
-   */
-  previewToken: string | undefined;
-
-  /**
-   * <p>The locale into which you want to translate the exclusion's title, description, and
-   *          recommendation.</p>
-   */
-  locale?: Locale | string;
-
-  /**
    * <p>The ARN that specifies the assessment template for which the exclusions preview was
    *          requested.</p>
    */
   assessmentTemplateArn: string | undefined;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 100. The maximum value is 500.</p>
+   * <p>The unique identifier associated of the exclusions preview.</p>
    */
-  maxResults?: number;
+  previewToken: string | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2266,6 +2254,18 @@ export interface GetExclusionsPreviewRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 100. The maximum value is 500.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The locale into which you want to translate the exclusion's title, description, and
+   *          recommendation.</p>
+   */
+  locale?: Locale | string;
 }
 
 export namespace GetExclusionsPreviewRequest {
@@ -2281,12 +2281,9 @@ export enum PreviewStatus {
 
 export interface GetExclusionsPreviewResponse {
   /**
-   * <p>When a response is generated, if there is more data to be listed, this parameters is
-   *          present in the response and contains the value to use for the nextToken parameter in a
-   *          subsequent pagination request. If there is no more data to be listed, this parameter is set
-   *          to null.</p>
+   * <p>Specifies the status of the request to generate an exclusions preview.</p>
    */
-  nextToken?: string;
+  previewStatus: PreviewStatus | string | undefined;
 
   /**
    * <p>Information about the exclusions included in the preview.</p>
@@ -2294,9 +2291,12 @@ export interface GetExclusionsPreviewResponse {
   exclusionPreviews?: ExclusionPreview[];
 
   /**
-   * <p>Specifies the status of the request to generate an exclusions preview.</p>
+   * <p>When a response is generated, if there is more data to be listed, this parameters is
+   *          present in the response and contains the value to use for the nextToken parameter in a
+   *          subsequent pagination request. If there is no more data to be listed, this parameter is set
+   *          to null.</p>
    */
-  previewStatus: PreviewStatus | string | undefined;
+  nextToken?: string;
 }
 
 export namespace GetExclusionsPreviewResponse {
@@ -2334,6 +2334,20 @@ export namespace GetTelemetryMetadataResponse {
 
 export interface ListAssessmentRunAgentsRequest {
   /**
+   * <p>The ARN that specifies the assessment run whose agents you want to list.</p>
+   */
+  assessmentRunArn: string | undefined;
+
+  /**
+   * <p>You can use this parameter to specify a subset of data to be included in the action's
+   *          response.</p>
+   *          <p>For a record to match a filter, all specified filter attributes must match. When
+   *          multiple values are specified for a filter attribute, any of the values can
+   *          match.</p>
+   */
+  filter?: AgentFilter;
+
+  /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentRunAgents</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
@@ -2347,20 +2361,6 @@ export interface ListAssessmentRunAgentsRequest {
    *          the response. The default value is 10. The maximum value is 500.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The ARN that specifies the assessment run whose agents you want to list.</p>
-   */
-  assessmentRunArn: string | undefined;
-
-  /**
-   * <p>You can use this parameter to specify a subset of data to be included in the action's
-   *          response.</p>
-   *          <p>For a record to match a filter, all specified filter attributes must match. When
-   *          multiple values are specified for a filter attribute, any of the values can
-   *          match.</p>
-   */
-  filter?: AgentFilter;
 }
 
 export namespace ListAssessmentRunAgentsRequest {
@@ -2371,16 +2371,16 @@ export namespace ListAssessmentRunAgentsRequest {
 
 export interface ListAssessmentRunAgentsResponse {
   /**
+   * <p>A list of ARNs that specifies the agents returned by the action.</p>
+   */
+  assessmentRunAgents: AssessmentRunAgent[] | undefined;
+
+  /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of ARNs that specifies the agents returned by the action.</p>
-   */
-  assessmentRunAgents: AssessmentRunAgent[] | undefined;
 }
 
 export namespace ListAssessmentRunAgentsResponse {
@@ -2391,6 +2391,12 @@ export namespace ListAssessmentRunAgentsResponse {
 
 export interface ListAssessmentRunsRequest {
   /**
+   * <p>The ARNs that specify the assessment templates whose assessment runs you want to
+   *          list.</p>
+   */
+  assessmentTemplateArns?: string[];
+
+  /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
@@ -2400,18 +2406,6 @@ export interface ListAssessmentRunsRequest {
   filter?: AssessmentRunFilter;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items that you want in
-   *          the response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The ARNs that specify the assessment templates whose assessment runs you want to
-   *          list.</p>
-   */
-  assessmentTemplateArns?: string[];
-
-  /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentRuns</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
@@ -2419,6 +2413,12 @@ export interface ListAssessmentRunsRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items that you want in
+   *          the response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListAssessmentRunsRequest {
@@ -2429,17 +2429,17 @@ export namespace ListAssessmentRunsRequest {
 
 export interface ListAssessmentRunsResponse {
   /**
+   * <p>A list of ARNs that specifies the assessment runs that are returned by the
+   *          action.</p>
+   */
+  assessmentRunArns: string[] | undefined;
+
+  /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of ARNs that specifies the assessment runs that are returned by the
-   *          action.</p>
-   */
-  assessmentRunArns: string[] | undefined;
 }
 
 export namespace ListAssessmentRunsResponse {
@@ -2450,15 +2450,6 @@ export namespace ListAssessmentRunsResponse {
 
 export interface ListAssessmentTargetsRequest {
   /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter
-   *          to null on your first call to the <b>ListAssessmentTargets</b>
-   *          action. Subsequent calls to the action fill <b>nextToken</b> in
-   *          the request with the value of <b>NextToken</b> from the previous
-   *          response to continue listing data.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
@@ -2466,6 +2457,15 @@ export interface ListAssessmentTargetsRequest {
    *          match.</p>
    */
   filter?: AssessmentTargetFilter;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter
+   *          to null on your first call to the <b>ListAssessmentTargets</b>
+   *          action. Subsequent calls to the action fill <b>nextToken</b> in
+   *          the request with the value of <b>NextToken</b> from the previous
+   *          response to continue listing data.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
@@ -2503,6 +2503,12 @@ export namespace ListAssessmentTargetsResponse {
 
 export interface ListAssessmentTemplatesRequest {
   /**
+   * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
+   *          want to list.</p>
+   */
+  assessmentTargetArns?: string[];
+
+  /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
    *          response.</p>
    *          <p>For a record to match a filter, all specified filter attributes must match. When
@@ -2512,18 +2518,6 @@ export interface ListAssessmentTemplatesRequest {
   filter?: AssessmentTemplateFilter;
 
   /**
-   * <p>A list of ARNs that specifies the assessment targets whose assessment templates you
-   *          want to list.</p>
-   */
-  assessmentTargetArns?: string[];
-
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListAssessmentTemplates</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
@@ -2531,6 +2525,12 @@ export interface ListAssessmentTemplatesRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListAssessmentTemplatesRequest {
@@ -2541,17 +2541,17 @@ export namespace ListAssessmentTemplatesRequest {
 
 export interface ListAssessmentTemplatesResponse {
   /**
+   * <p>A list of ARNs that specifies the assessment templates returned by the
+   *          action.</p>
+   */
+  assessmentTemplateArns: string[] | undefined;
+
+  /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of ARNs that specifies the assessment templates returned by the
-   *          action.</p>
-   */
-  assessmentTemplateArns: string[] | undefined;
 }
 
 export namespace ListAssessmentTemplatesResponse {
@@ -2568,12 +2568,6 @@ export interface ListEventSubscriptionsRequest {
   resourceArn?: string;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
    *          to null on your first call to the <b>ListEventSubscriptions</b>
    *          action. Subsequent calls to the action fill <b>nextToken</b> in
@@ -2581,6 +2575,12 @@ export interface ListEventSubscriptionsRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListEventSubscriptionsRequest {
@@ -2594,9 +2594,10 @@ export namespace ListEventSubscriptionsRequest {
  */
 export interface Subscription {
   /**
-   * <p>The list of existing event subscriptions.</p>
+   * <p>The ARN of the assessment template that is used during the event for which the SNS
+   *          notification is sent.</p>
    */
-  eventSubscriptions: EventSubscription[] | undefined;
+  resourceArn: string | undefined;
 
   /**
    * <p>The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS
@@ -2605,10 +2606,9 @@ export interface Subscription {
   topicArn: string | undefined;
 
   /**
-   * <p>The ARN of the assessment template that is used during the event for which the SNS
-   *          notification is sent.</p>
+   * <p>The list of existing event subscriptions.</p>
    */
-  resourceArn: string | undefined;
+  eventSubscriptions: EventSubscription[] | undefined;
 }
 
 export namespace Subscription {
@@ -2726,16 +2726,16 @@ export namespace ListFindingsRequest {
 
 export interface ListFindingsResponse {
   /**
+   * <p>A list of ARNs that specifies the findings returned by the action.</p>
+   */
+  findingArns: string[] | undefined;
+
+  /**
    * <p> When a response is generated, if there is more data to be listed, this parameter is
    *          present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of ARNs that specifies the findings returned by the action.</p>
-   */
-  findingArns: string[] | undefined;
 }
 
 export namespace ListFindingsResponse {
@@ -2815,12 +2815,6 @@ export namespace ListTagsForResourceResponse {
 
 export interface PreviewAgentsRequest {
   /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *          response. The default value is 10. The maximum value is 500.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The ARN of the assessment target whose agents you want to preview.</p>
    */
   previewAgentsArn: string | undefined;
@@ -2833,6 +2827,12 @@ export interface PreviewAgentsRequest {
    *          response to continue listing data.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *          response. The default value is 10. The maximum value is 500.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace PreviewAgentsRequest {
@@ -2910,15 +2910,15 @@ export namespace RemoveAttributesFromFindingsResponse {
 
 export interface SetTagsForResourceRequest {
   /**
+   * <p>The ARN of the assessment template that you want to set tags to.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
    * <p>A collection of key and value pairs that you want to set to the assessment
    *          template.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The ARN of the assessment template that you want to set tags to.</p>
-   */
-  resourceArn: string | undefined;
 }
 
 export namespace SetTagsForResourceRequest {
@@ -2967,17 +2967,17 @@ export enum StopAction {
 
 export interface StopAssessmentRunRequest {
   /**
+   * <p>The ARN of the assessment run that you want to stop.</p>
+   */
+  assessmentRunArn: string | undefined;
+
+  /**
    * <p>An input option that can be set to either START_EVALUATION or SKIP_EVALUATION.
    *          START_EVALUATION (the default value), stops the AWS agent from collecting data and begins
    *          the results evaluation and the findings generation process. SKIP_EVALUATION cancels the
    *          assessment run immediately, after which no findings are generated.</p>
    */
   stopAction?: StopAction | string;
-
-  /**
-   * <p>The ARN of the assessment run that you want to stop.</p>
-   */
-  assessmentRunArn: string | undefined;
 }
 
 export namespace StopAssessmentRunRequest {
@@ -2988,9 +2988,10 @@ export namespace StopAssessmentRunRequest {
 
 export interface SubscribeToEventRequest {
   /**
-   * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
+   * <p>The ARN of the assessment template that is used during the event for which you want
+   *          to receive SNS notifications.</p>
    */
-  topicArn: string | undefined;
+  resourceArn: string | undefined;
 
   /**
    * <p>The event for which you want to receive SNS notifications.</p>
@@ -2998,10 +2999,9 @@ export interface SubscribeToEventRequest {
   event: InspectorEvent | string | undefined;
 
   /**
-   * <p>The ARN of the assessment template that is used during the event for which you want
-   *          to receive SNS notifications.</p>
+   * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
    */
-  resourceArn: string | undefined;
+  topicArn: string | undefined;
 }
 
 export namespace SubscribeToEventRequest {
@@ -3012,11 +3012,6 @@ export namespace SubscribeToEventRequest {
 
 export interface UnsubscribeFromEventRequest {
   /**
-   * <p>The ARN of the SNS topic to which SNS notifications are sent.</p>
-   */
-  topicArn: string | undefined;
-
-  /**
    * <p>The ARN of the assessment template that is used during the event for which you want
    *          to stop receiving SNS notifications.</p>
    */
@@ -3026,6 +3021,11 @@ export interface UnsubscribeFromEventRequest {
    * <p>The event for which you want to stop receiving SNS notifications.</p>
    */
   event: InspectorEvent | string | undefined;
+
+  /**
+   * <p>The ARN of the SNS topic to which SNS notifications are sent.</p>
+   */
+  topicArn: string | undefined;
 }
 
 export namespace UnsubscribeFromEventRequest {
@@ -3036,14 +3036,14 @@ export namespace UnsubscribeFromEventRequest {
 
 export interface UpdateAssessmentTargetRequest {
   /**
-   * <p>The name of the assessment target that you want to update.</p>
-   */
-  assessmentTargetName: string | undefined;
-
-  /**
    * <p>The ARN of the assessment target that you want to update.</p>
    */
   assessmentTargetArn: string | undefined;
+
+  /**
+   * <p>The name of the assessment target that you want to update.</p>
+   */
+  assessmentTargetName: string | undefined;
 
   /**
    * <p>The ARN of the resource group that is used to specify the new resource group to

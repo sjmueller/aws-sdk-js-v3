@@ -81,6 +81,7 @@ export * from "./commands/ListUserImportJobsCommand.ts";
 export * from "./commands/ListUserPoolClientsCommand.ts";
 export * from "./pagination/ListUserPoolClientsPaginator.ts";
 export * from "./commands/ListUserPoolsCommand.ts";
+export * from "./pagination/ListUserPoolsPaginator.ts";
 export * from "./commands/ListUsersCommand.ts";
 export * from "./pagination/ListUsersPaginator.ts";
 export * from "./commands/ListUsersInGroupCommand.ts";

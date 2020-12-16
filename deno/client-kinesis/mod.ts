@@ -7,6 +7,8 @@ export * from "./commands/DeleteStreamCommand.ts";
 export * from "./commands/DeregisterStreamConsumerCommand.ts";
 export * from "./commands/DescribeLimitsCommand.ts";
 export * from "./commands/DescribeStreamCommand.ts";
+export * from "./waiters/waitForStreamExists.ts";
+export * from "./waiters/waitForStreamNotExists.ts";
 export * from "./commands/DescribeStreamConsumerCommand.ts";
 export * from "./commands/DescribeStreamSummaryCommand.ts";
 export * from "./commands/DisableEnhancedMonitoringCommand.ts";

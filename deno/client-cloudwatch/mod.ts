@@ -8,6 +8,8 @@ export * from "./commands/DescribeAlarmHistoryCommand.ts";
 export * from "./pagination/DescribeAlarmHistoryPaginator.ts";
 export * from "./commands/DescribeAlarmsCommand.ts";
 export * from "./pagination/DescribeAlarmsPaginator.ts";
+export * from "./waiters/waitForAlarmExists.ts";
+export * from "./waiters/waitForCompositeAlarmExists.ts";
 export * from "./commands/DescribeAlarmsForMetricCommand.ts";
 export * from "./commands/DescribeAnomalyDetectorsCommand.ts";
 export * from "./commands/DescribeInsightRulesCommand.ts";

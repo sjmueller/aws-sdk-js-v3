@@ -15,6 +15,7 @@ export * from "./commands/DeleteLoadBalancerPolicyCommand.ts";
 export * from "./commands/DeregisterInstancesFromLoadBalancerCommand.ts";
 export * from "./commands/DescribeAccountLimitsCommand.ts";
 export * from "./commands/DescribeInstanceHealthCommand.ts";
+export * from "./waiters/waitForAnyInstanceInService.ts";
 export * from "./commands/DescribeLoadBalancerAttributesCommand.ts";
 export * from "./commands/DescribeLoadBalancerPoliciesCommand.ts";
 export * from "./commands/DescribeLoadBalancerPolicyTypesCommand.ts";

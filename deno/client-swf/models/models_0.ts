@@ -34,14 +34,14 @@ export namespace ActivityType {
  */
 export interface WorkflowExecution {
   /**
-   * <p>A system-generated unique identifier for the workflow execution.</p>
-   */
-  runId: string | undefined;
-
-  /**
    * <p>The user defined identifier associated with the workflow execution.</p>
    */
   workflowId: string | undefined;
+
+  /**
+   * <p>A system-generated unique identifier for the workflow execution.</p>
+   */
+  runId: string | undefined;
 }
 
 export namespace WorkflowExecution {
@@ -55,9 +55,9 @@ export namespace WorkflowExecution {
  */
 export interface ActivityTask {
   /**
-   * <p>The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.</p>
+   * <p>The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.</p>
    */
-  input?: string;
+  taskToken: string | undefined;
 
   /**
    * <p>The unique ID of the task.</p>
@@ -65,14 +65,9 @@ export interface ActivityTask {
   activityId: string | undefined;
 
   /**
-   * <p>The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.</p>
+   * <p>The ID of the <code>ActivityTaskStarted</code> event recorded in the history.</p>
    */
-  taskToken: string | undefined;
-
-  /**
-   * <p>The type of this activity task.</p>
-   */
-  activityType: ActivityType | undefined;
+  startedEventId: number | undefined;
 
   /**
    * <p>The workflow execution that started this activity task.</p>
@@ -80,9 +75,14 @@ export interface ActivityTask {
   workflowExecution: WorkflowExecution | undefined;
 
   /**
-   * <p>The ID of the <code>ActivityTaskStarted</code> event recorded in the history.</p>
+   * <p>The type of this activity task.</p>
    */
-  startedEventId: number | undefined;
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The inputs provided when the activity task was scheduled. The form of the input is user defined and should be meaningful to the activity implementation.</p>
+   */
+  input?: string;
 }
 
 export namespace ActivityTask {
@@ -96,11 +96,9 @@ export namespace ActivityTask {
  */
 export interface ActivityTaskCanceledEventAttributes {
   /**
-   * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
-   *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
-   *       event.</p>
+   * <p>Details of the cancellation.</p>
    */
-  startedEventId: number | undefined;
+  details?: string;
 
   /**
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
@@ -108,9 +106,11 @@ export interface ActivityTaskCanceledEventAttributes {
   scheduledEventId: number | undefined;
 
   /**
-   * <p>Details of the cancellation.</p>
+   * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
+   *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
+   *       event.</p>
    */
-  details?: string;
+  startedEventId: number | undefined;
 
   /**
    * <p>If set, contains the ID of the last <code>ActivityTaskCancelRequested</code> event recorded for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
@@ -151,13 +151,6 @@ export namespace ActivityTaskCancelRequestedEventAttributes {
  */
 export interface ActivityTaskCompletedEventAttributes {
   /**
-   * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
-   *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
-   *       event.</p>
-   */
-  startedEventId: number | undefined;
-
-  /**
    * <p>The results of the activity task.</p>
    */
   result?: string;
@@ -166,6 +159,13 @@ export interface ActivityTaskCompletedEventAttributes {
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
   scheduledEventId: number | undefined;
+
+  /**
+   * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
+   *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
+   *       event.</p>
+   */
+  startedEventId: number | undefined;
 }
 
 export namespace ActivityTaskCompletedEventAttributes {
@@ -179,6 +179,11 @@ export namespace ActivityTaskCompletedEventAttributes {
  */
 export interface ActivityTaskFailedEventAttributes {
   /**
+   * <p>The reason provided for the failure.</p>
+   */
+  reason?: string;
+
+  /**
    * <p>The details of the failure.</p>
    */
   details?: string;
@@ -187,11 +192,6 @@ export interface ActivityTaskFailedEventAttributes {
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
   scheduledEventId: number | undefined;
-
-  /**
-   * <p>The reason provided for the failure.</p>
-   */
-  reason?: string;
 
   /**
    * <p>The ID of the <code>ActivityTaskStarted</code> event recorded when this activity task was started. This
@@ -228,9 +228,24 @@ export namespace TaskList {
  */
 export interface ActivityTaskScheduledEventAttributes {
   /**
-   * <p>The task list in which the activity task has been scheduled.</p>
+   * <p>The type of the activity task.</p>
    */
-  taskList: TaskList | undefined;
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The unique ID of the activity task.</p>
+   */
+  activityId: string | undefined;
+
+  /**
+   * <p>The input provided to the activity task.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.</p>
+   */
+  control?: string;
 
   /**
    * <p>The maximum amount of time the activity task can wait to be assigned to a worker.</p>
@@ -238,16 +253,19 @@ export interface ActivityTaskScheduledEventAttributes {
   scheduleToStartTimeout?: string;
 
   /**
-   * <p>The maximum time before which the worker processing this task must report progress by calling
-   *       <a>RecordActivityTaskHeartbeat</a>. If the timeout is exceeded, the activity task is automatically timed out. If
-   *       the worker subsequently attempts to record a heartbeat or return a result, it is ignored.</p>
-   */
-  heartbeatTimeout?: string;
-
-  /**
    * <p>The maximum amount of time for this activity task.</p>
    */
   scheduleToCloseTimeout?: string;
+
+  /**
+   * <p>The maximum amount of time a worker may take to process the activity task.</p>
+   */
+  startToCloseTimeout?: string;
+
+  /**
+   * <p>The task list in which the activity task has been scheduled.</p>
+   */
+  taskList: TaskList | undefined;
 
   /**
    * <p>
@@ -260,34 +278,16 @@ export interface ActivityTaskScheduledEventAttributes {
   taskPriority?: string;
 
   /**
-   * <p>The maximum amount of time a worker may take to process the activity task.</p>
-   */
-  startToCloseTimeout?: string;
-
-  /**
-   * <p>The input provided to the activity task.</p>
-   */
-  input?: string;
-
-  /**
-   * <p>The unique ID of the activity task.</p>
-   */
-  activityId: string | undefined;
-
-  /**
-   * <p>The type of the activity task.</p>
-   */
-  activityType: ActivityType | undefined;
-
-  /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision that resulted in the scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
 
   /**
-   * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.</p>
+   * <p>The maximum time before which the worker processing this task must report progress by calling
+   *       <a>RecordActivityTaskHeartbeat</a>. If the timeout is exceeded, the activity task is automatically timed out. If
+   *       the worker subsequently attempts to record a heartbeat or return a result, it is ignored.</p>
    */
-  control?: string;
+  heartbeatTimeout?: string;
 }
 
 export namespace ActivityTaskScheduledEventAttributes {
@@ -345,12 +345,6 @@ export interface ActivityTaskTimedOutEventAttributes {
   timeoutType: ActivityTaskTimeoutType | string | undefined;
 
   /**
-   * <p>Contains the content of the <code>details</code> parameter for the last call made by the activity to
-   *       <code>RecordActivityTaskHeartbeat</code>.</p>
-   */
-  details?: string;
-
-  /**
    * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
    */
   scheduledEventId: number | undefined;
@@ -361,6 +355,12 @@ export interface ActivityTaskTimedOutEventAttributes {
    *       event.</p>
    */
   startedEventId: number | undefined;
+
+  /**
+   * <p>Contains the content of the <code>details</code> parameter for the last call made by the activity to
+   *       <code>RecordActivityTaskHeartbeat</code>.</p>
+   */
+  details?: string;
 }
 
 export namespace ActivityTaskTimedOutEventAttributes {
@@ -373,6 +373,15 @@ export namespace ActivityTaskTimedOutEventAttributes {
  * <p>Configuration settings registered with the activity type.</p>
  */
 export interface ActivityTypeConfiguration {
+  /**
+   * <p>
+   *          The default maximum duration for tasks of an activity type specified when registering the activity
+   *       type. You can override this default when scheduling a task through the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskStartToCloseTimeout?: string;
+
   /**
    * <p>
    *          The default maximum time, in seconds, before which a worker processing a task must report
@@ -389,6 +398,16 @@ export interface ActivityTypeConfiguration {
 
   /**
    * <p>
+   *          The default task list specified for this activity type at registration. This default is used if
+   *       a task list isn't provided when a task is scheduled through the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>. You can override the default registered task list when scheduling a task through the
+   *       <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   */
+  defaultTaskList?: TaskList;
+
+  /**
+   * <p>
    *          The default task priority for tasks of this activity type, specified at registration. If not
    *       set, then <code>0</code> is used as the default priority. This default can be overridden when scheduling an activity
    *       task.</p>
@@ -397,25 +416,6 @@ export interface ActivityTypeConfiguration {
    *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
    */
   defaultTaskPriority?: string;
-
-  /**
-   * <p>
-   *          The default maximum duration, specified when registering the activity type, for tasks of this activity
-   *       type. You can override this default when scheduling a task through the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskScheduleToCloseTimeout?: string;
-
-  /**
-   * <p>
-   *          The default task list specified for this activity type at registration. This default is used if
-   *       a task list isn't provided when a task is scheduled through the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>. You can override the default registered task list when scheduling a task through the
-   *       <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   */
-  defaultTaskList?: TaskList;
 
   /**
    * <p>
@@ -429,12 +429,12 @@ export interface ActivityTypeConfiguration {
 
   /**
    * <p>
-   *          The default maximum duration for tasks of an activity type specified when registering the activity
+   *          The default maximum duration, specified when registering the activity type, for tasks of this activity
    *       type. You can override this default when scheduling a task through the <code>ScheduleActivityTask</code>
    *             <a>Decision</a>.</p>
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
-  defaultTaskStartToCloseTimeout?: string;
+  defaultTaskScheduleToCloseTimeout?: string;
 }
 
 export namespace ActivityTypeConfiguration {
@@ -450,6 +450,16 @@ export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
  */
 export interface ActivityTypeInfo {
   /**
+   * <p>The <a>ActivityType</a> type structure representing the activity type.</p>
+   */
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The current status of the activity type.</p>
+   */
+  status: RegistrationStatus | string | undefined;
+
+  /**
    * <p>The description of the activity type provided in <a>RegisterActivityType</a>.</p>
    */
   description?: string;
@@ -458,16 +468,6 @@ export interface ActivityTypeInfo {
    * <p>The date and time this activity type was created through <a>RegisterActivityType</a>.</p>
    */
   creationDate: Date | undefined;
-
-  /**
-   * <p>The current status of the activity type.</p>
-   */
-  status: RegistrationStatus | string | undefined;
-
-  /**
-   * <p>The <a>ActivityType</a> type structure representing the activity type.</p>
-   */
-  activityType: ActivityType | undefined;
 
   /**
    * <p>If DEPRECATED, the date and time <a>DeprecateActivityType</a> was called.</p>
@@ -485,11 +485,6 @@ export namespace ActivityTypeInfo {
  * <p>Detailed information about an activity type.</p>
  */
 export interface ActivityTypeDetail {
-  /**
-   * <p>The configuration settings registered with the activity type.</p>
-   */
-  configuration: ActivityTypeConfiguration | undefined;
-
   /**
    * <p>General information about the activity type.</p>
    *          <p>The status of activity type (returned in the ActivityTypeInfo structure) can be one of the following.</p>
@@ -510,6 +505,11 @@ export interface ActivityTypeDetail {
    *          </ul>
    */
   typeInfo: ActivityTypeInfo | undefined;
+
+  /**
+   * <p>The configuration settings registered with the activity type.</p>
+   */
+  configuration: ActivityTypeConfiguration | undefined;
 }
 
 export namespace ActivityTypeDetail {
@@ -523,17 +523,17 @@ export namespace ActivityTypeDetail {
  */
 export interface ActivityTypeInfos {
   /**
+   * <p>List of activity type information.</p>
+   */
+  typeInfos: ActivityTypeInfo[] | undefined;
+
+  /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
    *   results available. To retrieve the next page of results, make the call again using the returned token in
    *   <code>nextPageToken</code>. Keep all other arguments unchanged.</p>
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-
-  /**
-   * <p>List of activity type information.</p>
-   */
-  typeInfos: ActivityTypeInfo[] | undefined;
 }
 
 export namespace ActivityTypeInfos {
@@ -591,11 +591,6 @@ export interface CancelTimerFailedEventAttributes {
   timerId: string | undefined;
 
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
    *             <p>If <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision failed
@@ -604,6 +599,11 @@ export interface CancelTimerFailedEventAttributes {
    *          </note>
    */
   cause: CancelTimerFailedCause | string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace CancelTimerFailedEventAttributes {
@@ -656,11 +656,6 @@ export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UN
  */
 export interface CancelWorkflowExecutionFailedEventAttributes {
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
    *             <p>If <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision failed
@@ -669,6 +664,11 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
    *          </note>
    */
   cause: CancelWorkflowExecutionFailedCause | string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace CancelWorkflowExecutionFailedEventAttributes {
@@ -713,6 +713,11 @@ export namespace WorkflowType {
  */
 export interface ChildWorkflowExecutionCanceledEventAttributes {
   /**
+   * <p>The child workflow execution that was canceled.</p>
+   */
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
    * <p>The type of the child workflow execution.</p>
    */
   workflowType: WorkflowType | undefined;
@@ -737,11 +742,6 @@ export interface ChildWorkflowExecutionCanceledEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-
-  /**
-   * <p>The child workflow execution that was canceled.</p>
-   */
-  workflowExecution: WorkflowExecution | undefined;
 }
 
 export namespace ChildWorkflowExecutionCanceledEventAttributes {
@@ -755,16 +755,19 @@ export namespace ChildWorkflowExecutionCanceledEventAttributes {
  */
 export interface ChildWorkflowExecutionCompletedEventAttributes {
   /**
+   * <p>The child workflow execution that was completed.</p>
+   */
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
    * <p>The type of the child workflow execution.</p>
    */
   workflowType: WorkflowType | undefined;
 
   /**
-   * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
-   *       started. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
+   * <p>The result of the child workflow execution.</p>
    */
-  startedEventId: number | undefined;
+  result?: string;
 
   /**
    * <p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the <code>StartChildWorkflowExecution</code>
@@ -773,14 +776,11 @@ export interface ChildWorkflowExecutionCompletedEventAttributes {
   initiatedEventId: number | undefined;
 
   /**
-   * <p>The child workflow execution that was completed.</p>
+   * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
+   *       started. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
    */
-  workflowExecution: WorkflowExecution | undefined;
-
-  /**
-   * <p>The result of the child workflow execution.</p>
-   */
-  result?: string;
+  startedEventId: number | undefined;
 }
 
 export namespace ChildWorkflowExecutionCompletedEventAttributes {
@@ -794,11 +794,24 @@ export namespace ChildWorkflowExecutionCompletedEventAttributes {
  */
 export interface ChildWorkflowExecutionFailedEventAttributes {
   /**
-   * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
-   *       started. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
+   * <p>The child workflow execution that failed.</p>
    */
-  startedEventId: number | undefined;
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
+   * <p>The type of the child workflow execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>The reason for the failure (if provided).</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The details of the failure (if provided).</p>
+   */
+  details?: string;
 
   /**
    * <p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the
@@ -810,24 +823,11 @@ export interface ChildWorkflowExecutionFailedEventAttributes {
   initiatedEventId: number | undefined;
 
   /**
-   * <p>The child workflow execution that failed.</p>
+   * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
+   *       started. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
    */
-  workflowExecution: WorkflowExecution | undefined;
-
-  /**
-   * <p>The reason for the failure (if provided).</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>The type of the child workflow execution.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
-   * <p>The details of the failure (if provided).</p>
-   */
-  details?: string;
+  startedEventId: number | undefined;
 }
 
 export namespace ChildWorkflowExecutionFailedEventAttributes {
@@ -846,6 +846,11 @@ export interface ChildWorkflowExecutionStartedEventAttributes {
   workflowExecution: WorkflowExecution | undefined;
 
   /**
+   * <p>The type of the child workflow execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
    * <p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>StartChildWorkflowExecution</code>
    *             <a>Decision</a> to start this child workflow execution.
@@ -853,11 +858,6 @@ export interface ChildWorkflowExecutionStartedEventAttributes {
    *   events leading up to this event.</p>
    */
   initiatedEventId: number | undefined;
-
-  /**
-   * <p>The type of the child workflow execution.</p>
-   */
-  workflowType: WorkflowType | undefined;
 }
 
 export namespace ChildWorkflowExecutionStartedEventAttributes {
@@ -876,13 +876,6 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
   workflowExecution: WorkflowExecution | undefined;
 
   /**
-   * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
-   *       started. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  startedEventId: number | undefined;
-
-  /**
    * <p>The type of the child workflow execution.</p>
    */
   workflowType: WorkflowType | undefined;
@@ -895,6 +888,13 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
    *   events leading up to this event.</p>
    */
   initiatedEventId: number | undefined;
+
+  /**
+   * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
+   *       started. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  startedEventId: number | undefined;
 }
 
 export namespace ChildWorkflowExecutionTerminatedEventAttributes {
@@ -910,6 +910,16 @@ export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
  */
 export interface ChildWorkflowExecutionTimedOutEventAttributes {
   /**
+   * <p>The child workflow execution that timed out.</p>
+   */
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
+   * <p>The type of the child workflow execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
    * <p>The type of the timeout that caused the child workflow execution to time out.</p>
    */
   timeoutType: WorkflowExecutionTimeoutType | string | undefined;
@@ -923,21 +933,11 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
   initiatedEventId: number | undefined;
 
   /**
-   * <p>The type of the child workflow execution.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
    * <p>The ID of the <code>ChildWorkflowExecutionStarted</code> event recorded when this child workflow execution was
    *       started. This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-
-  /**
-   * <p>The child workflow execution that timed out.</p>
-   */
-  workflowExecution: WorkflowExecution | undefined;
 }
 
 export namespace ChildWorkflowExecutionTimedOutEventAttributes {
@@ -1072,14 +1072,46 @@ export namespace CompleteWorkflowExecutionFailedEventAttributes {
  */
 export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
   /**
-   * <p>The IAM role to attach to the new (continued) execution.</p>
-   */
-  lambdaRole?: string;
-
-  /**
    * <p>The input provided to the new workflow execution.</p>
    */
   input?: string;
+
+  /**
+   * <p>If set, specifies the total duration for this workflow execution. This overrides the
+   *       <code>defaultExecutionStartToCloseTimeout</code> specified when registering the workflow type.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   *          <note>
+   *             <p>An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this field. If neither this field is set nor a default execution start-to-close timeout was specified at registration time then a fault is returned.</p>
+   *          </note>
+   */
+  executionStartToCloseTimeout?: string;
+
+  /**
+   * <p>The task list to use for the decisions of the new (continued) workflow
+   *       execution.</p>
+   */
+  taskList?: TaskList;
+
+  /**
+   * <p>
+   *          The task priority that, if set, specifies the priority for the decision tasks for this workflow
+   *       execution. This overrides the defaultTaskPriority specified when registering the workflow type.
+   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
+   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a>  in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  taskPriority?: string;
+
+  /**
+   * <p>Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the
+   *       <code>defaultTaskStartToCloseTimout</code> specified when registering the workflow type using
+   *       <a>RegisterWorkflowType</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   *          <note>
+   *             <p>A task start-to-close timeout for the new workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task start-to-close timeout was specified at registration time then a fault is returned.</p>
+   *          </note>
+   */
+  taskStartToCloseTimeout?: string;
 
   /**
    * <p>If set, specifies the policy to use for the child workflow executions of the new execution if it is terminated
@@ -1110,53 +1142,21 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
   childPolicy?: ChildPolicy | string;
 
   /**
-   * <p>The version of the workflow to start.</p>
-   */
-  workflowTypeVersion?: string;
-
-  /**
-   * <p>
-   *          The task priority that, if set, specifies the priority for the decision tasks for this workflow
-   *       execution. This overrides the defaultTaskPriority specified when registering the workflow type.
-   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
-   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a>  in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  taskPriority?: string;
-
-  /**
-   * <p>Specifies the maximum duration of decision tasks for the new workflow execution. This parameter overrides the
-   *       <code>defaultTaskStartToCloseTimout</code> specified when registering the workflow type using
-   *       <a>RegisterWorkflowType</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   *          <note>
-   *             <p>A task start-to-close timeout for the new workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default task start-to-close timeout was specified at registration time then a fault is returned.</p>
-   *          </note>
-   */
-  taskStartToCloseTimeout?: string;
-
-  /**
-   * <p>The task list to use for the decisions of the new (continued) workflow
-   *       execution.</p>
-   */
-  taskList?: TaskList;
-
-  /**
-   * <p>If set, specifies the total duration for this workflow execution. This overrides the
-   *       <code>defaultExecutionStartToCloseTimeout</code> specified when registering the workflow type.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   *          <note>
-   *             <p>An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this field. If neither this field is set nor a default execution start-to-close timeout was specified at registration time then a fault is returned.</p>
-   *          </note>
-   */
-  executionStartToCloseTimeout?: string;
-
-  /**
    * <p>The list of tags to associate with the new workflow execution. A maximum of 5 tags can be specified. You can
    *       list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or
    *       <a>ListClosedWorkflowExecutions</a> and specifying a <a>TagFilter</a>.</p>
    */
   tagList?: string[];
+
+  /**
+   * <p>The version of the workflow to start.</p>
+   */
+  workflowTypeVersion?: string;
+
+  /**
+   * <p>The IAM role to attach to the new (continued) execution.</p>
+   */
+  lambdaRole?: string;
 }
 
 export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
@@ -1287,6 +1287,11 @@ export namespace WorkflowTypeFilter {
 
 export interface CountClosedWorkflowExecutionsInput {
   /**
+   * <p>The name of the domain containing the workflow executions to count.</p>
+   */
+  domain: string | undefined;
+
+  /**
    * <p>If specified, only workflow executions that meet the start time criteria of the filter
    *       are counted.</p>
    *          <note>
@@ -1296,6 +1301,17 @@ export interface CountClosedWorkflowExecutionsInput {
    *          </note>
    */
   startTimeFilter?: ExecutionTimeFilter;
+
+  /**
+   * <p>If specified, only workflow executions that meet the close time criteria of the filter
+   *       are counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
+   *         must specify one of these in a request but not both.</p>
+   *          </note>
+   */
+  closeTimeFilter?: ExecutionTimeFilter;
 
   /**
    * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
@@ -1310,20 +1326,7 @@ export interface CountClosedWorkflowExecutionsInput {
   executionFilter?: WorkflowExecutionFilter;
 
   /**
-   * <p>If specified, only workflow executions that meet the close time criteria of the filter
-   *       are counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
-   *         must specify one of these in a request but not both.</p>
-   *          </note>
-   */
-  closeTimeFilter?: ExecutionTimeFilter;
-
-  /**
-   * <p>If specified, only workflow executions that match this close status are counted. This
-   *       filter has an affect only if <code>executionStatus</code> is specified as
-   *       <code>CLOSED</code>.</p>
+   * <p>If specified, indicates the type of the workflow executions to be counted.</p>
    *          <note>
    *             <p>
    *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
@@ -1331,7 +1334,7 @@ export interface CountClosedWorkflowExecutionsInput {
    *         request.</p>
    *          </note>
    */
-  closeStatusFilter?: CloseStatusFilter;
+  typeFilter?: WorkflowTypeFilter;
 
   /**
    * <p>If specified, only executions that have a tag that matches the filter are
@@ -1346,12 +1349,9 @@ export interface CountClosedWorkflowExecutionsInput {
   tagFilter?: TagFilter;
 
   /**
-   * <p>The name of the domain containing the workflow executions to count.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>If specified, indicates the type of the workflow executions to be counted.</p>
+   * <p>If specified, only workflow executions that match this close status are counted. This
+   *       filter has an affect only if <code>executionStatus</code> is specified as
+   *       <code>CLOSED</code>.</p>
    *          <note>
    *             <p>
    *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
@@ -1359,7 +1359,7 @@ export interface CountClosedWorkflowExecutionsInput {
    *         request.</p>
    *          </note>
    */
-  typeFilter?: WorkflowTypeFilter;
+  closeStatusFilter?: CloseStatusFilter;
 }
 
 export namespace CountClosedWorkflowExecutionsInput {
@@ -1429,25 +1429,9 @@ export namespace WorkflowExecutionCount {
 
 export interface CountOpenWorkflowExecutionsInput {
   /**
-   * <p>Specifies the type of the workflow executions to be counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
+   * <p>The name of the domain containing the workflow executions to count.</p>
    */
-  typeFilter?: WorkflowTypeFilter;
-
-  /**
-   * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
-   *       filter are counted.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  executionFilter?: WorkflowExecutionFilter;
+  domain: string | undefined;
 
   /**
    * <p>Specifies the start time criteria that workflow executions must meet in order to be
@@ -1456,9 +1440,14 @@ export interface CountOpenWorkflowExecutionsInput {
   startTimeFilter: ExecutionTimeFilter | undefined;
 
   /**
-   * <p>The name of the domain containing the workflow executions to count.</p>
+   * <p>Specifies the type of the workflow executions to be counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
    */
-  domain: string | undefined;
+  typeFilter?: WorkflowTypeFilter;
 
   /**
    * <p>If specified, only executions that have a tag that matches the filter are
@@ -1470,6 +1459,17 @@ export interface CountOpenWorkflowExecutionsInput {
    *          </note>
    */
   tagFilter?: TagFilter;
+
+  /**
+   * <p>If specified, only workflow executions matching the <code>WorkflowId</code> in the
+   *       filter are counted.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
 }
 
 export namespace CountOpenWorkflowExecutionsInput {
@@ -1619,15 +1619,15 @@ export namespace FailWorkflowExecutionDecisionAttributes {
 export interface RecordMarkerDecisionAttributes {
   /**
    * <p>
-   *          The details of the marker.</p>
-   */
-  details?: string;
-
-  /**
-   * <p>
    *          The name of the marker.</p>
    */
   markerName: string | undefined;
+
+  /**
+   * <p>
+   *          The details of the marker.</p>
+   */
+  details?: string;
 }
 
 export namespace RecordMarkerDecisionAttributes {
@@ -1767,6 +1767,14 @@ export interface ScheduleActivityTaskDecisionAttributes {
   activityType: ActivityType | undefined;
 
   /**
+   * <p>
+   *          The <code>activityId</code> of the activity task.</p>
+   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
+   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   */
+  activityId: string | undefined;
+
+  /**
    * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.</p>
    */
   control?: string;
@@ -1777,14 +1785,6 @@ export interface ScheduleActivityTaskDecisionAttributes {
   input?: string;
 
   /**
-   * <p>
-   *          The <code>activityId</code> of the activity task.</p>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
-   */
-  activityId: string | undefined;
-
-  /**
    * <p>The maximum duration for this activity task.</p>
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    *          <note>
@@ -1792,6 +1792,27 @@ export interface ScheduleActivityTaskDecisionAttributes {
    *          </note>
    */
   scheduleToCloseTimeout?: string;
+
+  /**
+   * <p>If set, specifies the name of the task list in which to schedule the activity task. If not specified, the
+   *       <code>defaultTaskList</code> registered with the activity type is used.</p>
+   *          <note>
+   *             <p>A task list for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default task list was specified at registration time then a fault is returned.</p>
+   *          </note>
+   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
+   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   */
+  taskList?: TaskList;
+
+  /**
+   * <p>
+   *          If set, specifies the priority with which the activity task is to be assigned to a worker. This
+   *       overrides the defaultTaskPriority specified when registering the activity type using <a>RegisterActivityType</a>.
+   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
+   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a>  in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  taskPriority?: string;
 
   /**
    * <p>
@@ -1804,16 +1825,6 @@ export interface ScheduleActivityTaskDecisionAttributes {
    *          </note>
    */
   scheduleToStartTimeout?: string;
-
-  /**
-   * <p>
-   *          If set, specifies the priority with which the activity task is to be assigned to a worker. This
-   *       overrides the defaultTaskPriority specified when registering the activity type using <a>RegisterActivityType</a>.
-   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
-   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a>  in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  taskPriority?: string;
 
   /**
    * <p>If set, specifies the maximum duration a worker may take to process this activity task. This overrides the
@@ -1834,17 +1845,6 @@ export interface ScheduleActivityTaskDecisionAttributes {
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
   heartbeatTimeout?: string;
-
-  /**
-   * <p>If set, specifies the name of the task list in which to schedule the activity task. If not specified, the
-   *       <code>defaultTaskList</code> registered with the activity type is used.</p>
-   *          <note>
-   *             <p>A task list for this activity task must be specified either as a default for the activity type or through this field. If neither this field is set nor a default task list was specified at registration time then a fault is returned.</p>
-   *          </note>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
-   */
-  taskList?: TaskList;
 }
 
 export namespace ScheduleActivityTaskDecisionAttributes {
@@ -1859,19 +1859,14 @@ export namespace ScheduleActivityTaskDecisionAttributes {
  */
 export interface ScheduleLambdaFunctionDecisionAttributes {
   /**
-   * <p>The name, or ARN, of the Lambda function to schedule.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.</p>
-   */
-  startToCloseTimeout?: string;
-
-  /**
    * <p>A string that identifies the Lambda function execution in the event history.</p>
    */
   id: string | undefined;
+
+  /**
+   * <p>The name, or ARN, of the Lambda function to schedule.</p>
+   */
+  name: string | undefined;
 
   /**
    * <p>The data attached to the event that the decider can use in subsequent workflow tasks.
@@ -1883,6 +1878,11 @@ export interface ScheduleLambdaFunctionDecisionAttributes {
    * <p>The optional input data to be supplied to the Lambda function.</p>
    */
   input?: string;
+
+  /**
+   * <p>The timeout value, in seconds, after which the Lambda function is considered to be failed once it has started. This can be any integer from 1-300 (1s-5m). If no value is supplied, than a default value of 300s is assumed.</p>
+   */
+  startToCloseTimeout?: string;
 }
 
 export namespace ScheduleLambdaFunctionDecisionAttributes {
@@ -1916,20 +1916,22 @@ export namespace ScheduleLambdaFunctionDecisionAttributes {
  */
 export interface SignalExternalWorkflowExecutionDecisionAttributes {
   /**
-   * <p>The <code>runId</code> of the workflow execution to be signaled.</p>
-   */
-  runId?: string;
-
-  /**
    * <p>
    *          The <code>workflowId</code> of the workflow execution to be signaled.</p>
    */
   workflowId: string | undefined;
 
   /**
-   * <p>The data attached to the event that can be used by the decider in subsequent decision tasks.</p>
+   * <p>The <code>runId</code> of the workflow execution to be signaled.</p>
    */
-  control?: string;
+  runId?: string;
+
+  /**
+   * <p>
+   *          The name of the signal.The target workflow execution uses the signal name and input to
+   *       process the signal.</p>
+   */
+  signalName: string | undefined;
 
   /**
    * <p>
@@ -1939,11 +1941,9 @@ export interface SignalExternalWorkflowExecutionDecisionAttributes {
   input?: string;
 
   /**
-   * <p>
-   *          The name of the signal.The target workflow execution uses the signal name and input to
-   *       process the signal.</p>
+   * <p>The data attached to the event that can be used by the decider in subsequent decision tasks.</p>
    */
-  signalName: string | undefined;
+  control?: string;
 }
 
 export namespace SignalExternalWorkflowExecutionDecisionAttributes {
@@ -1998,13 +1998,36 @@ export namespace SignalExternalWorkflowExecutionDecisionAttributes {
 export interface StartChildWorkflowExecutionDecisionAttributes {
   /**
    * <p>
-   *          A task priority that, if set, specifies the priority for a decision task of this workflow
-   *       execution. This overrides the defaultTaskPriority specified when registering the workflow type.
-   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
-   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   *          The type of the workflow execution to be started.</p>
    */
-  taskPriority?: string;
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>
+   *          The <code>workflowId</code> of the workflow execution.</p>
+   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
+   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.</p>
+   */
+  control?: string;
+
+  /**
+   * <p>The input to be provided to the workflow execution.</p>
+   */
+  input?: string;
+
+  /**
+   * <p>The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   *          <note>
+   *             <p>An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default execution start-to-close timeout was specified at registration time then a fault is returned.</p>
+   *          </note>
+   */
+  executionStartToCloseTimeout?: string;
 
   /**
    * <p>The name of the task list to be used for decision tasks of the child workflow execution.</p>
@@ -2018,14 +2041,13 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
 
   /**
    * <p>
-   *          The type of the workflow execution to be started.</p>
+   *          A task priority that, if set, specifies the priority for a decision task of this workflow
+   *       execution. This overrides the defaultTaskPriority specified when registering the workflow type.
+   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
+   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
    */
-  workflowType: WorkflowType | undefined;
-
-  /**
-   * <p>The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.</p>
-   */
-  control?: string;
+  taskPriority?: string;
 
   /**
    * <p>Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the
@@ -2075,31 +2097,9 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
   tagList?: string[];
 
   /**
-   * <p>The input to be provided to the workflow execution.</p>
-   */
-  input?: string;
-
-  /**
    * <p>The IAM role attached to the child workflow execution.</p>
    */
   lambdaRole?: string;
-
-  /**
-   * <p>The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   *          <note>
-   *             <p>An execution start-to-close timeout for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default execution start-to-close timeout was specified at registration time then a fault is returned.</p>
-   *          </note>
-   */
-  executionStartToCloseTimeout?: string;
-
-  /**
-   * <p>
-   *          The <code>workflowId</code> of the workflow execution.</p>
-   *          <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code>
-   *           (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not contain the literal string <code>arn</code>.</p>
-   */
-  workflowId: string | undefined;
 }
 
 export namespace StartChildWorkflowExecutionDecisionAttributes {
@@ -2437,46 +2437,9 @@ export namespace StartTimerDecisionAttributes {
  */
 export interface Decision {
   /**
-   * <p>Provides the details of the <code>CompleteWorkflowExecution</code> decision. It isn't set for other decision types.</p>
-   */
-  completeWorkflowExecutionDecisionAttributes?: CompleteWorkflowExecutionDecisionAttributes;
-
-  /**
-   * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecution</code> decision.
-   *       It isn't set for other decision types.</p>
-   */
-  requestCancelExternalWorkflowExecutionDecisionAttributes?: RequestCancelExternalWorkflowExecutionDecisionAttributes;
-
-  /**
-   * <p>Provides the details of the <code>StartTimer</code> decision. It isn't set for other decision types.</p>
-   */
-  startTimerDecisionAttributes?: StartTimerDecisionAttributes;
-
-  /**
-   * <p>Provides the details of the <code>SignalExternalWorkflowExecution</code> decision. It isn't set for other decision types.</p>
-   */
-  signalExternalWorkflowExecutionDecisionAttributes?: SignalExternalWorkflowExecutionDecisionAttributes;
-
-  /**
    * <p>Specifies the type of the decision.</p>
    */
   decisionType: DecisionType | string | undefined;
-
-  /**
-   * <p>Provides the details of the <code>CancelTimer</code> decision. It isn't set for other decision types.</p>
-   */
-  cancelTimerDecisionAttributes?: CancelTimerDecisionAttributes;
-
-  /**
-   * <p>Provides the details of the <code>ScheduleLambdaFunction</code> decision. It isn't set
-   *       for other decision types.</p>
-   */
-  scheduleLambdaFunctionDecisionAttributes?: ScheduleLambdaFunctionDecisionAttributes;
-
-  /**
-   * <p>Provides the details of the <code>StartChildWorkflowExecution</code> decision. It isn't set for other decision types.</p>
-   */
-  startChildWorkflowExecutionDecisionAttributes?: StartChildWorkflowExecutionDecisionAttributes;
 
   /**
    * <p>Provides the details of the <code>ScheduleActivityTask</code> decision. It isn't set for other decision types.</p>
@@ -2489,14 +2452,9 @@ export interface Decision {
   requestCancelActivityTaskDecisionAttributes?: RequestCancelActivityTaskDecisionAttributes;
 
   /**
-   * <p>Provides the details of the <code>CancelWorkflowExecution</code> decision. It isn't set for other decision types.</p>
+   * <p>Provides the details of the <code>CompleteWorkflowExecution</code> decision. It isn't set for other decision types.</p>
    */
-  cancelWorkflowExecutionDecisionAttributes?: CancelWorkflowExecutionDecisionAttributes;
-
-  /**
-   * <p>Provides the details of the <code>RecordMarker</code> decision. It isn't set for other decision types.</p>
-   */
-  recordMarkerDecisionAttributes?: RecordMarkerDecisionAttributes;
+  completeWorkflowExecutionDecisionAttributes?: CompleteWorkflowExecutionDecisionAttributes;
 
   /**
    * <p>Provides the details of the <code>FailWorkflowExecution</code> decision. It isn't set for other decision types.</p>
@@ -2504,9 +2462,51 @@ export interface Decision {
   failWorkflowExecutionDecisionAttributes?: FailWorkflowExecutionDecisionAttributes;
 
   /**
+   * <p>Provides the details of the <code>CancelWorkflowExecution</code> decision. It isn't set for other decision types.</p>
+   */
+  cancelWorkflowExecutionDecisionAttributes?: CancelWorkflowExecutionDecisionAttributes;
+
+  /**
    * <p>Provides the details of the <code>ContinueAsNewWorkflowExecution</code> decision. It isn't set for other decision types.</p>
    */
   continueAsNewWorkflowExecutionDecisionAttributes?: ContinueAsNewWorkflowExecutionDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>RecordMarker</code> decision. It isn't set for other decision types.</p>
+   */
+  recordMarkerDecisionAttributes?: RecordMarkerDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>StartTimer</code> decision. It isn't set for other decision types.</p>
+   */
+  startTimerDecisionAttributes?: StartTimerDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>CancelTimer</code> decision. It isn't set for other decision types.</p>
+   */
+  cancelTimerDecisionAttributes?: CancelTimerDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>SignalExternalWorkflowExecution</code> decision. It isn't set for other decision types.</p>
+   */
+  signalExternalWorkflowExecutionDecisionAttributes?: SignalExternalWorkflowExecutionDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecution</code> decision.
+   *       It isn't set for other decision types.</p>
+   */
+  requestCancelExternalWorkflowExecutionDecisionAttributes?: RequestCancelExternalWorkflowExecutionDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>StartChildWorkflowExecution</code> decision. It isn't set for other decision types.</p>
+   */
+  startChildWorkflowExecutionDecisionAttributes?: StartChildWorkflowExecutionDecisionAttributes;
+
+  /**
+   * <p>Provides the details of the <code>ScheduleLambdaFunction</code> decision. It isn't set
+   *       for other decision types.</p>
+   */
+  scheduleLambdaFunctionDecisionAttributes?: ScheduleLambdaFunctionDecisionAttributes;
 }
 
 export namespace Decision {
@@ -2520,6 +2520,11 @@ export namespace Decision {
  */
 export interface DecisionTaskCompletedEventAttributes {
   /**
+   * <p>User defined context for the workflow execution.</p>
+   */
+  executionContext?: string;
+
+  /**
    * <p>The ID of the <code>DecisionTaskScheduled</code> event that was recorded when this decision task was scheduled.
    *       This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
@@ -2532,11 +2537,6 @@ export interface DecisionTaskCompletedEventAttributes {
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-
-  /**
-   * <p>User defined context for the workflow execution.</p>
-   */
-  executionContext?: string;
 }
 
 export namespace DecisionTaskCompletedEventAttributes {
@@ -2549,6 +2549,11 @@ export namespace DecisionTaskCompletedEventAttributes {
  * <p>Provides details about the <code>DecisionTaskScheduled</code> event.</p>
  */
 export interface DecisionTaskScheduledEventAttributes {
+  /**
+   * <p>The name of the task list in which the decision task was scheduled.</p>
+   */
+  taskList: TaskList | undefined;
+
   /**
    * <p>
    *          A task priority that, if set, specifies the priority for this decision task.
@@ -2563,11 +2568,6 @@ export interface DecisionTaskScheduledEventAttributes {
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
   startToCloseTimeout?: string;
-
-  /**
-   * <p>The name of the task list in which the decision task was scheduled.</p>
-   */
-  taskList: TaskList | undefined;
 }
 
 export namespace DecisionTaskScheduledEventAttributes {
@@ -2611,18 +2611,18 @@ export interface DecisionTaskTimedOutEventAttributes {
   timeoutType: DecisionTaskTimeoutType | string | undefined;
 
   /**
-   * <p>The ID of the <code>DecisionTaskStarted</code> event recorded when this decision task was started. This
-   *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
-   *       event.</p>
-   */
-  startedEventId: number | undefined;
-
-  /**
    * <p>The ID of the <code>DecisionTaskScheduled</code> event that was recorded when this decision task was scheduled.
    *       This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   scheduledEventId: number | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskStarted</code> event recorded when this decision task was started. This
+   *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
+   *       event.</p>
+   */
+  startedEventId: number | undefined;
 }
 
 export namespace DecisionTaskTimedOutEventAttributes {
@@ -2692,17 +2692,17 @@ export type EventType =
  */
 export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
   /**
+   * <p>The external workflow execution to which the cancellation request was delivered.</p>
+   */
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
    * <p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this external workflow execution. This
    *       information can be useful for diagnosing problems by tracing back the chain of events leading up to this
    *       event.</p>
    */
   initiatedEventId: number | undefined;
-
-  /**
-   * <p>The external workflow execution to which the cancellation request was delivered.</p>
-   */
-  workflowExecution: WorkflowExecution | undefined;
 }
 
 export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
@@ -2716,16 +2716,16 @@ export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
  */
 export interface ExternalWorkflowExecutionSignaledEventAttributes {
   /**
+   * <p>The external workflow execution that the signal was delivered to.</p>
+   */
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
    * <p>The ID of the <code>SignalExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>SignalExternalWorkflowExecution</code> decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   initiatedEventId: number | undefined;
-
-  /**
-   * <p>The external workflow execution that the signal was delivered to.</p>
-   */
-  workflowExecution: WorkflowExecution | undefined;
 }
 
 export namespace ExternalWorkflowExecutionSignaledEventAttributes {
@@ -2741,13 +2741,6 @@ export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHA
  */
 export interface FailWorkflowExecutionFailedEventAttributes {
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
    *             <p>If <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision failed
@@ -2756,6 +2749,13 @@ export interface FailWorkflowExecutionFailedEventAttributes {
    *          </note>
    */
   cause: FailWorkflowExecutionFailedCause | string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace FailWorkflowExecutionFailedEventAttributes {
@@ -2799,9 +2799,10 @@ export namespace LambdaFunctionCompletedEventAttributes {
  */
 export interface LambdaFunctionFailedEventAttributes {
   /**
-   * <p>The details of the failure.</p>
+   * <p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this
+   *       activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
    */
-  details?: string;
+  scheduledEventId: number | undefined;
 
   /**
    * <p>The ID of the <code>LambdaFunctionStarted</code> event recorded when this activity task
@@ -2810,15 +2811,14 @@ export interface LambdaFunctionFailedEventAttributes {
   startedEventId: number | undefined;
 
   /**
-   * <p>The ID of the <code>LambdaFunctionScheduled</code> event that was recorded when this
-   *       activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
-   */
-  scheduledEventId: number | undefined;
-
-  /**
    * <p>The reason provided for the failure.</p>
    */
   reason?: string;
+
+  /**
+   * <p>The details of the failure.</p>
+   */
+  details?: string;
 }
 
 export namespace LambdaFunctionFailedEventAttributes {
@@ -2833,11 +2833,6 @@ export namespace LambdaFunctionFailedEventAttributes {
  */
 export interface LambdaFunctionScheduledEventAttributes {
   /**
-   * <p>The maximum amount of time a worker can take to process the Lambda task.</p>
-   */
-  startToCloseTimeout?: string;
-
-  /**
    * <p>The unique ID of the Lambda task.</p>
    */
   id: string | undefined;
@@ -2848,15 +2843,20 @@ export interface LambdaFunctionScheduledEventAttributes {
   name: string | undefined;
 
   /**
+   * <p>Data attached to the event that the decider can use in subsequent workflow tasks. This
+   *       data isn't sent to the Lambda task.</p>
+   */
+  control?: string;
+
+  /**
    * <p>The input provided to the Lambda task.</p>
    */
   input?: string;
 
   /**
-   * <p>Data attached to the event that the decider can use in subsequent workflow tasks. This
-   *       data isn't sent to the Lambda task.</p>
+   * <p>The maximum amount of time a worker can take to process the Lambda task.</p>
    */
-  control?: string;
+  startToCloseTimeout?: string;
 
   /**
    * <p>The ID of the <code>LambdaFunctionCompleted</code> event corresponding to the decision
@@ -2924,13 +2924,6 @@ export namespace LambdaFunctionTimedOutEventAttributes {
  */
 export interface MarkerRecordedEventAttributes {
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>RecordMarker</code> decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The name of the marker.</p>
    */
   markerName: string | undefined;
@@ -2939,6 +2932,13 @@ export interface MarkerRecordedEventAttributes {
    * <p>The details of the marker.</p>
    */
   details?: string;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>RecordMarker</code> decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace MarkerRecordedEventAttributes {
@@ -2954,11 +2954,9 @@ export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
  */
 export interface RecordMarkerFailedEventAttributes {
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>RecordMarkerFailed</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
+   * <p>The marker's name.</p>
    */
-  decisionTaskCompletedEventId: number | undefined;
+  markerName: string | undefined;
 
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
@@ -2971,9 +2969,11 @@ export interface RecordMarkerFailedEventAttributes {
   cause: RecordMarkerFailedCause | string | undefined;
 
   /**
-   * <p>The marker's name.</p>
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>RecordMarkerFailed</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
    */
-  markerName: string | undefined;
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace RecordMarkerFailedEventAttributes {
@@ -2994,13 +2994,6 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
   activityId: string | undefined;
 
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
    *             <p>If <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision failed
@@ -3009,6 +3002,13 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
    *          </note>
    */
   cause: RequestCancelActivityTaskFailedCause | string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace RequestCancelActivityTaskFailedEventAttributes {
@@ -3026,6 +3026,16 @@ export type RequestCancelExternalWorkflowExecutionFailedCause =
  * <p>Provides the details of the <code>RequestCancelExternalWorkflowExecutionFailed</code> event.</p>
  */
 export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
+  /**
+   * <p>The <code>workflowId</code> of the external workflow to which the cancel request was to be delivered.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The <code>runId</code> of the external workflow execution.</p>
+   */
+  runId?: string;
+
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
@@ -3052,20 +3062,10 @@ export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 
   /**
-   * <p>The <code>workflowId</code> of the external workflow to which the cancel request was to be delivered.</p>
-   */
-  workflowId: string | undefined;
-
-  /**
    * <p>The data attached to the event that the decider can use in subsequent workflow tasks.
    *       This data isn't sent to the workflow execution.</p>
    */
   control?: string;
-
-  /**
-   * <p>The <code>runId</code> of the external workflow execution.</p>
-   */
-  runId?: string;
 }
 
 export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
@@ -3084,11 +3084,6 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
   workflowId: string | undefined;
 
   /**
-   * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
-   */
-  control?: string;
-
-  /**
    * <p>The <code>runId</code> of the external workflow execution to be canceled.</p>
    */
   runId?: string;
@@ -3100,6 +3095,11 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
+
+  /**
+   * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
+   */
+  control?: string;
 }
 
 export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
@@ -3126,6 +3126,16 @@ export type ScheduleActivityTaskFailedCause =
  */
 export interface ScheduleActivityTaskFailedEventAttributes {
   /**
+   * <p>The activity type provided in the <code>ScheduleActivityTask</code> decision that failed.</p>
+   */
+  activityType: ActivityType | undefined;
+
+  /**
+   * <p>The activityId provided in the <code>ScheduleActivityTask</code> decision that failed.</p>
+   */
+  activityId: string | undefined;
+
+  /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
    *             <p>If <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision failed
@@ -3136,21 +3146,11 @@ export interface ScheduleActivityTaskFailedEventAttributes {
   cause: ScheduleActivityTaskFailedCause | string | undefined;
 
   /**
-   * <p>The activityId provided in the <code>ScheduleActivityTask</code> decision that failed.</p>
-   */
-  activityId: string | undefined;
-
-  /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision that resulted in the
    *       scheduling of this activity task. This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-
-  /**
-   * <p>The activity type provided in the <code>ScheduleActivityTask</code> decision that failed.</p>
-   */
-  activityType: ActivityType | undefined;
 }
 
 export namespace ScheduleActivityTaskFailedEventAttributes {
@@ -3170,6 +3170,12 @@ export type ScheduleLambdaFunctionFailedCause =
  *       set for other event types.</p>
  */
 export interface ScheduleLambdaFunctionFailedEventAttributes {
+  /**
+   * <p>The ID provided in the <code>ScheduleLambdaFunction</code> decision that failed.
+   *     </p>
+   */
+  id: string | undefined;
+
   /**
    * <p>The name of the Lambda function.</p>
    */
@@ -3192,12 +3198,6 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
    *       that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-
-  /**
-   * <p>The ID provided in the <code>ScheduleLambdaFunction</code> decision that failed.
-   *     </p>
-   */
-  id: string | undefined;
 }
 
 export namespace ScheduleLambdaFunctionFailedEventAttributes {
@@ -3215,6 +3215,16 @@ export type SignalExternalWorkflowExecutionFailedCause =
  * <p>Provides the details of the <code>SignalExternalWorkflowExecutionFailed</code> event.</p>
  */
 export interface SignalExternalWorkflowExecutionFailedEventAttributes {
+  /**
+   * <p>The <code>workflowId</code> of the external workflow execution that the signal was being delivered to.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The <code>runId</code> of the external workflow execution that the signal was being delivered to.</p>
+   */
+  runId?: string;
+
   /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
@@ -3240,20 +3250,10 @@ export interface SignalExternalWorkflowExecutionFailedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 
   /**
-   * <p>The <code>workflowId</code> of the external workflow execution that the signal was being delivered to.</p>
-   */
-  workflowId: string | undefined;
-
-  /**
    * <p>The data attached to the event that the decider can use in subsequent workflow tasks.
    *       This data isn't sent to the workflow execution.</p>
    */
   control?: string;
-
-  /**
-   * <p>The <code>runId</code> of the external workflow execution that the signal was being delivered to.</p>
-   */
-  runId?: string;
 }
 
 export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
@@ -3267,14 +3267,24 @@ export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
  */
 export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
   /**
+   * <p>The <code>workflowId</code> of the external workflow execution.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
    * <p>The <code>runId</code> of the external workflow execution to send the signal to.</p>
    */
   runId?: string;
 
   /**
-   * <p>The <code>workflowId</code> of the external workflow execution.</p>
+   * <p>The name of the signal.</p>
    */
-  workflowId: string | undefined;
+  signalName: string | undefined;
+
+  /**
+   * <p>The input provided to the signal.</p>
+   */
+  input?: string;
 
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
@@ -3284,19 +3294,9 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 
   /**
-   * <p>The name of the signal.</p>
-   */
-  signalName: string | undefined;
-
-  /**
    * <p>Data attached to the event that can be used by the decider in subsequent decision tasks.</p>
    */
   control?: string;
-
-  /**
-   * <p>The input provided to the signal.</p>
-   */
-  input?: string;
 }
 
 export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
@@ -3323,6 +3323,12 @@ export type StartChildWorkflowExecutionFailedCause =
  */
 export interface StartChildWorkflowExecutionFailedEventAttributes {
   /**
+   * <p>The workflow type provided in the <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a> that failed.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
    * <p>The cause of the failure. This information is generated by the system and can be useful for diagnostic purposes.</p>
    *          <note>
    *             <p>When <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision fails because it lacks sufficient permissions.
@@ -3331,6 +3337,11 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
    *          </note>
    */
   cause: StartChildWorkflowExecutionFailedCause | string | undefined;
+
+  /**
+   * <p>The <code>workflowId</code> of the child workflow execution.</p>
+   */
+  workflowId: string | undefined;
 
   /**
    * <p>When the <code>cause</code> is <code>WORKFLOW_ALREADY_RUNNING</code>, <code>initiatedEventId</code> is the ID of the <code>StartChildWorkflowExecutionInitiated</code>
@@ -3343,27 +3354,16 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
   initiatedEventId: number | undefined;
 
   /**
-   * <p>The workflow type provided in the <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a> that failed.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
-   * <p>The data attached to the event that the decider can use in subsequent workflow tasks.
-   *       This data isn't sent to the child workflow execution.</p>
-   */
-  control?: string;
-
-  /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>StartChildWorkflowExecution</code>
    *             <a>Decision</a> to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
 
   /**
-   * <p>The <code>workflowId</code> of the child workflow execution.</p>
+   * <p>The data attached to the event that the decider can use in subsequent workflow tasks.
+   *       This data isn't sent to the child workflow execution.</p>
    */
-  workflowId: string | undefined;
+  control?: string;
 }
 
 export namespace StartChildWorkflowExecutionFailedEventAttributes {
@@ -3377,14 +3377,52 @@ export namespace StartChildWorkflowExecutionFailedEventAttributes {
  */
 export interface StartChildWorkflowExecutionInitiatedEventAttributes {
   /**
+   * <p>The <code>workflowId</code> of the child workflow execution.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The type of the child workflow execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.</p>
+   */
+  control?: string;
+
+  /**
    * <p>The inputs provided to the child workflow execution.</p>
    */
   input?: string;
 
   /**
-   * <p>The IAM role to attach to the child workflow execution.</p>
+   * <p>The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
-  lambdaRole?: string;
+  executionStartToCloseTimeout?: string;
+
+  /**
+   * <p>The name of the task list used for the decision tasks of the child workflow execution.</p>
+   */
+  taskList: TaskList | undefined;
+
+  /**
+   * <p>
+   *          The priority assigned for the decision tasks for this workflow execution.
+   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
+   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  taskPriority?: string;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a> to request this child workflow execution. This
+   *       information can be useful for diagnosing problems by tracing back the cause of events.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 
   /**
    * <p>The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the
@@ -3410,58 +3448,20 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
   childPolicy: ChildPolicy | string | undefined;
 
   /**
-   * <p>
-   *          The priority assigned for the decision tasks for this workflow execution.
-   *       Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
-   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  taskPriority?: string;
-
-  /**
    * <p>The maximum duration allowed for the decision tasks for this workflow execution.</p>
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
   taskStartToCloseTimeout?: string;
 
   /**
-   * <p>The name of the task list used for the decision tasks of the child workflow execution.</p>
-   */
-  taskList: TaskList | undefined;
-
-  /**
-   * <p>Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.</p>
-   */
-  control?: string;
-
-  /**
-   * <p>The type of the child workflow execution.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a> to request this child workflow execution. This
-   *       information can be useful for diagnosing problems by tracing back the cause of events.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
-   * <p>The <code>workflowId</code> of the child workflow execution.</p>
-   */
-  workflowId: string | undefined;
-
-  /**
-   * <p>The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  executionStartToCloseTimeout?: string;
-
-  /**
    * <p>The list of tags to associated with the child workflow execution.</p>
    */
   tagList?: string[];
+
+  /**
+   * <p>The IAM role to attach to the child workflow execution.</p>
+   */
+  lambdaRole?: string;
 }
 
 export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
@@ -3517,13 +3517,6 @@ export type StartTimerFailedCause =
  */
 export interface StartTimerFailedEventAttributes {
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>StartTimer</code> decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The timerId provided in the <code>StartTimer</code> decision that failed.</p>
    */
   timerId: string | undefined;
@@ -3537,6 +3530,13 @@ export interface StartTimerFailedEventAttributes {
    *          </note>
    */
   cause: StartTimerFailedCause | string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>StartTimer</code> decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace StartTimerFailedEventAttributes {
@@ -3557,18 +3557,18 @@ export interface TimerCanceledEventAttributes {
   timerId: string | undefined;
 
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  decisionTaskCompletedEventId: number | undefined;
-
-  /**
    * <p>The ID of the <code>TimerStarted</code> event that was recorded when this timer was started.
    *       This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>CancelTimer</code> decision to cancel this timer. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace TimerCanceledEventAttributes {
@@ -3582,16 +3582,16 @@ export namespace TimerCanceledEventAttributes {
  */
 export interface TimerFiredEventAttributes {
   /**
+   * <p>The unique ID of the timer that fired.</p>
+   */
+  timerId: string | undefined;
+
+  /**
    * <p>The ID of the <code>TimerStarted</code> event that was recorded when this timer was started.
    *       This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   startedEventId: number | undefined;
-
-  /**
-   * <p>The unique ID of the timer that fired.</p>
-   */
-  timerId: string | undefined;
 }
 
 export namespace TimerFiredEventAttributes {
@@ -3610,6 +3610,11 @@ export interface TimerStartedEventAttributes {
   timerId: string | undefined;
 
   /**
+   * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
+   */
+  control?: string;
+
+  /**
    * <p>The duration of time after which the timer fires.</p>
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>.</p>
    */
@@ -3621,11 +3626,6 @@ export interface TimerStartedEventAttributes {
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-
-  /**
-   * <p>Data attached to the event that can be used by the decider in subsequent workflow tasks.</p>
-   */
-  control?: string;
 }
 
 export namespace TimerStartedEventAttributes {
@@ -3639,16 +3639,16 @@ export namespace TimerStartedEventAttributes {
  */
 export interface WorkflowExecutionCanceledEventAttributes {
   /**
+   * <p>The details of the cancellation.</p>
+   */
+  details?: string;
+
+  /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
    *       <code>CancelWorkflowExecution</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of
    *   events leading up to this event.</p>
    */
   decisionTaskCompletedEventId: number | undefined;
-
-  /**
-   * <p>The details of the cancellation.</p>
-   */
-  details?: string;
 }
 
 export namespace WorkflowExecutionCanceledEventAttributes {
@@ -3664,6 +3664,11 @@ export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
  */
 export interface WorkflowExecutionCancelRequestedEventAttributes {
   /**
+   * <p>The external workflow execution for which the cancellation was requested.</p>
+   */
+  externalWorkflowExecution?: WorkflowExecution;
+
+  /**
    * <p>The ID of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event corresponding to the
    *       <code>RequestCancelExternalWorkflowExecution</code> decision to cancel this workflow execution.The source event
    *       with this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of
@@ -3675,11 +3680,6 @@ export interface WorkflowExecutionCancelRequestedEventAttributes {
    * <p>If set, indicates that the request to cancel the workflow execution was automatically generated, and specifies the cause. This happens if the parent workflow execution times out or is terminated, and the child policy is set to cancel child executions.</p>
    */
   cause?: WorkflowExecutionCancelRequestedCause | string;
-
-  /**
-   * <p>The external workflow execution for which the cancellation was requested.</p>
-   */
-  externalWorkflowExecution?: WorkflowExecution;
 }
 
 export namespace WorkflowExecutionCancelRequestedEventAttributes {
@@ -3716,9 +3716,9 @@ export namespace WorkflowExecutionCompletedEventAttributes {
  */
 export interface WorkflowExecutionContinuedAsNewEventAttributes {
   /**
-   * <p>The workflow type of this execution.</p>
+   * <p>The input provided to the new workflow execution.</p>
    */
-  workflowType: WorkflowType | undefined;
+  input?: string;
 
   /**
    * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
@@ -3728,16 +3728,9 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
   decisionTaskCompletedEventId: number | undefined;
 
   /**
-   * <p>The priority of the task to use for the decisions of the new (continued) workflow
-   *       execution.</p>
+   * <p>The <code>runId</code> of the new workflow execution.</p>
    */
-  taskPriority?: string;
-
-  /**
-   * <p>The maximum duration of decision tasks for the new workflow execution.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  taskStartToCloseTimeout?: string;
+  newExecutionRunId: string | undefined;
 
   /**
    * <p>The total duration allowed for the new workflow execution.</p>
@@ -3752,24 +3745,16 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
   taskList: TaskList | undefined;
 
   /**
-   * <p>The <code>runId</code> of the new workflow execution.</p>
+   * <p>The priority of the task to use for the decisions of the new (continued) workflow
+   *       execution.</p>
    */
-  newExecutionRunId: string | undefined;
+  taskPriority?: string;
 
   /**
-   * <p>The list of tags associated with the new workflow execution.</p>
+   * <p>The maximum duration of decision tasks for the new workflow execution.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
-  tagList?: string[];
-
-  /**
-   * <p>The IAM role to attach to the new (continued) workflow execution.</p>
-   */
-  lambdaRole?: string;
-
-  /**
-   * <p>The input provided to the new workflow execution.</p>
-   */
-  input?: string;
+  taskStartToCloseTimeout?: string;
 
   /**
    * <p>The policy to use for the child workflow executions of the new execution if it is terminated by calling the
@@ -3793,6 +3778,21 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
    *          </ul>
    */
   childPolicy: ChildPolicy | string | undefined;
+
+  /**
+   * <p>The list of tags associated with the new workflow execution.</p>
+   */
+  tagList?: string[];
+
+  /**
+   * <p>The workflow type of this execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>The IAM role to attach to the new (continued) workflow execution.</p>
+   */
+  lambdaRole?: string;
 }
 
 export namespace WorkflowExecutionContinuedAsNewEventAttributes {
@@ -3806,11 +3806,9 @@ export namespace WorkflowExecutionContinuedAsNewEventAttributes {
  */
 export interface WorkflowExecutionFailedEventAttributes {
   /**
-   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
-   *       <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
+   * <p>The descriptive reason provided for the failure.</p>
    */
-  decisionTaskCompletedEventId: number | undefined;
+  reason?: string;
 
   /**
    * <p>The details of the failure.</p>
@@ -3818,9 +3816,11 @@ export interface WorkflowExecutionFailedEventAttributes {
   details?: string;
 
   /**
-   * <p>The descriptive reason provided for the failure.</p>
+   * <p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the
+   *       <code>FailWorkflowExecution</code> decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
    */
-  reason?: string;
+  decisionTaskCompletedEventId: number | undefined;
 }
 
 export namespace WorkflowExecutionFailedEventAttributes {
@@ -3834,9 +3834,19 @@ export namespace WorkflowExecutionFailedEventAttributes {
  */
 export interface WorkflowExecutionSignaledEventAttributes {
   /**
+   * <p>The name of the signal received. The decider can use the signal name and inputs to determine how to the process the signal.</p>
+   */
+  signalName: string | undefined;
+
+  /**
    * <p>The inputs provided with the signal. The decider can use the signal name and inputs to determine how to process the signal.</p>
    */
   input?: string;
+
+  /**
+   * <p>The workflow execution that sent the signal. This is set only of the signal was sent by another workflow execution.</p>
+   */
+  externalWorkflowExecution?: WorkflowExecution;
 
   /**
    * <p>The ID of the <code>SignalExternalWorkflowExecutionInitiated</code> event corresponding to the
@@ -3846,16 +3856,6 @@ export interface WorkflowExecutionSignaledEventAttributes {
    *       the signal was initiated by another workflow execution.</p>
    */
   externalInitiatedEventId?: number;
-
-  /**
-   * <p>The name of the signal received. The decider can use the signal name and inputs to determine how to the process the signal.</p>
-   */
-  signalName: string | undefined;
-
-  /**
-   * <p>The workflow execution that sent the signal. This is set only of the signal was sent by another workflow execution.</p>
-   */
-  externalWorkflowExecution?: WorkflowExecution;
 }
 
 export namespace WorkflowExecutionSignaledEventAttributes {
@@ -3874,41 +3874,10 @@ export interface WorkflowExecutionStartedEventAttributes {
   input?: string;
 
   /**
-   * <p>The list of tags associated with this workflow execution. An execution can have up to 5 tags.</p>
-   */
-  tagList?: string[];
-
-  /**
-   * <p>The IAM role attached to the workflow execution.</p>
-   */
-  lambdaRole?: string;
-
-  /**
-   * <p>If this workflow execution was started due to a <code>ContinueAsNewWorkflowExecution</code> decision, then it
-   *       contains the <code>runId</code> of the previous workflow execution that was closed and continued as this
-   *       execution.</p>
-   */
-  continuedExecutionRunId?: string;
-
-  /**
    * <p>The maximum duration for this workflow execution.</p>
    *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
   executionStartToCloseTimeout?: string;
-
-  /**
-   * <p>The priority of the decision tasks in the workflow execution.</p>
-   */
-  taskPriority?: string;
-
-  /**
-   * <p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the
-   *       <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a> to start this workflow execution. The source event with
-   *       this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of
-   *   events leading up to this event.</p>
-   */
-  parentInitiatedEventId?: number;
 
   /**
    * <p>The maximum duration of decision tasks for this workflow type.</p>
@@ -3940,19 +3909,50 @@ export interface WorkflowExecutionStartedEventAttributes {
   childPolicy: ChildPolicy | string | undefined;
 
   /**
-   * <p>The workflow type of this execution.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
    * <p>The name of the task list for scheduling the decision tasks for this workflow execution.</p>
    */
   taskList: TaskList | undefined;
 
   /**
+   * <p>The priority of the decision tasks in the workflow execution.</p>
+   */
+  taskPriority?: string;
+
+  /**
+   * <p>The workflow type of this execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>The list of tags associated with this workflow execution. An execution can have up to 5 tags.</p>
+   */
+  tagList?: string[];
+
+  /**
+   * <p>If this workflow execution was started due to a <code>ContinueAsNewWorkflowExecution</code> decision, then it
+   *       contains the <code>runId</code> of the previous workflow execution that was closed and continued as this
+   *       execution.</p>
+   */
+  continuedExecutionRunId?: string;
+
+  /**
    * <p>The source workflow execution that started this workflow execution. The member isn't set if the workflow execution was not started by a workflow.</p>
    */
   parentWorkflowExecution?: WorkflowExecution;
+
+  /**
+   * <p>The ID of the <code>StartChildWorkflowExecutionInitiated</code> event corresponding to the
+   *       <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a> to start this workflow execution. The source event with
+   *       this ID can be found in the history of the source workflow execution. This information can be useful for diagnosing problems by tracing back the chain of
+   *   events leading up to this event.</p>
+   */
+  parentInitiatedEventId?: number;
+
+  /**
+   * <p>The IAM role attached to the workflow execution.</p>
+   */
+  lambdaRole?: string;
 }
 
 export namespace WorkflowExecutionStartedEventAttributes {
@@ -3967,6 +3967,16 @@ export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_L
  * <p>Provides the details of the <code>WorkflowExecutionTerminated</code> event.</p>
  */
 export interface WorkflowExecutionTerminatedEventAttributes {
+  /**
+   * <p>The reason provided for the termination.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The details provided for the termination.</p>
+   */
+  details?: string;
+
   /**
    * <p>The policy used for the child workflow executions of this workflow execution.</p>
    *          <p>The supported child policies are:</p>
@@ -3988,16 +3998,6 @@ export interface WorkflowExecutionTerminatedEventAttributes {
    *          </ul>
    */
   childPolicy: ChildPolicy | string | undefined;
-
-  /**
-   * <p>The reason provided for the termination.</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>The details provided for the termination.</p>
-   */
-  details?: string;
 
   /**
    * <p>If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.</p>
@@ -4271,69 +4271,19 @@ export namespace WorkflowExecutionTimedOutEventAttributes {
  */
 export interface HistoryEvent {
   /**
-   * <p>Provides the details of the <code>LambdaFunctionScheduled</code> event. It isn't set
-   *       for other event types.</p>
-   */
-  lambdaFunctionScheduledEventAttributes?: LambdaFunctionScheduledEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>WorkflowExecutionCancelRequested</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  workflowExecutionCancelRequestedEventAttributes?: WorkflowExecutionCancelRequestedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>MarkerRecorded</code> then this member is set and provides detailed information
-   *       about the event. It isn't set for other event types.</p>
-   */
-  markerRecordedEventAttributes?: MarkerRecordedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ChildWorkflowExecutionStarted</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  childWorkflowExecutionStartedEventAttributes?: ChildWorkflowExecutionStartedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>StartTimerFailed</code> then this member is set and provides detailed information
-   *       about the event. It isn't set for other event types.</p>
-   */
-  startTimerFailedEventAttributes?: StartTimerFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ActivityTaskStarted</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  activityTaskStartedEventAttributes?: ActivityTaskStartedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>CompleteWorkflowExecutionFailed</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  completeWorkflowExecutionFailedEventAttributes?: CompleteWorkflowExecutionFailedEventAttributes;
-
-  /**
    * <p>The date and time when the event occurred.</p>
    */
   eventTimestamp: Date | undefined;
 
   /**
-   * <p>If the event is of type <code>TimerStarted</code> then this member is set and provides detailed information
-   *       about the event. It isn't set for other event types.</p>
+   * <p>The type of the history event.</p>
    */
-  timerStartedEventAttributes?: TimerStartedEventAttributes;
+  eventType: EventType | string | undefined;
 
   /**
-   * <p>If the event is of type <code>FailWorkflowExecutionFailed</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
+   * <p>The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.</p>
    */
-  failWorkflowExecutionFailedEventAttributes?: FailWorkflowExecutionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>CancelTimerFailed</code> then this member is set and provides detailed information
-   *       about the event. It isn't set for other event types.</p>
-   */
-  cancelTimerFailedEventAttributes?: CancelTimerFailedEventAttributes;
+  eventId: number | undefined;
 
   /**
    * <p>If the event is of type <code>WorkflowExecutionStarted</code> then this member is set and provides detailed
@@ -4342,81 +4292,16 @@ export interface HistoryEvent {
   workflowExecutionStartedEventAttributes?: WorkflowExecutionStartedEventAttributes;
 
   /**
-   * <p>The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.</p>
-   */
-  eventId: number | undefined;
-
-  /**
-   * <p>Provides the details of the <code>StartLambdaFunctionFailed</code> event. It isn't set
-   *       for other event types.</p>
-   */
-  startLambdaFunctionFailedEventAttributes?: StartLambdaFunctionFailedEventAttributes;
-
-  /**
-   * <p>Provides the details of the <code>LambdaFunctionStarted</code> event. It isn't set for
-   *       other event types.</p>
-   */
-  lambdaFunctionStartedEventAttributes?: LambdaFunctionStartedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ScheduleActivityTaskFailed</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  scheduleActivityTaskFailedEventAttributes?: ScheduleActivityTaskFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>StartChildWorkflowExecutionFailed</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  startChildWorkflowExecutionFailedEventAttributes?: StartChildWorkflowExecutionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ActivityTaskCanceled</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  activityTaskCanceledEventAttributes?: ActivityTaskCanceledEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ActivityTaskCompleted</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  activityTaskCompletedEventAttributes?: ActivityTaskCompletedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ChildWorkflowExecutionTimedOut</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  childWorkflowExecutionTimedOutEventAttributes?: ChildWorkflowExecutionTimedOutEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ActivityTaskcancelRequested</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  activityTaskCancelRequestedEventAttributes?: ActivityTaskCancelRequestedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ActivityTaskScheduled</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  activityTaskScheduledEventAttributes?: ActivityTaskScheduledEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ExternalWorkflowExecutionSignaled</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  externalWorkflowExecutionSignaledEventAttributes?: ExternalWorkflowExecutionSignaledEventAttributes;
-
-  /**
    * <p>If the event is of type <code>WorkflowExecutionCompleted</code> then this member is set and provides detailed
    *       information about the event. It isn't set for other event types.</p>
    */
   workflowExecutionCompletedEventAttributes?: WorkflowExecutionCompletedEventAttributes;
 
   /**
-   * <p>If the event is of type <code>ActivityTaskTimedOut</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
+   * <p>If the event is of type <code>CompleteWorkflowExecutionFailed</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
    */
-  activityTaskTimedOutEventAttributes?: ActivityTaskTimedOutEventAttributes;
+  completeWorkflowExecutionFailedEventAttributes?: CompleteWorkflowExecutionFailedEventAttributes;
 
   /**
    * <p>If the event is of type <code>WorkflowExecutionFailed</code> then this member is set and provides detailed
@@ -4425,135 +4310,16 @@ export interface HistoryEvent {
   workflowExecutionFailedEventAttributes?: WorkflowExecutionFailedEventAttributes;
 
   /**
-   * <p>If the event is of type <code>ChildWorkflowExecutionFailed</code> then this member is set and provides detailed
+   * <p>If the event is of type <code>FailWorkflowExecutionFailed</code> then this member is set and provides detailed
    *       information about the event. It isn't set for other event types.</p>
    */
-  childWorkflowExecutionFailedEventAttributes?: ChildWorkflowExecutionFailedEventAttributes;
+  failWorkflowExecutionFailedEventAttributes?: FailWorkflowExecutionFailedEventAttributes;
 
   /**
-   * <p>If the event is of type <code>ExternalWorkflowExecutionCancelRequested</code> then this member is set and
-   *       provides detailed information about the event. It isn't set for other event types. </p>
-   */
-  externalWorkflowExecutionCancelRequestedEventAttributes?: ExternalWorkflowExecutionCancelRequestedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>SignalExternalWorkflowExecutionInitiated</code> then this member is set and
-   *       provides detailed information about the event. It isn't set for other event types.</p>
-   */
-  signalExternalWorkflowExecutionInitiatedEventAttributes?: SignalExternalWorkflowExecutionInitiatedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>StartChildWorkflowExecutionInitiated</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  startChildWorkflowExecutionInitiatedEventAttributes?: StartChildWorkflowExecutionInitiatedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>WorkflowExecutionTerminated</code> then this member is set and provides detailed
+   * <p>If the event is of type <code>WorkflowExecutionTimedOut</code> then this member is set and provides detailed
    *       information about the event. It isn't set for other event types.</p>
    */
-  workflowExecutionTerminatedEventAttributes?: WorkflowExecutionTerminatedEventAttributes;
-
-  /**
-   * <p>Provides the details of the <code>LambdaFunctionCompleted</code> event. It isn't set
-   *       for other event types.</p>
-   */
-  lambdaFunctionCompletedEventAttributes?: LambdaFunctionCompletedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>RequestCancelExternalWorkflowExecutionInitiated</code> then this member is set and
-   *       provides detailed information about the event. It isn't set for other event types.</p>
-   */
-  requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>SignalExternalWorkflowExecutionFailed</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  signalExternalWorkflowExecutionFailedEventAttributes?: SignalExternalWorkflowExecutionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>DecisionTaskFailed</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  recordMarkerFailedEventAttributes?: RecordMarkerFailedEventAttributes;
-
-  /**
-   * <p>The type of the history event.</p>
-   */
-  eventType: EventType | string | undefined;
-
-  /**
-   * <p>Provides the details of the <code>LambdaFunctionFailed</code> event. It isn't set for
-   *       other event types.</p>
-   */
-  lambdaFunctionFailedEventAttributes?: LambdaFunctionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>WorkflowExecutionContinuedAsNew</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  workflowExecutionContinuedAsNewEventAttributes?: WorkflowExecutionContinuedAsNewEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>CancelWorkflowExecutionFailed</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  cancelWorkflowExecutionFailedEventAttributes?: CancelWorkflowExecutionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ChildWorkflowExecutionCanceled</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  childWorkflowExecutionCanceledEventAttributes?: ChildWorkflowExecutionCanceledEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ChildWorkflowExecutionCompleted</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  childWorkflowExecutionCompletedEventAttributes?: ChildWorkflowExecutionCompletedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>TimerFired</code> then this member is set and provides detailed information about
-   *       the event. It isn't set for other event types.</p>
-   */
-  timerFiredEventAttributes?: TimerFiredEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ContinueAsNewWorkflowExecutionFailed</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  continueAsNewWorkflowExecutionFailedEventAttributes?: ContinueAsNewWorkflowExecutionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>ChildWorkflowExecutionTerminated</code> then this member is set and provides
-   *       detailed information about the event. It isn't set for other event types.</p>
-   */
-  childWorkflowExecutionTerminatedEventAttributes?: ChildWorkflowExecutionTerminatedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>RequestCancelExternalWorkflowExecutionFailed</code> then this member is set and
-   *       provides detailed information about the event. It isn't set for other event types.</p>
-   */
-  requestCancelExternalWorkflowExecutionFailedEventAttributes?: RequestCancelExternalWorkflowExecutionFailedEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>DecisionTaskTimedOut</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  decisionTaskTimedOutEventAttributes?: DecisionTaskTimedOutEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>DecisionTaskScheduled</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  decisionTaskScheduledEventAttributes?: DecisionTaskScheduledEventAttributes;
-
-  /**
-   * <p>If the event is of type <code>DecisionTaskCompleted</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
-   */
-  decisionTaskCompletedEventAttributes?: DecisionTaskCompletedEventAttributes;
+  workflowExecutionTimedOutEventAttributes?: WorkflowExecutionTimedOutEventAttributes;
 
   /**
    * <p>If the event is of type <code>WorkflowExecutionCanceled</code> then this member is set and provides detailed
@@ -4562,16 +4328,40 @@ export interface HistoryEvent {
   workflowExecutionCanceledEventAttributes?: WorkflowExecutionCanceledEventAttributes;
 
   /**
-   * <p>If the event is of type <code>ActivityTaskFailed</code> then this member is set and provides detailed
+   * <p>If the event is of type <code>CancelWorkflowExecutionFailed</code> then this member is set and provides detailed
    *       information about the event. It isn't set for other event types.</p>
    */
-  activityTaskFailedEventAttributes?: ActivityTaskFailedEventAttributes;
+  cancelWorkflowExecutionFailedEventAttributes?: CancelWorkflowExecutionFailedEventAttributes;
 
   /**
-   * <p>If the event is of type <code>TimerCanceled</code> then this member is set and provides detailed information
-   *       about the event. It isn't set for other event types.</p>
+   * <p>If the event is of type <code>WorkflowExecutionContinuedAsNew</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
    */
-  timerCanceledEventAttributes?: TimerCanceledEventAttributes;
+  workflowExecutionContinuedAsNewEventAttributes?: WorkflowExecutionContinuedAsNewEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ContinueAsNewWorkflowExecutionFailed</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  continueAsNewWorkflowExecutionFailedEventAttributes?: ContinueAsNewWorkflowExecutionFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>WorkflowExecutionTerminated</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  workflowExecutionTerminatedEventAttributes?: WorkflowExecutionTerminatedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>WorkflowExecutionCancelRequested</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  workflowExecutionCancelRequestedEventAttributes?: WorkflowExecutionCancelRequestedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>DecisionTaskScheduled</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  decisionTaskScheduledEventAttributes?: DecisionTaskScheduledEventAttributes;
 
   /**
    * <p>If the event is of type <code>DecisionTaskStarted</code> then this member is set and provides detailed
@@ -4580,10 +4370,58 @@ export interface HistoryEvent {
   decisionTaskStartedEventAttributes?: DecisionTaskStartedEventAttributes;
 
   /**
-   * <p>Provides the details of the <code>LambdaFunctionTimedOut</code> event. It isn't set for
-   *       other event types.</p>
+   * <p>If the event is of type <code>DecisionTaskCompleted</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
    */
-  lambdaFunctionTimedOutEventAttributes?: LambdaFunctionTimedOutEventAttributes;
+  decisionTaskCompletedEventAttributes?: DecisionTaskCompletedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>DecisionTaskTimedOut</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  decisionTaskTimedOutEventAttributes?: DecisionTaskTimedOutEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskScheduled</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskScheduledEventAttributes?: ActivityTaskScheduledEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskStarted</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskStartedEventAttributes?: ActivityTaskStartedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskCompleted</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskCompletedEventAttributes?: ActivityTaskCompletedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskFailed</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskFailedEventAttributes?: ActivityTaskFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskTimedOut</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskTimedOutEventAttributes?: ActivityTaskTimedOutEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskCanceled</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskCanceledEventAttributes?: ActivityTaskCanceledEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ActivityTaskcancelRequested</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  activityTaskCancelRequestedEventAttributes?: ActivityTaskCancelRequestedEventAttributes;
 
   /**
    * <p>If the event is of type <code>WorkflowExecutionSignaled</code> then this member is set and provides detailed
@@ -4592,10 +4430,118 @@ export interface HistoryEvent {
   workflowExecutionSignaledEventAttributes?: WorkflowExecutionSignaledEventAttributes;
 
   /**
-   * <p>Provides the details of the <code>ScheduleLambdaFunctionFailed</code> event. It isn't
-   *       set for other event types.</p>
+   * <p>If the event is of type <code>MarkerRecorded</code> then this member is set and provides detailed information
+   *       about the event. It isn't set for other event types.</p>
    */
-  scheduleLambdaFunctionFailedEventAttributes?: ScheduleLambdaFunctionFailedEventAttributes;
+  markerRecordedEventAttributes?: MarkerRecordedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>DecisionTaskFailed</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  recordMarkerFailedEventAttributes?: RecordMarkerFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>TimerStarted</code> then this member is set and provides detailed information
+   *       about the event. It isn't set for other event types.</p>
+   */
+  timerStartedEventAttributes?: TimerStartedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>TimerFired</code> then this member is set and provides detailed information about
+   *       the event. It isn't set for other event types.</p>
+   */
+  timerFiredEventAttributes?: TimerFiredEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>TimerCanceled</code> then this member is set and provides detailed information
+   *       about the event. It isn't set for other event types.</p>
+   */
+  timerCanceledEventAttributes?: TimerCanceledEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>StartChildWorkflowExecutionInitiated</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  startChildWorkflowExecutionInitiatedEventAttributes?: StartChildWorkflowExecutionInitiatedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ChildWorkflowExecutionStarted</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  childWorkflowExecutionStartedEventAttributes?: ChildWorkflowExecutionStartedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ChildWorkflowExecutionCompleted</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  childWorkflowExecutionCompletedEventAttributes?: ChildWorkflowExecutionCompletedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ChildWorkflowExecutionFailed</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  childWorkflowExecutionFailedEventAttributes?: ChildWorkflowExecutionFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ChildWorkflowExecutionTimedOut</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  childWorkflowExecutionTimedOutEventAttributes?: ChildWorkflowExecutionTimedOutEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ChildWorkflowExecutionCanceled</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  childWorkflowExecutionCanceledEventAttributes?: ChildWorkflowExecutionCanceledEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ChildWorkflowExecutionTerminated</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  childWorkflowExecutionTerminatedEventAttributes?: ChildWorkflowExecutionTerminatedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>SignalExternalWorkflowExecutionInitiated</code> then this member is set and
+   *       provides detailed information about the event. It isn't set for other event types.</p>
+   */
+  signalExternalWorkflowExecutionInitiatedEventAttributes?: SignalExternalWorkflowExecutionInitiatedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ExternalWorkflowExecutionSignaled</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  externalWorkflowExecutionSignaledEventAttributes?: ExternalWorkflowExecutionSignaledEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>SignalExternalWorkflowExecutionFailed</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  signalExternalWorkflowExecutionFailedEventAttributes?: SignalExternalWorkflowExecutionFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ExternalWorkflowExecutionCancelRequested</code> then this member is set and
+   *       provides detailed information about the event. It isn't set for other event types. </p>
+   */
+  externalWorkflowExecutionCancelRequestedEventAttributes?: ExternalWorkflowExecutionCancelRequestedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>RequestCancelExternalWorkflowExecutionInitiated</code> then this member is set and
+   *       provides detailed information about the event. It isn't set for other event types.</p>
+   */
+  requestCancelExternalWorkflowExecutionInitiatedEventAttributes?: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>RequestCancelExternalWorkflowExecutionFailed</code> then this member is set and
+   *       provides detailed information about the event. It isn't set for other event types.</p>
+   */
+  requestCancelExternalWorkflowExecutionFailedEventAttributes?: RequestCancelExternalWorkflowExecutionFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>ScheduleActivityTaskFailed</code> then this member is set and provides detailed
+   *       information about the event. It isn't set for other event types.</p>
+   */
+  scheduleActivityTaskFailedEventAttributes?: ScheduleActivityTaskFailedEventAttributes;
 
   /**
    * <p>If the event is of type <code>RequestCancelActivityTaskFailed</code> then this member is set and provides
@@ -4604,10 +4550,64 @@ export interface HistoryEvent {
   requestCancelActivityTaskFailedEventAttributes?: RequestCancelActivityTaskFailedEventAttributes;
 
   /**
-   * <p>If the event is of type <code>WorkflowExecutionTimedOut</code> then this member is set and provides detailed
-   *       information about the event. It isn't set for other event types.</p>
+   * <p>If the event is of type <code>StartTimerFailed</code> then this member is set and provides detailed information
+   *       about the event. It isn't set for other event types.</p>
    */
-  workflowExecutionTimedOutEventAttributes?: WorkflowExecutionTimedOutEventAttributes;
+  startTimerFailedEventAttributes?: StartTimerFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>CancelTimerFailed</code> then this member is set and provides detailed information
+   *       about the event. It isn't set for other event types.</p>
+   */
+  cancelTimerFailedEventAttributes?: CancelTimerFailedEventAttributes;
+
+  /**
+   * <p>If the event is of type <code>StartChildWorkflowExecutionFailed</code> then this member is set and provides
+   *       detailed information about the event. It isn't set for other event types.</p>
+   */
+  startChildWorkflowExecutionFailedEventAttributes?: StartChildWorkflowExecutionFailedEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>LambdaFunctionScheduled</code> event. It isn't set
+   *       for other event types.</p>
+   */
+  lambdaFunctionScheduledEventAttributes?: LambdaFunctionScheduledEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>LambdaFunctionStarted</code> event. It isn't set for
+   *       other event types.</p>
+   */
+  lambdaFunctionStartedEventAttributes?: LambdaFunctionStartedEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>LambdaFunctionCompleted</code> event. It isn't set
+   *       for other event types.</p>
+   */
+  lambdaFunctionCompletedEventAttributes?: LambdaFunctionCompletedEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>LambdaFunctionFailed</code> event. It isn't set for
+   *       other event types.</p>
+   */
+  lambdaFunctionFailedEventAttributes?: LambdaFunctionFailedEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>LambdaFunctionTimedOut</code> event. It isn't set for
+   *       other event types.</p>
+   */
+  lambdaFunctionTimedOutEventAttributes?: LambdaFunctionTimedOutEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>ScheduleLambdaFunctionFailed</code> event. It isn't
+   *       set for other event types.</p>
+   */
+  scheduleLambdaFunctionFailedEventAttributes?: ScheduleLambdaFunctionFailedEventAttributes;
+
+  /**
+   * <p>Provides the details of the <code>StartLambdaFunctionFailed</code> event. It isn't set
+   *       for other event types.</p>
+   */
+  startLambdaFunctionFailedEventAttributes?: StartLambdaFunctionFailedEventAttributes;
 }
 
 export namespace HistoryEvent {
@@ -4621,14 +4621,29 @@ export namespace HistoryEvent {
  */
 export interface DecisionTask {
   /**
-   * <p>The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.</p>
-   */
-  previousStartedEventId?: number;
-
-  /**
    * <p>The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.</p>
    */
   taskToken: string | undefined;
+
+  /**
+   * <p>The ID of the <code>DecisionTaskStarted</code> event recorded in the history.</p>
+   */
+  startedEventId: number | undefined;
+
+  /**
+   * <p>The workflow execution for which this decision task was created.</p>
+   */
+  workflowExecution: WorkflowExecution | undefined;
+
+  /**
+   * <p>The type of the workflow execution for which this decision task was created.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.</p>
+   */
+  events: HistoryEvent[] | undefined;
 
   /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
@@ -4639,24 +4654,9 @@ export interface DecisionTask {
   nextPageToken?: string;
 
   /**
-   * <p>The workflow execution for which this decision task was created.</p>
+   * <p>The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.</p>
    */
-  workflowExecution: WorkflowExecution | undefined;
-
-  /**
-   * <p>A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.</p>
-   */
-  events: HistoryEvent[] | undefined;
-
-  /**
-   * <p>The ID of the <code>DecisionTaskStarted</code> event recorded in the history.</p>
-   */
-  startedEventId: number | undefined;
-
-  /**
-   * <p>The type of the workflow execution for which this decision task was created.</p>
-   */
-  workflowType: WorkflowType | undefined;
+  previousStartedEventId?: number;
 }
 
 export namespace DecisionTask {
@@ -4777,16 +4777,16 @@ export namespace DeprecateWorkflowTypeInput {
 
 export interface DescribeActivityTypeInput {
   /**
+   * <p>The name of the domain in which the activity type is registered.</p>
+   */
+  domain: string | undefined;
+
+  /**
    * <p>The activity type to get information about. Activity types are identified by the
    *         <code>name</code> and <code>version</code> that were supplied when the activity was
    *       registered.</p>
    */
   activityType: ActivityType | undefined;
-
-  /**
-   * <p>The name of the domain in which the activity type is registered.</p>
-   */
-  domain: string | undefined;
 }
 
 export namespace DescribeActivityTypeInput {
@@ -4829,6 +4829,11 @@ export namespace DomainConfiguration {
  */
 export interface DomainInfo {
   /**
+   * <p>The name of the domain. This name is unique within the account.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The status of the domain:</p>
    *          <ul>
    *             <li>
@@ -4848,19 +4853,14 @@ export interface DomainInfo {
   status: RegistrationStatus | string | undefined;
 
   /**
-   * <p>The name of the domain. This name is unique within the account.</p>
+   * <p>The description of the domain provided through <a>RegisterDomain</a>.</p>
    */
-  name: string | undefined;
+  description?: string;
 
   /**
    * <p>The ARN of the domain.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The description of the domain provided through <a>RegisterDomain</a>.</p>
-   */
-  description?: string;
 }
 
 export namespace DomainInfo {
@@ -4894,14 +4894,14 @@ export namespace DomainDetail {
 
 export interface DescribeWorkflowExecutionInput {
   /**
-   * <p>The workflow execution to describe.</p>
-   */
-  execution: WorkflowExecution | undefined;
-
-  /**
    * <p>The name of the domain containing the workflow execution.</p>
    */
   domain: string | undefined;
+
+  /**
+   * <p>The workflow execution to describe.</p>
+   */
+  execution: WorkflowExecution | undefined;
 }
 
 export namespace DescribeWorkflowExecutionInput {
@@ -4914,6 +4914,30 @@ export namespace DescribeWorkflowExecutionInput {
  * <p>The configuration settings for a workflow execution including timeout values, tasklist etc. These configuration settings are determined from the defaults specified when registering the workflow type and those specified when starting the workflow execution.</p>
  */
 export interface WorkflowExecutionConfiguration {
+  /**
+   * <p>The maximum duration allowed for decision tasks for this workflow execution.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  taskStartToCloseTimeout: string | undefined;
+
+  /**
+   * <p>The total duration for this workflow execution.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  executionStartToCloseTimeout: string | undefined;
+
+  /**
+   * <p>The task list used for the decision tasks generated for this workflow execution.</p>
+   */
+  taskList: TaskList | undefined;
+
+  /**
+   * <p>The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
+   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  taskPriority?: string;
+
   /**
    * <p>The policy to use for the child workflow executions if this workflow execution is terminated, by calling the
    *       <a>TerminateWorkflowExecution</a> action explicitly or due to an expired timeout.</p>
@@ -4938,33 +4962,9 @@ export interface WorkflowExecutionConfiguration {
   childPolicy: ChildPolicy | string | undefined;
 
   /**
-   * <p>The total duration for this workflow execution.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  executionStartToCloseTimeout: string | undefined;
-
-  /**
-   * <p>The priority assigned to decision tasks for this workflow execution. Valid values are integers that range from Java's <code>Integer.MIN_VALUE</code>
-   *   (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  taskPriority?: string;
-
-  /**
-   * <p>The maximum duration allowed for decision tasks for this workflow execution.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  taskStartToCloseTimeout: string | undefined;
-
-  /**
    * <p>The IAM role attached to the child workflow execution.</p>
    */
   lambdaRole?: string;
-
-  /**
-   * <p>The task list used for the decision tasks generated for this workflow execution.</p>
-   */
-  taskList: TaskList | undefined;
 }
 
 export namespace WorkflowExecutionConfiguration {
@@ -4980,19 +4980,29 @@ export type ExecutionStatus = "CLOSED" | "OPEN";
  */
 export interface WorkflowExecutionInfo {
   /**
-   * <p>If this workflow execution is a child of another execution then contains the workflow execution that started this execution.</p>
-   */
-  parent?: WorkflowExecution;
-
-  /**
-   * <p>The list of tags associated with the workflow execution. Tags can be used to identify and list workflow executions of interest through the visibility APIs. A workflow execution can have a maximum of 5 tags.</p>
-   */
-  tagList?: string[];
-
-  /**
    * <p>The workflow execution this information is about.</p>
    */
   execution: WorkflowExecution | undefined;
+
+  /**
+   * <p>The type of the workflow execution.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>The time when the execution was started.</p>
+   */
+  startTimestamp: Date | undefined;
+
+  /**
+   * <p>The time when the workflow execution was closed. Set only if the execution status is CLOSED.</p>
+   */
+  closeTimestamp?: Date;
+
+  /**
+   * <p>The current status of the execution.</p>
+   */
+  executionStatus: ExecutionStatus | string | undefined;
 
   /**
    * <p>If the execution status is closed then this specifies how the execution was closed:</p>
@@ -5029,24 +5039,14 @@ export interface WorkflowExecutionInfo {
   closeStatus?: CloseStatus | string;
 
   /**
-   * <p>The time when the workflow execution was closed. Set only if the execution status is CLOSED.</p>
+   * <p>If this workflow execution is a child of another execution then contains the workflow execution that started this execution.</p>
    */
-  closeTimestamp?: Date;
+  parent?: WorkflowExecution;
 
   /**
-   * <p>The current status of the execution.</p>
+   * <p>The list of tags associated with the workflow execution. Tags can be used to identify and list workflow executions of interest through the visibility APIs. A workflow execution can have a maximum of 5 tags.</p>
    */
-  executionStatus: ExecutionStatus | string | undefined;
-
-  /**
-   * <p>The time when the execution was started.</p>
-   */
-  startTimestamp: Date | undefined;
-
-  /**
-   * <p>The type of the workflow execution.</p>
-   */
-  workflowType: WorkflowType | undefined;
+  tagList?: string[];
 
   /**
    * <p>Set to true if a cancellation is requested for this workflow execution.</p>
@@ -5065,6 +5065,16 @@ export namespace WorkflowExecutionInfo {
  */
 export interface WorkflowExecutionOpenCounts {
   /**
+   * <p>The count of activity tasks whose status is <code>OPEN</code>.</p>
+   */
+  openActivityTasks: number | undefined;
+
+  /**
+   * <p>The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.</p>
+   */
+  openDecisionTasks: number | undefined;
+
+  /**
    * <p>The count of timers started by this workflow execution that have not fired yet.</p>
    */
   openTimers: number | undefined;
@@ -5078,16 +5088,6 @@ export interface WorkflowExecutionOpenCounts {
    * <p>The count of Lambda tasks whose status is <code>OPEN</code>.</p>
    */
   openLambdaFunctions?: number;
-
-  /**
-   * <p>The count of decision tasks whose status is OPEN. A workflow execution can have at most one open decision task.</p>
-   */
-  openDecisionTasks: number | undefined;
-
-  /**
-   * <p>The count of activity tasks whose status is <code>OPEN</code>.</p>
-   */
-  openActivityTasks: number | undefined;
 }
 
 export namespace WorkflowExecutionOpenCounts {
@@ -5101,9 +5101,9 @@ export namespace WorkflowExecutionOpenCounts {
  */
 export interface WorkflowExecutionDetail {
   /**
-   * <p>The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.</p>
+   * <p>Information about the workflow execution.</p>
    */
-  latestActivityTaskTimestamp?: Date;
+  executionInfo: WorkflowExecutionInfo | undefined;
 
   /**
    * <p>The configuration settings for this workflow execution including timeout values, tasklist etc.</p>
@@ -5111,20 +5111,20 @@ export interface WorkflowExecutionDetail {
   executionConfiguration: WorkflowExecutionConfiguration | undefined;
 
   /**
-   * <p>The latest executionContext provided by the decider for this workflow execution. A decider can provide an
-   *       executionContext (a free-form string) when closing a decision task using <a>RespondDecisionTaskCompleted</a>.</p>
-   */
-  latestExecutionContext?: string;
-
-  /**
    * <p>The number of tasks for this workflow execution. This includes open and closed tasks of all types.</p>
    */
   openCounts: WorkflowExecutionOpenCounts | undefined;
 
   /**
-   * <p>Information about the workflow execution.</p>
+   * <p>The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.</p>
    */
-  executionInfo: WorkflowExecutionInfo | undefined;
+  latestActivityTaskTimestamp?: Date;
+
+  /**
+   * <p>The latest executionContext provided by the decider for this workflow execution. A decider can provide an
+   *       executionContext (a free-form string) when closing a decision task using <a>RespondDecisionTaskCompleted</a>.</p>
+   */
+  latestExecutionContext?: string;
 }
 
 export namespace WorkflowExecutionDetail {
@@ -5135,14 +5135,14 @@ export namespace WorkflowExecutionDetail {
 
 export interface DescribeWorkflowTypeInput {
   /**
-   * <p>The workflow type to describe.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
    * <p>The name of the domain in which this workflow type is registered.</p>
    */
   domain: string | undefined;
+
+  /**
+   * <p>The workflow type to describe.</p>
+   */
+  workflowType: WorkflowType | undefined;
 }
 
 export namespace DescribeWorkflowTypeInput {
@@ -5156,15 +5156,16 @@ export namespace DescribeWorkflowTypeInput {
  */
 export interface WorkflowTypeConfiguration {
   /**
-   * <p>The default IAM role attached to this workflow type.</p>
-   *          <note>
-   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
-   *         don't specify an IAM role when starting this workflow type, the default Lambda role is
-   *         attached to the execution. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
-   *           <i>Amazon SWF Developer Guide</i>.</p>
-   *          </note>
+   * <p>
+   *          The default maximum duration, specified when registering the workflow type, that a decision task
+   *       for executions of this workflow type might take before returning completion or failure. If the task doesn'tdo  close
+   *       in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports
+   *       a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using
+   *       the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
-  defaultLambdaRole?: string;
+  defaultTaskStartToCloseTimeout?: string;
 
   /**
    * <p>
@@ -5178,6 +5179,15 @@ export interface WorkflowTypeConfiguration {
 
   /**
    * <p>
+   *          The default task list, specified when registering the workflow type, for decisions tasks
+   *       scheduled for workflow executions of this type. This default can be overridden when starting a workflow execution
+   *       using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   */
+  defaultTaskList?: TaskList;
+
+  /**
+   * <p>
    *          The default task priority, specified when registering the workflow type, for all decision tasks
    *       of this workflow type. This default can be overridden when starting a workflow execution using the
    *       <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code> decision.</p>
@@ -5186,18 +5196,6 @@ export interface WorkflowTypeConfiguration {
    *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
    */
   defaultTaskPriority?: string;
-
-  /**
-   * <p>
-   *          The default maximum duration, specified when registering the workflow type, that a decision task
-   *       for executions of this workflow type might take before returning completion or failure. If the task doesn'tdo  close
-   *       in the specified time then the task is automatically timed out and rescheduled. If the decider eventually reports
-   *       a completion or failure, it is ignored. This default can be overridden when starting a workflow execution using
-   *       the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskStartToCloseTimeout?: string;
 
   /**
    * <p>
@@ -5227,13 +5225,15 @@ export interface WorkflowTypeConfiguration {
   defaultChildPolicy?: ChildPolicy | string;
 
   /**
-   * <p>
-   *          The default task list, specified when registering the workflow type, for decisions tasks
-   *       scheduled for workflow executions of this type. This default can be overridden when starting a workflow execution
-   *       using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
+   * <p>The default IAM role attached to this workflow type.</p>
+   *          <note>
+   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
+   *         don't specify an IAM role when starting this workflow type, the default Lambda role is
+   *         attached to the execution. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
+   *           <i>Amazon SWF Developer Guide</i>.</p>
+   *          </note>
    */
-  defaultTaskList?: TaskList;
+  defaultLambdaRole?: string;
 }
 
 export namespace WorkflowTypeConfiguration {
@@ -5247,14 +5247,14 @@ export namespace WorkflowTypeConfiguration {
  */
 export interface WorkflowTypeInfo {
   /**
-   * <p>The current status of the workflow type.</p>
-   */
-  status: RegistrationStatus | string | undefined;
-
-  /**
    * <p>The workflow type this information is about.</p>
    */
   workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>The current status of the workflow type.</p>
+   */
+  status: RegistrationStatus | string | undefined;
 
   /**
    * <p>The description of the type registered through <a>RegisterWorkflowType</a>.</p>
@@ -5283,12 +5283,6 @@ export namespace WorkflowTypeInfo {
  */
 export interface WorkflowTypeDetail {
   /**
-   * <p>Configuration settings of the workflow type registered through <a>RegisterWorkflowType</a>
-   *          </p>
-   */
-  configuration: WorkflowTypeConfiguration | undefined;
-
-  /**
    * <p>General information about the workflow type.</p>
    *          <p>The status of the workflow type (returned in the WorkflowTypeInfo structure) can be one of the following.</p>
    *          <ul>
@@ -5304,6 +5298,12 @@ export interface WorkflowTypeDetail {
    *          </ul>
    */
   typeInfo: WorkflowTypeInfo | undefined;
+
+  /**
+   * <p>Configuration settings of the workflow type registered through <a>RegisterWorkflowType</a>
+   *          </p>
+   */
+  configuration: WorkflowTypeConfiguration | undefined;
 }
 
 export namespace WorkflowTypeDetail {
@@ -5356,6 +5356,16 @@ export namespace DomainInfos {
 
 export interface GetWorkflowExecutionHistoryInput {
   /**
+   * <p>The name of the domain containing the workflow execution.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>Specifies the workflow execution for which to return the history.</p>
+   */
+  execution: WorkflowExecution | undefined;
+
+  /**
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
    *       the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires
@@ -5368,14 +5378,10 @@ export interface GetWorkflowExecutionHistoryInput {
   nextPageToken?: string;
 
   /**
-   * <p>Specifies the workflow execution for which to return the history.</p>
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
    */
-  execution: WorkflowExecution | undefined;
-
-  /**
-   * <p>The name of the domain containing the workflow execution.</p>
-   */
-  domain: string | undefined;
+  maximumPageSize?: number;
 
   /**
    * <p>When set to <code>true</code>, returns the events in reverse order. By default the
@@ -5383,12 +5389,6 @@ export interface GetWorkflowExecutionHistoryInput {
    *       events.</p>
    */
   reverseOrder?: boolean;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
 }
 
 export namespace GetWorkflowExecutionHistoryInput {
@@ -5441,14 +5441,14 @@ export namespace LimitExceededFault {
 
 export interface ListActivityTypesInput {
   /**
-   * <p>If specified, only lists the activity types that have this name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The name of the domain in which the activity types have been registered.</p>
    */
   domain: string | undefined;
+
+  /**
+   * <p>If specified, only lists the activity types that have this name.</p>
+   */
+  name?: string;
 
   /**
    * <p>Specifies the registration status of the activity types to list.</p>
@@ -5489,16 +5489,21 @@ export namespace ListActivityTypesInput {
 
 export interface ListClosedWorkflowExecutionsInput {
   /**
-   * <p>If specified, only executions of the type specified in the filter are
-   *       returned.</p>
+   * <p>The name of the domain that contains the workflow executions to list.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>If specified, the workflow executions are included in the returned results based on
+   *       whether their start times are within the range specified by this filter. Also, if this
+   *       parameter is specified, the returned results are ordered by their start times.</p>
    *          <note>
    *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
+   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
+   *         must specify one of these in a request but not both.</p>
    *          </note>
    */
-  typeFilter?: WorkflowTypeFilter;
+  startTimeFilter?: ExecutionTimeFilter;
 
   /**
    * <p>If specified, the workflow executions are included in the returned results based on
@@ -5511,6 +5516,18 @@ export interface ListClosedWorkflowExecutionsInput {
    *          </note>
    */
   closeTimeFilter?: ExecutionTimeFilter;
+
+  /**
+   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
+   *       are returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
 
   /**
    * <p>If specified, only workflow executions that match this <i>close
@@ -5526,6 +5543,18 @@ export interface ListClosedWorkflowExecutionsInput {
   closeStatusFilter?: CloseStatusFilter;
 
   /**
+   * <p>If specified, only executions of the type specified in the filter are
+   *       returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
+   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
+   *         request.</p>
+   *          </note>
+   */
+  typeFilter?: WorkflowTypeFilter;
+
+  /**
    * <p>If specified, only executions that have the matching tag are listed.</p>
    *          <note>
    *             <p>
@@ -5535,29 +5564,6 @@ export interface ListClosedWorkflowExecutionsInput {
    *          </note>
    */
   tagFilter?: TagFilter;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
-  /**
-   * <p>The name of the domain that contains the workflow executions to list.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
-   *       are returned.</p>
-   *          <note>
-   *             <p>
-   *                <code>closeStatusFilter</code>, <code>executionFilter</code>, <code>typeFilter</code> and
-   *           <code>tagFilter</code> are mutually exclusive. You can specify at most one of these in a
-   *         request.</p>
-   *          </note>
-   */
-  executionFilter?: WorkflowExecutionFilter;
 
   /**
    * <p>If <code>NextPageToken</code> is returned there are more results
@@ -5572,23 +5578,17 @@ export interface ListClosedWorkflowExecutionsInput {
   nextPageToken?: string;
 
   /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
    * <p>When set to <code>true</code>, returns the results in reverse order. By default the
    *       results are returned in descending order of the start or the close time of the
    *       executions.</p>
    */
   reverseOrder?: boolean;
-
-  /**
-   * <p>If specified, the workflow executions are included in the returned results based on
-   *       whether their start times are within the range specified by this filter. Also, if this
-   *       parameter is specified, the returned results are ordered by their start times.</p>
-   *          <note>
-   *             <p>
-   *                <code>startTimeFilter</code> and <code>closeTimeFilter</code> are mutually exclusive. You
-   *         must specify one of these in a request but not both.</p>
-   *          </note>
-   */
-  startTimeFilter?: ExecutionTimeFilter;
 }
 
 export namespace ListClosedWorkflowExecutionsInput {
@@ -5602,17 +5602,17 @@ export namespace ListClosedWorkflowExecutionsInput {
  */
 export interface WorkflowExecutionInfos {
   /**
+   * <p>The list of workflow information structures.</p>
+   */
+  executionInfos: WorkflowExecutionInfo[] | undefined;
+
+  /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
    *   results available. To retrieve the next page of results, make the call again using the returned token in
    *   <code>nextPageToken</code>. Keep all other arguments unchanged.</p>
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-
-  /**
-   * <p>The list of workflow information structures.</p>
-   */
-  executionInfos: WorkflowExecutionInfo[] | undefined;
 }
 
 export namespace WorkflowExecutionInfos {
@@ -5622,12 +5622,6 @@ export namespace WorkflowExecutionInfos {
 }
 
 export interface ListDomainsInput {
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
-
   /**
    * <p>If <code>NextPageToken</code> is returned there are more results
    *       available.  The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using
@@ -5641,16 +5635,22 @@ export interface ListDomainsInput {
   nextPageToken?: string;
 
   /**
+   * <p>Specifies the registration status of the domains to list.</p>
+   */
+  registrationStatus: RegistrationStatus | string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
    * <p>When set to <code>true</code>, returns the results in reverse order. By default, the
    *       results are returned in ascending alphabetical order by <code>name</code> of the
    *       domains.</p>
    */
   reverseOrder?: boolean;
-
-  /**
-   * <p>Specifies the registration status of the domains to list.</p>
-   */
-  registrationStatus: RegistrationStatus | string | undefined;
 }
 
 export namespace ListDomainsInput {
@@ -5661,31 +5661,9 @@ export namespace ListDomainsInput {
 
 export interface ListOpenWorkflowExecutionsInput {
   /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
-   *       results are returned in descending order of the start time of the executions.</p>
-   */
-  reverseOrder?: boolean;
-
-  /**
    * <p>The name of the domain that contains the workflow executions to list.</p>
    */
   domain: string | undefined;
-
-  /**
-   * <p>If specified, only executions that have the matching tag are listed.</p>
-   *          <note>
-   *             <p>
-   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
-   *         mutually exclusive. You can specify at most one of these in a request.</p>
-   *          </note>
-   */
-  tagFilter?: TagFilter;
-
-  /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   */
-  maximumPageSize?: number;
 
   /**
    * <p>Workflow executions are included in the returned results based on whether their start
@@ -5705,15 +5683,14 @@ export interface ListOpenWorkflowExecutionsInput {
   typeFilter?: WorkflowTypeFilter;
 
   /**
-   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
-   *       are returned.</p>
+   * <p>If specified, only executions that have the matching tag are listed.</p>
    *          <note>
    *             <p>
    *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
    *         mutually exclusive. You can specify at most one of these in a request.</p>
    *          </note>
    */
-  executionFilter?: WorkflowExecutionFilter;
+  tagFilter?: TagFilter;
 
   /**
    * <p>If <code>NextPageToken</code> is returned there are more results
@@ -5726,6 +5703,29 @@ export interface ListOpenWorkflowExecutionsInput {
    *       in a single call. </p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
+   *       results are returned in descending order of the start time of the executions.</p>
+   */
+  reverseOrder?: boolean;
+
+  /**
+   * <p>If specified, only workflow executions matching the workflow ID specified in the filter
+   *       are returned.</p>
+   *          <note>
+   *             <p>
+   *                <code>executionFilter</code>, <code>typeFilter</code> and <code>tagFilter</code> are
+   *         mutually exclusive. You can specify at most one of these in a request.</p>
+   *          </note>
+   */
+  executionFilter?: WorkflowExecutionFilter;
 }
 
 export namespace ListOpenWorkflowExecutionsInput {
@@ -5785,11 +5785,19 @@ export namespace ListTagsForResourceOutput {
 
 export interface ListWorkflowTypesInput {
   /**
-   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
-   *       results are returned in ascending alphabetical order of the <code>name</code> of the workflow
-   *       types.</p>
+   * <p>The name of the domain in which the workflow types have been registered.</p>
    */
-  reverseOrder?: boolean;
+  domain: string | undefined;
+
+  /**
+   * <p>If specified, lists the workflow type with this name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Specifies the registration status of the workflow types to list.</p>
+   */
+  registrationStatus: RegistrationStatus | string | undefined;
 
   /**
    * <p>If <code>NextPageToken</code> is returned there are more results
@@ -5804,25 +5812,17 @@ export interface ListWorkflowTypesInput {
   nextPageToken?: string;
 
   /**
-   * <p>The name of the domain in which the workflow types have been registered.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>Specifies the registration status of the workflow types to list.</p>
-   */
-  registrationStatus: RegistrationStatus | string | undefined;
-
-  /**
    * <p>The maximum number of results that are returned per call.
    *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
    */
   maximumPageSize?: number;
 
   /**
-   * <p>If specified, lists the workflow type with this name.</p>
+   * <p>When set to <code>true</code>, returns the results in reverse order. By default the
+   *       results are returned in ascending alphabetical order of the <code>name</code> of the workflow
+   *       types.</p>
    */
-  name?: string;
+  reverseOrder?: boolean;
 }
 
 export namespace ListWorkflowTypesInput {
@@ -5836,17 +5836,17 @@ export namespace ListWorkflowTypesInput {
  */
 export interface WorkflowTypeInfos {
   /**
+   * <p>The list of workflow type information.</p>
+   */
+  typeInfos: WorkflowTypeInfo[] | undefined;
+
+  /**
    * <p>If a <code>NextPageToken</code> was returned by a previous call, there are more
    *   results available. To retrieve the next page of results, make the call again using the returned token in
    *   <code>nextPageToken</code>. Keep all other arguments unchanged.</p>
    *          <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call.</p>
    */
   nextPageToken?: string;
-
-  /**
-   * <p>The list of workflow type information.</p>
-   */
-  typeInfos: WorkflowTypeInfo[] | undefined;
 }
 
 export namespace WorkflowTypeInfos {
@@ -5862,13 +5862,6 @@ export interface PollForActivityTaskInput {
   domain: string | undefined;
 
   /**
-   * <p>Identity of the worker making the request, recorded in the
-   *         <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic
-   *       tracing when problems arise. The form of this identity is user defined.</p>
-   */
-  identity?: string;
-
-  /**
    * <p>Specifies the task list to poll for activity tasks.</p>
    *
    *          <p>The specified string must not start or end with whitespace. It must not contain a
@@ -5877,6 +5870,13 @@ export interface PollForActivityTaskInput {
    *       not <i>be</i> the literal string <code>arn</code>.</p>
    */
   taskList: TaskList | undefined;
+
+  /**
+   * <p>Identity of the worker making the request, recorded in the
+   *         <code>ActivityTaskStarted</code> event in the workflow history. This enables diagnostic
+   *       tracing when problems arise. The form of this identity is user defined.</p>
+   */
+  identity?: string;
 }
 
 export namespace PollForActivityTaskInput {
@@ -5887,18 +5887,9 @@ export namespace PollForActivityTaskInput {
 
 export interface PollForDecisionTaskInput {
   /**
-   * <p>When set to <code>true</code>, returns the events in reverse order. By default the
-   *       results are returned in ascending order of the <code>eventTimestamp</code> of the
-   *       events.</p>
+   * <p>The name of the domain containing the task lists to poll.</p>
    */
-  reverseOrder?: boolean;
-
-  /**
-   * <p>Identity of the decider making the request, which is recorded in the
-   *       DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when
-   *       problems arise. The form of this identity is user defined.</p>
-   */
-  identity?: string;
+  domain: string | undefined;
 
   /**
    * <p>Specifies the task list to poll for decision tasks.</p>
@@ -5911,18 +5902,11 @@ export interface PollForDecisionTaskInput {
   taskList: TaskList | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call.
-   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
-   *          <p>This
-   *       is an upper limit only; the actual number of results returned per call may be fewer than the
-   *       specified maximum.</p>
+   * <p>Identity of the decider making the request, which is recorded in the
+   *       DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when
+   *       problems arise. The form of this identity is user defined.</p>
    */
-  maximumPageSize?: number;
-
-  /**
-   * <p>The name of the domain containing the task lists to poll.</p>
-   */
-  domain: string | undefined;
+  identity?: string;
 
   /**
    * <p>If <code>NextPageToken</code> is returned there are more results
@@ -5940,6 +5924,22 @@ export interface PollForDecisionTaskInput {
    *          </note>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>The maximum number of results that are returned per call.
+   *   Use <code>nextPageToken</code> to obtain further pages of results. </p>
+   *          <p>This
+   *       is an upper limit only; the actual number of results returned per call may be fewer than the
+   *       specified maximum.</p>
+   */
+  maximumPageSize?: number;
+
+  /**
+   * <p>When set to <code>true</code>, returns the events in reverse order. By default the
+   *       results are returned in ascending order of the <code>eventTimestamp</code> of the
+   *       events.</p>
+   */
+  reverseOrder?: boolean;
 }
 
 export namespace PollForDecisionTaskInput {
@@ -5950,11 +5950,6 @@ export namespace PollForDecisionTaskInput {
 
 export interface RecordActivityTaskHeartbeatInput {
   /**
-   * <p>If specified, contains details about the progress of the task.</p>
-   */
-  details?: string;
-
-  /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
    *          <important>
    *             <p>
@@ -5964,6 +5959,11 @@ export interface RecordActivityTaskHeartbeatInput {
    *          </important>
    */
   taskToken: string | undefined;
+
+  /**
+   * <p>If specified, contains details about the progress of the task.</p>
+   */
+  details?: string;
 }
 
 export namespace RecordActivityTaskHeartbeatInput {
@@ -5974,9 +5974,9 @@ export namespace RecordActivityTaskHeartbeatInput {
 
 export interface RegisterActivityTypeInput {
   /**
-   * <p>A textual description of the activity type.</p>
+   * <p>The name of the domain in which this activity is to be registered.</p>
    */
-  description?: string;
+  domain: string | undefined;
 
   /**
    * <p>The name of the activity type within the domain.</p>
@@ -5987,41 +5987,6 @@ export interface RegisterActivityTypeInput {
    *       not <i>be</i> the literal string <code>arn</code>.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The default task priority to assign to the activity type. If not assigned, then
-   *         <code>0</code> is used. Valid values are integers that range from Java's
-   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
-   *       Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
-   *         Priority</a> in the <i>in the
-   *       <i>Amazon SWF Developer Guide</i>.</i>.</p>
-   */
-  defaultTaskPriority?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration for a task of this activity type. This
-   *       default can be overridden when scheduling an activity task using the
-   *         <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskScheduleToCloseTimeout?: string;
-
-  /**
-   * <p>If set, specifies the default maximum time before which a worker processing a task of
-   *       this type must report progress by calling <a>RecordActivityTaskHeartbeat</a>. If
-   *       the timeout is exceeded, the activity task is automatically timed out. This default can be
-   *       overridden when scheduling an activity task using the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>. If the activity worker subsequently attempts to record a heartbeat
-   *       or returns a result, the activity worker receives an <code>UnknownResource</code> fault. In
-   *       this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should
-   *       clean up the activity task.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskHeartbeatTimeout?: string;
 
   /**
    * <p>The version of the activity type.</p>
@@ -6038,27 +6003,9 @@ export interface RegisterActivityTypeInput {
   version: string | undefined;
 
   /**
-   * <p>If set, specifies the default maximum duration that a task of this activity type can
-   *       wait before being assigned to a worker. This default can be overridden when scheduling an
-   *       activity task using the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   * <p>A textual description of the activity type.</p>
    */
-  defaultTaskScheduleToStartTimeout?: string;
-
-  /**
-   * <p>If set, specifies the default task list to use for scheduling tasks of this activity
-   *       type. This default task list is used if a task list isn't provided when a task is scheduled
-   *       through the <code>ScheduleActivityTask</code>
-   *             <a>Decision</a>.</p>
-   */
-  defaultTaskList?: TaskList;
-
-  /**
-   * <p>The name of the domain in which this activity is to be registered.</p>
-   */
-  domain: string | undefined;
+  description?: string;
 
   /**
    * <p>If set, specifies the default maximum duration that a worker can take to process tasks
@@ -6069,6 +6016,59 @@ export interface RegisterActivityTypeInput {
    *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
    */
   defaultTaskStartToCloseTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default maximum time before which a worker processing a task of
+   *       this type must report progress by calling <a>RecordActivityTaskHeartbeat</a>. If
+   *       the timeout is exceeded, the activity task is automatically timed out. This default can be
+   *       overridden when scheduling an activity task using the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>. If the activity worker subsequently attempts to record a heartbeat
+   *       or returns a result, the activity worker receives an <code>UnknownResource</code> fault. In
+   *       this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should
+   *       clean up the activity task.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskHeartbeatTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default task list to use for scheduling tasks of this activity
+   *       type. This default task list is used if a task list isn't provided when a task is scheduled
+   *       through the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   */
+  defaultTaskList?: TaskList;
+
+  /**
+   * <p>The default task priority to assign to the activity type. If not assigned, then
+   *         <code>0</code> is used. Valid values are integers that range from Java's
+   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
+   *       Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
+   *         Priority</a> in the <i>in the
+   *       <i>Amazon SWF Developer Guide</i>.</i>.</p>
+   */
+  defaultTaskPriority?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration that a task of this activity type can
+   *       wait before being assigned to a worker. This default can be overridden when scheduling an
+   *       activity task using the <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskScheduleToStartTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration for a task of this activity type. This
+   *       default can be overridden when scheduling an activity task using the
+   *         <code>ScheduleActivityTask</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskScheduleToCloseTimeout?: string;
 }
 
 export namespace RegisterActivityTypeInput {
@@ -6097,12 +6097,6 @@ export namespace TypeAlreadyExistsFault {
 
 export interface RegisterDomainInput {
   /**
-   * <p>Tags to be added when registering a domain.</p>
-   *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
-   */
-  tags?: ResourceTag[];
-
-  /**
    * <p>Name of the domain to register. The name must be unique in the region that the domain
    *       is registered in.</p>
    *
@@ -6130,6 +6124,12 @@ export interface RegisterDomainInput {
    *         <i>Amazon SWF Developer Guide</i>.</p>
    */
   workflowExecutionRetentionPeriodInDays: string | undefined;
+
+  /**
+   * <p>Tags to be added when registering a domain.</p>
+   *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
+   */
+  tags?: ResourceTag[];
 }
 
 export namespace RegisterDomainInput {
@@ -6155,37 +6155,9 @@ export namespace TooManyTagsFault {
 
 export interface RegisterWorkflowTypeInput {
   /**
-   * <p>The default IAM role attached to this workflow type.</p>
-   *          <note>
-   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
-   *         don't specify an IAM role when you start this workflow type, the default Lambda role is
-   *         attached to the execution. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
-   *           <i>Amazon SWF Developer Guide</i>.</p>
-   *          </note>
+   * <p>The name of the domain in which to register the workflow type.</p>
    */
-  defaultLambdaRole?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration for executions of this workflow type.
-   *       You can override this default when starting an execution through the <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   *
-   *          <p>The duration is specified in seconds; an integer greater than or equal to 0. Unlike
-   *       some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for
-   *         <code>defaultExecutionStartToCloseTimeout</code>; there is a one-year max limit on the time
-   *       that a workflow execution can run. Exceeding this limit always causes the workflow execution
-   *       to time out.</p>
-   */
-  defaultExecutionStartToCloseTimeout?: string;
-
-  /**
-   * <p>If set, specifies the default maximum duration of decision tasks for this workflow
-   *       type. This default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   *          <p>The duration is specified in seconds, an integer greater than or equal to
-   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
-   */
-  defaultTaskStartToCloseTimeout?: string;
+  domain: string | undefined;
 
   /**
    * <p>The name of the workflow type.</p>
@@ -6211,6 +6183,52 @@ export interface RegisterWorkflowTypeInput {
    *       not <i>be</i> the literal string <code>arn</code>.</p>
    */
   version: string | undefined;
+
+  /**
+   * <p>Textual description of the workflow type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration of decision tasks for this workflow
+   *       type. This default can be overridden when starting a workflow execution using the <a>StartWorkflowExecution</a> action or the <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   *          <p>The duration is specified in seconds, an integer greater than or equal to
+   *         <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+   */
+  defaultTaskStartToCloseTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default maximum duration for executions of this workflow type.
+   *       You can override this default when starting an execution through the <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   *
+   *          <p>The duration is specified in seconds; an integer greater than or equal to 0. Unlike
+   *       some of the other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for
+   *         <code>defaultExecutionStartToCloseTimeout</code>; there is a one-year max limit on the time
+   *       that a workflow execution can run. Exceeding this limit always causes the workflow execution
+   *       to time out.</p>
+   */
+  defaultExecutionStartToCloseTimeout?: string;
+
+  /**
+   * <p>If set, specifies the default task list to use for scheduling decision tasks for
+   *       executions of this workflow type. This default is used only if a task list isn't provided when
+   *       starting the execution through the <a>StartWorkflowExecution</a> Action or
+   *         <code>StartChildWorkflowExecution</code>
+   *             <a>Decision</a>.</p>
+   */
+  defaultTaskList?: TaskList;
+
+  /**
+   * <p>The default task priority to assign to the workflow type. If not assigned, then
+   *         <code>0</code> is used. Valid values are integers that range from Java's
+   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
+   *       Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
+   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  defaultTaskPriority?: string;
 
   /**
    * <p>If set, specifies the default policy to use for the child workflow executions when a
@@ -6240,33 +6258,15 @@ export interface RegisterWorkflowTypeInput {
   defaultChildPolicy?: ChildPolicy | string;
 
   /**
-   * <p>The default task priority to assign to the workflow type. If not assigned, then
-   *         <code>0</code> is used. Valid values are integers that range from Java's
-   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
-   *       Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
-   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   * <p>The default IAM role attached to this workflow type.</p>
+   *          <note>
+   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
+   *         don't specify an IAM role when you start this workflow type, the default Lambda role is
+   *         attached to the execution. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
+   *           <i>Amazon SWF Developer Guide</i>.</p>
+   *          </note>
    */
-  defaultTaskPriority?: string;
-
-  /**
-   * <p>If set, specifies the default task list to use for scheduling decision tasks for
-   *       executions of this workflow type. This default is used only if a task list isn't provided when
-   *       starting the execution through the <a>StartWorkflowExecution</a> Action or
-   *         <code>StartChildWorkflowExecution</code>
-   *             <a>Decision</a>.</p>
-   */
-  defaultTaskList?: TaskList;
-
-  /**
-   * <p>The name of the domain in which to register the workflow type.</p>
-   */
-  domain: string | undefined;
-
-  /**
-   * <p>Textual description of the workflow type.</p>
-   */
-  description?: string;
+  defaultLambdaRole?: string;
 }
 
 export namespace RegisterWorkflowTypeInput {
@@ -6277,9 +6277,9 @@ export namespace RegisterWorkflowTypeInput {
 
 export interface RequestCancelWorkflowExecutionInput {
   /**
-   * <p>The runId of the workflow execution to cancel.</p>
+   * <p>The name of the domain containing the workflow execution to cancel.</p>
    */
-  runId?: string;
+  domain: string | undefined;
 
   /**
    * <p>The workflowId of the workflow execution to cancel.</p>
@@ -6287,9 +6287,9 @@ export interface RequestCancelWorkflowExecutionInput {
   workflowId: string | undefined;
 
   /**
-   * <p>The name of the domain containing the workflow execution to cancel.</p>
+   * <p>The runId of the workflow execution to cancel.</p>
    */
-  domain: string | undefined;
+  runId?: string;
 }
 
 export namespace RequestCancelWorkflowExecutionInput {
@@ -6300,11 +6300,6 @@ export namespace RequestCancelWorkflowExecutionInput {
 
 export interface RespondActivityTaskCanceledInput {
   /**
-   * <p> Information about the cancellation.</p>
-   */
-  details?: string;
-
-  /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
    *          <important>
    *             <p>
@@ -6314,6 +6309,11 @@ export interface RespondActivityTaskCanceledInput {
    *          </important>
    */
   taskToken: string | undefined;
+
+  /**
+   * <p> Information about the cancellation.</p>
+   */
+  details?: string;
 }
 
 export namespace RespondActivityTaskCanceledInput {
@@ -6349,11 +6349,6 @@ export namespace RespondActivityTaskCompletedInput {
 
 export interface RespondActivityTaskFailedInput {
   /**
-   * <p> Detailed information about the failure.</p>
-   */
-  details?: string;
-
-  /**
    * <p>The <code>taskToken</code> of the <a>ActivityTask</a>.</p>
    *
    *          <important>
@@ -6369,6 +6364,11 @@ export interface RespondActivityTaskFailedInput {
    * <p>Description of the error that may assist in diagnostics.</p>
    */
   reason?: string;
+
+  /**
+   * <p> Detailed information about the failure.</p>
+   */
+  details?: string;
 }
 
 export namespace RespondActivityTaskFailedInput {
@@ -6382,13 +6382,6 @@ export namespace RespondActivityTaskFailedInput {
  */
 export interface RespondDecisionTaskCompletedInput {
   /**
-   * <p>The list of decisions (possibly empty) made by the decider while processing this
-   *       decision task. See the docs for the <a>Decision</a> structure for
-   *       details.</p>
-   */
-  decisions?: Decision[];
-
-  /**
    * <p>The <code>taskToken</code> from the <a>DecisionTask</a>.</p>
    *          <important>
    *             <p>
@@ -6398,6 +6391,13 @@ export interface RespondDecisionTaskCompletedInput {
    *          </important>
    */
   taskToken: string | undefined;
+
+  /**
+   * <p>The list of decisions (possibly empty) made by the decider while processing this
+   *       decision task. See the docs for the <a>Decision</a> structure for
+   *       details.</p>
+   */
+  decisions?: Decision[];
 
   /**
    * <p>User defined context to add to workflow execution.</p>
@@ -6435,9 +6435,9 @@ export interface SignalWorkflowExecutionInput {
   domain: string | undefined;
 
   /**
-   * <p>The name of the signal. This name must be meaningful to the target workflow.</p>
+   * <p>The workflowId of the workflow execution to signal.</p>
    */
-  signalName: string | undefined;
+  workflowId: string | undefined;
 
   /**
    * <p>The runId of the workflow execution to signal.</p>
@@ -6445,15 +6445,15 @@ export interface SignalWorkflowExecutionInput {
   runId?: string;
 
   /**
+   * <p>The name of the signal. This name must be meaningful to the target workflow.</p>
+   */
+  signalName: string | undefined;
+
+  /**
    * <p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the target
    *       workflow execution's history.</p>
    */
   input?: string;
-
-  /**
-   * <p>The workflowId of the workflow execution to signal.</p>
-   */
-  workflowId: string | undefined;
 }
 
 export namespace SignalWorkflowExecutionInput {
@@ -6464,29 +6464,63 @@ export namespace SignalWorkflowExecutionInput {
 
 export interface StartWorkflowExecutionInput {
   /**
+   * <p>The name of the domain in which the workflow execution is created.</p>
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The user defined identifier associated with the workflow execution. You can use this to
+   *       associate a custom identifier with the workflow execution. You may specify the same identifier
+   *       if a workflow execution is logically a <i>restart</i> of a previous execution.
+   *       You cannot have two open workflow executions with the same <code>workflowId</code> at the same
+   *       time within the same domain.</p>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * <p>The type of the workflow to start.</p>
+   */
+  workflowType: WorkflowType | undefined;
+
+  /**
+   * <p>The task list to use for the decision tasks generated for this workflow execution. This
+   *       overrides the <code>defaultTaskList</code> specified when registering the workflow
+   *       type.</p>
+   *          <note>
+   *             <p>A task list for this workflow execution must be specified either as a default for the
+   *         workflow type or through this parameter. If neither this parameter is set nor a default task
+   *         list was specified at registration time then a fault is returned.</p>
+   *          </note>
+   *
+   *          <p>The specified string must not start or end with whitespace. It must not contain a
+   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
+   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
+   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   */
+  taskList?: TaskList;
+
+  /**
+   * <p>The task priority to use for this workflow execution. This overrides any default
+   *       priority that was assigned when the workflow type was registered. If not set, then the default
+   *       task priority for the workflow type is used. Valid values are integers that range from Java's
+   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
+   *       Higher numbers indicate higher priority.</p>
+   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
+   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+   */
+  taskPriority?: string;
+
+  /**
    * <p>The input for the workflow execution. This is a free form string which should be
    *       meaningful to the workflow you are starting. This <code>input</code> is made available to the
    *       new workflow execution in the <code>WorkflowExecutionStarted</code> history event.</p>
    */
   input?: string;
-
-  /**
-   * <p>The IAM role to attach to this workflow execution.</p>
-   *          <note>
-   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
-   *         don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a
-   *           <code>ScheduleLambdaFunctionFailed</code> history event. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
-   *           <i>Amazon SWF Developer Guide</i>.</p>
-   *          </note>
-   */
-  lambdaRole?: string;
-
-  /**
-   * <p>The list of tags to associate with the workflow execution. You can specify a maximum of
-   *       5 tags. You can list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or <a>ListClosedWorkflowExecutions</a> and
-   *       specifying a <a>TagFilter</a>.</p>
-   */
-  tagList?: string[];
 
   /**
    * <p>The total duration for this workflow execution. This overrides the
@@ -6507,35 +6541,11 @@ export interface StartWorkflowExecutionInput {
   executionStartToCloseTimeout?: string;
 
   /**
-   * <p>The task list to use for the decision tasks generated for this workflow execution. This
-   *       overrides the <code>defaultTaskList</code> specified when registering the workflow
-   *       type.</p>
-   *          <note>
-   *             <p>A task list for this workflow execution must be specified either as a default for the
-   *         workflow type or through this parameter. If neither this parameter is set nor a default task
-   *         list was specified at registration time then a fault is returned.</p>
-   *          </note>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
+   * <p>The list of tags to associate with the workflow execution. You can specify a maximum of
+   *       5 tags. You can list workflow executions with a specific tag by calling <a>ListOpenWorkflowExecutions</a> or <a>ListClosedWorkflowExecutions</a> and
+   *       specifying a <a>TagFilter</a>.</p>
    */
-  taskList?: TaskList;
-
-  /**
-   * <p>The user defined identifier associated with the workflow execution. You can use this to
-   *       associate a custom identifier with the workflow execution. You may specify the same identifier
-   *       if a workflow execution is logically a <i>restart</i> of a previous execution.
-   *       You cannot have two open workflow executions with the same <code>workflowId</code> at the same
-   *       time within the same domain.</p>
-   *
-   *          <p>The specified string must not start or end with whitespace. It must not contain a
-   *         <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any
-   *       control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must
-   *       not <i>be</i> the literal string <code>arn</code>.</p>
-   */
-  workflowId: string | undefined;
+  tagList?: string[];
 
   /**
    * <p>Specifies the maximum duration of decision tasks for this workflow execution. This
@@ -6551,27 +6561,6 @@ export interface StartWorkflowExecutionInput {
    *          </note>
    */
   taskStartToCloseTimeout?: string;
-
-  /**
-   * <p>The type of the workflow to start.</p>
-   */
-  workflowType: WorkflowType | undefined;
-
-  /**
-   * <p>The task priority to use for this workflow execution. This overrides any default
-   *       priority that was assigned when the workflow type was registered. If not set, then the default
-   *       task priority for the workflow type is used. Valid values are integers that range from Java's
-   *         <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code> (2147483647).
-   *       Higher numbers indicate higher priority.</p>
-   *          <p>For more information about setting task priority, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting Task
-   *         Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
-   */
-  taskPriority?: string;
-
-  /**
-   * <p>The name of the domain in which the workflow execution is created.</p>
-   */
-  domain: string | undefined;
 
   /**
    * <p>If set, specifies the policy to use for the child workflow executions of this workflow
@@ -6604,6 +6593,17 @@ export interface StartWorkflowExecutionInput {
    *          </note>
    */
   childPolicy?: ChildPolicy | string;
+
+  /**
+   * <p>The IAM role to attach to this workflow execution.</p>
+   *          <note>
+   *             <p>Executions of this workflow type need IAM roles to invoke Lambda functions. If you
+   *         don't attach an IAM role, any attempt to schedule a Lambda task fails. This results in a
+   *           <code>ScheduleLambdaFunctionFailed</code> history event. For more information, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a> in the
+   *           <i>Amazon SWF Developer Guide</i>.</p>
+   *          </note>
+   */
+  lambdaRole?: string;
 }
 
 export namespace StartWorkflowExecutionInput {
@@ -6633,15 +6633,15 @@ export namespace WorkflowExecutionAlreadyStartedFault {
 
 export interface TagResourceInput {
   /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
    * <p>The list of tags to add to a domain. </p>
    *          <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>
    */
   tags: ResourceTag[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
-   */
-  resourceArn: string | undefined;
 }
 
 export namespace TagResourceInput {
@@ -6652,9 +6652,9 @@ export namespace TagResourceInput {
 
 export interface TerminateWorkflowExecutionInput {
   /**
-   * <p> A descriptive reason for terminating the workflow execution.</p>
+   * <p>The domain of the workflow execution to terminate.</p>
    */
-  reason?: string;
+  domain: string | undefined;
 
   /**
    * <p>The workflowId of the workflow execution to terminate.</p>
@@ -6665,6 +6665,11 @@ export interface TerminateWorkflowExecutionInput {
    * <p>The runId of the workflow execution to terminate.</p>
    */
   runId?: string;
+
+  /**
+   * <p> A descriptive reason for terminating the workflow execution.</p>
+   */
+  reason?: string;
 
   /**
    * <p> Details for terminating the workflow execution.</p>
@@ -6701,11 +6706,6 @@ export interface TerminateWorkflowExecutionInput {
    *          </note>
    */
   childPolicy?: ChildPolicy | string;
-
-  /**
-   * <p>The domain of the workflow execution to terminate.</p>
-   */
-  domain: string | undefined;
 }
 
 export namespace TerminateWorkflowExecutionInput {
@@ -6765,14 +6765,14 @@ export namespace UndeprecateWorkflowTypeInput {
 
 export interface UntagResourceInput {
   /**
-   * <p>The list of tags to remove from the Amazon SWF domain.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tags to remove from the Amazon SWF domain.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
