@@ -118,7 +118,8 @@ async function denoifyTsFile(file, depth) {
     if (line.match(/\bBuffer\b/)) {
       extraHeaderLines["buffer"] = `import { Buffer } from "https://deno.land/std@${DENO_STD_VERSION}/node/buffer.ts";`;
     }
-    if (line.match(/\bprocess\b/)) {
+
+    if (line.match(/\bprocess\./)) {
       extraHeaderLines["process"] = `import process from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;
     }
 
@@ -137,23 +138,12 @@ async function denoifyTsFile(file, depth) {
 
     if (line === 'import packageInfo from "./package.json";') {
       const pkgjson = await fsx.readJson(path.join(path.dirname(file), "package.json"));
-      output.push(`const name = "${pkgjson.name}";`);
-      output.push(`const version = "${pkgjson.version}";`);
+      output.push(`const packageInfo = { version: "${pkgjson.version}" };`);
       continue;
     }
 
     if (line.match(/tagValueProcessor: \(val, tagName\) => decodeEscapedXML\(val\),/)) {
       replaced = line.replace("(val, tagName)", "(val: string)");
-    }
-
-    if (line.match(/import \{ defaultUserAgent }\ from /)) {
-      continue;
-    }
-    if (line.match(/defaultUserAgent: defaultUserAgent\(packageInfo\.name, packageInfo\.version\),/)) {
-      replaced = line.replace(
-        "defaultUserAgent(packageInfo.name, packageInfo.version)",
-        "`aws-sdk-js-v3-deno-${name}/${version}`"
-      );
     }
 
     if (state === "nothing") {
@@ -250,6 +240,8 @@ async function denoifyTsFile(file, depth) {
             } else if (importFrom === "child_process") {
               continue;
             } else if (importFrom === "process") {
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;
+              output.push(replaced);
               continue;
             } else if (importFrom === "stream") {
               // TODO
