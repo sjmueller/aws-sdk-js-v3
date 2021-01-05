@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
 import { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0.ts";
 import {
@@ -133,14 +132,6 @@ export class TransactWriteItemsCommand extends $Command<
       inputFilterSensitiveLog: TransactWriteItemsInput.filterSensitiveLog,
       outputFilterSensitiveLog: TransactWriteItemsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

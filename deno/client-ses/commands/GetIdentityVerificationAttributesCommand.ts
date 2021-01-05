@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import {
   GetIdentityVerificationAttributesRequest,
@@ -79,14 +78,6 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
       inputFilterSensitiveLog: GetIdentityVerificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityVerificationAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

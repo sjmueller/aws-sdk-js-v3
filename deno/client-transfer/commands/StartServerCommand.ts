@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
 import { StartServerRequest } from "../models/models_0.ts";
 import {
@@ -68,14 +67,6 @@ export class StartServerCommand extends $Command<
       inputFilterSensitiveLog: StartServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

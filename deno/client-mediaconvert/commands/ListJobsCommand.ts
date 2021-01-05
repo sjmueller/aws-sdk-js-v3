@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
 import { ListJobsRequest, ListJobsResponse } from "../models/models_1.ts";
 import {
@@ -60,14 +59,6 @@ export class ListJobsCommand extends $Command<
       inputFilterSensitiveLog: ListJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

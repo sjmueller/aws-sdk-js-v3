@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
 import { CreateEmailIdentityRequest, CreateEmailIdentityResponse } from "../models/models_0.ts";
 import {
@@ -79,14 +78,6 @@ export class CreateEmailIdentityCommand extends $Command<
       inputFilterSensitiveLog: CreateEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEmailIdentityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

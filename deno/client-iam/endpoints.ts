@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "iam.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -72,6 +74,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "us-gov-west-1",
       };
       break;
+    case "iam-fips":
+      regionInfo = {
+        hostname: "iam-fips.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "iam-govcloud-fips":
+      regionInfo = {
+        hostname: "iam.us-gov.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
@@ -94,5 +110,5 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         return defaultRegionInfoProvider("aws-global");
       }
   }
-  return Promise.resolve(regionInfo);
+  return Promise.resolve({ signingService: "iam", ...regionInfo });
 };

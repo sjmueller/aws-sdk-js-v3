@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult } from "../models/models_1.ts";
 import {
@@ -75,14 +74,6 @@ export class CreateReservedInstancesListingCommand extends $Command<
       inputFilterSensitiveLog: CreateReservedInstancesListingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReservedInstancesListingResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

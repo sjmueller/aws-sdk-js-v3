@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
 import { CreateGraphResponse } from "../models/models_0.ts";
 import {
@@ -74,14 +73,6 @@ export class CreateGraphCommand extends $Command<
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: CreateGraphResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

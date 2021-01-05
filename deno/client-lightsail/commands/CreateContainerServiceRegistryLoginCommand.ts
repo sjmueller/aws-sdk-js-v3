@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import {
   CreateContainerServiceRegistryLoginRequest,
@@ -87,14 +86,6 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command<
       inputFilterSensitiveLog: CreateContainerServiceRegistryLoginRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateContainerServiceRegistryLoginResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

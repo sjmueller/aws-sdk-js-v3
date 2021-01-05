@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
 import { DeleteDeliveryStreamInput, DeleteDeliveryStreamOutput } from "../models/models_0.ts";
 import {
@@ -69,14 +68,6 @@ export class DeleteDeliveryStreamCommand extends $Command<
       inputFilterSensitiveLog: DeleteDeliveryStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeliveryStreamOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

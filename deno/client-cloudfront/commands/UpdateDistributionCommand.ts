@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
 import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/models_1.ts";
 import {
@@ -138,14 +137,6 @@ export class UpdateDistributionCommand extends $Command<
       inputFilterSensitiveLog: UpdateDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDistributionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

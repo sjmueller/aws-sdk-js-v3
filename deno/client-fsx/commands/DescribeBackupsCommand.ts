@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient.ts";
 import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0.ts";
 import {
@@ -90,14 +89,6 @@ export class DescribeBackupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeBackupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBackupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

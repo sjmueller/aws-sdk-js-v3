@@ -1,2 +1,2 @@
 export * from "./invalidFunction.ts";
-export * from "./invalidAsyncFunction.ts";
+export * from "./invalidProvider.ts";

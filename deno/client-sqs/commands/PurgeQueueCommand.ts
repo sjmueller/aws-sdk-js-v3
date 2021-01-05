@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
 import { PurgeQueueRequest } from "../models/models_0.ts";
 import { deserializeAws_queryPurgeQueueCommand, serializeAws_queryPurgeQueueCommand } from "../protocols/Aws_query.ts";
@@ -70,14 +69,6 @@ export class PurgeQueueCommand extends $Command<
       inputFilterSensitiveLog: PurgeQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
 import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0.ts";
 import {
@@ -110,14 +109,6 @@ export class PutRecordBatchCommand extends $Command<
       inputFilterSensitiveLog: PutRecordBatchInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutRecordBatchOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

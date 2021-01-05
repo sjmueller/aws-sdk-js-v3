@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
 import { MigrateWorkspaceRequest, MigrateWorkspaceResult } from "../models/models_0.ts";
 import {
@@ -68,14 +67,6 @@ export class MigrateWorkspaceCommand extends $Command<
       inputFilterSensitiveLog: MigrateWorkspaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MigrateWorkspaceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

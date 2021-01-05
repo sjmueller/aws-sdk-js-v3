@@ -1,5 +1,4 @@
-const name = "@aws-sdk/client-transcribe-streaming";
-const version = "3.0.0";
+const packageInfo = { version: "3.1.0" };
 
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
@@ -12,6 +11,7 @@ import { NodeHttp2Handler, streamCollector } from "../node-http-handler/mod.ts";
 import { parseUrl } from "../url-parser-node/mod.ts";
 import { fromBase64, toBase64 } from "../util-base64-node/mod.ts";
 import { calculateBodyLength } from "../util-body-length-node/mod.ts";
+import { defaultUserAgent } from "../util-user-agent-node/mod.ts";
 import { fromUtf8, toUtf8 } from "../util-utf8-node/mod.ts";
 import { ClientDefaults } from "./TranscribeStreamingClient.ts";
 import { ClientSharedValues } from "./runtimeConfig.shared.ts";
@@ -26,7 +26,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider,
-  defaultUserAgent: `aws-sdk-js-v3-deno-${name}/${version}`,
+  defaultUserAgentProvider: defaultUserAgent({
+    serviceId: ClientSharedValues.serviceId,
+    clientVersion: packageInfo.version,
+  }),
   eventStreamPayloadHandlerProvider,
   eventStreamSerdeProvider,
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),

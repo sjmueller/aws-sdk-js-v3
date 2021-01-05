@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import {
   MarketplaceMeteringClientResolvedConfig,
   ServiceInputTypes,
@@ -74,14 +73,6 @@ export class BatchMeterUsageCommand extends $Command<
       inputFilterSensitiveLog: BatchMeterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchMeterUsageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

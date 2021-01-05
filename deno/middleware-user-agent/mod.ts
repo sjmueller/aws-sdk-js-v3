@@ -1,2 +1,2 @@
 export * from "./configurations.ts";
-export * from "./middleware.ts";
+export * from "./user-agent-middleware.ts";

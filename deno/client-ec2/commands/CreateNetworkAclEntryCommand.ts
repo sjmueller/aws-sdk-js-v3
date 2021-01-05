@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { CreateNetworkAclEntryRequest } from "../models/models_1.ts";
 import {
@@ -67,14 +66,6 @@ export class CreateNetworkAclEntryCommand extends $Command<
       inputFilterSensitiveLog: CreateNetworkAclEntryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_1.ts";
 import {
@@ -84,14 +83,6 @@ export class StartImportLabelsTaskRunCommand extends $Command<
       inputFilterSensitiveLog: StartImportLabelsTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImportLabelsTaskRunResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

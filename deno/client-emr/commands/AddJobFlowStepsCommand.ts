@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
 import { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/models_0.ts";
 import {
@@ -76,14 +75,6 @@ export class AddJobFlowStepsCommand extends $Command<
       inputFilterSensitiveLog: AddJobFlowStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddJobFlowStepsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

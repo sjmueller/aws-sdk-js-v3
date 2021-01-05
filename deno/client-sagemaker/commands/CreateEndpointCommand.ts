@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
 import { CreateEndpointInput, CreateEndpointOutput } from "../models/models_0.ts";
 import {
@@ -136,14 +135,6 @@ export class CreateEndpointCommand extends $Command<
       inputFilterSensitiveLog: CreateEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEndpointOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

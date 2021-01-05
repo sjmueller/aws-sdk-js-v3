@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
 import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/models_0.ts";
 import {
@@ -63,14 +62,6 @@ export class DeactivatePipelineCommand extends $Command<
       inputFilterSensitiveLog: DeactivatePipelineInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeactivatePipelineOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

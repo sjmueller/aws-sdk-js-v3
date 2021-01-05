@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient.ts";
 import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0.ts";
 import {
@@ -86,14 +85,6 @@ export class CreateApplicationCommand extends $Command<
       inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

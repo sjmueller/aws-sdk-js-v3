@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { CreateGameSessionInput, CreateGameSessionOutput } from "../models/models_0.ts";
 import {
@@ -140,14 +139,6 @@ export class CreateGameSessionCommand extends $Command<
       inputFilterSensitiveLog: CreateGameSessionInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGameSessionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

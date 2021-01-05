@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
 import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_0.ts";
 import {
@@ -68,14 +67,6 @@ export class UpdateContainerAgentCommand extends $Command<
       inputFilterSensitiveLog: UpdateContainerAgentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateContainerAgentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

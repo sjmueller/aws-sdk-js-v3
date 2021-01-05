@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
 import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/models_0.ts";
 import {
@@ -62,14 +61,6 @@ export class GetDedicatedIpCommand extends $Command<
       inputFilterSensitiveLog: GetDedicatedIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDedicatedIpResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

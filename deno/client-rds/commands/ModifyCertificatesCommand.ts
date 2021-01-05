@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
 import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/models_1.ts";
 import {
@@ -84,14 +83,6 @@ export class ModifyCertificatesCommand extends $Command<
       inputFilterSensitiveLog: ModifyCertificatesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyCertificatesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

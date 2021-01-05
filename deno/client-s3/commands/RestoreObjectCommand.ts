@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { RestoreObjectOutput } from "../models/models_0.ts";
 import { RestoreObjectRequest } from "../models/models_1.ts";
@@ -354,14 +353,6 @@ export class RestoreObjectCommand extends $Command<
       inputFilterSensitiveLog: RestoreObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreObjectOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

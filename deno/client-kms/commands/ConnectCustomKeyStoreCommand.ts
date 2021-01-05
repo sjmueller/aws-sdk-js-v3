@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
 import { ConnectCustomKeyStoreRequest, ConnectCustomKeyStoreResponse } from "../models/models_0.ts";
 import {
@@ -86,14 +85,6 @@ export class ConnectCustomKeyStoreCommand extends $Command<
       inputFilterSensitiveLog: ConnectCustomKeyStoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConnectCustomKeyStoreResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

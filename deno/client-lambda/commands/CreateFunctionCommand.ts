@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
 import { CreateFunctionRequest, FunctionConfiguration } from "../models/models_0.ts";
 import {
@@ -94,14 +93,6 @@ export class CreateFunctionCommand extends $Command<
       inputFilterSensitiveLog: CreateFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FunctionConfiguration.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

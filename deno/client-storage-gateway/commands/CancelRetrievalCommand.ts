@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0.ts";
 import {
@@ -62,14 +61,6 @@ export class CancelRetrievalCommand extends $Command<
       inputFilterSensitiveLog: CancelRetrievalInput.filterSensitiveLog,
       outputFilterSensitiveLog: CancelRetrievalOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

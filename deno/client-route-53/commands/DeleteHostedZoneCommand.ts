@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
 import { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0.ts";
 import {
@@ -100,14 +99,6 @@ export class DeleteHostedZoneCommand extends $Command<
       inputFilterSensitiveLog: DeleteHostedZoneRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHostedZoneResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

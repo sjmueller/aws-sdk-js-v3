@@ -4,7 +4,13 @@ import { SdkError } from "../smithy-client/mod.ts";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "../types/mod.ts";
 import { v4 } from "../uuid/mod.ts";
 
-import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants.ts";
+import {
+  DEFAULT_RETRY_DELAY_BASE,
+  INITIAL_RETRY_TOKENS,
+  INVOCATION_ID_HEADER,
+  REQUEST_HEADER,
+  THROTTLING_RETRY_DELAY_BASE,
+} from "./constants.ts";
 import { getDefaultRetryQuota } from "./defaultRetryQuota.ts";
 import { defaultDelayDecider } from "./delayDecider.ts";
 import { defaultRetryDecider } from "./retryDecider.ts";
@@ -74,6 +80,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
+  public readonly mode = DEFAULT_RETRY_MODE;
 
   constructor(private readonly maxAttemptsProvider: Provider<number>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
@@ -107,13 +114,13 @@ export class StandardRetryStrategy implements RetryStrategy {
 
     const { request } = args;
     if (HttpRequest.isInstance(request)) {
-      request.headers["amz-sdk-invocation-id"] = v4();
+      request.headers[INVOCATION_ID_HEADER] = v4();
     }
 
     while (true) {
       try {
         if (HttpRequest.isInstance(request)) {
-          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${maxAttempts}`;
+          request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
         const { response, output } = await next(args);
 

@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
 import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_0.ts";
 import {
@@ -63,14 +62,6 @@ export class CreatePipelineCommand extends $Command<
       inputFilterSensitiveLog: CreatePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePipelineResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

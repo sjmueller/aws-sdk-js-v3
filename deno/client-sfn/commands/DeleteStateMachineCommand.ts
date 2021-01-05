@@ -66,14 +66,6 @@ export class DeleteStateMachineCommand extends $Command<
       inputFilterSensitiveLog: DeleteStateMachineInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStateMachineOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

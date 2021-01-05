@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
 import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0.ts";
 import {
@@ -82,14 +81,6 @@ export class DescribeFileSystemsCommand extends $Command<
       inputFilterSensitiveLog: DescribeFileSystemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFileSystemsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

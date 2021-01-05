@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
 import { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/models_0.ts";
 import {
@@ -192,14 +191,6 @@ export class CreateGovCloudAccountCommand extends $Command<
       inputFilterSensitiveLog: CreateGovCloudAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGovCloudAccountResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

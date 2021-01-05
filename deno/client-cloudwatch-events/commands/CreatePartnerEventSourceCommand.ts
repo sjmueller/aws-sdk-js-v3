@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
 import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0.ts";
 import {
@@ -83,14 +82,6 @@ export class CreatePartnerEventSourceCommand extends $Command<
       inputFilterSensitiveLog: CreatePartnerEventSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePartnerEventSourceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

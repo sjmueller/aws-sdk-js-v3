@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
 import { ConfigurationSettingsDescriptions, DescribeConfigurationSettingsMessage } from "../models/models_0.ts";
 import {
@@ -74,14 +73,6 @@ export class DescribeConfigurationSettingsCommand extends $Command<
       inputFilterSensitiveLog: DescribeConfigurationSettingsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationSettingsDescriptions.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

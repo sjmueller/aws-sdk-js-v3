@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
 import { GetServiceGraphRequest, GetServiceGraphResult } from "../models/models_0.ts";
 import {
@@ -64,14 +63,6 @@ export class GetServiceGraphCommand extends $Command<
       inputFilterSensitiveLog: GetServiceGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceGraphResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

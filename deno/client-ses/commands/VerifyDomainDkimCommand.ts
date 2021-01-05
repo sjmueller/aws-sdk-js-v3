@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/models_0.ts";
 import {
@@ -98,14 +97,6 @@ export class VerifyDomainDkimCommand extends $Command<
       inputFilterSensitiveLog: VerifyDomainDkimRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyDomainDkimResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

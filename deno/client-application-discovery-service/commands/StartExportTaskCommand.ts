@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -72,14 +71,6 @@ export class StartExportTaskCommand extends $Command<
       inputFilterSensitiveLog: StartExportTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartExportTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

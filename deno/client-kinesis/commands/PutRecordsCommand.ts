@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
 import { PutRecordsInput, PutRecordsOutput } from "../models/models_0.ts";
 import {
@@ -115,14 +114,6 @@ export class PutRecordsCommand extends $Command<
       inputFilterSensitiveLog: PutRecordsInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutRecordsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

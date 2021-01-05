@@ -1,4 +1,3 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/models_0.ts";
 import {
@@ -60,14 +59,6 @@ export class CancelImportTaskCommand extends $Command<
       inputFilterSensitiveLog: CancelImportTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelImportTaskResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
