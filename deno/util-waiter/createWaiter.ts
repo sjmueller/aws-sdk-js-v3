@@ -1,7 +1,7 @@
 import { AbortSignal } from "../types/mod.ts";
 
 import { runPolling } from "./poller.ts";
-import { sleep, validateWaiterOptions } from "./utils.ts";
+import { sleep, validateWaiterOptions } from "./utils/index.ts";
 import { SmithyClient, WaiterOptions, WaiterResult, waiterServiceDefaults, WaiterState } from "./waiter.ts";
 
 const waiterTimeout = async (seconds: number): Promise<WaiterResult> => {

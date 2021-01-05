@@ -6,5 +6,5 @@ export {
   updateArnablesRequestMiddleware,
   updateArnablesRequestMiddlewareOptions,
   getProcessArnablesPlugin,
-} from "./process-arnables-plugin.ts";
+} from "./process-arnables-plugin/index.ts";
 export * from "./redirect-from-postid.ts";

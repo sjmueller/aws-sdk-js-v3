@@ -1,5 +1,6 @@
 const fsx = require("fs-extra");
 const path = require("path");
+const fs = require("fs");
 
 const DENO_STD_VERSION = "0.79.0";
 
@@ -258,7 +259,12 @@ async function denoifyTsFile(file, depth) {
           }
 
           if (!importFrom.endsWith(".ts")) {
-            replaced = `${importLhs}from "${importFrom}.ts";`;
+            const importDir = path.resolve(path.join(file, "..", importFrom));
+            if (fs.existsSync(importDir)) {
+              replaced = `${importLhs}from "${importFrom}/index.ts";`;
+            } else {
+              replaced = `${importLhs}from "${importFrom}.ts";`;
+            }
           }
         }
       }

@@ -4,7 +4,7 @@ import { BuildHandlerOptions, BuildMiddleware, Pluggable } from "../types/mod.ts
 
 import { S3ControlResolvedConfig } from "./configurations.ts";
 import { CONTEXT_SIGNING_SERVICE } from "./constants.ts";
-import { getOutpostEndpoint } from "./process-arnables-plugin.ts";
+import { getOutpostEndpoint } from "./process-arnables-plugin/index.ts";
 
 type InputType = {
   OutpostId?: string;
