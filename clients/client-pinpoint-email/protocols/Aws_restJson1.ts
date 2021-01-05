@@ -5733,8 +5733,9 @@ const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeC
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
-  requestId: output.headers["x-amzn-requestid"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  extendedRequestId: output.headers["x-amz-id-2"],
+  cfId: output.headers["x-amz-cf-id"],
 });
 
 // Collect low-level response body stream to Uint8Array.

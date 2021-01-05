@@ -73,9 +73,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent")
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_CONTENT_LENGTH.dependency, "ContentLength",
                                          HAS_MIDDLEWARE)
                         .build(),
@@ -183,7 +180,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
     }
 
     private static boolean hasOptionalAuthOperation(Model model, ServiceShape service) {
-        TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+        TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
         for (OperationShape operation : operations) {
             if (operation.getTrait(OptionalAuthTrait.class).isPresent()) {

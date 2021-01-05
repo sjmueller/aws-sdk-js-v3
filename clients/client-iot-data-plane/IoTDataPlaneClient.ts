@@ -23,7 +23,13 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
+import {
+  RetryInputConfig,
+  RetryResolvedConfig,
+  getOmitRetryHeadersPlugin,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -43,6 +49,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
+  Provider,
   RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
@@ -53,6 +60,7 @@ import {
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -117,11 +125,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -162,6 +165,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
 export type IoTDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -170,8 +179,8 @@ export type IoTDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   EndpointsInputConfig &
   AwsAuthInputConfig &
   RetryInputConfig &
-  UserAgentInputConfig &
-  HostHeaderInputConfig;
+  HostHeaderInputConfig &
+  UserAgentInputConfig;
 
 export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -179,8 +188,8 @@ export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__H
   EndpointsResolvedConfig &
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
-  UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+  HostHeaderResolvedConfig &
+  UserAgentResolvedConfig;
 
 /**
  * <fullname>AWS IoT</fullname>
@@ -212,16 +221,17 @@ export class IoTDataPlaneClient extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveUserAgentConfig(_config_4);
-    let _config_6 = resolveHostHeaderConfig(_config_5);
+    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));
   }
 
   destroy(): void {

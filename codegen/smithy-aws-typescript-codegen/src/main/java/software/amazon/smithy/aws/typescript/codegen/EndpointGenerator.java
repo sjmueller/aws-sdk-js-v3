@@ -21,6 +21,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.model.node.ObjectNode;
@@ -43,14 +44,20 @@ final class EndpointGenerator implements Runnable {
 
     private final TypeScriptWriter writer;
     private final ObjectNode endpointData;
+    private final ServiceTrait serviceTrait;
     private final String endpointPrefix;
+    private final String baseSigningSerivce;
     private final Map<String, Partition> partitions = new TreeMap<>();
     private final Map<String, ObjectNode> endpoints = new TreeMap<>();
     private final Map<String, Partition> regionPartitionsMap = new TreeMap<>();
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
-        endpointPrefix = getEndpointPrefix(service);
+        serviceTrait = service.getTrait(ServiceTrait.class)
+                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
+        endpointPrefix = serviceTrait.getEndpointPrefix();
+        baseSigningSerivce = service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
+                .orElse(serviceTrait.getArnNamespace());
         endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoints.json")).expectObjectNode();
         validateVersion();
         loadPartitions();
@@ -62,15 +69,6 @@ final class EndpointGenerator implements Runnable {
         if (version != VERSION) {
             throw new CodegenException("Invalid endpoints.json version. Expected version 3, found " +  version);
         }
-    }
-
-    // Get service's endpoint prefix from a known list. If not found, fallback to ArnNamespace
-    private String getEndpointPrefix(ServiceShape service) {
-        ObjectNode endpointPrefixData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoint-prefix.json"))
-                .expectObjectNode();
-        ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class)
-                .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
-        return endpointPrefixData.getStringMemberOrDefault(serviceTrait.getSdkId(), serviceTrait.getArnNamespace());
     }
 
     private void loadPartitions() {
@@ -160,7 +158,7 @@ final class EndpointGenerator implements Runnable {
                     writePartitionEndpointResolver(partitions.get("aws")); });
                 writer.dedent();
             });
-            writer.write("return Promise.resolve(regionInfo);");
+            writer.write("return Promise.resolve({ signingService: $S, ...regionInfo });", baseSigningSerivce);
         });
     }
 

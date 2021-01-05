@@ -113,7 +113,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap();
         if (target.equals(LanguageTarget.SHARED)) {
             String serviceId = service.getTrait(ServiceTrait.class)
-                    .map(ServiceTrait::getArnNamespace)
+                    .map(ServiceTrait::getSdkId)
                     .orElse(null);
             if (serviceId != null) {
                 runtimeConfigs.put("serviceId", writer -> {
@@ -141,17 +141,14 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 return MapUtils.of(
                         "region", writer -> {
                             writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidAsyncFunction", "invalidAsyncFunction",
+                            writer.addImport("invalidProvider", "invalidProvider",
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("region: invalidAsyncFunction(\"Region is missing\") as any,");
+                            writer.write("region: invalidProvider(\"Region is missing\"),");
                         },
                         "credentialDefaultProvider", writer -> {
-                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidAsyncFunction", "invalidAsyncFunction",
-                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write(
-                                    "credentialDefaultProvider: invalidAsyncFunction(\"Credential"
-                                    + "is missing\") as any,");
+                                    "credentialDefaultProvider: (_: unknown) => () => Promise.reject(new Error("
+                                        + "\"Credential is missing\")),");
                         },
                         "maxAttempts", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
