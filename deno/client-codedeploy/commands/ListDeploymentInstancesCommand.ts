@@ -21,6 +21,8 @@ export type ListDeploymentInstancesCommandInput = ListDeploymentInstancesInput;
 export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <note>
  *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
  *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
@@ -34,6 +36,7 @@ export class ListDeploymentInstancesCommand extends $Command<
   ListDeploymentInstancesCommandOutput,
   CodeDeployClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +54,10 @@ export class ListDeploymentInstancesCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentInstancesCommandInput, ListDeploymentInstancesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

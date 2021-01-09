@@ -21,6 +21,8 @@ export type DescribeTagsCommandInput = DescribeTagsRequest;
 export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Returns the tags associated with a file system. The order of tags returned in the
  *       response of one <code>DescribeTags</code> call and the order of tags returned across the
  *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
@@ -32,6 +34,7 @@ export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandOutput,
   EFSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +52,10 @@ export class DescribeTagsCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTagsCommandInput, DescribeTagsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

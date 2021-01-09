@@ -21,6 +21,8 @@ export type DescribeConnectionLoaCommandInput = DescribeConnectionLoaRequest;
 export type DescribeConnectionLoaCommandOutput = DescribeConnectionLoaResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
  *          <p>Gets the LOA-CFA for a connection.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or
@@ -33,6 +35,7 @@ export class DescribeConnectionLoaCommand extends $Command<
   DescribeConnectionLoaCommandOutput,
   DirectConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +53,10 @@ export class DescribeConnectionLoaCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeConnectionLoaCommandInput, DescribeConnectionLoaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

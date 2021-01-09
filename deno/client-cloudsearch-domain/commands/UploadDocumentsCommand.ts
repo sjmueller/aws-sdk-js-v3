@@ -38,6 +38,7 @@ export class UploadDocumentsCommand extends $Command<
   UploadDocumentsCommandOutput,
   CloudSearchDomainClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,7 +56,10 @@ export class UploadDocumentsCommand extends $Command<
     configuration: CloudSearchDomainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadDocumentsCommandInput, UploadDocumentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

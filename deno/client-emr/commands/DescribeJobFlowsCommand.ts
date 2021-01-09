@@ -21,6 +21,8 @@ export type DescribeJobFlowsCommandInput = DescribeJobFlowsInput;
 export type DescribeJobFlowsCommandOutput = DescribeJobFlowsOutput & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>This API is no longer supported and will eventually be removed. We recommend you use
  *             <a>ListClusters</a>, <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a> instead.</p>
  *          <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters.
@@ -48,6 +50,7 @@ export class DescribeJobFlowsCommand extends $Command<
   DescribeJobFlowsCommandOutput,
   EMRClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -65,7 +68,10 @@ export class DescribeJobFlowsCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

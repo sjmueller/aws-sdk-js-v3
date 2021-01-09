@@ -21,6 +21,8 @@ export type DescribeConnectionsOnInterconnectCommandInput = DescribeConnectionsO
 export type DescribeConnectionsOnInterconnectCommandOutput = Connections & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
@@ -32,6 +34,7 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
   DescribeConnectionsOnInterconnectCommandOutput,
   DirectConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +52,10 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeConnectionsOnInterconnectCommandInput, DescribeConnectionsOnInterconnectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -3547,6 +3547,8 @@ export interface ScalingPolicy {
   AdjustmentType?: string;
 
   /**
+   * @deprecated
+   *
    * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
    *             instead.</p>
    */
@@ -4525,6 +4527,8 @@ export interface PutScalingPolicyType {
   AdjustmentType?: string;
 
   /**
+   * @deprecated
+   *
    * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
    *             instead.</p>
    */

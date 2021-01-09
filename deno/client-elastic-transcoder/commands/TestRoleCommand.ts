@@ -26,6 +26,8 @@ export type TestRoleCommandInput = TestRoleRequest;
 export type TestRoleCommandOutput = TestRoleResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>The TestRole operation tests the IAM role used to create the pipeline.</p>
  *         <p>The <code>TestRole</code> action lets you determine whether the IAM role you are using
  *             has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding
@@ -38,6 +40,7 @@ export class TestRoleCommand extends $Command<
   TestRoleCommandOutput,
   ElasticTranscoderClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,7 +58,10 @@ export class TestRoleCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestRoleCommandInput, TestRoleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

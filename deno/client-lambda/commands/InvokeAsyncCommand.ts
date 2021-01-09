@@ -24,6 +24,8 @@ export type InvokeAsyncCommandInput = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
 export type InvokeAsyncCommandOutput = InvokeAsyncResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <important>
  *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
  *          </important>
@@ -34,6 +36,7 @@ export class InvokeAsyncCommand extends $Command<
   InvokeAsyncCommandOutput,
   LambdaClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +54,10 @@ export class InvokeAsyncCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InvokeAsyncCommandInput, InvokeAsyncCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -21,6 +21,8 @@ export type AllocateConnectionOnInterconnectCommandInput = AllocateConnectionOnI
 export type AllocateConnectionOnInterconnectCommandOutput = Connection & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
  *          <p>Creates a hosted connection on an interconnect.</p>
  *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
@@ -33,6 +35,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
   AllocateConnectionOnInterconnectCommandOutput,
   DirectConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +53,10 @@ export class AllocateConnectionOnInterconnectCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AllocateConnectionOnInterconnectCommandInput, AllocateConnectionOnInterconnectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 
