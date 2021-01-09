@@ -25,6 +25,8 @@ export type DetectEntitiesCommandInput = DetectEntitiesRequest;
 export type DetectEntitiesCommandOutput = DetectEntitiesResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
  *          <p> Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
@@ -35,6 +37,7 @@ export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,7 +55,10 @@ export class DetectEntitiesCommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectEntitiesCommandInput, DetectEntitiesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

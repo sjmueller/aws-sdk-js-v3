@@ -21,6 +21,8 @@ export type DetachPrincipalPolicyCommandInput = DetachPrincipalPolicyRequest;
 export type DetachPrincipalPolicyCommandOutput = __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Removes the specified policy from the specified certificate.</p>
  *          <p>
  *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
@@ -30,6 +32,7 @@ export class DetachPrincipalPolicyCommand extends $Command<
   DetachPrincipalPolicyCommandOutput,
   IoTClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +50,10 @@ export class DetachPrincipalPolicyCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachPrincipalPolicyCommandInput, DetachPrincipalPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

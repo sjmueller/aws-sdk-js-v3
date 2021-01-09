@@ -21,6 +21,8 @@ export type RotateChannelCredentialsCommandInput = RotateChannelCredentialsReque
 export type RotateChannelCredentialsCommandOutput = RotateChannelCredentialsResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
  */
 export class RotateChannelCredentialsCommand extends $Command<
@@ -28,6 +30,7 @@ export class RotateChannelCredentialsCommand extends $Command<
   RotateChannelCredentialsCommandOutput,
   MediaPackageClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +48,10 @@ export class RotateChannelCredentialsCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RotateChannelCredentialsCommandInput, RotateChannelCredentialsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -21,6 +21,8 @@ export type CreateTagsCommandInput = CreateTagsRequest;
 export type CreateTagsCommandOutput = __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
  *       a tag key specified in the request already exists on the file system, this operation
  *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
@@ -33,6 +35,7 @@ export class CreateTagsCommand extends $Command<
   CreateTagsCommandOutput,
   EFSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +53,10 @@ export class CreateTagsCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTagsCommandInput, CreateTagsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

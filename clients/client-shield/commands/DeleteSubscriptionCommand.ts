@@ -21,6 +21,8 @@ export type DeleteSubscriptionCommandInput = DeleteSubscriptionRequest;
 export type DeleteSubscriptionCommandOutput = DeleteSubscriptionResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
  */
 export class DeleteSubscriptionCommand extends $Command<
@@ -28,6 +30,7 @@ export class DeleteSubscriptionCommand extends $Command<
   DeleteSubscriptionCommandOutput,
   ShieldClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +48,10 @@ export class DeleteSubscriptionCommand extends $Command<
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

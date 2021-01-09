@@ -25,6 +25,8 @@ export type DescribeExportConfigurationsCommandInput = DescribeExportConfigurati
 export type DescribeExportConfigurationsCommandOutput = DescribeExportConfigurationsResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>
  *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeImportTasks</a>, instead.</p>
  */
@@ -33,6 +35,7 @@ export class DescribeExportConfigurationsCommand extends $Command<
   DescribeExportConfigurationsCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +53,10 @@ export class DescribeExportConfigurationsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeExportConfigurationsCommandInput, DescribeExportConfigurationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

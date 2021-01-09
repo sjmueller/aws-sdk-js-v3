@@ -21,6 +21,8 @@ export type DeleteTagsCommandInput = DeleteTagsRequest;
 export type DeleteTagsCommandOutput = __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
  *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
  *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
@@ -34,6 +36,7 @@ export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandOutput,
   EFSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +54,10 @@ export class DeleteTagsCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagsCommandInput, DeleteTagsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

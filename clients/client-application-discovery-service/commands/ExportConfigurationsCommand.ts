@@ -25,6 +25,8 @@ export type ExportConfigurationsCommandInput = {};
 export type ExportConfigurationsCommandOutput = ExportConfigurationsResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
  *          <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that
  *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,
@@ -37,6 +39,7 @@ export class ExportConfigurationsCommand extends $Command<
   ExportConfigurationsCommandOutput,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,7 +57,10 @@ export class ExportConfigurationsCommand extends $Command<
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportConfigurationsCommandInput, ExportConfigurationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

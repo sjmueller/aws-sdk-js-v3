@@ -21,6 +21,8 @@ export type GetDeploymentInstanceCommandInput = GetDeploymentInstanceInput;
 export type GetDeploymentInstanceCommandOutput = GetDeploymentInstanceOutput & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Gets information about an instance as part of a deployment.</p>
  */
 export class GetDeploymentInstanceCommand extends $Command<
@@ -28,6 +30,7 @@ export class GetDeploymentInstanceCommand extends $Command<
   GetDeploymentInstanceCommandOutput,
   CodeDeployClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +48,10 @@ export class GetDeploymentInstanceCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDeploymentInstanceCommandInput, GetDeploymentInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 
