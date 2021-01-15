@@ -309,12 +309,7 @@ async function copyToDeno(sourceDirs, destinationDir) {
 
   const excludePackages = ["md5-js"];
 
-  const keepBrowserPackages = [
-    "eventstream-serde-browser",
-    "hash-blob-browser",
-    "url-parser-browser",
-    "util-base64-browser",
-  ];
+  const keepBrowserPackages = ["eventstream-serde-browser", "hash-blob-browser", "util-base64-browser"];
 
   for (const packagesDir of sourceDirs) {
     for (const package of await fsx.readdir(packagesDir)) {

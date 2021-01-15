@@ -4,7 +4,7 @@ import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
 import { ProviderError } from "../property-provider/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
 type RequestOptions = any;
-import { parseUrl as parse } from "../url-parser-browser/mod.ts";
+import { parseUrl as parse } from "../url-parser/mod.ts";
 
 import { httpRequest } from "./remoteProvider/httpRequest.ts";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials.ts";
