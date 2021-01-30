@@ -17,8 +17,11 @@ for more information on using IAM roles with Amazon ECS.
 
 A `CredentialProvider` function created with `fromInstanceMetadata` will return
 a promise that will resolve with credentials for the IAM role associated with
-an EC2 instance. Please see [IAM Roles for Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
+an EC2 instance.
+Please see [IAM Roles for Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
 for more information on using IAM roles with Amazon EC2.
+Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are supported.
+Please see [Configure the instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) for more information.
 
 ## Supported configuration
 
@@ -30,9 +33,3 @@ following options are supported:
   requests. If not specified, a default value of `1000` (one second) is used.
 - `maxRetries` - The maximum number of times any HTTP connections should be
   retried. If not specified, a default value of `0` will be used.
-
-Additionally, `fromInstanceMetadata` supports the following options:
-
-- `profile` - The configuration profile to use. If not specified, the provider
-  will use default profile name associated with the EC2 instance as reported by
-  the Instance Metadata Service.

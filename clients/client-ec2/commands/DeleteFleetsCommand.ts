@@ -44,14 +44,13 @@ export type DeleteFleetsCommandOutput = DeleteFleetsResult & __MetadataBearer;
  *          </ul>
  *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting an EC2
- *          Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DeleteFleetsCommand extends $Command<
   DeleteFleetsCommandInput,
   DeleteFleetsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -69,10 +68,7 @@ export class DeleteFleetsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFleetsCommandInput, DeleteFleetsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

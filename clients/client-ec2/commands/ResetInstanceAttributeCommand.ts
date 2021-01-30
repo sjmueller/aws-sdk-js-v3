@@ -29,14 +29,13 @@ export type ResetInstanceAttributeCommandOutput = __MetadataBearer;
  *             checking is enabled. The default value is <code>true</code>, which means checking is
  *             enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For
  *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
- *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *                 <i>Amazon VPC User Guide</i>.</p>
  */
 export class ResetInstanceAttributeCommand extends $Command<
   ResetInstanceAttributeCommandInput,
   ResetInstanceAttributeCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,10 +53,7 @@ export class ResetInstanceAttributeCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetInstanceAttributeCommandInput, ResetInstanceAttributeCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

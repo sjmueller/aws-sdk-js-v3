@@ -24,14 +24,13 @@ export type CancelReservedInstancesListingCommandOutput = CancelReservedInstance
  * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
  *          <p>For more information, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
- *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class CancelReservedInstancesListingCommand extends $Command<
   CancelReservedInstancesListingCommandInput,
   CancelReservedInstancesListingCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,10 +48,7 @@ export class CancelReservedInstancesListingCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelReservedInstancesListingCommandInput, CancelReservedInstancesListingCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

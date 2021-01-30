@@ -1,7 +1,7 @@
 {
   "name": "aws-sdk-js-v3",
   "private": true,
-  "version": "3.3.0",
+  "version": "3.4.1",
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@mixer/parallel-prettier": "^2.0.1",
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^26.0.4",
@@ -53,6 +54,7 @@
     "chai-as-promised": "^7.1.1",
     "codecov": "^3.4.0",
     "cucumber": "^6.0.5",
+    "downlevel-dts": "0.7.0",
     "eslint": "7.14.0",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-prettier": "3.1.4",

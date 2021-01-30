@@ -23,8 +23,7 @@ export type MonitorInstancesCommandOutput = MonitorInstancesResult & __MetadataB
 /**
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
  *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and
- *                 volumes</a> in the <i>Amazon Elastic Compute Cloud User
- *             Guide</i>.</p>
+ *                 volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *         <p>To disable detailed monitoring, see .</p>
  */
 export class MonitorInstancesCommand extends $Command<
@@ -32,7 +31,6 @@ export class MonitorInstancesCommand extends $Command<
   MonitorInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,10 +48,7 @@ export class MonitorInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<MonitorInstancesCommandInput, MonitorInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

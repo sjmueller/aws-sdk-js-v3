@@ -36,16 +36,14 @@ export type TerminateInstancesCommandOutput = TerminateInstancesResult & __Metad
  *             EBS volumes with the <code>DeleteOnTermination</code> block device mapping parameter set
  *             to <code>true</code> are automatically deleted. For more information about the
  *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
- *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon Elastic
- *                 Compute Cloud User Guide</i>.</p>
+ *             in the <i>Amazon EC2 User Guide</i>.</p>
+ *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class TerminateInstancesCommand extends $Command<
   TerminateInstancesCommandInput,
   TerminateInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -63,10 +61,7 @@ export class TerminateInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TerminateInstancesCommandInput, TerminateInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

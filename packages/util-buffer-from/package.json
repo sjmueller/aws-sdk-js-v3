@@ -1,12 +1,13 @@
 {
   "name": "@aws-sdk/util-buffer-from",
-  "version": "3.1.0",
+  "version": "3.4.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild": "downlevel-dts types types/ts3.4",
     "test": "jest"
   },
   "author": {
@@ -15,7 +16,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "3.1.0",
+    "@aws-sdk/is-array-buffer": "3.4.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
@@ -26,9 +27,16 @@
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "types/*": [
+        "types/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-buffer-from",
   "repository": {

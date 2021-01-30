@@ -1,16 +1,17 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.3.0",
+  "version": "3.4.1",
   "description": "Storage higher order operation",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild": "downlevel-dts types types/ts3.4",
     "test": "jest"
   },
   "engines": {
@@ -22,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-s3": "3.3.0",
+    "@aws-sdk/client-s3": "3.4.1",
     "buffer": "^5.6.0",
     "stream-browserify": "^3.0.0",
     "tslib": "^1.8.0",
@@ -40,6 +41,13 @@
     "karma-typescript": "^5.2.0",
     "ts-jest": "^26.4.1",
     "typescript": "~4.1.2"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "types/*": [
+        "types/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/master/lib/storage",
   "repository": {

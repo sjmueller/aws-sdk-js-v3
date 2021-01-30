@@ -26,14 +26,13 @@ export type RunScheduledInstancesCommandOutput = RunScheduledInstancesResult & _
  *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance,
  *          but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends,
  *          you can launch it again after a few minutes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html">Scheduled Instances</a>
- *          in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class RunScheduledInstancesCommand extends $Command<
   RunScheduledInstancesCommandInput,
   RunScheduledInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +50,7 @@ export class RunScheduledInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RunScheduledInstancesCommandInput, RunScheduledInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

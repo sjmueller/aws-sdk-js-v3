@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-utf8-node",
-  "version": "3.1.0",
+  "version": "3.4.1",
   "description": "A Node.JS UTF-8 string <-> UInt8Array converter",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -10,6 +10,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild": "downlevel-dts types types/ts3.4",
     "test": "jest"
   },
   "author": {
@@ -18,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-buffer-from": "3.1.0",
+    "@aws-sdk/util-buffer-from": "3.4.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
@@ -30,9 +31,16 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "types/*": [
+        "types/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-utf8-node",
   "repository": {

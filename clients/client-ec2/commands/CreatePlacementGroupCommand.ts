@@ -30,14 +30,13 @@ export type CreatePlacementGroupCommandOutput = CreatePlacementGroupResult & __M
  *             partitions, where instances in one partition do not share the same hardware with
  *             instances in another partition.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export class CreatePlacementGroupCommand extends $Command<
   CreatePlacementGroupCommandInput,
   CreatePlacementGroupCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,10 +54,7 @@ export class CreatePlacementGroupCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePlacementGroupCommandInput, CreatePlacementGroupCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

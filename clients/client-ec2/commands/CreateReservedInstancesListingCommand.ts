@@ -36,14 +36,13 @@ export type CreateReservedInstancesListingCommandOutput = CreateReservedInstance
  *       view the details of your Standard Reserved Instance listing, you can use the
  *         <a>DescribeReservedInstancesListings</a> operation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the
- * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 				<i>Amazon EC2 User Guide</i>.</p>
  */
 export class CreateReservedInstancesListingCommand extends $Command<
   CreateReservedInstancesListingCommandInput,
   CreateReservedInstancesListingCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -61,10 +60,7 @@ export class CreateReservedInstancesListingCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateReservedInstancesListingCommandInput, CreateReservedInstancesListingCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

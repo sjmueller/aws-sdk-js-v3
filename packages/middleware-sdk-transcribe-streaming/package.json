@@ -1,13 +1,14 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.3.0",
+  "version": "3.4.1",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild": "downlevel-dts types types/ts3.4",
     "prepublishOnly": "yarn build",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests"
@@ -18,12 +19,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-serde-browser": "3.3.0",
-    "@aws-sdk/middleware-signing": "3.3.0",
-    "@aws-sdk/protocol-http": "3.3.0",
-    "@aws-sdk/signature-v4": "3.3.0",
-    "@aws-sdk/types": "3.1.0",
-    "@aws-sdk/util-format-url": "3.3.0",
+    "@aws-sdk/eventstream-serde-browser": "3.4.1",
+    "@aws-sdk/middleware-signing": "3.4.1",
+    "@aws-sdk/protocol-http": "3.4.1",
+    "@aws-sdk/signature-v4": "3.4.1",
+    "@aws-sdk/types": "3.4.1",
+    "@aws-sdk/util-format-url": "3.4.1",
     "react-native-get-random-values": "^1.4.0",
     "tslib": "^1.8.0",
     "uuid": "^3.0.0"
@@ -37,6 +38,13 @@
   },
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "types/*": [
+        "types/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-transcribe-streaming",
   "repository": {

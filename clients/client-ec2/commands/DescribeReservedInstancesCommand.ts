@@ -23,14 +23,13 @@ export type DescribeReservedInstancesCommandOutput = DescribeReservedInstancesRe
 /**
  * <p>Describes one or more of the Reserved Instances that you purchased.</p>
  *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
- * 				Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DescribeReservedInstancesCommand extends $Command<
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class DescribeReservedInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeReservedInstancesCommandInput, DescribeReservedInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
