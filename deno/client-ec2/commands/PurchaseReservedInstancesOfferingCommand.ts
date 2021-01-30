@@ -30,14 +30,13 @@ export type PurchaseReservedInstancesOfferingCommandOutput = PurchaseReservedIns
  *       purchase time, the default is the current time.</p>
  *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
  *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
- *    	   in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *    	   in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class PurchaseReservedInstancesOfferingCommand extends $Command<
   PurchaseReservedInstancesOfferingCommandInput,
   PurchaseReservedInstancesOfferingCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,10 +54,7 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PurchaseReservedInstancesOfferingCommandInput, PurchaseReservedInstancesOfferingCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

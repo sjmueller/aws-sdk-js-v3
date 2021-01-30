@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DisassociateSubnetCidrBlockRequest, DisassociateSubnetCidrBlockResult } from "../models/models_4.ts";
+import { DisassociateSubnetCidrBlockRequest, DisassociateSubnetCidrBlockResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DisassociateSubnetCidrBlockCommand,
   serializeAws_ec2DisassociateSubnetCidrBlockCommand,
@@ -28,7 +28,6 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
   DisassociateSubnetCidrBlockCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateSubnetCidrBlockCommandInput, DisassociateSubnetCidrBlockCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

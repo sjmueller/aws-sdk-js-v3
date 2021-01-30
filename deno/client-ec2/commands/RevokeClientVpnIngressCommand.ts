@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_5.ts";
+import { RevokeClientVpnIngressRequest, RevokeClientVpnIngressResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2RevokeClientVpnIngressCommand,
   serializeAws_ec2RevokeClientVpnIngressCommand,
@@ -28,7 +28,6 @@ export class RevokeClientVpnIngressCommand extends $Command<
   RevokeClientVpnIngressCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class RevokeClientVpnIngressCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeClientVpnIngressCommandInput, RevokeClientVpnIngressCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

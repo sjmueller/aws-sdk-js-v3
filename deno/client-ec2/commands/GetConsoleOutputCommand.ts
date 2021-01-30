@@ -33,14 +33,13 @@ export type GetConsoleOutputCommandOutput = GetConsoleOutputResult & __MetadataB
  *             instance lifecycle. This option is supported on instance types that use the Nitro
  *             hypervisor.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
- *                 Console Output</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class GetConsoleOutputCommand extends $Command<
   GetConsoleOutputCommandInput,
   GetConsoleOutputCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,10 +57,7 @@ export class GetConsoleOutputCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConsoleOutputCommandInput, GetConsoleOutputCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

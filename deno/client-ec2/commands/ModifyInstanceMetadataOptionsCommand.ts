@@ -26,14 +26,14 @@ export type ModifyInstanceMetadataOptionsCommandOutput = ModifyInstanceMetadataO
  *             started. When you modify the parameters on a running instance, the API responds with a
  *             state of “pending”. After the parameter modifications are successfully applied to the
  *             instance, the state of the modifications changes from “pending” to “applied” in
- *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>.</p>
+ *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>
+ *           in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class ModifyInstanceMetadataOptionsCommand extends $Command<
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +51,7 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstanceMetadataOptionsCommandInput, ModifyInstanceMetadataOptionsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

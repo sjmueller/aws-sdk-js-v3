@@ -25,13 +25,13 @@ export type DescribeFleetHistoryCommandOutput = DescribeFleetHistoryResult & __M
  *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
  *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
  *          are available for 48 hours.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DescribeFleetHistoryCommand extends $Command<
   DescribeFleetHistoryCommandInput,
   DescribeFleetHistoryCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,10 +49,7 @@ export class DescribeFleetHistoryCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFleetHistoryCommandInput, DescribeFleetHistoryCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -22,13 +22,13 @@ export type DescribeFleetInstancesCommandOutput = DescribeFleetInstancesResult &
 
 /**
  * <p>Describes the running instances for the specified EC2 Fleet.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DescribeFleetInstancesCommand extends $Command<
   DescribeFleetInstancesCommandInput,
   DescribeFleetInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +46,7 @@ export class DescribeFleetInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeFleetInstancesCommandInput, DescribeFleetInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

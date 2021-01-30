@@ -25,15 +25,13 @@ export type ModifyInstanceCreditSpecificationCommandOutput = ModifyInstanceCredi
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
- *                 performance instances</a> in the <i>Amazon Elastic Compute Cloud User
- *                 Guide</i>.</p>
+ *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<
   ModifyInstanceCreditSpecificationCommandInput,
   ModifyInstanceCreditSpecificationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +49,7 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyInstanceCreditSpecificationCommandInput, ModifyInstanceCreditSpecificationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

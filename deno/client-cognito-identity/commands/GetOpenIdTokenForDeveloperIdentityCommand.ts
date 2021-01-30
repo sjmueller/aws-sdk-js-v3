@@ -46,7 +46,6 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
   GetOpenIdTokenForDeveloperIdentityCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -64,11 +63,8 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOpenIdTokenForDeveloperIdentityCommandInput, GetOpenIdTokenForDeveloperIdentityCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getAwsAuthPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

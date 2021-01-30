@@ -25,15 +25,13 @@ export type RebootInstancesCommandOutput = __MetadataBearer;
  *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
  *             hard reboot.</p>
  *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and
- *                 rebooting instances</a> in the <i>Amazon Elastic Compute Cloud User
- *                 Guide</i>.</p>
+ *             rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class RebootInstancesCommand extends $Command<
   RebootInstancesCommandInput,
   RebootInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +49,7 @@ export class RebootInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootInstancesCommandInput, RebootInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

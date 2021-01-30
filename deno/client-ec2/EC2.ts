@@ -775,11 +775,6 @@ import {
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
 import {
-  DescribeAddressesAttributeCommand,
-  DescribeAddressesAttributeCommandInput,
-  DescribeAddressesAttributeCommandOutput,
-} from "./commands/DescribeAddressesAttributeCommand.ts";
-import {
   DescribeAddressesCommand,
   DescribeAddressesCommandInput,
   DescribeAddressesCommandOutput,
@@ -1652,11 +1647,6 @@ import {
   ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand.ts";
 import {
-  ModifyAddressAttributeCommand,
-  ModifyAddressAttributeCommandInput,
-  ModifyAddressAttributeCommandOutput,
-} from "./commands/ModifyAddressAttributeCommand.ts";
-import {
   ModifyAvailabilityZoneGroupCommand,
   ModifyAvailabilityZoneGroupCommandInput,
   ModifyAvailabilityZoneGroupCommandOutput,
@@ -1998,11 +1988,6 @@ import {
   RequestSpotInstancesCommandInput,
   RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand.ts";
-import {
-  ResetAddressAttributeCommand,
-  ResetAddressAttributeCommandInput,
-  ResetAddressAttributeCommandOutput,
-} from "./commands/ResetAddressAttributeCommand.ts";
 import {
   ResetEbsDefaultKmsKeyIdCommand,
   ResetEbsDefaultKmsKeyIdCommandInput,
@@ -3516,7 +3501,7 @@ export class EC2 extends EC2Client {
    * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
    *          <p>For more information, see
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
-   *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public cancelReservedInstancesListing(
     args: CancelReservedInstancesListingCommandInput,
@@ -3762,7 +3747,7 @@ export class EC2 extends EC2Client {
    * 		       <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
    * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
    * 			By creating Capacity Reservations, you ensure that you always have access to Amazon EC2 capacity when you need it, for as long as you need it.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *
    * 		       <p>Your request to create a Capacity Reservation could fail if Amazon EC2 does not have sufficient capacity to
    * 			fulfill the request. If your request fails due to Amazon EC2 capacity constraints, either try
@@ -3774,7 +3759,7 @@ export class EC2 extends EC2Client {
    * 			limit for the selected instance type. If your request fails due to limit constraints,
    * 			increase your On-Demand Instance limit for the required instance type and try again. For
    * 			more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 Service
-   * 				Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 				Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createCapacityReservation(
     args: CreateCapacityReservationCommandInput,
@@ -4173,7 +4158,7 @@ export class EC2 extends EC2Client {
    * <p>Launches an EC2 Fleet.</p>
    *          <p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by
    *          instance type, AMI, Availability Zone, or subnet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
   public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
@@ -4814,7 +4799,7 @@ export class EC2 extends EC2Client {
    *             partitions, where instances in one partition do not share the same hardware with
    *             instances in another partition.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public createPlacementGroup(
     args: CreatePlacementGroupCommandInput,
@@ -4861,7 +4846,7 @@ export class EC2 extends EC2Client {
    *       view the details of your Standard Reserved Instance listing, you can use the
    *         <a>DescribeReservedInstancesListings</a> operation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the
-   * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 				<i>Amazon EC2 User Guide</i>.</p>
    */
   public createReservedInstancesListing(
     args: CreateReservedInstancesListingCommandInput,
@@ -6278,7 +6263,7 @@ export class EC2 extends EC2Client {
    *          </ul>
    *
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting an EC2
-   *          Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public deleteFleets(
     args: DeleteFleetsCommandInput,
@@ -6830,8 +6815,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Deletes the specified placement group. You must terminate all instances in the
    *             placement group before you can delete the placement group. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public deletePlacementGroup(
     args: DeletePlacementGroupCommandInput,
@@ -8118,35 +8102,6 @@ export class EC2 extends EC2Client {
     }
   }
 
-  public describeAddressesAttribute(
-    args: DescribeAddressesAttributeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeAddressesAttributeCommandOutput>;
-  public describeAddressesAttribute(
-    args: DescribeAddressesAttributeCommandInput,
-    cb: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
-  ): void;
-  public describeAddressesAttribute(
-    args: DescribeAddressesAttributeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
-  ): void;
-  public describeAddressesAttribute(
-    args: DescribeAddressesAttributeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressesAttributeCommandOutput) => void),
-    cb?: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
-  ): Promise<DescribeAddressesAttributeCommandOutput> | void {
-    const command = new DescribeAddressesAttributeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   /**
    * <p>Describes the longer ID format settings for all resource types in a specific
    *          Region. This request is useful for performing a quick audit to determine whether a
@@ -8861,6 +8816,7 @@ export class EC2 extends EC2Client {
    *          <p>EC2 Fleet events are delayed by up to 30 seconds before they can be described. This ensures
    *          that you can query by the last evaluated time and not miss a recorded event. EC2 Fleet events
    *          are available for 48 hours.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeFleetHistory(
     args: DescribeFleetHistoryCommandInput,
@@ -8893,6 +8849,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the running instances for the specified EC2 Fleet.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeFleetInstances(
     args: DescribeFleetInstancesCommandInput,
@@ -8925,6 +8882,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeFleets(
     args: DescribeFleetsCommandInput,
@@ -9061,8 +9019,8 @@ export class EC2 extends EC2Client {
    * 			offerings that might not match the instance family and Region of your Dedicated Hosts.
    * 			When purchasing an offering, ensure that the instance family and Region of the offering
    * 			matches that of the Dedicated Hosts with which it is to be associated. For more
-   * 			information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts
-   * 				Overview</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
+   * 			information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
+   *             in the <i>Amazon EC2 User Guide</i>. </p>
    */
   public describeHostReservationOfferings(
     args: DescribeHostReservationOfferingsCommandInput,
@@ -9487,8 +9445,7 @@ export class EC2 extends EC2Client {
    *             IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If
    *             you specify only instance IDs in an unaffected zone, the call works normally.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                 performance instances</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
@@ -9611,24 +9568,21 @@ export class EC2 extends EC2Client {
    *                     <b>Status checks</b> - Amazon EC2 performs status
    *                     checks on running EC2 instances to identify hardware and software issues. For
    *                     more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting
-   *                         instances with failed status checks</a> in the <i>Amazon Elastic
-   *                         Compute Cloud User Guide</i>.</p>
+   *                         instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <b>Scheduled events</b> - Amazon EC2 can schedule
    *                     events (such as reboot, stop, or terminate) for your instances related to
    *                     hardware issues, software updates, or system maintenance. For more information,
-   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon Elastic
-   *                         Compute Cloud User Guide</i>.</p>
+   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <b>Instance state</b> - You can manage your instances
    *                     from the moment you launch them through their termination. For more information,
    *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
-   *                         lifecycle</a> in the <i>Amazon Elastic Compute Cloud User
-   *                         Guide</i>.</p>
+   *                         lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -10388,7 +10342,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified placement groups or all of your placement groups. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public describePlacementGroups(
     args: DescribePlacementGroupsCommandInput,
@@ -10572,7 +10526,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes one or more of the Reserved Instances that you purchased.</p>
    *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
-   * 				Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
@@ -10609,7 +10563,7 @@ export class EC2 extends EC2Client {
    * 		       <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p>
    * 		       <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
-   *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
@@ -10642,7 +10596,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>
-   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
@@ -10679,7 +10633,7 @@ export class EC2 extends EC2Client {
    * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>
    *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
-   * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 				in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
@@ -13518,7 +13472,7 @@ export class EC2 extends EC2Client {
    *             instance lifecycle. This option is supported on instance types that use the Nitro
    *             hypervisor.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
-   *                 Console Output</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public getConsoleOutput(
     args: GetConsoleOutputCommandInput,
@@ -13586,8 +13540,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *             performance instances</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *             performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public getDefaultCreditSpecification(
     args: GetDefaultCreditSpecificationCommandInput,
@@ -13862,7 +13815,7 @@ export class EC2 extends EC2Client {
    *         <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
    *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
    *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a> in the
-   *             Amazon Elastic Compute Cloud User Guide.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    *         <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
    *             AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>
    *         <p>The password is encrypted using the key pair that you specified when you launched the
@@ -14304,35 +14257,6 @@ export class EC2 extends EC2Client {
     }
   }
 
-  public modifyAddressAttribute(
-    args: ModifyAddressAttributeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ModifyAddressAttributeCommandOutput>;
-  public modifyAddressAttribute(
-    args: ModifyAddressAttributeCommandInput,
-    cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
-  ): void;
-  public modifyAddressAttribute(
-    args: ModifyAddressAttributeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
-  ): void;
-  public modifyAddressAttribute(
-    args: ModifyAddressAttributeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAddressAttributeCommandOutput) => void),
-    cb?: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
-  ): Promise<ModifyAddressAttributeCommandOutput> | void {
-    const command = new ModifyAddressAttributeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   /**
    * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
    *       account.</p>
@@ -14449,8 +14373,7 @@ export class EC2 extends EC2Client {
    *             whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check
    *             <code>DefaultCreditSpecification</code> for updates.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *             performance instances</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *             performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyDefaultCreditSpecification(
     args: ModifyDefaultCreditSpecificationCommandInput,
@@ -14787,8 +14710,7 @@ export class EC2 extends EC2Client {
    *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
    *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
    *         <p>To modify some attributes, the instance must be stopped. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying attributes of a stopped instance</a> in the <i>Amazon Elastic
-   *                 Compute Cloud User Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying attributes of a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceAttribute(
     args: ModifyInstanceAttributeCommandInput,
@@ -14860,8 +14782,7 @@ export class EC2 extends EC2Client {
    *             instance. The credit options are <code>standard</code> and
    *             <code>unlimited</code>.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                 performance instances</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceCreditSpecification(
     args: ModifyInstanceCreditSpecificationCommandInput,
@@ -14930,7 +14851,8 @@ export class EC2 extends EC2Client {
    *             started. When you modify the parameters on a running instance, the API responds with a
    *             state of “pending”. After the parameter modifications are successfully applied to the
    *             instance, the state of the modifications changes from “pending” to “applied” in
-   *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>.</p>
+   *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>
+   *           in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceMetadataOptions(
     args: ModifyInstanceMetadataOptionsCommandInput,
@@ -15130,7 +15052,7 @@ export class EC2 extends EC2Client {
    *             modified must be identical, except for Availability Zone, network platform, and instance
    *             type.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
-   * 				Instances</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyReservedInstances(
     args: ModifyReservedInstancesCommandInput,
@@ -16017,8 +15939,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
    *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring your instances and
-   *                 volumes</a> in the <i>Amazon Elastic Compute Cloud User
-   *             Guide</i>.</p>
+   *                 volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>To disable detailed monitoring, see .</p>
    */
   public monitorInstances(
@@ -16175,7 +16096,7 @@ export class EC2 extends EC2Client {
    *       purchase time, the default is the current time.</p>
    *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
    *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
-   *    	   in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *    	   in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public purchaseReservedInstancesOffering(
     args: PurchaseReservedInstancesOfferingCommandInput,
@@ -16251,8 +16172,7 @@ export class EC2 extends EC2Client {
    *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
    *             hard reboot.</p>
    *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and
-   *                 rebooting instances</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *             rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public rebootInstances(
     args: RebootInstancesCommandInput,
@@ -17041,35 +16961,6 @@ export class EC2 extends EC2Client {
     }
   }
 
-  public resetAddressAttribute(
-    args: ResetAddressAttributeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ResetAddressAttributeCommandOutput>;
-  public resetAddressAttribute(
-    args: ResetAddressAttributeCommandInput,
-    cb: (err: any, data?: ResetAddressAttributeCommandOutput) => void
-  ): void;
-  public resetAddressAttribute(
-    args: ResetAddressAttributeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ResetAddressAttributeCommandOutput) => void
-  ): void;
-  public resetAddressAttribute(
-    args: ResetAddressAttributeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetAddressAttributeCommandOutput) => void),
-    cb?: (err: any, data?: ResetAddressAttributeCommandOutput) => void
-  ): Promise<ResetAddressAttributeCommandOutput> | void {
-    const command = new ResetAddressAttributeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   /**
    * <p>Resets the default customer master key (CMK) for EBS encryption for your account in this Region
    *       to the AWS managed CMK for EBS.</p>
@@ -17184,7 +17075,7 @@ export class EC2 extends EC2Client {
    *             checking is enabled. The default value is <code>true</code>, which means checking is
    *             enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For
    *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *                 <i>Amazon VPC User Guide</i>.</p>
    */
   public resetInstanceAttribute(
     args: ResetInstanceAttributeCommandInput,
@@ -17522,11 +17413,9 @@ export class EC2 extends EC2Client {
    *         <p>Linux instances have access to the public key of the key pair at boot. You can use
    *             this key to provide secure access to the instance. Amazon EC2 public images use this
    *             feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-   *                 pairs</a> in the <i>Amazon Elastic Compute Cloud User
-   *             Guide</i>.</p>
+   *                 pairs</a>.</p>
    *         <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
-   *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a> in the <i>Amazon Elastic
-   *                 Compute Cloud User Guide</i>.</p>
+   *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
    */
   public runInstances(
     args: RunInstancesCommandInput,
@@ -17560,7 +17449,7 @@ export class EC2 extends EC2Client {
    *          <p>You must launch a Scheduled Instance during its scheduled time period. You can't stop or reboot a Scheduled Instance,
    *          but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends,
    *          you can launch it again after a few minutes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html">Scheduled Instances</a>
-   *          in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public runScheduledInstances(
     args: RunScheduledInstancesCommandInput,
@@ -17751,7 +17640,7 @@ export class EC2 extends EC2Client {
    *         <p>Performing this operation on an instance that uses an instance store as its root
    *             device returns an error.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public startInstances(
     args: StartInstancesCommandInput,
@@ -17857,7 +17746,7 @@ export class EC2 extends EC2Client {
    *         <p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for
    *                 hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
    *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *         <p>We don't charge usage for a stopped instance, or data transfer fees; however, your
    *             root partition Amazon EBS volume remains and continues to persist your data, and you are
    *             charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon
@@ -17868,8 +17757,7 @@ export class EC2 extends EC2Client {
    *             usage, and thereafter charges per second for instance usage.</p>
    *         <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop
    *             action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
-   *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon Elastic
-   *                 Compute Cloud User Guide</i>.</p>
+   *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>When you stop or hibernate an instance, we shut it down. You can restart your instance
    *             at any time. Before stopping or hibernating an instance, make sure it is in a state from
    *             which it can be restarted. Stopping an instance does not preserve data stored in RAM,
@@ -17881,12 +17769,11 @@ export class EC2 extends EC2Client {
    *             any other devices attached during the instance launch are automatically deleted. For
    *             more information about the differences between rebooting, stopping, hibernating, and
    *             terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
-   *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If
    *             your instance appears stuck in the stopping state after a period of time, there may be
    *             an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting
-   *                 stopping your instance</a> in the <i>Amazon Elastic Compute Cloud User
-   *                 Guide</i>.</p>
+   *                 stopping your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public stopInstances(
     args: StopInstancesCommandInput,
@@ -17965,9 +17852,8 @@ export class EC2 extends EC2Client {
    *             EBS volumes with the <code>DeleteOnTermination</code> block device mapping parameter set
    *             to <code>true</code> are automatically deleted. For more information about the
    *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
-   *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon Elastic
-   *                 Compute Cloud User Guide</i>.</p>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public terminateInstances(
     args: TerminateInstancesCommandInput,
@@ -18064,8 +17950,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
-   *                 your instances and volumes</a> in the <i>Amazon Elastic Compute Cloud
-   *                 User Guide</i>.</p>
+   *             your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public unmonitorInstances(
     args: UnmonitorInstancesCommandInput,

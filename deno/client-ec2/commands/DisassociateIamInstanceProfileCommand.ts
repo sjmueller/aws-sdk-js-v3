@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_4.ts";
+import { DisassociateIamInstanceProfileRequest, DisassociateIamInstanceProfileResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DisassociateIamInstanceProfileCommand,
   serializeAws_ec2DisassociateIamInstanceProfileCommand,
@@ -30,7 +30,6 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
   DisassociateIamInstanceProfileCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateIamInstanceProfileCommandInput, DisassociateIamInstanceProfileCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

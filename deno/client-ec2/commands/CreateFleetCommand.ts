@@ -21,14 +21,13 @@ export type CreateFleetCommandOutput = CreateFleetResult & __MetadataBearer;
  * <p>Launches an EC2 Fleet.</p>
  *          <p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by
  *          instance type, AMI, Availability Zone, or subnet.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,
   CreateFleetCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class CreateFleetCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFleetCommandInput, CreateFleetCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

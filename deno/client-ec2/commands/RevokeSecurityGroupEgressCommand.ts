@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_5.ts";
+import { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2RevokeSecurityGroupEgressCommand,
   serializeAws_ec2RevokeSecurityGroupEgressCommand,
@@ -42,7 +42,6 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
   RevokeSecurityGroupEgressCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -60,10 +59,7 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeSecurityGroupEgressCommandInput, RevokeSecurityGroupEgressCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

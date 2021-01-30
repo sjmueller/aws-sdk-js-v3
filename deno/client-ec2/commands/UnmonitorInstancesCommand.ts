@@ -22,15 +22,13 @@ export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult & __Metad
 
 /**
  * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
- *                 your instances and volumes</a> in the <i>Amazon Elastic Compute Cloud
- *                 User Guide</i>.</p>
+ *             your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class UnmonitorInstancesCommand extends $Command<
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +46,7 @@ export class UnmonitorInstancesCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

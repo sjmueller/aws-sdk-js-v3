@@ -23,15 +23,13 @@ export type GetDefaultCreditSpecificationCommandOutput = GetDefaultCreditSpecifi
 /**
  * <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
- *             performance instances</a> in the <i>Amazon Elastic Compute Cloud User
- *                 Guide</i>.</p>
+ *             performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class GetDefaultCreditSpecificationCommand extends $Command<
   GetDefaultCreditSpecificationCommandInput,
   GetDefaultCreditSpecificationCommandOutput,
   EC2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,10 +47,7 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDefaultCreditSpecificationCommandInput, GetDefaultCreditSpecificationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
