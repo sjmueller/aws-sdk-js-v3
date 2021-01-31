@@ -290,6 +290,11 @@ async function denoifyTsFile(file, depth) {
           'import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";'
         );
       }
+
+      // Use body-checksum-browser
+      else if ((match = line.match(/import .* from .*body-checksum-node.*/))) {
+        replaced = line.replace(match[0], 'import { bodyChecksumGenerator } from "../body-checksum-browser/mod.ts";');
+      }
     }
 
     if (file === "deno/shared-ini-file-loader/mod.ts") {
@@ -307,9 +312,14 @@ async function denoifyTsFile(file, depth) {
 async function copyToDeno(sourceDirs, destinationDir) {
   await fsx.emptyDir(destinationDir);
 
-  const excludePackages = ["md5-js"];
+  const excludePackages = ["body-checksum-node", "eventstream-serde-node", "md5-js"];
 
-  const keepBrowserPackages = ["eventstream-serde-browser", "hash-blob-browser", "util-base64-browser"];
+  const keepBrowserPackages = [
+    "body-checksum-browser",
+    "eventstream-serde-browser",
+    "hash-blob-browser",
+    "util-base64-browser",
+  ];
 
   for (const packagesDir of sourceDirs) {
     for (const package of await fsx.readdir(packagesDir)) {
