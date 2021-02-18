@@ -345,40 +345,106 @@ describe("convertToAttr", () => {
       },
     ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
       ({ input, output }) => {
-        it(`testing map: ${input}`, () => {
-          expect(convertToAttr(input)).toEqual({ M: output });
+        [true, false].forEach((useObjectCreate) => {
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          it(`testing object: ${inputObject}${useObjectCreate && " with Object.create()"}`, () => {
+            expect(convertToAttr(inputObject)).toEqual({ M: output });
+          });
+        });
+
+        const inputMap = new Map(Object.entries(input));
+        it(`testing map: ${inputMap}`, () => {
+          expect(convertToAttr(inputMap)).toEqual({ M: output });
         });
       }
     );
 
-    it(`testing map with options.convertEmptyValues=true`, () => {
+    describe(`with options.convertEmptyValues=true`, () => {
       const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
-      expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
-        M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
+      const output = { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } };
+
+      [true, false].forEach((useObjectCreate) => {
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({ M: output });
+        });
+      });
+
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map`, () => {
+        expect(convertToAttr(inputMap, { convertEmptyValues: true })).toEqual({ M: output });
       });
     });
 
-    describe(`testing map with options.removeUndefinedValues`, () => {
+    describe(`with options.removeUndefinedValues=true`, () => {
       describe("throws error", () => {
-        const testErrorMapWithUndefinedValues = (options?: marshallOptions) => {
+        const testErrorMapWithUndefinedValues = (input: any, options?: marshallOptions) => {
           expect(() => {
-            convertToAttr({ definedKey: "definedKey", undefinedKey: undefined }, options);
+            convertToAttr(input, options);
           }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
         };
 
         [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
-          it(`when options=${options}`, () => {
-            testErrorMapWithUndefinedValues(options);
+          const input = { definedKey: "definedKey", undefinedKey: undefined };
+          [true, false].forEach((useObjectCreate) => {
+            const inputObject = useObjectCreate ? Object.create(input) : input;
+            it(`testing object${useObjectCreate && " with Object.create()"} when options=${options}`, () => {
+              testErrorMapWithUndefinedValues(inputObject, options);
+            });
+          });
+
+          const inputMap = new Map(Object.entries(input));
+          it(`testing map when options=${options}`, () => {
+            testErrorMapWithUndefinedValues(inputMap, options);
           });
         });
       });
 
-      it(`returns when options.removeUndefinedValues=true`, () => {
+      describe(`returns when options.removeUndefinedValues=true`, () => {
         const input = { definedKey: "definedKey", undefinedKey: undefined };
-        expect(convertToAttr(input, { removeUndefinedValues: true })).toEqual({
-          M: { definedKey: { S: "definedKey" } },
+        const output = { definedKey: { S: "definedKey" } };
+        [true, false].forEach((useObjectCreate) => {
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+            expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({ M: output });
+          });
+        });
+
+        const inputMap = new Map(Object.entries(input));
+        it(`testing map`, () => {
+          expect(convertToAttr(inputMap, { removeUndefinedValues: true })).toEqual({ M: output });
         });
       });
+    });
+
+    describe(`testing with function`, () => {
+      const input = {
+        bool: true,
+        func: function () {
+          console.log(`bool: ${this.bool}`);
+        },
+      };
+      const output = { bool: { BOOL: true } };
+
+      [true, false].forEach((useObjectCreate) => {
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject)).toEqual({ M: output });
+        });
+      });
+
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map`, () => {
+        expect(convertToAttr(inputMap)).toEqual({ M: output });
+      });
+    });
+
+    it(`testing Object.create(null)`, () => {
+      expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
+    });
+
+    it(`testing empty Map`, () => {
+      expect(convertToAttr(new Map())).toEqual({ M: {} });
     });
   });
 
@@ -411,7 +477,6 @@ describe("convertToAttr", () => {
       }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
     });
 
-    // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
     [new Date(), new FooClass("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
@@ -438,6 +503,9 @@ describe("convertToAttr", () => {
           private readonly listAttr: any[],
           private readonly mapAttr: { [key: string]: any }
         ) {}
+        public exampleMethod() {
+          return "This method won't be marshalled";
+        }
       }
       expect(
         convertToAttr(
@@ -472,6 +540,35 @@ describe("convertToAttr", () => {
           mapAttr: {
             M: { nullKey: { NULL: true }, numKey: { N: "1" }, strKey: { S: "string" }, boolKey: { BOOL: true } },
           },
+        },
+      });
+    });
+
+    it("returns inherited values from parent class in map", () => {
+      class Person {
+        protected name: string;
+        constructor(name: string) {
+          this.name = name;
+        }
+      }
+
+      class Employee extends Person {
+        private department: string;
+
+        constructor(name: string, department: string) {
+          super(name);
+          this.department = department;
+        }
+
+        public getElevatorPitch() {
+          return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+        }
+      }
+
+      expect(convertToAttr(new Employee("John", "Sales"), { convertClassInstanceToMap: true })).toEqual({
+        M: {
+          name: { S: "John" },
+          department: { S: "Sales" },
         },
       });
     });

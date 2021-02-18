@@ -50,14 +50,14 @@ const convertNumber = (numString: string, options?: unmarshallOptions): number |
   const infinityValues = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
   if ((num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) && !infinityValues.includes(num)) {
     if (typeof BigInt === "function") {
-      return BigInt(numString);
+      try {
+        return BigInt(numString);
+      } catch (error) {
+        throw new Error(`${numString} can't be converted to BigInt. Set options.wrapNumbers to get string value.`);
+      }
     } else {
       throw new Error(`${numString} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
     }
-  } else if (num.toString() !== numString) {
-    throw new Error(
-      `Value ${numString} is outside IEEE 754 Floating-Point Arithmetic. Set options.wrapNumbers to get string value.`
-    );
   }
   return num;
 };
