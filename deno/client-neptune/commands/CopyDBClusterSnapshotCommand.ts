@@ -4,6 +4,7 @@ import {
   deserializeAws_queryCopyDBClusterSnapshotCommand,
   serializeAws_queryCopyDBClusterSnapshotCommand,
 } from "../protocols/Aws_query.ts";
+import { getCrossRegionPresignedUrlPlugin } from "../../middleware-sdk-rds/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -49,6 +50,7 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CopyDBClusterSnapshotCommandInput, CopyDBClusterSnapshotCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
