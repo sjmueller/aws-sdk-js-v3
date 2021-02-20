@@ -11,6 +11,7 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 ## Your environment
+
 #### SDK version number
 `@aws-sdk/package-name@version`
 
@@ -19,6 +20,7 @@ Paste output of `deno --version`
 
 ## Steps to reproduce
 Please share code or minimal repo, and steps to reproduce the behavior.
+
 #### Observed behavior
 A clear and concise description of what happens.
 
