@@ -70,7 +70,13 @@ import {
   resolveHostHeaderConfig,
 } from "../middleware-host-header/mod.ts";
 import { getLoggerPlugin } from "../middleware-logger/mod.ts";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
+import {
+  RetryInputConfig,
+  RetryResolvedConfig,
+  getOmitRetryHeadersPlugin,
+  getRetryPlugin,
+  resolveRetryConfig,
+} from "../middleware-retry/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -317,6 +323,7 @@ export class CustomerProfilesClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));
   }
 
   destroy(): void {

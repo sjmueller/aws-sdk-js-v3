@@ -10,6 +10,7 @@ import {
 import { ENV_PROFILE, fromIni, FromIniInit } from "../credential-provider-ini/mod.ts";
 import { fromProcess, FromProcessInit } from "../credential-provider-process/mod.ts";
 import { chain, memoize, ProviderError } from "../property-provider/mod.ts";
+import { loadSharedConfigFiles } from "../shared-ini-file-loader/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
@@ -35,27 +36,28 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  *                              environment variables
  * @see fromIni                 The function used to source credentials from INI
  *                              files
- * @see fromProcess             The functino used to sources credentials from
+ * @see fromProcess             The function used to sources credentials from
  *                              credential_process in INI files
  * @see fromInstanceMetadata    The function used to source credentials from the
  *                              EC2 Instance Metadata Service
  * @see fromContainerMetadata   The function used to source credentials from the
  *                              ECS Container Metadata Service
  */
-export function defaultProvider(init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider {
-  const { profile = process.env[ENV_PROFILE] } = init;
-  const providerChain = profile
-    ? chain(fromIni(init), fromProcess(init))
-    : chain(fromEnv(), fromIni(init), fromProcess(init), remoteProvider(init));
+export const defaultProvider = (init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider => {
+  const options = { profile: process.env[ENV_PROFILE], ...init };
+  if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
+  const providers = [fromIni(options), fromProcess(options), remoteProvider(options)];
+  if (!options.profile) providers.unshift(fromEnv());
+  const providerChain = chain(...providers);
 
   return memoize(
     providerChain,
     (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000,
     (credentials) => credentials.expiration !== undefined
   );
-}
+};
 
-function remoteProvider(init: RemoteProviderInit): CredentialProvider {
+const remoteProvider = (init: RemoteProviderInit): CredentialProvider => {
   if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
     return fromContainerMetadata(init);
   }
@@ -65,4 +67,4 @@ function remoteProvider(init: RemoteProviderInit): CredentialProvider {
   }
 
   return fromInstanceMetadata(init);
-}
+};
