@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.88.0/node/buffer.ts";
 type Readable = any;
 export function streamReader(
   stream: Readable,

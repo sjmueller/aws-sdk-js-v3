@@ -1,9 +1,9 @@
 import { HttpResponse } from "../types/mod.ts";
-import { readFileSync } from "https://deno.land/std@0.79.0/node/fs.ts";
+import { readFileSync } from "https://deno.land/std@0.88.0/node/fs.ts";
 import { createServer as createHttpServer, IncomingMessage, Server as HttpServer, ServerResponse } from "http.ts";
 import { createServer as createHttp2Server, Http2Server } from "http2.ts";
 import { createServer as createHttpsServer, Server as HttpsServer } from "https.ts";
-import { join } from "https://deno.land/std@0.79.0/node/path.ts";
+import { join } from "https://deno.land/std@0.88.0/node/path.ts";
 type Readable = any;
 
 const fixturesDir = join(__dirname, "../..", "fixtures");

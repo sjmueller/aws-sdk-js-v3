@@ -1,5 +1,5 @@
 import { HashConstructor, StreamHasher } from "../types/mod.ts";
-import { createReadStream, ReadStream } from "https://deno.land/std@0.79.0/node/fs.ts";
+import { createReadStream, ReadStream } from "https://deno.land/std@0.88.0/node/fs.ts";
 type Readable = any;
 
 import { HashCalculator } from "./hash-calculator.ts";

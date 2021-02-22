@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.88.0/node/buffer.ts";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
 import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/models_0.ts";
 import {

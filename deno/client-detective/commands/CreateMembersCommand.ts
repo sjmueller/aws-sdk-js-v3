@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.79.0/node/process.ts";
+import process from "https://deno.land/std@0.88.0/node/process.ts";
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
 import { CreateMembersRequest, CreateMembersResponse } from "../models/models_0.ts";
 import {

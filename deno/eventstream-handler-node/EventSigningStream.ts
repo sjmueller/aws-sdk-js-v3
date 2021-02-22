@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.88.0/node/buffer.ts";
 import { EventStreamMarshaller as EventMarshaller } from "../eventstream-marshaller/mod.ts";
 import { EventSigner, MessageHeaders } from "../types/mod.ts";
 import { Transform, TransformCallback, TransformOptions } from "stream.ts";
