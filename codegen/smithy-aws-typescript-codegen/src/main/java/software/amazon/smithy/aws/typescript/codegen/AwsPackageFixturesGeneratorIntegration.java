@@ -21,7 +21,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -75,7 +74,7 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
                     .collect(Collectors.joining("\n"));
             resource = resource.replaceAll(Pattern.quote("${documentation}"), documentation);
 
-            TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+            TopDownIndex topDownIndex = TopDownIndex.of(model);
             OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
             String operationName = firstOperation.getId().getName();
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
