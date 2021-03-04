@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.4.1",
+  "version": "3.6.1",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "types": "./types/index.d.ts",
@@ -32,7 +32,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/types",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/types",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

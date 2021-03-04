@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/chunked-stream-reader-node",
-  "version": "3.4.1",
+  "version": "3.6.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -37,7 +37,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/chunked-stream-reader-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/chunked-stream-reader-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

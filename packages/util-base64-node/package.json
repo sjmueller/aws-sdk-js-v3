@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-base64-node",
-  "version": "3.4.1",
+  "version": "3.6.1",
   "description": "A Node.JS Base64 <-> UInt8Array converter",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-buffer-from": "3.4.1",
+    "@aws-sdk/util-buffer-from": "3.6.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-base64-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-base64-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

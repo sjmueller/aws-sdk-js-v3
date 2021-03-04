@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/core-packages-documentation-generator",
-  "version": "3.4.1",
+  "version": "3.6.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -39,7 +39,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/core-packages-documentation-generator",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/core-packages-documentation-generator",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
