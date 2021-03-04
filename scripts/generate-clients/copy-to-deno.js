@@ -353,7 +353,7 @@ async function copyToDeno(sourceDirs, destinationDir) {
 
 if (require.main === module) {
   (async () => {
-    await copyToDeno(["./clients", "./packages"], "./deno");
+    await copyToDeno(["./clients", "./packages", "./lib"], "./deno");
   })();
 }
 
