@@ -1,7 +1,7 @@
 import process from "https://deno.land/std@0.88.0/node/process.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-type Readable = any;
+import { Readable } from "https://deno.land/std@0.88.0/node/stream.ts";
 
 /**
  * <p>Provides options to abort a multipart upload identified by the upload ID.</p>

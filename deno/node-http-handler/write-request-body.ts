@@ -2,7 +2,7 @@ import { Buffer } from "https://deno.land/std@0.88.0/node/buffer.ts";
 import { HttpRequest } from "../types/mod.ts";
 import { ClientRequest } from "http.ts";
 import { ClientHttp2Stream } from "http2.ts";
-type Readable = any;
+import { Readable } from "https://deno.land/std@0.88.0/node/stream.ts";
 
 export function writeRequestBody(httpRequest: ClientRequest | ClientHttp2Stream, request: HttpRequest) {
   const expect = request.headers["Expect"] || request.headers["expect"];

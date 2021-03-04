@@ -1,6 +1,6 @@
 import { Buffer } from "https://deno.land/std@0.88.0/node/buffer.ts";
 import { StreamCollector } from "../../types/mod.ts";
-type Readable = any;
+import { Readable } from "https://deno.land/std@0.88.0/node/stream.ts";
 
 import { Collector } from "./collector.ts";
 

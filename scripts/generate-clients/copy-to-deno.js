@@ -199,12 +199,9 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "stream") {
-              if (line === 'import { Readable } from "stream";') {
-                // type only
-                replaced = "type Readable = any;";
-                output.push(replaced);
-                continue;
-              }
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/stream.ts";`;
+              output.push(replaced);
+              continue;
             } else if (importFrom === "fs") {
               replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/fs.ts";`;
               output.push(replaced);
@@ -243,8 +240,10 @@ async function denoifyTsFile(file, depth) {
               replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;
               output.push(replaced);
               continue;
-            } else if (importFrom === "stream") {
-              // TODO
+            } else if (importFrom === "events") {
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/events.ts";`;
+              output.push(replaced);
+              continue;
             } else {
               console.error(`Absolute import of: ${importFrom} (${file})`);
             }

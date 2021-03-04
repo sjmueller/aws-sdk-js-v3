@@ -4,7 +4,7 @@ import { createServer as createHttpServer, IncomingMessage, Server as HttpServer
 import { createServer as createHttp2Server, Http2Server } from "http2.ts";
 import { createServer as createHttpsServer, Server as HttpsServer } from "https.ts";
 import { join } from "https://deno.land/std@0.88.0/node/path.ts";
-type Readable = any;
+import { Readable } from "https://deno.land/std@0.88.0/node/stream.ts";
 
 const fixturesDir = join(__dirname, "../..", "fixtures");
 
