@@ -9,6 +9,7 @@ import {
 } from "../credential-provider-imds/mod.ts";
 import { ENV_PROFILE, fromIni, FromIniInit } from "../credential-provider-ini/mod.ts";
 import { fromProcess, FromProcessInit } from "../credential-provider-process/mod.ts";
+import { fromSSO, FromSSOInit } from "../credential-provider-sso/mod.ts";
 import { chain, memoize, ProviderError } from "../property-provider/mod.ts";
 import { loadSharedConfigFiles } from "../shared-ini-file-loader/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
@@ -34,6 +35,8 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  *
  * @see fromEnv                 The function used to source credentials from
  *                              environment variables
+ * @see fromSSO                 The function used to source credentials from
+ *                              resolved SSO token cache
  * @see fromIni                 The function used to source credentials from INI
  *                              files
  * @see fromProcess             The function used to sources credentials from
@@ -43,10 +46,12 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  * @see fromContainerMetadata   The function used to source credentials from the
  *                              ECS Container Metadata Service
  */
-export const defaultProvider = (init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider => {
+export const defaultProvider = (
+  init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit = {}
+): CredentialProvider => {
   const options = { profile: process.env[ENV_PROFILE], ...init };
   if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
-  const providers = [fromIni(options), fromProcess(options), remoteProvider(options)];
+  const providers = [fromSSO(options), fromIni(options), fromProcess(options), remoteProvider(options)];
   if (!options.profile) providers.unshift(fromEnv());
   const providerChain = chain(...providers);
 

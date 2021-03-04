@@ -1,7 +1,6 @@
-const packageInfo = { version: "3.6.1" };
+const packageInfo = { version: "3.7.0" };
 
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
-import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "../middleware-retry/mod.ts";
 import { loadConfig as loadNodeConfig } from "../node-config-provider/mod.ts";
@@ -22,7 +21,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider,
   defaultUserAgentProvider: defaultUserAgent({
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
