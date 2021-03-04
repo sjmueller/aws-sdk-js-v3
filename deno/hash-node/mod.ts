@@ -1,6 +1,7 @@
 import { Buffer } from "https://deno.land/std@0.89.0/node/buffer.ts";
 import { Hash as IHash, SourceData } from "../types/mod.ts";
 import { fromArrayBuffer, fromString, StringEncoding } from "../util-buffer-from/mod.ts";
+import { createHash, createHmac, Hash as NodeHash, Hmac } from "https://deno.land/std@0.89.0/node/crypto.ts";
 
 export class Hash implements IHash {
   private readonly hash: NodeHash | Hmac;

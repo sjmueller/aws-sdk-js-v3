@@ -215,6 +215,8 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "crypto") {
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/crypto.ts";`;
+              output.push(replaced);
               continue;
             } else if (importFrom === "url") {
               continue;
