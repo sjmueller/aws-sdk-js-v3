@@ -1,6 +1,6 @@
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "https://deno.land/std@0.88.0/node/stream.ts";
+import { Readable } from "https://deno.land/std@0.89.0/node/stream.ts";
 
 /**
  * <p>You are not authorized to perform the action.</p>

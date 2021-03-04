@@ -1,7 +1,7 @@
-import process from "https://deno.land/std@0.88.0/node/process.ts";
+import process from "https://deno.land/std@0.89.0/node/process.ts";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "https://deno.land/std@0.88.0/node/stream.ts";
+import { Readable } from "https://deno.land/std@0.89.0/node/stream.ts";
 
 /**
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>

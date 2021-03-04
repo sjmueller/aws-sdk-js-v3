@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.88.0/node/process.ts";
+import process from "https://deno.land/std@0.89.0/node/process.ts";
 import { QuickSightClient } from "./QuickSightClient.ts";
 import {
   CancelIngestionCommand,

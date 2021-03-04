@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.88.0/node/process.ts";
+import process from "https://deno.land/std@0.89.0/node/process.ts";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { DeletePolicyRequest } from "../models/models_0.ts";
 import { deserializeAws_queryDeletePolicyCommand, serializeAws_queryDeletePolicyCommand } from "../protocols/Aws_query.ts";

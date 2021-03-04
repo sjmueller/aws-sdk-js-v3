@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.88.0/node/process.ts";
+import process from "https://deno.land/std@0.89.0/node/process.ts";
 import { ElasticTranscoderClient } from "./ElasticTranscoderClient.ts";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand.ts";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
