@@ -4462,6 +4462,7 @@ export interface AcceptHandshakeResponse {
 export namespace AcceptHandshakeResponse {
   export const filterSensitiveLog = (obj: AcceptHandshakeResponse): any => ({
     ...obj,
+    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
 }
 
@@ -4475,6 +4476,7 @@ export interface CancelHandshakeResponse {
 export namespace CancelHandshakeResponse {
   export const filterSensitiveLog = (obj: CancelHandshakeResponse): any => ({
     ...obj,
+    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
 }
 
@@ -4489,6 +4491,7 @@ export interface DeclineHandshakeResponse {
 export namespace DeclineHandshakeResponse {
   export const filterSensitiveLog = (obj: DeclineHandshakeResponse): any => ({
     ...obj,
+    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
 }
 
@@ -4502,6 +4505,7 @@ export interface DescribeHandshakeResponse {
 export namespace DescribeHandshakeResponse {
   export const filterSensitiveLog = (obj: DescribeHandshakeResponse): any => ({
     ...obj,
+    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
 }
 
@@ -4516,6 +4520,7 @@ export interface EnableAllFeaturesResponse {
 export namespace EnableAllFeaturesResponse {
   export const filterSensitiveLog = (obj: EnableAllFeaturesResponse): any => ({
     ...obj,
+    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
 }
 
@@ -4530,6 +4535,7 @@ export interface InviteAccountToOrganizationResponse {
 export namespace InviteAccountToOrganizationResponse {
   export const filterSensitiveLog = (obj: InviteAccountToOrganizationResponse): any => ({
     ...obj,
+    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
   });
 }
 
