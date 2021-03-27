@@ -307,7 +307,7 @@ async function denoifyTsFile(file, depth) {
     // Ignore type check on passing Readable chunk to Buffer.from()
     if (file === "deno/lib-storage/chunker.ts" || file === "deno/lib-storage/chunks/getDataReadable.ts") {
       if (line.match(/Buffer\.from\(/)) {
-        output.push("    // $ts-ignore");
+        output.push("    // @ts-ignore");
       }
     }
 

@@ -14,7 +14,7 @@ export const getChunk = (data: BodyDataTypes, partSize: number) => {
     return getChunkStream<Readable>(data, partSize, getDataReadable);
   } else if (data instanceof String || typeof data === "string" || data instanceof Uint8Array) {
     // chunk Strings, Uint8Array.
-    // $ts-ignore
+    // @ts-ignore
     return getChunkBuffer(Buffer.from(data), partSize);
   }
   if (typeof (data as any).stream === "function") {
