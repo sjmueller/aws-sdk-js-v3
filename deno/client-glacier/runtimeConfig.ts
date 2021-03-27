@@ -1,4 +1,4 @@
-const packageInfo = { version: "3.8.0" };
+const packageInfo = { version: "3.8.1" };
 
 import { bodyChecksumGenerator } from "../body-checksum-browser/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
