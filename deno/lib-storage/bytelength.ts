@@ -1,5 +1,5 @@
 import { Buffer } from "https://deno.land/std@0.89.0/node/buffer.ts";
-import { lstatSync } from "https://deno.land/std@0.89.0/node/fs.ts";
+import { ClientDefaultValues } from "./runtimeConfig.ts";
 
 export const byteLength = (input: any) => {
   if (input === null || input === undefined) return 0;
@@ -12,7 +12,7 @@ export const byteLength = (input: any) => {
     return input.size;
   } else if (typeof input.path === "string") {
     try {
-      return lstatSync(input.path).size;
+      return ClientDefaultValues.lstatSync(input.path).size;
     } catch (error) {
       return undefined;
     }

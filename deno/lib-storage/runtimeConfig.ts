@@ -1,4 +1,5 @@
 import { ClientSharedValues } from "./runtimeConfig.shared.ts";
+import { lstatSync } from "https://deno.land/std@0.89.0/node/fs.ts";
 
 /**
  * @internal
@@ -6,4 +7,5 @@ import { ClientSharedValues } from "./runtimeConfig.shared.ts";
 export const ClientDefaultValues = {
   ...ClientSharedValues,
   runtime: "deno",
+  lstatSync,
 };

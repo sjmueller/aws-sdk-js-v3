@@ -6,7 +6,7 @@ import { createServer as createHttpsServer, Server as HttpsServer } from "https.
 import { join } from "https://deno.land/std@0.89.0/node/path.ts";
 import { Readable } from "https://deno.land/std@0.89.0/node/stream.ts";
 
-const fixturesDir = join(__dirname, "../..", "fixtures");
+const fixturesDir = join(__dirname, "..", "fixtures");
 
 export function createResponseFunction(httpResp: HttpResponse) {
   return function (request: IncomingMessage, response: ServerResponse) {
