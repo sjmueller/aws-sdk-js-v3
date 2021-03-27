@@ -40,7 +40,6 @@ coverage
 dist
 types
 !packages/types
-!deno/types
 
 /verdaccio/*
 !/verdaccio/config.yaml
