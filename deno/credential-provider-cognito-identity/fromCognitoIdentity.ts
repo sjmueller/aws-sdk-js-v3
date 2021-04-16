@@ -1,6 +1,6 @@
 import { GetCredentialsForIdentityCommand } from "../client-cognito-identity/mod.ts";
 import { ProviderError } from "../property-provider/mod.ts";
-import { CredentialProvider, Credentials } from "../types/mod.ts";
+import { Credentials, Provider } from "../types/mod.ts";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters.ts";
 import { resolveLogins } from "./resolveLogins.ts";
@@ -12,13 +12,15 @@ export interface CognitoIdentityCredentials extends Credentials {
   identityId: string;
 }
 
+export type CognitoIdentityCredentialProvider = Provider<CognitoIdentityCredentials>;
+
 /**
  * Retrieves temporary AWS credentials using Amazon Cognito's
  * `GetCredentialsForIdentity` operation.
  *
  * Results from this function call are not cached internally.
  */
-export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CredentialProvider {
+export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider {
   return async (): Promise<CognitoIdentityCredentials> => {
     const {
       Credentials: {

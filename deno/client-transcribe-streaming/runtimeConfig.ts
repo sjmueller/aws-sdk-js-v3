@@ -1,5 +1,6 @@
-const packageInfo = { version: "3.11.0" };
+const packageInfo = { version: "3.12.0" };
 
+import { decorateDefaultCredentialProvider } from "../client-sts/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
 import { eventStreamPayloadHandlerProvider } from "../eventstream-handler-node/mod.ts";
@@ -24,7 +25,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider,
+  credentialDefaultProvider: decorateDefaultCredentialProvider(credentialDefaultProvider),
   defaultUserAgentProvider: defaultUserAgent({
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,

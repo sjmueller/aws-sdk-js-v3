@@ -9,3 +9,4 @@ export * from "./commands/GetCallerIdentityCommand.ts";
 export * from "./commands/GetFederationTokenCommand.ts";
 export * from "./commands/GetSessionTokenCommand.ts";
 export * from "./models/index.ts";
+export * from "./defaultRoleAssumers.ts";

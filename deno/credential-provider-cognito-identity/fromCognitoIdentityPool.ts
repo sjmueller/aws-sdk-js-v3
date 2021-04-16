@@ -1,9 +1,8 @@
 import { GetIdCommand } from "../client-cognito-identity/mod.ts";
 import { ProviderError } from "../property-provider/mod.ts";
-import { CredentialProvider } from "../types/mod.ts";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters.ts";
-import { fromCognitoIdentity } from "./fromCognitoIdentity.ts";
+import { CognitoIdentityCredentialProvider, fromCognitoIdentity } from "./fromCognitoIdentity.ts";
 import { localStorage } from "./localStorage.ts";
 import { resolveLogins } from "./resolveLogins.ts";
 import { Storage } from "./Storage.ts";
@@ -24,10 +23,10 @@ export function fromCognitoIdentityPool({
   identityPoolId,
   logins,
   userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
-}: FromCognitoIdentityPoolParameters): CredentialProvider {
+}: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
   const cacheKey = userIdentifier ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}` : undefined;
 
-  let provider: CredentialProvider = async () => {
+  let provider: CognitoIdentityCredentialProvider = async () => {
     let identityId = cacheKey && (await cache.getItem(cacheKey));
     if (!identityId) {
       const { IdentityId = throwOnMissingId() } = await client.send(
