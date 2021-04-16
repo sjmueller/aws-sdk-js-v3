@@ -1,4 +1,4 @@
-const packageInfo = { version: "3.10.0" };
+const packageInfo = { version: "3.11.0" };
 
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
