@@ -20,6 +20,10 @@ import {
   GetOpenIdTokenForDeveloperIdentityCommandInput,
   GetOpenIdTokenForDeveloperIdentityCommandOutput,
 } from "./commands/GetOpenIdTokenForDeveloperIdentityCommand.ts";
+import {
+  GetPrincipalTagAttributeMapCommandInput,
+  GetPrincipalTagAttributeMapCommandOutput,
+} from "./commands/GetPrincipalTagAttributeMapCommand.ts";
 import { ListIdentitiesCommandInput, ListIdentitiesCommandOutput } from "./commands/ListIdentitiesCommand.ts";
 import { ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput } from "./commands/ListIdentityPoolsCommand.ts";
 import {
@@ -38,6 +42,10 @@ import {
   SetIdentityPoolRolesCommandInput,
   SetIdentityPoolRolesCommandOutput,
 } from "./commands/SetIdentityPoolRolesCommand.ts";
+import {
+  SetPrincipalTagAttributeMapCommandInput,
+  SetPrincipalTagAttributeMapCommandOutput,
+} from "./commands/SetPrincipalTagAttributeMapCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UnlinkDeveloperIdentityCommandInput,
@@ -103,12 +111,14 @@ export type ServiceInputTypes =
   | GetIdentityPoolRolesCommandInput
   | GetOpenIdTokenCommandInput
   | GetOpenIdTokenForDeveloperIdentityCommandInput
+  | GetPrincipalTagAttributeMapCommandInput
   | ListIdentitiesCommandInput
   | ListIdentityPoolsCommandInput
   | ListTagsForResourceCommandInput
   | LookupDeveloperIdentityCommandInput
   | MergeDeveloperIdentitiesCommandInput
   | SetIdentityPoolRolesCommandInput
+  | SetPrincipalTagAttributeMapCommandInput
   | TagResourceCommandInput
   | UnlinkDeveloperIdentityCommandInput
   | UnlinkIdentityCommandInput
@@ -126,12 +136,14 @@ export type ServiceOutputTypes =
   | GetIdentityPoolRolesCommandOutput
   | GetOpenIdTokenCommandOutput
   | GetOpenIdTokenForDeveloperIdentityCommandOutput
+  | GetPrincipalTagAttributeMapCommandOutput
   | ListIdentitiesCommandOutput
   | ListIdentityPoolsCommandOutput
   | ListTagsForResourceCommandOutput
   | LookupDeveloperIdentityCommandOutput
   | MergeDeveloperIdentitiesCommandOutput
   | SetIdentityPoolRolesCommandOutput
+  | SetPrincipalTagAttributeMapCommandOutput
   | TagResourceCommandOutput
   | UnlinkDeveloperIdentityCommandOutput
   | UnlinkIdentityCommandOutput

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { SetDefaultPolicyVersionRequest } from "../models/models_1.ts";
+import { SetDefaultPolicyVersionRequest } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1SetDefaultPolicyVersionCommand,
   serializeAws_restJson1SetDefaultPolicyVersionCommand,

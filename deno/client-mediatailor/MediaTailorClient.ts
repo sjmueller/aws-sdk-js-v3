@@ -1,25 +1,67 @@
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand.ts";
+import { CreateProgramCommandInput, CreateProgramCommandOutput } from "./commands/CreateProgramCommand.ts";
+import {
+  CreateSourceLocationCommandInput,
+  CreateSourceLocationCommandOutput,
+} from "./commands/CreateSourceLocationCommand.ts";
+import { CreateVodSourceCommandInput, CreateVodSourceCommandOutput } from "./commands/CreateVodSourceCommand.ts";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand.ts";
+import {
+  DeleteChannelPolicyCommandInput,
+  DeleteChannelPolicyCommandOutput,
+} from "./commands/DeleteChannelPolicyCommand.ts";
 import {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
 } from "./commands/DeletePlaybackConfigurationCommand.ts";
+import { DeleteProgramCommandInput, DeleteProgramCommandOutput } from "./commands/DeleteProgramCommand.ts";
+import {
+  DeleteSourceLocationCommandInput,
+  DeleteSourceLocationCommandOutput,
+} from "./commands/DeleteSourceLocationCommand.ts";
+import { DeleteVodSourceCommandInput, DeleteVodSourceCommandOutput } from "./commands/DeleteVodSourceCommand.ts";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand.ts";
+import { DescribeProgramCommandInput, DescribeProgramCommandOutput } from "./commands/DescribeProgramCommand.ts";
+import {
+  DescribeSourceLocationCommandInput,
+  DescribeSourceLocationCommandOutput,
+} from "./commands/DescribeSourceLocationCommand.ts";
+import { DescribeVodSourceCommandInput, DescribeVodSourceCommandOutput } from "./commands/DescribeVodSourceCommand.ts";
+import { GetChannelPolicyCommandInput, GetChannelPolicyCommandOutput } from "./commands/GetChannelPolicyCommand.ts";
+import { GetChannelScheduleCommandInput, GetChannelScheduleCommandOutput } from "./commands/GetChannelScheduleCommand.ts";
 import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand.ts";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand.ts";
 import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "./commands/ListPlaybackConfigurationsCommand.ts";
 import {
+  ListSourceLocationsCommandInput,
+  ListSourceLocationsCommandOutput,
+} from "./commands/ListSourceLocationsCommand.ts";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { ListVodSourcesCommandInput, ListVodSourcesCommandOutput } from "./commands/ListVodSourcesCommand.ts";
+import { PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput } from "./commands/PutChannelPolicyCommand.ts";
 import {
   PutPlaybackConfigurationCommandInput,
   PutPlaybackConfigurationCommandOutput,
 } from "./commands/PutPlaybackConfigurationCommand.ts";
+import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand.ts";
+import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand.ts";
+import {
+  UpdateSourceLocationCommandInput,
+  UpdateSourceLocationCommandOutput,
+} from "./commands/UpdateSourceLocationCommand.ts";
+import { UpdateVodSourceCommandInput, UpdateVodSourceCommandOutput } from "./commands/UpdateVodSourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -72,22 +114,70 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CreateChannelCommandInput
+  | CreateProgramCommandInput
+  | CreateSourceLocationCommandInput
+  | CreateVodSourceCommandInput
+  | DeleteChannelCommandInput
+  | DeleteChannelPolicyCommandInput
   | DeletePlaybackConfigurationCommandInput
+  | DeleteProgramCommandInput
+  | DeleteSourceLocationCommandInput
+  | DeleteVodSourceCommandInput
+  | DescribeChannelCommandInput
+  | DescribeProgramCommandInput
+  | DescribeSourceLocationCommandInput
+  | DescribeVodSourceCommandInput
+  | GetChannelPolicyCommandInput
+  | GetChannelScheduleCommandInput
   | GetPlaybackConfigurationCommandInput
+  | ListChannelsCommandInput
   | ListPlaybackConfigurationsCommandInput
+  | ListSourceLocationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListVodSourcesCommandInput
+  | PutChannelPolicyCommandInput
   | PutPlaybackConfigurationCommandInput
+  | StartChannelCommandInput
+  | StopChannelCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateChannelCommandInput
+  | UpdateSourceLocationCommandInput
+  | UpdateVodSourceCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateChannelCommandOutput
+  | CreateProgramCommandOutput
+  | CreateSourceLocationCommandOutput
+  | CreateVodSourceCommandOutput
+  | DeleteChannelCommandOutput
+  | DeleteChannelPolicyCommandOutput
   | DeletePlaybackConfigurationCommandOutput
+  | DeleteProgramCommandOutput
+  | DeleteSourceLocationCommandOutput
+  | DeleteVodSourceCommandOutput
+  | DescribeChannelCommandOutput
+  | DescribeProgramCommandOutput
+  | DescribeSourceLocationCommandOutput
+  | DescribeVodSourceCommandOutput
+  | GetChannelPolicyCommandOutput
+  | GetChannelScheduleCommandOutput
   | GetPlaybackConfigurationCommandOutput
+  | ListChannelsCommandOutput
   | ListPlaybackConfigurationsCommandOutput
+  | ListSourceLocationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVodSourcesCommandOutput
+  | PutChannelPolicyCommandOutput
   | PutPlaybackConfigurationCommandOutput
+  | StartChannelCommandOutput
+  | StopChannelCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateChannelCommandOutput
+  | UpdateSourceLocationCommandOutput
+  | UpdateVodSourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -204,7 +294,7 @@ export type MediaTailorClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig;
 
 /**
- * <p>Use the AWS Elemental MediaTailor SDK to configure scalable ad insertion for your live and VOD content. With AWS Elemental MediaTailor, you can serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the AWS Elemental MediaTailor User Guide.<p>Through the SDK, you manage AWS Elemental MediaTailor configurations the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
+ * <p>Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels. With MediaTailor, you can assemble existing content into a linear stream and serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/">AWS Elemental MediaTailor User Guide</a>.</p> <p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
  */
 export class MediaTailorClient extends __Client<
   __HttpHandlerOptions,

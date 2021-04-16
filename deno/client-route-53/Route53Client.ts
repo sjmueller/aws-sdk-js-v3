@@ -1,4 +1,8 @@
 import {
+  ActivateKeySigningKeyCommandInput,
+  ActivateKeySigningKeyCommandOutput,
+} from "./commands/ActivateKeySigningKeyCommand.ts";
+import {
   AssociateVPCWithHostedZoneCommandInput,
   AssociateVPCWithHostedZoneCommandOutput,
 } from "./commands/AssociateVPCWithHostedZoneCommand.ts";
@@ -12,6 +16,10 @@ import {
 } from "./commands/ChangeTagsForResourceCommand.ts";
 import { CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput } from "./commands/CreateHealthCheckCommand.ts";
 import { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "./commands/CreateHostedZoneCommand.ts";
+import {
+  CreateKeySigningKeyCommandInput,
+  CreateKeySigningKeyCommandOutput,
+} from "./commands/CreateKeySigningKeyCommand.ts";
 import {
   CreateQueryLoggingConfigCommandInput,
   CreateQueryLoggingConfigCommandOutput,
@@ -36,8 +44,16 @@ import {
   CreateVPCAssociationAuthorizationCommandInput,
   CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand.ts";
+import {
+  DeactivateKeySigningKeyCommandInput,
+  DeactivateKeySigningKeyCommandOutput,
+} from "./commands/DeactivateKeySigningKeyCommand.ts";
 import { DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput } from "./commands/DeleteHealthCheckCommand.ts";
 import { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "./commands/DeleteHostedZoneCommand.ts";
+import {
+  DeleteKeySigningKeyCommandInput,
+  DeleteKeySigningKeyCommandOutput,
+} from "./commands/DeleteKeySigningKeyCommand.ts";
 import {
   DeleteQueryLoggingConfigCommandInput,
   DeleteQueryLoggingConfigCommandOutput,
@@ -59,12 +75,21 @@ import {
   DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand.ts";
 import {
+  DisableHostedZoneDNSSECCommandInput,
+  DisableHostedZoneDNSSECCommandOutput,
+} from "./commands/DisableHostedZoneDNSSECCommand.ts";
+import {
   DisassociateVPCFromHostedZoneCommandInput,
   DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand.ts";
+import {
+  EnableHostedZoneDNSSECCommandInput,
+  EnableHostedZoneDNSSECCommandOutput,
+} from "./commands/EnableHostedZoneDNSSECCommand.ts";
 import { GetAccountLimitCommandInput, GetAccountLimitCommandOutput } from "./commands/GetAccountLimitCommand.ts";
 import { GetChangeCommandInput, GetChangeCommandOutput } from "./commands/GetChangeCommand.ts";
 import { GetCheckerIpRangesCommandInput, GetCheckerIpRangesCommandOutput } from "./commands/GetCheckerIpRangesCommand.ts";
+import { GetDNSSECCommandInput, GetDNSSECCommandOutput } from "./commands/GetDNSSECCommand.ts";
 import { GetGeoLocationCommandInput, GetGeoLocationCommandOutput } from "./commands/GetGeoLocationCommand.ts";
 import { GetHealthCheckCommandInput, GetHealthCheckCommandOutput } from "./commands/GetHealthCheckCommand.ts";
 import {
@@ -224,28 +249,35 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | ActivateKeySigningKeyCommandInput
   | AssociateVPCWithHostedZoneCommandInput
   | ChangeResourceRecordSetsCommandInput
   | ChangeTagsForResourceCommandInput
   | CreateHealthCheckCommandInput
   | CreateHostedZoneCommandInput
+  | CreateKeySigningKeyCommandInput
   | CreateQueryLoggingConfigCommandInput
   | CreateReusableDelegationSetCommandInput
   | CreateTrafficPolicyCommandInput
   | CreateTrafficPolicyInstanceCommandInput
   | CreateTrafficPolicyVersionCommandInput
   | CreateVPCAssociationAuthorizationCommandInput
+  | DeactivateKeySigningKeyCommandInput
   | DeleteHealthCheckCommandInput
   | DeleteHostedZoneCommandInput
+  | DeleteKeySigningKeyCommandInput
   | DeleteQueryLoggingConfigCommandInput
   | DeleteReusableDelegationSetCommandInput
   | DeleteTrafficPolicyCommandInput
   | DeleteTrafficPolicyInstanceCommandInput
   | DeleteVPCAssociationAuthorizationCommandInput
+  | DisableHostedZoneDNSSECCommandInput
   | DisassociateVPCFromHostedZoneCommandInput
+  | EnableHostedZoneDNSSECCommandInput
   | GetAccountLimitCommandInput
   | GetChangeCommandInput
   | GetCheckerIpRangesCommandInput
+  | GetDNSSECCommandInput
   | GetGeoLocationCommandInput
   | GetHealthCheckCommandInput
   | GetHealthCheckCountCommandInput
@@ -283,28 +315,35 @@ export type ServiceInputTypes =
   | UpdateTrafficPolicyInstanceCommandInput;
 
 export type ServiceOutputTypes =
+  | ActivateKeySigningKeyCommandOutput
   | AssociateVPCWithHostedZoneCommandOutput
   | ChangeResourceRecordSetsCommandOutput
   | ChangeTagsForResourceCommandOutput
   | CreateHealthCheckCommandOutput
   | CreateHostedZoneCommandOutput
+  | CreateKeySigningKeyCommandOutput
   | CreateQueryLoggingConfigCommandOutput
   | CreateReusableDelegationSetCommandOutput
   | CreateTrafficPolicyCommandOutput
   | CreateTrafficPolicyInstanceCommandOutput
   | CreateTrafficPolicyVersionCommandOutput
   | CreateVPCAssociationAuthorizationCommandOutput
+  | DeactivateKeySigningKeyCommandOutput
   | DeleteHealthCheckCommandOutput
   | DeleteHostedZoneCommandOutput
+  | DeleteKeySigningKeyCommandOutput
   | DeleteQueryLoggingConfigCommandOutput
   | DeleteReusableDelegationSetCommandOutput
   | DeleteTrafficPolicyCommandOutput
   | DeleteTrafficPolicyInstanceCommandOutput
   | DeleteVPCAssociationAuthorizationCommandOutput
+  | DisableHostedZoneDNSSECCommandOutput
   | DisassociateVPCFromHostedZoneCommandOutput
+  | EnableHostedZoneDNSSECCommandOutput
   | GetAccountLimitCommandOutput
   | GetChangeCommandOutput
   | GetCheckerIpRangesCommandOutput
+  | GetDNSSECCommandOutput
   | GetGeoLocationCommandOutput
   | GetHealthCheckCommandOutput
   | GetHealthCheckCountCommandOutput

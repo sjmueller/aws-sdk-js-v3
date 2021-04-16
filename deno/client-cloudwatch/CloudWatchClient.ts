@@ -5,6 +5,7 @@ import {
 } from "./commands/DeleteAnomalyDetectorCommand.ts";
 import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./commands/DeleteDashboardsCommand.ts";
 import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "./commands/DeleteInsightRulesCommand.ts";
+import { DeleteMetricStreamCommandInput, DeleteMetricStreamCommandOutput } from "./commands/DeleteMetricStreamCommand.ts";
 import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
@@ -42,11 +43,13 @@ import {
   GetMetricStatisticsCommandInput,
   GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand.ts";
+import { GetMetricStreamCommandInput, GetMetricStreamCommandOutput } from "./commands/GetMetricStreamCommand.ts";
 import {
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand.ts";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand.ts";
+import { ListMetricStreamsCommandInput, ListMetricStreamsCommandOutput } from "./commands/ListMetricStreamsCommand.ts";
 import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
@@ -58,7 +61,10 @@ import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/
 import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand.ts";
 import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand.ts";
 import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand.ts";
+import { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "./commands/PutMetricStreamCommand.ts";
 import { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "./commands/SetAlarmStateCommand.ts";
+import { StartMetricStreamsCommandInput, StartMetricStreamsCommandOutput } from "./commands/StartMetricStreamsCommand.ts";
+import { StopMetricStreamsCommandInput, StopMetricStreamsCommandOutput } from "./commands/StopMetricStreamsCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
@@ -117,6 +123,7 @@ export type ServiceInputTypes =
   | DeleteAnomalyDetectorCommandInput
   | DeleteDashboardsCommandInput
   | DeleteInsightRulesCommandInput
+  | DeleteMetricStreamCommandInput
   | DescribeAlarmHistoryCommandInput
   | DescribeAlarmsCommandInput
   | DescribeAlarmsForMetricCommandInput
@@ -130,8 +137,10 @@ export type ServiceInputTypes =
   | GetInsightRuleReportCommandInput
   | GetMetricDataCommandInput
   | GetMetricStatisticsCommandInput
+  | GetMetricStreamCommandInput
   | GetMetricWidgetImageCommandInput
   | ListDashboardsCommandInput
+  | ListMetricStreamsCommandInput
   | ListMetricsCommandInput
   | ListTagsForResourceCommandInput
   | PutAnomalyDetectorCommandInput
@@ -140,7 +149,10 @@ export type ServiceInputTypes =
   | PutInsightRuleCommandInput
   | PutMetricAlarmCommandInput
   | PutMetricDataCommandInput
+  | PutMetricStreamCommandInput
   | SetAlarmStateCommandInput
+  | StartMetricStreamsCommandInput
+  | StopMetricStreamsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -149,6 +161,7 @@ export type ServiceOutputTypes =
   | DeleteAnomalyDetectorCommandOutput
   | DeleteDashboardsCommandOutput
   | DeleteInsightRulesCommandOutput
+  | DeleteMetricStreamCommandOutput
   | DescribeAlarmHistoryCommandOutput
   | DescribeAlarmsCommandOutput
   | DescribeAlarmsForMetricCommandOutput
@@ -162,8 +175,10 @@ export type ServiceOutputTypes =
   | GetInsightRuleReportCommandOutput
   | GetMetricDataCommandOutput
   | GetMetricStatisticsCommandOutput
+  | GetMetricStreamCommandOutput
   | GetMetricWidgetImageCommandOutput
   | ListDashboardsCommandOutput
+  | ListMetricStreamsCommandOutput
   | ListMetricsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAnomalyDetectorCommandOutput
@@ -172,7 +187,10 @@ export type ServiceOutputTypes =
   | PutInsightRuleCommandOutput
   | PutMetricAlarmCommandOutput
   | PutMetricDataCommandOutput
+  | PutMetricStreamCommandOutput
   | SetAlarmStateCommandOutput
+  | StartMetricStreamsCommandOutput
+  | StopMetricStreamsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 

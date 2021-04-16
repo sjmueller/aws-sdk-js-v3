@@ -37,6 +37,7 @@ import {
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand.ts";
+import { GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput } from "./commands/GetCostCategoriesCommand.ts";
 import { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "./commands/GetCostForecastCommand.ts";
 import { GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput } from "./commands/GetDimensionValuesCommand.ts";
 import {
@@ -157,6 +158,7 @@ export type ServiceInputTypes =
   | GetAnomalySubscriptionsCommandInput
   | GetCostAndUsageCommandInput
   | GetCostAndUsageWithResourcesCommandInput
+  | GetCostCategoriesCommandInput
   | GetCostForecastCommandInput
   | GetDimensionValuesCommandInput
   | GetReservationCoverageCommandInput
@@ -188,6 +190,7 @@ export type ServiceOutputTypes =
   | GetAnomalySubscriptionsCommandOutput
   | GetCostAndUsageCommandOutput
   | GetCostAndUsageWithResourcesCommandOutput
+  | GetCostCategoriesCommandOutput
   | GetCostForecastCommandOutput
   | GetDimensionValuesCommandOutput
   | GetReservationCoverageCommandOutput

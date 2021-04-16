@@ -22,6 +22,7 @@ export * from "./commands/DeregisterOnPremisesInstanceCommand.ts";
 export * from "./commands/GetApplicationCommand.ts";
 export * from "./commands/GetApplicationRevisionCommand.ts";
 export * from "./commands/GetDeploymentCommand.ts";
+export * from "./waiters/waitForDeploymentSuccessful.ts";
 export * from "./commands/GetDeploymentConfigCommand.ts";
 export * from "./commands/GetDeploymentGroupCommand.ts";
 export * from "./commands/GetDeploymentInstanceCommand.ts";

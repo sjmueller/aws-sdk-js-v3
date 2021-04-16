@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_4.ts";
+import { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_5.ts";
 import {
   deserializeAws_ec2RestoreAddressToClassicCommand,
   serializeAws_ec2RestoreAddressToClassicCommand,

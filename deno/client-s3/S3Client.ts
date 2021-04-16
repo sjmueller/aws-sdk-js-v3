@@ -239,6 +239,10 @@ import {
 } from "./commands/SelectObjectContentCommand.ts";
 import { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand.ts";
 import { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "./commands/UploadPartCopyCommand.ts";
+import {
+  WriteGetObjectResponseCommandInput,
+  WriteGetObjectResponseCommandOutput,
+} from "./commands/WriteGetObjectResponseCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -396,7 +400,8 @@ export type ServiceInputTypes =
   | RestoreObjectCommandInput
   | SelectObjectContentCommandInput
   | UploadPartCommandInput
-  | UploadPartCopyCommandInput;
+  | UploadPartCopyCommandInput
+  | WriteGetObjectResponseCommandInput;
 
 export type ServiceOutputTypes =
   | AbortMultipartUploadCommandOutput
@@ -489,7 +494,8 @@ export type ServiceOutputTypes =
   | RestoreObjectCommandOutput
   | SelectObjectContentCommandOutput
   | UploadPartCommandOutput
-  | UploadPartCopyCommandOutput;
+  | UploadPartCopyCommandOutput
+  | WriteGetObjectResponseCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -54,6 +54,7 @@ import {
   DeleteScheduledActionCommandOutput,
 } from "./commands/DeleteScheduledActionCommand.ts";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
+import { DeleteWarmPoolCommandInput, DeleteWarmPoolCommandOutput } from "./commands/DeleteWarmPoolCommand.ts";
 import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
@@ -124,6 +125,7 @@ import {
   DescribeTerminationPolicyTypesCommandInput,
   DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand.ts";
+import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "./commands/DescribeWarmPoolCommand.ts";
 import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "./commands/DetachInstancesCommand.ts";
 import {
   DetachLoadBalancerTargetGroupsCommandInput,
@@ -154,6 +156,7 @@ import {
   PutScheduledUpdateGroupActionCommandInput,
   PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand.ts";
+import { PutWarmPoolCommandInput, PutWarmPoolCommandOutput } from "./commands/PutWarmPoolCommand.ts";
 import {
   RecordLifecycleActionHeartbeatCommandInput,
   RecordLifecycleActionHeartbeatCommandOutput,
@@ -247,6 +250,7 @@ export type ServiceInputTypes =
   | DeletePolicyCommandInput
   | DeleteScheduledActionCommandInput
   | DeleteTagsCommandInput
+  | DeleteWarmPoolCommandInput
   | DescribeAccountLimitsCommandInput
   | DescribeAdjustmentTypesCommandInput
   | DescribeAutoScalingGroupsCommandInput
@@ -266,6 +270,7 @@ export type ServiceInputTypes =
   | DescribeScheduledActionsCommandInput
   | DescribeTagsCommandInput
   | DescribeTerminationPolicyTypesCommandInput
+  | DescribeWarmPoolCommandInput
   | DetachInstancesCommandInput
   | DetachLoadBalancerTargetGroupsCommandInput
   | DetachLoadBalancersCommandInput
@@ -278,6 +283,7 @@ export type ServiceInputTypes =
   | PutNotificationConfigurationCommandInput
   | PutScalingPolicyCommandInput
   | PutScheduledUpdateGroupActionCommandInput
+  | PutWarmPoolCommandInput
   | RecordLifecycleActionHeartbeatCommandInput
   | ResumeProcessesCommandInput
   | SetDesiredCapacityCommandInput
@@ -306,6 +312,7 @@ export type ServiceOutputTypes =
   | DeletePolicyCommandOutput
   | DeleteScheduledActionCommandOutput
   | DeleteTagsCommandOutput
+  | DeleteWarmPoolCommandOutput
   | DescribeAccountLimitsCommandOutput
   | DescribeAdjustmentTypesCommandOutput
   | DescribeAutoScalingGroupsCommandOutput
@@ -325,6 +332,7 @@ export type ServiceOutputTypes =
   | DescribeScheduledActionsCommandOutput
   | DescribeTagsCommandOutput
   | DescribeTerminationPolicyTypesCommandOutput
+  | DescribeWarmPoolCommandOutput
   | DetachInstancesCommandOutput
   | DetachLoadBalancerTargetGroupsCommandOutput
   | DetachLoadBalancersCommandOutput
@@ -337,6 +345,7 @@ export type ServiceOutputTypes =
   | PutNotificationConfigurationCommandOutput
   | PutScalingPolicyCommandOutput
   | PutScheduledUpdateGroupActionCommandOutput
+  | PutWarmPoolCommandOutput
   | RecordLifecycleActionHeartbeatCommandOutput
   | ResumeProcessesCommandOutput
   | SetDesiredCapacityCommandOutput

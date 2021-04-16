@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { SearchIndexRequest, SearchIndexResponse } from "../models/models_1.ts";
+import { SearchIndexRequest, SearchIndexResponse } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1SearchIndexCommand,
   serializeAws_restJson1SearchIndexCommand,

@@ -217,9 +217,17 @@ import {
   CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand.ts";
 import {
+  CreateReplaceRootVolumeTaskCommandInput,
+  CreateReplaceRootVolumeTaskCommandOutput,
+} from "./commands/CreateReplaceRootVolumeTaskCommand.ts";
+import {
   CreateReservedInstancesListingCommandInput,
   CreateReservedInstancesListingCommandOutput,
 } from "./commands/CreateReservedInstancesListingCommand.ts";
+import {
+  CreateRestoreImageTaskCommandInput,
+  CreateRestoreImageTaskCommandOutput,
+} from "./commands/CreateRestoreImageTaskCommand.ts";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand.ts";
 import { CreateRouteTableCommandInput, CreateRouteTableCommandOutput } from "./commands/CreateRouteTableCommand.ts";
 import {
@@ -232,6 +240,10 @@ import {
   CreateSpotDatafeedSubscriptionCommandInput,
   CreateSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/CreateSpotDatafeedSubscriptionCommand.ts";
+import {
+  CreateStoreImageTaskCommandInput,
+  CreateStoreImageTaskCommandOutput,
+} from "./commands/CreateStoreImageTaskCommand.ts";
 import { CreateSubnetCommandInput, CreateSubnetCommandOutput } from "./commands/CreateSubnetCommand.ts";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
 import {
@@ -499,6 +511,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand.ts";
+import {
+  DescribeAddressesAttributeCommandInput,
+  DescribeAddressesAttributeCommandOutput,
+} from "./commands/DescribeAddressesAttributeCommand.ts";
 import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand.ts";
 import {
   DescribeAggregateIdFormatCommandInput,
@@ -741,6 +757,10 @@ import {
 } from "./commands/DescribePublicIpv4PoolsCommand.ts";
 import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand.ts";
 import {
+  DescribeReplaceRootVolumeTasksCommandInput,
+  DescribeReplaceRootVolumeTasksCommandOutput,
+} from "./commands/DescribeReplaceRootVolumeTasksCommand.ts";
+import {
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand.ts";
@@ -809,6 +829,10 @@ import {
   DescribeStaleSecurityGroupsCommandInput,
   DescribeStaleSecurityGroupsCommandOutput,
 } from "./commands/DescribeStaleSecurityGroupsCommand.ts";
+import {
+  DescribeStoreImageTasksCommandInput,
+  DescribeStoreImageTasksCommandOutput,
+} from "./commands/DescribeStoreImageTasksCommand.ts";
 import { DescribeSubnetsCommandInput, DescribeSubnetsCommandOutput } from "./commands/DescribeSubnetsCommand.ts";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand.ts";
 import {
@@ -940,6 +964,10 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand.ts";
 import {
+  DisableSerialConsoleAccessCommandInput,
+  DisableSerialConsoleAccessCommandOutput,
+} from "./commands/DisableSerialConsoleAccessCommand.ts";
+import {
   DisableTransitGatewayRouteTablePropagationCommandInput,
   DisableTransitGatewayRouteTablePropagationCommandOutput,
 } from "./commands/DisableTransitGatewayRouteTablePropagationCommand.ts";
@@ -999,6 +1027,10 @@ import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand.ts";
+import {
+  EnableSerialConsoleAccessCommandInput,
+  EnableSerialConsoleAccessCommandOutput,
+} from "./commands/EnableSerialConsoleAccessCommand.ts";
 import {
   EnableTransitGatewayRouteTablePropagationCommandInput,
   EnableTransitGatewayRouteTablePropagationCommandOutput,
@@ -1060,6 +1092,10 @@ import {
   GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand.ts";
 import {
+  GetFlowLogsIntegrationTemplateCommandInput,
+  GetFlowLogsIntegrationTemplateCommandOutput,
+} from "./commands/GetFlowLogsIntegrationTemplateCommand.ts";
+import {
   GetGroupsForCapacityReservationCommandInput,
   GetGroupsForCapacityReservationCommandOutput,
 } from "./commands/GetGroupsForCapacityReservationCommand.ts";
@@ -1084,6 +1120,10 @@ import {
   GetReservedInstancesExchangeQuoteCommandInput,
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand.ts";
+import {
+  GetSerialConsoleAccessStatusCommandInput,
+  GetSerialConsoleAccessStatusCommandOutput,
+} from "./commands/GetSerialConsoleAccessStatusCommand.ts";
 import {
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
@@ -1113,6 +1153,10 @@ import { ImportInstanceCommandInput, ImportInstanceCommandOutput } from "./comma
 import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand.ts";
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand.ts";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand.ts";
+import {
+  ModifyAddressAttributeCommandInput,
+  ModifyAddressAttributeCommandOutput,
+} from "./commands/ModifyAddressAttributeCommand.ts";
 import {
   ModifyAvailabilityZoneGroupCommandInput,
   ModifyAvailabilityZoneGroupCommandOutput,
@@ -1346,6 +1390,10 @@ import {
   RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand.ts";
 import {
+  ResetAddressAttributeCommandInput,
+  ResetAddressAttributeCommandOutput,
+} from "./commands/ResetAddressAttributeCommand.ts";
+import {
   ResetEbsDefaultKmsKeyIdCommandInput,
   ResetEbsDefaultKmsKeyIdCommandOutput,
 } from "./commands/ResetEbsDefaultKmsKeyIdCommand.ts";
@@ -1566,13 +1614,16 @@ export type ServiceInputTypes =
   | CreateNetworkInterfaceCommandInput
   | CreateNetworkInterfacePermissionCommandInput
   | CreatePlacementGroupCommandInput
+  | CreateReplaceRootVolumeTaskCommandInput
   | CreateReservedInstancesListingCommandInput
+  | CreateRestoreImageTaskCommandInput
   | CreateRouteCommandInput
   | CreateRouteTableCommandInput
   | CreateSecurityGroupCommandInput
   | CreateSnapshotCommandInput
   | CreateSnapshotsCommandInput
   | CreateSpotDatafeedSubscriptionCommandInput
+  | CreateStoreImageTaskCommandInput
   | CreateSubnetCommandInput
   | CreateTagsCommandInput
   | CreateTrafficMirrorFilterCommandInput
@@ -1657,6 +1708,7 @@ export type ServiceInputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeAddressesAttributeCommandInput
   | DescribeAddressesCommandInput
   | DescribeAggregateIdFormatCommandInput
   | DescribeAvailabilityZonesCommandInput
@@ -1727,6 +1779,7 @@ export type ServiceInputTypes =
   | DescribePrincipalIdFormatCommandInput
   | DescribePublicIpv4PoolsCommandInput
   | DescribeRegionsCommandInput
+  | DescribeReplaceRootVolumeTasksCommandInput
   | DescribeReservedInstancesCommandInput
   | DescribeReservedInstancesListingsCommandInput
   | DescribeReservedInstancesModificationsCommandInput
@@ -1745,6 +1798,7 @@ export type ServiceInputTypes =
   | DescribeSpotInstanceRequestsCommandInput
   | DescribeSpotPriceHistoryCommandInput
   | DescribeStaleSecurityGroupsCommandInput
+  | DescribeStoreImageTasksCommandInput
   | DescribeSubnetsCommandInput
   | DescribeTagsCommandInput
   | DescribeTrafficMirrorFiltersCommandInput
@@ -1782,6 +1836,7 @@ export type ServiceInputTypes =
   | DetachVpnGatewayCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastSnapshotRestoresCommandInput
+  | DisableSerialConsoleAccessCommandInput
   | DisableTransitGatewayRouteTablePropagationCommandInput
   | DisableVgwRoutePropagationCommandInput
   | DisableVpcClassicLinkCommandInput
@@ -1797,6 +1852,7 @@ export type ServiceInputTypes =
   | DisassociateVpcCidrBlockCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastSnapshotRestoresCommandInput
+  | EnableSerialConsoleAccessCommandInput
   | EnableTransitGatewayRouteTablePropagationCommandInput
   | EnableVgwRoutePropagationCommandInput
   | EnableVolumeIOCommandInput
@@ -1815,6 +1871,7 @@ export type ServiceInputTypes =
   | GetDefaultCreditSpecificationCommandInput
   | GetEbsDefaultKmsKeyIdCommandInput
   | GetEbsEncryptionByDefaultCommandInput
+  | GetFlowLogsIntegrationTemplateCommandInput
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
   | GetLaunchTemplateDataCommandInput
@@ -1822,6 +1879,7 @@ export type ServiceInputTypes =
   | GetManagedPrefixListEntriesCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
+  | GetSerialConsoleAccessStatusCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
   | GetTransitGatewayPrefixListReferencesCommandInput
@@ -1833,6 +1891,7 @@ export type ServiceInputTypes =
   | ImportKeyPairCommandInput
   | ImportSnapshotCommandInput
   | ImportVolumeCommandInput
+  | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
   | ModifyClientVpnEndpointCommandInput
@@ -1903,6 +1962,7 @@ export type ServiceInputTypes =
   | ReportInstanceStatusCommandInput
   | RequestSpotFleetCommandInput
   | RequestSpotInstancesCommandInput
+  | ResetAddressAttributeCommandInput
   | ResetEbsDefaultKmsKeyIdCommandInput
   | ResetFpgaImageAttributeCommandInput
   | ResetImageAttributeCommandInput
@@ -2005,13 +2065,16 @@ export type ServiceOutputTypes =
   | CreateNetworkInterfaceCommandOutput
   | CreateNetworkInterfacePermissionCommandOutput
   | CreatePlacementGroupCommandOutput
+  | CreateReplaceRootVolumeTaskCommandOutput
   | CreateReservedInstancesListingCommandOutput
+  | CreateRestoreImageTaskCommandOutput
   | CreateRouteCommandOutput
   | CreateRouteTableCommandOutput
   | CreateSecurityGroupCommandOutput
   | CreateSnapshotCommandOutput
   | CreateSnapshotsCommandOutput
   | CreateSpotDatafeedSubscriptionCommandOutput
+  | CreateStoreImageTaskCommandOutput
   | CreateSubnetCommandOutput
   | CreateTagsCommandOutput
   | CreateTrafficMirrorFilterCommandOutput
@@ -2096,6 +2159,7 @@ export type ServiceOutputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeAddressesAttributeCommandOutput
   | DescribeAddressesCommandOutput
   | DescribeAggregateIdFormatCommandOutput
   | DescribeAvailabilityZonesCommandOutput
@@ -2166,6 +2230,7 @@ export type ServiceOutputTypes =
   | DescribePrincipalIdFormatCommandOutput
   | DescribePublicIpv4PoolsCommandOutput
   | DescribeRegionsCommandOutput
+  | DescribeReplaceRootVolumeTasksCommandOutput
   | DescribeReservedInstancesCommandOutput
   | DescribeReservedInstancesListingsCommandOutput
   | DescribeReservedInstancesModificationsCommandOutput
@@ -2184,6 +2249,7 @@ export type ServiceOutputTypes =
   | DescribeSpotInstanceRequestsCommandOutput
   | DescribeSpotPriceHistoryCommandOutput
   | DescribeStaleSecurityGroupsCommandOutput
+  | DescribeStoreImageTasksCommandOutput
   | DescribeSubnetsCommandOutput
   | DescribeTagsCommandOutput
   | DescribeTrafficMirrorFiltersCommandOutput
@@ -2221,6 +2287,7 @@ export type ServiceOutputTypes =
   | DetachVpnGatewayCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
+  | DisableSerialConsoleAccessCommandOutput
   | DisableTransitGatewayRouteTablePropagationCommandOutput
   | DisableVgwRoutePropagationCommandOutput
   | DisableVpcClassicLinkCommandOutput
@@ -2236,6 +2303,7 @@ export type ServiceOutputTypes =
   | DisassociateVpcCidrBlockCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
+  | EnableSerialConsoleAccessCommandOutput
   | EnableTransitGatewayRouteTablePropagationCommandOutput
   | EnableVgwRoutePropagationCommandOutput
   | EnableVolumeIOCommandOutput
@@ -2254,6 +2322,7 @@ export type ServiceOutputTypes =
   | GetDefaultCreditSpecificationCommandOutput
   | GetEbsDefaultKmsKeyIdCommandOutput
   | GetEbsEncryptionByDefaultCommandOutput
+  | GetFlowLogsIntegrationTemplateCommandOutput
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
   | GetLaunchTemplateDataCommandOutput
@@ -2261,6 +2330,7 @@ export type ServiceOutputTypes =
   | GetManagedPrefixListEntriesCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
+  | GetSerialConsoleAccessStatusCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
   | GetTransitGatewayPrefixListReferencesCommandOutput
@@ -2272,6 +2342,7 @@ export type ServiceOutputTypes =
   | ImportKeyPairCommandOutput
   | ImportSnapshotCommandOutput
   | ImportVolumeCommandOutput
+  | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
   | ModifyClientVpnEndpointCommandOutput
@@ -2342,6 +2413,7 @@ export type ServiceOutputTypes =
   | ReportInstanceStatusCommandOutput
   | RequestSpotFleetCommandOutput
   | RequestSpotInstancesCommandOutput
+  | ResetAddressAttributeCommandOutput
   | ResetEbsDefaultKmsKeyIdCommandOutput
   | ResetFpgaImageAttributeCommandOutput
   | ResetImageAttributeCommandOutput
@@ -2488,9 +2560,12 @@ export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
 
 /**
  * <fullname>Amazon Elastic Compute Cloud</fullname>
- *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud.
- *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and
- *           deploy applications faster.</p>
+ *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud.
+ *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications
+ *           faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the
+ *           AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store
+ *           (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available
+ *           and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>
  *          <p>To learn more, see the following resources:</p>
  *          <ul>
  *             <li>
@@ -2498,7 +2573,7 @@ export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon EBS documentation</a>
+ *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a>
  *                </p>
  *             </li>
  *             <li>

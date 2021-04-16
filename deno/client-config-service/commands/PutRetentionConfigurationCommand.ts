@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_0.ts";
+import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1PutRetentionConfigurationCommand,
   serializeAws_json1_1PutRetentionConfigurationCommand,

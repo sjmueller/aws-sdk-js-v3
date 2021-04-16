@@ -33,7 +33,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *         You can configure the AWS Cost and Usage report to show only the data that you want, using the
  *         AWS Cost and Usage API.</p>
  *
- *
  *          <p>Service Endpoint</p>
  *          <p>The AWS Cost and Usage Report API provides the following endpoint:</p>
  *          <ul>

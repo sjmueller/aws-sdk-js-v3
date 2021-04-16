@@ -1,7 +1,14 @@
 import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand.ts";
 import { PutItemsCommandInput, PutItemsCommandOutput } from "../commands/PutItemsCommand.ts";
 import { PutUsersCommandInput, PutUsersCommandOutput } from "../commands/PutUsersCommand.ts";
-import { Event, InvalidInputException, Item, ResourceNotFoundException, User } from "../models/models_0.ts";
+import {
+  Event,
+  InvalidInputException,
+  Item,
+  ResourceInUseException,
+  ResourceNotFoundException,
+  User,
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -176,6 +183,14 @@ const deserializeAws_restJson1PutItemsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceInUseException":
+    case "com.amazonaws.personalizeevents#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.personalizeevents#ResourceNotFoundException":
       response = {
@@ -235,6 +250,14 @@ const deserializeAws_restJson1PutUsersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceInUseException":
+    case "com.amazonaws.personalizeevents#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.personalizeevents#ResourceNotFoundException":
       response = {
@@ -266,6 +289,23 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
 ): Promise<InvalidInputException> => {
   const contents: InvalidInputException = {
     name: "InvalidInputException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const contents: ResourceInUseException = {
+    name: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,

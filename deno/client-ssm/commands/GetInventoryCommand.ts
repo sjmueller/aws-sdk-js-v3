@@ -1,5 +1,6 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { GetInventoryRequest, GetInventoryResult } from "../models/models_1.ts";
+import { GetInventoryResult } from "../models/models_1.ts";
+import { GetInventoryRequest } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1GetInventoryCommand,
   serializeAws_json1_1GetInventoryCommand,

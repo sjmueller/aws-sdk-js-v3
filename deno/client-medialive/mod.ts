@@ -11,6 +11,7 @@ export * from "./commands/CreateInputCommand.ts";
 export * from "./commands/CreateInputSecurityGroupCommand.ts";
 export * from "./commands/CreateMultiplexCommand.ts";
 export * from "./commands/CreateMultiplexProgramCommand.ts";
+export * from "./commands/CreatePartnerInputCommand.ts";
 export * from "./commands/CreateTagsCommand.ts";
 export * from "./commands/DeleteChannelCommand.ts";
 export * from "./commands/DeleteInputCommand.ts";

@@ -16,8 +16,20 @@ import {
 import { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand.ts";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand.ts";
 import { PutSecretValueCommandInput, PutSecretValueCommandOutput } from "./commands/PutSecretValueCommand.ts";
+import {
+  RemoveRegionsFromReplicationCommandInput,
+  RemoveRegionsFromReplicationCommandOutput,
+} from "./commands/RemoveRegionsFromReplicationCommand.ts";
+import {
+  ReplicateSecretToRegionsCommandInput,
+  ReplicateSecretToRegionsCommandOutput,
+} from "./commands/ReplicateSecretToRegionsCommand.ts";
 import { RestoreSecretCommandInput, RestoreSecretCommandOutput } from "./commands/RestoreSecretCommand.ts";
 import { RotateSecretCommandInput, RotateSecretCommandOutput } from "./commands/RotateSecretCommand.ts";
+import {
+  StopReplicationToReplicaCommandInput,
+  StopReplicationToReplicaCommandOutput,
+} from "./commands/StopReplicationToReplicaCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateSecretCommandInput, UpdateSecretCommandOutput } from "./commands/UpdateSecretCommand.ts";
@@ -93,8 +105,11 @@ export type ServiceInputTypes =
   | ListSecretsCommandInput
   | PutResourcePolicyCommandInput
   | PutSecretValueCommandInput
+  | RemoveRegionsFromReplicationCommandInput
+  | ReplicateSecretToRegionsCommandInput
   | RestoreSecretCommandInput
   | RotateSecretCommandInput
+  | StopReplicationToReplicaCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateSecretCommandInput
@@ -114,8 +129,11 @@ export type ServiceOutputTypes =
   | ListSecretsCommandOutput
   | PutResourcePolicyCommandOutput
   | PutSecretValueCommandOutput
+  | RemoveRegionsFromReplicationCommandOutput
+  | ReplicateSecretToRegionsCommandOutput
   | RestoreSecretCommandOutput
   | RotateSecretCommandOutput
+  | StopReplicationToReplicaCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateSecretCommandOutput

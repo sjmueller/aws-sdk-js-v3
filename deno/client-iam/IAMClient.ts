@@ -202,6 +202,10 @@ import { ListGroupPoliciesCommandInput, ListGroupPoliciesCommandOutput } from ".
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import { ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput } from "./commands/ListGroupsForUserCommand.ts";
 import {
+  ListInstanceProfileTagsCommandInput,
+  ListInstanceProfileTagsCommandOutput,
+} from "./commands/ListInstanceProfileTagsCommand.ts";
+import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
 } from "./commands/ListInstanceProfilesCommand.ts";
@@ -209,7 +213,12 @@ import {
   ListInstanceProfilesForRoleCommandInput,
   ListInstanceProfilesForRoleCommandOutput,
 } from "./commands/ListInstanceProfilesForRoleCommand.ts";
+import { ListMFADeviceTagsCommandInput, ListMFADeviceTagsCommandOutput } from "./commands/ListMFADeviceTagsCommand.ts";
 import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "./commands/ListMFADevicesCommand.ts";
+import {
+  ListOpenIDConnectProviderTagsCommandInput,
+  ListOpenIDConnectProviderTagsCommandOutput,
+} from "./commands/ListOpenIDConnectProviderTagsCommand.ts";
 import {
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput,
@@ -219,12 +228,21 @@ import {
   ListPoliciesGrantingServiceAccessCommandInput,
   ListPoliciesGrantingServiceAccessCommandOutput,
 } from "./commands/ListPoliciesGrantingServiceAccessCommand.ts";
+import { ListPolicyTagsCommandInput, ListPolicyTagsCommandOutput } from "./commands/ListPolicyTagsCommand.ts";
 import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "./commands/ListPolicyVersionsCommand.ts";
 import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "./commands/ListRolePoliciesCommand.ts";
 import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "./commands/ListRoleTagsCommand.ts";
 import { ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand.ts";
+import {
+  ListSAMLProviderTagsCommandInput,
+  ListSAMLProviderTagsCommandOutput,
+} from "./commands/ListSAMLProviderTagsCommand.ts";
 import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "./commands/ListSAMLProvidersCommand.ts";
 import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "./commands/ListSSHPublicKeysCommand.ts";
+import {
+  ListServerCertificateTagsCommandInput,
+  ListServerCertificateTagsCommandOutput,
+} from "./commands/ListServerCertificateTagsCommand.ts";
 import {
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput,
@@ -288,9 +306,36 @@ import {
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput,
 } from "./commands/SimulatePrincipalPolicyCommand.ts";
+import { TagInstanceProfileCommandInput, TagInstanceProfileCommandOutput } from "./commands/TagInstanceProfileCommand.ts";
+import { TagMFADeviceCommandInput, TagMFADeviceCommandOutput } from "./commands/TagMFADeviceCommand.ts";
+import {
+  TagOpenIDConnectProviderCommandInput,
+  TagOpenIDConnectProviderCommandOutput,
+} from "./commands/TagOpenIDConnectProviderCommand.ts";
+import { TagPolicyCommandInput, TagPolicyCommandOutput } from "./commands/TagPolicyCommand.ts";
 import { TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand.ts";
+import { TagSAMLProviderCommandInput, TagSAMLProviderCommandOutput } from "./commands/TagSAMLProviderCommand.ts";
+import {
+  TagServerCertificateCommandInput,
+  TagServerCertificateCommandOutput,
+} from "./commands/TagServerCertificateCommand.ts";
 import { TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand.ts";
+import {
+  UntagInstanceProfileCommandInput,
+  UntagInstanceProfileCommandOutput,
+} from "./commands/UntagInstanceProfileCommand.ts";
+import { UntagMFADeviceCommandInput, UntagMFADeviceCommandOutput } from "./commands/UntagMFADeviceCommand.ts";
+import {
+  UntagOpenIDConnectProviderCommandInput,
+  UntagOpenIDConnectProviderCommandOutput,
+} from "./commands/UntagOpenIDConnectProviderCommand.ts";
+import { UntagPolicyCommandInput, UntagPolicyCommandOutput } from "./commands/UntagPolicyCommand.ts";
 import { UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand.ts";
+import { UntagSAMLProviderCommandInput, UntagSAMLProviderCommandOutput } from "./commands/UntagSAMLProviderCommand.ts";
+import {
+  UntagServerCertificateCommandInput,
+  UntagServerCertificateCommandOutput,
+} from "./commands/UntagServerCertificateCommand.ts";
 import { UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand.ts";
 import { UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput } from "./commands/UpdateAccessKeyCommand.ts";
 import {
@@ -474,18 +519,24 @@ export type ServiceInputTypes =
   | ListGroupPoliciesCommandInput
   | ListGroupsCommandInput
   | ListGroupsForUserCommandInput
+  | ListInstanceProfileTagsCommandInput
   | ListInstanceProfilesCommandInput
   | ListInstanceProfilesForRoleCommandInput
+  | ListMFADeviceTagsCommandInput
   | ListMFADevicesCommandInput
+  | ListOpenIDConnectProviderTagsCommandInput
   | ListOpenIDConnectProvidersCommandInput
   | ListPoliciesCommandInput
   | ListPoliciesGrantingServiceAccessCommandInput
+  | ListPolicyTagsCommandInput
   | ListPolicyVersionsCommandInput
   | ListRolePoliciesCommandInput
   | ListRoleTagsCommandInput
   | ListRolesCommandInput
+  | ListSAMLProviderTagsCommandInput
   | ListSAMLProvidersCommandInput
   | ListSSHPublicKeysCommandInput
+  | ListServerCertificateTagsCommandInput
   | ListServerCertificatesCommandInput
   | ListServiceSpecificCredentialsCommandInput
   | ListSigningCertificatesCommandInput
@@ -507,9 +558,21 @@ export type ServiceInputTypes =
   | SetSecurityTokenServicePreferencesCommandInput
   | SimulateCustomPolicyCommandInput
   | SimulatePrincipalPolicyCommandInput
+  | TagInstanceProfileCommandInput
+  | TagMFADeviceCommandInput
+  | TagOpenIDConnectProviderCommandInput
+  | TagPolicyCommandInput
   | TagRoleCommandInput
+  | TagSAMLProviderCommandInput
+  | TagServerCertificateCommandInput
   | TagUserCommandInput
+  | UntagInstanceProfileCommandInput
+  | UntagMFADeviceCommandInput
+  | UntagOpenIDConnectProviderCommandInput
+  | UntagPolicyCommandInput
   | UntagRoleCommandInput
+  | UntagSAMLProviderCommandInput
+  | UntagServerCertificateCommandInput
   | UntagUserCommandInput
   | UpdateAccessKeyCommandInput
   | UpdateAccountPasswordPolicyCommandInput
@@ -616,18 +679,24 @@ export type ServiceOutputTypes =
   | ListGroupPoliciesCommandOutput
   | ListGroupsCommandOutput
   | ListGroupsForUserCommandOutput
+  | ListInstanceProfileTagsCommandOutput
   | ListInstanceProfilesCommandOutput
   | ListInstanceProfilesForRoleCommandOutput
+  | ListMFADeviceTagsCommandOutput
   | ListMFADevicesCommandOutput
+  | ListOpenIDConnectProviderTagsCommandOutput
   | ListOpenIDConnectProvidersCommandOutput
   | ListPoliciesCommandOutput
   | ListPoliciesGrantingServiceAccessCommandOutput
+  | ListPolicyTagsCommandOutput
   | ListPolicyVersionsCommandOutput
   | ListRolePoliciesCommandOutput
   | ListRoleTagsCommandOutput
   | ListRolesCommandOutput
+  | ListSAMLProviderTagsCommandOutput
   | ListSAMLProvidersCommandOutput
   | ListSSHPublicKeysCommandOutput
+  | ListServerCertificateTagsCommandOutput
   | ListServerCertificatesCommandOutput
   | ListServiceSpecificCredentialsCommandOutput
   | ListSigningCertificatesCommandOutput
@@ -649,9 +718,21 @@ export type ServiceOutputTypes =
   | SetSecurityTokenServicePreferencesCommandOutput
   | SimulateCustomPolicyCommandOutput
   | SimulatePrincipalPolicyCommandOutput
+  | TagInstanceProfileCommandOutput
+  | TagMFADeviceCommandOutput
+  | TagOpenIDConnectProviderCommandOutput
+  | TagPolicyCommandOutput
   | TagRoleCommandOutput
+  | TagSAMLProviderCommandOutput
+  | TagServerCertificateCommandOutput
   | TagUserCommandOutput
+  | UntagInstanceProfileCommandOutput
+  | UntagMFADeviceCommandOutput
+  | UntagOpenIDConnectProviderCommandOutput
+  | UntagPolicyCommandOutput
   | UntagRoleCommandOutput
+  | UntagSAMLProviderCommandOutput
+  | UntagServerCertificateCommandOutput
   | UntagUserCommandOutput
   | UpdateAccessKeyCommandOutput
   | UpdateAccountPasswordPolicyCommandOutput

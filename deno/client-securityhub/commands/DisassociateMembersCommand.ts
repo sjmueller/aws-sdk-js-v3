@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_0.ts";
+import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DisassociateMembersCommand,
   serializeAws_restJson1DisassociateMembersCommand,

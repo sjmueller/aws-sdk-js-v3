@@ -2,7 +2,7 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   DescribeOrganizationConfigurationRequest,
   DescribeOrganizationConfigurationResponse,
-} from "../models/models_0.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
   serializeAws_restJson1DescribeOrganizationConfigurationCommand,

@@ -9,5 +9,8 @@ export * from "./commands/ListOutpostsCommand.ts";
 export * from "./pagination/ListOutpostsPaginator.ts";
 export * from "./commands/ListSitesCommand.ts";
 export * from "./pagination/ListSitesPaginator.ts";
+export * from "./commands/ListTagsForResourceCommand.ts";
+export * from "./commands/TagResourceCommand.ts";
+export * from "./commands/UntagResourceCommand.ts";
 export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

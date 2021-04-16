@@ -46,6 +46,10 @@ import {
 } from "./commands/DescribeRegionSettingsCommand.ts";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand.ts";
 import {
+  DisassociateRecoveryPointCommandInput,
+  DisassociateRecoveryPointCommandOutput,
+} from "./commands/DisassociateRecoveryPointCommand.ts";
+import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
 } from "./commands/ExportBackupPlanTemplateCommand.ts";
@@ -201,6 +205,7 @@ export type ServiceInputTypes =
   | DescribeRecoveryPointCommandInput
   | DescribeRegionSettingsCommandInput
   | DescribeRestoreJobCommandInput
+  | DisassociateRecoveryPointCommandInput
   | ExportBackupPlanTemplateCommandInput
   | GetBackupPlanCommandInput
   | GetBackupPlanFromJSONCommandInput
@@ -253,6 +258,7 @@ export type ServiceOutputTypes =
   | DescribeRecoveryPointCommandOutput
   | DescribeRegionSettingsCommandOutput
   | DescribeRestoreJobCommandOutput
+  | DisassociateRecoveryPointCommandOutput
   | ExportBackupPlanTemplateCommandOutput
   | GetBackupPlanCommandOutput
   | GetBackupPlanFromJSONCommandOutput

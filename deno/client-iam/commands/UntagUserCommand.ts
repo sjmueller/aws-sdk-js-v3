@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { UntagUserRequest } from "../models/models_0.ts";
+import { UntagUserRequest } from "../models/models_1.ts";
 import { deserializeAws_queryUntagUserCommand, serializeAws_queryUntagUserCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
@@ -18,9 +18,8 @@ export type UntagUserCommandInput = UntagUserRequest;
 export type UntagUserCommandOutput = __MetadataBearer;
 
 /**
- * <p>Removes the specified tags from the user. For more information about tagging, see
- *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
- *       in the <i>IAM User Guide</i>.</p>
+ * <p>Removes the specified tags from the user. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
+ *       <i>IAM User Guide</i>.</p>
  */
 export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

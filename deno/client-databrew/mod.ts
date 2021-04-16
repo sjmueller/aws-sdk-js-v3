@@ -14,6 +14,7 @@ export * from "./commands/DeleteRecipeVersionCommand.ts";
 export * from "./commands/DeleteScheduleCommand.ts";
 export * from "./commands/DescribeDatasetCommand.ts";
 export * from "./commands/DescribeJobCommand.ts";
+export * from "./commands/DescribeJobRunCommand.ts";
 export * from "./commands/DescribeProjectCommand.ts";
 export * from "./commands/DescribeRecipeCommand.ts";
 export * from "./commands/DescribeScheduleCommand.ts";

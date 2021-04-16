@@ -82,6 +82,10 @@ import {
   DescribePortfolioShareStatusCommandOutput,
 } from "./commands/DescribePortfolioShareStatusCommand.ts";
 import {
+  DescribePortfolioSharesCommandInput,
+  DescribePortfolioSharesCommandOutput,
+} from "./commands/DescribePortfolioSharesCommand.ts";
+import {
   DescribeProductAsAdminCommandInput,
   DescribeProductAsAdminCommandOutput,
 } from "./commands/DescribeProductAsAdminCommand.ts";
@@ -245,6 +249,10 @@ import {
 } from "./commands/TerminateProvisionedProductCommand.ts";
 import { UpdateConstraintCommandInput, UpdateConstraintCommandOutput } from "./commands/UpdateConstraintCommand.ts";
 import { UpdatePortfolioCommandInput, UpdatePortfolioCommandOutput } from "./commands/UpdatePortfolioCommand.ts";
+import {
+  UpdatePortfolioShareCommandInput,
+  UpdatePortfolioShareCommandOutput,
+} from "./commands/UpdatePortfolioShareCommand.ts";
 import { UpdateProductCommandInput, UpdateProductCommandOutput } from "./commands/UpdateProductCommand.ts";
 import {
   UpdateProvisionedProductCommandInput,
@@ -344,6 +352,7 @@ export type ServiceInputTypes =
   | DescribeCopyProductStatusCommandInput
   | DescribePortfolioCommandInput
   | DescribePortfolioShareStatusCommandInput
+  | DescribePortfolioSharesCommandInput
   | DescribeProductAsAdminCommandInput
   | DescribeProductCommandInput
   | DescribeProductViewCommandInput
@@ -394,6 +403,7 @@ export type ServiceInputTypes =
   | TerminateProvisionedProductCommandInput
   | UpdateConstraintCommandInput
   | UpdatePortfolioCommandInput
+  | UpdatePortfolioShareCommandInput
   | UpdateProductCommandInput
   | UpdateProvisionedProductCommandInput
   | UpdateProvisionedProductPropertiesCommandInput
@@ -431,6 +441,7 @@ export type ServiceOutputTypes =
   | DescribeCopyProductStatusCommandOutput
   | DescribePortfolioCommandOutput
   | DescribePortfolioShareStatusCommandOutput
+  | DescribePortfolioSharesCommandOutput
   | DescribeProductAsAdminCommandOutput
   | DescribeProductCommandOutput
   | DescribeProductViewCommandOutput
@@ -481,6 +492,7 @@ export type ServiceOutputTypes =
   | TerminateProvisionedProductCommandOutput
   | UpdateConstraintCommandOutput
   | UpdatePortfolioCommandOutput
+  | UpdatePortfolioShareCommandOutput
   | UpdateProductCommandOutput
   | UpdateProvisionedProductCommandOutput
   | UpdateProvisionedProductPropertiesCommandOutput

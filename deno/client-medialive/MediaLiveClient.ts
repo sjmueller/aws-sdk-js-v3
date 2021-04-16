@@ -24,6 +24,7 @@ import {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand.ts";
+import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "./commands/CreatePartnerInputCommand.ts";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand.ts";
 import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand.ts";
@@ -176,6 +177,7 @@ export type ServiceInputTypes =
   | CreateInputSecurityGroupCommandInput
   | CreateMultiplexCommandInput
   | CreateMultiplexProgramCommandInput
+  | CreatePartnerInputCommandInput
   | CreateTagsCommandInput
   | DeleteChannelCommandInput
   | DeleteInputCommandInput
@@ -233,6 +235,7 @@ export type ServiceOutputTypes =
   | CreateInputSecurityGroupCommandOutput
   | CreateMultiplexCommandOutput
   | CreateMultiplexProgramCommandOutput
+  | CreatePartnerInputCommandOutput
   | CreateTagsCommandOutput
   | DeleteChannelCommandOutput
   | DeleteInputCommandOutput

@@ -2,7 +2,7 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeEngineDefaultClusterParametersMessage,
   DescribeEngineDefaultClusterParametersResult,
-} from "../models/models_0.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeEngineDefaultClusterParametersCommand,
   serializeAws_queryDescribeEngineDefaultClusterParametersCommand,

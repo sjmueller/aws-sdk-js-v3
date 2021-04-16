@@ -8,6 +8,10 @@ import {
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand.ts";
 import { ExportCertificateCommandInput, ExportCertificateCommandOutput } from "./commands/ExportCertificateCommand.ts";
+import {
+  GetAccountConfigurationCommandInput,
+  GetAccountConfigurationCommandOutput,
+} from "./commands/GetAccountConfigurationCommand.ts";
 import { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand.ts";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand.ts";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand.ts";
@@ -15,6 +19,10 @@ import {
   ListTagsForCertificateCommandInput,
   ListTagsForCertificateCommandOutput,
 } from "./commands/ListTagsForCertificateCommand.ts";
+import {
+  PutAccountConfigurationCommandInput,
+  PutAccountConfigurationCommandOutput,
+} from "./commands/PutAccountConfigurationCommand.ts";
 import {
   RemoveTagsFromCertificateCommandInput,
   RemoveTagsFromCertificateCommandOutput,
@@ -85,10 +93,12 @@ export type ServiceInputTypes =
   | DeleteCertificateCommandInput
   | DescribeCertificateCommandInput
   | ExportCertificateCommandInput
+  | GetAccountConfigurationCommandInput
   | GetCertificateCommandInput
   | ImportCertificateCommandInput
   | ListCertificatesCommandInput
   | ListTagsForCertificateCommandInput
+  | PutAccountConfigurationCommandInput
   | RemoveTagsFromCertificateCommandInput
   | RenewCertificateCommandInput
   | RequestCertificateCommandInput
@@ -100,10 +110,12 @@ export type ServiceOutputTypes =
   | DeleteCertificateCommandOutput
   | DescribeCertificateCommandOutput
   | ExportCertificateCommandOutput
+  | GetAccountConfigurationCommandOutput
   | GetCertificateCommandOutput
   | ImportCertificateCommandOutput
   | ListCertificatesCommandOutput
   | ListTagsForCertificateCommandOutput
+  | PutAccountConfigurationCommandOutput
   | RemoveTagsFromCertificateCommandOutput
   | RenewCertificateCommandOutput
   | RequestCertificateCommandOutput
@@ -226,11 +238,8 @@ export type ACMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
 
 /**
  * <fullname>AWS Certificate Manager</fullname>
- *          <p>Welcome to the AWS Certificate Manager (ACM) API documentation.</p>
- *          <p>You can use ACM to manage SSL/TLS certificates for your AWS-based websites and
- *       applications. For general information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">
- *                <i>AWS Certificate Manager User Guide</i>
- *             </a>.</p>
+ *          <p>You can use AWS Certificate Manager (ACM) to manage SSL/TLS certificates for your AWS-based websites
+ *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager User Guide</a>.</p>
  */
 export class ACMClient extends __Client<
   __HttpHandlerOptions,

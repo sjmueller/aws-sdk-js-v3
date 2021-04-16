@@ -1,0 +1,83 @@
+import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient.ts";
+import { DeleteTrackerRequest, DeleteTrackerResponse } from "../models/models_0.ts";
+import {
+  deserializeAws_restJson1DeleteTrackerCommand,
+  serializeAws_restJson1DeleteTrackerCommand,
+} from "../protocols/Aws_restJson1.ts";
+import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
+import { Command as $Command } from "../../smithy-client/mod.ts";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "../../types/mod.ts";
+
+export type DeleteTrackerCommandInput = DeleteTrackerRequest;
+export type DeleteTrackerCommandOutput = DeleteTrackerResponse & __MetadataBearer;
+
+/**
+ * <p>Deletes a tracker resource from your AWS account.</p>
+ *          <note>
+ *             <p>This action deletes the resource permanently. You can't undo this action. If the tracker resource is in use, you may encounter an error. Make sure that the target resource is not a dependency for your applications.</p>
+ *          </note>
+ */
+export class DeleteTrackerCommand extends $Command<
+  DeleteTrackerCommandInput,
+  DeleteTrackerCommandOutput,
+  LocationClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DeleteTrackerCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: LocationClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DeleteTrackerCommandInput, DeleteTrackerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "LocationClient";
+    const commandName = "DeleteTrackerCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: DeleteTrackerRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrackerResponse.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: DeleteTrackerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteTrackerCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTrackerCommandOutput> {
+    return deserializeAws_restJson1DeleteTrackerCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

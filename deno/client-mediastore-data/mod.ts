@@ -4,5 +4,7 @@ export * from "./commands/DeleteObjectCommand.ts";
 export * from "./commands/DescribeObjectCommand.ts";
 export * from "./commands/GetObjectCommand.ts";
 export * from "./commands/ListItemsCommand.ts";
+export * from "./pagination/ListItemsPaginator.ts";
 export * from "./commands/PutObjectCommand.ts";
+export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

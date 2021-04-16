@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/models_0.ts";
+import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_queryUpdateRoleDescriptionCommand,
   serializeAws_queryUpdateRoleDescriptionCommand,
@@ -22,8 +22,8 @@ export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse &
 
 /**
  * <p>Use <a>UpdateRole</a> instead.</p>
- *          <p>Modifies only the description of a role. This operation performs the same function as
- *          the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
+ *         <p>Modifies only the description of a role. This operation performs the same function as
+ *             the <code>Description</code> parameter in the <code>UpdateRole</code> operation.</p>
  */
 export class UpdateRoleDescriptionCommand extends $Command<
   UpdateRoleDescriptionCommandInput,

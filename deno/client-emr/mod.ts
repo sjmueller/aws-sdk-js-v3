@@ -58,6 +58,7 @@ export * from "./commands/SetVisibleToAllUsersCommand.ts";
 export * from "./commands/StartNotebookExecutionCommand.ts";
 export * from "./commands/StopNotebookExecutionCommand.ts";
 export * from "./commands/TerminateJobFlowsCommand.ts";
+export * from "./commands/UpdateStudioCommand.ts";
 export * from "./commands/UpdateStudioSessionMappingCommand.ts";
 export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

@@ -30,6 +30,7 @@ import {
   AssociateHostedConnectionCommandInput,
   AssociateHostedConnectionCommandOutput,
 } from "./commands/AssociateHostedConnectionCommand.ts";
+import { AssociateMacSecKeyCommandInput, AssociateMacSecKeyCommandOutput } from "./commands/AssociateMacSecKeyCommand.ts";
 import {
   AssociateVirtualInterfaceCommandInput,
   AssociateVirtualInterfaceCommandOutput,
@@ -152,6 +153,10 @@ import {
   DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand.ts";
 import {
+  DisassociateMacSecKeyCommandInput,
+  DisassociateMacSecKeyCommandOutput,
+} from "./commands/DisassociateMacSecKeyCommand.ts";
+import {
   ListVirtualInterfaceTestHistoryCommandInput,
   ListVirtualInterfaceTestHistoryCommandOutput,
 } from "./commands/ListVirtualInterfaceTestHistoryCommand.ts";
@@ -165,6 +170,7 @@ import {
 } from "./commands/StopBgpFailoverTestCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand.ts";
 import {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
@@ -234,6 +240,7 @@ export type ServiceInputTypes =
   | AllocateTransitVirtualInterfaceCommandInput
   | AssociateConnectionWithLagCommandInput
   | AssociateHostedConnectionCommandInput
+  | AssociateMacSecKeyCommandInput
   | AssociateVirtualInterfaceCommandInput
   | ConfirmConnectionCommandInput
   | ConfirmPrivateVirtualInterfaceCommandInput
@@ -274,11 +281,13 @@ export type ServiceInputTypes =
   | DescribeVirtualGatewaysCommandInput
   | DescribeVirtualInterfacesCommandInput
   | DisassociateConnectionFromLagCommandInput
+  | DisassociateMacSecKeyCommandInput
   | ListVirtualInterfaceTestHistoryCommandInput
   | StartBgpFailoverTestCommandInput
   | StopBgpFailoverTestCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateConnectionCommandInput
   | UpdateDirectConnectGatewayAssociationCommandInput
   | UpdateLagCommandInput
   | UpdateVirtualInterfaceAttributesCommandInput;
@@ -292,6 +301,7 @@ export type ServiceOutputTypes =
   | AllocateTransitVirtualInterfaceCommandOutput
   | AssociateConnectionWithLagCommandOutput
   | AssociateHostedConnectionCommandOutput
+  | AssociateMacSecKeyCommandOutput
   | AssociateVirtualInterfaceCommandOutput
   | ConfirmConnectionCommandOutput
   | ConfirmPrivateVirtualInterfaceCommandOutput
@@ -332,11 +342,13 @@ export type ServiceOutputTypes =
   | DescribeVirtualGatewaysCommandOutput
   | DescribeVirtualInterfacesCommandOutput
   | DisassociateConnectionFromLagCommandOutput
+  | DisassociateMacSecKeyCommandOutput
   | ListVirtualInterfaceTestHistoryCommandOutput
   | StartBgpFailoverTestCommandOutput
   | StopBgpFailoverTestCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateConnectionCommandOutput
   | UpdateDirectConnectGatewayAssociationCommandOutput
   | UpdateLagCommandOutput
   | UpdateVirtualInterfaceAttributesCommandOutput;

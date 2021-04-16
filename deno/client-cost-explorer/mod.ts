@@ -12,6 +12,7 @@ export * from "./commands/GetAnomalyMonitorsCommand.ts";
 export * from "./commands/GetAnomalySubscriptionsCommand.ts";
 export * from "./commands/GetCostAndUsageCommand.ts";
 export * from "./commands/GetCostAndUsageWithResourcesCommand.ts";
+export * from "./commands/GetCostCategoriesCommand.ts";
 export * from "./commands/GetCostForecastCommand.ts";
 export * from "./commands/GetDimensionValuesCommand.ts";
 export * from "./commands/GetReservationCoverageCommand.ts";

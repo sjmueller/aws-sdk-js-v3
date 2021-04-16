@@ -37,6 +37,7 @@ export * from "./pagination/ListPredictorBacktestExportJobsPaginator.ts";
 export * from "./commands/ListPredictorsCommand.ts";
 export * from "./pagination/ListPredictorsPaginator.ts";
 export * from "./commands/ListTagsForResourceCommand.ts";
+export * from "./commands/StopResourceCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateDatasetGroupCommand.ts";

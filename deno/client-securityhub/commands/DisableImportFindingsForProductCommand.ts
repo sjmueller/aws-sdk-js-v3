@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_0.ts";
+import { DisableImportFindingsForProductRequest, DisableImportFindingsForProductResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DisableImportFindingsForProductCommand,
   serializeAws_restJson1DisableImportFindingsForProductCommand,

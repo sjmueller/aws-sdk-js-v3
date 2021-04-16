@@ -40,6 +40,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { SyncResourceCommandInput, SyncResourceCommandOutput } from "./commands/SyncResourceCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand.ts";
@@ -120,6 +121,7 @@ export type ServiceInputTypes =
   | ListAssociatedResourcesCommandInput
   | ListAttributeGroupsCommandInput
   | ListTagsForResourceCommandInput
+  | SyncResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
@@ -141,6 +143,7 @@ export type ServiceOutputTypes =
   | ListAssociatedResourcesCommandOutput
   | ListAttributeGroupsCommandOutput
   | ListTagsForResourceCommandOutput
+  | SyncResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput

@@ -32,6 +32,7 @@ export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateBrokerCountCommand.ts";
 export * from "./commands/UpdateBrokerStorageCommand.ts";
+export * from "./commands/UpdateBrokerTypeCommand.ts";
 export * from "./commands/UpdateClusterConfigurationCommand.ts";
 export * from "./commands/UpdateClusterKafkaVersionCommand.ts";
 export * from "./commands/UpdateConfigurationCommand.ts";

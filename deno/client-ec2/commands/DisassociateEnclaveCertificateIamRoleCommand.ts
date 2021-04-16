@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisassociateEnclaveCertificateIamRoleRequest,
   DisassociateEnclaveCertificateIamRoleResult,
-} from "../models/models_3.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,
   serializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand,

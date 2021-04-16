@@ -10,6 +10,7 @@ export * from "./commands/CreateImageBuilderCommand.ts";
 export * from "./commands/CreateImageBuilderStreamingURLCommand.ts";
 export * from "./commands/CreateStackCommand.ts";
 export * from "./commands/CreateStreamingURLCommand.ts";
+export * from "./commands/CreateUpdatedImageCommand.ts";
 export * from "./commands/CreateUsageReportSubscriptionCommand.ts";
 export * from "./commands/CreateUserCommand.ts";
 export * from "./commands/DeleteDirectoryConfigCommand.ts";

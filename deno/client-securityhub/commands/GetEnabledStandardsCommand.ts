@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_0.ts";
+import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetEnabledStandardsCommand,
   serializeAws_restJson1GetEnabledStandardsCommand,

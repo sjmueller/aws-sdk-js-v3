@@ -40,6 +40,10 @@ import {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand.ts";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand.ts";
 import {
   PutRegistryCatalogDataCommandInput,
@@ -53,6 +57,8 @@ import {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -121,10 +127,13 @@ export type ServiceInputTypes =
   | GetRepositoryCatalogDataCommandInput
   | GetRepositoryPolicyCommandInput
   | InitiateLayerUploadCommandInput
+  | ListTagsForResourceCommandInput
   | PutImageCommandInput
   | PutRegistryCatalogDataCommandInput
   | PutRepositoryCatalogDataCommandInput
   | SetRepositoryPolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UploadLayerPartCommandInput;
 
 export type ServiceOutputTypes =
@@ -143,10 +152,13 @@ export type ServiceOutputTypes =
   | GetRepositoryCatalogDataCommandOutput
   | GetRepositoryPolicyCommandOutput
   | InitiateLayerUploadCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutImageCommandOutput
   | PutRegistryCatalogDataCommandOutput
   | PutRepositoryCatalogDataCommandOutput
   | SetRepositoryPolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UploadLayerPartCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

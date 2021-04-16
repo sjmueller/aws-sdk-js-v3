@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DisableFastSnapshotRestoresRequest, DisableFastSnapshotRestoresResult } from "../models/models_3.ts";
+import { DisableFastSnapshotRestoresRequest } from "../models/models_3.ts";
+import { DisableFastSnapshotRestoresResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2DisableFastSnapshotRestoresCommand,
   serializeAws_ec2DisableFastSnapshotRestoresCommand,

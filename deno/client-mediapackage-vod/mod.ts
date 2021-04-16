@@ -1,5 +1,6 @@
 export * from "./MediaPackageVodClient.ts";
 export * from "./MediaPackageVod.ts";
+export * from "./commands/ConfigureLogsCommand.ts";
 export * from "./commands/CreateAssetCommand.ts";
 export * from "./commands/CreatePackagingConfigurationCommand.ts";
 export * from "./commands/CreatePackagingGroupCommand.ts";

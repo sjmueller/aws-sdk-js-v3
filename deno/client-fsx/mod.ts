@@ -2,6 +2,7 @@ export * from "./FSxClient.ts";
 export * from "./FSx.ts";
 export * from "./commands/AssociateFileSystemAliasesCommand.ts";
 export * from "./commands/CancelDataRepositoryTaskCommand.ts";
+export * from "./commands/CopyBackupCommand.ts";
 export * from "./commands/CreateBackupCommand.ts";
 export * from "./commands/CreateDataRepositoryTaskCommand.ts";
 export * from "./commands/CreateFileSystemCommand.ts";

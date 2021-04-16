@@ -5,20 +5,37 @@ import {
 } from "./commands/BatchGetQueryExecutionCommand.ts";
 import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand.ts";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand.ts";
+import {
+  CreatePreparedStatementCommandInput,
+  CreatePreparedStatementCommandOutput,
+} from "./commands/CreatePreparedStatementCommand.ts";
 import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand.ts";
 import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand.ts";
 import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand.ts";
+import {
+  DeletePreparedStatementCommandInput,
+  DeletePreparedStatementCommandOutput,
+} from "./commands/DeletePreparedStatementCommand.ts";
 import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand.ts";
 import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand.ts";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand.ts";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand.ts";
+import {
+  GetPreparedStatementCommandInput,
+  GetPreparedStatementCommandOutput,
+} from "./commands/GetPreparedStatementCommand.ts";
 import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "./commands/GetQueryExecutionCommand.ts";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand.ts";
 import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand.ts";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand.ts";
 import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand.ts";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand.ts";
+import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "./commands/ListEngineVersionsCommand.ts";
 import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand.ts";
+import {
+  ListPreparedStatementsCommandInput,
+  ListPreparedStatementsCommandOutput,
+} from "./commands/ListPreparedStatementsCommand.ts";
 import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
@@ -37,6 +54,10 @@ import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand.ts";
+import {
+  UpdatePreparedStatementCommandInput,
+  UpdatePreparedStatementCommandOutput,
+} from "./commands/UpdatePreparedStatementCommand.ts";
 import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -94,20 +115,25 @@ export type ServiceInputTypes =
   | BatchGetQueryExecutionCommandInput
   | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
+  | CreatePreparedStatementCommandInput
   | CreateWorkGroupCommandInput
   | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
+  | DeletePreparedStatementCommandInput
   | DeleteWorkGroupCommandInput
   | GetDataCatalogCommandInput
   | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
+  | GetPreparedStatementCommandInput
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
   | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
   | ListDataCatalogsCommandInput
   | ListDatabasesCommandInput
+  | ListEngineVersionsCommandInput
   | ListNamedQueriesCommandInput
+  | ListPreparedStatementsCommandInput
   | ListQueryExecutionsCommandInput
   | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
@@ -117,6 +143,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataCatalogCommandInput
+  | UpdatePreparedStatementCommandInput
   | UpdateWorkGroupCommandInput;
 
 export type ServiceOutputTypes =
@@ -124,20 +151,25 @@ export type ServiceOutputTypes =
   | BatchGetQueryExecutionCommandOutput
   | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
+  | CreatePreparedStatementCommandOutput
   | CreateWorkGroupCommandOutput
   | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
+  | DeletePreparedStatementCommandOutput
   | DeleteWorkGroupCommandOutput
   | GetDataCatalogCommandOutput
   | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
+  | GetPreparedStatementCommandOutput
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
   | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
   | ListDataCatalogsCommandOutput
   | ListDatabasesCommandOutput
+  | ListEngineVersionsCommandOutput
   | ListNamedQueriesCommandOutput
+  | ListPreparedStatementsCommandOutput
   | ListQueryExecutionsCommandOutput
   | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
@@ -147,6 +179,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataCatalogCommandOutput
+  | UpdatePreparedStatementCommandOutput
   | UpdateWorkGroupCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

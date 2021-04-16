@@ -1604,6 +1604,27 @@ export namespace CreateDashboardResponse {
   });
 }
 
+/**
+ * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
+ */
+export interface FieldFolder {
+  /**
+   * <p>The description for a field folder.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A folder has a list of columns. A column can only be in one folder.</p>
+   */
+  columns?: string[];
+}
+
+export namespace FieldFolder {
+  export const filterSensitiveLog = (obj: FieldFolder): any => ({
+    ...obj,
+  });
+}
+
 export enum DataSetImportMode {
   DIRECT_QUERY = "DIRECT_QUERY",
   SPICE = "SPICE",
@@ -1835,8 +1856,8 @@ export namespace TransformOperation {
  */
 export interface JoinKeyProperties {
   /**
-   * <p>Indicates that a row in a table is uniquely identified by the columns in a
-   *             join key. This is used by QuickSight to optimize query performance.</p>
+   * <p>A value that indicates that a row in a table is uniquely identified by the columns in
+   *             a join key. This is used by QuickSight to optimize query performance.</p>
    */
   UniqueKey?: boolean;
 }
@@ -2021,6 +2042,11 @@ export interface RelationalTable {
   DataSourceArn: string | undefined;
 
   /**
+   * <p>The catalog associated with a table.</p>
+   */
+  Catalog?: string;
+
+  /**
    * <p>The schema name. This name applies to certain relational database engines.</p>
    */
   Schema?: string;
@@ -2097,7 +2123,7 @@ export namespace UploadSettings {
  */
 export interface S3Source {
   /**
-   * <p>The amazon Resource Name (ARN) for the data source.</p>
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
    */
   DataSourceArn: string | undefined;
 
@@ -2196,21 +2222,27 @@ export enum RowLevelPermissionPolicy {
 }
 
 /**
- * <p>The row-level security configuration for the dataset.</p>
+ * <p>Information about a dataset that contains permissions for row-level security (RLS).
+ *             The permissions dataset maps fields to users or groups. For more information, see
+ *             <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+ *                 Guide</i>.</p>
+ *             <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+ *             not supported for new RLS datasets.</p>
  */
 export interface RowLevelPermissionDataSet {
   /**
-   * <p>The namespace associated with the row-level permissions dataset.</p>
+   * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
    */
   Namespace?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
    */
   Arn: string | undefined;
 
   /**
-   * <p>Permission policy.</p>
+   * <p>The type of permissions to use when interpretting the permissions for RLS. <code>DENY_ACCESS</code>
+   *         is included for backward compatibility only.</p>
    */
   PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
 }
@@ -2256,6 +2288,11 @@ export interface CreateDataSetRequest {
    * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
+
+  /**
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   */
+  FieldFolders?: { [key: string]: FieldFolder };
 
   /**
    * <p>A list of resource permissions on the dataset.</p>
@@ -3578,10 +3615,12 @@ export interface CreateDataSourceRequest {
 
   /**
    * <p>The type of the data source. Currently, the supported types for this operation are:
-   * 			<code>ATHENA, AURORA, AURORA_POSTGRESQL, MARIADB, MYSQL, POSTGRESQL, PRESTO, REDSHIFT, S3,
+   * 			<code>ATHENA, AURORA, AURORA_POSTGRESQL, AMAZON_ELASTICSEARCH, MARIADB, MYSQL, POSTGRESQL, PRESTO, REDSHIFT, S3,
    * 			SNOWFLAKE, SPARK, SQLSERVER, TERADATA</code>.
    * 			Use <code>ListDataSources</code> to return a
    * 			list of all data sources.</p>
+   * 		       <p>
+   *             <code>AMAZON_ELASTICSEARCH</code> is for Amazon managed Elasticsearch Service.</p>
    */
   Type: DataSourceType | string | undefined;
 
@@ -5111,7 +5150,7 @@ export interface DataSet {
   OutputColumns?: OutputColumn[];
 
   /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
+   * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
   ImportMode?: DataSetImportMode | string;
 
@@ -5126,6 +5165,11 @@ export interface DataSet {
    *             Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
+
+  /**
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   */
+  FieldFolders?: { [key: string]: FieldFolder };
 
   /**
    * <p>The row-level security configuration for the dataset.</p>
@@ -5236,7 +5280,7 @@ export interface DataSetSummary {
   LastUpdatedTime?: Date;
 
   /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
+   * <p>A value that indicates whether you want to import the data into SPICE.</p>
    */
   ImportMode?: DataSetImportMode | string;
 
@@ -5246,8 +5290,7 @@ export interface DataSetSummary {
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
-   * <p>Indicates if the dataset has column level permission
-   *             configured.</p>
+   * <p>A value that indicates if the dataset has column level permission configured.</p>
    */
   ColumnLevelPermissionRulesApplied?: boolean;
 }
@@ -7843,9 +7886,6 @@ export enum EmbeddingIdentityType {
   QUICKSIGHT = "QUICKSIGHT",
 }
 
-/**
- * <p>Parameter input for the <code>GetDashboardEmbedUrl</code> operation.</p>
- */
 export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>The ID for the AWS account that contains the dashboard that you're embedding.</p>
@@ -7853,7 +7893,8 @@ export interface GetDashboardEmbedUrlRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dashboard, also added to the IAM policy.</p>
+   * <p>The ID for the dashboard, also added to the AWS Identity and Access Management (IAM)
+   *             policy.</p>
    */
   DashboardId: string | undefined;
 
@@ -7880,12 +7921,13 @@ export interface GetDashboardEmbedUrlRequest {
   ResetDisabled?: boolean;
 
   /**
-   * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence applies to
-   *             the sheet and the parameter settings. These are control settings that the dashboard subscriber
-   *             (QuickSight reader) chooses while viewing the dashboard. If this is set to <code>TRUE</code>, the
-   *             settings are the same when the the subscriber reopens the same dashboard URL. The state is stored
-   *             in QuickSight, not in a browser cookie. If this is set to FALSE, the state of the user session is
-   *             not persisted. The default is <code>FALSE</code>.</p>
+   * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
+   *             applies to the sheet and the parameter settings. These are control settings that the
+   *             dashboard subscriber (QuickSight reader) chooses while viewing the dashboard. If this is
+   *             set to <code>TRUE</code>, the settings are the same when the subscriber reopens the same
+   *             dashboard URL. The state is stored in QuickSight, not in a browser cookie. If this is
+   *             set to FALSE, the state of the user session is not persisted. The default is
+   *                 <code>FALSE</code>.</p>
    */
   StatePersistenceEnabled?: boolean;
 
@@ -7918,13 +7960,12 @@ export interface GetDashboardEmbedUrlRequest {
   Namespace?: string;
 
   /**
-   * <p>A list of one or more dashboard ids that you want to add to a session that
-   *             includes anonymous authorizations. <code>IdentityType</code> must be set to ANONYMOUS
-   *             for this to work, because other identity types authenticate as QuickSight users.
-   *             For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2
-   *             dash_id3 identity-type ANONYMOUS</code>", the session can access all
-   *             three dashboards.
-   *         </p>
+   * <p>A list of one or more dashboard IDs that you want to add to a session that includes
+   *             anonymous users. The <code>IdentityType</code> parameter must be set to
+   *                 <code>ANONYMOUS</code> for this to work, because other identity types authenticate
+   *             as QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1
+   *                 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session
+   *             can access all three dashboards. </p>
    */
   AdditionalDashboardIds?: string[];
 }
@@ -8028,13 +8069,11 @@ export namespace SessionLifetimeInMinutesInvalidException {
 
 /**
  * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight
- * 			without the required pricing plan on your AWS account. Before you can use anonymous
- * 			embedding, a QuickSight administrator needs to add capacity pricing to QuickSight. You
+ * 			without the required pricing plan on your AWS account. Before you can use embedding
+ * 			for anonymous users, a QuickSight administrator needs to add capacity pricing to QuickSight. You
  * 		    can do this on the <b>Manage QuickSight</b> page. </p>
- *         <p>After capacity pricing is added, you can enable anonymous embedding by using the
- *             <code>
- *                <a>GetDashboardEmbedUrl</a>
- *             </code> API operation with the
+ *         <p>After capacity pricing is added, you can use the
+ *             <a>GetDashboardEmbedUrl</a> API operation with the
  *             <code>--identity-type ANONYMOUS</code> option.</p>
  */
 export interface UnsupportedPricingPlanException extends __SmithyException, $MetadataBearer {
@@ -8114,12 +8153,13 @@ export interface GetSessionEmbedUrlRequest {
    * 				           <p>Invited nonfederated users</p>
    * 			         </li>
    *             <li>
-   * 				           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
-   *                     SAML, OpenID Connect, or IAM federation</p>
+   * 				           <p>AWS Identity and Access Management (IAM) users and IAM role-based sessions authenticated
+   *                     through Federated Single Sign-On using SAML, OpenID Connect, or IAM
+   *                     federation</p>
    * 			         </li>
    *          </ol>
-   *          <p>Omit this parameter for users in the third group – IAM users and IAM
-   *             role-based sessions.</p>
+   *          <p>Omit this parameter for users in the third group, IAM users and IAM role-based
+   *             sessions.</p>
    */
   UserArn?: string;
 }
@@ -8707,34 +8747,6 @@ export interface ListIngestionsRequest {
 
 export namespace ListIngestionsRequest {
   export const filterSensitiveLog = (obj: ListIngestionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIngestionsResponse {
-  /**
-   * <p>A list of the ingestions.</p>
-   */
-  Ingestions?: Ingestion[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export namespace ListIngestionsResponse {
-  export const filterSensitiveLog = (obj: ListIngestionsResponse): any => ({
     ...obj,
   });
 }

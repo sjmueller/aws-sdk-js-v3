@@ -17,6 +17,7 @@ export * from "./commands/DescribeProtectedResourceCommand.ts";
 export * from "./commands/DescribeRecoveryPointCommand.ts";
 export * from "./commands/DescribeRegionSettingsCommand.ts";
 export * from "./commands/DescribeRestoreJobCommand.ts";
+export * from "./commands/DisassociateRecoveryPointCommand.ts";
 export * from "./commands/ExportBackupPlanTemplateCommand.ts";
 export * from "./commands/GetBackupPlanCommand.ts";
 export * from "./commands/GetBackupPlanFromJSONCommand.ts";

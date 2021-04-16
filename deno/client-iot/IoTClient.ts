@@ -36,6 +36,10 @@ import {
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput,
 } from "./commands/CancelCertificateTransferCommand.ts";
+import {
+  CancelDetectMitigationActionsTaskCommandInput,
+  CancelDetectMitigationActionsTaskCommandOutput,
+} from "./commands/CancelDetectMitigationActionsTaskCommand.ts";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand.ts";
 import { CancelJobExecutionCommandInput, CancelJobExecutionCommandOutput } from "./commands/CancelJobExecutionCommand.ts";
 import {
@@ -56,6 +60,7 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand.ts";
+import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "./commands/CreateCustomMetricCommand.ts";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "./commands/CreateDimensionCommand.ts";
 import {
   CreateDomainConfigurationCommandInput,
@@ -125,6 +130,7 @@ import {
   DeleteCACertificateCommandOutput,
 } from "./commands/DeleteCACertificateCommand.ts";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand.ts";
+import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "./commands/DeleteCustomMetricCommand.ts";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "./commands/DeleteDimensionCommand.ts";
 import {
   DeleteDomainConfigurationCommandInput,
@@ -212,9 +218,17 @@ import {
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand.ts";
 import {
+  DescribeCustomMetricCommandInput,
+  DescribeCustomMetricCommandOutput,
+} from "./commands/DescribeCustomMetricCommand.ts";
+import {
   DescribeDefaultAuthorizerCommandInput,
   DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand.ts";
+import {
+  DescribeDetectMitigationActionsTaskCommandInput,
+  DescribeDetectMitigationActionsTaskCommandOutput,
+} from "./commands/DescribeDetectMitigationActionsTaskCommand.ts";
 import { DescribeDimensionCommandInput, DescribeDimensionCommandOutput } from "./commands/DescribeDimensionCommand.ts";
 import {
   DescribeDomainConfigurationCommandInput,
@@ -275,6 +289,10 @@ import {
 } from "./commands/DetachThingPrincipalCommand.ts";
 import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "./commands/DisableTopicRuleCommand.ts";
 import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "./commands/EnableTopicRuleCommand.ts";
+import {
+  GetBehaviorModelTrainingSummariesCommandInput,
+  GetBehaviorModelTrainingSummariesCommandOutput,
+} from "./commands/GetBehaviorModelTrainingSummariesCommand.ts";
 import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand.ts";
 import {
   GetEffectivePoliciesCommandInput,
@@ -334,6 +352,15 @@ import {
   ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand.ts";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand.ts";
+import { ListCustomMetricsCommandInput, ListCustomMetricsCommandOutput } from "./commands/ListCustomMetricsCommand.ts";
+import {
+  ListDetectMitigationActionsExecutionsCommandInput,
+  ListDetectMitigationActionsExecutionsCommandOutput,
+} from "./commands/ListDetectMitigationActionsExecutionsCommand.ts";
+import {
+  ListDetectMitigationActionsTasksCommandInput,
+  ListDetectMitigationActionsTasksCommandOutput,
+} from "./commands/ListDetectMitigationActionsTasksCommand.ts";
 import { ListDimensionsCommandInput, ListDimensionsCommandOutput } from "./commands/ListDimensionsCommand.ts";
 import {
   ListDomainConfigurationsCommandInput,
@@ -492,6 +519,10 @@ import {
   StartAuditMitigationActionsTaskCommandOutput,
 } from "./commands/StartAuditMitigationActionsTaskCommand.ts";
 import {
+  StartDetectMitigationActionsTaskCommandInput,
+  StartDetectMitigationActionsTaskCommandOutput,
+} from "./commands/StartDetectMitigationActionsTaskCommand.ts";
+import {
   StartOnDemandAuditTaskCommandInput,
   StartOnDemandAuditTaskCommandOutput,
 } from "./commands/StartOnDemandAuditTaskCommand.ts";
@@ -529,6 +560,7 @@ import {
   UpdateCACertificateCommandOutput,
 } from "./commands/UpdateCACertificateCommand.ts";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand.ts";
+import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "./commands/UpdateCustomMetricCommand.ts";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "./commands/UpdateDimensionCommand.ts";
 import {
   UpdateDomainConfigurationCommandInput,
@@ -648,6 +680,7 @@ export type ServiceInputTypes =
   | CancelAuditMitigationActionsTaskCommandInput
   | CancelAuditTaskCommandInput
   | CancelCertificateTransferCommandInput
+  | CancelDetectMitigationActionsTaskCommandInput
   | CancelJobCommandInput
   | CancelJobExecutionCommandInput
   | ClearDefaultAuthorizerCommandInput
@@ -656,6 +689,7 @@ export type ServiceInputTypes =
   | CreateAuthorizerCommandInput
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
+  | CreateCustomMetricCommandInput
   | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
   | CreateDynamicThingGroupCommandInput
@@ -683,6 +717,7 @@ export type ServiceInputTypes =
   | DeleteBillingGroupCommandInput
   | DeleteCACertificateCommandInput
   | DeleteCertificateCommandInput
+  | DeleteCustomMetricCommandInput
   | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
   | DeleteDynamicThingGroupCommandInput
@@ -715,7 +750,9 @@ export type ServiceInputTypes =
   | DescribeBillingGroupCommandInput
   | DescribeCACertificateCommandInput
   | DescribeCertificateCommandInput
+  | DescribeCustomMetricCommandInput
   | DescribeDefaultAuthorizerCommandInput
+  | DescribeDetectMitigationActionsTaskCommandInput
   | DescribeDimensionCommandInput
   | DescribeDomainConfigurationCommandInput
   | DescribeEndpointCommandInput
@@ -740,6 +777,7 @@ export type ServiceInputTypes =
   | DetachThingPrincipalCommandInput
   | DisableTopicRuleCommandInput
   | EnableTopicRuleCommandInput
+  | GetBehaviorModelTrainingSummariesCommandInput
   | GetCardinalityCommandInput
   | GetEffectivePoliciesCommandInput
   | GetIndexingConfigurationCommandInput
@@ -766,6 +804,9 @@ export type ServiceInputTypes =
   | ListCACertificatesCommandInput
   | ListCertificatesByCACommandInput
   | ListCertificatesCommandInput
+  | ListCustomMetricsCommandInput
+  | ListDetectMitigationActionsExecutionsCommandInput
+  | ListDetectMitigationActionsTasksCommandInput
   | ListDimensionsCommandInput
   | ListDomainConfigurationsCommandInput
   | ListIndicesCommandInput
@@ -818,6 +859,7 @@ export type ServiceInputTypes =
   | SetV2LoggingLevelCommandInput
   | SetV2LoggingOptionsCommandInput
   | StartAuditMitigationActionsTaskCommandInput
+  | StartDetectMitigationActionsTaskCommandInput
   | StartOnDemandAuditTaskCommandInput
   | StartThingRegistrationTaskCommandInput
   | StopThingRegistrationTaskCommandInput
@@ -832,6 +874,7 @@ export type ServiceInputTypes =
   | UpdateBillingGroupCommandInput
   | UpdateCACertificateCommandInput
   | UpdateCertificateCommandInput
+  | UpdateCustomMetricCommandInput
   | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
   | UpdateDynamicThingGroupCommandInput
@@ -862,6 +905,7 @@ export type ServiceOutputTypes =
   | CancelAuditMitigationActionsTaskCommandOutput
   | CancelAuditTaskCommandOutput
   | CancelCertificateTransferCommandOutput
+  | CancelDetectMitigationActionsTaskCommandOutput
   | CancelJobCommandOutput
   | CancelJobExecutionCommandOutput
   | ClearDefaultAuthorizerCommandOutput
@@ -870,6 +914,7 @@ export type ServiceOutputTypes =
   | CreateAuthorizerCommandOutput
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
+  | CreateCustomMetricCommandOutput
   | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
   | CreateDynamicThingGroupCommandOutput
@@ -897,6 +942,7 @@ export type ServiceOutputTypes =
   | DeleteBillingGroupCommandOutput
   | DeleteCACertificateCommandOutput
   | DeleteCertificateCommandOutput
+  | DeleteCustomMetricCommandOutput
   | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
   | DeleteDynamicThingGroupCommandOutput
@@ -929,7 +975,9 @@ export type ServiceOutputTypes =
   | DescribeBillingGroupCommandOutput
   | DescribeCACertificateCommandOutput
   | DescribeCertificateCommandOutput
+  | DescribeCustomMetricCommandOutput
   | DescribeDefaultAuthorizerCommandOutput
+  | DescribeDetectMitigationActionsTaskCommandOutput
   | DescribeDimensionCommandOutput
   | DescribeDomainConfigurationCommandOutput
   | DescribeEndpointCommandOutput
@@ -954,6 +1002,7 @@ export type ServiceOutputTypes =
   | DetachThingPrincipalCommandOutput
   | DisableTopicRuleCommandOutput
   | EnableTopicRuleCommandOutput
+  | GetBehaviorModelTrainingSummariesCommandOutput
   | GetCardinalityCommandOutput
   | GetEffectivePoliciesCommandOutput
   | GetIndexingConfigurationCommandOutput
@@ -980,6 +1029,9 @@ export type ServiceOutputTypes =
   | ListCACertificatesCommandOutput
   | ListCertificatesByCACommandOutput
   | ListCertificatesCommandOutput
+  | ListCustomMetricsCommandOutput
+  | ListDetectMitigationActionsExecutionsCommandOutput
+  | ListDetectMitigationActionsTasksCommandOutput
   | ListDimensionsCommandOutput
   | ListDomainConfigurationsCommandOutput
   | ListIndicesCommandOutput
@@ -1032,6 +1084,7 @@ export type ServiceOutputTypes =
   | SetV2LoggingLevelCommandOutput
   | SetV2LoggingOptionsCommandOutput
   | StartAuditMitigationActionsTaskCommandOutput
+  | StartDetectMitigationActionsTaskCommandOutput
   | StartOnDemandAuditTaskCommandOutput
   | StartThingRegistrationTaskCommandOutput
   | StopThingRegistrationTaskCommandOutput
@@ -1046,6 +1099,7 @@ export type ServiceOutputTypes =
   | UpdateBillingGroupCommandOutput
   | UpdateCACertificateCommandOutput
   | UpdateCertificateCommandOutput
+  | UpdateCustomMetricCommandOutput
   | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput
   | UpdateDynamicThingGroupCommandOutput

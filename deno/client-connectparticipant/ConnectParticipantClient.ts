@@ -1,4 +1,8 @@
 import {
+  CompleteAttachmentUploadCommandInput,
+  CompleteAttachmentUploadCommandOutput,
+} from "./commands/CompleteAttachmentUploadCommand.ts";
+import {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand.ts";
@@ -6,9 +10,14 @@ import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand.ts";
+import { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "./commands/GetAttachmentCommand.ts";
 import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "./commands/GetTranscriptCommand.ts";
 import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand.ts";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand.ts";
+import {
+  StartAttachmentUploadCommandInput,
+  StartAttachmentUploadCommandOutput,
+} from "./commands/StartAttachmentUploadCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -67,18 +76,24 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CompleteAttachmentUploadCommandInput
   | CreateParticipantConnectionCommandInput
   | DisconnectParticipantCommandInput
+  | GetAttachmentCommandInput
   | GetTranscriptCommandInput
   | SendEventCommandInput
-  | SendMessageCommandInput;
+  | SendMessageCommandInput
+  | StartAttachmentUploadCommandInput;
 
 export type ServiceOutputTypes =
+  | CompleteAttachmentUploadCommandOutput
   | CreateParticipantConnectionCommandOutput
   | DisconnectParticipantCommandOutput
+  | GetAttachmentCommandOutput
   | GetTranscriptCommandOutput
   | SendEventCommandOutput
-  | SendMessageCommandOutput;
+  | SendMessageCommandOutput
+  | StartAttachmentUploadCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

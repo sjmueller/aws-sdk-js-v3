@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { PutResourceConfigRequest } from "../models/models_0.ts";
+import { PutResourceConfigRequest } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1PutResourceConfigCommand,
   serializeAws_json1_1PutResourceConfigCommand,

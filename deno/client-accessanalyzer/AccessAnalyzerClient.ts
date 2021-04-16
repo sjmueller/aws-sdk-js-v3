@@ -1,7 +1,17 @@
+import { ApplyArchiveRuleCommandInput, ApplyArchiveRuleCommandOutput } from "./commands/ApplyArchiveRuleCommand.ts";
+import {
+  CancelPolicyGenerationCommandInput,
+  CancelPolicyGenerationCommandOutput,
+} from "./commands/CancelPolicyGenerationCommand.ts";
+import {
+  CreateAccessPreviewCommandInput,
+  CreateAccessPreviewCommandOutput,
+} from "./commands/CreateAccessPreviewCommand.ts";
 import { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "./commands/CreateAnalyzerCommand.ts";
 import { CreateArchiveRuleCommandInput, CreateArchiveRuleCommandOutput } from "./commands/CreateArchiveRuleCommand.ts";
 import { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "./commands/DeleteAnalyzerCommand.ts";
 import { DeleteArchiveRuleCommandInput, DeleteArchiveRuleCommandOutput } from "./commands/DeleteArchiveRuleCommand.ts";
+import { GetAccessPreviewCommandInput, GetAccessPreviewCommandOutput } from "./commands/GetAccessPreviewCommand.ts";
 import {
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput,
@@ -9,6 +19,12 @@ import {
 import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand.ts";
 import { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "./commands/GetArchiveRuleCommand.ts";
 import { GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand.ts";
+import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "./commands/GetGeneratedPolicyCommand.ts";
+import {
+  ListAccessPreviewFindingsCommandInput,
+  ListAccessPreviewFindingsCommandOutput,
+} from "./commands/ListAccessPreviewFindingsCommand.ts";
+import { ListAccessPreviewsCommandInput, ListAccessPreviewsCommandOutput } from "./commands/ListAccessPreviewsCommand.ts";
 import {
   ListAnalyzedResourcesCommandInput,
   ListAnalyzedResourcesCommandOutput,
@@ -17,14 +33,23 @@ import { ListAnalyzersCommandInput, ListAnalyzersCommandOutput } from "./command
 import { ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput } from "./commands/ListArchiveRulesCommand.ts";
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand.ts";
 import {
+  ListPolicyGenerationsCommandInput,
+  ListPolicyGenerationsCommandOutput,
+} from "./commands/ListPolicyGenerationsCommand.ts";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import {
+  StartPolicyGenerationCommandInput,
+  StartPolicyGenerationCommandOutput,
+} from "./commands/StartPolicyGenerationCommand.ts";
 import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "./commands/StartResourceScanCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput } from "./commands/UpdateArchiveRuleCommand.ts";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand.ts";
+import { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "./commands/ValidatePolicyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -77,44 +102,64 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | ApplyArchiveRuleCommandInput
+  | CancelPolicyGenerationCommandInput
+  | CreateAccessPreviewCommandInput
   | CreateAnalyzerCommandInput
   | CreateArchiveRuleCommandInput
   | DeleteAnalyzerCommandInput
   | DeleteArchiveRuleCommandInput
+  | GetAccessPreviewCommandInput
   | GetAnalyzedResourceCommandInput
   | GetAnalyzerCommandInput
   | GetArchiveRuleCommandInput
   | GetFindingCommandInput
+  | GetGeneratedPolicyCommandInput
+  | ListAccessPreviewFindingsCommandInput
+  | ListAccessPreviewsCommandInput
   | ListAnalyzedResourcesCommandInput
   | ListAnalyzersCommandInput
   | ListArchiveRulesCommandInput
   | ListFindingsCommandInput
+  | ListPolicyGenerationsCommandInput
   | ListTagsForResourceCommandInput
+  | StartPolicyGenerationCommandInput
   | StartResourceScanCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateArchiveRuleCommandInput
-  | UpdateFindingsCommandInput;
+  | UpdateFindingsCommandInput
+  | ValidatePolicyCommandInput;
 
 export type ServiceOutputTypes =
+  | ApplyArchiveRuleCommandOutput
+  | CancelPolicyGenerationCommandOutput
+  | CreateAccessPreviewCommandOutput
   | CreateAnalyzerCommandOutput
   | CreateArchiveRuleCommandOutput
   | DeleteAnalyzerCommandOutput
   | DeleteArchiveRuleCommandOutput
+  | GetAccessPreviewCommandOutput
   | GetAnalyzedResourceCommandOutput
   | GetAnalyzerCommandOutput
   | GetArchiveRuleCommandOutput
   | GetFindingCommandOutput
+  | GetGeneratedPolicyCommandOutput
+  | ListAccessPreviewFindingsCommandOutput
+  | ListAccessPreviewsCommandOutput
   | ListAnalyzedResourcesCommandOutput
   | ListAnalyzersCommandOutput
   | ListArchiveRulesCommandOutput
   | ListFindingsCommandOutput
+  | ListPolicyGenerationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartPolicyGenerationCommandOutput
   | StartResourceScanCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateArchiveRuleCommandOutput
-  | UpdateFindingsCommandOutput;
+  | UpdateFindingsCommandOutput
+  | ValidatePolicyCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -233,10 +278,12 @@ export type AccessAnalyzerClientResolvedConfig = __SmithyResolvedConfiguration<_
 /**
  * <p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify
  *          any policies that grant access to an external principal. It does this by using logic-based
- *          reasoning to analyze resource-based policies in your AWS environment. An external principal
- *          can be another AWS account, a root user, an IAM user or role, a federated user, an AWS
- *          service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can
- *          call programmatically. For general information about Access Analyzer, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
+ *          reasoning to analyze resource-based policies in your AWS environment. An external
+ *          principal can be another AWS account, a root user, an IAM user or role, a federated
+ *          user, an AWS service, or an anonymous user. You can also use Access Analyzer to preview and
+ *          validate public and cross-account access to your resources before deploying permissions
+ *          changes. This guide describes the AWS IAM Access Analyzer operations that you can call
+ *          programmatically. For general information about Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
  *          <p>To start using Access Analyzer, you first need to create an analyzer.</p>
  */
 export class AccessAnalyzerClient extends __Client<

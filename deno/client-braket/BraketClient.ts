@@ -2,8 +2,14 @@ import { CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput } from ".
 import { CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput } from "./commands/CreateQuantumTaskCommand.ts";
 import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
 import { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "./commands/GetQuantumTaskCommand.ts";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand.ts";
 import { SearchQuantumTasksCommandInput, SearchQuantumTasksCommandOutput } from "./commands/SearchQuantumTasksCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -60,16 +66,22 @@ export type ServiceInputTypes =
   | CreateQuantumTaskCommandInput
   | GetDeviceCommandInput
   | GetQuantumTaskCommandInput
+  | ListTagsForResourceCommandInput
   | SearchDevicesCommandInput
-  | SearchQuantumTasksCommandInput;
+  | SearchQuantumTasksCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CancelQuantumTaskCommandOutput
   | CreateQuantumTaskCommandOutput
   | GetDeviceCommandOutput
   | GetQuantumTaskCommandOutput
+  | ListTagsForResourceCommandOutput
   | SearchDevicesCommandOutput
-  | SearchQuantumTasksCommandOutput;
+  | SearchQuantumTasksCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

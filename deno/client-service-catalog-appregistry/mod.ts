@@ -19,6 +19,7 @@ export * from "./pagination/ListAssociatedResourcesPaginator.ts";
 export * from "./commands/ListAttributeGroupsCommand.ts";
 export * from "./pagination/ListAttributeGroupsPaginator.ts";
 export * from "./commands/ListTagsForResourceCommand.ts";
+export * from "./commands/SyncResourceCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateApplicationCommand.ts";

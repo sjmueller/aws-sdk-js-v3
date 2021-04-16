@@ -11,6 +11,10 @@ import {
 } from "./commands/CreateConnectionAliasCommand.ts";
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand.ts";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
+import {
+  CreateWorkspaceBundleCommandInput,
+  CreateWorkspaceBundleCommandOutput,
+} from "./commands/CreateWorkspaceBundleCommand.ts";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand.ts";
 import {
   DeleteConnectionAliasCommandInput,
@@ -18,6 +22,10 @@ import {
 } from "./commands/DeleteConnectionAliasCommand.ts";
 import { DeleteIpGroupCommandInput, DeleteIpGroupCommandOutput } from "./commands/DeleteIpGroupCommand.ts";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
+import {
+  DeleteWorkspaceBundleCommandInput,
+  DeleteWorkspaceBundleCommandOutput,
+} from "./commands/DeleteWorkspaceBundleCommand.ts";
 import {
   DeleteWorkspaceImageCommandInput,
   DeleteWorkspaceImageCommandOutput,
@@ -135,6 +143,10 @@ import {
   UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand.ts";
 import {
+  UpdateWorkspaceBundleCommandInput,
+  UpdateWorkspaceBundleCommandOutput,
+} from "./commands/UpdateWorkspaceBundleCommand.ts";
+import {
   UpdateWorkspaceImagePermissionCommandInput,
   UpdateWorkspaceImagePermissionCommandOutput,
 } from "./commands/UpdateWorkspaceImagePermissionCommand.ts";
@@ -197,10 +209,12 @@ export type ServiceInputTypes =
   | CreateConnectionAliasCommandInput
   | CreateIpGroupCommandInput
   | CreateTagsCommandInput
+  | CreateWorkspaceBundleCommandInput
   | CreateWorkspacesCommandInput
   | DeleteConnectionAliasCommandInput
   | DeleteIpGroupCommandInput
   | DeleteTagsCommandInput
+  | DeleteWorkspaceBundleCommandInput
   | DeleteWorkspaceImageCommandInput
   | DeregisterWorkspaceDirectoryCommandInput
   | DescribeAccountCommandInput
@@ -239,6 +253,7 @@ export type ServiceInputTypes =
   | TerminateWorkspacesCommandInput
   | UpdateConnectionAliasPermissionCommandInput
   | UpdateRulesOfIpGroupCommandInput
+  | UpdateWorkspaceBundleCommandInput
   | UpdateWorkspaceImagePermissionCommandInput;
 
 export type ServiceOutputTypes =
@@ -249,10 +264,12 @@ export type ServiceOutputTypes =
   | CreateConnectionAliasCommandOutput
   | CreateIpGroupCommandOutput
   | CreateTagsCommandOutput
+  | CreateWorkspaceBundleCommandOutput
   | CreateWorkspacesCommandOutput
   | DeleteConnectionAliasCommandOutput
   | DeleteIpGroupCommandOutput
   | DeleteTagsCommandOutput
+  | DeleteWorkspaceBundleCommandOutput
   | DeleteWorkspaceImageCommandOutput
   | DeregisterWorkspaceDirectoryCommandOutput
   | DescribeAccountCommandOutput
@@ -291,6 +308,7 @@ export type ServiceOutputTypes =
   | TerminateWorkspacesCommandOutput
   | UpdateConnectionAliasPermissionCommandOutput
   | UpdateRulesOfIpGroupCommandOutput
+  | UpdateWorkspaceBundleCommandOutput
   | UpdateWorkspaceImagePermissionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

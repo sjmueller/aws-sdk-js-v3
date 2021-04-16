@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DBSnapshotMessage, DescribeDBSnapshotsMessage } from "../models/models_0.ts";
+import { DBSnapshotMessage, DescribeDBSnapshotsMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeDBSnapshotsCommand,
   serializeAws_queryDescribeDBSnapshotsCommand,

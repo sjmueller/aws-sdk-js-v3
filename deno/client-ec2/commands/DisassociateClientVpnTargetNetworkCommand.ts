@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisassociateClientVpnTargetNetworkRequest,
   DisassociateClientVpnTargetNetworkResult,
-} from "../models/models_3.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand,
   serializeAws_ec2DisassociateClientVpnTargetNetworkCommand,

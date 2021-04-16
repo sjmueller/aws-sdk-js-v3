@@ -75,6 +75,7 @@ export * from "./commands/PutConfigurationSetTrackingOptionsCommand.ts";
 export * from "./commands/PutDedicatedIpInPoolCommand.ts";
 export * from "./commands/PutDedicatedIpWarmupAttributesCommand.ts";
 export * from "./commands/PutDeliverabilityDashboardOptionCommand.ts";
+export * from "./commands/PutEmailIdentityConfigurationSetAttributesCommand.ts";
 export * from "./commands/PutEmailIdentityDkimAttributesCommand.ts";
 export * from "./commands/PutEmailIdentityDkimSigningAttributesCommand.ts";
 export * from "./commands/PutEmailIdentityFeedbackAttributesCommand.ts";

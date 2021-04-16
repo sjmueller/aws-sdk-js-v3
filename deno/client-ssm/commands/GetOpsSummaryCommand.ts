@@ -1,5 +1,6 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { GetOpsSummaryRequest, GetOpsSummaryResult } from "../models/models_1.ts";
+import { GetOpsSummaryResult } from "../models/models_1.ts";
+import { GetOpsSummaryRequest } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1GetOpsSummaryCommand,
   serializeAws_json1_1GetOpsSummaryCommand,

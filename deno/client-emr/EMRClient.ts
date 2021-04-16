@@ -115,6 +115,7 @@ import {
   StopNotebookExecutionCommandOutput,
 } from "./commands/StopNotebookExecutionCommand.ts";
 import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "./commands/TerminateJobFlowsCommand.ts";
+import { UpdateStudioCommandInput, UpdateStudioCommandOutput } from "./commands/UpdateStudioCommand.ts";
 import {
   UpdateStudioSessionMappingCommandInput,
   UpdateStudioSessionMappingCommandOutput,
@@ -216,6 +217,7 @@ export type ServiceInputTypes =
   | StartNotebookExecutionCommandInput
   | StopNotebookExecutionCommandInput
   | TerminateJobFlowsCommandInput
+  | UpdateStudioCommandInput
   | UpdateStudioSessionMappingCommandInput;
 
 export type ServiceOutputTypes =
@@ -264,6 +266,7 @@ export type ServiceOutputTypes =
   | StartNotebookExecutionCommandOutput
   | StopNotebookExecutionCommandOutput
   | TerminateJobFlowsCommandOutput
+  | UpdateStudioCommandOutput
   | UpdateStudioSessionMappingCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

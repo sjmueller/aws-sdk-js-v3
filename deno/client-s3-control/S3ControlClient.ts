@@ -1,11 +1,23 @@
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand.ts";
+import {
+  CreateAccessPointForObjectLambdaCommandInput,
+  CreateAccessPointForObjectLambdaCommandOutput,
+} from "./commands/CreateAccessPointForObjectLambdaCommand.ts";
 import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand.ts";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand.ts";
 import {
+  DeleteAccessPointForObjectLambdaCommandInput,
+  DeleteAccessPointForObjectLambdaCommandOutput,
+} from "./commands/DeleteAccessPointForObjectLambdaCommand.ts";
+import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand.ts";
+import {
+  DeleteAccessPointPolicyForObjectLambdaCommandInput,
+  DeleteAccessPointPolicyForObjectLambdaCommandOutput,
+} from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand.ts";
 import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand.ts";
 import {
   DeleteBucketLifecycleConfigurationCommandInput,
@@ -32,13 +44,29 @@ import {
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand.ts";
 import {
+  GetAccessPointConfigurationForObjectLambdaCommandInput,
+  GetAccessPointConfigurationForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointConfigurationForObjectLambdaCommand.ts";
+import {
+  GetAccessPointForObjectLambdaCommandInput,
+  GetAccessPointForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointForObjectLambdaCommand.ts";
+import {
   GetAccessPointPolicyCommandInput,
   GetAccessPointPolicyCommandOutput,
 } from "./commands/GetAccessPointPolicyCommand.ts";
 import {
+  GetAccessPointPolicyForObjectLambdaCommandInput,
+  GetAccessPointPolicyForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointPolicyForObjectLambdaCommand.ts";
+import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand.ts";
+import {
+  GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+  GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand.ts";
 import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand.ts";
 import {
   GetBucketLifecycleConfigurationCommandInput,
@@ -60,6 +88,10 @@ import {
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/GetStorageLensConfigurationTaggingCommand.ts";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand.ts";
+import {
+  ListAccessPointsForObjectLambdaCommandInput,
+  ListAccessPointsForObjectLambdaCommandOutput,
+} from "./commands/ListAccessPointsForObjectLambdaCommand.ts";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
 import {
   ListRegionalBucketsCommandInput,
@@ -70,9 +102,17 @@ import {
   ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand.ts";
 import {
+  PutAccessPointConfigurationForObjectLambdaCommandInput,
+  PutAccessPointConfigurationForObjectLambdaCommandOutput,
+} from "./commands/PutAccessPointConfigurationForObjectLambdaCommand.ts";
+import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand.ts";
+import {
+  PutAccessPointPolicyForObjectLambdaCommandInput,
+  PutAccessPointPolicyForObjectLambdaCommandOutput,
+} from "./commands/PutAccessPointPolicyForObjectLambdaCommand.ts";
 import {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput,
@@ -152,10 +192,13 @@ import {
 
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
+  | CreateAccessPointForObjectLambdaCommandInput
   | CreateBucketCommandInput
   | CreateJobCommandInput
   | DeleteAccessPointCommandInput
+  | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
+  | DeleteAccessPointPolicyForObjectLambdaCommandInput
   | DeleteBucketCommandInput
   | DeleteBucketLifecycleConfigurationCommandInput
   | DeleteBucketPolicyCommandInput
@@ -166,8 +209,12 @@ export type ServiceInputTypes =
   | DeleteStorageLensConfigurationTaggingCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
+  | GetAccessPointConfigurationForObjectLambdaCommandInput
+  | GetAccessPointForObjectLambdaCommandInput
   | GetAccessPointPolicyCommandInput
+  | GetAccessPointPolicyForObjectLambdaCommandInput
   | GetAccessPointPolicyStatusCommandInput
+  | GetAccessPointPolicyStatusForObjectLambdaCommandInput
   | GetBucketCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketPolicyCommandInput
@@ -177,10 +224,13 @@ export type ServiceInputTypes =
   | GetStorageLensConfigurationCommandInput
   | GetStorageLensConfigurationTaggingCommandInput
   | ListAccessPointsCommandInput
+  | ListAccessPointsForObjectLambdaCommandInput
   | ListJobsCommandInput
   | ListRegionalBucketsCommandInput
   | ListStorageLensConfigurationsCommandInput
+  | PutAccessPointConfigurationForObjectLambdaCommandInput
   | PutAccessPointPolicyCommandInput
+  | PutAccessPointPolicyForObjectLambdaCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
   | PutBucketTaggingCommandInput
@@ -193,10 +243,13 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CreateAccessPointCommandOutput
+  | CreateAccessPointForObjectLambdaCommandOutput
   | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | DeleteAccessPointCommandOutput
+  | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
+  | DeleteAccessPointPolicyForObjectLambdaCommandOutput
   | DeleteBucketCommandOutput
   | DeleteBucketLifecycleConfigurationCommandOutput
   | DeleteBucketPolicyCommandOutput
@@ -207,8 +260,12 @@ export type ServiceOutputTypes =
   | DeleteStorageLensConfigurationTaggingCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
+  | GetAccessPointConfigurationForObjectLambdaCommandOutput
+  | GetAccessPointForObjectLambdaCommandOutput
   | GetAccessPointPolicyCommandOutput
+  | GetAccessPointPolicyForObjectLambdaCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
+  | GetAccessPointPolicyStatusForObjectLambdaCommandOutput
   | GetBucketCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketPolicyCommandOutput
@@ -218,10 +275,13 @@ export type ServiceOutputTypes =
   | GetStorageLensConfigurationCommandOutput
   | GetStorageLensConfigurationTaggingCommandOutput
   | ListAccessPointsCommandOutput
+  | ListAccessPointsForObjectLambdaCommandOutput
   | ListJobsCommandOutput
   | ListRegionalBucketsCommandOutput
   | ListStorageLensConfigurationsCommandOutput
+  | PutAccessPointConfigurationForObjectLambdaCommandOutput
   | PutAccessPointPolicyCommandOutput
+  | PutAccessPointPolicyForObjectLambdaCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
   | PutBucketTaggingCommandOutput
@@ -350,7 +410,7 @@ export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__Http
 
 /**
  * <p>
- *          AWS S3 Control provides access to Amazon S3 control plane operations.
+ *          AWS S3 Control provides access to Amazon S3 control plane actions.
  *
  *       </p>
  */

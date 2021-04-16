@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { RemoveThingFromThingGroupRequest, RemoveThingFromThingGroupResponse } from "../models/models_1.ts";
+import { RemoveThingFromThingGroupRequest, RemoveThingFromThingGroupResponse } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1RemoveThingFromThingGroupCommand,
   serializeAws_restJson1RemoveThingFromThingGroupCommand,

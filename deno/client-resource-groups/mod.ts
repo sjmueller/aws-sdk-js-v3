@@ -11,6 +11,7 @@ export * from "./commands/ListGroupResourcesCommand.ts";
 export * from "./pagination/ListGroupResourcesPaginator.ts";
 export * from "./commands/ListGroupsCommand.ts";
 export * from "./pagination/ListGroupsPaginator.ts";
+export * from "./commands/PutGroupConfigurationCommand.ts";
 export * from "./commands/SearchResourcesCommand.ts";
 export * from "./pagination/SearchResourcesPaginator.ts";
 export * from "./commands/TagCommand.ts";

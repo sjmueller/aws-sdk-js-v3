@@ -6,6 +6,7 @@ export * from "./commands/BatchDetectKeyPhrasesCommand.ts";
 export * from "./commands/BatchDetectSentimentCommand.ts";
 export * from "./commands/BatchDetectSyntaxCommand.ts";
 export * from "./commands/ClassifyDocumentCommand.ts";
+export * from "./commands/ContainsPiiEntitiesCommand.ts";
 export * from "./commands/CreateDocumentClassifierCommand.ts";
 export * from "./commands/CreateEndpointCommand.ts";
 export * from "./commands/CreateEntityRecognizerCommand.ts";

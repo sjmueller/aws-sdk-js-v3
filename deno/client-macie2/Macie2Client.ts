@@ -47,6 +47,10 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand.ts";
 import {
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "./commands/DisassociateFromAdministratorAccountCommand.ts";
+import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand.ts";
@@ -56,6 +60,10 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand.ts";
+import {
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "./commands/GetAdministratorAccountCommand.ts";
 import {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
@@ -74,6 +82,10 @@ import {
 } from "./commands/GetFindingStatisticsCommand.ts";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand.ts";
 import { GetFindingsFilterCommandInput, GetFindingsFilterCommandOutput } from "./commands/GetFindingsFilterCommand.ts";
+import {
+  GetFindingsPublicationConfigurationCommandInput,
+  GetFindingsPublicationConfigurationCommandOutput,
+} from "./commands/GetFindingsPublicationConfigurationCommand.ts";
 import {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
@@ -110,6 +122,10 @@ import {
   PutClassificationExportConfigurationCommandInput,
   PutClassificationExportConfigurationCommandOutput,
 } from "./commands/PutClassificationExportConfigurationCommand.ts";
+import {
+  PutFindingsPublicationConfigurationCommandInput,
+  PutFindingsPublicationConfigurationCommandOutput,
+} from "./commands/PutFindingsPublicationConfigurationCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestCustomDataIdentifierCommandInput,
@@ -203,16 +219,19 @@ export type ServiceInputTypes =
   | DescribeOrganizationConfigurationCommandInput
   | DisableMacieCommandInput
   | DisableOrganizationAdminAccountCommandInput
+  | DisassociateFromAdministratorAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMemberCommandInput
   | EnableMacieCommandInput
   | EnableOrganizationAdminAccountCommandInput
+  | GetAdministratorAccountCommandInput
   | GetBucketStatisticsCommandInput
   | GetClassificationExportConfigurationCommandInput
   | GetCustomDataIdentifierCommandInput
   | GetFindingStatisticsCommandInput
   | GetFindingsCommandInput
   | GetFindingsFilterCommandInput
+  | GetFindingsPublicationConfigurationCommandInput
   | GetInvitationsCountCommandInput
   | GetMacieSessionCommandInput
   | GetMasterAccountCommandInput
@@ -228,6 +247,7 @@ export type ServiceInputTypes =
   | ListOrganizationAdminAccountsCommandInput
   | ListTagsForResourceCommandInput
   | PutClassificationExportConfigurationCommandInput
+  | PutFindingsPublicationConfigurationCommandInput
   | TagResourceCommandInput
   | TestCustomDataIdentifierCommandInput
   | UntagResourceCommandInput
@@ -256,16 +276,19 @@ export type ServiceOutputTypes =
   | DescribeOrganizationConfigurationCommandOutput
   | DisableMacieCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
+  | DisassociateFromAdministratorAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMemberCommandOutput
   | EnableMacieCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
+  | GetAdministratorAccountCommandOutput
   | GetBucketStatisticsCommandOutput
   | GetClassificationExportConfigurationCommandOutput
   | GetCustomDataIdentifierCommandOutput
   | GetFindingStatisticsCommandOutput
   | GetFindingsCommandOutput
   | GetFindingsFilterCommandOutput
+  | GetFindingsPublicationConfigurationCommandOutput
   | GetInvitationsCountCommandOutput
   | GetMacieSessionCommandOutput
   | GetMasterAccountCommandOutput
@@ -281,6 +304,7 @@ export type ServiceOutputTypes =
   | ListOrganizationAdminAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutClassificationExportConfigurationCommandOutput
+  | PutFindingsPublicationConfigurationCommandOutput
   | TagResourceCommandOutput
   | TestCustomDataIdentifierCommandOutput
   | UntagResourceCommandOutput

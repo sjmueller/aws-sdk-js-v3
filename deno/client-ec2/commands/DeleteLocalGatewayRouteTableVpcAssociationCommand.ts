@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
-} from "../models/models_1.ts";
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,
   serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand,

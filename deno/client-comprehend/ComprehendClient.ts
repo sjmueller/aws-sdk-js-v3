@@ -17,6 +17,10 @@ import {
 import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "./commands/BatchDetectSyntaxCommand.ts";
 import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand.ts";
 import {
+  ContainsPiiEntitiesCommandInput,
+  ContainsPiiEntitiesCommandOutput,
+} from "./commands/ContainsPiiEntitiesCommand.ts";
+import {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
 } from "./commands/CreateDocumentClassifierCommand.ts";
@@ -254,6 +258,7 @@ export type ServiceInputTypes =
   | BatchDetectSentimentCommandInput
   | BatchDetectSyntaxCommandInput
   | ClassifyDocumentCommandInput
+  | ContainsPiiEntitiesCommandInput
   | CreateDocumentClassifierCommandInput
   | CreateEndpointCommandInput
   | CreateEntityRecognizerCommandInput
@@ -316,6 +321,7 @@ export type ServiceOutputTypes =
   | BatchDetectSentimentCommandOutput
   | BatchDetectSyntaxCommandOutput
   | ClassifyDocumentCommandOutput
+  | ContainsPiiEntitiesCommandOutput
   | CreateDocumentClassifierCommandOutput
   | CreateEndpointCommandOutput
   | CreateEntityRecognizerCommandOutput

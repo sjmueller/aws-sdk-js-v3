@@ -3,7 +3,12 @@ import {
   ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand.ts";
 import { CancelReplayCommandInput, CancelReplayCommandOutput } from "./commands/CancelReplayCommand.ts";
+import {
+  CreateApiDestinationCommandInput,
+  CreateApiDestinationCommandOutput,
+} from "./commands/CreateApiDestinationCommand.ts";
 import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "./commands/CreateArchiveCommand.ts";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand.ts";
 import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand.ts";
 import {
   CreatePartnerEventSourceCommandInput,
@@ -13,14 +18,28 @@ import {
   DeactivateEventSourceCommandInput,
   DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand.ts";
+import {
+  DeauthorizeConnectionCommandInput,
+  DeauthorizeConnectionCommandOutput,
+} from "./commands/DeauthorizeConnectionCommand.ts";
+import {
+  DeleteApiDestinationCommandInput,
+  DeleteApiDestinationCommandOutput,
+} from "./commands/DeleteApiDestinationCommand.ts";
 import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand.ts";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand.ts";
 import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand.ts";
 import {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand.ts";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
+import {
+  DescribeApiDestinationCommandInput,
+  DescribeApiDestinationCommandOutput,
+} from "./commands/DescribeApiDestinationCommand.ts";
 import { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "./commands/DescribeArchiveCommand.ts";
+import { DescribeConnectionCommandInput, DescribeConnectionCommandOutput } from "./commands/DescribeConnectionCommand.ts";
 import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand.ts";
 import {
   DescribeEventSourceCommandInput,
@@ -34,7 +53,12 @@ import { DescribeReplayCommandInput, DescribeReplayCommandOutput } from "./comma
 import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand.ts";
 import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand.ts";
 import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand.ts";
+import {
+  ListApiDestinationsCommandInput,
+  ListApiDestinationsCommandOutput,
+} from "./commands/ListApiDestinationsCommand.ts";
 import { ListArchivesCommandInput, ListArchivesCommandOutput } from "./commands/ListArchivesCommand.ts";
+import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand.ts";
 import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand.ts";
 import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand.ts";
 import {
@@ -67,7 +91,12 @@ import { StartReplayCommandInput, StartReplayCommandOutput } from "./commands/St
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import {
+  UpdateApiDestinationCommandInput,
+  UpdateApiDestinationCommandOutput,
+} from "./commands/UpdateApiDestinationCommand.ts";
 import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "./commands/UpdateArchiveCommand.ts";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -122,15 +151,22 @@ import {
 export type ServiceInputTypes =
   | ActivateEventSourceCommandInput
   | CancelReplayCommandInput
+  | CreateApiDestinationCommandInput
   | CreateArchiveCommandInput
+  | CreateConnectionCommandInput
   | CreateEventBusCommandInput
   | CreatePartnerEventSourceCommandInput
   | DeactivateEventSourceCommandInput
+  | DeauthorizeConnectionCommandInput
+  | DeleteApiDestinationCommandInput
   | DeleteArchiveCommandInput
+  | DeleteConnectionCommandInput
   | DeleteEventBusCommandInput
   | DeletePartnerEventSourceCommandInput
   | DeleteRuleCommandInput
+  | DescribeApiDestinationCommandInput
   | DescribeArchiveCommandInput
+  | DescribeConnectionCommandInput
   | DescribeEventBusCommandInput
   | DescribeEventSourceCommandInput
   | DescribePartnerEventSourceCommandInput
@@ -138,7 +174,9 @@ export type ServiceInputTypes =
   | DescribeRuleCommandInput
   | DisableRuleCommandInput
   | EnableRuleCommandInput
+  | ListApiDestinationsCommandInput
   | ListArchivesCommandInput
+  | ListConnectionsCommandInput
   | ListEventBusesCommandInput
   | ListEventSourcesCommandInput
   | ListPartnerEventSourceAccountsCommandInput
@@ -159,20 +197,29 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestEventPatternCommandInput
   | UntagResourceCommandInput
-  | UpdateArchiveCommandInput;
+  | UpdateApiDestinationCommandInput
+  | UpdateArchiveCommandInput
+  | UpdateConnectionCommandInput;
 
 export type ServiceOutputTypes =
   | ActivateEventSourceCommandOutput
   | CancelReplayCommandOutput
+  | CreateApiDestinationCommandOutput
   | CreateArchiveCommandOutput
+  | CreateConnectionCommandOutput
   | CreateEventBusCommandOutput
   | CreatePartnerEventSourceCommandOutput
   | DeactivateEventSourceCommandOutput
+  | DeauthorizeConnectionCommandOutput
+  | DeleteApiDestinationCommandOutput
   | DeleteArchiveCommandOutput
+  | DeleteConnectionCommandOutput
   | DeleteEventBusCommandOutput
   | DeletePartnerEventSourceCommandOutput
   | DeleteRuleCommandOutput
+  | DescribeApiDestinationCommandOutput
   | DescribeArchiveCommandOutput
+  | DescribeConnectionCommandOutput
   | DescribeEventBusCommandOutput
   | DescribeEventSourceCommandOutput
   | DescribePartnerEventSourceCommandOutput
@@ -180,7 +227,9 @@ export type ServiceOutputTypes =
   | DescribeRuleCommandOutput
   | DisableRuleCommandOutput
   | EnableRuleCommandOutput
+  | ListApiDestinationsCommandOutput
   | ListArchivesCommandOutput
+  | ListConnectionsCommandOutput
   | ListEventBusesCommandOutput
   | ListEventSourcesCommandOutput
   | ListPartnerEventSourceAccountsCommandOutput
@@ -201,7 +250,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestEventPatternCommandOutput
   | UntagResourceCommandOutput
-  | UpdateArchiveCommandOutput;
+  | UpdateApiDestinationCommandOutput
+  | UpdateArchiveCommandOutput
+  | UpdateConnectionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -318,28 +369,27 @@ export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   UserAgentResolvedConfig;
 
 /**
- * <p>Amazon EventBridge helps you to respond to state changes in your AWS resources.
- *             When your resources change state, they automatically send events into an event stream.
- *             You can create rules that match selected events in the stream and route them to targets
- *             to take action. You can also use rules to take action on a predetermined schedule. For
- *             example, you can configure rules to:</p>
- *         <ul>
+ * <p>Amazon EventBridge helps you to respond to state changes in your AWS resources. When your
+ *       resources change state, they automatically send events into an event stream. You can create
+ *       rules that match selected events in the stream and route them to targets to take action. You
+ *       can also use rules to take action on a predetermined schedule. For example, you can configure
+ *       rules to:</p>
+ *          <ul>
  *             <li>
- *                 <p>Automatically invoke an AWS Lambda function to update DNS entries when an
- *                     event notifies you that Amazon EC2 instance enters the running state.</p>
+ *                <p>Automatically invoke an AWS Lambda function to update DNS entries when an event
+ *           notifies you that Amazon EC2 instance enters the running state.</p>
  *             </li>
  *             <li>
- *                 <p>Direct specific API records from AWS CloudTrail to an Amazon Kinesis data
- *                     stream for detailed analysis of potential security or availability
- *                     risks.</p>
+ *                <p>Direct specific API records from AWS CloudTrail to an Amazon Kinesis data stream for
+ *           detailed analysis of potential security or availability risks.</p>
  *             </li>
  *             <li>
- *                 <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS
- *                     volume.</p>
+ *                <p>Periodically invoke a built-in target to create a snapshot of an Amazon EBS
+ *           volume.</p>
  *             </li>
  *          </ul>
- *         <p>For more information about the features of Amazon EventBridge, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide">Amazon EventBridge User
- *                 Guide</a>.</p>
+ *          <p>For more information about the features of Amazon EventBridge, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide">Amazon EventBridge User
+ *         Guide</a>.</p>
  */
 export class EventBridgeClient extends __Client<
   __HttpHandlerOptions,

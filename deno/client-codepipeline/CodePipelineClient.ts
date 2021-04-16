@@ -26,6 +26,7 @@ import {
   EnableStageTransitionCommandInput,
   EnableStageTransitionCommandOutput,
 } from "./commands/EnableStageTransitionCommand.ts";
+import { GetActionTypeCommandInput, GetActionTypeCommandOutput } from "./commands/GetActionTypeCommand.ts";
 import { GetJobDetailsCommandInput, GetJobDetailsCommandOutput } from "./commands/GetJobDetailsCommand.ts";
 import { GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand.ts";
 import {
@@ -94,6 +95,7 @@ import {
 } from "./commands/StopPipelineExecutionCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateActionTypeCommandInput, UpdateActionTypeCommandOutput } from "./commands/UpdateActionTypeCommand.ts";
 import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -157,6 +159,7 @@ export type ServiceInputTypes =
   | DeregisterWebhookWithThirdPartyCommandInput
   | DisableStageTransitionCommandInput
   | EnableStageTransitionCommandInput
+  | GetActionTypeCommandInput
   | GetJobDetailsCommandInput
   | GetPipelineCommandInput
   | GetPipelineExecutionCommandInput
@@ -183,6 +186,7 @@ export type ServiceInputTypes =
   | StopPipelineExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateActionTypeCommandInput
   | UpdatePipelineCommandInput;
 
 export type ServiceOutputTypes =
@@ -196,6 +200,7 @@ export type ServiceOutputTypes =
   | DeregisterWebhookWithThirdPartyCommandOutput
   | DisableStageTransitionCommandOutput
   | EnableStageTransitionCommandOutput
+  | GetActionTypeCommandOutput
   | GetJobDetailsCommandOutput
   | GetPipelineCommandOutput
   | GetPipelineExecutionCommandOutput
@@ -222,6 +227,7 @@ export type ServiceOutputTypes =
   | StopPipelineExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateActionTypeCommandOutput
   | UpdatePipelineCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

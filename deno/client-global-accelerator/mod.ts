@@ -28,6 +28,7 @@ export * from "./commands/DescribeListenerCommand.ts";
 export * from "./commands/ListAcceleratorsCommand.ts";
 export * from "./pagination/ListAcceleratorsPaginator.ts";
 export * from "./commands/ListByoipCidrsCommand.ts";
+export * from "./pagination/ListByoipCidrsPaginator.ts";
 export * from "./commands/ListCustomRoutingAcceleratorsCommand.ts";
 export * from "./pagination/ListCustomRoutingAcceleratorsPaginator.ts";
 export * from "./commands/ListCustomRoutingEndpointGroupsCommand.ts";

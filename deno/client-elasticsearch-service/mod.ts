@@ -12,6 +12,8 @@ export * from "./commands/DeleteElasticsearchServiceRoleCommand.ts";
 export * from "./commands/DeleteInboundCrossClusterSearchConnectionCommand.ts";
 export * from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand.ts";
 export * from "./commands/DeletePackageCommand.ts";
+export * from "./commands/DescribeDomainAutoTunesCommand.ts";
+export * from "./pagination/DescribeDomainAutoTunesPaginator.ts";
 export * from "./commands/DescribeElasticsearchDomainCommand.ts";
 export * from "./commands/DescribeElasticsearchDomainConfigCommand.ts";
 export * from "./commands/DescribeElasticsearchDomainsCommand.ts";

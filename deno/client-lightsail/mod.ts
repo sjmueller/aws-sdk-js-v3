@@ -126,6 +126,7 @@ export * from "./commands/RegisterContainerImageCommand.ts";
 export * from "./commands/ReleaseStaticIpCommand.ts";
 export * from "./commands/ResetDistributionCacheCommand.ts";
 export * from "./commands/SendContactMethodVerificationCommand.ts";
+export * from "./commands/SetIpAddressTypeCommand.ts";
 export * from "./commands/StartInstanceCommand.ts";
 export * from "./commands/StartRelationalDatabaseCommand.ts";
 export * from "./commands/StopInstanceCommand.ts";

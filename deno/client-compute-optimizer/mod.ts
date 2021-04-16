@@ -8,6 +8,7 @@ export * from "./commands/GetEBSVolumeRecommendationsCommand.ts";
 export * from "./commands/GetEC2InstanceRecommendationsCommand.ts";
 export * from "./commands/GetEC2RecommendationProjectedMetricsCommand.ts";
 export * from "./commands/GetEnrollmentStatusCommand.ts";
+export * from "./commands/GetLambdaFunctionRecommendationsCommand.ts";
 export * from "./commands/GetRecommendationSummariesCommand.ts";
 export * from "./commands/UpdateEnrollmentStatusCommand.ts";
 export * from "./models/index.ts";

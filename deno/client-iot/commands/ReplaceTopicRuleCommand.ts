@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ReplaceTopicRuleRequest } from "../models/models_1.ts";
+import { ReplaceTopicRuleRequest } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1ReplaceTopicRuleCommand,
   serializeAws_restJson1ReplaceTopicRuleCommand,

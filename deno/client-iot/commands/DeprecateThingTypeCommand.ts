@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_0.ts";
+import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DeprecateThingTypeCommand,
   serializeAws_restJson1DeprecateThingTypeCommand,

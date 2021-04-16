@@ -9,6 +9,10 @@ import {
 } from "./commands/DeleteDetectorModelCommand.ts";
 import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand.ts";
 import {
+  DescribeDetectorModelAnalysisCommandInput,
+  DescribeDetectorModelAnalysisCommandOutput,
+} from "./commands/DescribeDetectorModelAnalysisCommand.ts";
+import {
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput,
 } from "./commands/DescribeDetectorModelCommand.ts";
@@ -17,6 +21,10 @@ import {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand.ts";
+import {
+  GetDetectorModelAnalysisResultsCommandInput,
+  GetDetectorModelAnalysisResultsCommandOutput,
+} from "./commands/GetDetectorModelAnalysisResultsCommand.ts";
 import {
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput,
@@ -28,6 +36,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand.ts";
+import {
+  StartDetectorModelAnalysisCommandInput,
+  StartDetectorModelAnalysisCommandOutput,
+} from "./commands/StartDetectorModelAnalysisCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
@@ -91,14 +103,17 @@ export type ServiceInputTypes =
   | CreateInputCommandInput
   | DeleteDetectorModelCommandInput
   | DeleteInputCommandInput
+  | DescribeDetectorModelAnalysisCommandInput
   | DescribeDetectorModelCommandInput
   | DescribeInputCommandInput
   | DescribeLoggingOptionsCommandInput
+  | GetDetectorModelAnalysisResultsCommandInput
   | ListDetectorModelVersionsCommandInput
   | ListDetectorModelsCommandInput
   | ListInputsCommandInput
   | ListTagsForResourceCommandInput
   | PutLoggingOptionsCommandInput
+  | StartDetectorModelAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDetectorModelCommandInput
@@ -109,14 +124,17 @@ export type ServiceOutputTypes =
   | CreateInputCommandOutput
   | DeleteDetectorModelCommandOutput
   | DeleteInputCommandOutput
+  | DescribeDetectorModelAnalysisCommandOutput
   | DescribeDetectorModelCommandOutput
   | DescribeInputCommandOutput
   | DescribeLoggingOptionsCommandOutput
+  | GetDetectorModelAnalysisResultsCommandOutput
   | ListDetectorModelVersionsCommandOutput
   | ListDetectorModelsCommandOutput
   | ListInputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutLoggingOptionsCommandOutput
+  | StartDetectorModelAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDetectorModelCommandOutput

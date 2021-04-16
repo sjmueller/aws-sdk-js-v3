@@ -77,6 +77,12 @@ import {
   ListResourcesInProtectionGroupCommandOutput,
 } from "./commands/ListResourcesInProtectionGroupCommand.ts";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand.ts";
@@ -164,6 +170,9 @@ export type ServiceInputTypes =
   | ListProtectionGroupsCommandInput
   | ListProtectionsCommandInput
   | ListResourcesInProtectionGroupCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateEmergencyContactSettingsCommandInput
   | UpdateProtectionGroupCommandInput
   | UpdateSubscriptionCommandInput;
@@ -196,6 +205,9 @@ export type ServiceOutputTypes =
   | ListProtectionGroupsCommandOutput
   | ListProtectionsCommandOutput
   | ListResourcesInProtectionGroupCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateEmergencyContactSettingsCommandOutput
   | UpdateProtectionGroupCommandOutput
   | UpdateSubscriptionCommandOutput;

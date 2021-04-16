@@ -1,3 +1,4 @@
+import { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "./commands/ConfigureLogsCommand.ts";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand.ts";
 import {
   CreatePackagingConfigurationCommandInput,
@@ -96,6 +97,7 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | ConfigureLogsCommandInput
   | CreateAssetCommandInput
   | CreatePackagingConfigurationCommandInput
   | CreatePackagingGroupCommandInput
@@ -114,6 +116,7 @@ export type ServiceInputTypes =
   | UpdatePackagingGroupCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsCommandOutput
   | CreateAssetCommandOutput
   | CreatePackagingConfigurationCommandOutput
   | CreatePackagingGroupCommandOutput

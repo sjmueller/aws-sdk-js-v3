@@ -18,6 +18,7 @@ import {
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand.ts";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand.ts";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
+import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "./commands/DescribeJobRunCommand.ts";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand.ts";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand.ts";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand.ts";
@@ -117,6 +118,7 @@ export type ServiceInputTypes =
   | DeleteScheduleCommandInput
   | DescribeDatasetCommandInput
   | DescribeJobCommandInput
+  | DescribeJobRunCommandInput
   | DescribeProjectCommandInput
   | DescribeRecipeCommandInput
   | DescribeScheduleCommandInput
@@ -157,6 +159,7 @@ export type ServiceOutputTypes =
   | DeleteScheduleCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeJobCommandOutput
+  | DescribeJobRunCommandOutput
   | DescribeProjectCommandOutput
   | DescribeRecipeCommandOutput
   | DescribeScheduleCommandOutput

@@ -1,3 +1,11 @@
+import {
+  AssociateEncryptionConfigCommandInput,
+  AssociateEncryptionConfigCommandOutput,
+} from "./commands/AssociateEncryptionConfigCommand.ts";
+import {
+  AssociateIdentityProviderConfigCommandInput,
+  AssociateIdentityProviderConfigCommandOutput,
+} from "./commands/AssociateIdentityProviderConfigCommand.ts";
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand.ts";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
 import {
@@ -22,14 +30,26 @@ import {
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
 } from "./commands/DescribeFargateProfileCommand.ts";
+import {
+  DescribeIdentityProviderConfigCommandInput,
+  DescribeIdentityProviderConfigCommandOutput,
+} from "./commands/DescribeIdentityProviderConfigCommand.ts";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand.ts";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand.ts";
+import {
+  DisassociateIdentityProviderConfigCommandInput,
+  DisassociateIdentityProviderConfigCommandOutput,
+} from "./commands/DisassociateIdentityProviderConfigCommand.ts";
 import { ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand.ts";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand.ts";
 import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
 } from "./commands/ListFargateProfilesCommand.ts";
+import {
+  ListIdentityProviderConfigsCommandInput,
+  ListIdentityProviderConfigsCommandOutput,
+} from "./commands/ListIdentityProviderConfigsCommand.ts";
 import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "./commands/ListNodegroupsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
@@ -107,6 +127,8 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | AssociateEncryptionConfigCommandInput
+  | AssociateIdentityProviderConfigCommandInput
   | CreateAddonCommandInput
   | CreateClusterCommandInput
   | CreateFargateProfileCommandInput
@@ -119,11 +141,14 @@ export type ServiceInputTypes =
   | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
   | DescribeFargateProfileCommandInput
+  | DescribeIdentityProviderConfigCommandInput
   | DescribeNodegroupCommandInput
   | DescribeUpdateCommandInput
+  | DisassociateIdentityProviderConfigCommandInput
   | ListAddonsCommandInput
   | ListClustersCommandInput
   | ListFargateProfilesCommandInput
+  | ListIdentityProviderConfigsCommandInput
   | ListNodegroupsCommandInput
   | ListTagsForResourceCommandInput
   | ListUpdatesCommandInput
@@ -136,6 +161,8 @@ export type ServiceInputTypes =
   | UpdateNodegroupVersionCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateEncryptionConfigCommandOutput
+  | AssociateIdentityProviderConfigCommandOutput
   | CreateAddonCommandOutput
   | CreateClusterCommandOutput
   | CreateFargateProfileCommandOutput
@@ -148,11 +175,14 @@ export type ServiceOutputTypes =
   | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
   | DescribeFargateProfileCommandOutput
+  | DescribeIdentityProviderConfigCommandOutput
   | DescribeNodegroupCommandOutput
   | DescribeUpdateCommandOutput
+  | DisassociateIdentityProviderConfigCommandOutput
   | ListAddonsCommandOutput
   | ListClustersCommandOutput
   | ListFargateProfilesCommandOutput
+  | ListIdentityProviderConfigsCommandOutput
   | ListNodegroupsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUpdatesCommandOutput

@@ -4,6 +4,7 @@ export * from "./commands/AddNotificationChannelCommand.ts";
 export * from "./commands/DescribeAccountHealthCommand.ts";
 export * from "./commands/DescribeAccountOverviewCommand.ts";
 export * from "./commands/DescribeAnomalyCommand.ts";
+export * from "./commands/DescribeFeedbackCommand.ts";
 export * from "./commands/DescribeInsightCommand.ts";
 export * from "./commands/DescribeResourceCollectionHealthCommand.ts";
 export * from "./pagination/DescribeResourceCollectionHealthPaginator.ts";

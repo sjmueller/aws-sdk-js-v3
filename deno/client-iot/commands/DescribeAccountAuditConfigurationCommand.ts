@@ -2,7 +2,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeAccountAuditConfigurationRequest,
   DescribeAccountAuditConfigurationResponse,
-} from "../models/models_0.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeAccountAuditConfigurationCommand,
   serializeAws_restJson1DescribeAccountAuditConfigurationCommand,

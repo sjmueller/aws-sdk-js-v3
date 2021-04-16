@@ -10,6 +10,10 @@ import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCom
 import { GroupResourcesCommandInput, GroupResourcesCommandOutput } from "./commands/GroupResourcesCommand.ts";
 import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "./commands/ListGroupResourcesCommand.ts";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
+import {
+  PutGroupConfigurationCommandInput,
+  PutGroupConfigurationCommandOutput,
+} from "./commands/PutGroupConfigurationCommand.ts";
 import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand.ts";
 import { TagCommandInput, TagCommandOutput } from "./commands/TagCommand.ts";
 import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "./commands/UngroupResourcesCommand.ts";
@@ -77,6 +81,7 @@ export type ServiceInputTypes =
   | GroupResourcesCommandInput
   | ListGroupResourcesCommandInput
   | ListGroupsCommandInput
+  | PutGroupConfigurationCommandInput
   | SearchResourcesCommandInput
   | TagCommandInput
   | UngroupResourcesCommandInput
@@ -94,6 +99,7 @@ export type ServiceOutputTypes =
   | GroupResourcesCommandOutput
   | ListGroupResourcesCommandOutput
   | ListGroupsCommandOutput
+  | PutGroupConfigurationCommandOutput
   | SearchResourcesCommandOutput
   | TagCommandOutput
   | UngroupResourcesCommandOutput
