@@ -142,7 +142,7 @@ async function denoifyTsFile(file, depth) {
       continue;
     }
 
-    if (line.match(/tagValueProcessor: \(val, tagName\) => decodeEscapedXML\(val\),/)) {
+    if (line.match(/tagValueProcessor: \(val, tagName\) => /)) {
       replaced = line.replace("(val, tagName)", "(val: string)");
     }
 
