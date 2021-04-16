@@ -8,7 +8,7 @@
 AWS SDK for JavaScript S3Control Client for Node.js, Browser and React Native.
 
 <p>
-AWS S3 Control provides access to Amazon S3 control plane operations.
+AWS S3 Control provides access to Amazon S3 control plane actions.
 
 </p>
 
@@ -134,7 +134,7 @@ const client = new AWS.S3Control({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createAccessPoint(params);
+  const data = await client.createAccessPoint(params);
   // process data.
 } catch (error) {
   // error handling.

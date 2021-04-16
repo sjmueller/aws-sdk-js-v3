@@ -44,7 +44,7 @@ resources:</p>
 <p>Amazon Keyspaces (for Apache Cassandra) tables</p>
 </li>
 <li>
-<p>Amazon Managed Streaming for Apache Kafka cluster storage</p>
+<p>Amazon Managed Streaming for Apache Kafka broker storage</p>
 </li>
 </ul>
 <p>
@@ -200,7 +200,7 @@ const client = new AWS.ApplicationAutoScaling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteScalingPolicy(params);
+  const data = await client.deleteScalingPolicy(params);
   // process data.
 } catch (error) {
   // error handling.

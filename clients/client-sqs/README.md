@@ -27,7 +27,7 @@ access management</a> in the <i>Amazon Simple Queue Service Developer Guide.</i>
 </ul>
 
 <p>
-<b>Additional Information</b>
+<b>Additional information</b>
 </p>
 <ul>
 <li>
@@ -199,7 +199,7 @@ const client = new AWS.SQS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addPermission(params);
+  const data = await client.addPermission(params);
   // process data.
 } catch (error) {
   // error handling.

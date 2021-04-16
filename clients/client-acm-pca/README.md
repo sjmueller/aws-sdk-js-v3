@@ -7,9 +7,6 @@
 
 AWS SDK for JavaScript ACMPCA Client for Node.js, Browser and React Native.
 
-<note>
-<p></p>
-</note>
 <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
 syntax, and usage examples for each of the actions and data types involved in creating
 and managing private certificate authorities (CA) for your organization.</p>
@@ -146,7 +143,7 @@ const client = new AWS.ACMPCA({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createCertificateAuthority(params);
+  const data = await client.createCertificateAuthority(params);
   // process data.
 } catch (error) {
   // error handling.
