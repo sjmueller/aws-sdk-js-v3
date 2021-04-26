@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeRuleCommandInput = DescribeRuleRequest;
-export type DescribeRuleCommandOutput = DescribeRuleResponse & __MetadataBearer;
+export interface DescribeRuleCommandInput extends DescribeRuleRequest {}
+export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified rule.</p>

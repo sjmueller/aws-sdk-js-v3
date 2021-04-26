@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateSimulationApplicationCommandInput = UpdateSimulationApplicationRequest;
-export type UpdateSimulationApplicationCommandOutput = UpdateSimulationApplicationResponse & __MetadataBearer;
+export interface UpdateSimulationApplicationCommandInput extends UpdateSimulationApplicationRequest {}
+export interface UpdateSimulationApplicationCommandOutput
+  extends UpdateSimulationApplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates a simulation application.</p>

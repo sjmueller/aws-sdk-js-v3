@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateTaskExecutionCommandInput = UpdateTaskExecutionRequest;
-export type UpdateTaskExecutionCommandOutput = UpdateTaskExecutionResponse & __MetadataBearer;
+export interface UpdateTaskExecutionCommandInput extends UpdateTaskExecutionRequest {}
+export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates execution of a task.</p>

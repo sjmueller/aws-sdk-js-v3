@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SearchCommandInput = SearchRequest;
-export type SearchCommandOutput = SearchResponse & __MetadataBearer;
+export interface SearchCommandInput extends SearchRequest {}
+export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
  * <p>Finds Amazon SageMaker resources that match a search query. Matching resources are returned

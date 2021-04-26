@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeGlobalClustersCommandInput = DescribeGlobalClustersMessage;
-export type DescribeGlobalClustersCommandOutput = GlobalClustersMessage & __MetadataBearer;
+export interface DescribeGlobalClustersCommandInput extends DescribeGlobalClustersMessage {}
+export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessage, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteVariableCommandInput = DeleteVariableRequest;
-export type DeleteVariableCommandOutput = DeleteVariableResult & __MetadataBearer;
+export interface DeleteVariableCommandInput extends DeleteVariableRequest {}
+export interface DeleteVariableCommandOutput extends DeleteVariableResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a variable.</p>

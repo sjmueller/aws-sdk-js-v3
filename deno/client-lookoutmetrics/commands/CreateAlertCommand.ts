@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateAlertCommandInput = CreateAlertRequest;
-export type CreateAlertCommandOutput = CreateAlertResponse & __MetadataBearer;
+export interface CreateAlertCommandInput extends CreateAlertRequest {}
+export interface CreateAlertCommandOutput extends CreateAlertResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an alert for an anomaly detector.</p>

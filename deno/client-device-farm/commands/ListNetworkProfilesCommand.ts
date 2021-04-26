@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListNetworkProfilesCommandInput = ListNetworkProfilesRequest;
-export type ListNetworkProfilesCommandOutput = ListNetworkProfilesResult & __MetadataBearer;
+export interface ListNetworkProfilesCommandInput extends ListNetworkProfilesRequest {}
+export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of available network profiles.</p>

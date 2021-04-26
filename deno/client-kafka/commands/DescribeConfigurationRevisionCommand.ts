@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeConfigurationRevisionCommandInput = DescribeConfigurationRevisionRequest;
-export type DescribeConfigurationRevisionCommandOutput = DescribeConfigurationRevisionResponse & __MetadataBearer;
+export interface DescribeConfigurationRevisionCommandInput extends DescribeConfigurationRevisionRequest {}
+export interface DescribeConfigurationRevisionCommandOutput
+  extends DescribeConfigurationRevisionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a description of this revision of the configuration.</p>

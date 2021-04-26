@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateAppCommandInput = CreateAppRequest;
-export type CreateAppCommandOutput = CreateAppResult & __MetadataBearer;
+export interface CreateAppCommandInput extends CreateAppRequest {}
+export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBearer {}
 
 /**
  * <p> Creates a new Amplify app. </p>

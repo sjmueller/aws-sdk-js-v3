@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListRecordingConfigurationsCommandInput = ListRecordingConfigurationsRequest;
-export type ListRecordingConfigurationsCommandOutput = ListRecordingConfigurationsResponse & __MetadataBearer;
+export interface ListRecordingConfigurationsCommandInput extends ListRecordingConfigurationsRequest {}
+export interface ListRecordingConfigurationsCommandOutput
+  extends ListRecordingConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets summary information about all recording configurations in your account, in the AWS

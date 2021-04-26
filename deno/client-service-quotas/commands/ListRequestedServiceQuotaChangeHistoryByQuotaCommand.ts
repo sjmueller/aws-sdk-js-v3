@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput = ListRequestedServiceQuotaChangeHistoryByQuotaRequest;
-export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = ListRequestedServiceQuotaChangeHistoryByQuotaResponse &
-  __MetadataBearer;
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
+  extends ListRequestedServiceQuotaChangeHistoryByQuotaRequest {}
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
+  extends ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the quota increase requests for the specified quota.</p>

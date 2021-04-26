@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutLifecycleConfigurationCommandInput = PutLifecycleConfigurationRequest;
-export type PutLifecycleConfigurationCommandOutput = LifecycleConfigurationDescription & __MetadataBearer;
+export interface PutLifecycleConfigurationCommandInput extends PutLifecycleConfigurationRequest {}
+export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
  * <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>

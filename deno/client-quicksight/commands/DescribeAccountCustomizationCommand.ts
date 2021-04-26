@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeAccountCustomizationCommandInput = DescribeAccountCustomizationRequest;
-export type DescribeAccountCustomizationCommandOutput = DescribeAccountCustomizationResponse & __MetadataBearer;
+export interface DescribeAccountCustomizationCommandInput extends DescribeAccountCustomizationRequest {}
+export interface DescribeAccountCustomizationCommandOutput
+  extends DescribeAccountCustomizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the customizations associated with the provided AWS account and Amazon

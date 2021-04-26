@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetPackageVersionAssetCommandInput = GetPackageVersionAssetRequest;
-export type GetPackageVersionAssetCommandOutput = GetPackageVersionAssetResult & __MetadataBearer;
+export interface GetPackageVersionAssetCommandInput extends GetPackageVersionAssetRequest {}
+export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAssetResult, __MetadataBearer {}
 
 /**
  * <p>

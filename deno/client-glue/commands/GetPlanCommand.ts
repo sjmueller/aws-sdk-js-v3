@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetPlanCommandInput = GetPlanRequest;
-export type GetPlanCommandOutput = GetPlanResponse & __MetadataBearer;
+export interface GetPlanCommandInput extends GetPlanRequest {}
+export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Gets code to perform a specified mapping.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SubmitContainerStateChangeCommandInput = SubmitContainerStateChangeRequest;
-export type SubmitContainerStateChangeCommandOutput = SubmitContainerStateChangeResponse & __MetadataBearer;
+export interface SubmitContainerStateChangeCommandInput extends SubmitContainerStateChangeRequest {}
+export interface SubmitContainerStateChangeCommandOutput extends SubmitContainerStateChangeResponse, __MetadataBearer {}
 
 /**
  * <note>

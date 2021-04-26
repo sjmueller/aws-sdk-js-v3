@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopFlowCommandInput = StopFlowRequest;
-export type StopFlowCommandOutput = StopFlowResponse & __MetadataBearer;
+export interface StopFlowCommandInput extends StopFlowRequest {}
+export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
  * <p>

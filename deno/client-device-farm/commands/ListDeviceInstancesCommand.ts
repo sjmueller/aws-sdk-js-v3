@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListDeviceInstancesCommandInput = ListDeviceInstancesRequest;
-export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult & __MetadataBearer;
+export interface ListDeviceInstancesCommandInput extends ListDeviceInstancesRequest {}
+export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the private device instances associated with one or more AWS

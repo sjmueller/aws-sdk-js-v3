@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
-export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResponse & __MetadataBearer;
+export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes an AWS DMS event subscription. </p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeProblemCommandInput = DescribeProblemRequest;
-export type DescribeProblemCommandOutput = DescribeProblemResponse & __MetadataBearer;
+export interface DescribeProblemCommandInput extends DescribeProblemRequest {}
+export interface DescribeProblemCommandOutput extends DescribeProblemResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an application problem.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListBuildBatchesCommandInput = ListBuildBatchesInput;
-export type ListBuildBatchesCommandOutput = ListBuildBatchesOutput & __MetadataBearer;
+export interface ListBuildBatchesCommandInput extends ListBuildBatchesInput {}
+export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the identifiers of your build batches in the current region.</p>

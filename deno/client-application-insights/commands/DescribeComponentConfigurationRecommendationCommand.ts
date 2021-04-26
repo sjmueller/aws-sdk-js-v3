@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeComponentConfigurationRecommendationCommandInput = DescribeComponentConfigurationRecommendationRequest;
-export type DescribeComponentConfigurationRecommendationCommandOutput = DescribeComponentConfigurationRecommendationResponse &
-  __MetadataBearer;
+export interface DescribeComponentConfigurationRecommendationCommandInput
+  extends DescribeComponentConfigurationRecommendationRequest {}
+export interface DescribeComponentConfigurationRecommendationCommandOutput
+  extends DescribeComponentConfigurationRecommendationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the recommended monitoring configuration of the component.</p>

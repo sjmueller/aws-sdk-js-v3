@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetBucketPolicyCommandInput = GetBucketPolicyRequest;
-export type GetBucketPolicyCommandOutput = GetBucketPolicyResult & __MetadataBearer;
+export interface GetBucketPolicyCommandInput extends GetBucketPolicyRequest {}
+export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __MetadataBearer {}
 
 /**
  * <note>

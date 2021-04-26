@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListProjectsCommandInput = ListProjectsInput;
-export type ListProjectsCommandOutput = ListProjectsOutput & __MetadataBearer;
+export interface ListProjectsCommandInput extends ListProjectsInput {}
+export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of build project names, with each build project name representing a single

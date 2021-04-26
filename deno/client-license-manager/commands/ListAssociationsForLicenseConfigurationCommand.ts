@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListAssociationsForLicenseConfigurationCommandInput = ListAssociationsForLicenseConfigurationRequest;
-export type ListAssociationsForLicenseConfigurationCommandOutput = ListAssociationsForLicenseConfigurationResponse &
-  __MetadataBearer;
+export interface ListAssociationsForLicenseConfigurationCommandInput
+  extends ListAssociationsForLicenseConfigurationRequest {}
+export interface ListAssociationsForLicenseConfigurationCommandOutput
+  extends ListAssociationsForLicenseConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the resource associations for the specified license configuration.</p>

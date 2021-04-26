@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteLocalGatewayRouteCommandInput = DeleteLocalGatewayRouteRequest;
-export type DeleteLocalGatewayRouteCommandOutput = DeleteLocalGatewayRouteResult & __MetadataBearer;
+export interface DeleteLocalGatewayRouteCommandInput extends DeleteLocalGatewayRouteRequest {}
+export interface DeleteLocalGatewayRouteCommandOutput extends DeleteLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified route from the specified local gateway route table.</p>

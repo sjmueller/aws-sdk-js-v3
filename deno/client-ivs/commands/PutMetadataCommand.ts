@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutMetadataCommandInput = PutMetadataRequest;
-export type PutMetadataCommandOutput = __MetadataBearer;
+export interface PutMetadataCommandInput extends PutMetadataRequest {}
+export interface PutMetadataCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Inserts metadata into the active stream of the specified channel. A maximum of 5 requests

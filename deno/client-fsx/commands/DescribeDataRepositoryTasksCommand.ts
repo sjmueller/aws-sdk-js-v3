@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeDataRepositoryTasksCommandInput = DescribeDataRepositoryTasksRequest;
-export type DescribeDataRepositoryTasksCommandOutput = DescribeDataRepositoryTasksResponse & __MetadataBearer;
+export interface DescribeDataRepositoryTasksCommandInput extends DescribeDataRepositoryTasksRequest {}
+export interface DescribeDataRepositoryTasksCommandOutput
+  extends DescribeDataRepositoryTasksResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the description of specific Amazon FSx for Lustre data repository tasks, if

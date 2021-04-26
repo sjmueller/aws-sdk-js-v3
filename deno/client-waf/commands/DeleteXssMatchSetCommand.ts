@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteXssMatchSetCommandInput = DeleteXssMatchSetRequest;
-export type DeleteXssMatchSetCommandOutput = DeleteXssMatchSetResponse & __MetadataBearer;
+export interface DeleteXssMatchSetCommandInput extends DeleteXssMatchSetRequest {}
+export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

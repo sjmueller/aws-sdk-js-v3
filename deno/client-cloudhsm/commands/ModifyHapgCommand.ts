@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyHapgCommandInput = ModifyHapgRequest;
-export type ModifyHapgCommandOutput = ModifyHapgResponse & __MetadataBearer;
+export interface ModifyHapgCommandInput extends ModifyHapgRequest {}
+export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

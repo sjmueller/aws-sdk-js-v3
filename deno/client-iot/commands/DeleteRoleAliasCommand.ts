@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteRoleAliasCommandInput = DeleteRoleAliasRequest;
-export type DeleteRoleAliasCommandOutput = DeleteRoleAliasResponse & __MetadataBearer;
+export interface DeleteRoleAliasCommandInput extends DeleteRoleAliasRequest {}
+export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a role alias</p>

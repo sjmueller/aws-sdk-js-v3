@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetSystemInstanceCommandInput = GetSystemInstanceRequest;
-export type GetSystemInstanceCommandOutput = GetSystemInstanceResponse & __MetadataBearer;
+export interface GetSystemInstanceCommandInput extends GetSystemInstanceRequest {}
+export interface GetSystemInstanceCommandOutput extends GetSystemInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a system instance.</p>

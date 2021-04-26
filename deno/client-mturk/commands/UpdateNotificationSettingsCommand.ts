@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateNotificationSettingsCommandInput = UpdateNotificationSettingsRequest;
-export type UpdateNotificationSettingsCommandOutput = UpdateNotificationSettingsResponse & __MetadataBearer;
+export interface UpdateNotificationSettingsCommandInput extends UpdateNotificationSettingsRequest {}
+export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificationSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>

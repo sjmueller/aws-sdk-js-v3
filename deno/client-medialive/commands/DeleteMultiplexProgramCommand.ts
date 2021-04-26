@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteMultiplexProgramCommandInput = DeleteMultiplexProgramRequest;
-export type DeleteMultiplexProgramCommandOutput = DeleteMultiplexProgramResponse & __MetadataBearer;
+export interface DeleteMultiplexProgramCommandInput extends DeleteMultiplexProgramRequest {}
+export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProgramResponse, __MetadataBearer {}
 
 /**
  * Delete a program from a multiplex.

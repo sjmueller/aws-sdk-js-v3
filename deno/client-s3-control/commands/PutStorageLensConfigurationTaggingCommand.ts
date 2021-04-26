@@ -21,9 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutStorageLensConfigurationTaggingCommandInput = PutStorageLensConfigurationTaggingRequest;
-export type PutStorageLensConfigurationTaggingCommandOutput = PutStorageLensConfigurationTaggingResult &
-  __MetadataBearer;
+export interface PutStorageLensConfigurationTaggingCommandInput extends PutStorageLensConfigurationTaggingRequest {}
+export interface PutStorageLensConfigurationTaggingCommandOutput
+  extends PutStorageLensConfigurationTaggingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Put or replace tags on an existing Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see

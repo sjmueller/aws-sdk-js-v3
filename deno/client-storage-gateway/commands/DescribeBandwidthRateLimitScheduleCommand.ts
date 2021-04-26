@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeBandwidthRateLimitScheduleCommandInput = DescribeBandwidthRateLimitScheduleInput;
-export type DescribeBandwidthRateLimitScheduleCommandOutput = DescribeBandwidthRateLimitScheduleOutput &
-  __MetadataBearer;
+export interface DescribeBandwidthRateLimitScheduleCommandInput extends DescribeBandwidthRateLimitScheduleInput {}
+export interface DescribeBandwidthRateLimitScheduleCommandOutput
+  extends DescribeBandwidthRateLimitScheduleOutput,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CancelWorldExportJobCommandInput = CancelWorldExportJobRequest;
-export type CancelWorldExportJobCommandOutput = CancelWorldExportJobResponse & __MetadataBearer;
+export interface CancelWorldExportJobCommandInput extends CancelWorldExportJobRequest {}
+export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified export job.</p>

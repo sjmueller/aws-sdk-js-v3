@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeSavingsPlansOfferingRatesCommandInput = DescribeSavingsPlansOfferingRatesRequest;
-export type DescribeSavingsPlansOfferingRatesCommandOutput = DescribeSavingsPlansOfferingRatesResponse &
-  __MetadataBearer;
+export interface DescribeSavingsPlansOfferingRatesCommandInput extends DescribeSavingsPlansOfferingRatesRequest {}
+export interface DescribeSavingsPlansOfferingRatesCommandOutput
+  extends DescribeSavingsPlansOfferingRatesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the specified Savings Plans offering rates.</p>

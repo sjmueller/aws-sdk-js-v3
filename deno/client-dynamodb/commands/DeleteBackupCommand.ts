@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteBackupCommandInput = DeleteBackupInput;
-export type DeleteBackupCommandOutput = DeleteBackupOutput & __MetadataBearer;
+export interface DeleteBackupCommandInput extends DeleteBackupInput {}
+export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing backup of a table.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribePolicyCommandInput = DescribePolicyRequest;
-export type DescribePolicyCommandOutput = DescribePolicyResponse & __MetadataBearer;
+export interface DescribePolicyCommandInput extends DescribePolicyRequest {}
+export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a policy.</p>

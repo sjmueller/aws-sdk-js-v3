@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateReplicationJobCommandInput = CreateReplicationJobRequest;
-export type CreateReplicationJobCommandOutput = CreateReplicationJobResponse & __MetadataBearer;
+export interface CreateReplicationJobCommandInput extends CreateReplicationJobRequest {}
+export interface CreateReplicationJobCommandOutput extends CreateReplicationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a replication job. The replication job schedules periodic replication runs

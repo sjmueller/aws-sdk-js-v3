@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartReportCreationCommandInput = StartReportCreationInput;
-export type StartReportCreationCommandOutput = StartReportCreationOutput & __MetadataBearer;
+export interface StartReportCreationCommandInput extends StartReportCreationInput {}
+export interface StartReportCreationCommandOutput extends StartReportCreationOutput, __MetadataBearer {}
 
 /**
  * <p>Generates a report that lists all tagged resources in the accounts across your

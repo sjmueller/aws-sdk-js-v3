@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopQueryCommandInput = StopQueryRequest;
-export type StopQueryCommandOutput = StopQueryResponse & __MetadataBearer;
+export interface StopQueryCommandInput extends StopQueryRequest {}
+export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation

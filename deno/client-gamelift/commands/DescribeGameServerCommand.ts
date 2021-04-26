@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeGameServerCommandInput = DescribeGameServerInput;
-export type DescribeGameServerCommandOutput = DescribeGameServerOutput & __MetadataBearer;
+export interface DescribeGameServerCommandInput extends DescribeGameServerInput {}
+export interface DescribeGameServerCommandOutput extends DescribeGameServerOutput, __MetadataBearer {}
 
 /**
  * <p>

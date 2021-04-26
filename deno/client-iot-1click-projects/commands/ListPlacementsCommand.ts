@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListPlacementsCommandInput = ListPlacementsRequest;
-export type ListPlacementsCommandOutput = ListPlacementsResponse & __MetadataBearer;
+export interface ListPlacementsCommandInput extends ListPlacementsRequest {}
+export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the placement(s) of a project.</p>

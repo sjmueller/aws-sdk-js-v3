@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListLedgersCommandInput = ListLedgersRequest;
-export type ListLedgersCommandOutput = ListLedgersResponse & __MetadataBearer;
+export interface ListLedgersCommandInput extends ListLedgersRequest {}
+export interface ListLedgersCommandOutput extends ListLedgersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of ledger summaries that are associated with the current AWS account

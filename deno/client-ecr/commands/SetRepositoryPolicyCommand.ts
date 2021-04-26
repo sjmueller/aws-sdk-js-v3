@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SetRepositoryPolicyCommandInput = SetRepositoryPolicyRequest;
-export type SetRepositoryPolicyCommandOutput = SetRepositoryPolicyResponse & __MetadataBearer;
+export interface SetRepositoryPolicyCommandInput extends SetRepositoryPolicyRequest {}
+export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a repository policy to the specified repository to control access permissions.

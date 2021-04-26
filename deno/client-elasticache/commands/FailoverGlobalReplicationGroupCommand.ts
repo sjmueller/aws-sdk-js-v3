@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type FailoverGlobalReplicationGroupCommandInput = FailoverGlobalReplicationGroupMessage;
-export type FailoverGlobalReplicationGroupCommandOutput = FailoverGlobalReplicationGroupResult & __MetadataBearer;
+export interface FailoverGlobalReplicationGroupCommandInput extends FailoverGlobalReplicationGroupMessage {}
+export interface FailoverGlobalReplicationGroupCommandOutput
+  extends FailoverGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Used to failover the primary region to a selected secondary region. The selected secondary region will become primary, and all other clusters will become secondary.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateTimeToLiveCommandInput = UpdateTimeToLiveInput;
-export type UpdateTimeToLiveCommandOutput = UpdateTimeToLiveOutput & __MetadataBearer;
+export interface UpdateTimeToLiveCommandInput extends UpdateTimeToLiveInput {}
+export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for the

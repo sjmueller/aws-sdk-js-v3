@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateResourceCommandInput = UpdateResourceRequest;
-export type UpdateResourceCommandOutput = Resource & __MetadataBearer;
+export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
+export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
  * <p>Changes information about a <a>Resource</a> resource.</p>

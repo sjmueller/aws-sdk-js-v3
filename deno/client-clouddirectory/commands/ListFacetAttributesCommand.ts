@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListFacetAttributesCommandInput = ListFacetAttributesRequest;
-export type ListFacetAttributesCommandOutput = ListFacetAttributesResponse & __MetadataBearer;
+export interface ListFacetAttributesCommandInput extends ListFacetAttributesRequest {}
+export interface ListFacetAttributesCommandOutput extends ListFacetAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves attributes attached to the facet.</p>

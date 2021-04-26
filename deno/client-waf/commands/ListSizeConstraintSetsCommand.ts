@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListSizeConstraintSetsCommandInput = ListSizeConstraintSetsRequest;
-export type ListSizeConstraintSetsCommandOutput = ListSizeConstraintSetsResponse & __MetadataBearer;
+export interface ListSizeConstraintSetsCommandInput extends ListSizeConstraintSetsRequest {}
+export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintSetsResponse, __MetadataBearer {}
 
 /**
  * <note>

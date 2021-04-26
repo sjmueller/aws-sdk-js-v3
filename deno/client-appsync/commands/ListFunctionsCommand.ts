@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListFunctionsCommandInput = ListFunctionsRequest;
-export type ListFunctionsCommandOutput = ListFunctionsResponse & __MetadataBearer;
+export interface ListFunctionsCommandInput extends ListFunctionsRequest {}
+export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __MetadataBearer {}
 
 /**
  * <p>List multiple functions.</p>

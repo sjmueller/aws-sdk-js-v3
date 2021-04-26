@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteHumanTaskUiCommandInput = DeleteHumanTaskUiRequest;
-export type DeleteHumanTaskUiCommandOutput = DeleteHumanTaskUiResponse & __MetadataBearer;
+export interface DeleteHumanTaskUiCommandInput extends DeleteHumanTaskUiRequest {}
+export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to delete a human task user interface (worker task template).</p>

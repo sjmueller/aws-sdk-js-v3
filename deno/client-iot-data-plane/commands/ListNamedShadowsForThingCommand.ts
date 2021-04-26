@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListNamedShadowsForThingCommandInput = ListNamedShadowsForThingRequest;
-export type ListNamedShadowsForThingCommandOutput = ListNamedShadowsForThingResponse & __MetadataBearer;
+export interface ListNamedShadowsForThingCommandInput extends ListNamedShadowsForThingRequest {}
+export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsForThingResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the shadows for the specified thing.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListImageRecipesCommandInput = ListImageRecipesRequest;
-export type ListImageRecipesCommandOutput = ListImageRecipesResponse & __MetadataBearer;
+export interface ListImageRecipesCommandInput extends ListImageRecipesRequest {}
+export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse, __MetadataBearer {}
 
 /**
  * <p> Returns a list of image recipes.</p>

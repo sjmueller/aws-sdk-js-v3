@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateCampaignCommandInput = UpdateCampaignRequest;
-export type UpdateCampaignCommandOutput = UpdateCampaignResponse & __MetadataBearer;
+export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
+export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration and other settings for a campaign.</p>

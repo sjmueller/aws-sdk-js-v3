@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartStackCommandInput = StartStackRequest;
-export type StartStackCommandOutput = __MetadataBearer;
+export interface StartStackCommandInput extends StartStackRequest {}
+export interface StartStackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Starts a stack's instances.</p>

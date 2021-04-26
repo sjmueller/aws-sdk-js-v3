@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateIdentityProviderCommandInput = CreateIdentityProviderRequest;
-export type CreateIdentityProviderCommandOutput = CreateIdentityProviderResponse & __MetadataBearer;
+export interface CreateIdentityProviderCommandInput extends CreateIdentityProviderRequest {}
+export interface CreateIdentityProviderCommandOutput extends CreateIdentityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an identity provider for a user pool.</p>

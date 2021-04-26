@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeAggregateComplianceByConfigRulesCommandInput = DescribeAggregateComplianceByConfigRulesRequest;
-export type DescribeAggregateComplianceByConfigRulesCommandOutput = DescribeAggregateComplianceByConfigRulesResponse &
-  __MetadataBearer;
+export interface DescribeAggregateComplianceByConfigRulesCommandInput
+  extends DescribeAggregateComplianceByConfigRulesRequest {}
+export interface DescribeAggregateComplianceByConfigRulesCommandOutput
+  extends DescribeAggregateComplianceByConfigRulesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of compliant and noncompliant rules with the

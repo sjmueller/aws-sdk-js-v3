@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopMonitoringScheduleCommandInput = StopMonitoringScheduleRequest;
-export type StopMonitoringScheduleCommandOutput = __MetadataBearer;
+export interface StopMonitoringScheduleCommandInput extends StopMonitoringScheduleRequest {}
+export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a previously started monitoring schedule.</p>

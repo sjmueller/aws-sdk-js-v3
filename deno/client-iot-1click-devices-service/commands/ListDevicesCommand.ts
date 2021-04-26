@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListDevicesCommandInput = ListDevicesRequest;
-export type ListDevicesCommandOutput = ListDevicesResponse & __MetadataBearer;
+export interface ListDevicesCommandInput extends ListDevicesRequest {}
+export interface ListDevicesCommandOutput extends ListDevicesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the 1-Click compatible devices associated with your AWS account.</p>

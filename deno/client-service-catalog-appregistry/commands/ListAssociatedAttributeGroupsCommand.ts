@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListAssociatedAttributeGroupsCommandInput = ListAssociatedAttributeGroupsRequest;
-export type ListAssociatedAttributeGroupsCommandOutput = ListAssociatedAttributeGroupsResponse & __MetadataBearer;
+export interface ListAssociatedAttributeGroupsCommandInput extends ListAssociatedAttributeGroupsRequest {}
+export interface ListAssociatedAttributeGroupsCommandOutput
+  extends ListAssociatedAttributeGroupsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetQueryLoggingConfigCommandInput = GetQueryLoggingConfigRequest;
-export type GetQueryLoggingConfigCommandOutput = GetQueryLoggingConfigResponse & __MetadataBearer;
+export interface GetQueryLoggingConfigCommandInput extends GetQueryLoggingConfigRequest {}
+export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified configuration for DNS query logging.</p>

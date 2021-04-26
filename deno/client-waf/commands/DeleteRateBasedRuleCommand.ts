@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteRateBasedRuleCommandInput = DeleteRateBasedRuleRequest;
-export type DeleteRateBasedRuleCommandOutput = DeleteRateBasedRuleResponse & __MetadataBearer;
+export interface DeleteRateBasedRuleCommandInput extends DeleteRateBasedRuleRequest {}
+export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleResponse, __MetadataBearer {}
 
 /**
  * <note>

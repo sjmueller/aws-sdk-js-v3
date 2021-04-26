@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListIAMPolicyAssignmentsCommandInput = ListIAMPolicyAssignmentsRequest;
-export type ListIAMPolicyAssignmentsCommandOutput = ListIAMPolicyAssignmentsResponse & __MetadataBearer;
+export interface ListIAMPolicyAssignmentsCommandInput extends ListIAMPolicyAssignmentsRequest {}
+export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssignmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists IAM policy assignments in the current Amazon QuickSight account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteEndpointConfigCommandInput = DeleteEndpointConfigInput;
-export type DeleteEndpointConfigCommandOutput = __MetadataBearer;
+export interface DeleteEndpointConfigCommandInput extends DeleteEndpointConfigInput {}
+export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an endpoint configuration. The <code>DeleteEndpointConfig</code> API

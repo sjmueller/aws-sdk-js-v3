@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ExecutePolicyCommandInput = ExecutePolicyType;
-export type ExecutePolicyCommandOutput = __MetadataBearer;
+export interface ExecutePolicyCommandInput extends ExecutePolicyType {}
+export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Executes the specified policy. This can be useful for testing the design of your

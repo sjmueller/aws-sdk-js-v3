@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociateConnectorCommandInput = DisassociateConnectorRequest;
-export type DisassociateConnectorCommandOutput = DisassociateConnectorResponse & __MetadataBearer;
+export interface DisassociateConnectorCommandInput extends DisassociateConnectorRequest {}
+export interface DisassociateConnectorCommandOutput extends DisassociateConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified connector from AWS SMS.</p>

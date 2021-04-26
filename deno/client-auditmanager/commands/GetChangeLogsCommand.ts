@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetChangeLogsCommandInput = GetChangeLogsRequest;
-export type GetChangeLogsCommandOutput = GetChangeLogsResponse & __MetadataBearer;
+export interface GetChangeLogsCommandInput extends GetChangeLogsRequest {}
+export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __MetadataBearer {}
 
 /**
  * <p>

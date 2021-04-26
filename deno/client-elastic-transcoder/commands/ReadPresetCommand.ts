@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ReadPresetCommandInput = ReadPresetRequest;
-export type ReadPresetCommandOutput = ReadPresetResponse & __MetadataBearer;
+export interface ReadPresetCommandInput extends ReadPresetRequest {}
+export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataBearer {}
 
 /**
  * <p>The ReadPreset operation gets detailed information about a preset.</p>

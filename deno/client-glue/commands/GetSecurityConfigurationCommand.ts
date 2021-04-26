@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetSecurityConfigurationCommandInput = GetSecurityConfigurationRequest;
-export type GetSecurityConfigurationCommandOutput = GetSecurityConfigurationResponse & __MetadataBearer;
+export interface GetSecurityConfigurationCommandInput extends GetSecurityConfigurationRequest {}
+export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a specified security configuration.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetDocumentCommandInput = GetDocumentRequest;
-export type GetDocumentCommandOutput = GetDocumentResponse & __MetadataBearer;
+export interface GetDocumentCommandInput extends GetDocumentRequest {}
+export interface GetDocumentCommandOutput extends GetDocumentResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details of a document.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteVpcPeeringConnectionCommandInput = DeleteVpcPeeringConnectionRequest;
-export type DeleteVpcPeeringConnectionCommandOutput = DeleteVpcPeeringConnectionResult & __MetadataBearer;
+export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeeringConnectionRequest {}
+export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a VPC peering connection. Either the owner of the requester VPC or the owner

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type TerminateWorkflowExecutionCommandInput = TerminateWorkflowExecutionInput;
-export type TerminateWorkflowExecutionCommandOutput = __MetadataBearer;
+export interface TerminateWorkflowExecutionCommandInput extends TerminateWorkflowExecutionInput {}
+export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records a <code>WorkflowExecutionTerminated</code> event and forces closure of the

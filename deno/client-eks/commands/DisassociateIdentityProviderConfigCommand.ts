@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociateIdentityProviderConfigCommandInput = DisassociateIdentityProviderConfigRequest;
-export type DisassociateIdentityProviderConfigCommandOutput = DisassociateIdentityProviderConfigResponse &
-  __MetadataBearer;
+export interface DisassociateIdentityProviderConfigCommandInput extends DisassociateIdentityProviderConfigRequest {}
+export interface DisassociateIdentityProviderConfigCommandOutput
+  extends DisassociateIdentityProviderConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates an identity provider configuration from a cluster. If you disassociate

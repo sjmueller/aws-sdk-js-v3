@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SetUserSettingsCommandInput = SetUserSettingsRequest;
-export type SetUserSettingsCommandOutput = SetUserSettingsResponse & __MetadataBearer;
+export interface SetUserSettingsCommandInput extends SetUserSettingsRequest {}
+export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>

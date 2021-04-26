@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeDBLogFilesCommandInput = DescribeDBLogFilesMessage;
-export type DescribeDBLogFilesCommandOutput = DescribeDBLogFilesResponse & __MetadataBearer;
+export interface DescribeDBLogFilesCommandInput extends DescribeDBLogFilesMessage {}
+export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of DB log files for the DB instance.</p>

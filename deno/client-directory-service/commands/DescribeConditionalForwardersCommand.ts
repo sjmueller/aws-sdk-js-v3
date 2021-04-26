@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeConditionalForwardersCommandInput = DescribeConditionalForwardersRequest;
-export type DescribeConditionalForwardersCommandOutput = DescribeConditionalForwardersResult & __MetadataBearer;
+export interface DescribeConditionalForwardersCommandInput extends DescribeConditionalForwardersRequest {}
+export interface DescribeConditionalForwardersCommandOutput
+  extends DescribeConditionalForwardersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Obtains information about the conditional forwarders for this account.</p>

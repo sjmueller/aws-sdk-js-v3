@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutAccountConfigurationCommandInput = PutAccountConfigurationRequest;
-export type PutAccountConfigurationCommandOutput = __MetadataBearer;
+export interface PutAccountConfigurationCommandInput extends PutAccountConfigurationRequest {}
+export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or modifies

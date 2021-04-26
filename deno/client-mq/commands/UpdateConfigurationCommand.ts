@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateConfigurationCommandInput = UpdateConfigurationRequest;
-export type UpdateConfigurationCommandOutput = UpdateConfigurationResponse & __MetadataBearer;
+export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequest {}
+export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
  * Updates the specified configuration.

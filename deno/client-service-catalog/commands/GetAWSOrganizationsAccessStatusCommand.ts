@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetAWSOrganizationsAccessStatusCommandInput = GetAWSOrganizationsAccessStatusInput;
-export type GetAWSOrganizationsAccessStatusCommandOutput = GetAWSOrganizationsAccessStatusOutput & __MetadataBearer;
+export interface GetAWSOrganizationsAccessStatusCommandInput extends GetAWSOrganizationsAccessStatusInput {}
+export interface GetAWSOrganizationsAccessStatusCommandOutput
+  extends GetAWSOrganizationsAccessStatusOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be

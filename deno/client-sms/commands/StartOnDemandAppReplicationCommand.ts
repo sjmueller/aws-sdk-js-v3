@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartOnDemandAppReplicationCommandInput = StartOnDemandAppReplicationRequest;
-export type StartOnDemandAppReplicationCommandOutput = StartOnDemandAppReplicationResponse & __MetadataBearer;
+export interface StartOnDemandAppReplicationCommandInput extends StartOnDemandAppReplicationRequest {}
+export interface StartOnDemandAppReplicationCommandOutput
+  extends StartOnDemandAppReplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an on-demand replication run for the specified application.</p>

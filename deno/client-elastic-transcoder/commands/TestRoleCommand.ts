@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type TestRoleCommandInput = TestRoleRequest;
-export type TestRoleCommandOutput = TestRoleResponse & __MetadataBearer;
+export interface TestRoleCommandInput extends TestRoleRequest {}
+export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBearer {}
 
 /**
  * @deprecated

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeCompanyNetworkConfigurationCommandInput = DescribeCompanyNetworkConfigurationRequest;
-export type DescribeCompanyNetworkConfigurationCommandOutput = DescribeCompanyNetworkConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeCompanyNetworkConfigurationCommandInput extends DescribeCompanyNetworkConfigurationRequest {}
+export interface DescribeCompanyNetworkConfigurationCommandOutput
+  extends DescribeCompanyNetworkConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the networking configuration to access the internal websites associated with

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type BatchDeleteDelegationByAssessmentCommandInput = BatchDeleteDelegationByAssessmentRequest;
-export type BatchDeleteDelegationByAssessmentCommandOutput = BatchDeleteDelegationByAssessmentResponse &
-  __MetadataBearer;
+export interface BatchDeleteDelegationByAssessmentCommandInput extends BatchDeleteDelegationByAssessmentRequest {}
+export interface BatchDeleteDelegationByAssessmentCommandOutput
+  extends BatchDeleteDelegationByAssessmentResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

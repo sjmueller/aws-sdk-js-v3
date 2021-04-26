@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyVolumeAttributeCommandInput = ModifyVolumeAttributeRequest;
-export type ModifyVolumeAttributeCommandOutput = __MetadataBearer;
+export interface ModifyVolumeAttributeCommandInput extends ModifyVolumeAttributeRequest {}
+export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies a volume attribute.</p>

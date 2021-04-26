@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddPermissionCommandInput = AddPermissionRequest;
-export type AddPermissionCommandOutput = __MetadataBearer;
+export interface AddPermissionCommandInput extends AddPermissionRequest {}
+export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds a permission to a queue for a specific

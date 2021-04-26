@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteEgressOnlyInternetGatewayCommandInput = DeleteEgressOnlyInternetGatewayRequest;
-export type DeleteEgressOnlyInternetGatewayCommandOutput = DeleteEgressOnlyInternetGatewayResult & __MetadataBearer;
+export interface DeleteEgressOnlyInternetGatewayCommandInput extends DeleteEgressOnlyInternetGatewayRequest {}
+export interface DeleteEgressOnlyInternetGatewayCommandOutput
+  extends DeleteEgressOnlyInternetGatewayResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes an egress-only internet gateway.</p>

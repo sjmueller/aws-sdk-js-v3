@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetPreparedStatementCommandInput = GetPreparedStatementInput;
-export type GetPreparedStatementCommandOutput = GetPreparedStatementOutput & __MetadataBearer;
+export interface GetPreparedStatementCommandInput extends GetPreparedStatementInput {}
+export interface GetPreparedStatementCommandOutput extends GetPreparedStatementOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the prepared statement with the specified name from the specified

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type TestConnectionCommandInput = TestConnectionMessage;
-export type TestConnectionCommandOutput = TestConnectionResponse & __MetadataBearer;
+export interface TestConnectionCommandInput extends TestConnectionMessage {}
+export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Tests the connection between the replication instance and the endpoint.</p>

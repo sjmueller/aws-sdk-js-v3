@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteUserPoolClientCommandInput = DeleteUserPoolClientRequest;
-export type DeleteUserPoolClientCommandOutput = __MetadataBearer;
+export interface DeleteUserPoolClientCommandInput extends DeleteUserPoolClientRequest {}
+export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Allows the developer to delete the user pool client.</p>

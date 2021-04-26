@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyVpcTenancyCommandInput = ModifyVpcTenancyRequest;
-export type ModifyVpcTenancyCommandOutput = ModifyVpcTenancyResult & __MetadataBearer;
+export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
+export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the instance tenancy attribute of the specified VPC. You can change the

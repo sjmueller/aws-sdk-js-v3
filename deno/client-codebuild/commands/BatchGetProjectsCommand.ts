@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type BatchGetProjectsCommandInput = BatchGetProjectsInput;
-export type BatchGetProjectsCommandOutput = BatchGetProjectsOutput & __MetadataBearer;
+export interface BatchGetProjectsCommandInput extends BatchGetProjectsInput {}
+export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more build projects.</p>

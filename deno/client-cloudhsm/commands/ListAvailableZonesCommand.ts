@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
-export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse & __MetadataBearer;
+export interface ListAvailableZonesCommandInput extends ListAvailableZonesRequest {}
+export interface ListAvailableZonesCommandOutput extends ListAvailableZonesResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

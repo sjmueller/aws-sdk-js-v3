@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetAlarmsCommandInput = GetAlarmsRequest;
-export type GetAlarmsCommandOutput = GetAlarmsResult & __MetadataBearer;
+export interface GetAlarmsCommandInput extends GetAlarmsRequest {}
+export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configured alarms. Specify an alarm name in your request to

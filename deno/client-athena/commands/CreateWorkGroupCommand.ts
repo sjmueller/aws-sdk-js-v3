@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateWorkGroupCommandInput = CreateWorkGroupInput;
-export type CreateWorkGroupCommandOutput = CreateWorkGroupOutput & __MetadataBearer;
+export interface CreateWorkGroupCommandInput extends CreateWorkGroupInput {}
+export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a workgroup with the specified name.</p>

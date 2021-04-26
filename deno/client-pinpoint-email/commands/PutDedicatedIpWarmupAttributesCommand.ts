@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutDedicatedIpWarmupAttributesCommandInput = PutDedicatedIpWarmupAttributesRequest;
-export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse & __MetadataBearer;
+export interface PutDedicatedIpWarmupAttributesCommandInput extends PutDedicatedIpWarmupAttributesRequest {}
+export interface PutDedicatedIpWarmupAttributesCommandOutput
+  extends PutDedicatedIpWarmupAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p></p>

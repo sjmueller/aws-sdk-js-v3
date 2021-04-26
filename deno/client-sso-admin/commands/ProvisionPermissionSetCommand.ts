@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ProvisionPermissionSetCommandInput = ProvisionPermissionSetRequest;
-export type ProvisionPermissionSetCommandOutput = ProvisionPermissionSetResponse & __MetadataBearer;
+export interface ProvisionPermissionSetCommandInput extends ProvisionPermissionSetRequest {}
+export interface ProvisionPermissionSetCommandOutput extends ProvisionPermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>The process by which a specified permission set is provisioned to the specified target.</p>

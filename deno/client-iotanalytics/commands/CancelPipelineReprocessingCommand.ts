@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CancelPipelineReprocessingCommandInput = CancelPipelineReprocessingRequest;
-export type CancelPipelineReprocessingCommandOutput = CancelPipelineReprocessingResponse & __MetadataBearer;
+export interface CancelPipelineReprocessingCommandInput extends CancelPipelineReprocessingRequest {}
+export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the reprocessing of data through the pipeline.</p>

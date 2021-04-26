@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListQueueQuickConnectsCommandInput = ListQueueQuickConnectsRequest;
-export type ListQueueQuickConnectsCommandOutput = ListQueueQuickConnectsResponse & __MetadataBearer;
+export interface ListQueueQuickConnectsCommandInput extends ListQueueQuickConnectsRequest {}
+export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConnectsResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

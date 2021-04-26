@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateDestinationCommandInput = UpdateDestinationInput;
-export type UpdateDestinationCommandOutput = UpdateDestinationOutput & __MetadataBearer;
+export interface UpdateDestinationCommandInput extends UpdateDestinationInput {}
+export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified destination of the specified delivery stream.</p>

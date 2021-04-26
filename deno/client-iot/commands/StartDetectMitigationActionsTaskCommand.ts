@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartDetectMitigationActionsTaskCommandInput = StartDetectMitigationActionsTaskRequest;
-export type StartDetectMitigationActionsTaskCommandOutput = StartDetectMitigationActionsTaskResponse & __MetadataBearer;
+export interface StartDetectMitigationActionsTaskCommandInput extends StartDetectMitigationActionsTaskRequest {}
+export interface StartDetectMitigationActionsTaskCommandOutput
+  extends StartDetectMitigationActionsTaskResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

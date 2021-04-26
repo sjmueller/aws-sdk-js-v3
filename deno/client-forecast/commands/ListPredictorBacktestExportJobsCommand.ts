@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListPredictorBacktestExportJobsCommandInput = ListPredictorBacktestExportJobsRequest;
-export type ListPredictorBacktestExportJobsCommandOutput = ListPredictorBacktestExportJobsResponse & __MetadataBearer;
+export interface ListPredictorBacktestExportJobsCommandInput extends ListPredictorBacktestExportJobsRequest {}
+export interface ListPredictorBacktestExportJobsCommandOutput
+  extends ListPredictorBacktestExportJobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of predictor backtest export jobs created using the <a>CreatePredictorBacktestExportJob</a> operation. This operation returns a summary

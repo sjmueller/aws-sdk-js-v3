@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeReplicationTaskAssessmentRunsCommandInput = DescribeReplicationTaskAssessmentRunsMessage;
-export type DescribeReplicationTaskAssessmentRunsCommandOutput = DescribeReplicationTaskAssessmentRunsResponse &
-  __MetadataBearer;
+export interface DescribeReplicationTaskAssessmentRunsCommandInput
+  extends DescribeReplicationTaskAssessmentRunsMessage {}
+export interface DescribeReplicationTaskAssessmentRunsCommandOutput
+  extends DescribeReplicationTaskAssessmentRunsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of premigration assessment runs based on filter

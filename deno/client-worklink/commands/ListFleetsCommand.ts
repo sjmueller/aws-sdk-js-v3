@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListFleetsCommandInput = ListFleetsRequest;
-export type ListFleetsCommandOutput = ListFleetsResponse & __MetadataBearer;
+export interface ListFleetsCommandInput extends ListFleetsRequest {}
+export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of fleets for the current account and Region.</p>

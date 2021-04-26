@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListTableRowsCommandInput = ListTableRowsRequest;
-export type ListTableRowsCommandOutput = ListTableRowsResult & __MetadataBearer;
+export interface ListTableRowsCommandInput extends ListTableRowsRequest {}
+export interface ListTableRowsCommandOutput extends ListTableRowsResult, __MetadataBearer {}
 
 /**
  * <p>

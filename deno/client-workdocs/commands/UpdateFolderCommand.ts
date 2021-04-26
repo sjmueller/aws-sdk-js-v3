@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateFolderCommandInput = UpdateFolderRequest;
-export type UpdateFolderCommandOutput = __MetadataBearer;
+export interface UpdateFolderCommandInput extends UpdateFolderRequest {}
+export interface UpdateFolderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the specified attributes of the specified folder. The user must have access

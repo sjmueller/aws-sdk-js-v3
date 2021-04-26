@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopTransformJobCommandInput = StopTransformJobRequest;
-export type StopTransformJobCommandOutput = __MetadataBearer;
+export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
+export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a transform job.</p>

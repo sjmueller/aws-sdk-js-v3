@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeReplicationTaskIndividualAssessmentsCommandInput = DescribeReplicationTaskIndividualAssessmentsMessage;
-export type DescribeReplicationTaskIndividualAssessmentsCommandOutput = DescribeReplicationTaskIndividualAssessmentsResponse &
-  __MetadataBearer;
+export interface DescribeReplicationTaskIndividualAssessmentsCommandInput
+  extends DescribeReplicationTaskIndividualAssessmentsMessage {}
+export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
+  extends DescribeReplicationTaskIndividualAssessmentsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of individual assessments based on filter settings.</p>

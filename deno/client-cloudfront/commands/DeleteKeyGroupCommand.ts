@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteKeyGroupCommandInput = DeleteKeyGroupRequest;
-export type DeleteKeyGroupCommandOutput = __MetadataBearer;
+export interface DeleteKeyGroupCommandInput extends DeleteKeyGroupRequest {}
+export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a key group.</p>

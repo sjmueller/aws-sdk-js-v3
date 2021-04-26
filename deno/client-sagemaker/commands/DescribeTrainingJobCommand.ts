@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeTrainingJobCommandInput = DescribeTrainingJobRequest;
-export type DescribeTrainingJobCommandOutput = DescribeTrainingJobResponse & __MetadataBearer;
+export interface DescribeTrainingJobCommandInput extends DescribeTrainingJobRequest {}
+export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a training job. </p>

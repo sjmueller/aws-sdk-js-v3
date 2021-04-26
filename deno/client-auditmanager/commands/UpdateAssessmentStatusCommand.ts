@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateAssessmentStatusCommandInput = UpdateAssessmentStatusRequest;
-export type UpdateAssessmentStatusCommandOutput = UpdateAssessmentStatusResponse & __MetadataBearer;
+export interface UpdateAssessmentStatusCommandInput extends UpdateAssessmentStatusRequest {}
+export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentStatusResponse, __MetadataBearer {}
 
 /**
  * <p>

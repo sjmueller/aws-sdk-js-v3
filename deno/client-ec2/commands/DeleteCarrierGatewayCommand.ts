@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteCarrierGatewayCommandInput = DeleteCarrierGatewayRequest;
-export type DeleteCarrierGatewayCommandOutput = DeleteCarrierGatewayResult & __MetadataBearer;
+export interface DeleteCarrierGatewayCommandInput extends DeleteCarrierGatewayRequest {}
+export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a carrier gateway.</p>

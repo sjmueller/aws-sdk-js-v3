@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type BatchGetFrameMetricDataCommandInput = BatchGetFrameMetricDataRequest;
-export type BatchGetFrameMetricDataCommandOutput = BatchGetFrameMetricDataResponse & __MetadataBearer;
+export interface BatchGetFrameMetricDataCommandInput extends BatchGetFrameMetricDataRequest {}
+export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetricDataResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListProjectsCommandInput = ListProjectsRequest;
-export type ListProjectsCommandOutput = ListProjectsResponse & __MetadataBearer;
+export interface ListProjectsCommandInput extends ListProjectsRequest {}
+export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the DataBrew projects that are defined.</p>

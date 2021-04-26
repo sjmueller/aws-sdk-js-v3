@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ResolveCustomerCommandInput = ResolveCustomerRequest;
-export type ResolveCustomerCommandOutput = ResolveCustomerResult & __MetadataBearer;
+export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
+export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**
  * <p>ResolveCustomer is called by a SaaS application during the registration process.

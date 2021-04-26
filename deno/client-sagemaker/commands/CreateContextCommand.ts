@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateContextCommandInput = CreateContextRequest;
-export type CreateContextCommandOutput = CreateContextResponse & __MetadataBearer;
+export interface CreateContextCommandInput extends CreateContextRequest {}
+export interface CreateContextCommandOutput extends CreateContextResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <i>context</i>. A context is a lineage tracking entity that

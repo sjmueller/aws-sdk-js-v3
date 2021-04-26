@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeIdentityProviderConfigurationCommandInput = DescribeIdentityProviderConfigurationRequest;
-export type DescribeIdentityProviderConfigurationCommandOutput = DescribeIdentityProviderConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeIdentityProviderConfigurationCommandInput
+  extends DescribeIdentityProviderConfigurationRequest {}
+export interface DescribeIdentityProviderConfigurationCommandOutput
+  extends DescribeIdentityProviderConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the identity provider configuration of the specified fleet.</p>

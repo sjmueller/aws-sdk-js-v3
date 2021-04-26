@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateRegexPatternSetCommandInput = CreateRegexPatternSetRequest;
-export type CreateRegexPatternSetCommandOutput = CreateRegexPatternSetResponse & __MetadataBearer;
+export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSetRequest {}
+export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
  * <note>

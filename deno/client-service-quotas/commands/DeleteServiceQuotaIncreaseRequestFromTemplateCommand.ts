@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput = DeleteServiceQuotaIncreaseRequestFromTemplateRequest;
-export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = DeleteServiceQuotaIncreaseRequestFromTemplateResponse &
-  __MetadataBearer;
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
+  extends DeleteServiceQuotaIncreaseRequestFromTemplateRequest {}
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  extends DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the quota increase request for the specified quota from your quota request

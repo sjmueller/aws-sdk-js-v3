@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteRemoteAccessSessionCommandInput = DeleteRemoteAccessSessionRequest;
-export type DeleteRemoteAccessSessionCommandOutput = DeleteRemoteAccessSessionResult & __MetadataBearer;
+export interface DeleteRemoteAccessSessionCommandInput extends DeleteRemoteAccessSessionRequest {}
+export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a completed remote access session and its results.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeOrganizationCommandInput = {};
-export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse & __MetadataBearer;
+export interface DescribeOrganizationCommandInput {}
+export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the organization that the user's account belongs

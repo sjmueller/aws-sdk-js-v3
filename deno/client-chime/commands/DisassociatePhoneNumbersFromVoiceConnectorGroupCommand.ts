@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput = DisassociatePhoneNumbersFromVoiceConnectorGroupRequest;
-export type DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput = DisassociatePhoneNumbersFromVoiceConnectorGroupResponse &
-  __MetadataBearer;
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
+  extends DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
+  extends DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>

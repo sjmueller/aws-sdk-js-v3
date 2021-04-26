@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateStudioSessionMappingCommandInput = CreateStudioSessionMappingInput;
-export type CreateStudioSessionMappingCommandOutput = __MetadataBearer;
+export interface CreateStudioSessionMappingCommandInput extends CreateStudioSessionMappingInput {}
+export interface CreateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and

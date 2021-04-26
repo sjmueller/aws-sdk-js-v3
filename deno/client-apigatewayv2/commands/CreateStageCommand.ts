@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateStageCommandInput = CreateStageRequest;
-export type CreateStageCommandOutput = CreateStageResponse & __MetadataBearer;
+export interface CreateStageCommandInput extends CreateStageRequest {}
+export interface CreateStageCommandOutput extends CreateStageResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Stage for an API.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociateClientVpnTargetNetworkCommandInput = DisassociateClientVpnTargetNetworkRequest;
-export type DisassociateClientVpnTargetNetworkCommandOutput = DisassociateClientVpnTargetNetworkResult &
-  __MetadataBearer;
+export interface DisassociateClientVpnTargetNetworkCommandInput extends DisassociateClientVpnTargetNetworkRequest {}
+export interface DisassociateClientVpnTargetNetworkCommandOutput
+  extends DisassociateClientVpnTargetNetworkResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the

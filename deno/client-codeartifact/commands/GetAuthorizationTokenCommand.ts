@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetAuthorizationTokenCommandInput = GetAuthorizationTokenRequest;
-export type GetAuthorizationTokenCommandOutput = GetAuthorizationTokenResult & __MetadataBearer;
+export interface GetAuthorizationTokenCommandInput extends GetAuthorizationTokenRequest {}
+export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResult, __MetadataBearer {}
 
 /**
  * <p>

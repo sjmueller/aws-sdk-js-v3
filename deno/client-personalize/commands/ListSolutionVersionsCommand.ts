@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListSolutionVersionsCommandInput = ListSolutionVersionsRequest;
-export type ListSolutionVersionsCommandOutput = ListSolutionVersionsResponse & __MetadataBearer;
+export interface ListSolutionVersionsCommandInput extends ListSolutionVersionsRequest {}
+export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of solution versions for the given solution. When a solution is not

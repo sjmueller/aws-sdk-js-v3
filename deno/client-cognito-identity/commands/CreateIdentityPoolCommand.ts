@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateIdentityPoolCommandInput = CreateIdentityPoolInput;
-export type CreateIdentityPoolCommandOutput = IdentityPool & __MetadataBearer;
+export interface CreateIdentityPoolCommandInput extends CreateIdentityPoolInput {}
+export interface CreateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
  * <p>Creates a new identity pool. The identity pool is a store of user identity

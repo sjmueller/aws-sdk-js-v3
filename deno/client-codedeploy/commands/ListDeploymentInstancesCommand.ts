@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListDeploymentInstancesCommandInput = ListDeploymentInstancesInput;
-export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput & __MetadataBearer;
+export interface ListDeploymentInstancesCommandInput extends ListDeploymentInstancesInput {}
+export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
  * @deprecated

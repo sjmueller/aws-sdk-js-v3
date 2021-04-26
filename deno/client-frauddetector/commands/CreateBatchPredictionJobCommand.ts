@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateBatchPredictionJobCommandInput = CreateBatchPredictionJobRequest;
-export type CreateBatchPredictionJobCommandOutput = CreateBatchPredictionJobResult & __MetadataBearer;
+export interface CreateBatchPredictionJobCommandInput extends CreateBatchPredictionJobRequest {}
+export interface CreateBatchPredictionJobCommandOutput extends CreateBatchPredictionJobResult, __MetadataBearer {}
 
 /**
  * <p>Creates a batch prediction job.</p>

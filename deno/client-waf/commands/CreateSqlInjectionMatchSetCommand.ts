@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateSqlInjectionMatchSetCommandInput = CreateSqlInjectionMatchSetRequest;
-export type CreateSqlInjectionMatchSetCommandOutput = CreateSqlInjectionMatchSetResponse & __MetadataBearer;
+export interface CreateSqlInjectionMatchSetCommandInput extends CreateSqlInjectionMatchSetRequest {}
+export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

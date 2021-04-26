@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdatePortfolioCommandInput = UpdatePortfolioInput;
-export type UpdatePortfolioCommandOutput = UpdatePortfolioOutput & __MetadataBearer;
+export interface UpdatePortfolioCommandInput extends UpdatePortfolioInput {}
+export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified portfolio.</p>

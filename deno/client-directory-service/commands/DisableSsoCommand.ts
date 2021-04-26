@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisableSsoCommandInput = DisableSsoRequest;
-export type DisableSsoCommandOutput = DisableSsoResult & __MetadataBearer;
+export interface DisableSsoCommandInput extends DisableSsoRequest {}
+export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBearer {}
 
 /**
  * <p>Disables single-sign on for a directory.</p>

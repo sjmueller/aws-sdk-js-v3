@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutAccountDedicatedIpWarmupAttributesCommandInput = PutAccountDedicatedIpWarmupAttributesRequest;
-export type PutAccountDedicatedIpWarmupAttributesCommandOutput = PutAccountDedicatedIpWarmupAttributesResponse &
-  __MetadataBearer;
+export interface PutAccountDedicatedIpWarmupAttributesCommandInput
+  extends PutAccountDedicatedIpWarmupAttributesRequest {}
+export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
+  extends PutAccountDedicatedIpWarmupAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enable or disable the automatic warm-up feature for dedicated IP addresses.</p>

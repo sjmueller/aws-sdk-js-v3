@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeletePackageCommandInput = DeletePackageRequest;
-export type DeletePackageCommandOutput = DeletePackageResponse & __MetadataBearer;
+export interface DeletePackageCommandInput extends DeletePackageRequest {}
+export interface DeletePackageCommandOutput extends DeletePackageResponse, __MetadataBearer {}
 
 /**
  * <p>Delete the package.</p>

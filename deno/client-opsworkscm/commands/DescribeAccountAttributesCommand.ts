@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesRequest;
-export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResponse & __MetadataBearer;
+export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesRequest {}
+export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>

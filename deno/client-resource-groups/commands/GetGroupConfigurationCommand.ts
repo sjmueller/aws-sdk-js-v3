@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetGroupConfigurationCommandInput = GetGroupConfigurationInput;
-export type GetGroupConfigurationCommandOutput = GetGroupConfigurationOutput & __MetadataBearer;
+export interface GetGroupConfigurationCommandInput extends GetGroupConfigurationInput {}
+export interface GetGroupConfigurationCommandOutput extends GetGroupConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the service configuration associated with the specified resource group. For

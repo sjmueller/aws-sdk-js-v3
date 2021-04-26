@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutImageTagMutabilityCommandInput = PutImageTagMutabilityRequest;
-export type PutImageTagMutabilityCommandOutput = PutImageTagMutabilityResponse & __MetadataBearer;
+export interface PutImageTagMutabilityCommandInput extends PutImageTagMutabilityRequest {}
+export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilityResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the image tag mutability settings for the specified repository. For more

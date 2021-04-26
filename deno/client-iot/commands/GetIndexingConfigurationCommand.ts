@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetIndexingConfigurationCommandInput = GetIndexingConfigurationRequest;
-export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse & __MetadataBearer;
+export interface GetIndexingConfigurationCommandInput extends GetIndexingConfigurationRequest {}
+export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the indexing configuration.</p>

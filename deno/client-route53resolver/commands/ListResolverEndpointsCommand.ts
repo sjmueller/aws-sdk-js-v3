@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListResolverEndpointsCommandInput = ListResolverEndpointsRequest;
-export type ListResolverEndpointsCommandOutput = ListResolverEndpointsResponse & __MetadataBearer;
+export interface ListResolverEndpointsCommandInput extends ListResolverEndpointsRequest {}
+export interface ListResolverEndpointsCommandOutput extends ListResolverEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the Resolver endpoints that were created using the current AWS account.</p>

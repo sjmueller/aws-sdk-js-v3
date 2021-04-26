@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeLoadBalancerPoliciesCommandInput = DescribeLoadBalancerPoliciesInput;
-export type DescribeLoadBalancerPoliciesCommandOutput = DescribeLoadBalancerPoliciesOutput & __MetadataBearer;
+export interface DescribeLoadBalancerPoliciesCommandInput extends DescribeLoadBalancerPoliciesInput {}
+export interface DescribeLoadBalancerPoliciesCommandOutput
+  extends DescribeLoadBalancerPoliciesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the specified policies.</p>

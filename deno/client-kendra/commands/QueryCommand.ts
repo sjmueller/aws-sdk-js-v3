@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type QueryCommandInput = QueryRequest;
-export type QueryCommandOutput = QueryResult & __MetadataBearer;
+export interface QueryCommandInput extends QueryRequest {}
+export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
  * <p>Searches an active index. Use this API to search your documents

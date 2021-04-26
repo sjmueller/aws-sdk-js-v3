@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteUserCommandInput = DeleteUserRequest;
-export type DeleteUserCommandOutput = __MetadataBearer;
+export interface DeleteUserCommandInput extends DeleteUserRequest {}
+export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you delete a user

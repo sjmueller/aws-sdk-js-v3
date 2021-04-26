@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AttachLoadBalancersCommandInput = AttachLoadBalancersType;
-export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType & __MetadataBearer;
+export interface AttachLoadBalancersCommandInput extends AttachLoadBalancersType {}
+export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersResultType, __MetadataBearer {}
 
 /**
  * <note>

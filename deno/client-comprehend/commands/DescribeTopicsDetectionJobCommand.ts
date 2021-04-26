@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeTopicsDetectionJobCommandInput = DescribeTopicsDetectionJobRequest;
-export type DescribeTopicsDetectionJobCommandOutput = DescribeTopicsDetectionJobResponse & __MetadataBearer;
+export interface DescribeTopicsDetectionJobCommandInput extends DescribeTopicsDetectionJobRequest {}
+export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a topic detection job. Use this operation to get

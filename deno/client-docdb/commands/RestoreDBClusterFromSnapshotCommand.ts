@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RestoreDBClusterFromSnapshotCommandInput = RestoreDBClusterFromSnapshotMessage;
-export type RestoreDBClusterFromSnapshotCommandOutput = RestoreDBClusterFromSnapshotResult & __MetadataBearer;
+export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
+export interface RestoreDBClusterFromSnapshotCommandOutput
+  extends RestoreDBClusterFromSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new cluster from a snapshot or cluster snapshot.</p>

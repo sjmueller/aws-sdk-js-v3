@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateAssessmentReportCommandInput = CreateAssessmentReportRequest;
-export type CreateAssessmentReportCommandOutput = CreateAssessmentReportResponse & __MetadataBearer;
+export interface CreateAssessmentReportCommandInput extends CreateAssessmentReportRequest {}
+export interface CreateAssessmentReportCommandOutput extends CreateAssessmentReportResponse, __MetadataBearer {}
 
 /**
  * <p>

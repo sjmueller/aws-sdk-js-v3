@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateMilestoneCommandInput = CreateMilestoneInput;
-export type CreateMilestoneCommandOutput = CreateMilestoneOutput & __MetadataBearer;
+export interface CreateMilestoneCommandInput extends CreateMilestoneInput {}
+export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __MetadataBearer {}
 
 /**
  * <p>Create a milestone for an existing workload.</p>

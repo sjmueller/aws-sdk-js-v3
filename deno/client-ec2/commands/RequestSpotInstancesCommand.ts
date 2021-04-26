@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RequestSpotInstancesCommandInput = RequestSpotInstancesRequest;
-export type RequestSpotInstancesCommandOutput = RequestSpotInstancesResult & __MetadataBearer;
+export interface RequestSpotInstancesCommandInput extends RequestSpotInstancesRequest {}
+export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Spot Instance request.</p>

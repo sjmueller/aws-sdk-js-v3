@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateWorkloadShareCommandInput = UpdateWorkloadShareInput;
-export type UpdateWorkloadShareCommandOutput = UpdateWorkloadShareOutput & __MetadataBearer;
+export interface UpdateWorkloadShareCommandInput extends UpdateWorkloadShareInput {}
+export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOutput, __MetadataBearer {}
 
 /**
  * <p>Update a workload share.</p>

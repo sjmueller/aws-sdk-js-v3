@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListDocumentVersionsCommandInput = ListDocumentVersionsRequest;
-export type ListDocumentVersionsCommandOutput = ListDocumentVersionsResult & __MetadataBearer;
+export interface ListDocumentVersionsCommandInput extends ListDocumentVersionsRequest {}
+export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsResult, __MetadataBearer {}
 
 /**
  * <p>List all versions for a document.</p>

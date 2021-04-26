@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyScheduledActionCommandInput = ModifyScheduledActionMessage;
-export type ModifyScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
+export interface ModifyScheduledActionCommandInput extends ModifyScheduledActionMessage {}
+export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
  * <p>Modifies a scheduled action.

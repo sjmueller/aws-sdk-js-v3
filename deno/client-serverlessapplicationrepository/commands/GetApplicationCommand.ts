@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetApplicationCommandInput = GetApplicationRequest;
-export type GetApplicationCommandOutput = GetApplicationResponse & __MetadataBearer;
+export interface GetApplicationCommandInput extends GetApplicationRequest {}
+export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified application.</p>

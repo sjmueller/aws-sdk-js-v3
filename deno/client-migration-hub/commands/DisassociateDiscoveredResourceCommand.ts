@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociateDiscoveredResourceCommandInput = DisassociateDiscoveredResourceRequest;
-export type DisassociateDiscoveredResourceCommandOutput = DisassociateDiscoveredResourceResult & __MetadataBearer;
+export interface DisassociateDiscoveredResourceCommandInput extends DisassociateDiscoveredResourceRequest {}
+export interface DisassociateDiscoveredResourceCommandOutput
+  extends DisassociateDiscoveredResourceResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociate an Application Discovery Service discovered resource from a migration

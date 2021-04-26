@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SetUserMFAPreferenceCommandInput = SetUserMFAPreferenceRequest;
-export type SetUserMFAPreferenceCommandOutput = SetUserMFAPreferenceResponse & __MetadataBearer;
+export interface SetUserMFAPreferenceCommandInput extends SetUserMFAPreferenceRequest {}
+export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Set the user's multi-factor authentication (MFA) method preference, including which

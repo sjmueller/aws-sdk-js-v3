@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateDistributionConfigurationCommandInput = UpdateDistributionConfigurationRequest;
-export type UpdateDistributionConfigurationCommandOutput = UpdateDistributionConfigurationResponse & __MetadataBearer;
+export interface UpdateDistributionConfigurationCommandInput extends UpdateDistributionConfigurationRequest {}
+export interface UpdateDistributionConfigurationCommandOutput
+  extends UpdateDistributionConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Updates a new distribution configuration. Distribution configurations define and

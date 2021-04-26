@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListBackupVaultsCommandInput = ListBackupVaultsInput;
-export type ListBackupVaultsCommandOutput = ListBackupVaultsOutput & __MetadataBearer;
+export interface ListBackupVaultsCommandInput extends ListBackupVaultsInput {}
+export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of recovery point storage containers along with information about

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListDeviceDefinitionVersionsCommandInput = ListDeviceDefinitionVersionsRequest;
-export type ListDeviceDefinitionVersionsCommandOutput = ListDeviceDefinitionVersionsResponse & __MetadataBearer;
+export interface ListDeviceDefinitionVersionsCommandInput extends ListDeviceDefinitionVersionsRequest {}
+export interface ListDeviceDefinitionVersionsCommandOutput
+  extends ListDeviceDefinitionVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * Lists the versions of a device definition.

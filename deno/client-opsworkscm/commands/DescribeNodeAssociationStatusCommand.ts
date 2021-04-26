@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeNodeAssociationStatusCommandInput = DescribeNodeAssociationStatusRequest;
-export type DescribeNodeAssociationStatusCommandOutput = DescribeNodeAssociationStatusResponse & __MetadataBearer;
+export interface DescribeNodeAssociationStatusCommandInput extends DescribeNodeAssociationStatusRequest {}
+export interface DescribeNodeAssociationStatusCommandOutput
+  extends DescribeNodeAssociationStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

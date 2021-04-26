@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeDataSourcePermissionsCommandInput = DescribeDataSourcePermissionsRequest;
-export type DescribeDataSourcePermissionsCommandOutput = DescribeDataSourcePermissionsResponse & __MetadataBearer;
+export interface DescribeDataSourcePermissionsCommandInput extends DescribeDataSourcePermissionsRequest {}
+export interface DescribeDataSourcePermissionsCommandOutput
+  extends DescribeDataSourcePermissionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the resource permissions for a data source.</p>

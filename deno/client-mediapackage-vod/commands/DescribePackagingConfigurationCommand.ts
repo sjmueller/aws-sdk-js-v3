@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribePackagingConfigurationCommandInput = DescribePackagingConfigurationRequest;
-export type DescribePackagingConfigurationCommandOutput = DescribePackagingConfigurationResponse & __MetadataBearer;
+export interface DescribePackagingConfigurationCommandInput extends DescribePackagingConfigurationRequest {}
+export interface DescribePackagingConfigurationCommandOutput
+  extends DescribePackagingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * Returns a description of a MediaPackage VOD PackagingConfiguration resource.

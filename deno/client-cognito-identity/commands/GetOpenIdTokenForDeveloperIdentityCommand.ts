@@ -22,9 +22,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetOpenIdTokenForDeveloperIdentityCommandInput = GetOpenIdTokenForDeveloperIdentityInput;
-export type GetOpenIdTokenForDeveloperIdentityCommandOutput = GetOpenIdTokenForDeveloperIdentityResponse &
-  __MetadataBearer;
+export interface GetOpenIdTokenForDeveloperIdentityCommandInput extends GetOpenIdTokenForDeveloperIdentityInput {}
+export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
+  extends GetOpenIdTokenForDeveloperIdentityResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect

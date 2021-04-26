@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateRateBasedRuleCommandInput = UpdateRateBasedRuleRequest;
-export type UpdateRateBasedRuleCommandOutput = UpdateRateBasedRuleResponse & __MetadataBearer;
+export interface UpdateRateBasedRuleCommandInput extends UpdateRateBasedRuleRequest {}
+export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
  * <note>

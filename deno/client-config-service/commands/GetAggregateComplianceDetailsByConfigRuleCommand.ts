@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetAggregateComplianceDetailsByConfigRuleCommandInput = GetAggregateComplianceDetailsByConfigRuleRequest;
-export type GetAggregateComplianceDetailsByConfigRuleCommandOutput = GetAggregateComplianceDetailsByConfigRuleResponse &
-  __MetadataBearer;
+export interface GetAggregateComplianceDetailsByConfigRuleCommandInput
+  extends GetAggregateComplianceDetailsByConfigRuleRequest {}
+export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
+  extends GetAggregateComplianceDetailsByConfigRuleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified AWS Config

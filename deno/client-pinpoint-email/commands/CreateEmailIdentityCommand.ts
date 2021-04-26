@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateEmailIdentityCommandInput = CreateEmailIdentityRequest;
-export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse & __MetadataBearer;
+export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequest {}
+export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Verifies an email identity for use with Amazon Pinpoint. In Amazon Pinpoint, an identity is an email

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListCertificatesCommandInput = ListCertificatesRequest;
-export type ListCertificatesCommandOutput = ListCertificatesResponse & __MetadataBearer;
+export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
+export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of certificate ARNs and domain names. You can request that only

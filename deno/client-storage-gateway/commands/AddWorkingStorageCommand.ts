@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddWorkingStorageCommandInput = AddWorkingStorageInput;
-export type AddWorkingStorageCommandOutput = AddWorkingStorageOutput & __MetadataBearer;
+export interface AddWorkingStorageCommandInput extends AddWorkingStorageInput {}
+export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput, __MetadataBearer {}
 
 /**
  * <p>Configures one or more gateway local disks as working storage for a gateway. This

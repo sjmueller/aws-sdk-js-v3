@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteServiceProfileCommandInput = DeleteServiceProfileRequest;
-export type DeleteServiceProfileCommandOutput = DeleteServiceProfileResponse & __MetadataBearer;
+export interface DeleteServiceProfileCommandInput extends DeleteServiceProfileRequest {}
+export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a service profile.</p>

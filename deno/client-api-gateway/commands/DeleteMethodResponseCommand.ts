@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteMethodResponseCommandInput = DeleteMethodResponseRequest;
-export type DeleteMethodResponseCommandOutput = __MetadataBearer;
+export interface DeleteMethodResponseCommandInput extends DeleteMethodResponseRequest {}
+export interface DeleteMethodResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>MethodResponse</a> resource.</p>

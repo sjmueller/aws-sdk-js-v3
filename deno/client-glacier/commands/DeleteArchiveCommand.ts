@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteArchiveCommandInput = DeleteArchiveInput;
-export type DeleteArchiveCommandOutput = __MetadataBearer;
+export interface DeleteArchiveCommandInput extends DeleteArchiveInput {}
+export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation deletes an archive from a vault. Subsequent requests to initiate a

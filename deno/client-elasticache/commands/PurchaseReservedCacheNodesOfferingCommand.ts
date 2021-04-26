@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PurchaseReservedCacheNodesOfferingCommandInput = PurchaseReservedCacheNodesOfferingMessage;
-export type PurchaseReservedCacheNodesOfferingCommandOutput = PurchaseReservedCacheNodesOfferingResult &
-  __MetadataBearer;
+export interface PurchaseReservedCacheNodesOfferingCommandInput extends PurchaseReservedCacheNodesOfferingMessage {}
+export interface PurchaseReservedCacheNodesOfferingCommandOutput
+  extends PurchaseReservedCacheNodesOfferingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase a reserved

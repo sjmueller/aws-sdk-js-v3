@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeIdentityCommandInput = DescribeIdentityInput;
-export type DescribeIdentityCommandOutput = IdentityDescription & __MetadataBearer;
+export interface DescribeIdentityCommandInput extends DescribeIdentityInput {}
+export interface DescribeIdentityCommandOutput extends IdentityDescription, __MetadataBearer {}
 
 /**
  * <p>Returns metadata related to the given identity, including when the identity was

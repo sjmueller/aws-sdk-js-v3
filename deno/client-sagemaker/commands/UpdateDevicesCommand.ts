@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateDevicesCommandInput = UpdateDevicesRequest;
-export type UpdateDevicesCommandOutput = __MetadataBearer;
+export interface UpdateDevicesCommandInput extends UpdateDevicesRequest {}
+export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates one or more devices in a fleet.</p>

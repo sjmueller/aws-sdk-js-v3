@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListGroupsCommandInput = ListGroupsRequest;
-export type ListGroupsCommandOutput = ListGroupsResponse & __MetadataBearer;
+export interface ListGroupsCommandInput extends ListGroupsRequest {}
+export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the groups associated with a user pool.</p>

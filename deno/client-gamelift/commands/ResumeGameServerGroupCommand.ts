@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ResumeGameServerGroupCommandInput = ResumeGameServerGroupInput;
-export type ResumeGameServerGroupCommandOutput = ResumeGameServerGroupOutput & __MetadataBearer;
+export interface ResumeGameServerGroupCommandInput extends ResumeGameServerGroupInput {}
+export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGroupOutput, __MetadataBearer {}
 
 /**
  * <p>

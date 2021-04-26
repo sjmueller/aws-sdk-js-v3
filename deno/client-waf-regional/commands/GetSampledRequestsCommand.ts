@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetSampledRequestsCommandInput = GetSampledRequestsRequest;
-export type GetSampledRequestsCommandOutput = GetSampledRequestsResponse & __MetadataBearer;
+export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
+export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
  * <note>

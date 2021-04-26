@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AcceptInvitationCommandInput = AcceptInvitationRequest;
-export type AcceptInvitationCommandOutput = AcceptInvitationResponse & __MetadataBearer;
+export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
+export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts an Amazon Macie membership invitation that was received from a specific account.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListAppsCommandInput = ListAppsRequest;
-export type ListAppsCommandOutput = ListAppsResponse & __MetadataBearer;
+export interface ListAppsCommandInput extends ListAppsRequest {}
+export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists apps.</p>

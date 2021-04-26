@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ClaimGameServerCommandInput = ClaimGameServerInput;
-export type ClaimGameServerCommandOutput = ClaimGameServerOutput & __MetadataBearer;
+export interface ClaimGameServerCommandInput extends ClaimGameServerInput {}
+export interface ClaimGameServerCommandOutput extends ClaimGameServerOutput, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeConnectionLoaCommandInput = DescribeConnectionLoaRequest;
-export type DescribeConnectionLoaCommandOutput = DescribeConnectionLoaResponse & __MetadataBearer;
+export interface DescribeConnectionLoaCommandInput extends DescribeConnectionLoaRequest {}
+export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLoaResponse, __MetadataBearer {}
 
 /**
  * @deprecated

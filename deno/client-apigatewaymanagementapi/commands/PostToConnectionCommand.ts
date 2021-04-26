@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PostToConnectionCommandInput = PostToConnectionRequest;
-export type PostToConnectionCommandOutput = __MetadataBearer;
+export interface PostToConnectionCommandInput extends PostToConnectionRequest {}
+export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sends the provided data to the specified connection.</p>

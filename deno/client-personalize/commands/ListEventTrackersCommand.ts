@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListEventTrackersCommandInput = ListEventTrackersRequest;
-export type ListEventTrackersCommandOutput = ListEventTrackersResponse & __MetadataBearer;
+export interface ListEventTrackersCommandInput extends ListEventTrackersRequest {}
+export interface ListEventTrackersCommandOutput extends ListEventTrackersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the list of event trackers associated with the account.

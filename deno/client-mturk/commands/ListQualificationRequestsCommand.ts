@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListQualificationRequestsCommandInput = ListQualificationRequestsRequest;
-export type ListQualificationRequestsCommandOutput = ListQualificationRequestsResponse & __MetadataBearer;
+export interface ListQualificationRequestsCommandInput extends ListQualificationRequestsRequest {}
+export interface ListQualificationRequestsCommandOutput extends ListQualificationRequestsResponse, __MetadataBearer {}
 
 /**
  * <p>

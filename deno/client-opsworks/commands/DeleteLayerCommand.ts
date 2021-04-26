@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteLayerCommandInput = DeleteLayerRequest;
-export type DeleteLayerCommandOutput = __MetadataBearer;
+export interface DeleteLayerCommandInput extends DeleteLayerRequest {}
+export interface DeleteLayerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specified layer. You must first stop and then delete all associated instances or

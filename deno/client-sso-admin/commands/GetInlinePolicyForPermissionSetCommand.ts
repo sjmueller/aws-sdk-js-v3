@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetInlinePolicyForPermissionSetCommandInput = GetInlinePolicyForPermissionSetRequest;
-export type GetInlinePolicyForPermissionSetCommandOutput = GetInlinePolicyForPermissionSetResponse & __MetadataBearer;
+export interface GetInlinePolicyForPermissionSetCommandInput extends GetInlinePolicyForPermissionSetRequest {}
+export interface GetInlinePolicyForPermissionSetCommandOutput
+  extends GetInlinePolicyForPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Obtains the inline policy assigned to the permission set.</p>

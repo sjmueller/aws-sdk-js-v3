@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListKeyPhrasesDetectionJobsCommandInput = ListKeyPhrasesDetectionJobsRequest;
-export type ListKeyPhrasesDetectionJobsCommandOutput = ListKeyPhrasesDetectionJobsResponse & __MetadataBearer;
+export interface ListKeyPhrasesDetectionJobsCommandInput extends ListKeyPhrasesDetectionJobsRequest {}
+export interface ListKeyPhrasesDetectionJobsCommandOutput
+  extends ListKeyPhrasesDetectionJobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Get a list of key phrase detection jobs that you have submitted.</p>

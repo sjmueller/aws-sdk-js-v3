@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddNotificationChannelCommandInput = AddNotificationChannelRequest;
-export type AddNotificationChannelCommandOutput = AddNotificationChannelResponse & __MetadataBearer;
+export interface AddNotificationChannelCommandInput extends AddNotificationChannelRequest {}
+export interface AddNotificationChannelCommandOutput extends AddNotificationChannelResponse, __MetadataBearer {}
 
 /**
  * <p>

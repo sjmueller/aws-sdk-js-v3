@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeletePortfolioShareCommandInput = DeletePortfolioShareInput;
-export type DeletePortfolioShareCommandOutput = DeletePortfolioShareOutput & __MetadataBearer;
+export interface DeletePortfolioShareCommandInput extends DeletePortfolioShareInput {}
+export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareOutput, __MetadataBearer {}
 
 /**
  * <p>Stops sharing the specified portfolio with the specified account or organization

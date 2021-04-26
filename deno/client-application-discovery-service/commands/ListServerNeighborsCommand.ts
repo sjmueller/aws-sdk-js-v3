@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListServerNeighborsCommandInput = ListServerNeighborsRequest;
-export type ListServerNeighborsCommandOutput = ListServerNeighborsResponse & __MetadataBearer;
+export interface ListServerNeighborsCommandInput extends ListServerNeighborsRequest {}
+export interface ListServerNeighborsCommandOutput extends ListServerNeighborsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of servers that are one network hop away from a specified

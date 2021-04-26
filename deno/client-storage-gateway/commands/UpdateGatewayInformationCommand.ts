@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateGatewayInformationCommandInput = UpdateGatewayInformationInput;
-export type UpdateGatewayInformationCommandOutput = UpdateGatewayInformationOutput & __MetadataBearer;
+export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInformationInput {}
+export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a gateway's metadata, which includes the gateway's name and time zone.

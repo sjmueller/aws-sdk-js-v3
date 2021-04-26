@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetApisCommandInput = GetApisRequest;
-export type GetApisCommandOutput = GetApisResponse & __MetadataBearer;
+export interface GetApisCommandInput extends GetApisRequest {}
+export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a collection of Api resources.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetActionCommandInput = GetActionRequest;
-export type GetActionCommandOutput = GetActionResponse & __MetadataBearer;
+export interface GetActionCommandInput extends GetActionRequest {}
+export interface GetActionCommandOutput extends GetActionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified AWS FIS action.</p>

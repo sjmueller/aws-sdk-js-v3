@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListEventsCommandInput = ListEventsRequest;
-export type ListEventsCommandOutput = ListEventsResponse & __MetadataBearer;
+export interface ListEventsCommandInput extends ListEventsRequest {}
+export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataBearer {}
 
 /**
  * <p>

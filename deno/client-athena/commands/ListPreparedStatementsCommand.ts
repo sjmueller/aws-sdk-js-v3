@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListPreparedStatementsCommandInput = ListPreparedStatementsInput;
-export type ListPreparedStatementsCommandOutput = ListPreparedStatementsOutput & __MetadataBearer;
+export interface ListPreparedStatementsCommandInput extends ListPreparedStatementsInput {}
+export interface ListPreparedStatementsCommandOutput extends ListPreparedStatementsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the prepared statements in the specfied workgroup.</p>

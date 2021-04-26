@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteThemeAliasCommandInput = DeleteThemeAliasRequest;
-export type DeleteThemeAliasCommandOutput = DeleteThemeAliasResponse & __MetadataBearer;
+export interface DeleteThemeAliasCommandInput extends DeleteThemeAliasRequest {}
+export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the version of the theme that the specified theme alias points to.

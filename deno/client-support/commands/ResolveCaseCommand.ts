@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ResolveCaseCommandInput = ResolveCaseRequest;
-export type ResolveCaseCommandOutput = ResolveCaseResponse & __MetadataBearer;
+export interface ResolveCaseCommandInput extends ResolveCaseRequest {}
+export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the

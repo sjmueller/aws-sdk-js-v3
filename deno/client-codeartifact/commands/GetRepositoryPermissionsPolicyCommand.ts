@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetRepositoryPermissionsPolicyCommandInput = GetRepositoryPermissionsPolicyRequest;
-export type GetRepositoryPermissionsPolicyCommandOutput = GetRepositoryPermissionsPolicyResult & __MetadataBearer;
+export interface GetRepositoryPermissionsPolicyCommandInput extends GetRepositoryPermissionsPolicyRequest {}
+export interface GetRepositoryPermissionsPolicyCommandOutput
+  extends GetRepositoryPermissionsPolicyResult,
+    __MetadataBearer {}
 
 /**
  * <p>

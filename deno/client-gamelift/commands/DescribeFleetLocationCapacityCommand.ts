@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeFleetLocationCapacityCommandInput = DescribeFleetLocationCapacityInput;
-export type DescribeFleetLocationCapacityCommandOutput = DescribeFleetLocationCapacityOutput & __MetadataBearer;
+export interface DescribeFleetLocationCapacityCommandInput extends DescribeFleetLocationCapacityInput {}
+export interface DescribeFleetLocationCapacityCommandOutput
+  extends DescribeFleetLocationCapacityOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the resource capacity settings for a fleet location. The data returned

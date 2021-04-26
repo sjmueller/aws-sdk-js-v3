@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeFlowExecutionRecordsCommandInput = DescribeFlowExecutionRecordsRequest;
-export type DescribeFlowExecutionRecordsCommandOutput = DescribeFlowExecutionRecordsResponse & __MetadataBearer;
+export interface DescribeFlowExecutionRecordsCommandInput extends DescribeFlowExecutionRecordsRequest {}
+export interface DescribeFlowExecutionRecordsCommandOutput
+  extends DescribeFlowExecutionRecordsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddApplicationCloudWatchLoggingOptionCommandInput = AddApplicationCloudWatchLoggingOptionRequest;
-export type AddApplicationCloudWatchLoggingOptionCommandOutput = AddApplicationCloudWatchLoggingOptionResponse &
-  __MetadataBearer;
+export interface AddApplicationCloudWatchLoggingOptionCommandInput
+  extends AddApplicationCloudWatchLoggingOptionRequest {}
+export interface AddApplicationCloudWatchLoggingOptionCommandOutput
+  extends AddApplicationCloudWatchLoggingOptionResponse,
+    __MetadataBearer {}
 
 /**
  * <note>

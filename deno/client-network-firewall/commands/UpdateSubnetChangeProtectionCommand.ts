@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateSubnetChangeProtectionCommandInput = UpdateSubnetChangeProtectionRequest;
-export type UpdateSubnetChangeProtectionCommandOutput = UpdateSubnetChangeProtectionResponse & __MetadataBearer;
+export interface UpdateSubnetChangeProtectionCommandInput extends UpdateSubnetChangeProtectionRequest {}
+export interface UpdateSubnetChangeProtectionCommandOutput
+  extends UpdateSubnetChangeProtectionResponse,
+    __MetadataBearer {}
 
 /**
  * <p></p>

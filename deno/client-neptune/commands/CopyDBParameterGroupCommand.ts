@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CopyDBParameterGroupCommandInput = CopyDBParameterGroupMessage;
-export type CopyDBParameterGroupCommandOutput = CopyDBParameterGroupResult & __MetadataBearer;
+export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMessage {}
+export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified DB parameter group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeInsightCommandInput = DescribeInsightRequest;
-export type DescribeInsightCommandOutput = DescribeInsightResponse & __MetadataBearer;
+export interface DescribeInsightCommandInput extends DescribeInsightRequest {}
+export interface DescribeInsightCommandOutput extends DescribeInsightResponse, __MetadataBearer {}
 
 /**
  * <p>

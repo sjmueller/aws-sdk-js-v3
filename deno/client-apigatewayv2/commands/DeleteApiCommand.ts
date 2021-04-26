@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteApiCommandInput = DeleteApiRequest;
-export type DeleteApiCommandOutput = __MetadataBearer;
+export interface DeleteApiCommandInput extends DeleteApiRequest {}
+export interface DeleteApiCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Api resource.</p>

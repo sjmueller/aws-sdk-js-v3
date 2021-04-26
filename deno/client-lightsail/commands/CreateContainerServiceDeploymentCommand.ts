@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateContainerServiceDeploymentCommandInput = CreateContainerServiceDeploymentRequest;
-export type CreateContainerServiceDeploymentCommandOutput = CreateContainerServiceDeploymentResult & __MetadataBearer;
+export interface CreateContainerServiceDeploymentCommandInput extends CreateContainerServiceDeploymentRequest {}
+export interface CreateContainerServiceDeploymentCommandOutput
+  extends CreateContainerServiceDeploymentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a deployment for your Amazon Lightsail container service.</p>

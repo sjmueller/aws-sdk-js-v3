@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateAssetModelCommandInput = UpdateAssetModelRequest;
-export type UpdateAssetModelCommandOutput = UpdateAssetModelResponse & __MetadataBearer;
+export interface UpdateAssetModelCommandInput extends UpdateAssetModelRequest {}
+export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an asset model and all of the assets that were created from the model. Each asset

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyGlobalReplicationGroupCommandInput = ModifyGlobalReplicationGroupMessage;
-export type ModifyGlobalReplicationGroupCommandOutput = ModifyGlobalReplicationGroupResult & __MetadataBearer;
+export interface ModifyGlobalReplicationGroupCommandInput extends ModifyGlobalReplicationGroupMessage {}
+export interface ModifyGlobalReplicationGroupCommandOutput
+  extends ModifyGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a Global datastore.</p>

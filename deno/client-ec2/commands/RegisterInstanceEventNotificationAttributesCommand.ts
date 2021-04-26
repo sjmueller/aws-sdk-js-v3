@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RegisterInstanceEventNotificationAttributesCommandInput = RegisterInstanceEventNotificationAttributesRequest;
-export type RegisterInstanceEventNotificationAttributesCommandOutput = RegisterInstanceEventNotificationAttributesResult &
-  __MetadataBearer;
+export interface RegisterInstanceEventNotificationAttributesCommandInput
+  extends RegisterInstanceEventNotificationAttributesRequest {}
+export interface RegisterInstanceEventNotificationAttributesCommandOutput
+  extends RegisterInstanceEventNotificationAttributesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.

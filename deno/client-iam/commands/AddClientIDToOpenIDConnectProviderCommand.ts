@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddClientIDToOpenIDConnectProviderCommandInput = AddClientIDToOpenIDConnectProviderRequest;
-export type AddClientIDToOpenIDConnectProviderCommandOutput = __MetadataBearer;
+export interface AddClientIDToOpenIDConnectProviderCommandInput extends AddClientIDToOpenIDConnectProviderRequest {}
+export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds a new client ID (also known as audience) to the list of client IDs already

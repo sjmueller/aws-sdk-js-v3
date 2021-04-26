@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateThemeCommandInput = CreateThemeRequest;
-export type CreateThemeCommandOutput = CreateThemeResponse & __MetadataBearer;
+export interface CreateThemeCommandInput extends CreateThemeRequest {}
+export interface CreateThemeCommandOutput extends CreateThemeResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a theme.</p>

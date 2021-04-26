@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetTransitGatewayConnectPeerAssociationsCommandInput = GetTransitGatewayConnectPeerAssociationsRequest;
-export type GetTransitGatewayConnectPeerAssociationsCommandOutput = GetTransitGatewayConnectPeerAssociationsResponse &
-  __MetadataBearer;
+export interface GetTransitGatewayConnectPeerAssociationsCommandInput
+  extends GetTransitGatewayConnectPeerAssociationsRequest {}
+export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
+  extends GetTransitGatewayConnectPeerAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>

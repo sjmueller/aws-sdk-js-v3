@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateRepositoryCommandInput = UpdateRepositoryRequest;
-export type UpdateRepositoryCommandOutput = UpdateRepositoryResult & __MetadataBearer;
+export interface UpdateRepositoryCommandInput extends UpdateRepositoryRequest {}
+export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, __MetadataBearer {}
 
 /**
  * <p>

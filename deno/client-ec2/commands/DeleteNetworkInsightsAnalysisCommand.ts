@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteNetworkInsightsAnalysisCommandInput = DeleteNetworkInsightsAnalysisRequest;
-export type DeleteNetworkInsightsAnalysisCommandOutput = DeleteNetworkInsightsAnalysisResult & __MetadataBearer;
+export interface DeleteNetworkInsightsAnalysisCommandInput extends DeleteNetworkInsightsAnalysisRequest {}
+export interface DeleteNetworkInsightsAnalysisCommandOutput
+  extends DeleteNetworkInsightsAnalysisResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified network insights analysis.</p>

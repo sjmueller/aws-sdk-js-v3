@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddUploadBufferCommandInput = AddUploadBufferInput;
-export type AddUploadBufferCommandOutput = AddUploadBufferOutput & __MetadataBearer;
+export interface AddUploadBufferCommandInput extends AddUploadBufferInput {}
+export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __MetadataBearer {}
 
 /**
  * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.

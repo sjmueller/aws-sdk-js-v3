@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CancelReservedInstancesListingCommandInput = CancelReservedInstancesListingRequest;
-export type CancelReservedInstancesListingCommandOutput = CancelReservedInstancesListingResult & __MetadataBearer;
+export interface CancelReservedInstancesListingCommandInput extends CancelReservedInstancesListingRequest {}
+export interface CancelReservedInstancesListingCommandOutput
+  extends CancelReservedInstancesListingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>

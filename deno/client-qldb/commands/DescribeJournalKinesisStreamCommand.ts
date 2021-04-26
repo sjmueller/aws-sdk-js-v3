@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeJournalKinesisStreamCommandInput = DescribeJournalKinesisStreamRequest;
-export type DescribeJournalKinesisStreamCommandOutput = DescribeJournalKinesisStreamResponse & __MetadataBearer;
+export interface DescribeJournalKinesisStreamCommandInput extends DescribeJournalKinesisStreamRequest {}
+export interface DescribeJournalKinesisStreamCommandOutput
+  extends DescribeJournalKinesisStreamResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about a given Amazon QLDB journal stream. The output

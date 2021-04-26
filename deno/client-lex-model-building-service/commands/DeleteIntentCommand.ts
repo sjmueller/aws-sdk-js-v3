@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteIntentCommandInput = DeleteIntentRequest;
-export type DeleteIntentCommandOutput = __MetadataBearer;
+export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
+export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes all versions of the intent, including the

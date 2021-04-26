@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetResourcesCommandInput = GetResourcesRequest;
-export type GetResourcesCommandOutput = Resources & __MetadataBearer;
+export interface GetResourcesCommandInput extends GetResourcesRequest {}
+export interface GetResourcesCommandOutput extends Resources, __MetadataBearer {}
 
 /**
  * <p>Lists information about a collection of <a>Resource</a> resources.</p>

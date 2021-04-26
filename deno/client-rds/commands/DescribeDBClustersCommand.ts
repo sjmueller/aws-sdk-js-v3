@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeDBClustersCommandInput = DescribeDBClustersMessage;
-export type DescribeDBClustersCommandOutput = DBClusterMessage & __MetadataBearer;
+export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessage {}
+export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about provisioned Aurora DB clusters. This API supports pagination.</p>

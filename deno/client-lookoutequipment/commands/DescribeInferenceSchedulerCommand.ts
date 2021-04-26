@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeInferenceSchedulerCommandInput = DescribeInferenceSchedulerRequest;
-export type DescribeInferenceSchedulerCommandOutput = DescribeInferenceSchedulerResponse & __MetadataBearer;
+export interface DescribeInferenceSchedulerCommandInput extends DescribeInferenceSchedulerRequest {}
+export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
  * <p> Specifies information about the inference scheduler being used, including name, model,

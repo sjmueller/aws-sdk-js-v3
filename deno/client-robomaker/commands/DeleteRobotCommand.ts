@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteRobotCommandInput = DeleteRobotRequest;
-export type DeleteRobotCommandOutput = DeleteRobotResponse & __MetadataBearer;
+export interface DeleteRobotCommandInput extends DeleteRobotRequest {}
+export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a robot.</p>

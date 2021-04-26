@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeEventSubscriptionsCommandInput = DescribeEventSubscriptionsMessage;
-export type DescribeEventSubscriptionsCommandOutput = DescribeEventSubscriptionsResponse & __MetadataBearer;
+export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
+export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the event subscriptions for a customer account. The description of a

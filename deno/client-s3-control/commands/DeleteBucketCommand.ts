@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteBucketCommandInput = DeleteBucketRequest;
-export type DeleteBucketCommandOutput = __MetadataBearer;
+export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
+export interface DeleteBucketCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>

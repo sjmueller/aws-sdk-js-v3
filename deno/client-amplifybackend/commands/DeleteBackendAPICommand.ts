@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteBackendAPICommandInput = DeleteBackendAPIRequest;
-export type DeleteBackendAPICommandOutput = DeleteBackendAPIResponse & __MetadataBearer;
+export interface DeleteBackendAPICommandInput extends DeleteBackendAPIRequest {}
+export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing backend API resource.</p>

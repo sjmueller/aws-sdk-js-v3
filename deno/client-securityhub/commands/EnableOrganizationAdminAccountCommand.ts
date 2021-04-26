@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type EnableOrganizationAdminAccountCommandInput = EnableOrganizationAdminAccountRequest;
-export type EnableOrganizationAdminAccountCommandOutput = EnableOrganizationAdminAccountResponse & __MetadataBearer;
+export interface EnableOrganizationAdminAccountCommandInput extends EnableOrganizationAdminAccountRequest {}
+export interface EnableOrganizationAdminAccountCommandOutput
+  extends EnableOrganizationAdminAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Designates the Security Hub administrator account for an organization. Can only be called by

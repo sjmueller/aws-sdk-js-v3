@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddAttachmentsToSetCommandInput = AddAttachmentsToSetRequest;
-export type AddAttachmentsToSetCommandOutput = AddAttachmentsToSetResponse & __MetadataBearer;
+export interface AddAttachmentsToSetCommandInput extends AddAttachmentsToSetRequest {}
+export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more attachments to an attachment set. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeTemplateCommandInput = DescribeTemplateRequest;
-export type DescribeTemplateCommandOutput = DescribeTemplateResponse & __MetadataBearer;
+export interface DescribeTemplateCommandInput extends DescribeTemplateRequest {}
+export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a template's metadata.</p>

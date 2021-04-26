@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListPoliciesCommandInput = ListPoliciesRequest;
-export type ListPoliciesCommandOutput = ListPoliciesResponse & __MetadataBearer;
+export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
+export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the managed policies that are available in your AWS account, including

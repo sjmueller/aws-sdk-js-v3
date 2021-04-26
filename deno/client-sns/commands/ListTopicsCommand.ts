@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListTopicsCommandInput = ListTopicsInput;
-export type ListTopicsCommandOutput = ListTopicsResponse & __MetadataBearer;
+export interface ListTopicsCommandInput extends ListTopicsInput {}
+export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the requester's topics. Each call returns a limited list of topics,

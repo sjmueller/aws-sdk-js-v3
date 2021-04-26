@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListApplicationVersionsCommandInput = ListApplicationVersionsRequest;
-export type ListApplicationVersionsCommandOutput = ListApplicationVersionsResponse & __MetadataBearer;
+export interface ListApplicationVersionsCommandInput extends ListApplicationVersionsRequest {}
+export interface ListApplicationVersionsCommandOutput extends ListApplicationVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists versions for the specified application.</p>

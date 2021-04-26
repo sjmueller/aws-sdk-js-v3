@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListChangeSetsCommandInput = ListChangeSetsRequest;
-export type ListChangeSetsCommandOutput = ListChangeSetsResponse & __MetadataBearer;
+export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
+export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the list of change sets owned by the account being used to make the call. You

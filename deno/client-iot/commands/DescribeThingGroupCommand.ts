@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeThingGroupCommandInput = DescribeThingGroupRequest;
-export type DescribeThingGroupCommandOutput = DescribeThingGroupResponse & __MetadataBearer;
+export interface DescribeThingGroupCommandInput extends DescribeThingGroupRequest {}
+export interface DescribeThingGroupCommandOutput extends DescribeThingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Describe a thing group.</p>

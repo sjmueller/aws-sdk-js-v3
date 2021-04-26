@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteBucketTaggingCommandInput = DeleteBucketTaggingRequest;
-export type DeleteBucketTaggingCommandOutput = __MetadataBearer;
+export interface DeleteBucketTaggingCommandInput extends DeleteBucketTaggingRequest {}
+export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>

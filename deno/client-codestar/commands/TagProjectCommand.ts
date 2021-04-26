@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type TagProjectCommandInput = TagProjectRequest;
-export type TagProjectCommandOutput = TagProjectResult & __MetadataBearer;
+export interface TagProjectCommandInput extends TagProjectRequest {}
+export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBearer {}
 
 /**
  * <p>Adds tags to a project.</p>

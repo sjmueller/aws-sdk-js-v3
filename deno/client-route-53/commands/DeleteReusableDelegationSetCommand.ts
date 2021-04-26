@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteReusableDelegationSetCommandInput = DeleteReusableDelegationSetRequest;
-export type DeleteReusableDelegationSetCommandOutput = DeleteReusableDelegationSetResponse & __MetadataBearer;
+export interface DeleteReusableDelegationSetCommandInput extends DeleteReusableDelegationSetRequest {}
+export interface DeleteReusableDelegationSetCommandOutput
+  extends DeleteReusableDelegationSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a reusable delegation set.</p>

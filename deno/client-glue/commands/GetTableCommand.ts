@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetTableCommandInput = GetTableRequest;
-export type GetTableCommandOutput = GetTableResponse & __MetadataBearer;
+export interface GetTableCommandInput extends GetTableRequest {}
+export interface GetTableCommandOutput extends GetTableResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the <code>Table</code> definition in a Data Catalog for

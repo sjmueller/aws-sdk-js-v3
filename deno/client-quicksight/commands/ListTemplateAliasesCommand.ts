@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListTemplateAliasesCommandInput = ListTemplateAliasesRequest;
-export type ListTemplateAliasesCommandOutput = ListTemplateAliasesResponse & __MetadataBearer;
+export interface ListTemplateAliasesCommandInput extends ListTemplateAliasesRequest {}
+export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the aliases of a template.</p>

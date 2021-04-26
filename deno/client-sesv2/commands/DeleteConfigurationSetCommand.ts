@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteConfigurationSetCommandInput = DeleteConfigurationSetRequest;
-export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse & __MetadataBearer;
+export interface DeleteConfigurationSetCommandInput extends DeleteConfigurationSetRequest {}
+export interface DeleteConfigurationSetCommandOutput extends DeleteConfigurationSetResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an existing configuration set.</p>

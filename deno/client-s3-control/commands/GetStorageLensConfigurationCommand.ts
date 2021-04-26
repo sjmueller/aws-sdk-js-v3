@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetStorageLensConfigurationCommandInput = GetStorageLensConfigurationRequest;
-export type GetStorageLensConfigurationCommandOutput = GetStorageLensConfigurationResult & __MetadataBearer;
+export interface GetStorageLensConfigurationCommandInput extends GetStorageLensConfigurationRequest {}
+export interface GetStorageLensConfigurationCommandOutput extends GetStorageLensConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see

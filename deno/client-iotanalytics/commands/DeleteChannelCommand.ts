@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteChannelCommandInput = DeleteChannelRequest;
-export type DeleteChannelCommandOutput = __MetadataBearer;
+export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
+export interface DeleteChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified channel.</p>

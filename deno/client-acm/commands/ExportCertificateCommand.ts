@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ExportCertificateCommandInput = ExportCertificateRequest;
-export type ExportCertificateCommandOutput = ExportCertificateResponse & __MetadataBearer;
+export interface ExportCertificateCommandInput extends ExportCertificateRequest {}
+export interface ExportCertificateCommandOutput extends ExportCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Exports a private certificate issued by a private certificate authority (CA) for use

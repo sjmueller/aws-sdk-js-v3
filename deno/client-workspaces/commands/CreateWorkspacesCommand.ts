@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateWorkspacesCommandInput = CreateWorkspacesRequest;
-export type CreateWorkspacesCommandOutput = CreateWorkspacesResult & __MetadataBearer;
+export interface CreateWorkspacesCommandInput extends CreateWorkspacesRequest {}
+export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, __MetadataBearer {}
 
 /**
  * <p>Creates one or more WorkSpaces.</p>

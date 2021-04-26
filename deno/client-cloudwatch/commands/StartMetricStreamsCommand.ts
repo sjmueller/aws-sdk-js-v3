@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartMetricStreamsCommandInput = StartMetricStreamsInput;
-export type StartMetricStreamsCommandOutput = StartMetricStreamsOutput & __MetadataBearer;
+export interface StartMetricStreamsCommandInput extends StartMetricStreamsInput {}
+export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutput, __MetadataBearer {}
 
 /**
  * <p>Starts the streaming of metrics for one or more of your metric streams.</p>

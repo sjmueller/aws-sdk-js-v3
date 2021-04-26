@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RevokeClusterSecurityGroupIngressCommandInput = RevokeClusterSecurityGroupIngressMessage;
-export type RevokeClusterSecurityGroupIngressCommandOutput = RevokeClusterSecurityGroupIngressResult & __MetadataBearer;
+export interface RevokeClusterSecurityGroupIngressCommandInput extends RevokeClusterSecurityGroupIngressMessage {}
+export interface RevokeClusterSecurityGroupIngressCommandOutput
+  extends RevokeClusterSecurityGroupIngressResult,
+    __MetadataBearer {}
 
 /**
  * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously authorized

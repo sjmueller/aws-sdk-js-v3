@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateSimulationJobCommandInput = CreateSimulationJobRequest;
-export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse & __MetadataBearer;
+export interface CreateSimulationJobCommandInput extends CreateSimulationJobRequest {}
+export interface CreateSimulationJobCommandOutput extends CreateSimulationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a simulation job.</p>

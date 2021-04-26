@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetTableVersionCommandInput = GetTableVersionRequest;
-export type GetTableVersionCommandOutput = GetTableVersionResponse & __MetadataBearer;
+export interface GetTableVersionCommandInput extends GetTableVersionRequest {}
+export interface GetTableVersionCommandOutput extends GetTableVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a specified version of a table.</p>

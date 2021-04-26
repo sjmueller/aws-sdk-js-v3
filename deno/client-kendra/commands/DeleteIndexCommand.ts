@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteIndexCommandInput = DeleteIndexRequest;
-export type DeleteIndexCommandOutput = __MetadataBearer;
+export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
+export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if

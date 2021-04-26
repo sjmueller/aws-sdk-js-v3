@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateMultiplexCommandInput = CreateMultiplexRequest;
-export type CreateMultiplexCommandOutput = CreateMultiplexResponse & __MetadataBearer;
+export interface CreateMultiplexCommandInput extends CreateMultiplexRequest {}
+export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, __MetadataBearer {}
 
 /**
  * Create a new multiplex.

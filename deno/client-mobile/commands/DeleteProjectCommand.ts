@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteProjectCommandInput = DeleteProjectRequest;
-export type DeleteProjectCommandOutput = DeleteProjectResult & __MetadataBearer;
+export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
+export interface DeleteProjectCommandOutput extends DeleteProjectResult, __MetadataBearer {}
 
 /**
  * <p>

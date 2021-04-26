@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeTransitGatewayConnectPeersCommandInput = DescribeTransitGatewayConnectPeersRequest;
-export type DescribeTransitGatewayConnectPeersCommandOutput = DescribeTransitGatewayConnectPeersResult &
-  __MetadataBearer;
+export interface DescribeTransitGatewayConnectPeersCommandInput extends DescribeTransitGatewayConnectPeersRequest {}
+export interface DescribeTransitGatewayConnectPeersCommandOutput
+  extends DescribeTransitGatewayConnectPeersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more Connect peers.</p>

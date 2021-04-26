@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddResourcePermissionsCommandInput = AddResourcePermissionsRequest;
-export type AddResourcePermissionsCommandOutput = AddResourcePermissionsResponse & __MetadataBearer;
+export interface AddResourcePermissionsCommandInput extends AddResourcePermissionsRequest {}
+export interface AddResourcePermissionsCommandOutput extends AddResourcePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a set of permissions for the specified folder or document. The resource

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateTriggerCommandInput = UpdateTriggerRequest;
-export type UpdateTriggerCommandOutput = UpdateTriggerResponse & __MetadataBearer;
+export interface UpdateTriggerCommandInput extends UpdateTriggerRequest {}
+export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a trigger definition.</p>

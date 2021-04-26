@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopDeploymentCommandInput = StopDeploymentInput;
-export type StopDeploymentCommandOutput = StopDeploymentOutput & __MetadataBearer;
+export interface StopDeploymentCommandInput extends StopDeploymentInput {}
+export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to stop an ongoing deployment.</p>

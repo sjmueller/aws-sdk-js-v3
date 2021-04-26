@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeProjectCommandInput = DescribeProjectRequest;
-export type DescribeProjectCommandOutput = DescribeProjectResult & __MetadataBearer;
+export interface DescribeProjectCommandInput extends DescribeProjectRequest {}
+export interface DescribeProjectCommandOutput extends DescribeProjectResult, __MetadataBearer {}
 
 /**
  * <p>

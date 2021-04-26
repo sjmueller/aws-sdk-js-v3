@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartImagePipelineExecutionCommandInput = StartImagePipelineExecutionRequest;
-export type StartImagePipelineExecutionCommandOutput = StartImagePipelineExecutionResponse & __MetadataBearer;
+export interface StartImagePipelineExecutionCommandInput extends StartImagePipelineExecutionRequest {}
+export interface StartImagePipelineExecutionCommandOutput
+  extends StartImagePipelineExecutionResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Manually triggers a pipeline to create an image.</p>

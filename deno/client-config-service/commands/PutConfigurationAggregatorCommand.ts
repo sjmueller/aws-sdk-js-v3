@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutConfigurationAggregatorCommandInput = PutConfigurationAggregatorRequest;
-export type PutConfigurationAggregatorCommandOutput = PutConfigurationAggregatorResponse & __MetadataBearer;
+export interface PutConfigurationAggregatorCommandInput extends PutConfigurationAggregatorRequest {}
+export interface PutConfigurationAggregatorCommandOutput extends PutConfigurationAggregatorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and updates the configuration aggregator with the

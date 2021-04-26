@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteListenerCommandInput = DeleteListenerRequest;
-export type DeleteListenerCommandOutput = __MetadataBearer;
+export interface DeleteListenerCommandInput extends DeleteListenerRequest {}
+export interface DeleteListenerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a listener from an accelerator.</p>

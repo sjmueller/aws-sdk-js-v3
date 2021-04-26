@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateResourceCommandInput = UpdateResourceRequest;
-export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
+export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
+export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>

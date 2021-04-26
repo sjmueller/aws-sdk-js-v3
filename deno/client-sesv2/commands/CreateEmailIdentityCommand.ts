@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateEmailIdentityCommandInput = CreateEmailIdentityRequest;
-export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse & __MetadataBearer;
+export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequest {}
+export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the process of verifying an email identity. An <i>identity</i> is

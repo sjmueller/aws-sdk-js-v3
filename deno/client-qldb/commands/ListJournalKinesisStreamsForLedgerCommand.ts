@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListJournalKinesisStreamsForLedgerCommandInput = ListJournalKinesisStreamsForLedgerRequest;
-export type ListJournalKinesisStreamsForLedgerCommandOutput = ListJournalKinesisStreamsForLedgerResponse &
-  __MetadataBearer;
+export interface ListJournalKinesisStreamsForLedgerCommandInput extends ListJournalKinesisStreamsForLedgerRequest {}
+export interface ListJournalKinesisStreamsForLedgerCommandOutput
+  extends ListJournalKinesisStreamsForLedgerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The

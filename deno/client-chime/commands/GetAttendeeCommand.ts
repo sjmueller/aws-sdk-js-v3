@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetAttendeeCommandInput = GetAttendeeRequest;
-export type GetAttendeeCommandOutput = GetAttendeeResponse & __MetadataBearer;
+export interface GetAttendeeCommandInput extends GetAttendeeRequest {}
+export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RemoveTagsCommandInput = RemoveTagsInput;
-export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
+export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Removes one or more tags from the specified load balancer.</p>

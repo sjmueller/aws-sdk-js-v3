@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateArchiveCommandInput = UpdateArchiveRequest;
-export type UpdateArchiveCommandOutput = UpdateArchiveResponse & __MetadataBearer;
+export interface UpdateArchiveCommandInput extends UpdateArchiveRequest {}
+export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified archive.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetRecordsCommandInput = GetRecordsInput;
-export type GetRecordsCommandOutput = GetRecordsOutput & __MetadataBearer;
+export interface GetRecordsCommandInput extends GetRecordsInput {}
+export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets data records from a Kinesis data stream's shard.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutAppValidationConfigurationCommandInput = PutAppValidationConfigurationRequest;
-export type PutAppValidationConfigurationCommandOutput = PutAppValidationConfigurationResponse & __MetadataBearer;
+export interface PutAppValidationConfigurationCommandInput extends PutAppValidationConfigurationRequest {}
+export interface PutAppValidationConfigurationCommandOutput
+  extends PutAppValidationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates a validation configuration for the specified application.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SendBonusCommandInput = SendBonusRequest;
-export type SendBonusCommandOutput = SendBonusResponse & __MetadataBearer;
+export interface SendBonusCommandInput extends SendBonusRequest {}
+export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
  * <p>

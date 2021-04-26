@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteAuthorizerCommandInput = DeleteAuthorizerRequest;
-export type DeleteAuthorizerCommandOutput = DeleteAuthorizerResponse & __MetadataBearer;
+export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
+export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an authorizer.</p>

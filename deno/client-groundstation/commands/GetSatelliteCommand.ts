@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetSatelliteCommandInput = GetSatelliteRequest;
-export type GetSatelliteCommandOutput = GetSatelliteResponse & __MetadataBearer;
+export interface GetSatelliteCommandInput extends GetSatelliteRequest {}
+export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a satellite.</p>

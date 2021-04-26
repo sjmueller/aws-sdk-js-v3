@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateSecretVersionStageCommandInput = UpdateSecretVersionStageRequest;
-export type UpdateSecretVersionStageCommandOutput = UpdateSecretVersionStageResponse & __MetadataBearer;
+export interface UpdateSecretVersionStageCommandInput extends UpdateSecretVersionStageRequest {}
+export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersionStageResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the staging labels attached to a version of a secret. Staging labels are used to

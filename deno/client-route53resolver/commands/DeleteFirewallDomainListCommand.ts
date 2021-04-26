@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteFirewallDomainListCommandInput = DeleteFirewallDomainListRequest;
-export type DeleteFirewallDomainListCommandOutput = DeleteFirewallDomainListResponse & __MetadataBearer;
+export interface DeleteFirewallDomainListCommandInput extends DeleteFirewallDomainListRequest {}
+export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDomainListResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified domain list. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeAttackCommandInput = DescribeAttackRequest;
-export type DescribeAttackCommandOutput = DescribeAttackResponse & __MetadataBearer;
+export interface DescribeAttackCommandInput extends DescribeAttackRequest {}
+export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the details of a DDoS attack. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetDomainPermissionsPolicyCommandInput = GetDomainPermissionsPolicyRequest;
-export type GetDomainPermissionsPolicyCommandOutput = GetDomainPermissionsPolicyResult & __MetadataBearer;
+export interface GetDomainPermissionsPolicyCommandInput extends GetDomainPermissionsPolicyRequest {}
+export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermissionsPolicyResult, __MetadataBearer {}
 
 /**
  * <p>

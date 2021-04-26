@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UntagCommandInput = UntagInput;
-export type UntagCommandOutput = UntagOutput & __MetadataBearer;
+export interface UntagCommandInput extends UntagInput {}
+export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes tags from a specified resource group.</p>

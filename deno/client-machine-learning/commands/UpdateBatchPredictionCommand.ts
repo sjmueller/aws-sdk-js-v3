@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateBatchPredictionCommandInput = UpdateBatchPredictionInput;
-export type UpdateBatchPredictionCommandOutput = UpdateBatchPredictionOutput & __MetadataBearer;
+export interface UpdateBatchPredictionCommandInput extends UpdateBatchPredictionInput {}
+export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>

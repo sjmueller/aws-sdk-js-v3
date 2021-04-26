@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeEnvironmentResourcesCommandInput = DescribeEnvironmentResourcesMessage;
-export type DescribeEnvironmentResourcesCommandOutput = EnvironmentResourceDescriptionsMessage & __MetadataBearer;
+export interface DescribeEnvironmentResourcesCommandInput extends DescribeEnvironmentResourcesMessage {}
+export interface DescribeEnvironmentResourcesCommandOutput
+  extends EnvironmentResourceDescriptionsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns AWS resources for this environment.</p>

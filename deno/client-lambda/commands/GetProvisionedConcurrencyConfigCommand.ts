@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetProvisionedConcurrencyConfigCommandInput = GetProvisionedConcurrencyConfigRequest;
-export type GetProvisionedConcurrencyConfigCommandOutput = GetProvisionedConcurrencyConfigResponse & __MetadataBearer;
+export interface GetProvisionedConcurrencyConfigCommandInput extends GetProvisionedConcurrencyConfigRequest {}
+export interface GetProvisionedConcurrencyConfigCommandOutput
+  extends GetProvisionedConcurrencyConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>

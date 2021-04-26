@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeReplicationGroupsCommandInput = DescribeReplicationGroupsMessage;
-export type DescribeReplicationGroupsCommandOutput = ReplicationGroupMessage & __MetadataBearer;
+export interface DescribeReplicationGroupsCommandInput extends DescribeReplicationGroupsMessage {}
+export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroupMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about a particular

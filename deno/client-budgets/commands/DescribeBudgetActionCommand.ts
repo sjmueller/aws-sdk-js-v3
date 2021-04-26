@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeBudgetActionCommandInput = DescribeBudgetActionRequest;
-export type DescribeBudgetActionCommandOutput = DescribeBudgetActionResponse & __MetadataBearer;
+export interface DescribeBudgetActionCommandInput extends DescribeBudgetActionRequest {}
+export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionResponse, __MetadataBearer {}
 
 /**
  * <p>

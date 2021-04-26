@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type EnableMFADeviceCommandInput = EnableMFADeviceRequest;
-export type EnableMFADeviceCommandOutput = __MetadataBearer;
+export interface EnableMFADeviceCommandInput extends EnableMFADeviceRequest {}
+export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the specified MFA device and associates it with the specified IAM user. When

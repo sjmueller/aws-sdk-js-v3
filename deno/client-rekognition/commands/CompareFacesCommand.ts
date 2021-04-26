@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CompareFacesCommandInput = CompareFacesRequest;
-export type CompareFacesCommandOutput = CompareFacesResponse & __MetadataBearer;
+export interface CompareFacesCommandInput extends CompareFacesRequest {}
+export interface CompareFacesCommandOutput extends CompareFacesResponse, __MetadataBearer {}
 
 /**
  * <p>Compares a face in the <i>source</i> input image with

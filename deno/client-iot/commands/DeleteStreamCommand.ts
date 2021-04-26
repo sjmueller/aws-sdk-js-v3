@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteStreamCommandInput = DeleteStreamRequest;
-export type DeleteStreamCommandOutput = DeleteStreamResponse & __MetadataBearer;
+export interface DeleteStreamCommandInput extends DeleteStreamRequest {}
+export interface DeleteStreamCommandOutput extends DeleteStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a stream.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetLensVersionDifferenceCommandInput = GetLensVersionDifferenceInput;
-export type GetLensVersionDifferenceCommandOutput = GetLensVersionDifferenceOutput & __MetadataBearer;
+export interface GetLensVersionDifferenceCommandInput extends GetLensVersionDifferenceInput {}
+export interface GetLensVersionDifferenceCommandOutput extends GetLensVersionDifferenceOutput, __MetadataBearer {}
 
 /**
  * <p>Get lens version differences.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateOriginEndpointCommandInput = UpdateOriginEndpointRequest;
-export type UpdateOriginEndpointCommandOutput = UpdateOriginEndpointResponse & __MetadataBearer;
+export interface UpdateOriginEndpointCommandInput extends UpdateOriginEndpointRequest {}
+export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointResponse, __MetadataBearer {}
 
 /**
  * Updates an existing OriginEndpoint.

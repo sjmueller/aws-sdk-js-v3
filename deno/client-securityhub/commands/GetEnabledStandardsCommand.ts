@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetEnabledStandardsCommandInput = GetEnabledStandardsRequest;
-export type GetEnabledStandardsCommandOutput = GetEnabledStandardsResponse & __MetadataBearer;
+export interface GetEnabledStandardsCommandInput extends GetEnabledStandardsRequest {}
+export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the standards that are currently enabled.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopRemoteAccessSessionCommandInput = StopRemoteAccessSessionRequest;
-export type StopRemoteAccessSessionCommandOutput = StopRemoteAccessSessionResult & __MetadataBearer;
+export interface StopRemoteAccessSessionCommandInput extends StopRemoteAccessSessionRequest {}
+export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
  * <p>Ends a specified remote access session.</p>

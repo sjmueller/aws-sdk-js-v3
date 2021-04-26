@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type QueryCommandInput = QueryRequest;
-export type QueryCommandOutput = QueryResponse & __MetadataBearer;
+export interface QueryCommandInput extends QueryRequest {}
+export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
 
 /**
  * <p>

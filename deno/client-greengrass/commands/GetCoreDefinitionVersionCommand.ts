@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetCoreDefinitionVersionCommandInput = GetCoreDefinitionVersionRequest;
-export type GetCoreDefinitionVersionCommandOutput = GetCoreDefinitionVersionResponse & __MetadataBearer;
+export interface GetCoreDefinitionVersionCommandInput extends GetCoreDefinitionVersionRequest {}
+export interface GetCoreDefinitionVersionCommandOutput extends GetCoreDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a core definition version.

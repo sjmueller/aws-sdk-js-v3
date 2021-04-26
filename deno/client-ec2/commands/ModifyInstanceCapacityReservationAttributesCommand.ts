@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyInstanceCapacityReservationAttributesCommandInput = ModifyInstanceCapacityReservationAttributesRequest;
-export type ModifyInstanceCapacityReservationAttributesCommandOutput = ModifyInstanceCapacityReservationAttributesResult &
-  __MetadataBearer;
+export interface ModifyInstanceCapacityReservationAttributesCommandInput
+  extends ModifyInstanceCapacityReservationAttributesRequest {}
+export interface ModifyInstanceCapacityReservationAttributesCommandOutput
+  extends ModifyInstanceCapacityReservationAttributesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an

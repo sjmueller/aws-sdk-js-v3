@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
-export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
+export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRequest {}
+export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>List targets for the specified policy.</p>

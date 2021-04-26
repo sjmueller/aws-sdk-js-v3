@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateServiceAccessPoliciesCommandInput = UpdateServiceAccessPoliciesRequest;
-export type UpdateServiceAccessPoliciesCommandOutput = UpdateServiceAccessPoliciesResponse & __MetadataBearer;
+export interface UpdateServiceAccessPoliciesCommandInput extends UpdateServiceAccessPoliciesRequest {}
+export interface UpdateServiceAccessPoliciesCommandOutput
+  extends UpdateServiceAccessPoliciesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Configures the access rules that control access to the domain's document and search endpoints.

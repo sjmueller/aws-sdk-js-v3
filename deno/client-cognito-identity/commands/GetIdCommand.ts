@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetIdCommandInput = GetIdInput;
-export type GetIdCommandOutput = GetIdResponse & __MetadataBearer;
+export interface GetIdCommandInput extends GetIdInput {}
+export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
 
 /**
  * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an

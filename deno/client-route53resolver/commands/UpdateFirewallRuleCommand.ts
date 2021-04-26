@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateFirewallRuleCommandInput = UpdateFirewallRuleRequest;
-export type UpdateFirewallRuleCommandOutput = UpdateFirewallRuleResponse & __MetadataBearer;
+export interface UpdateFirewallRuleCommandInput extends UpdateFirewallRuleRequest {}
+export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified firewall rule. </p>

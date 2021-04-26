@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListMembersCommandInput = ListMembersRequest;
-export type ListMembersCommandOutput = ListMembersResponse & __MetadataBearer;
+export interface ListMembersCommandInput extends ListMembersRequest {}
+export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists details about all member accounts for the current GuardDuty administrator account.</p>

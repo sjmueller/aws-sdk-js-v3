@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateEvaluationCommandInput = UpdateEvaluationInput;
-export type UpdateEvaluationCommandOutput = UpdateEvaluationOutput & __MetadataBearer;
+export interface UpdateEvaluationCommandInput extends UpdateEvaluationInput {}
+export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>

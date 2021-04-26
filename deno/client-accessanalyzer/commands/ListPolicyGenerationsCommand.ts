@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListPolicyGenerationsCommandInput = ListPolicyGenerationsRequest;
-export type ListPolicyGenerationsCommandOutput = ListPolicyGenerationsResponse & __MetadataBearer;
+export interface ListPolicyGenerationsCommandInput extends ListPolicyGenerationsRequest {}
+export interface ListPolicyGenerationsCommandOutput extends ListPolicyGenerationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the policy generations requested in the last seven days.</p>

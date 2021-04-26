@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopDeliveryStreamEncryptionCommandInput = StopDeliveryStreamEncryptionInput;
-export type StopDeliveryStreamEncryptionCommandOutput = StopDeliveryStreamEncryptionOutput & __MetadataBearer;
+export interface StopDeliveryStreamEncryptionCommandInput extends StopDeliveryStreamEncryptionInput {}
+export interface StopDeliveryStreamEncryptionCommandOutput
+  extends StopDeliveryStreamEncryptionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disables server-side encryption (SSE) for the delivery stream. </p>

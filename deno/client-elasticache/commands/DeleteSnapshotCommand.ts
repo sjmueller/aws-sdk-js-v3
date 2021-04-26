@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteSnapshotCommandInput = DeleteSnapshotMessage;
-export type DeleteSnapshotCommandOutput = DeleteSnapshotResult & __MetadataBearer;
+export interface DeleteSnapshotCommandInput extends DeleteSnapshotMessage {}
+export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing snapshot. When you receive a

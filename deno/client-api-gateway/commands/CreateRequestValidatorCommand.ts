@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateRequestValidatorCommandInput = CreateRequestValidatorRequest;
-export type CreateRequestValidatorCommandOutput = RequestValidator & __MetadataBearer;
+export interface CreateRequestValidatorCommandInput extends CreateRequestValidatorRequest {}
+export interface CreateRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
  * <p>Creates a <a>ReqeustValidator</a> of a given <a>RestApi</a>.</p>

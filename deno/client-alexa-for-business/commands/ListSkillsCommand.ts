@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListSkillsCommandInput = ListSkillsRequest;
-export type ListSkillsCommandOutput = ListSkillsResponse & __MetadataBearer;
+export interface ListSkillsCommandInput extends ListSkillsRequest {}
+export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all enabled skills in a specific skill group.</p>

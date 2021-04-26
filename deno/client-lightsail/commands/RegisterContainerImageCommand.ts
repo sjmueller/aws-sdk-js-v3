@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RegisterContainerImageCommandInput = RegisterContainerImageRequest;
-export type RegisterContainerImageCommandOutput = RegisterContainerImageResult & __MetadataBearer;
+export interface RegisterContainerImageCommandInput extends RegisterContainerImageRequest {}
+export interface RegisterContainerImageCommandOutput extends RegisterContainerImageResult, __MetadataBearer {}
 
 /**
  * <p>Registers a container image to your Amazon Lightsail container service.</p>

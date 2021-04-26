@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StartInstancesCommandInput = StartInstancesRequest;
-export type StartInstancesCommandOutput = StartInstancesResult & __MetadataBearer;
+export interface StartInstancesCommandInput extends StartInstancesRequest {}
+export interface StartInstancesCommandOutput extends StartInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Starts an Amazon EBS-backed instance that you've previously stopped.</p>

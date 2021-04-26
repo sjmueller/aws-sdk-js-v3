@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociateNodeCommandInput = DisassociateNodeRequest;
-export type DisassociateNodeCommandOutput = DisassociateNodeResponse & __MetadataBearer;
+export interface DisassociateNodeCommandInput extends DisassociateNodeRequest {}
+export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse, __MetadataBearer {}
 
 /**
  * <p>

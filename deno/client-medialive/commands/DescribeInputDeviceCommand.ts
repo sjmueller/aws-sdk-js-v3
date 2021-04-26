@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeInputDeviceCommandInput = DescribeInputDeviceRequest;
-export type DescribeInputDeviceCommandOutput = DescribeInputDeviceResponse & __MetadataBearer;
+export interface DescribeInputDeviceCommandInput extends DescribeInputDeviceRequest {}
+export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceResponse, __MetadataBearer {}
 
 /**
  * Gets the details for the input device

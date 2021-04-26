@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateAddonCommandInput = UpdateAddonRequest;
-export type UpdateAddonCommandOutput = UpdateAddonResponse & __MetadataBearer;
+export interface UpdateAddonCommandInput extends UpdateAddonRequest {}
+export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon EKS add-on.</p>

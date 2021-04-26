@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateTagsCommandInput = CreateTagsRequest;
-export type CreateTagsCommandOutput = __MetadataBearer;
+export interface CreateTagsCommandInput extends CreateTagsRequest {}
+export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * Create tags for a resource

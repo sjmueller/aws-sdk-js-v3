@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateDistributionConfigurationCommandInput = CreateDistributionConfigurationRequest;
-export type CreateDistributionConfigurationCommandOutput = CreateDistributionConfigurationResponse & __MetadataBearer;
+export interface CreateDistributionConfigurationCommandInput extends CreateDistributionConfigurationRequest {}
+export interface CreateDistributionConfigurationCommandOutput
+  extends CreateDistributionConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new distribution configuration. Distribution configurations define and configure

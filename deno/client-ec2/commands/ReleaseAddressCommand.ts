@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ReleaseAddressCommandInput = ReleaseAddressRequest;
-export type ReleaseAddressCommandOutput = __MetadataBearer;
+export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
+export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Releases the specified Elastic IP address.</p>

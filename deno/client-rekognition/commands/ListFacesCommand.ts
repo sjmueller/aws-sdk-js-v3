@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListFacesCommandInput = ListFacesRequest;
-export type ListFacesCommandOutput = ListFacesResponse & __MetadataBearer;
+export interface ListFacesCommandInput extends ListFacesRequest {}
+export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata for faces in the specified collection.

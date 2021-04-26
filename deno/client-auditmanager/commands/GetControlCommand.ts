@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetControlCommandInput = GetControlRequest;
-export type GetControlCommandOutput = GetControlResponse & __MetadataBearer;
+export interface GetControlCommandInput extends GetControlRequest {}
+export interface GetControlCommandOutput extends GetControlResponse, __MetadataBearer {}
 
 /**
  * <p>

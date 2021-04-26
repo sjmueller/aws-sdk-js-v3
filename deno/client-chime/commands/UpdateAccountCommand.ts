@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateAccountCommandInput = UpdateAccountRequest;
-export type UpdateAccountCommandOutput = UpdateAccountResponse & __MetadataBearer;
+export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
+export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Updates account details for the specified Amazon Chime account. Currently, only account name

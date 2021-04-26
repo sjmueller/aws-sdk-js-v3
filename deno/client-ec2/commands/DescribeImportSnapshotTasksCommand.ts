@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeImportSnapshotTasksCommandInput = DescribeImportSnapshotTasksRequest;
-export type DescribeImportSnapshotTasksCommandOutput = DescribeImportSnapshotTasksResult & __MetadataBearer;
+export interface DescribeImportSnapshotTasksCommandInput extends DescribeImportSnapshotTasksRequest {}
+export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImportSnapshotTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes your import snapshot tasks.</p>

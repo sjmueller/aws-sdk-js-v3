@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListElasticsearchVersionsCommandInput = ListElasticsearchVersionsRequest;
-export type ListElasticsearchVersionsCommandOutput = ListElasticsearchVersionsResponse & __MetadataBearer;
+export interface ListElasticsearchVersionsCommandInput extends ListElasticsearchVersionsRequest {}
+export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearchVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>List all supported Elasticsearch versions</p>

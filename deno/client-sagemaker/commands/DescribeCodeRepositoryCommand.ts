@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeCodeRepositoryCommandInput = DescribeCodeRepositoryInput;
-export type DescribeCodeRepositoryCommandOutput = DescribeCodeRepositoryOutput & __MetadataBearer;
+export interface DescribeCodeRepositoryCommandInput extends DescribeCodeRepositoryInput {}
+export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeRepositoryOutput, __MetadataBearer {}
 
 /**
  * <p>Gets details about the specified Git repository.</p>

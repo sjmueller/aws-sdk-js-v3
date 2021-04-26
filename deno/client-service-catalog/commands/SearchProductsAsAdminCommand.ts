@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SearchProductsAsAdminCommandInput = SearchProductsAsAdminInput;
-export type SearchProductsAsAdminCommandOutput = SearchProductsAsAdminOutput & __MetadataBearer;
+export interface SearchProductsAsAdminCommandInput extends SearchProductsAsAdminInput {}
+export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdminOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the products for the specified portfolio or all products.</p>

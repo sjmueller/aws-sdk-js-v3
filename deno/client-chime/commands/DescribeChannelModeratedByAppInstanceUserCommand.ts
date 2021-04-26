@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeChannelModeratedByAppInstanceUserCommandInput = DescribeChannelModeratedByAppInstanceUserRequest;
-export type DescribeChannelModeratedByAppInstanceUserCommandOutput = DescribeChannelModeratedByAppInstanceUserResponse &
-  __MetadataBearer;
+export interface DescribeChannelModeratedByAppInstanceUserCommandInput
+  extends DescribeChannelModeratedByAppInstanceUserRequest {}
+export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
+  extends DescribeChannelModeratedByAppInstanceUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.</p>

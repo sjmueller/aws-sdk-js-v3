@@ -19,10 +19,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type WriteGetObjectResponseCommandInput = Omit<WriteGetObjectResponseRequest, "Body"> & {
+type WriteGetObjectResponseCommandInputType = Omit<WriteGetObjectResponseRequest, "Body"> & {
+  /**
+   * For *`WriteGetObjectResponseRequest["Body"]`*, see {@link WriteGetObjectResponseRequest.Body}.
+   */
   Body?: WriteGetObjectResponseRequest["Body"] | string | Uint8Array | Buffer;
 };
-export type WriteGetObjectResponseCommandOutput = __MetadataBearer;
+/**
+ * This interface extends from `WriteGetObjectResponseRequest` interface. There are more parameters than `Body` defined in {@link WriteGetObjectResponseRequest}
+ */
+export interface WriteGetObjectResponseCommandInput extends WriteGetObjectResponseCommandInputType {}
+export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Passes transformed

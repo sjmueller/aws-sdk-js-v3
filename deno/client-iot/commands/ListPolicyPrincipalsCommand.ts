@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListPolicyPrincipalsCommandInput = ListPolicyPrincipalsRequest;
-export type ListPolicyPrincipalsCommandOutput = ListPolicyPrincipalsResponse & __MetadataBearer;
+export interface ListPolicyPrincipalsCommandInput extends ListPolicyPrincipalsRequest {}
+export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsResponse, __MetadataBearer {}
 
 /**
  * @deprecated

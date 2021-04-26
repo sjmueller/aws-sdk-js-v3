@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeMigrationTaskCommandInput = DescribeMigrationTaskRequest;
-export type DescribeMigrationTaskCommandOutput = DescribeMigrationTaskResult & __MetadataBearer;
+export interface DescribeMigrationTaskCommandInput extends DescribeMigrationTaskRequest {}
+export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTaskResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all attributes associated with a specific migration task.</p>

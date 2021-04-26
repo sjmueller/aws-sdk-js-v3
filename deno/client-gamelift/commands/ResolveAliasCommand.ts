@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ResolveAliasCommandInput = ResolveAliasInput;
-export type ResolveAliasCommandOutput = ResolveAliasOutput & __MetadataBearer;
+export interface ResolveAliasCommandInput extends ResolveAliasInput {}
+export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the fleet ID that an alias is currently pointing to.</p>

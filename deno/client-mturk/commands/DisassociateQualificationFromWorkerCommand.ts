@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DisassociateQualificationFromWorkerCommandInput = DisassociateQualificationFromWorkerRequest;
-export type DisassociateQualificationFromWorkerCommandOutput = DisassociateQualificationFromWorkerResponse &
-  __MetadataBearer;
+export interface DisassociateQualificationFromWorkerCommandInput extends DisassociateQualificationFromWorkerRequest {}
+export interface DisassociateQualificationFromWorkerCommandOutput
+  extends DisassociateQualificationFromWorkerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

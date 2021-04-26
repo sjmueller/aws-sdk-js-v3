@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RemoveThingFromBillingGroupCommandInput = RemoveThingFromBillingGroupRequest;
-export type RemoveThingFromBillingGroupCommandOutput = RemoveThingFromBillingGroupResponse & __MetadataBearer;
+export interface RemoveThingFromBillingGroupCommandInput extends RemoveThingFromBillingGroupRequest {}
+export interface RemoveThingFromBillingGroupCommandOutput
+  extends RemoveThingFromBillingGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes the given thing from the billing group.</p>

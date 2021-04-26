@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListDeploymentStrategiesCommandInput = ListDeploymentStrategiesRequest;
-export type ListDeploymentStrategiesCommandOutput = DeploymentStrategies & __MetadataBearer;
+export interface ListDeploymentStrategiesCommandInput extends ListDeploymentStrategiesRequest {}
+export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrategies, __MetadataBearer {}
 
 /**
  * <p>List deployment strategies.</p>

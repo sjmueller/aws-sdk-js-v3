@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetDocumentVersionCommandInput = GetDocumentVersionRequest;
-export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse & __MetadataBearer;
+export interface GetDocumentVersionCommandInput extends GetDocumentVersionRequest {}
+export interface GetDocumentVersionCommandOutput extends GetDocumentVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves version metadata for the specified document.</p>

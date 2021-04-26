@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeNotificationSubscriptionsCommandInput = DescribeNotificationSubscriptionsRequest;
-export type DescribeNotificationSubscriptionsCommandOutput = DescribeNotificationSubscriptionsResponse &
-  __MetadataBearer;
+export interface DescribeNotificationSubscriptionsCommandInput extends DescribeNotificationSubscriptionsRequest {}
+export interface DescribeNotificationSubscriptionsCommandOutput
+  extends DescribeNotificationSubscriptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the specified notification subscriptions.</p>

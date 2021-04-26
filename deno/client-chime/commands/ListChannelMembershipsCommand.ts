@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListChannelMembershipsCommandInput = ListChannelMembershipsRequest;
-export type ListChannelMembershipsCommandOutput = ListChannelMembershipsResponse & __MetadataBearer;
+export interface ListChannelMembershipsCommandInput extends ListChannelMembershipsRequest {}
+export interface ListChannelMembershipsCommandOutput extends ListChannelMembershipsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all channel memberships in a channel.</p>

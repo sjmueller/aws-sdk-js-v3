@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteApplicationOutputCommandInput = DeleteApplicationOutputRequest;
-export type DeleteApplicationOutputCommandOutput = DeleteApplicationOutputResponse & __MetadataBearer;
+export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOutputRequest {}
+export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**
  * <note>

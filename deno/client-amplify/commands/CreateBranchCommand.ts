@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateBranchCommandInput = CreateBranchRequest;
-export type CreateBranchCommandOutput = CreateBranchResult & __MetadataBearer;
+export interface CreateBranchCommandInput extends CreateBranchRequest {}
+export interface CreateBranchCommandOutput extends CreateBranchResult, __MetadataBearer {}
 
 /**
  * <p> Creates a new branch for an Amplify app. </p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyVolumeCommandInput = ModifyVolumeRequest;
-export type ModifyVolumeCommandOutput = ModifyVolumeResult & __MetadataBearer;
+export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}
+export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __MetadataBearer {}
 
 /**
  * <p>You can modify several parameters of an existing EBS volume, including volume size, volume

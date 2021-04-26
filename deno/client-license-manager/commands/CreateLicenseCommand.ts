@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateLicenseCommandInput = CreateLicenseRequest;
-export type CreateLicenseCommandOutput = CreateLicenseResponse & __MetadataBearer;
+export interface CreateLicenseCommandInput extends CreateLicenseRequest {}
+export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a license.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeAuditTaskCommandInput = DescribeAuditTaskRequest;
-export type DescribeAuditTaskCommandOutput = DescribeAuditTaskResponse & __MetadataBearer;
+export interface DescribeAuditTaskCommandInput extends DescribeAuditTaskRequest {}
+export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a Device Defender audit.</p>

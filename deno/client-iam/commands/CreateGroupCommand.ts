@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateGroupCommandInput = CreateGroupRequest;
-export type CreateGroupCommandOutput = CreateGroupResponse & __MetadataBearer;
+export interface CreateGroupCommandInput extends CreateGroupRequest {}
+export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new group.</p>

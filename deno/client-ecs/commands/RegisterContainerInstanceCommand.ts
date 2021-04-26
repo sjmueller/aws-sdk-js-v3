@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type RegisterContainerInstanceCommandInput = RegisterContainerInstanceRequest;
-export type RegisterContainerInstanceCommandOutput = RegisterContainerInstanceResponse & __MetadataBearer;
+export interface RegisterContainerInstanceCommandInput extends RegisterContainerInstanceRequest {}
+export interface RegisterContainerInstanceCommandOutput extends RegisterContainerInstanceResponse, __MetadataBearer {}
 
 /**
  * <note>

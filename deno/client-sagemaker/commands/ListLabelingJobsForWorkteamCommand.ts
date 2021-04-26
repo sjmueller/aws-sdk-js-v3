@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListLabelingJobsForWorkteamCommandInput = ListLabelingJobsForWorkteamRequest;
-export type ListLabelingJobsForWorkteamCommandOutput = ListLabelingJobsForWorkteamResponse & __MetadataBearer;
+export interface ListLabelingJobsForWorkteamCommandInput extends ListLabelingJobsForWorkteamRequest {}
+export interface ListLabelingJobsForWorkteamCommandOutput
+  extends ListLabelingJobsForWorkteamResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of labeling jobs assigned to a specified work team.</p>

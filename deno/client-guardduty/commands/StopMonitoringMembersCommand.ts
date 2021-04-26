@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type StopMonitoringMembersCommandInput = StopMonitoringMembersRequest;
-export type StopMonitoringMembersCommandOutput = StopMonitoringMembersResponse & __MetadataBearer;
+export interface StopMonitoringMembersCommandInput extends StopMonitoringMembersRequest {}
+export interface StopMonitoringMembersCommandOutput extends StopMonitoringMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Stops GuardDuty monitoring for the specified member accounts. Use the

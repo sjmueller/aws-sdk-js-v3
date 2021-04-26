@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AcceptTransitGatewayPeeringAttachmentCommandInput = AcceptTransitGatewayPeeringAttachmentRequest;
-export type AcceptTransitGatewayPeeringAttachmentCommandOutput = AcceptTransitGatewayPeeringAttachmentResult &
-  __MetadataBearer;
+export interface AcceptTransitGatewayPeeringAttachmentCommandInput
+  extends AcceptTransitGatewayPeeringAttachmentRequest {}
+export interface AcceptTransitGatewayPeeringAttachmentCommandOutput
+  extends AcceptTransitGatewayPeeringAttachmentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a transit gateway peering attachment request. The peering attachment must be

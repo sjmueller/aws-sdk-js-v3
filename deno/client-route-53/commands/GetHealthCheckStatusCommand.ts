@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetHealthCheckStatusCommandInput = GetHealthCheckStatusRequest;
-export type GetHealthCheckStatusCommandOutput = GetHealthCheckStatusResponse & __MetadataBearer;
+export interface GetHealthCheckStatusCommandInput extends GetHealthCheckStatusRequest {}
+export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets status of a specified health check. </p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetContactReachabilityStatusCommandInput = GetContactReachabilityStatusRequest;
-export type GetContactReachabilityStatusCommandOutput = GetContactReachabilityStatusResponse & __MetadataBearer;
+export interface GetContactReachabilityStatusCommandInput extends GetContactReachabilityStatusRequest {}
+export interface GetContactReachabilityStatusCommandOutput
+  extends GetContactReachabilityStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>For operations that require confirmation that the email address for the registrant contact is valid,

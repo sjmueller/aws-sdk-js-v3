@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ModifyWorkspaceAccessPropertiesCommandInput = ModifyWorkspaceAccessPropertiesRequest;
-export type ModifyWorkspaceAccessPropertiesCommandOutput = ModifyWorkspaceAccessPropertiesResult & __MetadataBearer;
+export interface ModifyWorkspaceAccessPropertiesCommandInput extends ModifyWorkspaceAccessPropertiesRequest {}
+export interface ModifyWorkspaceAccessPropertiesCommandOutput
+  extends ModifyWorkspaceAccessPropertiesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.

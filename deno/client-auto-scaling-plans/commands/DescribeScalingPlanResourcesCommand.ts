@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeScalingPlanResourcesCommandInput = DescribeScalingPlanResourcesRequest;
-export type DescribeScalingPlanResourcesCommandOutput = DescribeScalingPlanResourcesResponse & __MetadataBearer;
+export interface DescribeScalingPlanResourcesCommandInput extends DescribeScalingPlanResourcesRequest {}
+export interface DescribeScalingPlanResourcesCommandOutput
+  extends DescribeScalingPlanResourcesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the scalable resources in the specified scaling plan.</p>

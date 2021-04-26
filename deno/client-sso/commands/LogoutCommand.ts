@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type LogoutCommandInput = LogoutRequest;
-export type LogoutCommandOutput = __MetadataBearer;
+export interface LogoutCommandInput extends LogoutRequest {}
+export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the client- and server-side session that is associated with the user.</p>

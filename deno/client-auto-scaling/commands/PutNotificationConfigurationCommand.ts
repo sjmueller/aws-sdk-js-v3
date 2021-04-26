@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type PutNotificationConfigurationCommandInput = PutNotificationConfigurationType;
-export type PutNotificationConfigurationCommandOutput = __MetadataBearer;
+export interface PutNotificationConfigurationCommandInput extends PutNotificationConfigurationType {}
+export interface PutNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Configures an Auto Scaling group to send notifications when specified events take place.

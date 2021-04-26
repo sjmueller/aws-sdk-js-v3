@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeOriginEndpointCommandInput = DescribeOriginEndpointRequest;
-export type DescribeOriginEndpointCommandOutput = DescribeOriginEndpointResponse & __MetadataBearer;
+export interface DescribeOriginEndpointCommandInput extends DescribeOriginEndpointRequest {}
+export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpointResponse, __MetadataBearer {}
 
 /**
  * Gets details about an existing OriginEndpoint.

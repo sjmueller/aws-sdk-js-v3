@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteFeatureGroupCommandInput = DeleteFeatureGroupRequest;
-export type DeleteFeatureGroupCommandOutput = __MetadataBearer;
+export interface DeleteFeatureGroupCommandInput extends DeleteFeatureGroupRequest {}
+export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the <code>FeatureGroup</code> and any data that was written to the

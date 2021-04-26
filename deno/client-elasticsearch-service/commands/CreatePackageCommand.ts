@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreatePackageCommandInput = CreatePackageRequest;
-export type CreatePackageCommandOutput = CreatePackageResponse & __MetadataBearer;
+export interface CreatePackageCommandInput extends CreatePackageRequest {}
+export interface CreatePackageCommandOutput extends CreatePackageResponse, __MetadataBearer {}
 
 /**
  * <p>Create a package for use with Amazon ES domains.</p>

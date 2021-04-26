@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteScalingPlanCommandInput = DeleteScalingPlanRequest;
-export type DeleteScalingPlanCommandOutput = DeleteScalingPlanResponse & __MetadataBearer;
+export interface DeleteScalingPlanCommandInput extends DeleteScalingPlanRequest {}
+export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified scaling plan.</p>

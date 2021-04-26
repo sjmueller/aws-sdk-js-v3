@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type InitiateVaultLockCommandInput = InitiateVaultLockInput;
-export type InitiateVaultLockCommandOutput = InitiateVaultLockOutput & __MetadataBearer;
+export interface InitiateVaultLockCommandInput extends InitiateVaultLockInput {}
+export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput, __MetadataBearer {}
 
 /**
  * <p>This operation initiates the vault locking process by doing the following:</p>

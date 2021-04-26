@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetProfileCommandInput = GetProfileRequest;
-export type GetProfileCommandOutput = GetProfileResponse & __MetadataBearer;
+export interface GetProfileCommandInput extends GetProfileRequest {}
+export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
  * <p>

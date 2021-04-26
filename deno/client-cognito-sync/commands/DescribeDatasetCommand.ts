@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeDatasetCommandInput = DescribeDatasetRequest;
-export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataBearer;
+export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
+export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
  * <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type UpdateMLModelCommandInput = UpdateMLModelInput;
-export type UpdateMLModelCommandOutput = UpdateMLModelOutput & __MetadataBearer;
+export interface UpdateMLModelCommandInput extends UpdateMLModelInput {}
+export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateConfigurationSetEventDestinationCommandInput = CreateConfigurationSetEventDestinationRequest;
-export type CreateConfigurationSetEventDestinationCommandOutput = CreateConfigurationSetEventDestinationResponse &
-  __MetadataBearer;
+export interface CreateConfigurationSetEventDestinationCommandInput
+  extends CreateConfigurationSetEventDestinationRequest {}
+export interface CreateConfigurationSetEventDestinationCommandOutput
+  extends CreateConfigurationSetEventDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Create an event destination. <i>Events</i> include message sends,

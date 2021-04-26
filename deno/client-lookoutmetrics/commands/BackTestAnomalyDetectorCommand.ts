@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type BackTestAnomalyDetectorCommandInput = BackTestAnomalyDetectorRequest;
-export type BackTestAnomalyDetectorCommandOutput = BackTestAnomalyDetectorResponse & __MetadataBearer;
+export interface BackTestAnomalyDetectorCommandInput extends BackTestAnomalyDetectorRequest {}
+export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Runs a backtest for anomaly detection for the specified resource.</p>

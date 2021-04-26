@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateFleetCommandInput = CreateFleetRequest;
-export type CreateFleetCommandOutput = CreateFleetResponse & __MetadataBearer;
+export interface CreateFleetCommandInput extends CreateFleetRequest {}
+export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers

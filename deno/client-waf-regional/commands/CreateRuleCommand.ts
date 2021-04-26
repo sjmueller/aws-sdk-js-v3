@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateRuleCommandInput = CreateRuleRequest;
-export type CreateRuleCommandOutput = CreateRuleResponse & __MetadataBearer;
+export interface CreateRuleCommandInput extends CreateRuleRequest {}
+export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
  * <note>

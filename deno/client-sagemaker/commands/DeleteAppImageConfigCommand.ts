@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteAppImageConfigCommandInput = DeleteAppImageConfigRequest;
-export type DeleteAppImageConfigCommandOutput = __MetadataBearer;
+export interface DeleteAppImageConfigCommandInput extends DeleteAppImageConfigRequest {}
+export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an AppImageConfig.</p>

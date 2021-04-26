@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteRecipeVersionCommandInput = DeleteRecipeVersionRequest;
-export type DeleteRecipeVersionCommandOutput = DeleteRecipeVersionResponse & __MetadataBearer;
+export interface DeleteRecipeVersionCommandInput extends DeleteRecipeVersionRequest {}
+export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single version of a DataBrew recipe.</p>

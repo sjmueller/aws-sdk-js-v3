@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateVpcEndpointServiceConfigurationCommandInput = CreateVpcEndpointServiceConfigurationRequest;
-export type CreateVpcEndpointServiceConfigurationCommandOutput = CreateVpcEndpointServiceConfigurationResult &
-  __MetadataBearer;
+export interface CreateVpcEndpointServiceConfigurationCommandInput
+  extends CreateVpcEndpointServiceConfigurationRequest {}
+export interface CreateVpcEndpointServiceConfigurationCommandOutput
+  extends CreateVpcEndpointServiceConfigurationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts,

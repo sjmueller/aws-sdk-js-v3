@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteDynamicThingGroupCommandInput = DeleteDynamicThingGroupRequest;
-export type DeleteDynamicThingGroupCommandOutput = DeleteDynamicThingGroupResponse & __MetadataBearer;
+export interface DeleteDynamicThingGroupCommandInput extends DeleteDynamicThingGroupRequest {}
+export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a dynamic thing group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeletePredictorCommandInput = DeletePredictorRequest;
-export type DeletePredictorCommandOutput = __MetadataBearer;
+export interface DeletePredictorCommandInput extends DeletePredictorRequest {}
+export interface DeletePredictorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a predictor created using the <a>CreatePredictor</a> operation. You can

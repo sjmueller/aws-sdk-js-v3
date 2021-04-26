@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetGroupVersionCommandInput = GetGroupVersionRequest;
-export type GetGroupVersionCommandOutput = GetGroupVersionResponse & __MetadataBearer;
+export interface GetGroupVersionCommandInput extends GetGroupVersionRequest {}
+export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a group version.

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type SearchAvailablePhoneNumbersCommandInput = SearchAvailablePhoneNumbersRequest;
-export type SearchAvailablePhoneNumbersCommandOutput = SearchAvailablePhoneNumbersResponse & __MetadataBearer;
+export interface SearchAvailablePhoneNumbersCommandInput extends SearchAvailablePhoneNumbersRequest {}
+export interface SearchAvailablePhoneNumbersCommandOutput
+  extends SearchAvailablePhoneNumbersResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Searches phone numbers that can be ordered.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListTypesCommandInput = ListTypesRequest;
-export type ListTypesCommandOutput = ListTypesResponse & __MetadataBearer;
+export interface ListTypesCommandInput extends ListTypesRequest {}
+export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the types for a given API.</p>

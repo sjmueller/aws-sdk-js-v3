@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type GetEvidenceFoldersByAssessmentCommandInput = GetEvidenceFoldersByAssessmentRequest;
-export type GetEvidenceFoldersByAssessmentCommandOutput = GetEvidenceFoldersByAssessmentResponse & __MetadataBearer;
+export interface GetEvidenceFoldersByAssessmentCommandInput extends GetEvidenceFoldersByAssessmentRequest {}
+export interface GetEvidenceFoldersByAssessmentCommandOutput
+  extends GetEvidenceFoldersByAssessmentResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteRuleCommandInput = DeleteRuleInput;
-export type DeleteRuleCommandOutput = DeleteRuleOutput & __MetadataBearer;
+export interface DeleteRuleCommandInput extends DeleteRuleInput {}
+export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified rule.</p>

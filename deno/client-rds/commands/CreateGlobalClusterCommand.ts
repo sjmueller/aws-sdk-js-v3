@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateGlobalClusterCommandInput = CreateGlobalClusterMessage;
-export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult & __MetadataBearer;
+export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMessage {}
+export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
  * <p>

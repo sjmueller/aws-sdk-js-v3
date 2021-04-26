@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DeleteConstraintCommandInput = DeleteConstraintInput;
-export type DeleteConstraintCommandOutput = DeleteConstraintOutput & __MetadataBearer;
+export interface DeleteConstraintCommandInput extends DeleteConstraintInput {}
+export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified constraint.</p>

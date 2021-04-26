@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateLagCommandInput = CreateLagRequest;
-export type CreateLagCommandOutput = Lag & __MetadataBearer;
+export interface CreateLagCommandInput extends CreateLagRequest {}
+export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
  * <p>Creates a link aggregation group (LAG) with the specified number of bundled

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ListThingRegistrationTasksCommandInput = ListThingRegistrationTasksRequest;
-export type ListThingRegistrationTasksCommandOutput = ListThingRegistrationTasksResponse & __MetadataBearer;
+export interface ListThingRegistrationTasksCommandInput extends ListThingRegistrationTasksRequest {}
+export interface ListThingRegistrationTasksCommandOutput extends ListThingRegistrationTasksResponse, __MetadataBearer {}
 
 /**
  * <p>List bulk thing provisioning tasks.</p>

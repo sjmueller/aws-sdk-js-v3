@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type ImportComponentCommandInput = ImportComponentRequest;
-export type ImportComponentCommandOutput = ImportComponentResponse & __MetadataBearer;
+export interface ImportComponentCommandInput extends ImportComponentRequest {}
+export interface ImportComponentCommandOutput extends ImportComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Imports a component and transforms its data into a component document.</p>

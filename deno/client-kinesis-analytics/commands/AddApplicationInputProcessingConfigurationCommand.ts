@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type AddApplicationInputProcessingConfigurationCommandInput = AddApplicationInputProcessingConfigurationRequest;
-export type AddApplicationInputProcessingConfigurationCommandOutput = AddApplicationInputProcessingConfigurationResponse &
-  __MetadataBearer;
+export interface AddApplicationInputProcessingConfigurationCommandInput
+  extends AddApplicationInputProcessingConfigurationRequest {}
+export interface AddApplicationInputProcessingConfigurationCommandOutput
+  extends AddApplicationInputProcessingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <note>

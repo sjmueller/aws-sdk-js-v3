@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type BatchAssociateAssessmentReportEvidenceCommandInput = BatchAssociateAssessmentReportEvidenceRequest;
-export type BatchAssociateAssessmentReportEvidenceCommandOutput = BatchAssociateAssessmentReportEvidenceResponse &
-  __MetadataBearer;
+export interface BatchAssociateAssessmentReportEvidenceCommandInput
+  extends BatchAssociateAssessmentReportEvidenceRequest {}
+export interface BatchAssociateAssessmentReportEvidenceCommandOutput
+  extends BatchAssociateAssessmentReportEvidenceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

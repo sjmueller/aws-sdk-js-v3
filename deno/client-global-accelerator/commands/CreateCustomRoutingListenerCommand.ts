@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateCustomRoutingListenerCommandInput = CreateCustomRoutingListenerRequest;
-export type CreateCustomRoutingListenerCommandOutput = CreateCustomRoutingListenerResponse & __MetadataBearer;
+export interface CreateCustomRoutingListenerCommandInput extends CreateCustomRoutingListenerRequest {}
+export interface CreateCustomRoutingListenerCommandOutput
+  extends CreateCustomRoutingListenerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.

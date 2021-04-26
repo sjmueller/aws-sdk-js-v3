@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type DescribeStateMachineForExecutionCommandInput = DescribeStateMachineForExecutionInput;
-export type DescribeStateMachineForExecutionCommandOutput = DescribeStateMachineForExecutionOutput & __MetadataBearer;
+export interface DescribeStateMachineForExecutionCommandInput extends DescribeStateMachineForExecutionInput {}
+export interface DescribeStateMachineForExecutionCommandOutput
+  extends DescribeStateMachineForExecutionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the state machine associated with a specific execution.</p>

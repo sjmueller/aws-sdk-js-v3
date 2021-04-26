@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 
-export type CreateTopicRuleCommandInput = CreateTopicRuleRequest;
-export type CreateTopicRuleCommandOutput = __MetadataBearer;
+export interface CreateTopicRuleCommandInput extends CreateTopicRuleRequest {}
+export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a rule. Creating rules is an administrator-level action. Any user who has
