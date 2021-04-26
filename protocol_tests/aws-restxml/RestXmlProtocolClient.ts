@@ -39,6 +39,10 @@ import {
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
+  HttpPayloadWithMemberXmlNameCommandInput,
+  HttpPayloadWithMemberXmlNameCommandOutput,
+} from "./commands/HttpPayloadWithMemberXmlNameCommand";
+import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
@@ -190,6 +194,7 @@ export type ServiceInputTypes =
   | GreetingWithErrorsCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
+  | HttpPayloadWithMemberXmlNameCommandInput
   | HttpPayloadWithStructureCommandInput
   | HttpPayloadWithXmlNameCommandInput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandInput
@@ -241,6 +246,7 @@ export type ServiceOutputTypes =
   | GreetingWithErrorsCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
+  | HttpPayloadWithMemberXmlNameCommandOutput
   | HttpPayloadWithStructureCommandOutput
   | HttpPayloadWithXmlNameCommandOutput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
@@ -374,7 +380,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RestXmlProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -382,8 +388,12 @@ export type RestXmlProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RestXmlProtocolClient class constructor that set the region, credentials and other options.
+ */
+export interface RestXmlProtocolClientConfig extends RestXmlProtocolClientConfigType {}
 
-export type RestXmlProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -391,6 +401,10 @@ export type RestXmlProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RestXmlProtocolClient class. This is resolved and normalized from the {@link RestXmlProtocolClientConfig | constructor configuration interface}.
+ */
+export interface RestXmlProtocolClientResolvedConfig extends RestXmlProtocolClientResolvedConfigType {}
 
 /**
  * A REST XML service that sends XML requests and responses.
@@ -401,6 +415,9 @@ export class RestXmlProtocolClient extends __Client<
   ServiceOutputTypes,
   RestXmlProtocolClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RestXmlProtocolClient class. This is resolved and normalized from the {@link RestXmlProtocolClientConfig | constructor configuration interface}.
+   */
   readonly config: RestXmlProtocolClientResolvedConfig;
 
   constructor(configuration: RestXmlProtocolClientConfig) {

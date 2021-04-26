@@ -20,6 +20,7 @@ import {
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "./commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -47,6 +48,7 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "./commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "./commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -167,6 +169,7 @@ export type ServiceInputTypes =
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
+  | HttpEnumPayloadCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithStructureCommandInput
@@ -176,6 +179,7 @@ export type ServiceInputTypes =
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
   | HttpResponseCodeCommandInput
+  | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InlineDocumentAsPayloadCommandInput
   | InlineDocumentCommandInput
@@ -210,6 +214,7 @@ export type ServiceOutputTypes =
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HttpEnumPayloadCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithStructureCommandOutput
@@ -219,6 +224,7 @@ export type ServiceOutputTypes =
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
   | HttpResponseCodeCommandOutput
+  | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InlineDocumentAsPayloadCommandOutput
   | InlineDocumentCommandOutput
@@ -341,7 +347,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RestJsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -349,8 +355,12 @@ export type RestJsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RestJsonProtocolClient class constructor that set the region, credentials and other options.
+ */
+export interface RestJsonProtocolClientConfig extends RestJsonProtocolClientConfigType {}
 
-export type RestJsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -358,6 +368,10 @@ export type RestJsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RestJsonProtocolClient class. This is resolved and normalized from the {@link RestJsonProtocolClientConfig | constructor configuration interface}.
+ */
+export interface RestJsonProtocolClientResolvedConfig extends RestJsonProtocolClientResolvedConfigType {}
 
 /**
  * A REST JSON service that sends JSON requests and responses.
@@ -368,6 +382,9 @@ export class RestJsonProtocolClient extends __Client<
   ServiceOutputTypes,
   RestJsonProtocolClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RestJsonProtocolClient class. This is resolved and normalized from the {@link RestJsonProtocolClientConfig | constructor configuration interface}.
+   */
   readonly config: RestJsonProtocolClientResolvedConfig;
 
   constructor(configuration: RestJsonProtocolClientConfig) {
