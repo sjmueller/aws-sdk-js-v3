@@ -8,6 +8,7 @@ updates:
   open-pull-requests-limit: 10
   versioning-strategy: increase-if-necessary
   ignore:
+  - dependency-name: "*"
   - dependency-name: "@types/fs-extra"
     versions:
     - 9.0.5
