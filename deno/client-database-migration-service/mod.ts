@@ -27,6 +27,8 @@ export * from "./waiters/waitForTestConnectionSucceeds.ts";
 export * from "./commands/DescribeEndpointsCommand.ts";
 export * from "./pagination/DescribeEndpointsPaginator.ts";
 export * from "./waiters/waitForEndpointDeleted.ts";
+export * from "./commands/DescribeEndpointSettingsCommand.ts";
+export * from "./pagination/DescribeEndpointSettingsPaginator.ts";
 export * from "./commands/DescribeEndpointTypesCommand.ts";
 export * from "./pagination/DescribeEndpointTypesPaginator.ts";
 export * from "./commands/DescribeEventCategoriesCommand.ts";

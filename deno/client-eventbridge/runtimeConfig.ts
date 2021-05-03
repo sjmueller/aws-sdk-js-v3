@@ -1,4 +1,4 @@
-const packageInfo = { version: "3.13.1" };
+const packageInfo = { version: "3.14.0" };
 
 import { decorateDefaultCredentialProvider } from "../client-sts/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";

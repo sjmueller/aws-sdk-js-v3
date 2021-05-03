@@ -27,4 +27,5 @@ export * from "./commands/StopApplicationCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateApplicationCommand.ts";
+export * from "./commands/UpdateApplicationMaintenanceConfigurationCommand.ts";
 export * from "./models/index.ts";

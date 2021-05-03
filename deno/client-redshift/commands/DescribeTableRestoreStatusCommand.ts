@@ -1,5 +1,5 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/models_0.ts";
+import { DescribeTableRestoreStatusMessage, TableRestoreStatusMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeTableRestoreStatusCommand,
   serializeAws_queryDescribeTableRestoreStatusCommand,

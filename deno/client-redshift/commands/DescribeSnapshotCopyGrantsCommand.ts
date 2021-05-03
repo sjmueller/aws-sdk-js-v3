@@ -1,5 +1,6 @@
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DescribeSnapshotCopyGrantsMessage, SnapshotCopyGrantMessage } from "../models/models_0.ts";
+import { DescribeSnapshotCopyGrantsMessage } from "../models/models_0.ts";
+import { SnapshotCopyGrantMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeSnapshotCopyGrantsCommand,
   serializeAws_queryDescribeSnapshotCopyGrantsCommand,

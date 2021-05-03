@@ -226,8 +226,7 @@ export interface MemberDetail {
   /**
    * @deprecated
    *
-   * <p>Deprecated. Instead of <code>MasterId</code>, use <code>AdministratorId</code>.</p>
-   *          <p>The AWS account identifier of the administrator account for the behavior graph.</p>
+   * <p>The AWS account identifier of the administrator account for the behavior graph.</p>
    */
   MasterId?: string;
 
@@ -309,6 +308,18 @@ export interface MemberDetail {
   UpdatedTime?: Date;
 
   /**
+   * <p>The data volume in bytes per day for the member account.</p>
+   */
+  VolumeUsageInBytes?: number;
+
+  /**
+   * <p>The data and time when the member account data volume was last updated.</p>
+   */
+  VolumeUsageUpdatedTime?: Date;
+
+  /**
+   * @deprecated
+   *
    * <p>The member account data volume as a percentage of the maximum allowed data volume. 0
    *          indicates 0 percent, and 100 indicates 100 percent.</p>
    *          <p>Note that this is not the percentage of the behavior graph data volume.</p>
@@ -320,6 +331,8 @@ export interface MemberDetail {
   PercentOfGraphUtilization?: number;
 
   /**
+   * @deprecated
+   *
    * <p>The date and time when the graph utilization percentage was last updated.</p>
    */
   PercentOfGraphUtilizationUpdatedTime?: Date;

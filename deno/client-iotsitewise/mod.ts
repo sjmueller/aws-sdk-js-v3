@@ -41,6 +41,8 @@ export * from "./pagination/GetAssetPropertyAggregatesPaginator.ts";
 export * from "./commands/GetAssetPropertyValueCommand.ts";
 export * from "./commands/GetAssetPropertyValueHistoryCommand.ts";
 export * from "./pagination/GetAssetPropertyValueHistoryPaginator.ts";
+export * from "./commands/GetInterpolatedAssetPropertyValuesCommand.ts";
+export * from "./pagination/GetInterpolatedAssetPropertyValuesPaginator.ts";
 export * from "./commands/ListAccessPoliciesCommand.ts";
 export * from "./pagination/ListAccessPoliciesPaginator.ts";
 export * from "./commands/ListAssetModelsCommand.ts";

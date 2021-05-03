@@ -87,7 +87,7 @@ export enum AvcIntraTelecine {
 }
 
 /**
- * Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-I, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
+ * Required when you choose AVC-Intra for your output video codec. For more information about the AVC-Intra settings, see the relevant specification. For detailed information about SD and HD in AVC-Intra, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-Intra, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
  */
 export interface AvcIntraSettings {
   /**
@@ -1674,7 +1674,7 @@ export interface VideoCodecSettings {
   Av1Settings?: Av1Settings;
 
   /**
-   * Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-I, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
+   * Required when you choose AVC-Intra for your output video codec. For more information about the AVC-Intra settings, see the relevant specification. For detailed information about SD and HD in AVC-Intra, see https://ieeexplore.ieee.org/document/7290936. For information about 4K/2K in AVC-Intra, see https://pro-av.panasonic.net/en/avc-ultra/AVC-ULTRAoverview.pdf.
    */
   AvcIntraSettings?: AvcIntraSettings;
 
@@ -1881,7 +1881,7 @@ export enum DolbyVisionProfile {
 }
 
 /**
- * Settings for Dolby Vision
+ * With AWS Elemental MediaConvert, you can create profile 5 Dolby Vision outputs from MXF and IMF sources that contain mastering information as frame-interleaved Dolby Vision metadata.
  */
 export interface DolbyVision {
   /**
@@ -2095,7 +2095,7 @@ export enum TimecodeBurninPosition {
 }
 
 /**
- * Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
+ * Settings for burning the output timecode and specified prefix into the output.
  */
 export interface TimecodeBurnin {
   /**
@@ -2125,12 +2125,12 @@ export namespace TimecodeBurnin {
  */
 export interface VideoPreprocessor {
   /**
-   * Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+   * Use these settings to convert the color space or to modify properties such as hue and contrast for this output. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/converting-the-color-space.html.
    */
   ColorCorrector?: ColorCorrector;
 
   /**
-   * Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
+   * Use the deinterlacer to produce smoother motion and a clearer picture. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-scan-type.html.
    */
   Deinterlacer?: Deinterlacer;
 
@@ -2155,7 +2155,7 @@ export interface VideoPreprocessor {
   PartnerWatermarking?: PartnerWatermarking;
 
   /**
-   * Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
+   * Settings for burning the output timecode and specified prefix into the output.
    */
   TimecodeBurnin?: TimecodeBurnin;
 }
@@ -2167,7 +2167,7 @@ export namespace VideoPreprocessor {
 }
 
 /**
- * Settings for video outputs
+ * Settings related to video encoding of your output. The specific video settings depend on the video codec that you choose. When you work directly in your JSON job specification, include one instance of Video description (VideoDescription) per output.
  */
 export interface VideoDescription {
   /**
@@ -2253,7 +2253,7 @@ export namespace VideoDescription {
 }
 
 /**
- * An output object describes the settings for a single output file or stream in an output group.
+ * Each output in your job is a collection of settings that describes how you want MediaConvert to encode a single output file or stream. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/create-outputs.html.
  */
 export interface Output {
   /**
@@ -2292,7 +2292,7 @@ export interface Output {
   Preset?: string;
 
   /**
-   * (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
+   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of  VideoDescription per output.
    */
   VideoDescription?: VideoDescription;
 }
@@ -2407,7 +2407,7 @@ export interface JobSettings {
   AvailBlanking?: AvailBlanking;
 
   /**
-   * Settings for Event Signaling And Messaging (ESAM).
+   * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
    */
   Esam?: EsamSettings;
 
@@ -2417,7 +2417,7 @@ export interface JobSettings {
   Inputs?: Input[];
 
   /**
-   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
+   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
    */
   MotionImageInserter?: MotionImageInserter;
 
@@ -2437,7 +2437,7 @@ export interface JobSettings {
   OutputGroups?: OutputGroup[];
 
   /**
-   * Contains settings used to acquire and adjust timecode information from inputs.
+   * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
    */
   TimecodeConfig?: TimecodeConfig;
 
@@ -2661,7 +2661,7 @@ export interface JobTemplateSettings {
   AvailBlanking?: AvailBlanking;
 
   /**
-   * Settings for Event Signaling And Messaging (ESAM).
+   * Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
    */
   Esam?: EsamSettings;
 
@@ -2671,7 +2671,7 @@ export interface JobTemplateSettings {
   Inputs?: InputTemplate[];
 
   /**
-   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups.
+   * Overlay motion graphics on top of your video. The motion graphics that you specify here appear on all outputs in all output groups. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/motion-graphic-overlay.html.
    */
   MotionImageInserter?: MotionImageInserter;
 
@@ -2691,7 +2691,7 @@ export interface JobTemplateSettings {
   OutputGroups?: OutputGroup[];
 
   /**
-   * Contains settings used to acquire and adjust timecode information from inputs.
+   * These settings control how the service handles timecodes throughout the job. These settings don't affect input clipping.
    */
   TimecodeConfig?: TimecodeConfig;
 
@@ -2798,7 +2798,7 @@ export interface PresetSettings {
   AudioDescriptions?: AudioDescription[];
 
   /**
-   * Caption settings for this preset. There can be multiple caption settings in a single output.
+   * This object holds groups of settings related to captions for one output. For each output that has captions, include one instance of CaptionDescriptions.
    */
   CaptionDescriptions?: CaptionDescriptionPreset[];
 
@@ -2808,7 +2808,7 @@ export interface PresetSettings {
   ContainerSettings?: ContainerSettings;
 
   /**
-   * (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
+   * VideoDescription contains a group of video encoding settings. The specific video settings depend on the video codec that you choose for the property codec. Include one instance of  VideoDescription per output.
    */
   VideoDescription?: VideoDescription;
 }
