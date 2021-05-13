@@ -43,14 +43,17 @@ import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Configure clients with AWS auth configurations and plugin.
  */
 // TODO: Think about AWS Auth supported for only some operations and not all, when not AWS service, with say @auth([])
+@SmithyInternalApi
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     static final String STS_CLIENT_PREFIX = "sts-client-";
     static final String ROLE_ASSUMERS_FILE = "defaultRoleAssumers";
+    static final String ROLE_ASSUMERS_TEST_FILE = "defaultRoleAssumers.spec";
     static final String STS_ROLE_ASSUMERS_FILE = "defaultStsRoleAssumers";
 
     @Override
@@ -153,14 +156,25 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         if (!testServiceId(service, "STS")) {
             return;
         }
+        String noTouchNoticePrefix = "// Please do not touch this file. It's generated from template in:\n"
+                + "// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/"
+                + "src/main/resources/software/amazon/smithy/aws/typescript/codegen/";
         writerFactory.accept("defaultRoleAssumers.ts", writer -> {
-            String source = IoUtils.readUtf8Resource(getClass(),
-                    String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_FILE));
+            String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_FILE);
+            String source = IoUtils.readUtf8Resource(getClass(), resourceName);
+            writer.write("$L$L", noTouchNoticePrefix, resourceName);
             writer.write("$L", source);
         });
         writerFactory.accept("defaultStsRoleAssumers.ts", writer -> {
-            String source = IoUtils.readUtf8Resource(getClass(),
-                    String.format("%s%s.ts", STS_CLIENT_PREFIX, STS_ROLE_ASSUMERS_FILE));
+            String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, STS_ROLE_ASSUMERS_FILE);
+            String source = IoUtils.readUtf8Resource(getClass(), resourceName);
+            writer.write("$L$L", noTouchNoticePrefix, resourceName);
+            writer.write("$L", source);
+        });
+        writerFactory.accept("defaultRoleAssumers.spec.ts", writer -> {
+            String resourceName = String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_TEST_FILE);
+            String source = IoUtils.readUtf8Resource(getClass(), resourceName);
+            writer.write("$L$L", noTouchNoticePrefix, resourceName);
             writer.write("$L", source);
         });
     }
