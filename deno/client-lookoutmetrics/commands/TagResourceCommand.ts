@@ -22,6 +22,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * <p>Adds <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to a detector, dataset, or alert.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutMetricsClient, TagResourceCommand } from "../../client-lookoutmetrics/mod.ts";
+ * // const { LookoutMetricsClient, TagResourceCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * const client = new LookoutMetricsClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

@@ -23,6 +23,20 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
 /**
  * <p>Updates the workgroup with the specified name. The workgroup's name cannot be
  *             changed.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, UpdateWorkGroupCommand } from "../../client-athena/mod.ts";
+ * // const { AthenaClient, UpdateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new UpdateWorkGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkGroupCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkGroupCommand extends $Command<
   UpdateWorkGroupCommandInput,

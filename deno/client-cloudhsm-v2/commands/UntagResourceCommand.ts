@@ -22,6 +22,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes the specified tag or tags from the specified AWS CloudHSM cluster.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudHSMV2Client, UntagResourceCommand } from "../../client-cloudhsm-v2/mod.ts";
+ * // const { CloudHSMV2Client, UntagResourceCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * const client = new CloudHSMV2Client(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

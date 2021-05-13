@@ -28,6 +28,20 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
 
 /**
  * <p>Associates multiple self-service actions with provisioning artifacts.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } from "../../client-service-catalog/mod.ts";
+ * // const { ServiceCatalogClient, BatchAssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new BatchAssociateServiceActionWithProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link BatchAssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends $Command<
   BatchAssociateServiceActionWithProvisioningArtifactCommandInput,

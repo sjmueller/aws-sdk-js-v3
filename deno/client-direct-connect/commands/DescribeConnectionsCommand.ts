@@ -22,6 +22,20 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
 
 /**
  * <p>Displays the specified connection or all connections in this Region.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, DescribeConnectionsCommand } from "../../client-direct-connect/mod.ts";
+ * // const { DirectConnectClient, DescribeConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,

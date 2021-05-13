@@ -80,6 +80,20 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetBucketLifecycleConfigurationCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, GetBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetBucketLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketLifecycleConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command<
   GetBucketLifecycleConfigurationCommandInput,

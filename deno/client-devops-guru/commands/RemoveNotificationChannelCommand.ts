@@ -25,6 +25,20 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  *    		Removes a notification channel from DevOps Guru. A notification channel is used to notify you when DevOps Guru generates an insight
  *    		that contains information about how to improve your operations.
  *    	</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DevOpsGuruClient, RemoveNotificationChannelCommand } from "../../client-devops-guru/mod.ts";
+ * // const { DevOpsGuruClient, RemoveNotificationChannelCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * const client = new DevOpsGuruClient(config);
+ * const command = new RemoveNotificationChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveNotificationChannelCommandInput} for command's `input` shape.
+ * @see {@link RemoveNotificationChannelCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveNotificationChannelCommand extends $Command<
   RemoveNotificationChannelCommandInput,

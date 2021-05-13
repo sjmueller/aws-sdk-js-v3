@@ -22,6 +22,20 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
 
 /**
  * <p>Lists the streaming image resources in a studio.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, ListStreamingSessionsCommand } from "../../client-nimble/mod.ts";
+ * // const { NimbleClient, ListStreamingSessionsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new ListStreamingSessionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStreamingSessionsCommandInput} for command's `input` shape.
+ * @see {@link ListStreamingSessionsCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStreamingSessionsCommand extends $Command<
   ListStreamingSessionsCommandInput,

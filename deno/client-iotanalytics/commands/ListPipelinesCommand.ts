@@ -22,6 +22,20 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
 
 /**
  * <p>Retrieves a list of pipelines.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTAnalyticsClient, ListPipelinesCommand } from "../../client-iotanalytics/mod.ts";
+ * // const { IoTAnalyticsClient, ListPipelinesCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new ListPipelinesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPipelinesCommandInput} for command's `input` shape.
+ * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,

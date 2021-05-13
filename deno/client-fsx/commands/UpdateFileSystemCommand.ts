@@ -64,6 +64,20 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                <p>WeeklyMaintenanceStartTime</p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FSxClient, UpdateFileSystemCommand } from "../../client-fsx/mod.ts";
+ * // const { FSxClient, UpdateFileSystemCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * const client = new FSxClient(config);
+ * const command = new UpdateFileSystemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
+ * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFileSystemCommand extends $Command<
   UpdateFileSystemCommandInput,

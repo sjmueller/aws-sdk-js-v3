@@ -19,6 +19,20 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
 
 /**
  * <p>Gets information about an upload.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetUploadCommand } from "../../client-device-farm/mod.ts";
+ * // const { DeviceFarmClient, GetUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUploadCommandInput} for command's `input` shape.
+ * @see {@link GetUploadCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUploadCommand extends $Command<
   GetUploadCommandInput,

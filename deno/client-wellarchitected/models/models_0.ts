@@ -15,6 +15,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -41,6 +44,9 @@ export interface Choice {
 }
 
 export namespace Choice {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Choice): any => ({
     ...obj,
   });
@@ -117,6 +123,9 @@ export interface Answer {
 }
 
 export namespace Answer {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Answer): any => ({
     ...obj,
   });
@@ -165,6 +174,9 @@ export interface AnswerSummary {
 }
 
 export namespace AnswerSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AnswerSummary): any => ({
     ...obj,
   });
@@ -187,6 +199,9 @@ export interface AssociateLensesInput {
 }
 
 export namespace AssociateLensesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateLensesInput): any => ({
     ...obj,
   });
@@ -215,6 +230,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -233,6 +251,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -261,6 +282,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -289,6 +313,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -310,6 +337,9 @@ export interface ValidationExceptionField {
 }
 
 export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
     ...obj,
   });
@@ -345,6 +375,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -381,6 +414,9 @@ export interface CreateMilestoneInput {
 }
 
 export namespace CreateMilestoneInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMilestoneInput): any => ({
     ...obj,
   });
@@ -403,6 +439,9 @@ export interface CreateMilestoneOutput {
 }
 
 export namespace CreateMilestoneOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
     ...obj,
   });
@@ -441,6 +480,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -684,6 +726,9 @@ export interface CreateWorkloadInput {
 }
 
 export namespace CreateWorkloadInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWorkloadInput): any => ({
     ...obj,
   });
@@ -705,6 +750,9 @@ export interface CreateWorkloadOutput {
 }
 
 export namespace CreateWorkloadOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWorkloadOutput): any => ({
     ...obj,
   });
@@ -750,6 +798,9 @@ export interface CreateWorkloadShareInput {
 }
 
 export namespace CreateWorkloadShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWorkloadShareInput): any => ({
     ...obj,
   });
@@ -771,6 +822,9 @@ export interface CreateWorkloadShareOutput {
 }
 
 export namespace CreateWorkloadShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWorkloadShareOutput): any => ({
     ...obj,
   });
@@ -801,6 +855,9 @@ export interface DeleteWorkloadInput {
 }
 
 export namespace DeleteWorkloadInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteWorkloadInput): any => ({
     ...obj,
   });
@@ -836,6 +893,9 @@ export interface DeleteWorkloadShareInput {
 }
 
 export namespace DeleteWorkloadShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteWorkloadShareInput): any => ({
     ...obj,
   });
@@ -864,6 +924,9 @@ export interface DisassociateLensesInput {
 }
 
 export namespace DisassociateLensesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateLensesInput): any => ({
     ...obj,
   });
@@ -897,6 +960,9 @@ export interface GetAnswerInput {
 }
 
 export namespace GetAnswerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAnswerInput): any => ({
     ...obj,
   });
@@ -930,6 +996,9 @@ export interface GetAnswerOutput {
 }
 
 export namespace GetAnswerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAnswerOutput): any => ({
     ...obj,
   });
@@ -958,6 +1027,9 @@ export interface GetLensReviewInput {
 }
 
 export namespace GetLensReviewInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLensReviewInput): any => ({
     ...obj,
   });
@@ -996,6 +1068,9 @@ export interface PillarReviewSummary {
 }
 
 export namespace PillarReviewSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PillarReviewSummary): any => ({
     ...obj,
   });
@@ -1053,6 +1128,9 @@ export interface LensReview {
 }
 
 export namespace LensReview {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LensReview): any => ({
     ...obj,
   });
@@ -1080,6 +1158,9 @@ export interface GetLensReviewOutput {
 }
 
 export namespace GetLensReviewOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLensReviewOutput): any => ({
     ...obj,
   });
@@ -1108,6 +1189,9 @@ export interface GetLensReviewReportInput {
 }
 
 export namespace GetLensReviewReportInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLensReviewReportInput): any => ({
     ...obj,
   });
@@ -1131,6 +1215,9 @@ export interface LensReviewReport {
 }
 
 export namespace LensReviewReport {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LensReviewReport): any => ({
     ...obj,
   });
@@ -1158,6 +1245,9 @@ export interface GetLensReviewReportOutput {
 }
 
 export namespace GetLensReviewReportOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLensReviewReportOutput): any => ({
     ...obj,
   });
@@ -1177,6 +1267,9 @@ export interface GetLensVersionDifferenceInput {
 }
 
 export namespace GetLensVersionDifferenceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLensVersionDifferenceInput): any => ({
     ...obj,
   });
@@ -1203,6 +1296,9 @@ export interface QuestionDifference {
 }
 
 export namespace QuestionDifference {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QuestionDifference): any => ({
     ...obj,
   });
@@ -1230,6 +1326,9 @@ export interface PillarDifference {
 }
 
 export namespace PillarDifference {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PillarDifference): any => ({
     ...obj,
   });
@@ -1246,6 +1345,9 @@ export interface VersionDifferences {
 }
 
 export namespace VersionDifferences {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VersionDifferences): any => ({
     ...obj,
   });
@@ -1275,6 +1377,9 @@ export interface GetLensVersionDifferenceOutput {
 }
 
 export namespace GetLensVersionDifferenceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLensVersionDifferenceOutput): any => ({
     ...obj,
   });
@@ -1297,6 +1402,9 @@ export interface GetMilestoneInput {
 }
 
 export namespace GetMilestoneInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMilestoneInput): any => ({
     ...obj,
   });
@@ -1578,6 +1686,9 @@ export interface Workload {
 }
 
 export namespace Workload {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Workload): any => ({
     ...obj,
   });
@@ -1611,6 +1722,9 @@ export interface Milestone {
 }
 
 export namespace Milestone {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Milestone): any => ({
     ...obj,
   });
@@ -1632,6 +1746,9 @@ export interface GetMilestoneOutput {
 }
 
 export namespace GetMilestoneOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMilestoneOutput): any => ({
     ...obj,
   });
@@ -1648,6 +1765,9 @@ export interface GetWorkloadInput {
 }
 
 export namespace GetWorkloadInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetWorkloadInput): any => ({
     ...obj,
   });
@@ -1664,6 +1784,9 @@ export interface GetWorkloadOutput {
 }
 
 export namespace GetWorkloadOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetWorkloadOutput): any => ({
     ...obj,
   });
@@ -1701,6 +1824,9 @@ export interface ImprovementSummary {
 }
 
 export namespace ImprovementSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImprovementSummary): any => ({
     ...obj,
   });
@@ -1743,6 +1869,9 @@ export interface LensReviewSummary {
 }
 
 export namespace LensReviewSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LensReviewSummary): any => ({
     ...obj,
   });
@@ -1775,6 +1904,9 @@ export interface LensSummary {
 }
 
 export namespace LensSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LensSummary): any => ({
     ...obj,
   });
@@ -1814,6 +1946,9 @@ export interface LensUpgradeSummary {
 }
 
 export namespace LensUpgradeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LensUpgradeSummary): any => ({
     ...obj,
   });
@@ -1858,6 +1993,9 @@ export interface ListAnswersInput {
 }
 
 export namespace ListAnswersInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAnswersInput): any => ({
     ...obj,
   });
@@ -1896,6 +2034,9 @@ export interface ListAnswersOutput {
 }
 
 export namespace ListAnswersOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAnswersOutput): any => ({
     ...obj,
   });
@@ -1917,6 +2058,9 @@ export interface ListLensesInput {
 }
 
 export namespace ListLensesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLensesInput): any => ({
     ...obj,
   });
@@ -1938,6 +2082,9 @@ export interface ListLensesOutput {
 }
 
 export namespace ListLensesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLensesOutput): any => ({
     ...obj,
   });
@@ -1982,6 +2129,9 @@ export interface ListLensReviewImprovementsInput {
 }
 
 export namespace ListLensReviewImprovementsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLensReviewImprovementsInput): any => ({
     ...obj,
   });
@@ -2020,6 +2170,9 @@ export interface ListLensReviewImprovementsOutput {
 }
 
 export namespace ListLensReviewImprovementsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLensReviewImprovementsOutput): any => ({
     ...obj,
   });
@@ -2052,6 +2205,9 @@ export interface ListLensReviewsInput {
 }
 
 export namespace ListLensReviewsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLensReviewsInput): any => ({
     ...obj,
   });
@@ -2084,6 +2240,9 @@ export interface ListLensReviewsOutput {
 }
 
 export namespace ListLensReviewsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLensReviewsOutput): any => ({
     ...obj,
   });
@@ -2110,6 +2269,9 @@ export interface ListMilestonesInput {
 }
 
 export namespace ListMilestonesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMilestonesInput): any => ({
     ...obj,
   });
@@ -2163,6 +2325,9 @@ export interface WorkloadSummary {
 }
 
 export namespace WorkloadSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkloadSummary): any => ({
     ...obj,
   });
@@ -2196,6 +2361,9 @@ export interface MilestoneSummary {
 }
 
 export namespace MilestoneSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MilestoneSummary): any => ({
     ...obj,
   });
@@ -2222,6 +2390,9 @@ export interface ListMilestonesOutput {
 }
 
 export namespace ListMilestonesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMilestonesOutput): any => ({
     ...obj,
   });
@@ -2245,6 +2416,9 @@ export interface ListNotificationsInput {
 }
 
 export namespace ListNotificationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNotificationsInput): any => ({
     ...obj,
   });
@@ -2271,6 +2445,9 @@ export interface NotificationSummary {
 }
 
 export namespace NotificationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotificationSummary): any => ({
     ...obj,
   });
@@ -2289,6 +2466,9 @@ export interface ListNotificationsOutput {
 }
 
 export namespace ListNotificationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNotificationsOutput): any => ({
     ...obj,
   });
@@ -2316,6 +2496,9 @@ export interface ListShareInvitationsInput {
 }
 
 export namespace ListShareInvitationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListShareInvitationsInput): any => ({
     ...obj,
   });
@@ -2359,6 +2542,9 @@ export interface ShareInvitationSummary {
 }
 
 export namespace ShareInvitationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ShareInvitationSummary): any => ({
     ...obj,
   });
@@ -2380,6 +2566,9 @@ export interface ListShareInvitationsOutput {
 }
 
 export namespace ListShareInvitationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListShareInvitationsOutput): any => ({
     ...obj,
   });
@@ -2393,6 +2582,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
@@ -2406,6 +2598,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
@@ -2433,6 +2628,9 @@ export interface ListWorkloadsInput {
 }
 
 export namespace ListWorkloadsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWorkloadsInput): any => ({
     ...obj,
   });
@@ -2454,6 +2652,9 @@ export interface ListWorkloadsOutput {
 }
 
 export namespace ListWorkloadsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWorkloadsOutput): any => ({
     ...obj,
   });
@@ -2485,6 +2686,9 @@ export interface ListWorkloadSharesInput {
 }
 
 export namespace ListWorkloadSharesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWorkloadSharesInput): any => ({
     ...obj,
   });
@@ -2524,6 +2728,9 @@ export interface WorkloadShareSummary {
 }
 
 export namespace WorkloadShareSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkloadShareSummary): any => ({
     ...obj,
   });
@@ -2550,6 +2757,9 @@ export interface ListWorkloadSharesOutput {
 }
 
 export namespace ListWorkloadSharesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWorkloadSharesOutput): any => ({
     ...obj,
   });
@@ -2571,6 +2781,9 @@ export interface ShareInvitation {
 }
 
 export namespace ShareInvitation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ShareInvitation): any => ({
     ...obj,
   });
@@ -2594,6 +2807,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
@@ -2602,6 +2818,9 @@ export namespace TagResourceInput {
 export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
@@ -2620,6 +2839,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
@@ -2628,6 +2850,9 @@ export namespace UntagResourceInput {
 export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
@@ -2671,6 +2896,9 @@ export interface UpdateAnswerInput {
 }
 
 export namespace UpdateAnswerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAnswerInput): any => ({
     ...obj,
   });
@@ -2698,6 +2926,9 @@ export interface UpdateAnswerOutput {
 }
 
 export namespace UpdateAnswerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAnswerOutput): any => ({
     ...obj,
   });
@@ -2730,6 +2961,9 @@ export interface UpdateLensReviewInput {
 }
 
 export namespace UpdateLensReviewInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateLensReviewInput): any => ({
     ...obj,
   });
@@ -2751,6 +2985,9 @@ export interface UpdateLensReviewOutput {
 }
 
 export namespace UpdateLensReviewOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateLensReviewOutput): any => ({
     ...obj,
   });
@@ -2772,6 +3009,9 @@ export interface UpdateShareInvitationInput {
 }
 
 export namespace UpdateShareInvitationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateShareInvitationInput): any => ({
     ...obj,
   });
@@ -2785,6 +3025,9 @@ export interface UpdateShareInvitationOutput {
 }
 
 export namespace UpdateShareInvitationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateShareInvitationOutput): any => ({
     ...obj,
   });
@@ -3018,6 +3261,9 @@ export interface UpdateWorkloadInput {
 }
 
 export namespace UpdateWorkloadInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkloadInput): any => ({
     ...obj,
   });
@@ -3034,6 +3280,9 @@ export interface UpdateWorkloadOutput {
 }
 
 export namespace UpdateWorkloadOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkloadOutput): any => ({
     ...obj,
   });
@@ -3060,6 +3309,9 @@ export interface UpdateWorkloadShareInput {
 }
 
 export namespace UpdateWorkloadShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkloadShareInput): any => ({
     ...obj,
   });
@@ -3108,6 +3360,9 @@ export interface WorkloadShare {
 }
 
 export namespace WorkloadShare {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkloadShare): any => ({
     ...obj,
   });
@@ -3129,6 +3384,9 @@ export interface UpdateWorkloadShareOutput {
 }
 
 export namespace UpdateWorkloadShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkloadShareOutput): any => ({
     ...obj,
   });
@@ -3168,6 +3426,9 @@ export interface UpgradeLensReviewInput {
 }
 
 export namespace UpgradeLensReviewInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpgradeLensReviewInput): any => ({
     ...obj,
   });

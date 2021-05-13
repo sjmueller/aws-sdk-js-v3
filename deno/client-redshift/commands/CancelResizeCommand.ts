@@ -19,6 +19,20 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
 
 /**
  * <p>Cancels a resize operation for a cluster.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, CancelResizeCommand } from "../../client-redshift/mod.ts";
+ * // const { RedshiftClient, CancelResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new CancelResizeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelResizeCommandInput} for command's `input` shape.
+ * @see {@link CancelResizeCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelResizeCommand extends $Command<
   CancelResizeCommandInput,

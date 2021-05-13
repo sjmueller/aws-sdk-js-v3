@@ -61,6 +61,20 @@ export interface GetBucketMetricsConfigurationCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetBucketMetricsConfigurationCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, GetBucketMetricsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetBucketMetricsConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketMetricsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetBucketMetricsConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketMetricsConfigurationCommand extends $Command<
   GetBucketMetricsConfigurationCommandInput,

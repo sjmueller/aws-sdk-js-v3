@@ -13,3 +13,4 @@ export * from "./response.ts";
 export * from "./signature.ts";
 export * from "./transfer.ts";
 export * from "./util.ts";
+export * from "./waiter.ts";

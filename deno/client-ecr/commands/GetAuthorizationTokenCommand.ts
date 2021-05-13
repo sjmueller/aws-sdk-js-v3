@@ -30,6 +30,20 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *             The AWS CLI offers an <code>get-login-password</code> command that simplifies the login
  *             process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
  *                 Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECRClient, GetAuthorizationTokenCommand } from "../../client-ecr/mod.ts";
+ * // const { ECRClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * const client = new ECRClient(config);
+ * const command = new GetAuthorizationTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
+ * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAuthorizationTokenCommand extends $Command<
   GetAuthorizationTokenCommandInput,

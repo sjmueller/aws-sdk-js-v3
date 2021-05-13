@@ -26,6 +26,20 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  *             <p>This action returns the most recent 1,000 events from the specified
  *           <code>NextToken</code>.</p>
  *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, DescribeEventsCommand } from "../../client-elastic-beanstalk/mod.ts";
+ * // const { ElasticBeanstalkClient, DescribeEventsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribeEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,

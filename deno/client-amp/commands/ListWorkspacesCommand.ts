@@ -22,6 +22,20 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
 
 /**
  * Lists all AMP workspaces, including workspaces being created or deleted.
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmpClient, ListWorkspacesCommand } from "../../client-amp/mod.ts";
+ * // const { AmpClient, ListWorkspacesCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * const client = new AmpClient(config);
+ * const command = new ListWorkspacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkspacesCommandInput} for command's `input` shape.
+ * @see {@link ListWorkspacesCommandOutput} for command's `response` shape.
+ * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkspacesCommand extends $Command<
   ListWorkspacesCommandInput,

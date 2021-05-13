@@ -22,6 +22,20 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
 
 /**
  * <p>Creates a variable.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, CreateVariableCommand } from "../../client-frauddetector/mod.ts";
+ * // const { FraudDetectorClient, CreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new CreateVariableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVariableCommandInput} for command's `input` shape.
+ * @see {@link CreateVariableCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVariableCommand extends $Command<
   CreateVariableCommandInput,

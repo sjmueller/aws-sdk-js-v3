@@ -26,6 +26,20 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
 
 /**
  * <p>Updates the application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, UpdateApplicationCommand } from "../../client-application-insights/mod.ts";
+ * // const { ApplicationInsightsClient, UpdateApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new UpdateApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
+ * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,

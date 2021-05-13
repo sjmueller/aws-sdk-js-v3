@@ -26,6 +26,20 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
 
 /**
  * <p>Delete a listener for a custom routing accelerator.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DeleteCustomRoutingListenerCommand } from "../../client-global-accelerator/mod.ts";
+ * // const { GlobalAcceleratorClient, DeleteCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DeleteCustomRoutingListenerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomRoutingListenerCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomRoutingListenerCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomRoutingListenerCommand extends $Command<
   DeleteCustomRoutingListenerCommandInput,

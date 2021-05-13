@@ -27,6 +27,20 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * in the
  * <i>Amazon Chime Developer Guide</i>.
  * </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, BatchCreateAttendeeCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, BatchCreateAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new BatchCreateAttendeeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchCreateAttendeeCommandInput} for command's `input` shape.
+ * @see {@link BatchCreateAttendeeCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchCreateAttendeeCommand extends $Command<
   BatchCreateAttendeeCommandInput,

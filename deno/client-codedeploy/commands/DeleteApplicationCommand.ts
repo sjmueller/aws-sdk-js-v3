@@ -22,6 +22,20 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, DeleteApplicationCommand } from "../../client-codedeploy/mod.ts";
+ * // const { CodeDeployClient, DeleteApplicationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new DeleteApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

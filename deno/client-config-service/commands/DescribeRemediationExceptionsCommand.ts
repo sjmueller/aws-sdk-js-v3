@@ -31,6 +31,20 @@ export interface DescribeRemediationExceptionsCommandOutput
  * 			         <p>When you specify the limit and the next token, you receive a paginated response. </p>
  * 			         <p>Limit and next token are not applicable if you request resources in batch. It is only applicable, when you request all resources.</p>
  *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DescribeRemediationExceptionsCommand } from "../../client-config-service/mod.ts";
+ * // const { ConfigServiceClient, DescribeRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeRemediationExceptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRemediationExceptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeRemediationExceptionsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRemediationExceptionsCommand extends $Command<
   DescribeRemediationExceptionsCommandInput,

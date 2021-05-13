@@ -25,6 +25,20 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  *   Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can delete flows one at a time.
  *
  * </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppflowClient, DeleteFlowCommand } from "../../client-appflow/mod.ts";
+ * // const { AppflowClient, DeleteFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * const client = new AppflowClient(config);
+ * const command = new DeleteFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFlowCommandInput} for command's `input` shape.
+ * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFlowCommand extends $Command<
   DeleteFlowCommandInput,

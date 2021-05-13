@@ -22,6 +22,20 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
 
 /**
  * <p>Retrieves a list of API destination in the account in the current Region.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, ListApiDestinationsCommand } from "../../client-eventbridge/mod.ts";
+ * // const { EventBridgeClient, ListApiDestinationsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new ListApiDestinationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApiDestinationsCommandInput} for command's `input` shape.
+ * @see {@link ListApiDestinationsCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApiDestinationsCommand extends $Command<
   ListApiDestinationsCommandInput,

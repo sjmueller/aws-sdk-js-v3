@@ -26,6 +26,20 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
 
 /**
  * <p>Updates metadata about an application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationDiscoveryServiceClient, UpdateApplicationCommand } from "../../client-application-discovery-service/mod.ts";
+ * // const { ApplicationDiscoveryServiceClient, UpdateApplicationCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new UpdateApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
+ * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApplicationCommand extends $Command<
   UpdateApplicationCommandInput,

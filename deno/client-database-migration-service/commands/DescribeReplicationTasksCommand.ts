@@ -27,6 +27,20 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
 /**
  * <p>Returns information about replication tasks for your account in the current
  *          region.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeReplicationTasksCommand } from "../../client-database-migration-service/mod.ts";
+ * // const { DatabaseMigrationServiceClient, DescribeReplicationTasksCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeReplicationTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplicationTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplicationTasksCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplicationTasksCommand extends $Command<
   DescribeReplicationTasksCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
 
 /**
  * <p>Updates a <code>DataSource</code> object.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, UpdateDataSourceCommand } from "../../client-appsync/mod.ts";
+ * // const { AppSyncClient, UpdateDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new UpdateDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,

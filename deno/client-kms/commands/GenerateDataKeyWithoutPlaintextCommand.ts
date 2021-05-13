@@ -94,6 +94,20 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, GenerateDataKeyWithoutPlaintextCommand } from "../../client-kms/mod.ts";
+ * // const { KMSClient, GenerateDataKeyWithoutPlaintextCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateDataKeyWithoutPlaintextCommandInput} for command's `input` shape.
+ * @see {@link GenerateDataKeyWithoutPlaintextCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
   GenerateDataKeyWithoutPlaintextCommandInput,

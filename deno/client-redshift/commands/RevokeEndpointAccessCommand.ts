@@ -23,6 +23,20 @@ export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization
 
 /**
  * <p>Revokes access to a cluster.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, RevokeEndpointAccessCommand } from "../../client-redshift/mod.ts";
+ * // const { RedshiftClient, RevokeEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new RevokeEndpointAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeEndpointAccessCommandInput} for command's `input` shape.
+ * @see {@link RevokeEndpointAccessCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeEndpointAccessCommand extends $Command<
   RevokeEndpointAccessCommandInput,

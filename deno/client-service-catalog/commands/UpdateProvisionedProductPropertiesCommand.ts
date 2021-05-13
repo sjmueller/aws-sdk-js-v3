@@ -24,6 +24,20 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
 
 /**
  * <p>Requests updates to the properties of the specified provisioned product.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } from "../../client-service-catalog/mod.ts";
+ * // const { ServiceCatalogClient, UpdateProvisionedProductPropertiesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateProvisionedProductPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProvisionedProductPropertiesCommandInput} for command's `input` shape.
+ * @see {@link UpdateProvisionedProductPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<
   UpdateProvisionedProductPropertiesCommandInput,

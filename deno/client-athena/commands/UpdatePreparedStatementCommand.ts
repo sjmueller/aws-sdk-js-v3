@@ -22,6 +22,20 @@ export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStat
 
 /**
  * <p>Updates a prepared statement.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, UpdatePreparedStatementCommand } from "../../client-athena/mod.ts";
+ * // const { AthenaClient, UpdatePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new UpdatePreparedStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePreparedStatementCommandInput} for command's `input` shape.
+ * @see {@link UpdatePreparedStatementCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePreparedStatementCommand extends $Command<
   UpdatePreparedStatementCommandInput,

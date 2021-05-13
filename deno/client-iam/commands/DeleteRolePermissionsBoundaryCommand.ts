@@ -27,6 +27,20 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
  *                 example, it might allow anyone who assumes the role to perform all the actions
  *                 granted in its permissions policies. </p>
  *         </important>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, DeleteRolePermissionsBoundaryCommand } from "../../client-iam/mod.ts";
+ * // const { IAMClient, DeleteRolePermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new DeleteRolePermissionsBoundaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRolePermissionsBoundaryCommandInput} for command's `input` shape.
+ * @see {@link DeleteRolePermissionsBoundaryCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRolePermissionsBoundaryCommand extends $Command<
   DeleteRolePermissionsBoundaryCommandInput,

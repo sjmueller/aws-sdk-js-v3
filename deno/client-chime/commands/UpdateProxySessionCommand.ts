@@ -22,6 +22,20 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
 
 /**
  * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, UpdateProxySessionCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, UpdateProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new UpdateProxySessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProxySessionCommandInput} for command's `input` shape.
+ * @see {@link UpdateProxySessionCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProxySessionCommand extends $Command<
   UpdateProxySessionCommandInput,

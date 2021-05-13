@@ -27,6 +27,9 @@ export interface ActiveDirectoryBackupAttributes {
 }
 
 export namespace ActiveDirectoryBackupAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveDirectoryBackupAttributes): any => ({
     ...obj,
   });
@@ -62,6 +65,9 @@ export interface ActiveDirectoryError extends __SmithyException, $MetadataBearer
 }
 
 export namespace ActiveDirectoryError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveDirectoryError): any => ({
     ...obj,
   });
@@ -85,6 +91,9 @@ export interface AdministrativeActionFailureDetails {
 }
 
 export namespace AdministrativeActionFailureDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AdministrativeActionFailureDetails): any => ({
     ...obj,
   });
@@ -110,6 +119,9 @@ export interface FileSystemFailureDetails {
 }
 
 export namespace FileSystemFailureDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemFailureDetails): any => ({
     ...obj,
   });
@@ -147,6 +159,9 @@ export interface DataRepositoryFailureDetails {
 }
 
 export namespace DataRepositoryFailureDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryFailureDetails): any => ({
     ...obj,
   });
@@ -258,6 +273,9 @@ export interface DataRepositoryConfiguration {
 }
 
 export namespace DataRepositoryConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryConfiguration): any => ({
     ...obj,
   });
@@ -359,6 +377,9 @@ export interface LustreFileSystemConfiguration {
 }
 
 export namespace LustreFileSystemConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LustreFileSystemConfiguration): any => ({
     ...obj,
   });
@@ -389,6 +410,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -455,6 +479,9 @@ export interface Alias {
 }
 
 export namespace Alias {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Alias): any => ({
     ...obj,
   });
@@ -507,6 +534,9 @@ export interface SelfManagedActiveDirectoryAttributes {
 }
 
 export namespace SelfManagedActiveDirectoryAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryAttributes): any => ({
     ...obj,
   });
@@ -634,6 +664,9 @@ export interface WindowsFileSystemConfiguration {
 }
 
 export namespace WindowsFileSystemConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WindowsFileSystemConfiguration): any => ({
     ...obj,
   });
@@ -682,6 +715,9 @@ export interface AssociateFileSystemAliasesRequest {
 }
 
 export namespace AssociateFileSystemAliasesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateFileSystemAliasesRequest): any => ({
     ...obj,
   });
@@ -703,6 +739,9 @@ export interface AssociateFileSystemAliasesResponse {
 }
 
 export namespace AssociateFileSystemAliasesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateFileSystemAliasesResponse): any => ({
     ...obj,
   });
@@ -721,6 +760,9 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BadRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequest): any => ({
     ...obj,
   });
@@ -739,6 +781,9 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
     ...obj,
   });
@@ -757,6 +802,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -773,6 +821,9 @@ export interface CancelDataRepositoryTaskRequest {
 }
 
 export namespace CancelDataRepositoryTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelDataRepositoryTaskRequest): any => ({
     ...obj,
   });
@@ -827,6 +878,9 @@ export interface CancelDataRepositoryTaskResponse {
 }
 
 export namespace CancelDataRepositoryTaskResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelDataRepositoryTaskResponse): any => ({
     ...obj,
   });
@@ -845,6 +899,9 @@ export interface DataRepositoryTaskEnded extends __SmithyException, $MetadataBea
 }
 
 export namespace DataRepositoryTaskEnded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTaskEnded): any => ({
     ...obj,
   });
@@ -863,6 +920,9 @@ export interface DataRepositoryTaskNotFound extends __SmithyException, $Metadata
 }
 
 export namespace DataRepositoryTaskNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTaskNotFound): any => ({
     ...obj,
   });
@@ -881,6 +941,9 @@ export interface UnsupportedOperation extends __SmithyException, $MetadataBearer
 }
 
 export namespace UnsupportedOperation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
     ...obj,
   });
@@ -899,6 +962,9 @@ export interface BackupNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupNotFound): any => ({
     ...obj,
   });
@@ -955,6 +1021,9 @@ export interface CopyBackupRequest {
 }
 
 export namespace CopyBackupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyBackupRequest): any => ({
     ...obj,
   });
@@ -972,6 +1041,9 @@ export interface BackupFailureDetails {
 }
 
 export namespace BackupFailureDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupFailureDetails): any => ({
     ...obj,
   });
@@ -1013,6 +1085,9 @@ export interface IncompatibleParameterError extends __SmithyException, $Metadata
 }
 
 export namespace IncompatibleParameterError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncompatibleParameterError): any => ({
     ...obj,
   });
@@ -1033,6 +1108,9 @@ export interface IncompatibleRegionForMultiAZ extends __SmithyException, $Metada
 }
 
 export namespace IncompatibleRegionForMultiAZ {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncompatibleRegionForMultiAZ): any => ({
     ...obj,
   });
@@ -1052,6 +1130,9 @@ export interface InvalidDestinationKmsKey extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidDestinationKmsKey {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidDestinationKmsKey): any => ({
     ...obj,
   });
@@ -1071,6 +1152,9 @@ export interface InvalidRegion extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidRegion {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRegion): any => ({
     ...obj,
   });
@@ -1090,6 +1174,9 @@ export interface InvalidSourceKmsKey extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InvalidSourceKmsKey {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSourceKmsKey): any => ({
     ...obj,
   });
@@ -1124,6 +1211,9 @@ export interface ServiceLimitExceeded extends __SmithyException, $MetadataBearer
 }
 
 export namespace ServiceLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceLimitExceeded): any => ({
     ...obj,
   });
@@ -1148,6 +1238,9 @@ export interface SourceBackupUnavailable extends __SmithyException, $MetadataBea
 }
 
 export namespace SourceBackupUnavailable {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceBackupUnavailable): any => ({
     ...obj,
   });
@@ -1167,6 +1260,9 @@ export interface BackupInProgress extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupInProgress {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupInProgress): any => ({
     ...obj,
   });
@@ -1197,6 +1293,9 @@ export interface CreateBackupRequest {
 }
 
 export namespace CreateBackupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
     ...obj,
   });
@@ -1249,6 +1348,9 @@ export interface CompletionReport {
 }
 
 export namespace CompletionReport {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CompletionReport): any => ({
     ...obj,
   });
@@ -1300,6 +1402,9 @@ export interface CreateDataRepositoryTaskRequest {
 }
 
 export namespace CreateDataRepositoryTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateDataRepositoryTaskRequest): any => ({
     ...obj,
   });
@@ -1316,6 +1421,9 @@ export interface DataRepositoryTaskFailureDetails {
 }
 
 export namespace DataRepositoryTaskFailureDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTaskFailureDetails): any => ({
     ...obj,
   });
@@ -1350,6 +1458,9 @@ export interface DataRepositoryTaskStatus {
 }
 
 export namespace DataRepositoryTaskStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTaskStatus): any => ({
     ...obj,
   });
@@ -1471,6 +1582,9 @@ export interface DataRepositoryTask {
 }
 
 export namespace DataRepositoryTask {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTask): any => ({
     ...obj,
   });
@@ -1484,6 +1598,9 @@ export interface CreateDataRepositoryTaskResponse {
 }
 
 export namespace CreateDataRepositoryTaskResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateDataRepositoryTaskResponse): any => ({
     ...obj,
   });
@@ -1503,6 +1620,9 @@ export interface DataRepositoryTaskExecuting extends __SmithyException, $Metadat
 }
 
 export namespace DataRepositoryTaskExecuting {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTaskExecuting): any => ({
     ...obj,
   });
@@ -1665,6 +1785,9 @@ export interface CreateFileSystemLustreConfiguration {
 }
 
 export namespace CreateFileSystemLustreConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemLustreConfiguration): any => ({
     ...obj,
   });
@@ -1730,6 +1853,9 @@ export interface SelfManagedActiveDirectoryConfiguration {
 }
 
 export namespace SelfManagedActiveDirectoryConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryConfiguration): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -1858,6 +1984,9 @@ export interface CreateFileSystemWindowsConfiguration {
 }
 
 export namespace CreateFileSystemWindowsConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemWindowsConfiguration): any => ({
     ...obj,
     ...(obj.SelfManagedActiveDirectoryConfiguration && {
@@ -1987,6 +2116,9 @@ export interface CreateFileSystemRequest {
 }
 
 export namespace CreateFileSystemRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
     ...obj,
     ...(obj.WindowsConfiguration && {
@@ -2008,6 +2140,9 @@ export interface InvalidExportPath extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidExportPath {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidExportPath): any => ({
     ...obj,
   });
@@ -2026,6 +2161,9 @@ export interface InvalidImportPath extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidImportPath {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidImportPath): any => ({
     ...obj,
   });
@@ -2066,6 +2204,9 @@ export interface InvalidNetworkSettings extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidNetworkSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNetworkSettings): any => ({
     ...obj,
   });
@@ -2084,6 +2225,9 @@ export interface InvalidPerUnitStorageThroughput extends __SmithyException, $Met
 }
 
 export namespace InvalidPerUnitStorageThroughput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPerUnitStorageThroughput): any => ({
     ...obj,
   });
@@ -2102,6 +2246,9 @@ export interface MissingFileSystemConfiguration extends __SmithyException, $Meta
 }
 
 export namespace MissingFileSystemConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingFileSystemConfiguration): any => ({
     ...obj,
   });
@@ -2199,6 +2346,9 @@ export interface CreateFileSystemFromBackupRequest {
 }
 
 export namespace CreateFileSystemFromBackupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemFromBackupRequest): any => ({
     ...obj,
     ...(obj.WindowsConfiguration && {
@@ -2225,6 +2375,9 @@ export interface BackupBeingCopied extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupBeingCopied {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupBeingCopied): any => ({
     ...obj,
   });
@@ -2249,6 +2402,9 @@ export interface BackupRestoring extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BackupRestoring {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupRestoring): any => ({
     ...obj,
   });
@@ -2272,6 +2428,9 @@ export interface DeleteBackupRequest {
 }
 
 export namespace DeleteBackupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj,
   });
@@ -2293,6 +2452,9 @@ export interface DeleteBackupResponse {
 }
 
 export namespace DeleteBackupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj,
   });
@@ -2320,6 +2482,9 @@ export interface DeleteFileSystemLustreConfiguration {
 }
 
 export namespace DeleteFileSystemLustreConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemLustreConfiguration): any => ({
     ...obj,
   });
@@ -2345,6 +2510,9 @@ export interface DeleteFileSystemWindowsConfiguration {
 }
 
 export namespace DeleteFileSystemWindowsConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemWindowsConfiguration): any => ({
     ...obj,
   });
@@ -2380,6 +2548,9 @@ export interface DeleteFileSystemRequest {
 }
 
 export namespace DeleteFileSystemRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
     ...obj,
   });
@@ -2402,6 +2573,9 @@ export interface DeleteFileSystemLustreResponse {
 }
 
 export namespace DeleteFileSystemLustreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemLustreResponse): any => ({
     ...obj,
   });
@@ -2424,6 +2598,9 @@ export interface DeleteFileSystemWindowsResponse {
 }
 
 export namespace DeleteFileSystemWindowsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemWindowsResponse): any => ({
     ...obj,
   });
@@ -2458,6 +2635,9 @@ export interface DeleteFileSystemResponse {
 }
 
 export namespace DeleteFileSystemResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemResponse): any => ({
     ...obj,
   });
@@ -2487,6 +2667,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
@@ -2525,6 +2708,9 @@ export interface DescribeBackupsRequest {
 }
 
 export namespace DescribeBackupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj,
   });
@@ -2563,6 +2749,9 @@ export interface DataRepositoryTaskFilter {
 }
 
 export namespace DataRepositoryTaskFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataRepositoryTaskFilter): any => ({
     ...obj,
   });
@@ -2596,6 +2785,9 @@ export interface DescribeDataRepositoryTasksRequest {
 }
 
 export namespace DescribeDataRepositoryTasksRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDataRepositoryTasksRequest): any => ({
     ...obj,
   });
@@ -2616,6 +2808,9 @@ export interface DescribeDataRepositoryTasksResponse {
 }
 
 export namespace DescribeDataRepositoryTasksResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDataRepositoryTasksResponse): any => ({
     ...obj,
   });
@@ -2655,6 +2850,9 @@ export interface DescribeFileSystemAliasesRequest {
 }
 
 export namespace DescribeFileSystemAliasesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemAliasesRequest): any => ({
     ...obj,
   });
@@ -2678,6 +2876,9 @@ export interface DescribeFileSystemAliasesResponse {
 }
 
 export namespace DescribeFileSystemAliasesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemAliasesResponse): any => ({
     ...obj,
   });
@@ -2710,6 +2911,9 @@ export interface DescribeFileSystemsRequest {
 }
 
 export namespace DescribeFileSystemsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
     ...obj,
   });
@@ -2738,6 +2942,9 @@ export interface DisassociateFileSystemAliasesRequest {
 }
 
 export namespace DisassociateFileSystemAliasesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateFileSystemAliasesRequest): any => ({
     ...obj,
   });
@@ -2755,6 +2962,9 @@ export interface DisassociateFileSystemAliasesResponse {
 }
 
 export namespace DisassociateFileSystemAliasesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateFileSystemAliasesResponse): any => ({
     ...obj,
   });
@@ -2786,6 +2996,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -2809,6 +3022,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -2833,6 +3049,9 @@ export interface NotServiceResourceError extends __SmithyException, $MetadataBea
 }
 
 export namespace NotServiceResourceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotServiceResourceError): any => ({
     ...obj,
   });
@@ -2857,6 +3076,9 @@ export interface ResourceDoesNotSupportTagging extends __SmithyException, $Metad
 }
 
 export namespace ResourceDoesNotSupportTagging {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceDoesNotSupportTagging): any => ({
     ...obj,
   });
@@ -2880,6 +3102,9 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
@@ -2903,6 +3128,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -2914,6 +3142,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -2936,6 +3167,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -2947,6 +3181,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -3009,6 +3246,9 @@ export interface UpdateFileSystemLustreConfiguration {
 }
 
 export namespace UpdateFileSystemLustreConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemLustreConfiguration): any => ({
     ...obj,
   });
@@ -3041,6 +3281,9 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
 }
 
 export namespace SelfManagedActiveDirectoryConfigurationUpdates {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryConfigurationUpdates): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -3087,6 +3330,9 @@ export interface UpdateFileSystemWindowsConfiguration {
 }
 
 export namespace UpdateFileSystemWindowsConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemWindowsConfiguration): any => ({
     ...obj,
     ...(obj.SelfManagedActiveDirectoryConfiguration && {
@@ -3156,6 +3402,9 @@ export interface UpdateFileSystemRequest {
 }
 
 export namespace UpdateFileSystemRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
     ...obj,
     ...(obj.WindowsConfiguration && {
@@ -3278,6 +3527,9 @@ export interface AdministrativeAction {
 }
 
 export namespace AdministrativeAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AdministrativeAction): any => ({
     ...obj,
   });
@@ -3437,6 +3689,9 @@ export interface FileSystem {
 }
 
 export namespace FileSystem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystem): any => ({
     ...obj,
   });
@@ -3553,6 +3808,9 @@ export interface Backup {
 }
 
 export namespace Backup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj,
   });
@@ -3570,6 +3828,9 @@ export interface CreateFileSystemFromBackupResponse {
 }
 
 export namespace CreateFileSystemFromBackupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
     ...obj,
   });
@@ -3586,6 +3847,9 @@ export interface CreateFileSystemResponse {
 }
 
 export namespace CreateFileSystemResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
     ...obj,
   });
@@ -3602,6 +3866,9 @@ export interface UpdateFileSystemResponse {
 }
 
 export namespace UpdateFileSystemResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
     ...obj,
   });
@@ -3615,6 +3882,9 @@ export interface CopyBackupResponse {
 }
 
 export namespace CopyBackupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyBackupResponse): any => ({
     ...obj,
   });
@@ -3631,6 +3901,9 @@ export interface CreateBackupResponse {
 }
 
 export namespace CreateBackupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
     ...obj,
   });
@@ -3654,6 +3927,9 @@ export interface DescribeFileSystemsResponse {
 }
 
 export namespace DescribeFileSystemsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
     ...obj,
   });
@@ -3677,6 +3953,9 @@ export interface DescribeBackupsResponse {
 }
 
 export namespace DescribeBackupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
   });

@@ -40,6 +40,20 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  *          </ul>
  *          <p> The operation requires permission for the
  *         <code>lex:GetSlotTypes</code> action. </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, GetSlotTypesCommand } from "../../client-lex-model-building-service/mod.ts";
+ * // const { LexModelBuildingServiceClient, GetSlotTypesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetSlotTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSlotTypesCommandInput} for command's `input` shape.
+ * @see {@link GetSlotTypesCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSlotTypesCommand extends $Command<
   GetSlotTypesCommandInput,

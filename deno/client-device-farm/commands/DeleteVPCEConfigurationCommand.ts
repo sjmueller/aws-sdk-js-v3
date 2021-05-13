@@ -22,6 +22,20 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
 
 /**
  * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, DeleteVPCEConfigurationCommand } from "../../client-device-farm/mod.ts";
+ * // const { DeviceFarmClient, DeleteVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteVPCEConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVPCEConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteVPCEConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVPCEConfigurationCommand extends $Command<
   DeleteVPCEConfigurationCommandInput,

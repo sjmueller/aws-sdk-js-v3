@@ -26,6 +26,20 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  *      Use with caution. All of the members of the domain will lose access to their EFS volume,
  *      including data, notebooks, and other artifacts.
  *    </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DeleteDomainCommand } from "../../client-sagemaker/mod.ts";
+ * // const { SageMakerClient, DeleteDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDomainCommandInput} for command's `input` shape.
+ * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandInput,

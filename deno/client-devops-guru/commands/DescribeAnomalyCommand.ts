@@ -24,6 +24,20 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  * <p>
  *    		Returns details about an anomaly that you specify using its ID.
  *    	</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DevOpsGuruClient, DescribeAnomalyCommand } from "../../client-devops-guru/mod.ts";
+ * // const { DevOpsGuruClient, DescribeAnomalyCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * const client = new DevOpsGuruClient(config);
+ * const command = new DescribeAnomalyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAnomalyCommandInput} for command's `input` shape.
+ * @see {@link DescribeAnomalyCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAnomalyCommand extends $Command<
   DescribeAnomalyCommandInput,

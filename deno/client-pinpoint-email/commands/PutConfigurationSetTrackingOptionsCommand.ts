@@ -28,6 +28,20 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
 /**
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
  *             send using Amazon Pinpoint.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } from "../../client-pinpoint-email/mod.ts";
+ * // const { PinpointEmailClient, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new PutConfigurationSetTrackingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
+ * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<
   PutConfigurationSetTrackingOptionsCommandInput,

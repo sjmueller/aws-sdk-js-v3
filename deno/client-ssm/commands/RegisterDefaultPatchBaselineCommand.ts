@@ -28,6 +28,20 @@ export interface RegisterDefaultPatchBaselineCommandOutput
  *    ARN as the baseline ID value. For example, for CentOS, specify
  *     <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed</code> instead of
  *     <code>pb-0574b43a65ea646ed</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, RegisterDefaultPatchBaselineCommand } from "../../client-ssm/mod.ts";
+ * // const { SSMClient, RegisterDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new RegisterDefaultPatchBaselineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterDefaultPatchBaselineCommandInput} for command's `input` shape.
+ * @see {@link RegisterDefaultPatchBaselineCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterDefaultPatchBaselineCommand extends $Command<
   RegisterDefaultPatchBaselineCommandInput,

@@ -26,6 +26,20 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  *
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:DeleteCollection</code> action.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, DeleteCollectionCommand } from "../../client-rekognition/mod.ts";
+ * // const { RekognitionClient, DeleteCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new DeleteCollectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCollectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteCollectionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCollectionCommand extends $Command<
   DeleteCollectionCommandInput,

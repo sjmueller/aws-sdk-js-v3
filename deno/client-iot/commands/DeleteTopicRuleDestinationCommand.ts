@@ -22,6 +22,20 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
 
 /**
  * <p>Deletes a topic rule destination.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DeleteTopicRuleDestinationCommand } from "../../client-iot/mod.ts";
+ * // const { IoTClient, DeleteTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DeleteTopicRuleDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTopicRuleDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeleteTopicRuleDestinationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTopicRuleDestinationCommand extends $Command<
   DeleteTopicRuleDestinationCommandInput,

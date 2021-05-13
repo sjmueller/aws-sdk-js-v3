@@ -24,6 +24,20 @@ export interface DescribeFeatureTransformationCommandOutput
 
 /**
  * <p>Describes the given feature transformation.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, DescribeFeatureTransformationCommand } from "../../client-personalize/mod.ts";
+ * // const { PersonalizeClient, DescribeFeatureTransformationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new DescribeFeatureTransformationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFeatureTransformationCommandInput} for command's `input` shape.
+ * @see {@link DescribeFeatureTransformationCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFeatureTransformationCommand extends $Command<
   DescribeFeatureTransformationCommandInput,

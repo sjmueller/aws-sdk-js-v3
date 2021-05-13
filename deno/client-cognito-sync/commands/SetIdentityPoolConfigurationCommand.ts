@@ -74,6 +74,20 @@ export interface SetIdentityPoolConfigurationCommandOutput
  *             </response>
  *          </example>
  *       </examples>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoSyncClient, SetIdentityPoolConfigurationCommand } from "../../client-cognito-sync/mod.ts";
+ * // const { CognitoSyncClient, SetIdentityPoolConfigurationCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * const client = new CognitoSyncClient(config);
+ * const command = new SetIdentityPoolConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetIdentityPoolConfigurationCommandInput} for command's `input` shape.
+ * @see {@link SetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetIdentityPoolConfigurationCommand extends $Command<
   SetIdentityPoolConfigurationCommandInput,

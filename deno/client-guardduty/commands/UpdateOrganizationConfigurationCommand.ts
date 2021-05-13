@@ -24,6 +24,20 @@ export interface UpdateOrganizationConfigurationCommandOutput
 
 /**
  * <p>Updates the delegated administrator account with the values provided.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, UpdateOrganizationConfigurationCommand } from "../../client-guardduty/mod.ts";
+ * // const { GuardDutyClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new UpdateOrganizationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<
   UpdateOrganizationConfigurationCommandInput,

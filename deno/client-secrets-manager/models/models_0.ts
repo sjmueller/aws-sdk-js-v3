@@ -18,6 +18,9 @@ export interface ReplicaRegionType {
 }
 
 export namespace ReplicaRegionType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaRegionType): any => ({
     ...obj,
   });
@@ -46,6 +49,9 @@ export interface CancelRotateSecretRequest {
 }
 
 export namespace CancelRotateSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelRotateSecretRequest): any => ({
     ...obj,
   });
@@ -73,6 +79,9 @@ export interface CancelRotateSecretResponse {
 }
 
 export namespace CancelRotateSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelRotateSecretResponse): any => ({
     ...obj,
   });
@@ -88,6 +97,9 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
 }
 
 export namespace InternalServiceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
@@ -103,6 +115,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -129,6 +144,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -144,6 +162,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -165,6 +186,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -347,6 +371,9 @@ export interface CreateSecretRequest {
 }
 
 export namespace CreateSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
@@ -392,6 +419,9 @@ export interface ReplicationStatusType {
 }
 
 export namespace ReplicationStatusType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicationStatusType): any => ({
     ...obj,
   });
@@ -427,6 +457,9 @@ export interface CreateSecretResponse {
 }
 
 export namespace CreateSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSecretResponse): any => ({
     ...obj,
   });
@@ -445,6 +478,9 @@ export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EncryptionFailure {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptionFailure): any => ({
     ...obj,
   });
@@ -460,6 +496,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -475,6 +514,9 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
 }
 
 export namespace MalformedPolicyDocumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
@@ -490,6 +532,9 @@ export interface PreconditionNotMetException extends __SmithyException, $Metadat
 }
 
 export namespace PreconditionNotMetException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
     ...obj,
   });
@@ -505,6 +550,9 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
 }
 
 export namespace ResourceExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
     ...obj,
   });
@@ -520,6 +568,9 @@ export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DecryptionFailure {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecryptionFailure): any => ({
     ...obj,
   });
@@ -548,6 +599,9 @@ export interface DeleteResourcePolicyRequest {
 }
 
 export namespace DeleteResourcePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
     ...obj,
   });
@@ -566,6 +620,9 @@ export interface DeleteResourcePolicyResponse {
 }
 
 export namespace DeleteResourcePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
     ...obj,
   });
@@ -625,6 +682,9 @@ export interface DeleteSecretRequest {
 }
 
 export namespace DeleteSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSecretRequest): any => ({
     ...obj,
   });
@@ -650,6 +710,9 @@ export interface DeleteSecretResponse {
 }
 
 export namespace DeleteSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSecretResponse): any => ({
     ...obj,
   });
@@ -678,6 +741,9 @@ export interface DescribeSecretRequest {
 }
 
 export namespace DescribeSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSecretRequest): any => ({
     ...obj,
   });
@@ -699,6 +765,9 @@ export interface RotationRulesType {
 }
 
 export namespace RotationRulesType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RotationRulesType): any => ({
     ...obj,
   });
@@ -814,6 +883,9 @@ export interface DescribeSecretResponse {
 }
 
 export namespace DescribeSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSecretResponse): any => ({
     ...obj,
   });
@@ -838,6 +910,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
@@ -903,6 +978,9 @@ export interface GetRandomPasswordRequest {
 }
 
 export namespace GetRandomPasswordRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRandomPasswordRequest): any => ({
     ...obj,
   });
@@ -916,6 +994,9 @@ export interface GetRandomPasswordResponse {
 }
 
 export namespace GetRandomPasswordResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRandomPasswordResponse): any => ({
     ...obj,
     ...(obj.RandomPassword && { RandomPassword: SENSITIVE_STRING }),
@@ -945,6 +1026,9 @@ export interface GetResourcePolicyRequest {
 }
 
 export namespace GetResourcePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
     ...obj,
   });
@@ -972,6 +1056,9 @@ export interface GetResourcePolicyResponse {
 }
 
 export namespace GetResourcePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
     ...obj,
   });
@@ -1022,6 +1109,9 @@ export interface GetSecretValueRequest {
 }
 
 export namespace GetSecretValueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSecretValueRequest): any => ({
     ...obj,
   });
@@ -1082,6 +1172,9 @@ export interface GetSecretValueResponse {
 }
 
 export namespace GetSecretValueResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSecretValueResponse): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
@@ -1099,6 +1192,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -1142,6 +1238,9 @@ export interface ListSecretsRequest {
 }
 
 export namespace ListSecretsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSecretsRequest): any => ({
     ...obj,
   });
@@ -1254,6 +1353,9 @@ export interface SecretListEntry {
 }
 
 export namespace SecretListEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SecretListEntry): any => ({
     ...obj,
   });
@@ -1278,6 +1380,9 @@ export interface ListSecretsResponse {
 }
 
 export namespace ListSecretsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSecretsResponse): any => ({
     ...obj,
   });
@@ -1333,6 +1438,9 @@ export interface ListSecretVersionIdsRequest {
 }
 
 export namespace ListSecretVersionIdsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSecretVersionIdsRequest): any => ({
     ...obj,
   });
@@ -1366,6 +1474,9 @@ export interface SecretVersionsListEntry {
 }
 
 export namespace SecretVersionsListEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SecretVersionsListEntry): any => ({
     ...obj,
   });
@@ -1407,6 +1518,9 @@ export interface ListSecretVersionIdsResponse {
 }
 
 export namespace ListSecretVersionIdsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSecretVersionIdsResponse): any => ({
     ...obj,
   });
@@ -1422,6 +1536,9 @@ export interface PublicPolicyException extends __SmithyException, $MetadataBeare
 }
 
 export namespace PublicPolicyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublicPolicyException): any => ({
     ...obj,
   });
@@ -1465,6 +1582,9 @@ export interface PutResourcePolicyRequest {
 }
 
 export namespace PutResourcePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
     ...obj,
   });
@@ -1483,6 +1603,9 @@ export interface PutResourcePolicyResponse {
 }
 
 export namespace PutResourcePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj,
   });
@@ -1592,6 +1715,9 @@ export interface PutSecretValueRequest {
 }
 
 export namespace PutSecretValueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSecretValueRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
@@ -1624,6 +1750,9 @@ export interface PutSecretValueResponse {
 }
 
 export namespace PutSecretValueResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSecretValueResponse): any => ({
     ...obj,
   });
@@ -1642,6 +1771,9 @@ export interface RemoveRegionsFromReplicationRequest {
 }
 
 export namespace RemoveRegionsFromReplicationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveRegionsFromReplicationRequest): any => ({
     ...obj,
   });
@@ -1660,6 +1792,9 @@ export interface RemoveRegionsFromReplicationResponse {
 }
 
 export namespace RemoveRegionsFromReplicationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveRegionsFromReplicationResponse): any => ({
     ...obj,
   });
@@ -1684,6 +1819,9 @@ export interface ReplicateSecretToRegionsRequest {
 }
 
 export namespace ReplicateSecretToRegionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicateSecretToRegionsRequest): any => ({
     ...obj,
   });
@@ -1703,6 +1841,9 @@ export interface ReplicateSecretToRegionsResponse {
 }
 
 export namespace ReplicateSecretToRegionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicateSecretToRegionsResponse): any => ({
     ...obj,
   });
@@ -1731,6 +1872,9 @@ export interface RestoreSecretRequest {
 }
 
 export namespace RestoreSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreSecretRequest): any => ({
     ...obj,
   });
@@ -1749,6 +1893,9 @@ export interface RestoreSecretResponse {
 }
 
 export namespace RestoreSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreSecretResponse): any => ({
     ...obj,
   });
@@ -1805,6 +1952,9 @@ export interface RotateSecretRequest {
 }
 
 export namespace RotateSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RotateSecretRequest): any => ({
     ...obj,
   });
@@ -1829,6 +1979,9 @@ export interface RotateSecretResponse {
 }
 
 export namespace RotateSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RotateSecretResponse): any => ({
     ...obj,
   });
@@ -1842,6 +1995,9 @@ export interface StopReplicationToReplicaRequest {
 }
 
 export namespace StopReplicationToReplicaRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopReplicationToReplicaRequest): any => ({
     ...obj,
   });
@@ -1855,6 +2011,9 @@ export interface StopReplicationToReplicaResponse {
 }
 
 export namespace StopReplicationToReplicaResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopReplicationToReplicaResponse): any => ({
     ...obj,
   });
@@ -1894,6 +2053,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1930,6 +2092,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -2047,6 +2212,9 @@ export interface UpdateSecretRequest {
 }
 
 export namespace UpdateSecretRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSecretRequest): any => ({
     ...obj,
     ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
@@ -2080,6 +2248,9 @@ export interface UpdateSecretResponse {
 }
 
 export namespace UpdateSecretResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSecretResponse): any => ({
     ...obj,
   });
@@ -2131,6 +2302,9 @@ export interface UpdateSecretVersionStageRequest {
 }
 
 export namespace UpdateSecretVersionStageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSecretVersionStageRequest): any => ({
     ...obj,
   });
@@ -2149,6 +2323,9 @@ export interface UpdateSecretVersionStageResponse {
 }
 
 export namespace UpdateSecretVersionStageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSecretVersionStageResponse): any => ({
     ...obj,
   });
@@ -2187,6 +2364,9 @@ export interface ValidateResourcePolicyRequest {
 }
 
 export namespace ValidateResourcePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidateResourcePolicyRequest): any => ({
     ...obj,
   });
@@ -2208,6 +2388,9 @@ export interface ValidationErrorsEntry {
 }
 
 export namespace ValidationErrorsEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationErrorsEntry): any => ({
     ...obj,
   });
@@ -2226,6 +2409,9 @@ export interface ValidateResourcePolicyResponse {
 }
 
 export namespace ValidateResourcePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidateResourcePolicyResponse): any => ({
     ...obj,
   });

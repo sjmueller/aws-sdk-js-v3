@@ -23,6 +23,20 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates an approved origin to an Amazon Connect instance.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, AssociateApprovedOriginCommand } from "../../client-connect/mod.ts";
+ * // const { ConnectClient, AssociateApprovedOriginCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new AssociateApprovedOriginCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateApprovedOriginCommandInput} for command's `input` shape.
+ * @see {@link AssociateApprovedOriginCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateApprovedOriginCommand extends $Command<
   AssociateApprovedOriginCommandInput,

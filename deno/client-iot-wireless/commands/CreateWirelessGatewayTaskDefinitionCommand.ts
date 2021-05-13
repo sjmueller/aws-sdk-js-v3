@@ -27,6 +27,20 @@ export interface CreateWirelessGatewayTaskDefinitionCommandOutput
 
 /**
  * <p>Creates a gateway task definition.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } from "../../client-iot-wireless/mod.ts";
+ * // const { IoTWirelessClient, CreateWirelessGatewayTaskDefinitionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new CreateWirelessGatewayTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link CreateWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWirelessGatewayTaskDefinitionCommand extends $Command<
   CreateWirelessGatewayTaskDefinitionCommandInput,

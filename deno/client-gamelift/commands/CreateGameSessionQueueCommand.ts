@@ -65,6 +65,20 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *                     <a>DeleteGameSessionQueue</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, CreateGameSessionQueueCommand } from "../../client-gamelift/mod.ts";
+ * // const { GameLiftClient, CreateGameSessionQueueCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new CreateGameSessionQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGameSessionQueueCommandInput} for command's `input` shape.
+ * @see {@link CreateGameSessionQueueCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGameSessionQueueCommand extends $Command<
   CreateGameSessionQueueCommandInput,

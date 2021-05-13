@@ -35,6 +35,20 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ResourceGroupsClient, GetGroupQueryCommand } from "../../client-resource-groups/mod.ts";
+ * // const { ResourceGroupsClient, GetGroupQueryCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * const client = new ResourceGroupsClient(config);
+ * const command = new GetGroupQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupQueryCommandInput} for command's `input` shape.
+ * @see {@link GetGroupQueryCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupQueryCommand extends $Command<
   GetGroupQueryCommandInput,

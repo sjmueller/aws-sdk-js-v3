@@ -13,6 +13,9 @@ export interface AccessControlAttributeValue {
 }
 
 export namespace AccessControlAttributeValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessControlAttributeValue): any => ({
     ...obj,
   });
@@ -34,6 +37,9 @@ export interface AccessControlAttribute {
 }
 
 export namespace AccessControlAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessControlAttribute): any => ({
     ...obj,
   });
@@ -49,6 +55,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -90,6 +99,9 @@ export interface AccountAssignment {
 }
 
 export namespace AccountAssignment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountAssignment): any => ({
     ...obj,
   });
@@ -159,6 +171,9 @@ export interface AccountAssignmentOperationStatus {
 }
 
 export namespace AccountAssignmentOperationStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountAssignmentOperationStatus): any => ({
     ...obj,
   });
@@ -187,6 +202,9 @@ export interface AccountAssignmentOperationStatusMetadata {
 }
 
 export namespace AccountAssignmentOperationStatusMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountAssignmentOperationStatusMetadata): any => ({
     ...obj,
   });
@@ -209,6 +227,9 @@ export interface AttachedManagedPolicy {
 }
 
 export namespace AttachedManagedPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachedManagedPolicy): any => ({
     ...obj,
   });
@@ -235,6 +256,9 @@ export interface AttachManagedPolicyToPermissionSetRequest {
 }
 
 export namespace AttachManagedPolicyToPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetRequest): any => ({
     ...obj,
   });
@@ -243,6 +267,9 @@ export namespace AttachManagedPolicyToPermissionSetRequest {
 export interface AttachManagedPolicyToPermissionSetResponse {}
 
 export namespace AttachManagedPolicyToPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachManagedPolicyToPermissionSetResponse): any => ({
     ...obj,
   });
@@ -258,6 +285,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -274,6 +304,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -289,6 +322,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -304,6 +340,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -319,6 +358,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -334,6 +376,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -374,6 +419,9 @@ export interface CreateAccountAssignmentRequest {
 }
 
 export namespace CreateAccountAssignmentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccountAssignmentRequest): any => ({
     ...obj,
   });
@@ -387,6 +435,9 @@ export interface CreateAccountAssignmentResponse {
 }
 
 export namespace CreateAccountAssignmentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccountAssignmentResponse): any => ({
     ...obj,
   });
@@ -403,6 +454,9 @@ export interface InstanceAccessControlAttributeConfiguration {
 }
 
 export namespace InstanceAccessControlAttributeConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceAccessControlAttributeConfiguration): any => ({
     ...obj,
   });
@@ -421,6 +475,9 @@ export interface CreateInstanceAccessControlAttributeConfigurationRequest {
 }
 
 export namespace CreateInstanceAccessControlAttributeConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateInstanceAccessControlAttributeConfigurationRequest): any => ({
     ...obj,
   });
@@ -429,6 +486,9 @@ export namespace CreateInstanceAccessControlAttributeConfigurationRequest {
 export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
 
 export namespace CreateInstanceAccessControlAttributeConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateInstanceAccessControlAttributeConfigurationResponse): any => ({
     ...obj,
   });
@@ -451,6 +511,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -493,6 +556,9 @@ export interface CreatePermissionSetRequest {
 }
 
 export namespace CreatePermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePermissionSetRequest): any => ({
     ...obj,
   });
@@ -537,6 +603,9 @@ export interface PermissionSet {
 }
 
 export namespace PermissionSet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PermissionSet): any => ({
     ...obj,
   });
@@ -550,6 +619,9 @@ export interface CreatePermissionSetResponse {
 }
 
 export namespace CreatePermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePermissionSetResponse): any => ({
     ...obj,
   });
@@ -590,6 +662,9 @@ export interface DeleteAccountAssignmentRequest {
 }
 
 export namespace DeleteAccountAssignmentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAccountAssignmentRequest): any => ({
     ...obj,
   });
@@ -603,6 +678,9 @@ export interface DeleteAccountAssignmentResponse {
 }
 
 export namespace DeleteAccountAssignmentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAccountAssignmentResponse): any => ({
     ...obj,
   });
@@ -623,6 +701,9 @@ export interface DeleteInlinePolicyFromPermissionSetRequest {
 }
 
 export namespace DeleteInlinePolicyFromPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteInlinePolicyFromPermissionSetRequest): any => ({
     ...obj,
   });
@@ -631,6 +712,9 @@ export namespace DeleteInlinePolicyFromPermissionSetRequest {
 export interface DeleteInlinePolicyFromPermissionSetResponse {}
 
 export namespace DeleteInlinePolicyFromPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteInlinePolicyFromPermissionSetResponse): any => ({
     ...obj,
   });
@@ -644,6 +728,9 @@ export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
 }
 
 export namespace DeleteInstanceAccessControlAttributeConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationRequest): any => ({
     ...obj,
   });
@@ -652,6 +739,9 @@ export namespace DeleteInstanceAccessControlAttributeConfigurationRequest {
 export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
 
 export namespace DeleteInstanceAccessControlAttributeConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteInstanceAccessControlAttributeConfigurationResponse): any => ({
     ...obj,
   });
@@ -672,6 +762,9 @@ export interface DeletePermissionSetRequest {
 }
 
 export namespace DeletePermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePermissionSetRequest): any => ({
     ...obj,
   });
@@ -680,6 +773,9 @@ export namespace DeletePermissionSetRequest {
 export interface DeletePermissionSetResponse {}
 
 export namespace DeletePermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePermissionSetResponse): any => ({
     ...obj,
   });
@@ -700,6 +796,9 @@ export interface DescribeAccountAssignmentCreationStatusRequest {
 }
 
 export namespace DescribeAccountAssignmentCreationStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountAssignmentCreationStatusRequest): any => ({
     ...obj,
   });
@@ -713,6 +812,9 @@ export interface DescribeAccountAssignmentCreationStatusResponse {
 }
 
 export namespace DescribeAccountAssignmentCreationStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountAssignmentCreationStatusResponse): any => ({
     ...obj,
   });
@@ -733,6 +835,9 @@ export interface DescribeAccountAssignmentDeletionStatusRequest {
 }
 
 export namespace DescribeAccountAssignmentDeletionStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountAssignmentDeletionStatusRequest): any => ({
     ...obj,
   });
@@ -746,6 +851,9 @@ export interface DescribeAccountAssignmentDeletionStatusResponse {
 }
 
 export namespace DescribeAccountAssignmentDeletionStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountAssignmentDeletionStatusResponse): any => ({
     ...obj,
   });
@@ -759,6 +867,9 @@ export interface DescribeInstanceAccessControlAttributeConfigurationRequest {
 }
 
 export namespace DescribeInstanceAccessControlAttributeConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeInstanceAccessControlAttributeConfigurationRequest): any => ({
     ...obj,
   });
@@ -788,6 +899,9 @@ export interface DescribeInstanceAccessControlAttributeConfigurationResponse {
 }
 
 export namespace DescribeInstanceAccessControlAttributeConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeInstanceAccessControlAttributeConfigurationResponse): any => ({
     ...obj,
   });
@@ -808,6 +922,9 @@ export interface DescribePermissionSetRequest {
 }
 
 export namespace DescribePermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePermissionSetRequest): any => ({
     ...obj,
   });
@@ -821,6 +938,9 @@ export interface DescribePermissionSetResponse {
 }
 
 export namespace DescribePermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePermissionSetResponse): any => ({
     ...obj,
   });
@@ -842,6 +962,9 @@ export interface DescribePermissionSetProvisioningStatusRequest {
 }
 
 export namespace DescribePermissionSetProvisioningStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePermissionSetProvisioningStatusRequest): any => ({
     ...obj,
   });
@@ -886,6 +1009,9 @@ export interface PermissionSetProvisioningStatus {
 }
 
 export namespace PermissionSetProvisioningStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PermissionSetProvisioningStatus): any => ({
     ...obj,
   });
@@ -899,6 +1025,9 @@ export interface DescribePermissionSetProvisioningStatusResponse {
 }
 
 export namespace DescribePermissionSetProvisioningStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePermissionSetProvisioningStatusResponse): any => ({
     ...obj,
   });
@@ -924,6 +1053,9 @@ export interface DetachManagedPolicyFromPermissionSetRequest {
 }
 
 export namespace DetachManagedPolicyFromPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachManagedPolicyFromPermissionSetRequest): any => ({
     ...obj,
   });
@@ -932,6 +1064,9 @@ export namespace DetachManagedPolicyFromPermissionSetRequest {
 export interface DetachManagedPolicyFromPermissionSetResponse {}
 
 export namespace DetachManagedPolicyFromPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachManagedPolicyFromPermissionSetResponse): any => ({
     ...obj,
   });
@@ -952,6 +1087,9 @@ export interface GetInlinePolicyForPermissionSetRequest {
 }
 
 export namespace GetInlinePolicyForPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetRequest): any => ({
     ...obj,
   });
@@ -965,6 +1103,9 @@ export interface GetInlinePolicyForPermissionSetResponse {
 }
 
 export namespace GetInlinePolicyForPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInlinePolicyForPermissionSetResponse): any => ({
     ...obj,
     ...(obj.InlinePolicy && { InlinePolicy: SENSITIVE_STRING }),
@@ -989,6 +1130,9 @@ export interface InstanceMetadata {
 }
 
 export namespace InstanceMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceMetadata): any => ({
     ...obj,
   });
@@ -1005,6 +1149,9 @@ export interface OperationStatusFilter {
 }
 
 export namespace OperationStatusFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationStatusFilter): any => ({
     ...obj,
   });
@@ -1035,6 +1182,9 @@ export interface ListAccountAssignmentCreationStatusRequest {
 }
 
 export namespace ListAccountAssignmentCreationStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountAssignmentCreationStatusRequest): any => ({
     ...obj,
   });
@@ -1053,6 +1203,9 @@ export interface ListAccountAssignmentCreationStatusResponse {
 }
 
 export namespace ListAccountAssignmentCreationStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountAssignmentCreationStatusResponse): any => ({
     ...obj,
   });
@@ -1083,6 +1236,9 @@ export interface ListAccountAssignmentDeletionStatusRequest {
 }
 
 export namespace ListAccountAssignmentDeletionStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountAssignmentDeletionStatusRequest): any => ({
     ...obj,
   });
@@ -1101,6 +1257,9 @@ export interface ListAccountAssignmentDeletionStatusResponse {
 }
 
 export namespace ListAccountAssignmentDeletionStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountAssignmentDeletionStatusResponse): any => ({
     ...obj,
   });
@@ -1136,6 +1295,9 @@ export interface ListAccountAssignmentsRequest {
 }
 
 export namespace ListAccountAssignmentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountAssignmentsRequest): any => ({
     ...obj,
   });
@@ -1154,6 +1316,9 @@ export interface ListAccountAssignmentsResponse {
 }
 
 export namespace ListAccountAssignmentsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountAssignmentsResponse): any => ({
     ...obj,
   });
@@ -1195,6 +1360,9 @@ export interface ListAccountsForProvisionedPermissionSetRequest {
 }
 
 export namespace ListAccountsForProvisionedPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetRequest): any => ({
     ...obj,
   });
@@ -1213,6 +1381,9 @@ export interface ListAccountsForProvisionedPermissionSetResponse {
 }
 
 export namespace ListAccountsForProvisionedPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsForProvisionedPermissionSetResponse): any => ({
     ...obj,
   });
@@ -1231,6 +1402,9 @@ export interface ListInstancesRequest {
 }
 
 export namespace ListInstancesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInstancesRequest): any => ({
     ...obj,
   });
@@ -1249,6 +1423,9 @@ export interface ListInstancesResponse {
 }
 
 export namespace ListInstancesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInstancesResponse): any => ({
     ...obj,
   });
@@ -1279,6 +1456,9 @@ export interface ListManagedPoliciesInPermissionSetRequest {
 }
 
 export namespace ListManagedPoliciesInPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListManagedPoliciesInPermissionSetRequest): any => ({
     ...obj,
   });
@@ -1297,6 +1477,9 @@ export interface ListManagedPoliciesInPermissionSetResponse {
 }
 
 export namespace ListManagedPoliciesInPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListManagedPoliciesInPermissionSetResponse): any => ({
     ...obj,
   });
@@ -1327,6 +1510,9 @@ export interface ListPermissionSetProvisioningStatusRequest {
 }
 
 export namespace ListPermissionSetProvisioningStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionSetProvisioningStatusRequest): any => ({
     ...obj,
   });
@@ -1354,6 +1540,9 @@ export interface PermissionSetProvisioningStatusMetadata {
 }
 
 export namespace PermissionSetProvisioningStatusMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PermissionSetProvisioningStatusMetadata): any => ({
     ...obj,
   });
@@ -1372,6 +1561,9 @@ export interface ListPermissionSetProvisioningStatusResponse {
 }
 
 export namespace ListPermissionSetProvisioningStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionSetProvisioningStatusResponse): any => ({
     ...obj,
   });
@@ -1397,6 +1589,9 @@ export interface ListPermissionSetsRequest {
 }
 
 export namespace ListPermissionSetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionSetsRequest): any => ({
     ...obj,
   });
@@ -1415,6 +1610,9 @@ export interface ListPermissionSetsResponse {
 }
 
 export namespace ListPermissionSetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionSetsResponse): any => ({
     ...obj,
   });
@@ -1450,6 +1648,9 @@ export interface ListPermissionSetsProvisionedToAccountRequest {
 }
 
 export namespace ListPermissionSetsProvisionedToAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionSetsProvisionedToAccountRequest): any => ({
     ...obj,
   });
@@ -1468,6 +1669,9 @@ export interface ListPermissionSetsProvisionedToAccountResponse {
 }
 
 export namespace ListPermissionSetsProvisionedToAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionSetsProvisionedToAccountResponse): any => ({
     ...obj,
   });
@@ -1493,6 +1697,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1511,6 +1718,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1546,6 +1756,9 @@ export interface ProvisionPermissionSetRequest {
 }
 
 export namespace ProvisionPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionPermissionSetRequest): any => ({
     ...obj,
   });
@@ -1559,6 +1772,9 @@ export interface ProvisionPermissionSetResponse {
 }
 
 export namespace ProvisionPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionPermissionSetResponse): any => ({
     ...obj,
   });
@@ -1584,6 +1800,9 @@ export interface PutInlinePolicyToPermissionSetRequest {
 }
 
 export namespace PutInlinePolicyToPermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetRequest): any => ({
     ...obj,
     ...(obj.InlinePolicy && { InlinePolicy: SENSITIVE_STRING }),
@@ -1593,6 +1812,9 @@ export namespace PutInlinePolicyToPermissionSetRequest {
 export interface PutInlinePolicyToPermissionSetResponse {}
 
 export namespace PutInlinePolicyToPermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutInlinePolicyToPermissionSetResponse): any => ({
     ...obj,
   });
@@ -1618,6 +1840,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1626,6 +1851,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1651,6 +1879,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1659,6 +1890,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1677,6 +1911,9 @@ export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
 }
 
 export namespace UpdateInstanceAccessControlAttributeConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateInstanceAccessControlAttributeConfigurationRequest): any => ({
     ...obj,
   });
@@ -1685,6 +1922,9 @@ export namespace UpdateInstanceAccessControlAttributeConfigurationRequest {
 export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
 
 export namespace UpdateInstanceAccessControlAttributeConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateInstanceAccessControlAttributeConfigurationResponse): any => ({
     ...obj,
   });
@@ -1722,6 +1962,9 @@ export interface UpdatePermissionSetRequest {
 }
 
 export namespace UpdatePermissionSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePermissionSetRequest): any => ({
     ...obj,
   });
@@ -1730,6 +1973,9 @@ export namespace UpdatePermissionSetRequest {
 export interface UpdatePermissionSetResponse {}
 
 export namespace UpdatePermissionSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePermissionSetResponse): any => ({
     ...obj,
   });

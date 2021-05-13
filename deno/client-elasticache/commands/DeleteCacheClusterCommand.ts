@@ -51,6 +51,20 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *                 <p>A cluster that is not in the <code>available</code> state</p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, DeleteCacheClusterCommand } from "../../client-elasticache/mod.ts";
+ * // const { ElastiCacheClient, DeleteCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new DeleteCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCacheClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteCacheClusterCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCacheClusterCommand extends $Command<
   DeleteCacheClusterCommandInput,

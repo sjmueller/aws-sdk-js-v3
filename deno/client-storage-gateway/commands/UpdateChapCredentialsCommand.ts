@@ -30,6 +30,20 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  *             <p>When you update CHAP credentials, all existing connections on the target are closed
  *             and initiators must reconnect with the new credentials.</p>
  *          </important>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, UpdateChapCredentialsCommand } from "../../client-storage-gateway/mod.ts";
+ * // const { StorageGatewayClient, UpdateChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateChapCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateChapCredentialsCommandInput} for command's `input` shape.
+ * @see {@link UpdateChapCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateChapCredentialsCommand extends $Command<
   UpdateChapCredentialsCommandInput,

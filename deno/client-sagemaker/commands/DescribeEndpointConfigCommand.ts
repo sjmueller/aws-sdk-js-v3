@@ -23,6 +23,20 @@ export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointCon
 /**
  * <p>Returns the description of an endpoint configuration created using the
  *                 <code>CreateEndpointConfig</code> API.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeEndpointConfigCommand } from "../../client-sagemaker/mod.ts";
+ * // const { SageMakerClient, DescribeEndpointConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeEndpointConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointConfigCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointConfigCommand extends $Command<
   DescribeEndpointConfigCommandInput,

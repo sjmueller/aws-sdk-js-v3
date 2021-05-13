@@ -22,6 +22,20 @@ export interface GetStudioMemberCommandOutput extends GetStudioMemberResponse, _
 
 /**
  * <p>Get a user's membership in a studio.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, GetStudioMemberCommand } from "../../client-nimble/mod.ts";
+ * // const { NimbleClient, GetStudioMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new GetStudioMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStudioMemberCommandInput} for command's `input` shape.
+ * @see {@link GetStudioMemberCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStudioMemberCommand extends $Command<
   GetStudioMemberCommandInput,

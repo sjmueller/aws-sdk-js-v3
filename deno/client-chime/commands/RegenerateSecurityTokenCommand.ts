@@ -22,6 +22,20 @@ export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurity
 
 /**
  * <p>Regenerates the security token for a bot.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, RegenerateSecurityTokenCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, RegenerateSecurityTokenCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new RegenerateSecurityTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegenerateSecurityTokenCommandInput} for command's `input` shape.
+ * @see {@link RegenerateSecurityTokenCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegenerateSecurityTokenCommand extends $Command<
   RegenerateSecurityTokenCommandInput,

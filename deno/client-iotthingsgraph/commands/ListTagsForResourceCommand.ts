@@ -22,6 +22,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTThingsGraphClient, ListTagsForResourceCommand } from "../../client-iotthingsgraph/mod.ts";
+ * // const { IoTThingsGraphClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

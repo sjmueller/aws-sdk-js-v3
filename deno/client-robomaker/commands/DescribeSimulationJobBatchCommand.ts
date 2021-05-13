@@ -22,6 +22,20 @@ export interface DescribeSimulationJobBatchCommandOutput extends DescribeSimulat
 
 /**
  * <p>Describes a simulation job batch.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, DescribeSimulationJobBatchCommand } from "../../client-robomaker/mod.ts";
+ * // const { RoboMakerClient, DescribeSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new DescribeSimulationJobBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSimulationJobBatchCommandInput} for command's `input` shape.
+ * @see {@link DescribeSimulationJobBatchCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSimulationJobBatchCommand extends $Command<
   DescribeSimulationJobBatchCommandInput,

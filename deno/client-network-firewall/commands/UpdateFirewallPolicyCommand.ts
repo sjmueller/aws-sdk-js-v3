@@ -22,6 +22,20 @@ export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyR
 
 /**
  * <p>Updates the properties of the specified firewall policy.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, UpdateFirewallPolicyCommand } from "../../client-network-firewall/mod.ts";
+ * // const { NetworkFirewallClient, UpdateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateFirewallPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallPolicyCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallPolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallPolicyCommand extends $Command<
   UpdateFirewallPolicyCommandInput,

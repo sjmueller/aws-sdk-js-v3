@@ -22,6 +22,20 @@ export interface UpdateTagOptionCommandOutput extends UpdateTagOptionOutput, __M
 
 /**
  * <p>Updates the specified TagOption.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, UpdateTagOptionCommand } from "../../client-service-catalog/mod.ts";
+ * // const { ServiceCatalogClient, UpdateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateTagOptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTagOptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateTagOptionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTagOptionCommand extends $Command<
   UpdateTagOptionCommandInput,

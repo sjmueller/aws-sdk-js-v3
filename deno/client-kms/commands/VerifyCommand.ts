@@ -50,6 +50,20 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *          <p>
  *             <b>Related operations</b>: <a>Sign</a>
  *          </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, VerifyCommand } from "../../client-kms/mod.ts";
+ * // const { KMSClient, VerifyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new VerifyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link VerifyCommandInput} for command's `input` shape.
+ * @see {@link VerifyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

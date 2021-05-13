@@ -49,6 +49,20 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, DeleteBucketWebsiteCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, DeleteBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new DeleteBucketWebsiteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBucketWebsiteCommandInput} for command's `input` shape.
+ * @see {@link DeleteBucketWebsiteCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBucketWebsiteCommand extends $Command<
   DeleteBucketWebsiteCommandInput,

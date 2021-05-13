@@ -30,6 +30,20 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
  *       action.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, DeleteTagsCommand } from "../../client-efs/mod.ts";
+ * // const { EFSClient, DeleteTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new DeleteTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTagsCommandInput} for command's `input` shape.
+ * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,

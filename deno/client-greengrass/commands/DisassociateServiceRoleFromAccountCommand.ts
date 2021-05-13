@@ -27,6 +27,20 @@ export interface DisassociateServiceRoleFromAccountCommandOutput
 
 /**
  * Disassociates the service role from your account. Without a service role, deployments will not work.
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, DisassociateServiceRoleFromAccountCommand } from "../../client-greengrass/mod.ts";
+ * // const { GreengrassClient, DisassociateServiceRoleFromAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new DisassociateServiceRoleFromAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateServiceRoleFromAccountCommandInput} for command's `input` shape.
+ * @see {@link DisassociateServiceRoleFromAccountCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateServiceRoleFromAccountCommand extends $Command<
   DisassociateServiceRoleFromAccountCommandInput,

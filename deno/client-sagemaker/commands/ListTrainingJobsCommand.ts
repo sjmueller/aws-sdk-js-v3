@@ -42,6 +42,20 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *                     InProgress</code>
  *             </p>
  *         </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListTrainingJobsCommand } from "../../client-sagemaker/mod.ts";
+ * // const { SageMakerClient, ListTrainingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListTrainingJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrainingJobsCommandInput} for command's `input` shape.
+ * @see {@link ListTrainingJobsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrainingJobsCommand extends $Command<
   ListTrainingJobsCommandInput,

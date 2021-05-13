@@ -23,6 +23,20 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all attribute types for the given instance.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, ListInstanceAttributesCommand } from "../../client-connect/mod.ts";
+ * // const { ConnectClient, ListInstanceAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new ListInstanceAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInstanceAttributesCommandInput} for command's `input` shape.
+ * @see {@link ListInstanceAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInstanceAttributesCommand extends $Command<
   ListInstanceAttributesCommandInput,

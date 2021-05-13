@@ -27,6 +27,20 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
 
 /**
  * <p>Starts the user import.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, StartUserImportJobCommand } from "../../client-cognito-identity-provider/mod.ts";
+ * // const { CognitoIdentityProviderClient, StartUserImportJobCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new StartUserImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartUserImportJobCommandInput} for command's `input` shape.
+ * @see {@link StartUserImportJobCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartUserImportJobCommand extends $Command<
   StartUserImportJobCommandInput,

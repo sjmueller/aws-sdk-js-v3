@@ -22,6 +22,20 @@ export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionR
 
 /**
  * <p>Provides details about the AWS Shield Advanced subscription for an account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ShieldClient, DescribeSubscriptionCommand } from "../../client-shield/mod.ts";
+ * // const { ShieldClient, DescribeSubscriptionCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * const client = new ShieldClient(config);
+ * const command = new DescribeSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DescribeSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSubscriptionCommand extends $Command<
   DescribeSubscriptionCommandInput,

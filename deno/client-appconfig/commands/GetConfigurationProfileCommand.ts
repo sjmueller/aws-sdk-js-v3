@@ -22,6 +22,20 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
 
 /**
  * <p>Retrieve information about a configuration profile.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, GetConfigurationProfileCommand } from "../../client-appconfig/mod.ts";
+ * // const { AppConfigClient, GetConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new GetConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConfigurationProfileCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConfigurationProfileCommand extends $Command<
   GetConfigurationProfileCommandInput,

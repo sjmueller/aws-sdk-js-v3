@@ -49,6 +49,20 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * 			Access</a>.</p>
  * 		          </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, GetPolicyCommand } from "../../client-acm-pca/mod.ts";
+ * // const { ACMPCAClient, GetPolicyCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new GetPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPolicyCommand extends $Command<
   GetPolicyCommandInput,

@@ -28,6 +28,20 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * <i>Amazon Chime Developer Guide</i>
  * .
  * </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, ListMeetingsCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, ListMeetingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new ListMeetingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMeetingsCommandInput} for command's `input` shape.
+ * @see {@link ListMeetingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMeetingsCommand extends $Command<
   ListMeetingsCommandInput,

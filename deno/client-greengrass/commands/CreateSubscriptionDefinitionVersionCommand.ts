@@ -27,6 +27,20 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
 
 /**
  * Creates a version of a subscription definition which has already been defined.
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } from "../../client-greengrass/mod.ts";
+ * // const { GreengrassClient, CreateSubscriptionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new CreateSubscriptionDefinitionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSubscriptionDefinitionVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateSubscriptionDefinitionVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSubscriptionDefinitionVersionCommand extends $Command<
   CreateSubscriptionDefinitionVersionCommandInput,

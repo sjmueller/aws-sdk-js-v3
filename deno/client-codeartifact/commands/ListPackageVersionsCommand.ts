@@ -28,6 +28,20 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *             </a>
  *         objects for package versions in a repository that match the request parameters.
  *       </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, ListPackageVersionsCommand } from "../../client-codeartifact/mod.ts";
+ * // const { CodeartifactClient, ListPackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new ListPackageVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPackageVersionsCommand extends $Command<
   ListPackageVersionsCommandInput,

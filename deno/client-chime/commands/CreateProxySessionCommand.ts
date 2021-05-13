@@ -22,6 +22,20 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
 
 /**
  * <p>Creates a proxy session on the specified Amazon Chime Voice Connector for the specified participant phone numbers.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, CreateProxySessionCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, CreateProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new CreateProxySessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProxySessionCommandInput} for command's `input` shape.
+ * @see {@link CreateProxySessionCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProxySessionCommand extends $Command<
   CreateProxySessionCommandInput,

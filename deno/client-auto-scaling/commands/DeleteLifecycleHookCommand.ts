@@ -25,6 +25,20 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  *         <p>If there are any outstanding lifecycle actions, they are completed first
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
  *             instances).</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, DeleteLifecycleHookCommand } from "../../client-auto-scaling/mod.ts";
+ * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new DeleteLifecycleHookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLifecycleHookCommandInput} for command's `input` shape.
+ * @see {@link DeleteLifecycleHookCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLifecycleHookCommand extends $Command<
   DeleteLifecycleHookCommandInput,

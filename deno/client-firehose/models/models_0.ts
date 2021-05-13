@@ -31,6 +31,9 @@ export interface BufferingHints {
 }
 
 export namespace BufferingHints {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BufferingHints): any => ({
     ...obj,
   });
@@ -59,6 +62,9 @@ export interface CloudWatchLoggingOptions {
 }
 
 export namespace CloudWatchLoggingOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
     ...obj,
   });
@@ -86,6 +92,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -136,6 +145,9 @@ export interface CopyCommand {
 }
 
 export namespace CopyCommand {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyCommand): any => ({
     ...obj,
   });
@@ -182,6 +194,9 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 }
 
 export namespace DeliveryStreamEncryptionConfigurationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfigurationInput): any => ({
     ...obj,
   });
@@ -211,6 +226,9 @@ export interface ElasticsearchBufferingHints {
 }
 
 export namespace ElasticsearchBufferingHints {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
     ...obj,
   });
@@ -242,6 +260,9 @@ export interface ProcessorParameter {
 }
 
 export namespace ProcessorParameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProcessorParameter): any => ({
     ...obj,
   });
@@ -265,6 +286,9 @@ export interface Processor {
 }
 
 export namespace Processor {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Processor): any => ({
     ...obj,
   });
@@ -286,6 +310,9 @@ export interface ProcessingConfiguration {
 }
 
 export namespace ProcessingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProcessingConfiguration): any => ({
     ...obj,
   });
@@ -306,6 +333,9 @@ export interface ElasticsearchRetryOptions {
 }
 
 export namespace ElasticsearchRetryOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
     ...obj,
   });
@@ -326,6 +356,9 @@ export interface KMSEncryptionConfig {
 }
 
 export namespace KMSEncryptionConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
     ...obj,
   });
@@ -350,6 +383,9 @@ export interface EncryptionConfiguration {
 }
 
 export namespace EncryptionConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
   });
@@ -414,6 +450,9 @@ export interface S3DestinationConfiguration {
 }
 
 export namespace S3DestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
     ...obj,
   });
@@ -506,6 +545,9 @@ export interface VpcConfiguration {
 }
 
 export namespace VpcConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
     ...obj,
   });
@@ -611,6 +653,9 @@ export interface ElasticsearchDestinationConfiguration {
 }
 
 export namespace ElasticsearchDestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticsearchDestinationConfiguration): any => ({
     ...obj,
   });
@@ -634,6 +679,9 @@ export interface HiveJsonSerDe {
 }
 
 export namespace HiveJsonSerDe {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HiveJsonSerDe): any => ({
     ...obj,
   });
@@ -673,6 +721,9 @@ export interface OpenXJsonSerDe {
 }
 
 export namespace OpenXJsonSerDe {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
     ...obj,
   });
@@ -703,6 +754,9 @@ export interface Deserializer {
 }
 
 export namespace Deserializer {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Deserializer): any => ({
     ...obj,
   });
@@ -721,6 +775,9 @@ export interface InputFormatConfiguration {
 }
 
 export namespace InputFormatConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputFormatConfiguration): any => ({
     ...obj,
   });
@@ -814,6 +871,9 @@ export interface OrcSerDe {
 }
 
 export namespace OrcSerDe {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrcSerDe): any => ({
     ...obj,
   });
@@ -876,6 +936,9 @@ export interface ParquetSerDe {
 }
 
 export namespace ParquetSerDe {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParquetSerDe): any => ({
     ...obj,
   });
@@ -902,6 +965,9 @@ export interface Serializer {
 }
 
 export namespace Serializer {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Serializer): any => ({
     ...obj,
   });
@@ -921,6 +987,9 @@ export interface OutputFormatConfiguration {
 }
 
 export namespace OutputFormatConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
     ...obj,
   });
@@ -972,6 +1041,9 @@ export interface SchemaConfiguration {
 }
 
 export namespace SchemaConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SchemaConfiguration): any => ({
     ...obj,
   });
@@ -1013,6 +1085,9 @@ export interface DataFormatConversionConfiguration {
 }
 
 export namespace DataFormatConversionConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataFormatConversionConfiguration): any => ({
     ...obj,
   });
@@ -1098,6 +1173,9 @@ export interface ExtendedS3DestinationConfiguration {
 }
 
 export namespace ExtendedS3DestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExtendedS3DestinationConfiguration): any => ({
     ...obj,
   });
@@ -1128,6 +1206,9 @@ export interface HttpEndpointBufferingHints {
 }
 
 export namespace HttpEndpointBufferingHints {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointBufferingHints): any => ({
     ...obj,
   });
@@ -1156,6 +1237,9 @@ export interface HttpEndpointConfiguration {
 }
 
 export namespace HttpEndpointConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointConfiguration): any => ({
     ...obj,
     ...(obj.Url && { Url: SENSITIVE_STRING }),
@@ -1180,6 +1264,9 @@ export interface HttpEndpointCommonAttribute {
 }
 
 export namespace HttpEndpointCommonAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointCommonAttribute): any => ({
     ...obj,
     ...(obj.AttributeName && { AttributeName: SENSITIVE_STRING }),
@@ -1204,6 +1291,9 @@ export interface HttpEndpointRequestConfiguration {
 }
 
 export namespace HttpEndpointRequestConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointRequestConfiguration): any => ({
     ...obj,
     ...(obj.CommonAttributes && {
@@ -1228,6 +1318,9 @@ export interface HttpEndpointRetryOptions {
 }
 
 export namespace HttpEndpointRetryOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointRetryOptions): any => ({
     ...obj,
   });
@@ -1297,6 +1390,9 @@ export interface HttpEndpointDestinationConfiguration {
 }
 
 export namespace HttpEndpointDestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointDestinationConfiguration): any => ({
     ...obj,
     ...(obj.EndpointConfiguration && {
@@ -1326,6 +1422,9 @@ export interface KinesisStreamSourceConfiguration {
 }
 
 export namespace KinesisStreamSourceConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisStreamSourceConfiguration): any => ({
     ...obj,
   });
@@ -1347,6 +1446,9 @@ export interface RedshiftRetryOptions {
 }
 
 export namespace RedshiftRetryOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
     ...obj,
   });
@@ -1424,6 +1526,9 @@ export interface RedshiftDestinationConfiguration {
 }
 
 export namespace RedshiftDestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RedshiftDestinationConfiguration): any => ({
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -1448,6 +1553,9 @@ export interface SplunkRetryOptions {
 }
 
 export namespace SplunkRetryOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SplunkRetryOptions): any => ({
     ...obj,
   });
@@ -1519,6 +1627,9 @@ export interface SplunkDestinationConfiguration {
 }
 
 export namespace SplunkDestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SplunkDestinationConfiguration): any => ({
     ...obj,
   });
@@ -1544,6 +1655,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -1634,6 +1748,9 @@ export interface CreateDeliveryStreamInput {
 }
 
 export namespace CreateDeliveryStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
     ...obj,
     ...(obj.RedshiftDestinationConfiguration && {
@@ -1657,6 +1774,9 @@ export interface CreateDeliveryStreamOutput {
 }
 
 export namespace CreateDeliveryStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
     ...obj,
   });
@@ -1675,6 +1795,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -1695,6 +1818,9 @@ export interface InvalidKMSResourceException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidKMSResourceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidKMSResourceException): any => ({
     ...obj,
   });
@@ -1713,6 +1839,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -1731,6 +1860,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -1755,6 +1887,9 @@ export interface DeleteDeliveryStreamInput {
 }
 
 export namespace DeleteDeliveryStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
     ...obj,
   });
@@ -1763,6 +1898,9 @@ export namespace DeleteDeliveryStreamInput {
 export interface DeleteDeliveryStreamOutput {}
 
 export namespace DeleteDeliveryStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
     ...obj,
   });
@@ -1781,6 +1919,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -1822,6 +1963,9 @@ export interface FailureDescription {
 }
 
 export namespace FailureDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FailureDescription): any => ({
     ...obj,
   });
@@ -1873,6 +2017,9 @@ export interface DeliveryStreamEncryptionConfiguration {
 }
 
 export namespace DeliveryStreamEncryptionConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfiguration): any => ({
     ...obj,
   });
@@ -1942,6 +2089,9 @@ export interface S3DestinationDescription {
 }
 
 export namespace S3DestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
     ...obj,
   });
@@ -2038,6 +2188,9 @@ export interface VpcConfigurationDescription {
 }
 
 export namespace VpcConfigurationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
     ...obj,
   });
@@ -2122,6 +2275,9 @@ export interface ElasticsearchDestinationDescription {
 }
 
 export namespace ElasticsearchDestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticsearchDestinationDescription): any => ({
     ...obj,
   });
@@ -2203,6 +2359,9 @@ export interface ExtendedS3DestinationDescription {
 }
 
 export namespace ExtendedS3DestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExtendedS3DestinationDescription): any => ({
     ...obj,
   });
@@ -2224,6 +2383,9 @@ export interface HttpEndpointDescription {
 }
 
 export namespace HttpEndpointDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointDescription): any => ({
     ...obj,
     ...(obj.Url && { Url: SENSITIVE_STRING }),
@@ -2292,6 +2454,9 @@ export interface HttpEndpointDestinationDescription {
 }
 
 export namespace HttpEndpointDestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointDestinationDescription): any => ({
     ...obj,
     ...(obj.EndpointConfiguration && {
@@ -2361,6 +2526,9 @@ export interface RedshiftDestinationDescription {
 }
 
 export namespace RedshiftDestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RedshiftDestinationDescription): any => ({
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -2428,6 +2596,9 @@ export interface SplunkDestinationDescription {
 }
 
 export namespace SplunkDestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SplunkDestinationDescription): any => ({
     ...obj,
   });
@@ -2474,6 +2645,9 @@ export interface DestinationDescription {
 }
 
 export namespace DestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationDescription): any => ({
     ...obj,
     ...(obj.RedshiftDestinationDescription && {
@@ -2514,6 +2688,9 @@ export interface KinesisStreamSourceDescription {
 }
 
 export namespace KinesisStreamSourceDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisStreamSourceDescription): any => ({
     ...obj,
   });
@@ -2532,6 +2709,9 @@ export interface SourceDescription {
 }
 
 export namespace SourceDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceDescription): any => ({
     ...obj,
   });
@@ -2625,6 +2805,9 @@ export interface DeliveryStreamDescription {
 }
 
 export namespace DeliveryStreamDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
     ...obj,
     ...(obj.Destinations && {
@@ -2653,6 +2836,9 @@ export interface DescribeDeliveryStreamInput {
 }
 
 export namespace DescribeDeliveryStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDeliveryStreamInput): any => ({
     ...obj,
   });
@@ -2666,6 +2852,9 @@ export interface DescribeDeliveryStreamOutput {
 }
 
 export namespace DescribeDeliveryStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDeliveryStreamOutput): any => ({
     ...obj,
     ...(obj.DeliveryStreamDescription && {
@@ -2733,6 +2922,9 @@ export interface S3DestinationUpdate {
 }
 
 export namespace S3DestinationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
     ...obj,
   });
@@ -2822,6 +3014,9 @@ export interface ElasticsearchDestinationUpdate {
 }
 
 export namespace ElasticsearchDestinationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticsearchDestinationUpdate): any => ({
     ...obj,
   });
@@ -2904,6 +3099,9 @@ export interface ExtendedS3DestinationUpdate {
 }
 
 export namespace ExtendedS3DestinationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExtendedS3DestinationUpdate): any => ({
     ...obj,
   });
@@ -2944,6 +3142,9 @@ export interface ListDeliveryStreamsInput {
 }
 
 export namespace ListDeliveryStreamsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
     ...obj,
   });
@@ -2962,6 +3163,9 @@ export interface ListDeliveryStreamsOutput {
 }
 
 export namespace ListDeliveryStreamsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
     ...obj,
   });
@@ -2990,6 +3194,9 @@ export interface ListTagsForDeliveryStreamInput {
 }
 
 export namespace ListTagsForDeliveryStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamInput): any => ({
     ...obj,
   });
@@ -3012,6 +3219,9 @@ export interface ListTagsForDeliveryStreamOutput {
 }
 
 export namespace ListTagsForDeliveryStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput): any => ({
     ...obj,
   });
@@ -3029,6 +3239,9 @@ export interface _Record {
 }
 
 export namespace _Record {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
   });
@@ -3047,6 +3260,9 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordInput): any => ({
     ...obj,
   });
@@ -3065,6 +3281,9 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
     ...obj,
   });
@@ -3086,6 +3305,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -3104,6 +3326,9 @@ export interface PutRecordBatchInput {
 }
 
 export namespace PutRecordBatchInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordBatchInput): any => ({
     ...obj,
   });
@@ -3133,6 +3358,9 @@ export interface PutRecordBatchResponseEntry {
 }
 
 export namespace PutRecordBatchResponseEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordBatchResponseEntry): any => ({
     ...obj,
   });
@@ -3160,6 +3388,9 @@ export interface PutRecordBatchOutput {
 }
 
 export namespace PutRecordBatchOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
     ...obj,
   });
@@ -3180,6 +3411,9 @@ export interface StartDeliveryStreamEncryptionInput {
 }
 
 export namespace StartDeliveryStreamEncryptionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDeliveryStreamEncryptionInput): any => ({
     ...obj,
   });
@@ -3188,6 +3422,9 @@ export namespace StartDeliveryStreamEncryptionInput {
 export interface StartDeliveryStreamEncryptionOutput {}
 
 export namespace StartDeliveryStreamEncryptionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDeliveryStreamEncryptionOutput): any => ({
     ...obj,
   });
@@ -3202,6 +3439,9 @@ export interface StopDeliveryStreamEncryptionInput {
 }
 
 export namespace StopDeliveryStreamEncryptionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopDeliveryStreamEncryptionInput): any => ({
     ...obj,
   });
@@ -3210,6 +3450,9 @@ export namespace StopDeliveryStreamEncryptionInput {
 export interface StopDeliveryStreamEncryptionOutput {}
 
 export namespace StopDeliveryStreamEncryptionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopDeliveryStreamEncryptionOutput): any => ({
     ...obj,
   });
@@ -3228,6 +3471,9 @@ export interface TagDeliveryStreamInput {
 }
 
 export namespace TagDeliveryStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
     ...obj,
   });
@@ -3236,6 +3482,9 @@ export namespace TagDeliveryStreamInput {
 export interface TagDeliveryStreamOutput {}
 
 export namespace TagDeliveryStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
     ...obj,
   });
@@ -3255,6 +3504,9 @@ export interface UntagDeliveryStreamInput {
 }
 
 export namespace UntagDeliveryStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
     ...obj,
   });
@@ -3263,6 +3515,9 @@ export namespace UntagDeliveryStreamInput {
 export interface UntagDeliveryStreamOutput {}
 
 export namespace UntagDeliveryStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
     ...obj,
   });
@@ -3330,6 +3585,9 @@ export interface HttpEndpointDestinationUpdate {
 }
 
 export namespace HttpEndpointDestinationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpEndpointDestinationUpdate): any => ({
     ...obj,
     ...(obj.EndpointConfiguration && {
@@ -3409,6 +3667,9 @@ export interface RedshiftDestinationUpdate {
 }
 
 export namespace RedshiftDestinationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RedshiftDestinationUpdate): any => ({
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -3480,6 +3741,9 @@ export interface SplunkDestinationUpdate {
 }
 
 export namespace SplunkDestinationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
     ...obj,
   });
@@ -3539,6 +3803,9 @@ export interface UpdateDestinationInput {
 }
 
 export namespace UpdateDestinationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDestinationInput): any => ({
     ...obj,
     ...(obj.RedshiftDestinationUpdate && {
@@ -3555,6 +3822,9 @@ export namespace UpdateDestinationInput {
 export interface UpdateDestinationOutput {}
 
 export namespace UpdateDestinationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
     ...obj,
   });

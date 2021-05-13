@@ -23,6 +23,20 @@ export interface UpdateCustomMetricCommandOutput extends UpdateCustomMetricRespo
 /**
  * <p>Updates a
  *       Device Defender detect custom metric. </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, UpdateCustomMetricCommand } from "../../client-iot/mod.ts";
+ * // const { IoTClient, UpdateCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new UpdateCustomMetricCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCustomMetricCommandInput} for command's `input` shape.
+ * @see {@link UpdateCustomMetricCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCustomMetricCommand extends $Command<
   UpdateCustomMetricCommandInput,

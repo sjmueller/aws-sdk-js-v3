@@ -24,6 +24,20 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
 
 /**
  * <p>Modify the default properties used to create WorkSpaces.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } from "../../client-workspaces/mod.ts";
+ * // const { WorkSpacesClient, ModifyWorkspaceCreationPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifyWorkspaceCreationPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyWorkspaceCreationPropertiesCommandInput} for command's `input` shape.
+ * @see {@link ModifyWorkspaceCreationPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
   ModifyWorkspaceCreationPropertiesCommandInput,

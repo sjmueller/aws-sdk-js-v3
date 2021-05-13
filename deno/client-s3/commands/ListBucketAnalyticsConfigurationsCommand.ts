@@ -64,6 +64,20 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, ListBucketAnalyticsConfigurationsCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, ListBucketAnalyticsConfigurationsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new ListBucketAnalyticsConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBucketAnalyticsConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListBucketAnalyticsConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBucketAnalyticsConfigurationsCommand extends $Command<
   ListBucketAnalyticsConfigurationsCommandInput,

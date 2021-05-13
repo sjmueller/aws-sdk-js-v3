@@ -27,6 +27,20 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
 
 /**
  * <p>Lists the IAM managed policy that is attached to a specified permission set.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSOAdminClient, ListManagedPoliciesInPermissionSetCommand } from "../../client-sso-admin/mod.ts";
+ * // const { SSOAdminClient, ListManagedPoliciesInPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * const client = new SSOAdminClient(config);
+ * const command = new ListManagedPoliciesInPermissionSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListManagedPoliciesInPermissionSetCommandInput} for command's `input` shape.
+ * @see {@link ListManagedPoliciesInPermissionSetCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListManagedPoliciesInPermissionSetCommand extends $Command<
   ListManagedPoliciesInPermissionSetCommandInput,

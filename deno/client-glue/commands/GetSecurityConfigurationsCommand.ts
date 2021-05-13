@@ -22,6 +22,20 @@ export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfi
 
 /**
  * <p>Retrieves a list of all security configurations.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetSecurityConfigurationsCommand } from "../../client-glue/mod.ts";
+ * // const { GlueClient, GetSecurityConfigurationsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetSecurityConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSecurityConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link GetSecurityConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSecurityConfigurationsCommand extends $Command<
   GetSecurityConfigurationsCommandInput,

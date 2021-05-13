@@ -22,6 +22,20 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
 
 /**
  * <p>Gets all of the model versions for the specified model type or for the specified model type and model ID. You can also get details for a single, specified model version. </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, DescribeModelVersionsCommand } from "../../client-frauddetector/mod.ts";
+ * // const { FraudDetectorClient, DescribeModelVersionsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new DescribeModelVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeModelVersionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeModelVersionsCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeModelVersionsCommand extends $Command<
   DescribeModelVersionsCommandInput,

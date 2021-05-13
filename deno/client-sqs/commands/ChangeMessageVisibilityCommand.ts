@@ -55,6 +55,20 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  *             <p>Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn't saved in memory for that message. If you don't delete a message after it is received, the visibility timeout
  *               for the message reverts to the original timeout value (not to the value you set using the <code>ChangeMessageVisibility</code> action) the next time the message is received.</p>
  *          </important>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SQSClient, ChangeMessageVisibilityCommand } from "../../client-sqs/mod.ts";
+ * // const { SQSClient, ChangeMessageVisibilityCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * const client = new SQSClient(config);
+ * const command = new ChangeMessageVisibilityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ChangeMessageVisibilityCommandInput} for command's `input` shape.
+ * @see {@link ChangeMessageVisibilityCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ChangeMessageVisibilityCommand extends $Command<
   ChangeMessageVisibilityCommandInput,

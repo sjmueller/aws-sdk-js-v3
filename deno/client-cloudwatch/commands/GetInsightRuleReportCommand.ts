@@ -58,6 +58,20 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  *                   <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, GetInsightRuleReportCommand } from "../../client-cloudwatch/mod.ts";
+ * // const { CloudWatchClient, GetInsightRuleReportCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new GetInsightRuleReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInsightRuleReportCommandInput} for command's `input` shape.
+ * @see {@link GetInsightRuleReportCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInsightRuleReportCommand extends $Command<
   GetInsightRuleReportCommandInput,

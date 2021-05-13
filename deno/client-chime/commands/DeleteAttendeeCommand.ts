@@ -30,6 +30,20 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * <i>Amazon Chime Developer Guide</i>
  * .
  * </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, DeleteAttendeeCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, DeleteAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new DeleteAttendeeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAttendeeCommandInput} for command's `input` shape.
+ * @see {@link DeleteAttendeeCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAttendeeCommand extends $Command<
   DeleteAttendeeCommandInput,

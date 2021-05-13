@@ -27,6 +27,20 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *         <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, CreateSnapshotCommand } from "../../client-elasticache/mod.ts";
+ * // const { ElastiCacheClient, CreateSnapshotCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,

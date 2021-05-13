@@ -22,6 +22,20 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
 
 /**
  * <p>Retrieves a list of channels that are associated with this account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, ListChannelsCommand } from "../../client-mediatailor/mod.ts";
+ * // const { MediaTailorClient, ListChannelsCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new ListChannelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListChannelsCommandInput} for command's `input` shape.
+ * @see {@link ListChannelsCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListChannelsCommand extends $Command<
   ListChannelsCommandInput,

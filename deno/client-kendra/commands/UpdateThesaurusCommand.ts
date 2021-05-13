@@ -22,6 +22,20 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a thesaurus file associated with an index.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KendraClient, UpdateThesaurusCommand } from "../../client-kendra/mod.ts";
+ * // const { KendraClient, UpdateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * const client = new KendraClient(config);
+ * const command = new UpdateThesaurusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateThesaurusCommandInput} for command's `input` shape.
+ * @see {@link UpdateThesaurusCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateThesaurusCommand extends $Command<
   UpdateThesaurusCommandInput,

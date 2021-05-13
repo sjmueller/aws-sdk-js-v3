@@ -28,6 +28,20 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  *             </a>
  *          objects.
  *       </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, ListProfilingGroupsCommand } from "../../client-codeguruprofiler/mod.ts";
+ * // const { CodeGuruProfilerClient, ListProfilingGroupsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new ListProfilingGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProfilingGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListProfilingGroupsCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProfilingGroupsCommand extends $Command<
   ListProfilingGroupsCommandInput,

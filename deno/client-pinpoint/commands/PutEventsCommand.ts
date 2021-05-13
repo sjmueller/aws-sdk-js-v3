@@ -22,6 +22,20 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 
 /**
  * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, PutEventsCommand } from "../../client-pinpoint/mod.ts";
+ * // const { PinpointClient, PutEventsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new PutEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEventsCommandInput} for command's `input` shape.
+ * @see {@link PutEventsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,

@@ -22,6 +22,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 
 /**
  * <p>List the tags for MWAA environments.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MWAAClient, ListTagsForResourceCommand } from "../../client-mwaa/mod.ts";
+ * // const { MWAAClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * const client = new MWAAClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

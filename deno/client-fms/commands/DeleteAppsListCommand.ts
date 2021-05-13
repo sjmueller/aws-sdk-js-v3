@@ -22,6 +22,20 @@ export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes an AWS Firewall Manager applications list.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FMSClient, DeleteAppsListCommand } from "../../client-fms/mod.ts";
+ * // const { FMSClient, DeleteAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * const client = new FMSClient(config);
+ * const command = new DeleteAppsListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAppsListCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppsListCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAppsListCommand extends $Command<
   DeleteAppsListCommandInput,

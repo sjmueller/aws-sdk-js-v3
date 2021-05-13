@@ -12,6 +12,9 @@ export interface AcceptInvitationRequest {
 }
 
 export namespace AcceptInvitationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
     ...obj,
   });
@@ -27,6 +30,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -42,6 +48,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -57,6 +66,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -72,6 +84,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -94,6 +109,9 @@ export interface Account {
 }
 
 export namespace Account {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Account): any => ({
     ...obj,
   });
@@ -108,6 +126,9 @@ export interface CreateGraphRequest {
 }
 
 export namespace CreateGraphRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGraphRequest): any => ({
     ...obj,
   });
@@ -121,6 +142,9 @@ export interface CreateGraphResponse {
 }
 
 export namespace CreateGraphResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGraphResponse): any => ({
     ...obj,
   });
@@ -151,6 +175,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -185,6 +212,9 @@ export interface CreateMembersRequest {
 }
 
 export namespace CreateMembersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
     ...obj,
   });
@@ -339,6 +369,9 @@ export interface MemberDetail {
 }
 
 export namespace MemberDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MemberDetail): any => ({
     ...obj,
   });
@@ -361,6 +394,9 @@ export interface UnprocessedAccount {
 }
 
 export namespace UnprocessedAccount {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnprocessedAccount): any => ({
     ...obj,
   });
@@ -383,6 +419,9 @@ export interface CreateMembersResponse {
 }
 
 export namespace CreateMembersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
     ...obj,
   });
@@ -396,6 +435,9 @@ export interface DeleteGraphRequest {
 }
 
 export namespace DeleteGraphRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGraphRequest): any => ({
     ...obj,
   });
@@ -415,6 +457,9 @@ export interface DeleteMembersRequest {
 }
 
 export namespace DeleteMembersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
     ...obj,
   });
@@ -436,6 +481,9 @@ export interface DeleteMembersResponse {
 }
 
 export namespace DeleteMembersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
     ...obj,
   });
@@ -451,6 +499,9 @@ export interface DisassociateMembershipRequest {
 }
 
 export namespace DisassociateMembershipRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateMembershipRequest): any => ({
     ...obj,
   });
@@ -472,6 +523,9 @@ export interface GetMembersRequest {
 }
 
 export namespace GetMembersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
     ...obj,
   });
@@ -492,6 +546,9 @@ export interface GetMembersResponse {
 }
 
 export namespace GetMembersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
     ...obj,
   });
@@ -513,6 +570,9 @@ export interface ListGraphsRequest {
 }
 
 export namespace ListGraphsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGraphsRequest): any => ({
     ...obj,
   });
@@ -535,6 +595,9 @@ export interface Graph {
 }
 
 export namespace Graph {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Graph): any => ({
     ...obj,
   });
@@ -554,6 +617,9 @@ export interface ListGraphsResponse {
 }
 
 export namespace ListGraphsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGraphsResponse): any => ({
     ...obj,
   });
@@ -576,6 +642,9 @@ export interface ListInvitationsRequest {
 }
 
 export namespace ListInvitationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
     ...obj,
   });
@@ -596,6 +665,9 @@ export interface ListInvitationsResponse {
 }
 
 export namespace ListInvitationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
     ...obj,
   });
@@ -622,6 +694,9 @@ export interface ListMembersRequest {
 }
 
 export namespace ListMembersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
     ...obj,
   });
@@ -644,6 +719,9 @@ export interface ListMembersResponse {
 }
 
 export namespace ListMembersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
     ...obj,
   });
@@ -657,6 +735,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -670,6 +751,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -685,6 +769,9 @@ export interface RejectInvitationRequest {
 }
 
 export namespace RejectInvitationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RejectInvitationRequest): any => ({
     ...obj,
   });
@@ -705,6 +792,9 @@ export interface StartMonitoringMemberRequest {
 }
 
 export namespace StartMonitoringMemberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartMonitoringMemberRequest): any => ({
     ...obj,
   });
@@ -723,6 +813,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -731,6 +824,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -749,6 +845,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -757,6 +856,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });

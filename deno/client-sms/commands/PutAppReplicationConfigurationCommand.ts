@@ -24,6 +24,20 @@ export interface PutAppReplicationConfigurationCommandOutput
 
 /**
  * <p>Creates or updates the replication configuration for the specified application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, PutAppReplicationConfigurationCommand } from "../../client-sms/mod.ts";
+ * // const { SMSClient, PutAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new PutAppReplicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAppReplicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutAppReplicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAppReplicationConfigurationCommand extends $Command<
   PutAppReplicationConfigurationCommandInput,

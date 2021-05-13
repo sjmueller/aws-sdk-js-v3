@@ -29,6 +29,20 @@ export interface DisableTransitGatewayRouteTablePropagationCommandOutput
 /**
  * <p>Disables the specified resource attachment from propagating routes to the specified
  *          propagation route table.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DisableTransitGatewayRouteTablePropagationCommand } from "../../client-ec2/mod.ts";
+ * // const { EC2Client, DisableTransitGatewayRouteTablePropagationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DisableTransitGatewayRouteTablePropagationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
+ * @see {@link DisableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
   DisableTransitGatewayRouteTablePropagationCommandInput,

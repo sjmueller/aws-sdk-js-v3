@@ -22,6 +22,20 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DeleteHsmConfigurationCommand } from "../../client-redshift/mod.ts";
+ * // const { RedshiftClient, DeleteHsmConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteHsmConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHsmConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHsmConfigurationCommand extends $Command<
   DeleteHsmConfigurationCommandInput,

@@ -22,6 +22,20 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
 
 /**
  * <p>Gets information about a destination.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, GetDestinationCommand } from "../../client-iot-wireless/mod.ts";
+ * // const { IoTWirelessClient, GetDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDestinationCommandInput} for command's `input` shape.
+ * @see {@link GetDestinationCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDestinationCommand extends $Command<
   GetDestinationCommandInput,

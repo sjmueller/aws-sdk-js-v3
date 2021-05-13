@@ -27,6 +27,20 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
 
 /**
  * <p>Updates the description for a specified approval rule template.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } from "../../client-codecommit/mod.ts";
+ * // const { CodeCommitClient, UpdateApprovalRuleTemplateDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdateApprovalRuleTemplateDescriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApprovalRuleTemplateDescriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateApprovalRuleTemplateDescriptionCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
   UpdateApprovalRuleTemplateDescriptionCommandInput,

@@ -22,6 +22,20 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
 
 /**
  * <p>Removes the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, DisassociateMacSecKeyCommand } from "../../client-direct-connect/mod.ts";
+ * // const { DirectConnectClient, DisassociateMacSecKeyCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new DisassociateMacSecKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateMacSecKeyCommandInput} for command's `input` shape.
+ * @see {@link DisassociateMacSecKeyCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateMacSecKeyCommand extends $Command<
   DisassociateMacSecKeyCommandInput,

@@ -22,6 +22,20 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
 
 /**
  * <p>Lists the Amazon Kendra indexes that you have created.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KendraClient, ListIndicesCommand } from "../../client-kendra/mod.ts";
+ * // const { KendraClient, ListIndicesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * const client = new KendraClient(config);
+ * const command = new ListIndicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIndicesCommandInput} for command's `input` shape.
+ * @see {@link ListIndicesCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIndicesCommand extends $Command<
   ListIndicesCommandInput,

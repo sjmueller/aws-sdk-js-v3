@@ -37,6 +37,20 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  *          <note>
  *             <p>Intended for use by AWS Direct Connect Partners only.</p>
  *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, CreateInterconnectCommand } from "../../client-direct-connect/mod.ts";
+ * // const { DirectConnectClient, CreateInterconnectCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateInterconnectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInterconnectCommandInput} for command's `input` shape.
+ * @see {@link CreateInterconnectCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInterconnectCommand extends $Command<
   CreateInterconnectCommandInput,

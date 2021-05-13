@@ -26,6 +26,20 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  *       the bot name and the bot version or alias. </p>
  *          <p> This operation requires permissions for the
  *         <code>lex:GetBot</code> action. </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, GetBotCommand } from "../../client-lex-model-building-service/mod.ts";
+ * // const { LexModelBuildingServiceClient, GetBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBotCommandInput} for command's `input` shape.
+ * @see {@link GetBotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBotCommand extends $Command<
   GetBotCommandInput,

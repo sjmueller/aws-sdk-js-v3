@@ -24,6 +24,20 @@ export interface DescribeEnvironmentResourcesCommandOutput
 
 /**
  * <p>Returns AWS resources for this environment.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } from "../../client-elastic-beanstalk/mod.ts";
+ * // const { ElasticBeanstalkClient, DescribeEnvironmentResourcesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribeEnvironmentResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEnvironmentResourcesCommandInput} for command's `input` shape.
+ * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEnvironmentResourcesCommand extends $Command<
   DescribeEnvironmentResourcesCommandInput,

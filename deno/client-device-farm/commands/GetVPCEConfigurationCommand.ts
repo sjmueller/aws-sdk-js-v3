@@ -23,6 +23,20 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
 /**
  * <p>Returns information about the configuration settings for your Amazon Virtual Private
  *             Cloud (VPC) endpoint.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetVPCEConfigurationCommand } from "../../client-device-farm/mod.ts";
+ * // const { DeviceFarmClient, GetVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetVPCEConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVPCEConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetVPCEConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVPCEConfigurationCommand extends $Command<
   GetVPCEConfigurationCommandInput,

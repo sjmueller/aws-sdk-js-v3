@@ -22,6 +22,20 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
 
 /**
  * <p>Describes a search index.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeIndexCommand } from "../../client-iot/mod.ts";
+ * // const { IoTClient, DescribeIndexCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIndexCommandInput} for command's `input` shape.
+ * @see {@link DescribeIndexCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIndexCommand extends $Command<
   DescribeIndexCommandInput,

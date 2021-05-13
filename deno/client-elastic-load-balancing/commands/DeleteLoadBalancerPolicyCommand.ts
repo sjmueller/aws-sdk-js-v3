@@ -26,6 +26,20 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
 
 /**
  * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } from "../../client-elastic-load-balancing/mod.ts";
+ * // const { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DeleteLoadBalancerPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLoadBalancerPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteLoadBalancerPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLoadBalancerPolicyCommand extends $Command<
   DeleteLoadBalancerPolicyCommandInput,

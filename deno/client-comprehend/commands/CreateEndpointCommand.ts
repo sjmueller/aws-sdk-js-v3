@@ -24,6 +24,20 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
  *       custom model
  *       </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, CreateEndpointCommand } from "../../client-comprehend/mod.ts";
+ * // const { ComprehendClient, CreateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new CreateEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,

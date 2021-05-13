@@ -22,6 +22,20 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
 
 /**
  * <p>Deletes the Outpost.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OutpostsClient, DeleteOutpostCommand } from "../../client-outposts/mod.ts";
+ * // const { OutpostsClient, DeleteOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * const client = new OutpostsClient(config);
+ * const command = new DeleteOutpostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteOutpostCommandInput} for command's `input` shape.
+ * @see {@link DeleteOutpostCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteOutpostCommand extends $Command<
   DeleteOutpostCommandInput,

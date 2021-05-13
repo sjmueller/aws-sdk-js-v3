@@ -23,6 +23,20 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
 /**
  * <p>Returns all of the properties of a topic. Topic properties returned might differ based
  *             on the authorization of the user.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SNSClient, GetTopicAttributesCommand } from "../../client-sns/mod.ts";
+ * // const { SNSClient, GetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * const client = new SNSClient(config);
+ * const command = new GetTopicAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTopicAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetTopicAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTopicAttributesCommand extends $Command<
   GetTopicAttributesCommandInput,

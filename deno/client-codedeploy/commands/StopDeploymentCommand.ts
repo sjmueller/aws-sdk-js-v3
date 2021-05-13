@@ -22,6 +22,20 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
 
 /**
  * <p>Attempts to stop an ongoing deployment.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, StopDeploymentCommand } from "../../client-codedeploy/mod.ts";
+ * // const { CodeDeployClient, StopDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new StopDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopDeploymentCommandInput} for command's `input` shape.
+ * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopDeploymentCommand extends $Command<
   StopDeploymentCommandInput,

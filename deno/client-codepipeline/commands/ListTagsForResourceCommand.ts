@@ -23,6 +23,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 /**
  * <p>Gets the set of key-value pairs (metadata) that are used to manage the
  *             resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodePipelineClient, ListTagsForResourceCommand } from "../../client-codepipeline/mod.ts";
+ * // const { CodePipelineClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * const client = new CodePipelineClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

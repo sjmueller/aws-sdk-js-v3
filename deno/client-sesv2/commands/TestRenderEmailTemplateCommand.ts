@@ -25,6 +25,20 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  *             set of replacement data.</p>
  *
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, TestRenderEmailTemplateCommand } from "../../client-sesv2/mod.ts";
+ * // const { SESv2Client, TestRenderEmailTemplateCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new TestRenderEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestRenderEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link TestRenderEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestRenderEmailTemplateCommand extends $Command<
   TestRenderEmailTemplateCommandInput,

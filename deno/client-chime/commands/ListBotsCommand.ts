@@ -22,6 +22,20 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
 
 /**
  * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, ListBotsCommand } from "../../client-chime/mod.ts";
+ * // const { ChimeClient, ListBotsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new ListBotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBotsCommandInput} for command's `input` shape.
+ * @see {@link ListBotsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties

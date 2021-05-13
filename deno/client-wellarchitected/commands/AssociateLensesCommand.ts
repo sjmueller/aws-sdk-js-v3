@@ -22,6 +22,20 @@ export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associate a lens to a workload.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, AssociateLensesCommand } from "../../client-wellarchitected/mod.ts";
+ * // const { WellArchitectedClient, AssociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new AssociateLensesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateLensesCommandInput} for command's `input` shape.
+ * @see {@link AssociateLensesCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateLensesCommand extends $Command<
   AssociateLensesCommandInput,

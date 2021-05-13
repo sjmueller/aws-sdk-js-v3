@@ -22,6 +22,20 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the schema version definition</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, DeleteSchemaVersionCommand } from "../../client-schemas/mod.ts";
+ * // const { SchemasClient, DeleteSchemaVersionCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new DeleteSchemaVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSchemaVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteSchemaVersionCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSchemaVersionCommand extends $Command<
   DeleteSchemaVersionCommandInput,

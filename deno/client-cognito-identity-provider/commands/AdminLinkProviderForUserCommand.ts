@@ -47,6 +47,20 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *
  *         <p>This action is enabled only for admin access and requires developer
  *             credentials.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, AdminLinkProviderForUserCommand } from "../../client-cognito-identity-provider/mod.ts";
+ * // const { CognitoIdentityProviderClient, AdminLinkProviderForUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminLinkProviderForUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminLinkProviderForUserCommandInput} for command's `input` shape.
+ * @see {@link AdminLinkProviderForUserCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminLinkProviderForUserCommand extends $Command<
   AdminLinkProviderForUserCommandInput,

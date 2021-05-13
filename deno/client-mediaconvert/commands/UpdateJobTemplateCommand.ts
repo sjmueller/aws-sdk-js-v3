@@ -22,6 +22,20 @@ export interface UpdateJobTemplateCommandOutput extends UpdateJobTemplateRespons
 
 /**
  * Modify one of your existing job templates.
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConvertClient, UpdateJobTemplateCommand } from "../../client-mediaconvert/mod.ts";
+ * // const { MediaConvertClient, UpdateJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * const client = new MediaConvertClient(config);
+ * const command = new UpdateJobTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateJobTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateJobTemplateCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateJobTemplateCommand extends $Command<
   UpdateJobTemplateCommandInput,

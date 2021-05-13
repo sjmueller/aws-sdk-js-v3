@@ -22,6 +22,20 @@ export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfig
 
 /**
  * <p>Lists the deployment configurations with the IAM user or AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, ListDeploymentConfigsCommand } from "../../client-codedeploy/mod.ts";
+ * // const { CodeDeployClient, ListDeploymentConfigsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new ListDeploymentConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeploymentConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListDeploymentConfigsCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeploymentConfigsCommand extends $Command<
   ListDeploymentConfigsCommandInput,

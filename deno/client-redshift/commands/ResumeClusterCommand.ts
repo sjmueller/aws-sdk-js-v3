@@ -23,6 +23,20 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
 
 /**
  * <p>Resumes a paused cluster.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, ResumeClusterCommand } from "../../client-redshift/mod.ts";
+ * // const { RedshiftClient, ResumeClusterCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new ResumeClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResumeClusterCommandInput} for command's `input` shape.
+ * @see {@link ResumeClusterCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResumeClusterCommand extends $Command<
   ResumeClusterCommandInput,

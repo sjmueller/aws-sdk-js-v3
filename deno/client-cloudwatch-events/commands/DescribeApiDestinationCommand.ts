@@ -22,6 +22,20 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
 
 /**
  * <p>Retrieves details about an API destination.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchEventsClient, DescribeApiDestinationCommand } from "../../client-cloudwatch-events/mod.ts";
+ * // const { CloudWatchEventsClient, DescribeApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new DescribeApiDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApiDestinationCommandInput} for command's `input` shape.
+ * @see {@link DescribeApiDestinationCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApiDestinationCommand extends $Command<
   DescribeApiDestinationCommandInput,

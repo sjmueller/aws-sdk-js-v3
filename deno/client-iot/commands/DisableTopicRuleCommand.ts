@@ -22,6 +22,20 @@ export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the rule.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DisableTopicRuleCommand } from "../../client-iot/mod.ts";
+ * // const { IoTClient, DisableTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DisableTopicRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableTopicRuleCommandInput} for command's `input` shape.
+ * @see {@link DisableTopicRuleCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableTopicRuleCommand extends $Command<
   DisableTopicRuleCommandInput,

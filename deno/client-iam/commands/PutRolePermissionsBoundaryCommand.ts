@@ -33,6 +33,20 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *                 a role are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
  *                     evaluation logic</a> in the IAM User Guide. </p>
  *         </important>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, PutRolePermissionsBoundaryCommand } from "../../client-iam/mod.ts";
+ * // const { IAMClient, PutRolePermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new PutRolePermissionsBoundaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRolePermissionsBoundaryCommandInput} for command's `input` shape.
+ * @see {@link PutRolePermissionsBoundaryCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRolePermissionsBoundaryCommand extends $Command<
   PutRolePermissionsBoundaryCommandInput,

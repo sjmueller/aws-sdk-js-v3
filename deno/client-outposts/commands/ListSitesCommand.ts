@@ -22,6 +22,20 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
 
 /**
  * <p>Lists the sites for the specified AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OutpostsClient, ListSitesCommand } from "../../client-outposts/mod.ts";
+ * // const { OutpostsClient, ListSitesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * const client = new OutpostsClient(config);
+ * const command = new ListSitesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSitesCommandInput} for command's `input` shape.
+ * @see {@link ListSitesCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSitesCommand extends $Command<
   ListSitesCommandInput,

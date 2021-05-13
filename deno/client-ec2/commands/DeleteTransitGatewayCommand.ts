@@ -22,6 +22,20 @@ export interface DeleteTransitGatewayCommandOutput extends DeleteTransitGatewayR
 
 /**
  * <p>Deletes the specified transit gateway.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteTransitGatewayCommand } from "../../client-ec2/mod.ts";
+ * // const { EC2Client, DeleteTransitGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteTransitGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTransitGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteTransitGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTransitGatewayCommand extends $Command<
   DeleteTransitGatewayCommandInput,

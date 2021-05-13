@@ -102,6 +102,20 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutBucketLoggingCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, PutBucketLoggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutBucketLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketLoggingCommandInput} for command's `input` shape.
+ * @see {@link PutBucketLoggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketLoggingCommand extends $Command<
   PutBucketLoggingCommandInput,

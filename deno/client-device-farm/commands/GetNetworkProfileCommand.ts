@@ -22,6 +22,20 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
 
 /**
  * <p>Returns information about a network profile.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetNetworkProfileCommand } from "../../client-device-farm/mod.ts";
+ * // const { DeviceFarmClient, GetNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetNetworkProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
+ * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,

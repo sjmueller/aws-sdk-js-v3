@@ -22,6 +22,20 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
 
 /**
  * <p>Describes the specified Savings Plans rates.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SavingsplansClient, DescribeSavingsPlanRatesCommand } from "../../client-savingsplans/mod.ts";
+ * // const { SavingsplansClient, DescribeSavingsPlanRatesCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * const client = new SavingsplansClient(config);
+ * const command = new DescribeSavingsPlanRatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSavingsPlanRatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeSavingsPlanRatesCommandOutput} for command's `response` shape.
+ * @see {@link SavingsplansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSavingsPlanRatesCommand extends $Command<
   DescribeSavingsPlanRatesCommandInput,

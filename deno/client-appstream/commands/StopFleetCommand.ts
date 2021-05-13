@@ -19,6 +19,20 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
 
 /**
  * <p>Stops the specified fleet.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppStreamClient, StopFleetCommand } from "../../client-appstream/mod.ts";
+ * // const { AppStreamClient, StopFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * const client = new AppStreamClient(config);
+ * const command = new StopFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopFleetCommandInput} for command's `input` shape.
+ * @see {@link StopFleetCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopFleetCommand extends $Command<
   StopFleetCommandInput,

@@ -81,6 +81,20 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SupportClient, DescribeTrustedAdvisorCheckResultCommand } from "../../client-support/mod.ts";
+ * // const { SupportClient, DescribeTrustedAdvisorCheckResultCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * const client = new SupportClient(config);
+ * const command = new DescribeTrustedAdvisorCheckResultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTrustedAdvisorCheckResultCommandInput} for command's `input` shape.
+ * @see {@link DescribeTrustedAdvisorCheckResultCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTrustedAdvisorCheckResultCommand extends $Command<
   DescribeTrustedAdvisorCheckResultCommandInput,

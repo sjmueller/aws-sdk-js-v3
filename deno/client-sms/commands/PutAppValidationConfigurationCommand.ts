@@ -24,6 +24,20 @@ export interface PutAppValidationConfigurationCommandOutput
 
 /**
  * <p>Creates or updates a validation configuration for the specified application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, PutAppValidationConfigurationCommand } from "../../client-sms/mod.ts";
+ * // const { SMSClient, PutAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new PutAppValidationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAppValidationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutAppValidationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAppValidationConfigurationCommand extends $Command<
   PutAppValidationConfigurationCommandInput,

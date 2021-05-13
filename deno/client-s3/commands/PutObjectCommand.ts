@@ -114,6 +114,20 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutObjectCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutObjectCommandInput} for command's `input` shape.
+ * @see {@link PutObjectCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties

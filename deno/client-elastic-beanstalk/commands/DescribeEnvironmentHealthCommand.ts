@@ -24,6 +24,20 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * <p>Returns information about the overall health of the specified environment. The
  *         <b>DescribeEnvironmentHealth</b> operation is only available with
  *       AWS Elastic Beanstalk Enhanced Health.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } from "../../client-elastic-beanstalk/mod.ts";
+ * // const { ElasticBeanstalkClient, DescribeEnvironmentHealthCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribeEnvironmentHealthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEnvironmentHealthCommandInput} for command's `input` shape.
+ * @see {@link DescribeEnvironmentHealthCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEnvironmentHealthCommand extends $Command<
   DescribeEnvironmentHealthCommandInput,

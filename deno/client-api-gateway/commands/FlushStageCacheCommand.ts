@@ -22,6 +22,20 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Flushes a stage's cache.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, FlushStageCacheCommand } from "../../client-api-gateway/mod.ts";
+ * // const { APIGatewayClient, FlushStageCacheCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new FlushStageCacheCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FlushStageCacheCommandInput} for command's `input` shape.
+ * @see {@link FlushStageCacheCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FlushStageCacheCommand extends $Command<
   FlushStageCacheCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
 
 /**
  * <p>Updates information about an existing private device instance profile.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, UpdateInstanceProfileCommand } from "../../client-device-farm/mod.ts";
+ * // const { DeviceFarmClient, UpdateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new UpdateInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInstanceProfileCommand extends $Command<
   UpdateInstanceProfileCommandInput,

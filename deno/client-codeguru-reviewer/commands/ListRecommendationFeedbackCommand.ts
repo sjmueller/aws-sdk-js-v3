@@ -28,6 +28,20 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  *             </a>
  *          objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
  *       </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } from "../../client-codeguru-reviewer/mod.ts";
+ * // const { CodeGuruReviewerClient, ListRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new ListRecommendationFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecommendationFeedbackCommandInput} for command's `input` shape.
+ * @see {@link ListRecommendationFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecommendationFeedbackCommand extends $Command<
   ListRecommendationFeedbackCommandInput,

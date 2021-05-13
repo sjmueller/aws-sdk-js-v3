@@ -22,6 +22,20 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
 
 /**
  * <p>Deletes the secified model quality monitoring job definition.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DeleteModelQualityJobDefinitionCommand } from "../../client-sagemaker/mod.ts";
+ * // const { SageMakerClient, DeleteModelQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteModelQualityJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteModelQualityJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteModelQualityJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteModelQualityJobDefinitionCommand extends $Command<
   DeleteModelQualityJobDefinitionCommandInput,

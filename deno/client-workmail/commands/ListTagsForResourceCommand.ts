@@ -22,6 +22,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Lists the tags applied to an Amazon WorkMail organization resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, ListTagsForResourceCommand } from "../../client-workmail/mod.ts";
+ * // const { WorkMailClient, ListTagsForResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

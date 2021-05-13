@@ -25,6 +25,20 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  *
  * 		       <p>For more information about Contributor Insights, see
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, DescribeInsightRulesCommand } from "../../client-cloudwatch/mod.ts";
+ * // const { CloudWatchClient, DescribeInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new DescribeInsightRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInsightRulesCommandInput} for command's `input` shape.
+ * @see {@link DescribeInsightRulesCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInsightRulesCommand extends $Command<
   DescribeInsightRulesCommandInput,

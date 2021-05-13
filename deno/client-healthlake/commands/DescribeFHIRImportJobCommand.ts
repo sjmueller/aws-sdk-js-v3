@@ -22,6 +22,20 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
 
 /**
  * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HealthLakeClient, DescribeFHIRImportJobCommand } from "../../client-healthlake/mod.ts";
+ * // const { HealthLakeClient, DescribeFHIRImportJobCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * const client = new HealthLakeClient(config);
+ * const command = new DescribeFHIRImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFHIRImportJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeFHIRImportJobCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFHIRImportJobCommand extends $Command<
   DescribeFHIRImportJobCommandInput,

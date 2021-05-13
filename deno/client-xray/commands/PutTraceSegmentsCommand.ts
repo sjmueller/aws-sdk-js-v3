@@ -84,6 +84,20 @@ export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, _
  *           digits.</p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { XRayClient, PutTraceSegmentsCommand } from "../../client-xray/mod.ts";
+ * // const { XRayClient, PutTraceSegmentsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * const client = new XRayClient(config);
+ * const command = new PutTraceSegmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutTraceSegmentsCommandInput} for command's `input` shape.
+ * @see {@link PutTraceSegmentsCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutTraceSegmentsCommand extends $Command<
   PutTraceSegmentsCommandInput,

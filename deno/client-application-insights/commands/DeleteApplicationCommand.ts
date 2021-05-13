@@ -26,6 +26,20 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
 
 /**
  * <p>Removes the specified application from monitoring. Does not delete the application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, DeleteApplicationCommand } from "../../client-application-insights/mod.ts";
+ * // const { ApplicationInsightsClient, DeleteApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new DeleteApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

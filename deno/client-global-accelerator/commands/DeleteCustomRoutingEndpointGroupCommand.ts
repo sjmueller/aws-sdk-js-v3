@@ -26,6 +26,20 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
 
 /**
  * <p>Delete an endpoint group from a listener for a custom routing accelerator.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DeleteCustomRoutingEndpointGroupCommand } from "../../client-global-accelerator/mod.ts";
+ * // const { GlobalAcceleratorClient, DeleteCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DeleteCustomRoutingEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomRoutingEndpointGroupCommand extends $Command<
   DeleteCustomRoutingEndpointGroupCommandInput,

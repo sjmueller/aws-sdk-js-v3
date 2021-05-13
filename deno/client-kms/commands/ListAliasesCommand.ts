@@ -63,6 +63,20 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, ListAliasesCommand } from "../../client-kms/mod.ts";
+ * // const { KMSClient, ListAliasesCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new ListAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListAliasesCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,

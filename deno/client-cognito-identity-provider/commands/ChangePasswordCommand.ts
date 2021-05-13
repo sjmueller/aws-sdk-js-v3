@@ -26,6 +26,20 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
 
 /**
  * <p>Changes the password for a specified user in a user pool.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, ChangePasswordCommand } from "../../client-cognito-identity-provider/mod.ts";
+ * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ChangePasswordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ChangePasswordCommandInput} for command's `input` shape.
+ * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ChangePasswordCommand extends $Command<
   ChangePasswordCommandInput,

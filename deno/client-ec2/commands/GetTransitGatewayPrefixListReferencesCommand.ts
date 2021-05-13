@@ -28,6 +28,20 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
 
 /**
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, GetTransitGatewayPrefixListReferencesCommand } from "../../client-ec2/mod.ts";
+ * // const { EC2Client, GetTransitGatewayPrefixListReferencesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new GetTransitGatewayPrefixListReferencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTransitGatewayPrefixListReferencesCommandInput} for command's `input` shape.
+ * @see {@link GetTransitGatewayPrefixListReferencesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
   GetTransitGatewayPrefixListReferencesCommandInput,

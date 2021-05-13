@@ -22,6 +22,20 @@ export interface UpgradeLensReviewCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Upgrade lens review.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, UpgradeLensReviewCommand } from "../../client-wellarchitected/mod.ts";
+ * // const { WellArchitectedClient, UpgradeLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new UpgradeLensReviewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpgradeLensReviewCommandInput} for command's `input` shape.
+ * @see {@link UpgradeLensReviewCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpgradeLensReviewCommand extends $Command<
   UpgradeLensReviewCommandInput,

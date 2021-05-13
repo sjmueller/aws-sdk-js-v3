@@ -27,6 +27,20 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
 
 /**
  * <p></p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } from "../../client-network-firewall/mod.ts";
+ * // const { NetworkFirewallClient, UpdateFirewallPolicyChangeProtectionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallPolicyChangeProtectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallPolicyChangeProtectionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
   UpdateFirewallPolicyChangeProtectionCommandInput,

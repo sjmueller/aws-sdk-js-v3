@@ -22,6 +22,20 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
 
 /**
  * <p>List multiple functions.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, ListFunctionsCommand } from "../../client-appsync/mod.ts";
+ * // const { AppSyncClient, ListFunctionsCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new ListFunctionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFunctionsCommandInput} for command's `input` shape.
+ * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,

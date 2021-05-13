@@ -27,6 +27,20 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
 /**
  * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
  *       listener.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } from "../../client-elastic-load-balancing-v2/mod.ts";
+ * // const { ElasticLoadBalancingV2Client, RemoveListenerCertificatesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new RemoveListenerCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveListenerCertificatesCommandInput} for command's `input` shape.
+ * @see {@link RemoveListenerCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveListenerCertificatesCommand extends $Command<
   RemoveListenerCertificatesCommandInput,

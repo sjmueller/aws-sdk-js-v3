@@ -22,6 +22,20 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
 
 /**
  * <p>Creates a filter using the specified finding criteria.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, CreateFilterCommand } from "../../client-guardduty/mod.ts";
+ * // const { GuardDutyClient, CreateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new CreateFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFilterCommandInput} for command's `input` shape.
+ * @see {@link CreateFilterCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFilterCommand extends $Command<
   CreateFilterCommandInput,

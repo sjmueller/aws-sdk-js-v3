@@ -25,6 +25,20 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
  *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
  *         </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, ListReviewableHITsCommand } from "../../client-mturk/mod.ts";
+ * // const { MTurkClient, ListReviewableHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new ListReviewableHITsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListReviewableHITsCommandInput} for command's `input` shape.
+ * @see {@link ListReviewableHITsCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListReviewableHITsCommand extends $Command<
   ListReviewableHITsCommandInput,

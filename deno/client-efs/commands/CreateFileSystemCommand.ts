@@ -75,6 +75,20 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *
  *          <p> This operation requires permissions for the
  *         <code>elasticfilesystem:CreateFileSystem</code> action. </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, CreateFileSystemCommand } from "../../client-efs/mod.ts";
+ * // const { EFSClient, CreateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new CreateFileSystemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
+ * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFileSystemCommand extends $Command<
   CreateFileSystemCommandInput,

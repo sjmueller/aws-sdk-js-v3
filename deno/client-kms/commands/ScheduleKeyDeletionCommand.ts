@@ -63,6 +63,20 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, ScheduleKeyDeletionCommand } from "../../client-kms/mod.ts";
+ * // const { KMSClient, ScheduleKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new ScheduleKeyDeletionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ScheduleKeyDeletionCommandInput} for command's `input` shape.
+ * @see {@link ScheduleKeyDeletionCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ScheduleKeyDeletionCommand extends $Command<
   ScheduleKeyDeletionCommandInput,

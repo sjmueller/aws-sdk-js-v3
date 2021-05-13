@@ -22,6 +22,20 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
 
 /**
  * <p>Deletes the specified anomaly detection model from your account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, DeleteAnomalyDetectorCommand } from "../../client-cloudwatch/mod.ts";
+ * // const { CloudWatchClient, DeleteAnomalyDetectorCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new DeleteAnomalyDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAnomalyDetectorCommandInput} for command's `input` shape.
+ * @see {@link DeleteAnomalyDetectorCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAnomalyDetectorCommand extends $Command<
   DeleteAnomalyDetectorCommandInput,

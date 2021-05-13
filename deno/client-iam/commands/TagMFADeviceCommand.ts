@@ -55,6 +55,20 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, TagMFADeviceCommand } from "../../client-iam/mod.ts";
+ * // const { IAMClient, TagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new TagMFADeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagMFADeviceCommandInput} for command's `input` shape.
+ * @see {@link TagMFADeviceCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagMFADeviceCommand extends $Command<
   TagMFADeviceCommandInput,

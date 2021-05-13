@@ -22,6 +22,20 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
 
 /**
  * <p>Retrieves all sampling rules.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { XRayClient, GetSamplingRulesCommand } from "../../client-xray/mod.ts";
+ * // const { XRayClient, GetSamplingRulesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * const client = new XRayClient(config);
+ * const command = new GetSamplingRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSamplingRulesCommandInput} for command's `input` shape.
+ * @see {@link GetSamplingRulesCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSamplingRulesCommand extends $Command<
   GetSamplingRulesCommandInput,

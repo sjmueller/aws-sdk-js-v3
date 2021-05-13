@@ -27,6 +27,20 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Cognito user pool.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, DeleteUserPoolCommand } from "../../client-cognito-identity-provider/mod.ts";
+ * // const { CognitoIdentityProviderClient, DeleteUserPoolCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DeleteUserPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserPoolCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserPoolCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserPoolCommand extends $Command<
   DeleteUserPoolCommandInput,

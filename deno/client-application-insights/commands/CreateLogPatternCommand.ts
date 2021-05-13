@@ -26,6 +26,20 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
 
 /**
  * <p>Adds an log pattern to a <code>LogPatternSet</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, CreateLogPatternCommand } from "../../client-application-insights/mod.ts";
+ * // const { ApplicationInsightsClient, CreateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new CreateLogPatternCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLogPatternCommandInput} for command's `input` shape.
+ * @see {@link CreateLogPatternCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLogPatternCommand extends $Command<
   CreateLogPatternCommandInput,

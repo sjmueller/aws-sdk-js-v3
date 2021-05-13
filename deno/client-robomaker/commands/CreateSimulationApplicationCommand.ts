@@ -24,6 +24,20 @@ export interface CreateSimulationApplicationCommandOutput
 
 /**
  * <p>Creates a simulation application.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, CreateSimulationApplicationCommand } from "../../client-robomaker/mod.ts";
+ * // const { RoboMakerClient, CreateSimulationApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new CreateSimulationApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSimulationApplicationCommandInput} for command's `input` shape.
+ * @see {@link CreateSimulationApplicationCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSimulationApplicationCommand extends $Command<
   CreateSimulationApplicationCommandInput,

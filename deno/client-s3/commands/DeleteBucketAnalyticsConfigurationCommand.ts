@@ -52,6 +52,20 @@ export interface DeleteBucketAnalyticsConfigurationCommandOutput extends __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, DeleteBucketAnalyticsConfigurationCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, DeleteBucketAnalyticsConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new DeleteBucketAnalyticsConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
   DeleteBucketAnalyticsConfigurationCommandInput,

@@ -41,6 +41,20 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListTrialComponentsCommand } from "../../client-sagemaker/mod.ts";
+ * // const { SageMakerClient, ListTrialComponentsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListTrialComponentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrialComponentsCommandInput} for command's `input` shape.
+ * @see {@link ListTrialComponentsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrialComponentsCommand extends $Command<
   ListTrialComponentsCommandInput,

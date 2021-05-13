@@ -22,6 +22,20 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
 
 /**
  * <p>Deletes the specified firewall rule.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, DeleteFirewallRuleCommand } from "../../client-route53resolver/mod.ts";
+ * // const { Route53ResolverClient, DeleteFirewallRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new DeleteFirewallRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFirewallRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteFirewallRuleCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFirewallRuleCommand extends $Command<
   DeleteFirewallRuleCommandInput,

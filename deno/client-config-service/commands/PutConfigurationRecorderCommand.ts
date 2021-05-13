@@ -35,6 +35,20 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * 				specified, the default is to record all supported resource
  * 				types.</p>
  * 		       </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, PutConfigurationRecorderCommand } from "../../client-config-service/mod.ts";
+ * // const { ConfigServiceClient, PutConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutConfigurationRecorderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConfigurationRecorderCommandInput} for command's `input` shape.
+ * @see {@link PutConfigurationRecorderCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConfigurationRecorderCommand extends $Command<
   PutConfigurationRecorderCommandInput,

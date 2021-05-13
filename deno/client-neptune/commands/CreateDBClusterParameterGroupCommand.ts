@@ -48,6 +48,20 @@ export interface CreateDBClusterParameterGroupCommandOutput
  *         console</a> or the <a>DescribeDBClusterParameters</a>
  *         command to verify that your DB cluster parameter group has been created or modified.</p>
  *          </important>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, CreateDBClusterParameterGroupCommand } from "../../client-neptune/mod.ts";
+ * // const { NeptuneClient, CreateDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new CreateDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateDBClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBClusterParameterGroupCommand extends $Command<
   CreateDBClusterParameterGroupCommandInput,

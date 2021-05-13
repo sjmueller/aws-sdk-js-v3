@@ -24,6 +24,20 @@ export interface DeleteRemediationConfigurationCommandOutput
 
 /**
  * <p>Deletes the remediation configuration.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DeleteRemediationConfigurationCommand } from "../../client-config-service/mod.ts";
+ * // const { ConfigServiceClient, DeleteRemediationConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteRemediationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRemediationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteRemediationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRemediationConfigurationCommand extends $Command<
   DeleteRemediationConfigurationCommandInput,

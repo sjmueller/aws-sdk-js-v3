@@ -26,6 +26,20 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  *          <note>
  *             <p>Intended for use by AWS Direct Connect Partners only.</p>
  *          </note>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, DescribeHostedConnectionsCommand } from "../../client-direct-connect/mod.ts";
+ * // const { DirectConnectClient, DescribeHostedConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeHostedConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHostedConnectionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeHostedConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHostedConnectionsCommand extends $Command<
   DescribeHostedConnectionsCommandInput,

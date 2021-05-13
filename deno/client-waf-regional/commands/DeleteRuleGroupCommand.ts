@@ -45,6 +45,20 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  *                <p>Submit a <code>DeleteRuleGroup</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, DeleteRuleGroupCommand } from "../../client-waf-regional/mod.ts";
+ * // const { WAFRegionalClient, DeleteRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new DeleteRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRuleGroupCommand extends $Command<
   DeleteRuleGroupCommandInput,

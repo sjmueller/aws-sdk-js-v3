@@ -31,6 +31,20 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *             works with EC2/On-premises and AWS Lambda compute platforms. The newer
  *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
  *             number of instances that can be returned is 25.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, BatchGetDeploymentInstancesCommand } from "../../client-codedeploy/mod.ts";
+ * // const { CodeDeployClient, BatchGetDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new BatchGetDeploymentInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetDeploymentInstancesCommandInput} for command's `input` shape.
+ * @see {@link BatchGetDeploymentInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetDeploymentInstancesCommand extends $Command<
   BatchGetDeploymentInstancesCommandInput,

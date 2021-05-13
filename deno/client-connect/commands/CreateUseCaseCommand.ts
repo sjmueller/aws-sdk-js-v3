@@ -23,6 +23,20 @@ export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __Met
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates a use case for an AppIntegration association.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, CreateUseCaseCommand } from "../../client-connect/mod.ts";
+ * // const { ConnectClient, CreateUseCaseCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new CreateUseCaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUseCaseCommandInput} for command's `input` shape.
+ * @see {@link CreateUseCaseCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUseCaseCommand extends $Command<
   CreateUseCaseCommandInput,

@@ -22,6 +22,20 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
 
 /**
  * <p>Gets information about the specified Outpost.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OutpostsClient, GetOutpostCommand } from "../../client-outposts/mod.ts";
+ * // const { OutpostsClient, GetOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * const client = new OutpostsClient(config);
+ * const command = new GetOutpostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOutpostCommandInput} for command's `input` shape.
+ * @see {@link GetOutpostCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOutpostCommand extends $Command<
   GetOutpostCommandInput,

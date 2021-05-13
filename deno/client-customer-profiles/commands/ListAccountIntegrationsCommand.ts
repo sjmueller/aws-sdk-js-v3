@@ -22,6 +22,20 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
 
 /**
  * <p>Lists all of the integrations associated to a specific URI in the AWS account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CustomerProfilesClient, ListAccountIntegrationsCommand } from "../../client-customer-profiles/mod.ts";
+ * // const { CustomerProfilesClient, ListAccountIntegrationsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * const client = new CustomerProfilesClient(config);
+ * const command = new ListAccountIntegrationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccountIntegrationsCommandInput} for command's `input` shape.
+ * @see {@link ListAccountIntegrationsCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccountIntegrationsCommand extends $Command<
   ListAccountIntegrationsCommandInput,

@@ -22,6 +22,20 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
 
 /**
  * <p>Stop the service update. For more information on service updates and stopping them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping Service Updates</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, BatchStopUpdateActionCommand } from "../../client-elasticache/mod.ts";
+ * // const { ElastiCacheClient, BatchStopUpdateActionCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new BatchStopUpdateActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchStopUpdateActionCommandInput} for command's `input` shape.
+ * @see {@link BatchStopUpdateActionCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchStopUpdateActionCommand extends $Command<
   BatchStopUpdateActionCommandInput,

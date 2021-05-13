@@ -35,6 +35,20 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:CreateModel</code> operation. If you want to tag your model, you also require
  *          permission to the <code>lookoutvision:TagResource</code> operation.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutVisionClient, CreateModelCommand } from "../../client-lookoutvision/mod.ts";
+ * // const { LookoutVisionClient, CreateModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * const client = new LookoutVisionClient(config);
+ * const command = new CreateModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelCommandInput} for command's `input` shape.
+ * @see {@link CreateModelCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelCommand extends $Command<
   CreateModelCommandInput,

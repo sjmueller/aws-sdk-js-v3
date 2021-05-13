@@ -23,6 +23,20 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
 /**
  * <p>Associates a specified AWS account with Amazon Macie Classic as a member
  *       account.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MacieClient, AssociateMemberAccountCommand } from "../../client-macie/mod.ts";
+ * // const { MacieClient, AssociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
+ * const client = new MacieClient(config);
+ * const command = new AssociateMemberAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateMemberAccountCommandInput} for command's `input` shape.
+ * @see {@link AssociateMemberAccountCommandOutput} for command's `response` shape.
+ * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateMemberAccountCommand extends $Command<
   AssociateMemberAccountCommandInput,

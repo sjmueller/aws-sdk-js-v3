@@ -22,6 +22,20 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
 
 /**
  * <p>Creates an Api resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, CreateApiCommand } from "../../client-apigatewayv2/mod.ts";
+ * // const { ApiGatewayV2Client, CreateApiCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new CreateApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApiCommandInput} for command's `input` shape.
+ * @see {@link CreateApiCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApiCommand extends $Command<
   CreateApiCommandInput,

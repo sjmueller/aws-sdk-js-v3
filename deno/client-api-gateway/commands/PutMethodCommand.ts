@@ -22,6 +22,20 @@ export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
  * <p>Add a method to an existing <a>Resource</a> resource.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, PutMethodCommand } from "../../client-api-gateway/mod.ts";
+ * // const { APIGatewayClient, PutMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new PutMethodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutMethodCommandInput} for command's `input` shape.
+ * @see {@link PutMethodCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutMethodCommand extends $Command<
   PutMethodCommandInput,

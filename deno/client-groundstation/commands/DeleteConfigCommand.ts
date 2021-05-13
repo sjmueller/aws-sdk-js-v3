@@ -22,6 +22,20 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
 
 /**
  * <p>Deletes a <code>Config</code>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GroundStationClient, DeleteConfigCommand } from "../../client-groundstation/mod.ts";
+ * // const { GroundStationClient, DeleteConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * const client = new GroundStationClient(config);
+ * const command = new DeleteConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigCommand extends $Command<
   DeleteConfigCommandInput,

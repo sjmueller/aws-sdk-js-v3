@@ -27,6 +27,20 @@ export interface ListDelegatedAdministratorsCommandOutput
  *             organization.</p>
  *         <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, ListDelegatedAdministratorsCommand } from "../../client-organizations/mod.ts";
+ * // const { OrganizationsClient, ListDelegatedAdministratorsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new ListDelegatedAdministratorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDelegatedAdministratorsCommandInput} for command's `input` shape.
+ * @see {@link ListDelegatedAdministratorsCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDelegatedAdministratorsCommand extends $Command<
   ListDelegatedAdministratorsCommandInput,

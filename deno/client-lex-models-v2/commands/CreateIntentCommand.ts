@@ -59,6 +59,20 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  *                For example, "Do you want a drink with your pizza?"</p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, CreateIntentCommand } from "../../client-lex-models-v2/mod.ts";
+ * // const { LexModelsV2Client, CreateIntentCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new CreateIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIntentCommandInput} for command's `input` shape.
+ * @see {@link CreateIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIntentCommand extends $Command<
   CreateIntentCommandInput,

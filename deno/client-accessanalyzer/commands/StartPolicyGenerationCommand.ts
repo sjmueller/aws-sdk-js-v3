@@ -22,6 +22,20 @@ export interface StartPolicyGenerationCommandOutput extends StartPolicyGeneratio
 
 /**
  * <p>Starts the policy generation request.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AccessAnalyzerClient, StartPolicyGenerationCommand } from "../../client-accessanalyzer/mod.ts";
+ * // const { AccessAnalyzerClient, StartPolicyGenerationCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new StartPolicyGenerationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartPolicyGenerationCommandInput} for command's `input` shape.
+ * @see {@link StartPolicyGenerationCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartPolicyGenerationCommand extends $Command<
   StartPolicyGenerationCommandInput,

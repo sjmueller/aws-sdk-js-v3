@@ -22,6 +22,20 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
 
 /**
  * <p>Deletes the specified Traffic Mirror session.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteTrafficMirrorSessionCommand } from "../../client-ec2/mod.ts";
+ * // const { EC2Client, DeleteTrafficMirrorSessionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteTrafficMirrorSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTrafficMirrorSessionCommandInput} for command's `input` shape.
+ * @see {@link DeleteTrafficMirrorSessionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTrafficMirrorSessionCommand extends $Command<
   DeleteTrafficMirrorSessionCommandInput,

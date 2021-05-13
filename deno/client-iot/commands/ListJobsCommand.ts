@@ -22,6 +22,20 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
 
 /**
  * <p>Lists jobs.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListJobsCommand } from "../../client-iot/mod.ts";
+ * // const { IoTClient, ListJobsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobsCommandInput} for command's `input` shape.
+ * @see {@link ListJobsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, IoTClientResolvedConfig> {
   // Start section: command_properties

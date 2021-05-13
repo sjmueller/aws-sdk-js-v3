@@ -22,6 +22,20 @@ export interface UpdateStreamingImageCommandOutput extends UpdateStreamingImageR
 
 /**
  * <p>Update streaming image.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, UpdateStreamingImageCommand } from "../../client-nimble/mod.ts";
+ * // const { NimbleClient, UpdateStreamingImageCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new UpdateStreamingImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStreamingImageCommandInput} for command's `input` shape.
+ * @see {@link UpdateStreamingImageCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStreamingImageCommand extends $Command<
   UpdateStreamingImageCommandInput,

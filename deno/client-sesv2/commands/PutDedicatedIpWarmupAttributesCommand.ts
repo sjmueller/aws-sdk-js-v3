@@ -24,6 +24,20 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
 
 /**
  * <p></p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, PutDedicatedIpWarmupAttributesCommand } from "../../client-sesv2/mod.ts";
+ * // const { SESv2Client, PutDedicatedIpWarmupAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new PutDedicatedIpWarmupAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<
   PutDedicatedIpWarmupAttributesCommandInput,

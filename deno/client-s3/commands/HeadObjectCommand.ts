@@ -135,6 +135,20 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, HeadObjectCommand } from "../../client-s3/mod.ts";
+ * // const { S3Client, HeadObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new HeadObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HeadObjectCommandInput} for command's `input` shape.
+ * @see {@link HeadObjectCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HeadObjectCommand extends $Command<
   HeadObjectCommandInput,
