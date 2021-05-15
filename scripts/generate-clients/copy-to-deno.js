@@ -65,7 +65,11 @@ async function copyPackage(packageName, packageDir, destinationDir) {
       if (dpath.endsWith("node_modules")) {
         continue;
       }
-      await fsx.copy(path.join(packageDir, dpath), path.join(destinationDir, packageName, dpath));
+      const src = path.join(packageDir, dpath);
+      const dest = path.join(destinationDir, packageName, dpath);
+      await fsx.copy(src, dest, {
+        filter: (filename) => !filename.endsWith(".spec.ts"),
+      });
     }
   }
 }
