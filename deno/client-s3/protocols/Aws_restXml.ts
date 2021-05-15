@@ -373,6 +373,7 @@ import {
   OutputLocation,
   OutputSerialization,
   ParquetInput,
+  Progress,
   ProgressEvent,
   RecordsEvent,
   RequestProgress,
@@ -381,6 +382,7 @@ import {
   ScanRange,
   SelectObjectContentEventStream,
   SelectParameters,
+  Stats,
   StatsEvent,
 } from "../models/models_1.ts";
 import {
@@ -403,6 +405,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "../../xml-builder/mod.ts";
+import { decodeHTML } from "entities.ts";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
 
 export const serializeAws_restXmlAbortMultipartUploadCommand = async (
@@ -499,6 +502,9 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
+  if (input.MultipartUpload !== undefined) {
+    body = serializeAws_restXmlCompletedMultipartUpload(input.MultipartUpload, context);
+  }
   let contents: any;
   if (input.MultipartUpload !== undefined) {
     contents = serializeAws_restXmlCompletedMultipartUpload(input.MultipartUpload, context);
@@ -679,6 +685,9 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.CreateBucketConfiguration !== undefined) {
+    body = serializeAws_restXmlCreateBucketConfiguration(input.CreateBucketConfiguration, context);
+  }
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = serializeAws_restXmlCreateBucketConfiguration(input.CreateBucketConfiguration, context);
@@ -1356,6 +1365,9 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
     "x-id": "DeleteObjects",
   };
   let body: any;
+  if (input.Delete !== undefined) {
+    body = serializeAws_restXmlDelete(input.Delete, context);
+  }
   let contents: any;
   if (input.Delete !== undefined) {
     contents = serializeAws_restXmlDelete(input.Delete, context);
@@ -2861,7 +2873,9 @@ export const serializeAws_restXmlListBucketsCommand = async (
   input: ListBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/";
   let body: any;
   body = "";
@@ -3125,6 +3139,9 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
     accelerate: "",
   };
   let body: any;
+  if (input.AccelerateConfiguration !== undefined) {
+    body = serializeAws_restXmlAccelerateConfiguration(input.AccelerateConfiguration, context);
+  }
   let contents: any;
   if (input.AccelerateConfiguration !== undefined) {
     contents = serializeAws_restXmlAccelerateConfiguration(input.AccelerateConfiguration, context);
@@ -3176,6 +3193,9 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
     acl: "",
   };
   let body: any;
+  if (input.AccessControlPolicy !== undefined) {
+    body = serializeAws_restXmlAccessControlPolicy(input.AccessControlPolicy, context);
+  }
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = serializeAws_restXmlAccessControlPolicy(input.AccessControlPolicy, context);
@@ -3221,6 +3241,9 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
+  if (input.AnalyticsConfiguration !== undefined) {
+    body = serializeAws_restXmlAnalyticsConfiguration(input.AnalyticsConfiguration, context);
+  }
   let contents: any;
   if (input.AnalyticsConfiguration !== undefined) {
     contents = serializeAws_restXmlAnalyticsConfiguration(input.AnalyticsConfiguration, context);
@@ -3266,6 +3289,9 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
     cors: "",
   };
   let body: any;
+  if (input.CORSConfiguration !== undefined) {
+    body = serializeAws_restXmlCORSConfiguration(input.CORSConfiguration, context);
+  }
   let contents: any;
   if (input.CORSConfiguration !== undefined) {
     contents = serializeAws_restXmlCORSConfiguration(input.CORSConfiguration, context);
@@ -3311,6 +3337,9 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
     encryption: "",
   };
   let body: any;
+  if (input.ServerSideEncryptionConfiguration !== undefined) {
+    body = serializeAws_restXmlServerSideEncryptionConfiguration(input.ServerSideEncryptionConfiguration, context);
+  }
   let contents: any;
   if (input.ServerSideEncryptionConfiguration !== undefined) {
     contents = serializeAws_restXmlServerSideEncryptionConfiguration(input.ServerSideEncryptionConfiguration, context);
@@ -3353,6 +3382,9 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
+  if (input.IntelligentTieringConfiguration !== undefined) {
+    body = serializeAws_restXmlIntelligentTieringConfiguration(input.IntelligentTieringConfiguration, context);
+  }
   let contents: any;
   if (input.IntelligentTieringConfiguration !== undefined) {
     contents = serializeAws_restXmlIntelligentTieringConfiguration(input.IntelligentTieringConfiguration, context);
@@ -3398,6 +3430,9 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
+  if (input.InventoryConfiguration !== undefined) {
+    body = serializeAws_restXmlInventoryConfiguration(input.InventoryConfiguration, context);
+  }
   let contents: any;
   if (input.InventoryConfiguration !== undefined) {
     contents = serializeAws_restXmlInventoryConfiguration(input.InventoryConfiguration, context);
@@ -3442,6 +3477,9 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     lifecycle: "",
   };
   let body: any;
+  if (input.LifecycleConfiguration !== undefined) {
+    body = serializeAws_restXmlBucketLifecycleConfiguration(input.LifecycleConfiguration, context);
+  }
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = serializeAws_restXmlBucketLifecycleConfiguration(input.LifecycleConfiguration, context);
@@ -3487,6 +3525,9 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
     logging: "",
   };
   let body: any;
+  if (input.BucketLoggingStatus !== undefined) {
+    body = serializeAws_restXmlBucketLoggingStatus(input.BucketLoggingStatus, context);
+  }
   let contents: any;
   if (input.BucketLoggingStatus !== undefined) {
     contents = serializeAws_restXmlBucketLoggingStatus(input.BucketLoggingStatus, context);
@@ -3532,6 +3573,9 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
+  if (input.MetricsConfiguration !== undefined) {
+    body = serializeAws_restXmlMetricsConfiguration(input.MetricsConfiguration, context);
+  }
   let contents: any;
   if (input.MetricsConfiguration !== undefined) {
     contents = serializeAws_restXmlMetricsConfiguration(input.MetricsConfiguration, context);
@@ -3576,6 +3620,9 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
     notification: "",
   };
   let body: any;
+  if (input.NotificationConfiguration !== undefined) {
+    body = serializeAws_restXmlNotificationConfiguration(input.NotificationConfiguration, context);
+  }
   let contents: any;
   if (input.NotificationConfiguration !== undefined) {
     contents = serializeAws_restXmlNotificationConfiguration(input.NotificationConfiguration, context);
@@ -3621,6 +3668,9 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
     ownershipControls: "",
   };
   let body: any;
+  if (input.OwnershipControls !== undefined) {
+    body = serializeAws_restXmlOwnershipControls(input.OwnershipControls, context);
+  }
   let contents: any;
   if (input.OwnershipControls !== undefined) {
     contents = serializeAws_restXmlOwnershipControls(input.OwnershipControls, context);
@@ -3669,6 +3719,9 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
     policy: "",
   };
   let body: any;
+  if (input.Policy !== undefined) {
+    body = input.Policy;
+  }
   let contents: any;
   if (input.Policy !== undefined) {
     contents = input.Policy;
@@ -3713,6 +3766,9 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
     replication: "",
   };
   let body: any;
+  if (input.ReplicationConfiguration !== undefined) {
+    body = serializeAws_restXmlReplicationConfiguration(input.ReplicationConfiguration, context);
+  }
   let contents: any;
   if (input.ReplicationConfiguration !== undefined) {
     contents = serializeAws_restXmlReplicationConfiguration(input.ReplicationConfiguration, context);
@@ -3758,6 +3814,9 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
     requestPayment: "",
   };
   let body: any;
+  if (input.RequestPaymentConfiguration !== undefined) {
+    body = serializeAws_restXmlRequestPaymentConfiguration(input.RequestPaymentConfiguration, context);
+  }
   let contents: any;
   if (input.RequestPaymentConfiguration !== undefined) {
     contents = serializeAws_restXmlRequestPaymentConfiguration(input.RequestPaymentConfiguration, context);
@@ -3803,6 +3862,9 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     tagging: "",
   };
   let body: any;
+  if (input.Tagging !== undefined) {
+    body = serializeAws_restXmlTagging(input.Tagging, context);
+  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
@@ -3849,6 +3911,9 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
     versioning: "",
   };
   let body: any;
+  if (input.VersioningConfiguration !== undefined) {
+    body = serializeAws_restXmlVersioningConfiguration(input.VersioningConfiguration, context);
+  }
   let contents: any;
   if (input.VersioningConfiguration !== undefined) {
     contents = serializeAws_restXmlVersioningConfiguration(input.VersioningConfiguration, context);
@@ -3894,6 +3959,9 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
     website: "",
   };
   let body: any;
+  if (input.WebsiteConfiguration !== undefined) {
+    body = serializeAws_restXmlWebsiteConfiguration(input.WebsiteConfiguration, context);
+  }
   let contents: any;
   if (input.WebsiteConfiguration !== undefined) {
     contents = serializeAws_restXmlWebsiteConfiguration(input.WebsiteConfiguration, context);
@@ -4010,6 +4078,9 @@ export const serializeAws_restXmlPutObjectCommand = async (
     "x-id": "PutObject",
   };
   let body: any;
+  if (input.Body !== undefined) {
+    body = input.Body;
+  }
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;
@@ -4076,6 +4147,9 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
+  if (input.AccessControlPolicy !== undefined) {
+    body = serializeAws_restXmlAccessControlPolicy(input.AccessControlPolicy, context);
+  }
   let contents: any;
   if (input.AccessControlPolicy !== undefined) {
     contents = serializeAws_restXmlAccessControlPolicy(input.AccessControlPolicy, context);
@@ -4138,6 +4212,9 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
+  if (input.LegalHold !== undefined) {
+    body = serializeAws_restXmlObjectLockLegalHold(input.LegalHold, context);
+  }
   let contents: any;
   if (input.LegalHold !== undefined) {
     contents = serializeAws_restXmlObjectLockLegalHold(input.LegalHold, context);
@@ -4185,6 +4262,9 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
     "object-lock": "",
   };
   let body: any;
+  if (input.ObjectLockConfiguration !== undefined) {
+    body = serializeAws_restXmlObjectLockConfiguration(input.ObjectLockConfiguration, context);
+  }
   let contents: any;
   if (input.ObjectLockConfiguration !== undefined) {
     contents = serializeAws_restXmlObjectLockConfiguration(input.ObjectLockConfiguration, context);
@@ -4250,6 +4330,9 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
+  if (input.Retention !== undefined) {
+    body = serializeAws_restXmlObjectLockRetention(input.Retention, context);
+  }
   let contents: any;
   if (input.Retention !== undefined) {
     contents = serializeAws_restXmlObjectLockRetention(input.Retention, context);
@@ -4312,6 +4395,9 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
+  if (input.Tagging !== undefined) {
+    body = serializeAws_restXmlTagging(input.Tagging, context);
+  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
@@ -4357,6 +4443,9 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
     publicAccessBlock: "",
   };
   let body: any;
+  if (input.PublicAccessBlockConfiguration !== undefined) {
+    body = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
+  }
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
@@ -4419,6 +4508,9 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
+  if (input.RestoreRequest !== undefined) {
+    body = serializeAws_restXmlRestoreRequest(input.RestoreRequest, context);
+  }
   let contents: any;
   if (input.RestoreRequest !== undefined) {
     contents = serializeAws_restXmlRestoreRequest(input.RestoreRequest, context);
@@ -4589,6 +4681,9 @@ export const serializeAws_restXmlUploadPartCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
+  if (input.Body !== undefined) {
+    body = input.Body;
+  }
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;
@@ -4793,6 +4888,9 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
     "x-id": "WriteGetObjectResponse",
   };
   let body: any;
+  if (input.Body !== undefined) {
+    body = input.Body;
+  }
   let contents: any;
   if (input.Body !== undefined) {
     contents = input.Body;
@@ -12653,6 +12751,11 @@ const deserializeAws_restXmlCondition = (output: any, context: __SerdeContext): 
   return contents;
 };
 
+const deserializeAws_restXmlContinuationEvent = (output: any, context: __SerdeContext): ContinuationEvent => {
+  let contents: any = {};
+  return contents;
+};
+
 const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeContext): CopyObjectResult => {
   let contents: any = {
     ETag: undefined,
@@ -12897,6 +13000,11 @@ const deserializeAws_restXmlEncryptionConfiguration = (
   if (output["ReplicaKmsKeyID"] !== undefined) {
     contents.ReplicaKmsKeyID = output["ReplicaKmsKeyID"];
   }
+  return contents;
+};
+
+const deserializeAws_restXmlEndEvent = (output: any, context: __SerdeContext): EndEvent => {
+  let contents: any = {};
   return contents;
 };
 
@@ -13907,6 +14015,34 @@ const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext
   return contents;
 };
 
+const deserializeAws_restXmlProgress = (output: any, context: __SerdeContext): Progress => {
+  let contents: any = {
+    BytesScanned: undefined,
+    BytesProcessed: undefined,
+    BytesReturned: undefined,
+  };
+  if (output["BytesScanned"] !== undefined) {
+    contents.BytesScanned = parseInt(output["BytesScanned"]);
+  }
+  if (output["BytesProcessed"] !== undefined) {
+    contents.BytesProcessed = parseInt(output["BytesProcessed"]);
+  }
+  if (output["BytesReturned"] !== undefined) {
+    contents.BytesReturned = parseInt(output["BytesReturned"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlProgressEvent = (output: any, context: __SerdeContext): ProgressEvent => {
+  let contents: any = {
+    Details: undefined,
+  };
+  if (output["Details"] !== undefined) {
+    contents.Details = deserializeAws_restXmlProgress(output["Details"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlPublicAccessBlockConfiguration = (
   output: any,
   context: __SerdeContext
@@ -13966,6 +14102,16 @@ const deserializeAws_restXmlQueueConfigurationList = (output: any, context: __Se
       }
       return deserializeAws_restXmlQueueConfiguration(entry, context);
     });
+};
+
+const deserializeAws_restXmlRecordsEvent = (output: any, context: __SerdeContext): RecordsEvent => {
+  let contents: any = {
+    Payload: undefined,
+  };
+  if (output["Payload"] !== undefined) {
+    contents.Payload = context.base64Decoder(output["Payload"]);
+  }
+  return contents;
 };
 
 const deserializeAws_restXmlRedirect = (output: any, context: __SerdeContext): Redirect => {
@@ -14201,6 +14347,38 @@ const deserializeAws_restXmlS3KeyFilter = (output: any, context: __SerdeContext)
   return contents;
 };
 
+const deserializeAws_restXmlSelectObjectContentEventStream = (
+  output: any,
+  context: __SerdeContext
+): SelectObjectContentEventStream => {
+  if (output["Records"] !== undefined) {
+    return {
+      Records: deserializeAws_restXmlRecordsEvent(output["Records"], context),
+    };
+  }
+  if (output["Stats"] !== undefined) {
+    return {
+      Stats: deserializeAws_restXmlStatsEvent(output["Stats"], context),
+    };
+  }
+  if (output["Progress"] !== undefined) {
+    return {
+      Progress: deserializeAws_restXmlProgressEvent(output["Progress"], context),
+    };
+  }
+  if (output["Cont"] !== undefined) {
+    return {
+      Cont: deserializeAws_restXmlContinuationEvent(output["Cont"], context),
+    };
+  }
+  if (output["End"] !== undefined) {
+    return {
+      End: deserializeAws_restXmlEndEvent(output["End"], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_restXmlServerSideEncryptionByDefault = (
   output: any,
   context: __SerdeContext
@@ -14310,6 +14488,34 @@ const deserializeAws_restXmlSseKmsEncryptedObjects = (output: any, context: __Se
 
 const deserializeAws_restXmlSSES3 = (output: any, context: __SerdeContext): SSES3 => {
   let contents: any = {};
+  return contents;
+};
+
+const deserializeAws_restXmlStats = (output: any, context: __SerdeContext): Stats => {
+  let contents: any = {
+    BytesScanned: undefined,
+    BytesProcessed: undefined,
+    BytesReturned: undefined,
+  };
+  if (output["BytesScanned"] !== undefined) {
+    contents.BytesScanned = parseInt(output["BytesScanned"]);
+  }
+  if (output["BytesProcessed"] !== undefined) {
+    contents.BytesProcessed = parseInt(output["BytesProcessed"]);
+  }
+  if (output["BytesReturned"] !== undefined) {
+    contents.BytesReturned = parseInt(output["BytesReturned"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlStatsEvent = (output: any, context: __SerdeContext): StatsEvent => {
+  let contents: any = {
+    Details: undefined,
+  };
+  if (output["Details"] !== undefined) {
+    contents.Details = deserializeAws_restXmlStats(output["Details"], context);
+  }
   return contents;
 };
 
@@ -14506,14 +14712,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const decodeEscapedXML = (str: string) =>
-  str
-    .replace(/&amp;/g, "&")
-    .replace(/&apos;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&gt;/g, ">")
-    .replace(/&lt;/g, "<");
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -14522,7 +14720,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val: string) => (val.trim() === "" ? "" : decodeEscapedXML(val)),
+        tagValueProcessor: (val: string) => (val.trim() === "" ? "" : decodeHTML(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

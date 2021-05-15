@@ -4,6 +4,10 @@ import { CreateAddressCommandInput, CreateAddressCommandOutput } from "./command
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
 import {
+  CreateLongTermPricingCommandInput,
+  CreateLongTermPricingCommandOutput,
+} from "./commands/CreateLongTermPricingCommand.ts";
+import {
   CreateReturnShippingLabelCommandInput,
   CreateReturnShippingLabelCommandOutput,
 } from "./commands/CreateReturnShippingLabelCommand.ts";
@@ -26,12 +30,20 @@ import {
   ListCompatibleImagesCommandOutput,
 } from "./commands/ListCompatibleImagesCommand.ts";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
+import {
+  ListLongTermPricingCommandInput,
+  ListLongTermPricingCommandOutput,
+} from "./commands/ListLongTermPricingCommand.ts";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand.ts";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand.ts";
 import {
   UpdateJobShipmentStateCommandInput,
   UpdateJobShipmentStateCommandOutput,
 } from "./commands/UpdateJobShipmentStateCommand.ts";
+import {
+  UpdateLongTermPricingCommandInput,
+  UpdateLongTermPricingCommandOutput,
+} from "./commands/UpdateLongTermPricingCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -89,6 +101,7 @@ export type ServiceInputTypes =
   | CreateAddressCommandInput
   | CreateClusterCommandInput
   | CreateJobCommandInput
+  | CreateLongTermPricingCommandInput
   | CreateReturnShippingLabelCommandInput
   | DescribeAddressCommandInput
   | DescribeAddressesCommandInput
@@ -103,9 +116,11 @@ export type ServiceInputTypes =
   | ListClustersCommandInput
   | ListCompatibleImagesCommandInput
   | ListJobsCommandInput
+  | ListLongTermPricingCommandInput
   | UpdateClusterCommandInput
   | UpdateJobCommandInput
-  | UpdateJobShipmentStateCommandInput;
+  | UpdateJobShipmentStateCommandInput
+  | UpdateLongTermPricingCommandInput;
 
 export type ServiceOutputTypes =
   | CancelClusterCommandOutput
@@ -113,6 +128,7 @@ export type ServiceOutputTypes =
   | CreateAddressCommandOutput
   | CreateClusterCommandOutput
   | CreateJobCommandOutput
+  | CreateLongTermPricingCommandOutput
   | CreateReturnShippingLabelCommandOutput
   | DescribeAddressCommandOutput
   | DescribeAddressesCommandOutput
@@ -127,9 +143,11 @@ export type ServiceOutputTypes =
   | ListClustersCommandOutput
   | ListCompatibleImagesCommandOutput
   | ListJobsCommandOutput
+  | ListLongTermPricingCommandOutput
   | UpdateClusterCommandOutput
   | UpdateJobCommandOutput
-  | UpdateJobShipmentStateCommandOutput;
+  | UpdateJobShipmentStateCommandOutput
+  | UpdateLongTermPricingCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -140,46 +158,55 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
+   * @internal
    */
   sha256?: __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
+   * @internal
    */
   urlParser?: __UrlParser;
 
   /**
    * A function that can calculate the length of a request body.
+   * @internal
    */
   bodyLengthChecker?: (body: any) => number | undefined;
 
   /**
    * A function that converts a stream into an array of bytes.
+   * @internal
    */
   streamCollector?: __StreamCollector;
 
   /**
-   * The function that will be used to convert a base64-encoded string to a byte array
+   * The function that will be used to convert a base64-encoded string to a byte array.
+   * @internal
    */
   base64Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a base64-encoded string
+   * The function that will be used to convert binary data to a base64-encoded string.
+   * @internal
    */
   base64Encoder?: __Encoder;
 
   /**
-   * The function that will be used to convert a UTF8-encoded string to a byte array
+   * The function that will be used to convert a UTF8-encoded string to a byte array.
+   * @internal
    */
   utf8Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a UTF-8 encoded string
+   * The function that will be used to convert binary data to a UTF-8 encoded string.
+   * @internal
    */
   utf8Encoder?: __Encoder;
 
   /**
-   * The runtime environment
+   * The runtime environment.
+   * @internal
    */
   runtime?: string;
 
@@ -212,11 +239,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
+   * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
 

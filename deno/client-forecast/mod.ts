@@ -14,6 +14,7 @@ export * from "./commands/DeleteForecastCommand.ts";
 export * from "./commands/DeleteForecastExportJobCommand.ts";
 export * from "./commands/DeletePredictorCommand.ts";
 export * from "./commands/DeletePredictorBacktestExportJobCommand.ts";
+export * from "./commands/DeleteResourceTreeCommand.ts";
 export * from "./commands/DescribeDatasetCommand.ts";
 export * from "./commands/DescribeDatasetGroupCommand.ts";
 export * from "./commands/DescribeDatasetImportJobCommand.ts";

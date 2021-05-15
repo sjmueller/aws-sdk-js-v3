@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { GetMonitoringSubscriptionRequest, GetMonitoringSubscriptionResult } from "../models/models_0.ts";
+import { GetMonitoringSubscriptionRequest, GetMonitoringSubscriptionResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlGetMonitoringSubscriptionCommand,
   serializeAws_restXmlGetMonitoringSubscriptionCommand,

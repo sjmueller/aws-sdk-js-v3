@@ -1,6 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DescribeWorkteamRequest } from "../models/models_1.ts";
-import { DescribeWorkteamResponse } from "../models/models_2.ts";
+import { DescribeWorkteamRequest, DescribeWorkteamResponse } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1DescribeWorkteamCommand,
   serializeAws_json1_1DescribeWorkteamCommand,

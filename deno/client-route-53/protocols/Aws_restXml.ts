@@ -311,6 +311,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "../../xml-builder/mod.ts";
+import { decodeHTML } from "entities.ts";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
 
 export const serializeAws_restXmlActivateKeySigningKeyCommand = async (
@@ -1303,7 +1304,9 @@ export const serializeAws_restXmlGetCheckerIpRangesCommand = async (
   input: GetCheckerIpRangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/checkeripranges";
   let body: any;
   body = "";
@@ -1404,7 +1407,9 @@ export const serializeAws_restXmlGetHealthCheckCountCommand = async (
   input: GetHealthCheckCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/healthcheckcount";
   let body: any;
   body = "";
@@ -1508,7 +1513,9 @@ export const serializeAws_restXmlGetHostedZoneCountCommand = async (
   input: GetHostedZoneCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/hostedzonecount";
   let body: any;
   body = "";
@@ -1723,7 +1730,9 @@ export const serializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
   input: GetTrafficPolicyInstanceCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstancecount";
   let body: any;
   body = "";
@@ -10267,14 +10276,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const decodeEscapedXML = (str: string) =>
-  str
-    .replace(/&amp;/g, "&")
-    .replace(/&apos;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&gt;/g, ">")
-    .replace(/&lt;/g, "<");
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -10283,7 +10284,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val: string) => (val.trim() === "" ? "" : decodeEscapedXML(val)),
+        tagValueProcessor: (val: string) => (val.trim() === "" ? "" : decodeHTML(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

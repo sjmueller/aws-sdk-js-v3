@@ -1,6 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { GetRealtimeLogConfigRequest } from "../models/models_0.ts";
-import { GetRealtimeLogConfigResult } from "../models/models_1.ts";
+import { GetRealtimeLogConfigRequest, GetRealtimeLogConfigResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlGetRealtimeLogConfigCommand,
   serializeAws_restXmlGetRealtimeLogConfigCommand,

@@ -1,6 +1,6 @@
 import process from "https://deno.land/std@0.89.0/node/process.ts";
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_1.ts";
+import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
   serializeAws_json1_1UpdateManagedInstanceRoleCommand,

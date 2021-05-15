@@ -1,6 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { UpdatePatchBaselineRequest } from "../models/models_1.ts";
-import { UpdatePatchBaselineResult } from "../models/models_2.ts";
+import { UpdatePatchBaselineRequest, UpdatePatchBaselineResult } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1UpdatePatchBaselineCommand,
   serializeAws_json1_1UpdatePatchBaselineCommand,

@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_0.ts";
+import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlGetInvalidationCommand,
   serializeAws_restXmlGetInvalidationCommand,

@@ -1,5 +1,9 @@
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand.ts";
-import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand.ts";
+import {
+  DescribeEndpointsCommand,
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand.ts";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -11,6 +15,11 @@ import {
   resolveRegionConfig,
 } from "../config-resolver/mod.ts";
 import { getContentLengthPlugin } from "../middleware-content-length/mod.ts";
+import {
+  EndpointDiscoveryInputConfig,
+  EndpointDiscoveryResolvedConfig,
+  resolveEndpointDiscoveryConfig,
+} from "../middleware-endpoint-discovery/mod.ts";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
@@ -65,46 +74,55 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
+   * @internal
    */
   sha256?: __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
+   * @internal
    */
   urlParser?: __UrlParser;
 
   /**
    * A function that can calculate the length of a request body.
+   * @internal
    */
   bodyLengthChecker?: (body: any) => number | undefined;
 
   /**
    * A function that converts a stream into an array of bytes.
+   * @internal
    */
   streamCollector?: __StreamCollector;
 
   /**
-   * The function that will be used to convert a base64-encoded string to a byte array
+   * The function that will be used to convert a base64-encoded string to a byte array.
+   * @internal
    */
   base64Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a base64-encoded string
+   * The function that will be used to convert binary data to a base64-encoded string.
+   * @internal
    */
   base64Encoder?: __Encoder;
 
   /**
-   * The function that will be used to convert a UTF8-encoded string to a byte array
+   * The function that will be used to convert a UTF8-encoded string to a byte array.
+   * @internal
    */
   utf8Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a UTF-8 encoded string
+   * The function that will be used to convert binary data to a UTF-8 encoded string.
+   * @internal
    */
   utf8Encoder?: __Encoder;
 
   /**
-   * The runtime environment
+   * The runtime environment.
+   * @internal
    */
   runtime?: string;
 
@@ -137,11 +155,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
+   * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
 
@@ -150,6 +170,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The provider which populates default for endpointDiscoveryEnabled configuration, if it's
+   * not passed during client creation.
+   * @internal
+   */
+  endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
 }
 
 type TimestreamQueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -159,7 +186,8 @@ type TimestreamQueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  EndpointDiscoveryInputConfig;
 /**
  * The configuration interface of TimestreamQueryClient class constructor that set the region, credentials and other options.
  */
@@ -172,7 +200,8 @@ type TimestreamQueryClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  EndpointDiscoveryResolvedConfig;
 /**
  * The resolved configuration interface of TimestreamQueryClient class. This is resolved and normalized from the {@link TimestreamQueryClientConfig | constructor configuration interface}.
  */
@@ -205,8 +234,9 @@ export class TimestreamQueryClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6, DescribeEndpointsCommand);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

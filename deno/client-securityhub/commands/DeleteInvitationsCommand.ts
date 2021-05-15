@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_0.ts";
+import { DeleteInvitationsRequest, DeleteInvitationsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DeleteInvitationsCommand,
   serializeAws_restJson1DeleteInvitationsCommand,

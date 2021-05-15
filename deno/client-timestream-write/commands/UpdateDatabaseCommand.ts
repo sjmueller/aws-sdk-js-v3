@@ -4,6 +4,7 @@ import {
   deserializeAws_json1_0UpdateDatabaseCommand,
   serializeAws_json1_0UpdateDatabaseCommand,
 } from "../protocols/Aws_json1_0.ts";
+import { getEndpointDiscoveryRequiredPlugin } from "../../middleware-endpoint-discovery/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -64,6 +65,7 @@ export class UpdateDatabaseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointDiscoveryRequiredPlugin(configuration, { clientStack, options }));
 
     const stack = clientStack.concat(this.middlewareStack);
 

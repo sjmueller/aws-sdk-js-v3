@@ -16,6 +16,7 @@ import {
   CreateFieldLevelEncryptionProfileCommandInput,
   CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand.ts";
+import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand.ts";
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand.ts";
 import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "./commands/CreateKeyGroupCommand.ts";
 import {
@@ -53,6 +54,7 @@ import {
   DeleteFieldLevelEncryptionProfileCommandInput,
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand.ts";
+import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand.ts";
 import { DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput } from "./commands/DeleteKeyGroupCommand.ts";
 import {
   DeleteMonitoringSubscriptionCommandInput,
@@ -71,6 +73,7 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand.ts";
+import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "./commands/DescribeFunctionCommand.ts";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand.ts";
 import {
   GetCachePolicyConfigCommandInput,
@@ -105,6 +108,7 @@ import {
   GetFieldLevelEncryptionProfileConfigCommandInput,
   GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand.ts";
+import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand.ts";
 import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand.ts";
 import { GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand.ts";
 import { GetKeyGroupConfigCommandInput, GetKeyGroupConfigCommandOutput } from "./commands/GetKeyGroupConfigCommand.ts";
@@ -168,6 +172,7 @@ import {
   ListFieldLevelEncryptionProfilesCommandInput,
   ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand.ts";
+import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand.ts";
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand.ts";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand.ts";
 import {
@@ -187,7 +192,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "./commands/PublishFunctionCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { TestFunctionCommandInput, TestFunctionCommandOutput } from "./commands/TestFunctionCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateCachePolicyCommandInput, UpdateCachePolicyCommandOutput } from "./commands/UpdateCachePolicyCommand.ts";
 import {
@@ -203,6 +210,7 @@ import {
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand.ts";
+import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand.ts";
 import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand.ts";
 import {
   UpdateOriginRequestPolicyCommandInput,
@@ -275,6 +283,7 @@ export type ServiceInputTypes =
   | CreateDistributionWithTagsCommandInput
   | CreateFieldLevelEncryptionConfigCommandInput
   | CreateFieldLevelEncryptionProfileCommandInput
+  | CreateFunctionCommandInput
   | CreateInvalidationCommandInput
   | CreateKeyGroupCommandInput
   | CreateMonitoringSubscriptionCommandInput
@@ -288,12 +297,14 @@ export type ServiceInputTypes =
   | DeleteDistributionCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
+  | DeleteFunctionCommandInput
   | DeleteKeyGroupCommandInput
   | DeleteMonitoringSubscriptionCommandInput
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
   | DeleteRealtimeLogConfigCommandInput
   | DeleteStreamingDistributionCommandInput
+  | DescribeFunctionCommandInput
   | GetCachePolicyCommandInput
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
@@ -304,6 +315,7 @@ export type ServiceInputTypes =
   | GetFieldLevelEncryptionConfigCommandInput
   | GetFieldLevelEncryptionProfileCommandInput
   | GetFieldLevelEncryptionProfileConfigCommandInput
+  | GetFunctionCommandInput
   | GetInvalidationCommandInput
   | GetKeyGroupCommandInput
   | GetKeyGroupConfigCommandInput
@@ -325,6 +337,7 @@ export type ServiceInputTypes =
   | ListDistributionsCommandInput
   | ListFieldLevelEncryptionConfigsCommandInput
   | ListFieldLevelEncryptionProfilesCommandInput
+  | ListFunctionsCommandInput
   | ListInvalidationsCommandInput
   | ListKeyGroupsCommandInput
   | ListOriginRequestPoliciesCommandInput
@@ -332,13 +345,16 @@ export type ServiceInputTypes =
   | ListRealtimeLogConfigsCommandInput
   | ListStreamingDistributionsCommandInput
   | ListTagsForResourceCommandInput
+  | PublishFunctionCommandInput
   | TagResourceCommandInput
+  | TestFunctionCommandInput
   | UntagResourceCommandInput
   | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
   | UpdateDistributionCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
+  | UpdateFunctionCommandInput
   | UpdateKeyGroupCommandInput
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
@@ -352,6 +368,7 @@ export type ServiceOutputTypes =
   | CreateDistributionWithTagsCommandOutput
   | CreateFieldLevelEncryptionConfigCommandOutput
   | CreateFieldLevelEncryptionProfileCommandOutput
+  | CreateFunctionCommandOutput
   | CreateInvalidationCommandOutput
   | CreateKeyGroupCommandOutput
   | CreateMonitoringSubscriptionCommandOutput
@@ -365,12 +382,14 @@ export type ServiceOutputTypes =
   | DeleteDistributionCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
+  | DeleteFunctionCommandOutput
   | DeleteKeyGroupCommandOutput
   | DeleteMonitoringSubscriptionCommandOutput
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteRealtimeLogConfigCommandOutput
   | DeleteStreamingDistributionCommandOutput
+  | DescribeFunctionCommandOutput
   | GetCachePolicyCommandOutput
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
@@ -381,6 +400,7 @@ export type ServiceOutputTypes =
   | GetFieldLevelEncryptionConfigCommandOutput
   | GetFieldLevelEncryptionProfileCommandOutput
   | GetFieldLevelEncryptionProfileConfigCommandOutput
+  | GetFunctionCommandOutput
   | GetInvalidationCommandOutput
   | GetKeyGroupCommandOutput
   | GetKeyGroupConfigCommandOutput
@@ -402,6 +422,7 @@ export type ServiceOutputTypes =
   | ListDistributionsCommandOutput
   | ListFieldLevelEncryptionConfigsCommandOutput
   | ListFieldLevelEncryptionProfilesCommandOutput
+  | ListFunctionsCommandOutput
   | ListInvalidationsCommandOutput
   | ListKeyGroupsCommandOutput
   | ListOriginRequestPoliciesCommandOutput
@@ -409,13 +430,16 @@ export type ServiceOutputTypes =
   | ListRealtimeLogConfigsCommandOutput
   | ListStreamingDistributionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PublishFunctionCommandOutput
   | TagResourceCommandOutput
+  | TestFunctionCommandOutput
   | UntagResourceCommandOutput
   | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
   | UpdateDistributionCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput
+  | UpdateFunctionCommandOutput
   | UpdateKeyGroupCommandOutput
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
@@ -431,46 +455,55 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
+   * @internal
    */
   sha256?: __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
+   * @internal
    */
   urlParser?: __UrlParser;
 
   /**
    * A function that can calculate the length of a request body.
+   * @internal
    */
   bodyLengthChecker?: (body: any) => number | undefined;
 
   /**
    * A function that converts a stream into an array of bytes.
+   * @internal
    */
   streamCollector?: __StreamCollector;
 
   /**
-   * The function that will be used to convert a base64-encoded string to a byte array
+   * The function that will be used to convert a base64-encoded string to a byte array.
+   * @internal
    */
   base64Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a base64-encoded string
+   * The function that will be used to convert binary data to a base64-encoded string.
+   * @internal
    */
   base64Encoder?: __Encoder;
 
   /**
-   * The function that will be used to convert a UTF8-encoded string to a byte array
+   * The function that will be used to convert a UTF8-encoded string to a byte array.
+   * @internal
    */
   utf8Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a UTF-8 encoded string
+   * The function that will be used to convert binary data to a UTF-8 encoded string.
+   * @internal
    */
   utf8Encoder?: __Encoder;
 
   /**
-   * The runtime environment
+   * The runtime environment.
+   * @internal
    */
   runtime?: string;
 
@@ -503,11 +536,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
+   * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
 

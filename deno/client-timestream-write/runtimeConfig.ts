@@ -1,9 +1,10 @@
-const packageInfo = { version: "3.15.0" };
+const packageInfo = { version: "3.16.0" };
 
 import { decorateDefaultCredentialProvider } from "../client-sts/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
+import { NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS } from "../middleware-endpoint-discovery/mod.ts";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "../middleware-retry/mod.ts";
 import { loadConfig as loadNodeConfig } from "../node-config-provider/mod.ts";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
@@ -28,6 +29,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
   }),
+  endpointDiscoveryEnabledProvider: loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new FetchHttpHandler(),

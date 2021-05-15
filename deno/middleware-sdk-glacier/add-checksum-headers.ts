@@ -8,9 +8,9 @@ import {
   MetadataBearer,
 } from "../types/mod.ts";
 
-import { ResolvedGlacierMiddlewareConfig } from "./configurations.ts";
+import { PreviouslyResolved } from "./configurations.ts";
 
-export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
+export function addChecksumHeadersMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {

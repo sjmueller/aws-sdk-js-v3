@@ -180,6 +180,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
+import { decodeHTML } from "entities.ts";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
 
 export const serializeAws_queryAddPermissionCommand = async (
@@ -5319,14 +5320,6 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const decodeEscapedXML = (str: string) =>
-  str
-    .replace(/&amp;/g, "&")
-    .replace(/&apos;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&gt;/g, ">")
-    .replace(/&lt;/g, "<");
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -5335,7 +5328,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val: string) => (val.trim() === "" ? "" : decodeEscapedXML(val)),
+        tagValueProcessor: (val: string) => (val.trim() === "" ? "" : decodeHTML(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
