@@ -2,7 +2,7 @@ const fsx = require("fs-extra");
 const path = require("path");
 const fs = require("fs");
 
-const DENO_STD_VERSION = "0.89.0";
+const DENO_STD_VERSION = "0.96.0";
 
 async function copyPackage(packageName, packageDir, destinationDir) {
   if (packageName.endsWith("-deno")) {
@@ -232,24 +232,30 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "url") {
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/url.ts";`;
+              output.push(replaced);
               continue;
             } else if (importFrom === "http") {
-              // TODO
+              continue;
             } else if (importFrom === "buffer") {
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/buffer.ts";`;
+              output.push(replaced);
               continue;
             } else if (importFrom === "@aws-crypto/crc32") {
               replaced = `${match[1]}from "https://jspm.dev/@aws-crypto/crc32";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "http2") {
-              // TODO
+              continue;
             } else if (importFrom === "https") {
-              // TODO
+              continue;
             } else if (importFrom === "net") {
-              // TODO
+              continue;
             } else if (importFrom === "nock") {
-              // TODO
+              continue;
             } else if (importFrom === "child_process") {
+              replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/child_process.ts";`;
+              output.push(replaced);
               continue;
             } else if (importFrom === "process") {
               replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;

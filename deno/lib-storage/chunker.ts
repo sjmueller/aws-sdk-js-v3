@@ -1,5 +1,6 @@
-import { Buffer } from "https://deno.land/std@0.89.0/node/buffer.ts";
-import { Readable } from "https://deno.land/std@0.89.0/node/stream.ts";
+import { Buffer } from "https://deno.land/std@0.96.0/node/buffer.ts";
+import { Readable } from "https://deno.land/std@0.96.0/node/stream.ts";
+import { Buffer } from "https://deno.land/std@0.96.0/node/buffer.ts";
 
 import { BodyDataTypes } from "./types.ts";
 import { getChunkBuffer } from "./chunks/getChunkBuffer.ts";

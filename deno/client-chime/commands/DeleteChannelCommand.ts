@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.89.0/node/process.ts";
+import process from "https://deno.land/std@0.96.0/node/process.ts";
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { DeleteChannelRequest } from "../models/models_0.ts";
 import {

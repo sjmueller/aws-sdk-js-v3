@@ -1,7 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "../protocol-http/mod.ts";
 import { buildQueryString } from "../querystring-builder/mod.ts";
 import { HttpHandlerOptions } from "../types/mod.ts";
-import { ClientHttp2Session, connect, constants } from "http2.ts";
 
 import { getTransformedHeaders } from "./get-transformed-headers.ts";
 import { writeRequestBody } from "./write-request-body.ts";

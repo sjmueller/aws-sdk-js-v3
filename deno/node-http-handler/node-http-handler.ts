@@ -1,8 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "../protocol-http/mod.ts";
 import { buildQueryString } from "../querystring-builder/mod.ts";
 import { HttpHandlerOptions } from "../types/mod.ts";
-import { Agent as hAgent, request as hRequest } from "http.ts";
-import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https.ts";
 
 import { NODEJS_TIMEOUT_ERROR_CODES } from "./constants.ts";
 import { getTransformedHeaders } from "./get-transformed-headers.ts";

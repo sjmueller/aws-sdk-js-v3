@@ -1,5 +1,4 @@
 import { HeaderBag } from "../types/mod.ts";
-import { IncomingHttpHeaders } from "http2.ts";
 
 const getTransformedHeaders = (headers: IncomingHttpHeaders) => {
   const transformedHeaders: HeaderBag = {};

@@ -3,9 +3,9 @@ import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "../cre
 import { ProviderError } from "../property-provider/mod.ts";
 import { getHomeDir, ParsedIniData } from "../shared-ini-file-loader/mod.ts";
 import { CredentialProvider, Credentials } from "../types/mod.ts";
-import { createHash } from "https://deno.land/std@0.89.0/node/crypto.ts";
-import { readFileSync } from "https://deno.land/std@0.89.0/node/fs.ts";
-import { join } from "https://deno.land/std@0.89.0/node/path.ts";
+import { createHash } from "https://deno.land/std@0.96.0/node/crypto.ts";
+import { readFileSync } from "https://deno.land/std@0.96.0/node/fs.ts";
+import { join } from "https://deno.land/std@0.96.0/node/path.ts";
 
 /**
  * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.

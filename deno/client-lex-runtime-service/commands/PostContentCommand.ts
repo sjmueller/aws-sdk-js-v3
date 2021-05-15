@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.89.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.96.0/node/buffer.ts";
 import {
   LexRuntimeServiceClientResolvedConfig,
   ServiceInputTypes,

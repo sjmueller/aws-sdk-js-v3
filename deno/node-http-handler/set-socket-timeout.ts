@@ -1,4 +1,3 @@
-import { ClientRequest } from "http.ts";
 
 export const setSocketTimeout = (request: ClientRequest, reject: (err: Error) => void, timeoutInMs = 0) => {
   request.setTimeout(timeoutInMs, () => {
