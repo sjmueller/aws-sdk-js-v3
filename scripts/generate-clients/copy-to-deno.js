@@ -178,7 +178,8 @@ async function denoifyTsFile(file, depth) {
             throw new Error(`denoifyTsFile ${file} - unexpected import to @aws-sdk at depth 0`);
           }
 
-          const checkAt = path.resolve(path.join(file, "..", `${relpath}${importFromAWSSDKmatch[1]}/mod.ts`));
+          const module = importFromAWSSDKmatch[1].replace(/(body-checksum|eventstream-serde)-node/, "$1-browser");
+          const checkAt = path.resolve(path.join(file, "..", `${relpath}${module}/mod.ts`));
           const exists = await fsx.exists(checkAt);
           if (!exists) {
             console.error(`denoifyTsFile ${file} - Cannot find ${checkAt}`);
