@@ -198,6 +198,14 @@ async function denoifyTsFile(file, depth) {
               replaced = `${match[1]}from "https://jspm.dev/fast-xml-parser";`;
               output.push(replaced);
               continue;
+            } else if (importFrom === "entities") {
+              replaced = `${match[1]}from "https://jspm.dev/entities";`;
+              output.push(replaced);
+              continue;
+            } else if (importFrom === "mnemonist") {
+              replaced = `${match[1]}from "https://jspm.dev/mnemonist";`;
+              output.push(replaced);
+              continue;
             } else if (importFrom === "stream") {
               replaced = `${match[1]}from "https://deno.land/std@${DENO_STD_VERSION}/node/stream.ts";`;
               output.push(replaced);

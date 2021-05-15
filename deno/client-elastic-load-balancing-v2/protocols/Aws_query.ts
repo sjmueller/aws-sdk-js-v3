@@ -226,7 +226,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
-import { decodeHTML } from "entities.ts";
+import { decodeHTML } from "https://jspm.dev/entities";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
 
 export const serializeAws_queryAddListenerCertificatesCommand = async (
