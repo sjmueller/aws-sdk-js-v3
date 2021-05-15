@@ -1,4 +1,8 @@
 import {
+  AddLFTagsToResourceCommandInput,
+  AddLFTagsToResourceCommandOutput,
+} from "./commands/AddLFTagsToResourceCommand";
+import {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
 } from "./commands/BatchGrantPermissionsCommand";
@@ -6,6 +10,8 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
+import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
+import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
 import {
@@ -16,7 +22,10 @@ import {
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
+import { GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
+import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
+import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
@@ -24,7 +33,20 @@ import {
   PutDataLakeSettingsCommandOutput,
 } from "./commands/PutDataLakeSettingsCommand";
 import { RegisterResourceCommandInput, RegisterResourceCommandOutput } from "./commands/RegisterResourceCommand";
+import {
+  RemoveLFTagsFromResourceCommandInput,
+  RemoveLFTagsFromResourceCommandOutput,
+} from "./commands/RemoveLFTagsFromResourceCommand";
 import { RevokePermissionsCommandInput, RevokePermissionsCommandOutput } from "./commands/RevokePermissionsCommand";
+import {
+  SearchDatabasesByLFTagsCommandInput,
+  SearchDatabasesByLFTagsCommandOutput,
+} from "./commands/SearchDatabasesByLFTagsCommand";
+import {
+  SearchTablesByLFTagsCommandInput,
+  SearchTablesByLFTagsCommandOutput,
+} from "./commands/SearchTablesByLFTagsCommand";
+import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -78,33 +100,53 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AddLFTagsToResourceCommandInput
   | BatchGrantPermissionsCommandInput
   | BatchRevokePermissionsCommandInput
+  | CreateLFTagCommandInput
+  | DeleteLFTagCommandInput
   | DeregisterResourceCommandInput
   | DescribeResourceCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
+  | GetLFTagCommandInput
+  | GetResourceLFTagsCommandInput
   | GrantPermissionsCommandInput
+  | ListLFTagsCommandInput
   | ListPermissionsCommandInput
   | ListResourcesCommandInput
   | PutDataLakeSettingsCommandInput
   | RegisterResourceCommandInput
+  | RemoveLFTagsFromResourceCommandInput
   | RevokePermissionsCommandInput
+  | SearchDatabasesByLFTagsCommandInput
+  | SearchTablesByLFTagsCommandInput
+  | UpdateLFTagCommandInput
   | UpdateResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | AddLFTagsToResourceCommandOutput
   | BatchGrantPermissionsCommandOutput
   | BatchRevokePermissionsCommandOutput
+  | CreateLFTagCommandOutput
+  | DeleteLFTagCommandOutput
   | DeregisterResourceCommandOutput
   | DescribeResourceCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
+  | GetLFTagCommandOutput
+  | GetResourceLFTagsCommandOutput
   | GrantPermissionsCommandOutput
+  | ListLFTagsCommandOutput
   | ListPermissionsCommandOutput
   | ListResourcesCommandOutput
   | PutDataLakeSettingsCommandOutput
   | RegisterResourceCommandOutput
+  | RemoveLFTagsFromResourceCommandOutput
   | RevokePermissionsCommandOutput
+  | SearchDatabasesByLFTagsCommandOutput
+  | SearchTablesByLFTagsCommandOutput
+  | UpdateLFTagCommandOutput
   | UpdateResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -116,46 +158,55 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
+   * @internal
    */
   sha256?: __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
+   * @internal
    */
   urlParser?: __UrlParser;
 
   /**
    * A function that can calculate the length of a request body.
+   * @internal
    */
   bodyLengthChecker?: (body: any) => number | undefined;
 
   /**
    * A function that converts a stream into an array of bytes.
+   * @internal
    */
   streamCollector?: __StreamCollector;
 
   /**
-   * The function that will be used to convert a base64-encoded string to a byte array
+   * The function that will be used to convert a base64-encoded string to a byte array.
+   * @internal
    */
   base64Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a base64-encoded string
+   * The function that will be used to convert binary data to a base64-encoded string.
+   * @internal
    */
   base64Encoder?: __Encoder;
 
   /**
-   * The function that will be used to convert a UTF8-encoded string to a byte array
+   * The function that will be used to convert a UTF8-encoded string to a byte array.
+   * @internal
    */
   utf8Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a UTF-8 encoded string
+   * The function that will be used to convert binary data to a UTF-8 encoded string.
+   * @internal
    */
   utf8Encoder?: __Encoder;
 
   /**
-   * The runtime environment
+   * The runtime environment.
+   * @internal
    */
   runtime?: string;
 
@@ -188,11 +239,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
+   * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
 

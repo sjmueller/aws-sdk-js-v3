@@ -233,6 +233,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -375,6 +376,9 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.CreateBucketConfiguration !== undefined) {
+    body = serializeAws_restXmlCreateBucketConfiguration(input.CreateBucketConfiguration, context);
+  }
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = serializeAws_restXmlCreateBucketConfiguration(input.CreateBucketConfiguration, context);
@@ -1966,6 +1970,9 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.LifecycleConfiguration !== undefined) {
+    body = serializeAws_restXmlLifecycleConfiguration(input.LifecycleConfiguration, context);
+  }
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = serializeAws_restXmlLifecycleConfiguration(input.LifecycleConfiguration, context);
@@ -2068,6 +2075,9 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.Tagging !== undefined) {
+    body = serializeAws_restXmlTagging(input.Tagging, context);
+  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
@@ -2162,6 +2172,9 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
+  if (input.PublicAccessBlockConfiguration !== undefined) {
+    body = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
+  }
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
@@ -8055,14 +8068,6 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
-const decodeEscapedXML = (str: string) =>
-  str
-    .replace(/&amp;/g, "&")
-    .replace(/&apos;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&gt;/g, ">")
-    .replace(/&lt;/g, "<");
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -8071,7 +8076,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : decodeEscapedXML(val)),
+        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : decodeHTML(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

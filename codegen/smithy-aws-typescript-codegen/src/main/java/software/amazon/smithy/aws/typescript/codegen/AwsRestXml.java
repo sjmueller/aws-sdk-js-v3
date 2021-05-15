@@ -31,6 +31,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -138,15 +139,39 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
+    protected void writeDefaultInputHeaders(GenerationContext context, OperationShape operation) {
         AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
     }
 
     @Override
-    protected void serializeInputDocument(
+    protected void serializeInputDocumentBody(
             GenerationContext context,
             OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    protected void serializeOutputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    protected void serializeErrorDocumentBody(
+            GenerationContext context,
+            StructureShape error,
+            List<HttpBinding> documentBindings
+    ) {
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    private void serializeDocumentBody(
+            GenerationContext context,
             List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
@@ -164,13 +189,18 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName(serviceShape));
+
+        // Handle the @xmlName trait for the input shape.
+        StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
+        String nodeName = inputShape.getTrait(XmlNameTrait.class)
+                .map(XmlNameTrait::getValue)
+                .orElse(inputShapeId.getName(serviceShape));
+        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
 
         // Add @xmlNamespace value of the service to the root node,
         // fall back to one from the input shape.
         boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, serviceShape, "bodyNode");
         if (!serviceXmlns) {
-            StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
             AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
         }
 
@@ -198,6 +228,34 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     protected void serializeInputPayload(
             GenerationContext context,
             OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeInputPayload(context, operation, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    @Override
+    protected void serializeOutputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeOutputPayload(context, operation, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    @Override
+    protected void serializeErrorPayload(
+            GenerationContext context,
+            StructureShape error,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeErrorPayload(context, error, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    private void serializePayload(
+            GenerationContext context,
             HttpBinding payloadBinding
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();
@@ -246,9 +304,34 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void deserializeOutputDocument(
+    protected void deserializeInputDocumentBody(
             GenerationContext context,
-            Shape operationOrError,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    protected void deserializeOutputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    protected void deserializeErrorDocumentBody(
+            GenerationContext context,
+            StructureShape error,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    private void deserializeDocumentBody(
+            GenerationContext context,
             List<HttpBinding> documentBindings
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();

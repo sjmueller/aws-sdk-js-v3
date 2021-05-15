@@ -134,46 +134,55 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
+   * @internal
    */
   sha256?: __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
+   * @internal
    */
   urlParser?: __UrlParser;
 
   /**
    * A function that can calculate the length of a request body.
+   * @internal
    */
   bodyLengthChecker?: (body: any) => number | undefined;
 
   /**
    * A function that converts a stream into an array of bytes.
+   * @internal
    */
   streamCollector?: __StreamCollector;
 
   /**
-   * The function that will be used to convert a base64-encoded string to a byte array
+   * The function that will be used to convert a base64-encoded string to a byte array.
+   * @internal
    */
   base64Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a base64-encoded string
+   * The function that will be used to convert binary data to a base64-encoded string.
+   * @internal
    */
   base64Encoder?: __Encoder;
 
   /**
-   * The function that will be used to convert a UTF8-encoded string to a byte array
+   * The function that will be used to convert a UTF8-encoded string to a byte array.
+   * @internal
    */
   utf8Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a UTF-8 encoded string
+   * The function that will be used to convert binary data to a UTF-8 encoded string.
+   * @internal
    */
   utf8Encoder?: __Encoder;
 
   /**
-   * The runtime environment
+   * The runtime environment.
+   * @internal
    */
   runtime?: string;
 
@@ -206,11 +215,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
+   * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
 
@@ -255,12 +266,24 @@ export interface HealthClientResolvedConfig extends HealthClientResolvedConfigTy
  *          can use the API operations to get information about AWS Health events that affect your
  *          AWS services and resources.</p>
  *          <note>
- *             <p>You must have a Business or Enterprise support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the AWS Health API. If you call the
- *             AWS Health API from an AWS account that doesn't have a Business or Enterprise support
- *             plan, you receive a <code>SubscriptionRequiredException</code> error.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the
+ *                   AWS Health API. If you call the AWS Health API from an AWS account that
+ *                   doesn't have a Business or Enterprise Support plan, you receive a
+ *                      <code>SubscriptionRequiredException</code> error.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You can use the AWS Health endpoint health.us-east-1.amazonaws.com (HTTPS) to
+ *                   call the AWS Health API operations. AWS Health supports a multi-Region
+ *                   application architecture and has two regional endpoints in an active-passive
+ *                   configuration. You can use the high availability endpoint example to determine
+ *                   which AWS Region is active, so that you can get the latest information from the
+ *                   API. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/health-api.html">Accessing the AWS Health API</a> in the
+ *                      <i>AWS Health User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
- *          <p>AWS Health has a single endpoint: health.us-east-1.amazonaws.com (HTTPS). Use this
- *          endpoint to call the AWS Health API operations.</p>
  *          <p>For authentication of requests, AWS Health uses the <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *             Process</a>.</p>
  *          <p>If your AWS account is part of AWS Organizations, you can use the AWS Health organizational

@@ -1,5 +1,6 @@
 import { RestXmlProtocolClient } from "../../RestXmlProtocolClient";
 import { AllQueryStringTypesCommand } from "../../commands/AllQueryStringTypesCommand";
+import { BodyWithXmlNameCommand } from "../../commands/BodyWithXmlNameCommand";
 import { ConstantAndVariableQueryStringCommand } from "../../commands/ConstantAndVariableQueryStringCommand";
 import { ConstantQueryStringCommand } from "../../commands/ConstantQueryStringCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
@@ -52,6 +53,7 @@ import { XmlUnionsCommand } from "../../commands/XmlUnionsCommand";
 import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
@@ -318,6 +320,85 @@ it("RestXmlQueryStringMap:Request", async () => {
 
     expect(r.body).toBeFalsy();
   }
+});
+
+/**
+ * Serializes a payload using a wrapper name based on the xmlName
+ */
+it("BodyWithXmlName:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new BodyWithXmlNameCommand({
+    nested: {
+      name: "Phreddy",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/BodyWithXmlName");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<Ahoy><nested><name>Phreddy</name></nested></Ahoy>`;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a payload using a wrapper name based on the xmlName
+ */
+it("BodyWithXmlName:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<Ahoy><nested><name>Phreddy</name></nested></Ahoy>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new BodyWithXmlNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nested: {
+        name: "Phreddy",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
@@ -4447,6 +4528,20 @@ it("XmlLists:Request", async () => {
         b: "4",
       } as any,
     ],
+
+    flattenedStructureList: [
+      {
+        a: "5",
+
+        b: "6",
+      } as any,
+
+      {
+        a: "7",
+
+        b: "8",
+      } as any,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -4519,6 +4614,14 @@ it("XmlLists:Request", async () => {
                 <other>4</other>
             </item>
         </myStructureList>
+        <flattenedStructureList>
+            <value>5</value>
+            <other>6</other>
+        </flattenedStructureList>
+        <flattenedStructureList>
+            <value>7</value>
+            <other>8</other>
+        </flattenedStructureList>
     </XmlListsInputOutput>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
@@ -4595,6 +4698,14 @@ it("XmlLists:Response", async () => {
                   <other>4</other>
               </item>
           </myStructureList>
+          <flattenedStructureList>
+              <value>5</value>
+              <other>6</other>
+          </flattenedStructureList>
+          <flattenedStructureList>
+              <value>7</value>
+              <other>8</other>
+          </flattenedStructureList>
       </XmlListsInputOutput>
       `
     ),
@@ -4652,6 +4763,20 @@ it("XmlLists:Response", async () => {
           a: "3",
 
           b: "4",
+        },
+      ],
+
+      flattenedStructureList: [
+        {
+          a: "5",
+
+          b: "6",
+        },
+
+        {
+          a: "7",
+
+          b: "8",
         },
       ],
     },
@@ -5758,21 +5883,12 @@ const compareEquivalentUnknownTypeBodies = (
  * discrepancies between the components.
  */
 const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string): Object => {
-  const decodeEscapedXml = (str: string) => {
-    return str
-      .replace(/&amp;/g, "&")
-      .replace(/&apos;/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&gt;/g, ">")
-      .replace(/&lt;/g, "<");
-  };
-
   const parseConfig = {
     attributeNamePrefix: "",
     ignoreAttributes: false,
     parseNodeValue: false,
     trimValues: false,
-    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeEscapedXml(val)),
+    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeHTML(val)),
   };
 
   const parseXmlBody = (body: string) => {

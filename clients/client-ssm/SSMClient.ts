@@ -1,4 +1,8 @@
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
+import {
+  AssociateOpsItemRelatedItemCommandInput,
+  AssociateOpsItemRelatedItemCommandOutput,
+} from "./commands/AssociateOpsItemRelatedItemCommand";
 import { CancelCommandCommandInput, CancelCommandCommandOutput } from "./commands/CancelCommandCommand";
 import {
   CancelMaintenanceWindowExecutionCommandInput,
@@ -177,6 +181,10 @@ import {
 } from "./commands/DescribePatchPropertiesCommand";
 import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
 import {
+  DisassociateOpsItemRelatedItemCommandInput,
+  DisassociateOpsItemRelatedItemCommandOutput,
+} from "./commands/DisassociateOpsItemRelatedItemCommand";
+import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
 } from "./commands/GetAutomationExecutionCommand";
@@ -275,6 +283,10 @@ import {
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
 import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "./commands/ListOpsItemEventsCommand";
+import {
+  ListOpsItemRelatedItemsCommandInput,
+  ListOpsItemRelatedItemsCommandOutput,
+} from "./commands/ListOpsItemRelatedItemsCommand";
 import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "./commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommandInput,
@@ -444,6 +456,7 @@ import {
 
 export type ServiceInputTypes =
   | AddTagsToResourceCommandInput
+  | AssociateOpsItemRelatedItemCommandInput
   | CancelCommandCommandInput
   | CancelMaintenanceWindowExecutionCommandInput
   | CreateActivationCommandInput
@@ -501,6 +514,7 @@ export type ServiceInputTypes =
   | DescribePatchGroupsCommandInput
   | DescribePatchPropertiesCommandInput
   | DescribeSessionsCommandInput
+  | DisassociateOpsItemRelatedItemCommandInput
   | GetAutomationExecutionCommandInput
   | GetCalendarStateCommandInput
   | GetCommandInvocationCommandInput
@@ -537,6 +551,7 @@ export type ServiceInputTypes =
   | ListDocumentsCommandInput
   | ListInventoryEntriesCommandInput
   | ListOpsItemEventsCommandInput
+  | ListOpsItemRelatedItemsCommandInput
   | ListOpsMetadataCommandInput
   | ListResourceComplianceSummariesCommandInput
   | ListResourceDataSyncCommandInput
@@ -578,6 +593,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AddTagsToResourceCommandOutput
+  | AssociateOpsItemRelatedItemCommandOutput
   | CancelCommandCommandOutput
   | CancelMaintenanceWindowExecutionCommandOutput
   | CreateActivationCommandOutput
@@ -635,6 +651,7 @@ export type ServiceOutputTypes =
   | DescribePatchGroupsCommandOutput
   | DescribePatchPropertiesCommandOutput
   | DescribeSessionsCommandOutput
+  | DisassociateOpsItemRelatedItemCommandOutput
   | GetAutomationExecutionCommandOutput
   | GetCalendarStateCommandOutput
   | GetCommandInvocationCommandOutput
@@ -671,6 +688,7 @@ export type ServiceOutputTypes =
   | ListDocumentsCommandOutput
   | ListInventoryEntriesCommandOutput
   | ListOpsItemEventsCommandOutput
+  | ListOpsItemRelatedItemsCommandOutput
   | ListOpsMetadataCommandOutput
   | ListResourceComplianceSummariesCommandOutput
   | ListResourceDataSyncCommandOutput
@@ -719,46 +737,55 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * A constructor for a class implementing the @aws-sdk/types.Hash interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
+   * @internal
    */
   sha256?: __HashConstructor;
 
   /**
    * The function that will be used to convert strings into HTTP endpoints.
+   * @internal
    */
   urlParser?: __UrlParser;
 
   /**
    * A function that can calculate the length of a request body.
+   * @internal
    */
   bodyLengthChecker?: (body: any) => number | undefined;
 
   /**
    * A function that converts a stream into an array of bytes.
+   * @internal
    */
   streamCollector?: __StreamCollector;
 
   /**
-   * The function that will be used to convert a base64-encoded string to a byte array
+   * The function that will be used to convert a base64-encoded string to a byte array.
+   * @internal
    */
   base64Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a base64-encoded string
+   * The function that will be used to convert binary data to a base64-encoded string.
+   * @internal
    */
   base64Encoder?: __Encoder;
 
   /**
-   * The function that will be used to convert a UTF8-encoded string to a byte array
+   * The function that will be used to convert a UTF8-encoded string to a byte array.
+   * @internal
    */
   utf8Decoder?: __Decoder;
 
   /**
-   * The function that will be used to convert binary data to a UTF-8 encoded string
+   * The function that will be used to convert binary data to a UTF-8 encoded string.
+   * @internal
    */
   utf8Encoder?: __Encoder;
 
   /**
-   * The runtime environment
+   * The runtime environment.
+   * @internal
    */
   runtime?: string;
 
@@ -791,11 +818,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @internal
    */
   credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
+   * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
 
@@ -845,8 +874,26 @@ export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
  *          <p>To get started, verify prerequisites and configure managed instances. For more information,
  *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up
  *     AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
- *          <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information
- *    about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
+ *          <p class="title">
+ *             <b>Related resources</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>For information about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
+ *             </li>
+ *             <li>
+ *                <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For information about AWS AppConfig, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AWS AppConfig User Guide</a> and the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AWS AppConfig API
+ *      Reference</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For information about AWS Incident Manager, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">AWS Incident Manager User Guide</a>
+ *      and the <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">AWS Incident Manager API
+ *       Reference</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export class SSMClient extends __Client<
   __HttpHandlerOptions,

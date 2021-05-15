@@ -116,6 +116,12 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     ...(isSerializableHeaderValue(input.NumberOfChannels) && {
       "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
     }),
+    ...(isSerializableHeaderValue(input.EnablePartialResultsStabilization) && {
+      "x-amzn-transcribe-enable-partial-results-stabilization": input.EnablePartialResultsStabilization!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.PartialResultsStability) && {
+      "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
+    }),
   };
   let resolvedPath = "/stream-transcription";
   let body: any;
@@ -293,10 +299,12 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   const contents: StartStreamTranscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     EnableChannelIdentification: undefined,
+    EnablePartialResultsStabilization: undefined,
     LanguageCode: undefined,
     MediaEncoding: undefined,
     MediaSampleRateHertz: undefined,
     NumberOfChannels: undefined,
+    PartialResultsStability: undefined,
     RequestId: undefined,
     SessionId: undefined,
     ShowSpeakerLabel: undefined,
@@ -337,6 +345,13 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
     contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] !== undefined) {
+    contents.EnablePartialResultsStabilization =
+      output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] === "true";
+  }
+  if (output.headers["x-amzn-transcribe-partial-results-stability"] !== undefined) {
+    contents.PartialResultsStability = output.headers["x-amzn-transcribe-partial-results-stability"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -733,12 +748,34 @@ const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InternalFailureException = (
+  output: any,
+  context: __SerdeContext
+): InternalFailureException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
     Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
+    Stable: output.Stable !== undefined && output.Stable !== null ? output.Stable : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     VocabularyFilterMatch:
@@ -757,6 +794,15 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Item(entry, context);
     });
+};
+
+const deserializeAws_restJson1LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1MedicalAlternative = (output: any, context: __SerdeContext): MedicalAlternative => {
@@ -873,6 +919,49 @@ const deserializeAws_restJson1MedicalTranscriptEvent = (
   } as any;
 };
 
+const deserializeAws_restJson1MedicalTranscriptResultStream = (
+  output: any,
+  context: __SerdeContext
+): MedicalTranscriptResultStream => {
+  if (output.BadRequestException !== undefined && output.BadRequestException !== null) {
+    return {
+      BadRequestException: deserializeAws_restJson1BadRequestException(output.BadRequestException, context),
+    };
+  }
+  if (output.ConflictException !== undefined && output.ConflictException !== null) {
+    return {
+      ConflictException: deserializeAws_restJson1ConflictException(output.ConflictException, context),
+    };
+  }
+  if (output.InternalFailureException !== undefined && output.InternalFailureException !== null) {
+    return {
+      InternalFailureException: deserializeAws_restJson1InternalFailureException(
+        output.InternalFailureException,
+        context
+      ),
+    };
+  }
+  if (output.LimitExceededException !== undefined && output.LimitExceededException !== null) {
+    return {
+      LimitExceededException: deserializeAws_restJson1LimitExceededException(output.LimitExceededException, context),
+    };
+  }
+  if (output.ServiceUnavailableException !== undefined && output.ServiceUnavailableException !== null) {
+    return {
+      ServiceUnavailableException: deserializeAws_restJson1ServiceUnavailableException(
+        output.ServiceUnavailableException,
+        context
+      ),
+    };
+  }
+  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
+    return {
+      TranscriptEvent: deserializeAws_restJson1MedicalTranscriptEvent(output.TranscriptEvent, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {
   return {
     Alternatives:
@@ -898,6 +987,15 @@ const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext
     });
 };
 
+const deserializeAws_restJson1ServiceUnavailableException = (
+  output: any,
+  context: __SerdeContext
+): ServiceUnavailableException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
     Results:
@@ -914,6 +1012,49 @@ const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1Transcript(output.Transcript, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1TranscriptResultStream = (
+  output: any,
+  context: __SerdeContext
+): TranscriptResultStream => {
+  if (output.BadRequestException !== undefined && output.BadRequestException !== null) {
+    return {
+      BadRequestException: deserializeAws_restJson1BadRequestException(output.BadRequestException, context),
+    };
+  }
+  if (output.ConflictException !== undefined && output.ConflictException !== null) {
+    return {
+      ConflictException: deserializeAws_restJson1ConflictException(output.ConflictException, context),
+    };
+  }
+  if (output.InternalFailureException !== undefined && output.InternalFailureException !== null) {
+    return {
+      InternalFailureException: deserializeAws_restJson1InternalFailureException(
+        output.InternalFailureException,
+        context
+      ),
+    };
+  }
+  if (output.LimitExceededException !== undefined && output.LimitExceededException !== null) {
+    return {
+      LimitExceededException: deserializeAws_restJson1LimitExceededException(output.LimitExceededException, context),
+    };
+  }
+  if (output.ServiceUnavailableException !== undefined && output.ServiceUnavailableException !== null) {
+    return {
+      ServiceUnavailableException: deserializeAws_restJson1ServiceUnavailableException(
+        output.ServiceUnavailableException,
+        context
+      ),
+    };
+  }
+  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
+    return {
+      TranscriptEvent: deserializeAws_restJson1TranscriptEvent(output.TranscriptEvent, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
