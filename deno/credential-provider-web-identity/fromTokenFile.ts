@@ -1,7 +1,7 @@
-import process from "https://deno.land/std@0.96.0/node/process.ts";
+import process from "https://deno.land/std@0.93.0/node/process.ts";
 import { ProviderError } from "../property-provider/mod.ts";
 import { CredentialProvider, Credentials } from "../types/mod.ts";
-import { readFileSync } from "https://deno.land/std@0.96.0/node/fs.ts";
+import { readFileSync } from "https://deno.land/std@0.93.0/node/fs.ts";
 
 import { fromWebToken, FromWebTokenInit } from "./fromWebToken.ts";
 

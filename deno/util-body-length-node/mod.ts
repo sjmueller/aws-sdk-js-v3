@@ -1,5 +1,5 @@
-import { Buffer } from "https://deno.land/std@0.96.0/node/buffer.ts";
-import { lstatSync } from "https://deno.land/std@0.96.0/node/fs.ts";
+import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
+import { lstatSync } from "https://deno.land/std@0.93.0/node/fs.ts";
 
 export function calculateBodyLength(body: any): number | undefined {
   if (!body) {

@@ -1,6 +1,6 @@
-import { Buffer } from "https://deno.land/std@0.96.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
 import { Hash } from "../types/mod.ts";
-import { Writable, WritableOptions } from "https://deno.land/std@0.96.0/node/stream.ts";
+import { Writable, WritableOptions } from "https://deno.land/std@0.93.0/node/stream.ts";
 
 export class HashCalculator extends Writable {
   constructor(public readonly hash: Hash, options?: WritableOptions) {

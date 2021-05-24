@@ -1,6 +1,6 @@
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "https://deno.land/std@0.96.0/node/stream.ts";
+import { Readable } from "https://deno.land/std@0.93.0/node/stream.ts";
 
 export interface DeleteLexiconInput {
   /**

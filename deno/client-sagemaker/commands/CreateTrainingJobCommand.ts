@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.96.0/node/process.ts";
+import process from "https://deno.land/std@0.93.0/node/process.ts";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
 import { CreateTrainingJobRequest, CreateTrainingJobResponse } from "../models/models_1.ts";
 import {

@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.96.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
 import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient.ts";
 import {
   BatchExecuteStatementCommand,

@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.96.0/node/process.ts";
+import process from "https://deno.land/std@0.93.0/node/process.ts";
 import { fromEnv } from "../credential-provider-env/mod.ts";
 import {
   ENV_CMDS_FULL_URI,
