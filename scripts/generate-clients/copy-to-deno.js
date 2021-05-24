@@ -120,7 +120,11 @@ async function denoifyTsFile(file, depth) {
     let replaced = line;
 
     if (line.match(/\bBuffer\b/)) {
-      extraHeaderLines["buffer"] = `import { Buffer } from "https://deno.land/std@${DENO_STD_VERSION}/node/buffer.ts";`;
+      if (file !== "deno/util-buffer-from/mod.ts") {
+        extraHeaderLines[
+          "buffer"
+        ] = `import { Buffer } from "https://deno.land/std@${DENO_STD_VERSION}/node/buffer.ts";`;
+      }
     }
 
     if (line.match(/\bprocess\./)) {

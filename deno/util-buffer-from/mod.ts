@@ -1,4 +1,3 @@
-import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
 import { isArrayBuffer } from "../is-array-buffer/mod.ts";
 import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
 
