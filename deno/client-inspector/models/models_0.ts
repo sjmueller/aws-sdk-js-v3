@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.93.0/node/process.ts";
+import process from "https://deno.land/std@0.97.0/node/process.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 

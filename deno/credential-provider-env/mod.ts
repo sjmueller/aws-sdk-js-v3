@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.93.0/node/process.ts";
+import process from "https://deno.land/std@0.97.0/node/process.ts";
 import { ProviderError } from "../property-provider/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
 

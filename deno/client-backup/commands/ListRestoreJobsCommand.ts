@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.93.0/node/process.ts";
+import process from "https://deno.land/std@0.97.0/node/process.ts";
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
 import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0.ts";
 import {

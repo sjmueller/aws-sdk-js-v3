@@ -1,7 +1,7 @@
 import { HttpResponse } from "../types/mod.ts";
-import { readFileSync } from "https://deno.land/std@0.93.0/node/fs.ts";
-import { join } from "https://deno.land/std@0.93.0/node/path.ts";
-import { Readable } from "https://deno.land/std@0.93.0/node/stream.ts";
+import { readFileSync } from "https://deno.land/std@0.97.0/node/fs.ts";
+import { join } from "https://deno.land/std@0.97.0/node/path.ts";
+import { Readable } from "https://deno.land/std@0.97.0/node/stream.ts";
 
 const fixturesDir = join(__dirname, "..", "fixtures");
 

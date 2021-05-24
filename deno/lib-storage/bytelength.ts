@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.97.0/node/buffer.ts";
 import { ClientDefaultValues } from "./runtimeConfig.ts";
 
 export const byteLength = (input: any) => {

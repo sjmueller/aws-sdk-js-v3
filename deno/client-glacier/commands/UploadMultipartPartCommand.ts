@@ -1,4 +1,4 @@
-import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.97.0/node/buffer.ts";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
 import { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/models_0.ts";
 import {

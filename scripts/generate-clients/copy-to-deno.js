@@ -2,7 +2,7 @@ const fsx = require("fs-extra");
 const path = require("path");
 const fs = require("fs");
 
-const DENO_STD_VERSION = "0.93.0";
+const DENO_STD_VERSION = "0.97.0";
 
 async function copyPackage(packageName, packageDir, destinationDir) {
   if (packageName.endsWith("-deno")) {

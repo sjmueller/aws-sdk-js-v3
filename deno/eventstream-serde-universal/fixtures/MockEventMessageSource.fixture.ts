@@ -1,6 +1,6 @@
-import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
-import process from "https://deno.land/std@0.93.0/node/process.ts";
-import { Readable, ReadableOptions } from "https://deno.land/std@0.93.0/node/stream.ts";
+import { Buffer } from "https://deno.land/std@0.97.0/node/buffer.ts";
+import process from "https://deno.land/std@0.97.0/node/process.ts";
+import { Readable, ReadableOptions } from "https://deno.land/std@0.97.0/node/stream.ts";
 
 export interface MockEventMessageSourceOptions extends ReadableOptions {
   messages: Array<Buffer>;

@@ -1,6 +1,6 @@
-import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.97.0/node/buffer.ts";
 import { RawDataPart } from "../Upload.ts";
-import { Buffer } from "https://deno.land/std@0.93.0/node/buffer.ts";
+import { Buffer } from "https://deno.land/std@0.97.0/node/buffer.ts";
 
 interface Buffers {
   chunks: Buffer[];
