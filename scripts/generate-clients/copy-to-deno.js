@@ -211,8 +211,8 @@ async function denoifyTsFile(file, depth) {
               replaced = `${match[1]}from "https://jspm.dev/entities";`;
               output.push(replaced);
               continue;
-            } else if (importFrom === "mnemonist") {
-              replaced = `${match[1]}from "https://jspm.dev/mnemonist";`;
+            } else if (importFrom === "mnemonist/lru-cache") {
+              replaced = `${match[1]}from "https://jspm.dev/mnemonist/lru-cache";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "stream") {

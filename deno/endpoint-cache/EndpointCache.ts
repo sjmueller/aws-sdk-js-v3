@@ -1,4 +1,4 @@
-import LRUCache from "mnemonist/lru-cache.ts";
+import LRUCache from "https://jspm.dev/mnemonist/lru-cache";
 
 import { Endpoint } from "./Endpoint.ts";
 
