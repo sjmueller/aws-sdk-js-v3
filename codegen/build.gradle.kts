@@ -27,7 +27,7 @@ allprojects {
         mavenLocal()
         mavenCentral()
     }
-    group = "software.amazon.smithy"
+    group = "software.amazon.smithy.typescript"
     version = "0.3.0"
 }
 
@@ -142,7 +142,7 @@ subprojects {
         publishing {
             repositories {
                 mavenCentral {
-                    url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+                    url = uri("https://aws.oss.sonatype.org/service/local/staging/deploy/maven2/")
                     credentials {
                         username = sonatypeUser
                         password = sonatypePassword
