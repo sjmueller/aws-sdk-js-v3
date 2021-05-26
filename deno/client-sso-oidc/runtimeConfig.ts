@@ -1,4 +1,4 @@
-const packageInfo = { version: "3.16.0" };
+const packageInfo = { version: "3.17.0" };
 
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";

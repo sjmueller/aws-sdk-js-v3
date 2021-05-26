@@ -1,4 +1,4 @@
-const packageInfo = { version: "3.16.0" };
+const packageInfo = { version: "3.17.0" };
 
 import { bodyChecksumGenerator } from "../body-checksum-browser/mod.ts";
 import { decorateDefaultCredentialProvider } from "../client-sts/mod.ts";
