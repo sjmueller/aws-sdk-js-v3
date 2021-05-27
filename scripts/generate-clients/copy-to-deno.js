@@ -212,7 +212,7 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "mnemonist/lru-cache") {
-              replaced = `${match[1]}from "https://jspm.dev/mnemonist/lru-cache";`;
+              replaced = `${match[1]}from "../lru-cache/mod.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "stream") {
