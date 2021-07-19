@@ -34,7 +34,7 @@ import {
   Websocket,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
+import { SmithyException as __SmithyException, expectString as __expectString } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -47,11 +47,13 @@ export const serializeAws_restJson1CompleteAttachmentUploadCommand = async (
   input: CompleteAttachmentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/complete-attachment-upload";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/complete-attachment-upload";
   let body: any;
   body = JSON.stringify({
     ...(input.AttachmentIds !== undefined &&
@@ -60,7 +62,6 @@ export const serializeAws_restJson1CompleteAttachmentUploadCommand = async (
       }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -76,17 +77,17 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
   input: CreateParticipantConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ParticipantToken) && { "x-amz-bearer": input.ParticipantToken! }),
   };
-  let resolvedPath = "/participant/connection";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
   let body: any;
   body = JSON.stringify({
     ...(input.Type !== undefined &&
       input.Type !== null && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -102,16 +103,16 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
   input: DisconnectParticipantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/disconnect";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/disconnect";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -127,16 +128,16 @@ export const serializeAws_restJson1GetAttachmentCommand = async (
   input: GetAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/attachment";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
   let body: any;
   body = JSON.stringify({
     ...(input.AttachmentId !== undefined && input.AttachmentId !== null && { AttachmentId: input.AttachmentId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -152,11 +153,12 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
   input: GetTranscriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/transcript";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -169,7 +171,6 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
         StartPosition: serializeAws_restJson1StartPosition(input.StartPosition, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -185,18 +186,18 @@ export const serializeAws_restJson1SendEventCommand = async (
   input: SendEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/event";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/event";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
     ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -212,18 +213,18 @@ export const serializeAws_restJson1SendMessageCommand = async (
   input: SendMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/message";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/message";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
     ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -239,11 +240,13 @@ export const serializeAws_restJson1StartAttachmentUploadCommand = async (
   input: StartAttachmentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = "/participant/start-attachment-upload";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/start-attachment-upload";
   let body: any;
   body = JSON.stringify({
     ...(input.AttachmentName !== undefined &&
@@ -253,7 +256,6 @@ export const serializeAws_restJson1StartAttachmentUploadCommand = async (
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -528,10 +530,10 @@ export const deserializeAws_restJson1GetAttachmentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Url !== undefined && data.Url !== null) {
-    contents.Url = data.Url;
+    contents.Url = __expectString(data.Url);
   }
   if (data.UrlExpiry !== undefined && data.UrlExpiry !== null) {
-    contents.UrlExpiry = data.UrlExpiry;
+    contents.UrlExpiry = __expectString(data.UrlExpiry);
   }
   return Promise.resolve(contents);
 };
@@ -612,10 +614,10 @@ export const deserializeAws_restJson1GetTranscriptCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.InitialContactId !== undefined && data.InitialContactId !== null) {
-    contents.InitialContactId = data.InitialContactId;
+    contents.InitialContactId = __expectString(data.InitialContactId);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Transcript !== undefined && data.Transcript !== null) {
     contents.Transcript = deserializeAws_restJson1Transcript(data.Transcript, context);
@@ -698,10 +700,10 @@ export const deserializeAws_restJson1SendEventCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
-    contents.AbsoluteTime = data.AbsoluteTime;
+    contents.AbsoluteTime = __expectString(data.AbsoluteTime);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -781,10 +783,10 @@ export const deserializeAws_restJson1SendMessageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AbsoluteTime !== undefined && data.AbsoluteTime !== null) {
-    contents.AbsoluteTime = data.AbsoluteTime;
+    contents.AbsoluteTime = __expectString(data.AbsoluteTime);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -864,7 +866,7 @@ export const deserializeAws_restJson1StartAttachmentUploadCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AttachmentId !== undefined && data.AttachmentId !== null) {
-    contents.AttachmentId = data.AttachmentId;
+    contents.AttachmentId = __expectString(data.AttachmentId);
   }
   if (data.UploadMetadata !== undefined && data.UploadMetadata !== null) {
     contents.UploadMetadata = deserializeAws_restJson1UploadMetadata(data.UploadMetadata, context);
@@ -953,7 +955,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -970,7 +972,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -987,7 +989,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1004,7 +1006,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1021,7 +1023,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1038,7 +1040,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1075,11 +1077,10 @@ const serializeAws_restJson1StartPosition = (input: StartPosition, context: __Se
 
 const deserializeAws_restJson1AttachmentItem = (output: any, context: __SerdeContext): AttachmentItem => {
   return {
-    AttachmentId: output.AttachmentId !== undefined && output.AttachmentId !== null ? output.AttachmentId : undefined,
-    AttachmentName:
-      output.AttachmentName !== undefined && output.AttachmentName !== null ? output.AttachmentName : undefined,
-    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    AttachmentId: __expectString(output.AttachmentId),
+    AttachmentName: __expectString(output.AttachmentName),
+    ContentType: __expectString(output.ContentType),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -1096,28 +1097,25 @@ const deserializeAws_restJson1Attachments = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
   return {
-    ConnectionToken:
-      output.ConnectionToken !== undefined && output.ConnectionToken !== null ? output.ConnectionToken : undefined,
-    Expiry: output.Expiry !== undefined && output.Expiry !== null ? output.Expiry : undefined,
+    ConnectionToken: __expectString(output.ConnectionToken),
+    Expiry: __expectString(output.Expiry),
   } as any;
 };
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    AbsoluteTime: output.AbsoluteTime !== undefined && output.AbsoluteTime !== null ? output.AbsoluteTime : undefined,
+    AbsoluteTime: __expectString(output.AbsoluteTime),
     Attachments:
       output.Attachments !== undefined && output.Attachments !== null
         ? deserializeAws_restJson1Attachments(output.Attachments, context)
         : undefined,
-    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
-    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    ParticipantId:
-      output.ParticipantId !== undefined && output.ParticipantId !== null ? output.ParticipantId : undefined,
-    ParticipantRole:
-      output.ParticipantRole !== undefined && output.ParticipantRole !== null ? output.ParticipantRole : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Content: __expectString(output.Content),
+    ContentType: __expectString(output.ContentType),
+    DisplayName: __expectString(output.DisplayName),
+    Id: __expectString(output.Id),
+    ParticipantId: __expectString(output.ParticipantId),
+    ParticipantRole: __expectString(output.ParticipantRole),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -1138,8 +1136,8 @@ const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeCon
       output.HeadersToInclude !== undefined && output.HeadersToInclude !== null
         ? deserializeAws_restJson1UploadMetadataSignedHeaders(output.HeadersToInclude, context)
         : undefined,
-    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
-    UrlExpiry: output.UrlExpiry !== undefined && output.UrlExpiry !== null ? output.UrlExpiry : undefined,
+    Url: __expectString(output.Url),
+    UrlExpiry: __expectString(output.UrlExpiry),
   } as any;
 };
 
@@ -1153,16 +1151,15 @@ const deserializeAws_restJson1UploadMetadataSignedHeaders = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1Websocket = (output: any, context: __SerdeContext): Websocket => {
   return {
-    ConnectionExpiry:
-      output.ConnectionExpiry !== undefined && output.ConnectionExpiry !== null ? output.ConnectionExpiry : undefined,
-    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
+    ConnectionExpiry: __expectString(output.ConnectionExpiry),
+    Url: __expectString(output.Url),
   } as any;
 };
 

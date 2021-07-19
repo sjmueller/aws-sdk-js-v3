@@ -234,7 +234,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -248,10 +252,11 @@ export const serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand 
   input: AssociateAwsAccountWithPartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/partner-accounts";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -260,7 +265,6 @@ export const serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand 
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -276,10 +280,12 @@ export const serializeAws_restJson1AssociateWirelessDeviceWithThingCommand = asy
   input: AssociateWirelessDeviceWithThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-devices/{Id}/thing";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/thing";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -293,7 +299,6 @@ export const serializeAws_restJson1AssociateWirelessDeviceWithThingCommand = asy
   body = JSON.stringify({
     ...(input.ThingArn !== undefined && input.ThingArn !== null && { ThingArn: input.ThingArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -309,10 +314,12 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithCertificateComman
   input: AssociateWirelessGatewayWithCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-gateways/{Id}/certificate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -327,7 +334,6 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithCertificateComman
     ...(input.IotCertificateId !== undefined &&
       input.IotCertificateId !== null && { IotCertificateId: input.IotCertificateId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -343,10 +349,12 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithThingCommand = as
   input: AssociateWirelessGatewayWithThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-gateways/{Id}/thing";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/thing";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -360,7 +368,6 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithThingCommand = as
   body = JSON.stringify({
     ...(input.ThingArn !== undefined && input.ThingArn !== null && { ThingArn: input.ThingArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -376,10 +383,11 @@ export const serializeAws_restJson1CreateDestinationCommand = async (
   input: CreateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/destinations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -392,7 +400,6 @@ export const serializeAws_restJson1CreateDestinationCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -408,10 +415,11 @@ export const serializeAws_restJson1CreateDeviceProfileCommand = async (
   input: CreateDeviceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/device-profiles";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -421,7 +429,6 @@ export const serializeAws_restJson1CreateDeviceProfileCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -437,10 +444,11 @@ export const serializeAws_restJson1CreateServiceProfileCommand = async (
   input: CreateServiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/service-profiles";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -450,7 +458,6 @@ export const serializeAws_restJson1CreateServiceProfileCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -466,10 +473,11 @@ export const serializeAws_restJson1CreateWirelessDeviceCommand = async (
   input: CreateWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-devices";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -483,7 +491,6 @@ export const serializeAws_restJson1CreateWirelessDeviceCommand = async (
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -499,10 +506,11 @@ export const serializeAws_restJson1CreateWirelessGatewayCommand = async (
   input: CreateWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-gateways";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways";
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -513,7 +521,6 @@ export const serializeAws_restJson1CreateWirelessGatewayCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -529,10 +536,12 @@ export const serializeAws_restJson1CreateWirelessGatewayTaskCommand = async (
   input: CreateWirelessGatewayTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-gateways/{Id}/tasks";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -549,7 +558,6 @@ export const serializeAws_restJson1CreateWirelessGatewayTaskCommand = async (
         WirelessGatewayTaskDefinitionId: input.WirelessGatewayTaskDefinitionId,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -565,10 +573,12 @@ export const serializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand = 
   input: CreateWirelessGatewayTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-gateway-task-definitions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions";
   let body: any;
   body = JSON.stringify({
     ...(input.AutoCreateTasks !== undefined &&
@@ -582,7 +592,6 @@ export const serializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand = 
         Update: serializeAws_restJson1UpdateWirelessGatewayTaskCreate(input.Update, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -598,8 +607,9 @@ export const serializeAws_restJson1DeleteDestinationCommand = async (
   input: DeleteDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/destinations/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -610,7 +620,6 @@ export const serializeAws_restJson1DeleteDestinationCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -626,8 +635,9 @@ export const serializeAws_restJson1DeleteDeviceProfileCommand = async (
   input: DeleteDeviceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/device-profiles/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -638,7 +648,6 @@ export const serializeAws_restJson1DeleteDeviceProfileCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -654,8 +663,9 @@ export const serializeAws_restJson1DeleteServiceProfileCommand = async (
   input: DeleteServiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/service-profiles/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -666,7 +676,6 @@ export const serializeAws_restJson1DeleteServiceProfileCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -682,8 +691,9 @@ export const serializeAws_restJson1DeleteWirelessDeviceCommand = async (
   input: DeleteWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-devices/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -694,7 +704,6 @@ export const serializeAws_restJson1DeleteWirelessDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -710,8 +719,9 @@ export const serializeAws_restJson1DeleteWirelessGatewayCommand = async (
   input: DeleteWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -722,7 +732,6 @@ export const serializeAws_restJson1DeleteWirelessGatewayCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -738,8 +747,10 @@ export const serializeAws_restJson1DeleteWirelessGatewayTaskCommand = async (
   input: DeleteWirelessGatewayTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}/tasks";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -750,7 +761,6 @@ export const serializeAws_restJson1DeleteWirelessGatewayTaskCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -766,8 +776,10 @@ export const serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand = 
   input: DeleteWirelessGatewayTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateway-task-definitions/{Id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -778,7 +790,6 @@ export const serializeAws_restJson1DeleteWirelessGatewayTaskDefinitionCommand = 
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -794,8 +805,10 @@ export const serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountComma
   input: DisassociateAwsAccountFromPartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/partner-accounts/{PartnerAccountId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts/{PartnerAccountId}";
   if (input.PartnerAccountId !== undefined) {
     const labelValue: string = input.PartnerAccountId;
     if (labelValue.length <= 0) {
@@ -809,7 +822,6 @@ export const serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountComma
     ...(input.PartnerType !== undefined && { partnerType: input.PartnerType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -826,8 +838,10 @@ export const serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand = 
   input: DisassociateWirelessDeviceFromThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-devices/{Id}/thing";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/thing";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -838,7 +852,6 @@ export const serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand = 
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -854,8 +867,10 @@ export const serializeAws_restJson1DisassociateWirelessGatewayFromCertificateCom
   input: DisassociateWirelessGatewayFromCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}/certificate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -866,7 +881,6 @@ export const serializeAws_restJson1DisassociateWirelessGatewayFromCertificateCom
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -882,8 +896,10 @@ export const serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand =
   input: DisassociateWirelessGatewayFromThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}/thing";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/thing";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -894,7 +910,6 @@ export const serializeAws_restJson1DisassociateWirelessGatewayFromThingCommand =
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -910,8 +925,9 @@ export const serializeAws_restJson1GetDestinationCommand = async (
   input: GetDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/destinations/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -922,7 +938,6 @@ export const serializeAws_restJson1GetDestinationCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -938,8 +953,9 @@ export const serializeAws_restJson1GetDeviceProfileCommand = async (
   input: GetDeviceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/device-profiles/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -950,7 +966,6 @@ export const serializeAws_restJson1GetDeviceProfileCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -966,13 +981,13 @@ export const serializeAws_restJson1GetLogLevelsByResourceTypesCommand = async (
   input: GetLogLevelsByResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/log-levels";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -988,8 +1003,10 @@ export const serializeAws_restJson1GetPartnerAccountCommand = async (
   input: GetPartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/partner-accounts/{PartnerAccountId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts/{PartnerAccountId}";
   if (input.PartnerAccountId !== undefined) {
     const labelValue: string = input.PartnerAccountId;
     if (labelValue.length <= 0) {
@@ -1003,7 +1020,6 @@ export const serializeAws_restJson1GetPartnerAccountCommand = async (
     ...(input.PartnerType !== undefined && { partnerType: input.PartnerType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1020,8 +1036,10 @@ export const serializeAws_restJson1GetResourceLogLevelCommand = async (
   input: GetResourceLogLevelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/log-levels/{ResourceIdentifier}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels/{ResourceIdentifier}";
   if (input.ResourceIdentifier !== undefined) {
     const labelValue: string = input.ResourceIdentifier;
     if (labelValue.length <= 0) {
@@ -1035,7 +1053,6 @@ export const serializeAws_restJson1GetResourceLogLevelCommand = async (
     ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1052,13 +1069,13 @@ export const serializeAws_restJson1GetServiceEndpointCommand = async (
   input: GetServiceEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/service-endpoint";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-endpoint";
   const query: any = {
     ...(input.ServiceType !== undefined && { serviceType: input.ServiceType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1075,8 +1092,9 @@ export const serializeAws_restJson1GetServiceProfileCommand = async (
   input: GetServiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/service-profiles/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1087,7 +1105,6 @@ export const serializeAws_restJson1GetServiceProfileCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1103,8 +1120,10 @@ export const serializeAws_restJson1GetWirelessDeviceCommand = async (
   input: GetWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-devices/{Identifier}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Identifier}";
   if (input.Identifier !== undefined) {
     const labelValue: string = input.Identifier;
     if (labelValue.length <= 0) {
@@ -1118,7 +1137,6 @@ export const serializeAws_restJson1GetWirelessDeviceCommand = async (
     ...(input.IdentifierType !== undefined && { identifierType: input.IdentifierType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1135,8 +1153,11 @@ export const serializeAws_restJson1GetWirelessDeviceStatisticsCommand = async (
   input: GetWirelessDeviceStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-devices/{WirelessDeviceId}/statistics";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/wireless-devices/{WirelessDeviceId}/statistics";
   if (input.WirelessDeviceId !== undefined) {
     const labelValue: string = input.WirelessDeviceId;
     if (labelValue.length <= 0) {
@@ -1147,7 +1168,6 @@ export const serializeAws_restJson1GetWirelessDeviceStatisticsCommand = async (
     throw new Error("No value provided for input HTTP label: WirelessDeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1163,8 +1183,10 @@ export const serializeAws_restJson1GetWirelessGatewayCommand = async (
   input: GetWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Identifier}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Identifier}";
   if (input.Identifier !== undefined) {
     const labelValue: string = input.Identifier;
     if (labelValue.length <= 0) {
@@ -1178,7 +1200,6 @@ export const serializeAws_restJson1GetWirelessGatewayCommand = async (
     ...(input.IdentifierType !== undefined && { identifierType: input.IdentifierType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1195,8 +1216,10 @@ export const serializeAws_restJson1GetWirelessGatewayCertificateCommand = async 
   input: GetWirelessGatewayCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}/certificate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/certificate";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1207,7 +1230,6 @@ export const serializeAws_restJson1GetWirelessGatewayCertificateCommand = async 
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1223,8 +1245,11 @@ export const serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand 
   input: GetWirelessGatewayFirmwareInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}/firmware-information";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/wireless-gateways/{Id}/firmware-information";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1235,7 +1260,6 @@ export const serializeAws_restJson1GetWirelessGatewayFirmwareInformationCommand 
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1251,8 +1275,11 @@ export const serializeAws_restJson1GetWirelessGatewayStatisticsCommand = async (
   input: GetWirelessGatewayStatisticsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{WirelessGatewayId}/statistics";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/wireless-gateways/{WirelessGatewayId}/statistics";
   if (input.WirelessGatewayId !== undefined) {
     const labelValue: string = input.WirelessGatewayId;
     if (labelValue.length <= 0) {
@@ -1263,7 +1290,6 @@ export const serializeAws_restJson1GetWirelessGatewayStatisticsCommand = async (
     throw new Error("No value provided for input HTTP label: WirelessGatewayId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1279,8 +1305,10 @@ export const serializeAws_restJson1GetWirelessGatewayTaskCommand = async (
   input: GetWirelessGatewayTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways/{Id}/tasks";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}/tasks";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1291,7 +1319,6 @@ export const serializeAws_restJson1GetWirelessGatewayTaskCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1307,8 +1334,10 @@ export const serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand = asy
   input: GetWirelessGatewayTaskDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateway-task-definitions/{Id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1319,7 +1348,6 @@ export const serializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand = asy
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1335,14 +1363,14 @@ export const serializeAws_restJson1ListDestinationsCommand = async (
   input: ListDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/destinations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1359,14 +1387,14 @@ export const serializeAws_restJson1ListDeviceProfilesCommand = async (
   input: ListDeviceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/device-profiles";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device-profiles";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1383,14 +1411,14 @@ export const serializeAws_restJson1ListPartnerAccountsCommand = async (
   input: ListPartnerAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/partner-accounts";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1407,14 +1435,14 @@ export const serializeAws_restJson1ListServiceProfilesCommand = async (
   input: ListServiceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/service-profiles";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/service-profiles";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1431,13 +1459,13 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { resourceArn: input.ResourceArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1454,8 +1482,9 @@ export const serializeAws_restJson1ListWirelessDevicesCommand = async (
   input: ListWirelessDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-devices";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1465,7 +1494,6 @@ export const serializeAws_restJson1ListWirelessDevicesCommand = async (
     ...(input.WirelessDeviceType !== undefined && { wirelessDeviceType: input.WirelessDeviceType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1482,14 +1510,14 @@ export const serializeAws_restJson1ListWirelessGatewaysCommand = async (
   input: ListWirelessGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateways";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1506,15 +1534,16 @@ export const serializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand = a
   input: ListWirelessGatewayTaskDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-gateway-task-definitions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateway-task-definitions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.TaskDefinitionType !== undefined && { taskDefinitionType: input.TaskDefinitionType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1531,10 +1560,12 @@ export const serializeAws_restJson1PutResourceLogLevelCommand = async (
   input: PutResourceLogLevelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/log-levels/{ResourceIdentifier}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels/{ResourceIdentifier}";
   if (input.ResourceIdentifier !== undefined) {
     const labelValue: string = input.ResourceIdentifier;
     if (labelValue.length <= 0) {
@@ -1551,7 +1582,6 @@ export const serializeAws_restJson1PutResourceLogLevelCommand = async (
   body = JSON.stringify({
     ...(input.LogLevel !== undefined && input.LogLevel !== null && { LogLevel: input.LogLevel }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1568,13 +1598,13 @@ export const serializeAws_restJson1ResetAllResourceLogLevelsCommand = async (
   input: ResetAllResourceLogLevelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/log-levels";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1590,8 +1620,10 @@ export const serializeAws_restJson1ResetResourceLogLevelCommand = async (
   input: ResetResourceLogLevelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/log-levels/{ResourceIdentifier}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels/{ResourceIdentifier}";
   if (input.ResourceIdentifier !== undefined) {
     const labelValue: string = input.ResourceIdentifier;
     if (labelValue.length <= 0) {
@@ -1605,7 +1637,6 @@ export const serializeAws_restJson1ResetResourceLogLevelCommand = async (
     ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1622,10 +1653,12 @@ export const serializeAws_restJson1SendDataToWirelessDeviceCommand = async (
   input: SendDataToWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-devices/{Id}/data";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1644,7 +1677,6 @@ export const serializeAws_restJson1SendDataToWirelessDeviceCommand = async (
         WirelessMetadata: serializeAws_restJson1WirelessMetadata(input.WirelessMetadata, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1660,10 +1692,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { resourceArn: input.ResourceArn }),
   };
@@ -1672,7 +1705,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1689,8 +1721,10 @@ export const serializeAws_restJson1TestWirelessDeviceCommand = async (
   input: TestWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/wireless-devices/{Id}/test";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/test";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1701,7 +1735,6 @@ export const serializeAws_restJson1TestWirelessDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1717,14 +1750,14 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { resourceArn: input.ResourceArn }),
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1741,10 +1774,11 @@ export const serializeAws_restJson1UpdateDestinationCommand = async (
   input: UpdateDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/destinations/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/destinations/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1762,7 +1796,6 @@ export const serializeAws_restJson1UpdateDestinationCommand = async (
       input.ExpressionType !== null && { ExpressionType: input.ExpressionType }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1778,10 +1811,11 @@ export const serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand = async
   input: UpdateLogLevelsByResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/log-levels";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
   let body: any;
   body = JSON.stringify({
     ...(input.DefaultLogLevel !== undefined &&
@@ -1801,7 +1835,6 @@ export const serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand = async
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1817,10 +1850,12 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
   input: UpdatePartnerAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/partner-accounts/{PartnerAccountId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/partner-accounts/{PartnerAccountId}";
   if (input.PartnerAccountId !== undefined) {
     const labelValue: string = input.PartnerAccountId;
     if (labelValue.length <= 0) {
@@ -1838,7 +1873,6 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
     ...(input.Sidewalk !== undefined &&
       input.Sidewalk !== null && { Sidewalk: serializeAws_restJson1SidewalkUpdateAccount(input.Sidewalk, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1855,10 +1889,11 @@ export const serializeAws_restJson1UpdateWirelessDeviceCommand = async (
   input: UpdateWirelessDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-devices/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1877,7 +1912,6 @@ export const serializeAws_restJson1UpdateWirelessDeviceCommand = async (
       input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANUpdateDevice(input.LoRaWAN, context) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1893,10 +1927,11 @@ export const serializeAws_restJson1UpdateWirelessGatewayCommand = async (
   input: UpdateWirelessGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/wireless-gateways/{Id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
@@ -1917,7 +1952,6 @@ export const serializeAws_restJson1UpdateWirelessGatewayCommand = async (
     ...(input.NetIdFilters !== undefined &&
       input.NetIdFilters !== null && { NetIdFilters: serializeAws_restJson1NetIdFilters(input.NetIdFilters, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1943,7 +1977,7 @@ export const deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Sidewalk !== undefined && data.Sidewalk !== null) {
     contents.Sidewalk = deserializeAws_restJson1SidewalkAccountInfo(data.Sidewalk, context);
@@ -2132,7 +2166,7 @@ export const deserializeAws_restJson1AssociateWirelessGatewayWithCertificateComm
   };
   const data: any = await parseBody(output.body, context);
   if (data.IotCertificateId !== undefined && data.IotCertificateId !== null) {
-    contents.IotCertificateId = data.IotCertificateId;
+    contents.IotCertificateId = __expectString(data.IotCertificateId);
   }
   return Promise.resolve(contents);
 };
@@ -2319,10 +2353,10 @@ export const deserializeAws_restJson1CreateDestinationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   return Promise.resolve(contents);
 };
@@ -2418,10 +2452,10 @@ export const deserializeAws_restJson1CreateDeviceProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -2509,10 +2543,10 @@ export const deserializeAws_restJson1CreateServiceProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -2600,10 +2634,10 @@ export const deserializeAws_restJson1CreateWirelessDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -2699,10 +2733,10 @@ export const deserializeAws_restJson1CreateWirelessGatewayCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -2790,10 +2824,10 @@ export const deserializeAws_restJson1CreateWirelessGatewayTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.WirelessGatewayTaskDefinitionId !== undefined && data.WirelessGatewayTaskDefinitionId !== null) {
-    contents.WirelessGatewayTaskDefinitionId = data.WirelessGatewayTaskDefinitionId;
+    contents.WirelessGatewayTaskDefinitionId = __expectString(data.WirelessGatewayTaskDefinitionId);
   }
   return Promise.resolve(contents);
 };
@@ -2889,10 +2923,10 @@ export const deserializeAws_restJson1CreateWirelessGatewayTaskDefinitionCommand 
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   return Promise.resolve(contents);
 };
@@ -3937,22 +3971,22 @@ export const deserializeAws_restJson1GetDestinationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Expression !== undefined && data.Expression !== null) {
-    contents.Expression = data.Expression;
+    contents.Expression = __expectString(data.Expression);
   }
   if (data.ExpressionType !== undefined && data.ExpressionType !== null) {
-    contents.ExpressionType = data.ExpressionType;
+    contents.ExpressionType = __expectString(data.ExpressionType);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.RoleArn !== undefined && data.RoleArn !== null) {
-    contents.RoleArn = data.RoleArn;
+    contents.RoleArn = __expectString(data.RoleArn);
   }
   return Promise.resolve(contents);
 };
@@ -4042,16 +4076,16 @@ export const deserializeAws_restJson1GetDeviceProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANDeviceProfile(data.LoRaWAN, context);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   return Promise.resolve(contents);
 };
@@ -4140,7 +4174,7 @@ export const deserializeAws_restJson1GetLogLevelsByResourceTypesCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.DefaultLogLevel !== undefined && data.DefaultLogLevel !== null) {
-    contents.DefaultLogLevel = data.DefaultLogLevel;
+    contents.DefaultLogLevel = __expectString(data.DefaultLogLevel);
   }
   if (data.WirelessDeviceLogOptions !== undefined && data.WirelessDeviceLogOptions !== null) {
     contents.WirelessDeviceLogOptions = deserializeAws_restJson1WirelessDeviceLogOptionList(
@@ -4240,7 +4274,7 @@ export const deserializeAws_restJson1GetPartnerAccountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountLinked !== undefined && data.AccountLinked !== null) {
-    contents.AccountLinked = data.AccountLinked;
+    contents.AccountLinked = __expectBoolean(data.AccountLinked);
   }
   if (data.Sidewalk !== undefined && data.Sidewalk !== null) {
     contents.Sidewalk = deserializeAws_restJson1SidewalkAccountInfoWithFingerprint(data.Sidewalk, context);
@@ -4322,7 +4356,7 @@ export const deserializeAws_restJson1GetResourceLogLevelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.LogLevel !== undefined && data.LogLevel !== null) {
-    contents.LogLevel = data.LogLevel;
+    contents.LogLevel = __expectString(data.LogLevel);
   }
   return Promise.resolve(contents);
 };
@@ -4411,13 +4445,13 @@ export const deserializeAws_restJson1GetServiceEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ServerTrust !== undefined && data.ServerTrust !== null) {
-    contents.ServerTrust = data.ServerTrust;
+    contents.ServerTrust = __expectString(data.ServerTrust);
   }
   if (data.ServiceEndpoint !== undefined && data.ServiceEndpoint !== null) {
-    contents.ServiceEndpoint = data.ServiceEndpoint;
+    contents.ServiceEndpoint = __expectString(data.ServiceEndpoint);
   }
   if (data.ServiceType !== undefined && data.ServiceType !== null) {
-    contents.ServiceType = data.ServiceType;
+    contents.ServiceType = __expectString(data.ServiceType);
   }
   return Promise.resolve(contents);
 };
@@ -4499,16 +4533,16 @@ export const deserializeAws_restJson1GetServiceProfileCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANGetServiceProfileInfo(data.LoRaWAN, context);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   return Promise.resolve(contents);
 };
@@ -4604,34 +4638,34 @@ export const deserializeAws_restJson1GetWirelessDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.DestinationName !== undefined && data.DestinationName !== null) {
-    contents.DestinationName = data.DestinationName;
+    contents.DestinationName = __expectString(data.DestinationName);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANDevice(data.LoRaWAN, context);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Sidewalk !== undefined && data.Sidewalk !== null) {
     contents.Sidewalk = deserializeAws_restJson1SidewalkDevice(data.Sidewalk, context);
   }
   if (data.ThingArn !== undefined && data.ThingArn !== null) {
-    contents.ThingArn = data.ThingArn;
+    contents.ThingArn = __expectString(data.ThingArn);
   }
   if (data.ThingName !== undefined && data.ThingName !== null) {
-    contents.ThingName = data.ThingName;
+    contents.ThingName = __expectString(data.ThingName);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return Promise.resolve(contents);
 };
@@ -4721,7 +4755,7 @@ export const deserializeAws_restJson1GetWirelessDeviceStatisticsCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.LastUplinkReceivedAt !== undefined && data.LastUplinkReceivedAt !== null) {
-    contents.LastUplinkReceivedAt = data.LastUplinkReceivedAt;
+    contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
   }
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANDeviceMetadata(data.LoRaWAN, context);
@@ -4730,7 +4764,7 @@ export const deserializeAws_restJson1GetWirelessDeviceStatisticsCommand = async 
     contents.Sidewalk = deserializeAws_restJson1SidewalkDeviceMetadata(data.Sidewalk, context);
   }
   if (data.WirelessDeviceId !== undefined && data.WirelessDeviceId !== null) {
-    contents.WirelessDeviceId = data.WirelessDeviceId;
+    contents.WirelessDeviceId = __expectString(data.WirelessDeviceId);
   }
   return Promise.resolve(contents);
 };
@@ -4823,25 +4857,25 @@ export const deserializeAws_restJson1GetWirelessGatewayCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Id !== undefined && data.Id !== null) {
-    contents.Id = data.Id;
+    contents.Id = __expectString(data.Id);
   }
   if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
     contents.LoRaWAN = deserializeAws_restJson1LoRaWANGateway(data.LoRaWAN, context);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.ThingArn !== undefined && data.ThingArn !== null) {
-    contents.ThingArn = data.ThingArn;
+    contents.ThingArn = __expectString(data.ThingArn);
   }
   if (data.ThingName !== undefined && data.ThingName !== null) {
-    contents.ThingName = data.ThingName;
+    contents.ThingName = __expectString(data.ThingName);
   }
   return Promise.resolve(contents);
 };
@@ -4929,10 +4963,10 @@ export const deserializeAws_restJson1GetWirelessGatewayCertificateCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.IotCertificateId !== undefined && data.IotCertificateId !== null) {
-    contents.IotCertificateId = data.IotCertificateId;
+    contents.IotCertificateId = __expectString(data.IotCertificateId);
   }
   if (data.LoRaWANNetworkServerCertificateId !== undefined && data.LoRaWANNetworkServerCertificateId !== null) {
-    contents.LoRaWANNetworkServerCertificateId = data.LoRaWANNetworkServerCertificateId;
+    contents.LoRaWANNetworkServerCertificateId = __expectString(data.LoRaWANNetworkServerCertificateId);
   }
   return Promise.resolve(contents);
 };
@@ -5108,13 +5142,13 @@ export const deserializeAws_restJson1GetWirelessGatewayStatisticsCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
-    contents.ConnectionStatus = data.ConnectionStatus;
+    contents.ConnectionStatus = __expectString(data.ConnectionStatus);
   }
   if (data.LastUplinkReceivedAt !== undefined && data.LastUplinkReceivedAt !== null) {
-    contents.LastUplinkReceivedAt = data.LastUplinkReceivedAt;
+    contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
   }
   if (data.WirelessGatewayId !== undefined && data.WirelessGatewayId !== null) {
-    contents.WirelessGatewayId = data.WirelessGatewayId;
+    contents.WirelessGatewayId = __expectString(data.WirelessGatewayId);
   }
   return Promise.resolve(contents);
 };
@@ -5205,19 +5239,19 @@ export const deserializeAws_restJson1GetWirelessGatewayTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.LastUplinkReceivedAt !== undefined && data.LastUplinkReceivedAt !== null) {
-    contents.LastUplinkReceivedAt = data.LastUplinkReceivedAt;
+    contents.LastUplinkReceivedAt = __expectString(data.LastUplinkReceivedAt);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.TaskCreatedAt !== undefined && data.TaskCreatedAt !== null) {
-    contents.TaskCreatedAt = data.TaskCreatedAt;
+    contents.TaskCreatedAt = __expectString(data.TaskCreatedAt);
   }
   if (data.WirelessGatewayId !== undefined && data.WirelessGatewayId !== null) {
-    contents.WirelessGatewayId = data.WirelessGatewayId;
+    contents.WirelessGatewayId = __expectString(data.WirelessGatewayId);
   }
   if (data.WirelessGatewayTaskDefinitionId !== undefined && data.WirelessGatewayTaskDefinitionId !== null) {
-    contents.WirelessGatewayTaskDefinitionId = data.WirelessGatewayTaskDefinitionId;
+    contents.WirelessGatewayTaskDefinitionId = __expectString(data.WirelessGatewayTaskDefinitionId);
   }
   return Promise.resolve(contents);
 };
@@ -5307,13 +5341,13 @@ export const deserializeAws_restJson1GetWirelessGatewayTaskDefinitionCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   if (data.AutoCreateTasks !== undefined && data.AutoCreateTasks !== null) {
-    contents.AutoCreateTasks = data.AutoCreateTasks;
+    contents.AutoCreateTasks = __expectBoolean(data.AutoCreateTasks);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Update !== undefined && data.Update !== null) {
     contents.Update = deserializeAws_restJson1UpdateWirelessGatewayTaskCreate(data.Update, context);
@@ -5407,7 +5441,7 @@ export const deserializeAws_restJson1ListDestinationsCommand = async (
     contents.DestinationList = deserializeAws_restJson1DestinationList(data.DestinationList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5490,7 +5524,7 @@ export const deserializeAws_restJson1ListDeviceProfilesCommand = async (
     contents.DeviceProfileList = deserializeAws_restJson1DeviceProfileList(data.DeviceProfileList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5570,7 +5604,7 @@ export const deserializeAws_restJson1ListPartnerAccountsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Sidewalk !== undefined && data.Sidewalk !== null) {
     contents.Sidewalk = deserializeAws_restJson1SidewalkAccountList(data.Sidewalk, context);
@@ -5653,7 +5687,7 @@ export const deserializeAws_restJson1ListServiceProfilesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ServiceProfileList !== undefined && data.ServiceProfileList !== null) {
     contents.ServiceProfileList = deserializeAws_restJson1ServiceProfileList(data.ServiceProfileList, context);
@@ -5823,7 +5857,7 @@ export const deserializeAws_restJson1ListWirelessDevicesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WirelessDeviceList !== undefined && data.WirelessDeviceList !== null) {
     contents.WirelessDeviceList = deserializeAws_restJson1WirelessDeviceStatisticsList(
@@ -5909,7 +5943,7 @@ export const deserializeAws_restJson1ListWirelessGatewaysCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WirelessGatewayList !== undefined && data.WirelessGatewayList !== null) {
     contents.WirelessGatewayList = deserializeAws_restJson1WirelessGatewayStatisticsList(
@@ -5995,7 +6029,7 @@ export const deserializeAws_restJson1ListWirelessGatewayTaskDefinitionsCommand =
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.TaskDefinitions !== undefined && data.TaskDefinitions !== null) {
     contents.TaskDefinitions = deserializeAws_restJson1WirelessGatewayTaskDefinitionList(data.TaskDefinitions, context);
@@ -6326,7 +6360,7 @@ export const deserializeAws_restJson1SendDataToWirelessDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MessageId !== undefined && data.MessageId !== null) {
-    contents.MessageId = data.MessageId;
+    contents.MessageId = __expectString(data.MessageId);
   }
   return Promise.resolve(contents);
 };
@@ -6496,7 +6530,7 @@ export const deserializeAws_restJson1TestWirelessDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Result !== undefined && data.Result !== null) {
-    contents.Result = data.Result;
+    contents.Result = __expectString(data.Result);
   }
   return Promise.resolve(contents);
 };
@@ -7072,7 +7106,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -7091,13 +7125,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -7114,7 +7148,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -7133,13 +7167,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -7156,7 +7190,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -7174,10 +7208,10 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceName !== undefined && data.ResourceName !== null) {
-    contents.ResourceName = data.ResourceName;
+    contents.ResourceName = __expectString(data.ResourceName);
   }
   return contents;
 };
@@ -7194,7 +7228,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -7596,7 +7630,7 @@ const serializeAws_restJson1WirelessMetadata = (input: WirelessMetadata, context
 
 const deserializeAws_restJson1AbpV1_0_x = (output: any, context: __SerdeContext): AbpV1_0_x => {
   return {
-    DevAddr: output.DevAddr !== undefined && output.DevAddr !== null ? output.DevAddr : undefined,
+    DevAddr: __expectString(output.DevAddr),
     SessionKeys:
       output.SessionKeys !== undefined && output.SessionKeys !== null
         ? deserializeAws_restJson1SessionKeysAbpV1_0_x(output.SessionKeys, context)
@@ -7606,7 +7640,7 @@ const deserializeAws_restJson1AbpV1_0_x = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1AbpV1_1 = (output: any, context: __SerdeContext): AbpV1_1 => {
   return {
-    DevAddr: output.DevAddr !== undefined && output.DevAddr !== null ? output.DevAddr : undefined,
+    DevAddr: __expectString(output.DevAddr),
     SessionKeys:
       output.SessionKeys !== undefined && output.SessionKeys !== null
         ? deserializeAws_restJson1SessionKeysAbpV1_1(output.SessionKeys, context)
@@ -7616,8 +7650,8 @@ const deserializeAws_restJson1AbpV1_1 = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1CertificateList = (output: any, context: __SerdeContext): CertificateList => {
   return {
-    SigningAlg: output.SigningAlg !== undefined && output.SigningAlg !== null ? output.SigningAlg : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    SigningAlg: __expectString(output.SigningAlg),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -7634,13 +7668,12 @@ const deserializeAws_restJson1DestinationList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Destinations = (output: any, context: __SerdeContext): Destinations => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined,
-    ExpressionType:
-      output.ExpressionType !== undefined && output.ExpressionType !== null ? output.ExpressionType : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    Arn: __expectString(output.Arn),
+    Description: __expectString(output.Description),
+    Expression: __expectString(output.Expression),
+    ExpressionType: __expectString(output.ExpressionType),
+    Name: __expectString(output.Name),
+    RoleArn: __expectString(output.RoleArn),
   } as any;
 };
 
@@ -7657,9 +7690,9 @@ const deserializeAws_restJson1DeviceCertificateList = (output: any, context: __S
 
 const deserializeAws_restJson1DeviceProfile = (output: any, context: __SerdeContext): DeviceProfile => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -7681,7 +7714,7 @@ const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -7703,7 +7736,7 @@ const deserializeAws_restJson1JoinEuiRange = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7717,9 +7750,8 @@ const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeCont
       output.AbpV1_1 !== undefined && output.AbpV1_1 !== null
         ? deserializeAws_restJson1AbpV1_1(output.AbpV1_1, context)
         : undefined,
-    DevEui: output.DevEui !== undefined && output.DevEui !== null ? output.DevEui : undefined,
-    DeviceProfileId:
-      output.DeviceProfileId !== undefined && output.DeviceProfileId !== null ? output.DeviceProfileId : undefined,
+    DevEui: __expectString(output.DevEui),
+    DeviceProfileId: __expectString(output.DeviceProfileId),
     OtaaV1_0_x:
       output.OtaaV1_0_x !== undefined && output.OtaaV1_0_x !== null
         ? deserializeAws_restJson1OtaaV1_0_x(output.OtaaV1_0_x, context)
@@ -7728,66 +7760,54 @@ const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeCont
       output.OtaaV1_1 !== undefined && output.OtaaV1_1 !== null
         ? deserializeAws_restJson1OtaaV1_1(output.OtaaV1_1, context)
         : undefined,
-    ServiceProfileId:
-      output.ServiceProfileId !== undefined && output.ServiceProfileId !== null ? output.ServiceProfileId : undefined,
+    ServiceProfileId: __expectString(output.ServiceProfileId),
   } as any;
 };
 
 const deserializeAws_restJson1LoRaWANDeviceMetadata = (output: any, context: __SerdeContext): LoRaWANDeviceMetadata => {
   return {
-    DataRate: output.DataRate !== undefined && output.DataRate !== null ? output.DataRate : undefined,
-    DevEui: output.DevEui !== undefined && output.DevEui !== null ? output.DevEui : undefined,
-    FPort: output.FPort !== undefined && output.FPort !== null ? output.FPort : undefined,
-    Frequency: output.Frequency !== undefined && output.Frequency !== null ? output.Frequency : undefined,
+    DataRate: __expectNumber(output.DataRate),
+    DevEui: __expectString(output.DevEui),
+    FPort: __expectNumber(output.FPort),
+    Frequency: __expectNumber(output.Frequency),
     Gateways:
       output.Gateways !== undefined && output.Gateways !== null
         ? deserializeAws_restJson1LoRaWANGatewayMetadataList(output.Gateways, context)
         : undefined,
-    Timestamp: output.Timestamp !== undefined && output.Timestamp !== null ? output.Timestamp : undefined,
+    Timestamp: __expectString(output.Timestamp),
   } as any;
 };
 
 const deserializeAws_restJson1LoRaWANDeviceProfile = (output: any, context: __SerdeContext): LoRaWANDeviceProfile => {
   return {
-    ClassBTimeout:
-      output.ClassBTimeout !== undefined && output.ClassBTimeout !== null ? output.ClassBTimeout : undefined,
-    ClassCTimeout:
-      output.ClassCTimeout !== undefined && output.ClassCTimeout !== null ? output.ClassCTimeout : undefined,
+    ClassBTimeout: __expectNumber(output.ClassBTimeout),
+    ClassCTimeout: __expectNumber(output.ClassCTimeout),
     FactoryPresetFreqsList:
       output.FactoryPresetFreqsList !== undefined && output.FactoryPresetFreqsList !== null
         ? deserializeAws_restJson1FactoryPresetFreqsList(output.FactoryPresetFreqsList, context)
         : undefined,
-    MacVersion: output.MacVersion !== undefined && output.MacVersion !== null ? output.MacVersion : undefined,
-    MaxDutyCycle: output.MaxDutyCycle !== undefined && output.MaxDutyCycle !== null ? output.MaxDutyCycle : undefined,
-    MaxEirp: output.MaxEirp !== undefined && output.MaxEirp !== null ? output.MaxEirp : undefined,
-    PingSlotDr: output.PingSlotDr !== undefined && output.PingSlotDr !== null ? output.PingSlotDr : undefined,
-    PingSlotFreq: output.PingSlotFreq !== undefined && output.PingSlotFreq !== null ? output.PingSlotFreq : undefined,
-    PingSlotPeriod:
-      output.PingSlotPeriod !== undefined && output.PingSlotPeriod !== null ? output.PingSlotPeriod : undefined,
-    RegParamsRevision:
-      output.RegParamsRevision !== undefined && output.RegParamsRevision !== null
-        ? output.RegParamsRevision
-        : undefined,
-    RfRegion: output.RfRegion !== undefined && output.RfRegion !== null ? output.RfRegion : undefined,
-    RxDataRate2: output.RxDataRate2 !== undefined && output.RxDataRate2 !== null ? output.RxDataRate2 : undefined,
-    RxDelay1: output.RxDelay1 !== undefined && output.RxDelay1 !== null ? output.RxDelay1 : undefined,
-    RxDrOffset1: output.RxDrOffset1 !== undefined && output.RxDrOffset1 !== null ? output.RxDrOffset1 : undefined,
-    RxFreq2: output.RxFreq2 !== undefined && output.RxFreq2 !== null ? output.RxFreq2 : undefined,
-    Supports32BitFCnt:
-      output.Supports32BitFCnt !== undefined && output.Supports32BitFCnt !== null
-        ? output.Supports32BitFCnt
-        : undefined,
-    SupportsClassB:
-      output.SupportsClassB !== undefined && output.SupportsClassB !== null ? output.SupportsClassB : undefined,
-    SupportsClassC:
-      output.SupportsClassC !== undefined && output.SupportsClassC !== null ? output.SupportsClassC : undefined,
-    SupportsJoin: output.SupportsJoin !== undefined && output.SupportsJoin !== null ? output.SupportsJoin : undefined,
+    MacVersion: __expectString(output.MacVersion),
+    MaxDutyCycle: __expectNumber(output.MaxDutyCycle),
+    MaxEirp: __expectNumber(output.MaxEirp),
+    PingSlotDr: __expectNumber(output.PingSlotDr),
+    PingSlotFreq: __expectNumber(output.PingSlotFreq),
+    PingSlotPeriod: __expectNumber(output.PingSlotPeriod),
+    RegParamsRevision: __expectString(output.RegParamsRevision),
+    RfRegion: __expectString(output.RfRegion),
+    RxDataRate2: __expectNumber(output.RxDataRate2),
+    RxDelay1: __expectNumber(output.RxDelay1),
+    RxDrOffset1: __expectNumber(output.RxDrOffset1),
+    RxFreq2: __expectNumber(output.RxFreq2),
+    Supports32BitFCnt: __expectBoolean(output.Supports32BitFCnt),
+    SupportsClassB: __expectBoolean(output.SupportsClassB),
+    SupportsClassC: __expectBoolean(output.SupportsClassC),
+    SupportsJoin: __expectBoolean(output.SupportsJoin),
   } as any;
 };
 
 const deserializeAws_restJson1LoRaWANGateway = (output: any, context: __SerdeContext): LoRaWANGateway => {
   return {
-    GatewayEui: output.GatewayEui !== undefined && output.GatewayEui !== null ? output.GatewayEui : undefined,
+    GatewayEui: __expectString(output.GatewayEui),
     JoinEuiFilters:
       output.JoinEuiFilters !== undefined && output.JoinEuiFilters !== null
         ? deserializeAws_restJson1JoinEuiFilters(output.JoinEuiFilters, context)
@@ -7796,7 +7816,7 @@ const deserializeAws_restJson1LoRaWANGateway = (output: any, context: __SerdeCon
       output.NetIdFilters !== undefined && output.NetIdFilters !== null
         ? deserializeAws_restJson1NetIdFilters(output.NetIdFilters, context)
         : undefined,
-    RfRegion: output.RfRegion !== undefined && output.RfRegion !== null ? output.RfRegion : undefined,
+    RfRegion: __expectString(output.RfRegion),
     SubBands:
       output.SubBands !== undefined && output.SubBands !== null
         ? deserializeAws_restJson1SubBands(output.SubBands, context)
@@ -7821,9 +7841,9 @@ const deserializeAws_restJson1LoRaWANGatewayMetadata = (
   context: __SerdeContext
 ): LoRaWANGatewayMetadata => {
   return {
-    GatewayEui: output.GatewayEui !== undefined && output.GatewayEui !== null ? output.GatewayEui : undefined,
-    Rssi: output.Rssi !== undefined && output.Rssi !== null ? output.Rssi : undefined,
-    Snr: output.Snr !== undefined && output.Snr !== null ? output.Snr : undefined,
+    GatewayEui: __expectString(output.GatewayEui),
+    Rssi: __handleFloat(output.Rssi),
+    Snr: __handleFloat(output.Snr),
   } as any;
 };
 
@@ -7843,10 +7863,9 @@ const deserializeAws_restJson1LoRaWANGatewayMetadataList = (
 
 const deserializeAws_restJson1LoRaWANGatewayVersion = (output: any, context: __SerdeContext): LoRaWANGatewayVersion => {
   return {
-    Model: output.Model !== undefined && output.Model !== null ? output.Model : undefined,
-    PackageVersion:
-      output.PackageVersion !== undefined && output.PackageVersion !== null ? output.PackageVersion : undefined,
-    Station: output.Station !== undefined && output.Station !== null ? output.Station : undefined,
+    Model: __expectString(output.Model),
+    PackageVersion: __expectString(output.PackageVersion),
+    Station: __expectString(output.Station),
   } as any;
 };
 
@@ -7855,40 +7874,31 @@ const deserializeAws_restJson1LoRaWANGetServiceProfileInfo = (
   context: __SerdeContext
 ): LoRaWANGetServiceProfileInfo => {
   return {
-    AddGwMetadata:
-      output.AddGwMetadata !== undefined && output.AddGwMetadata !== null ? output.AddGwMetadata : undefined,
-    ChannelMask: output.ChannelMask !== undefined && output.ChannelMask !== null ? output.ChannelMask : undefined,
-    DevStatusReqFreq:
-      output.DevStatusReqFreq !== undefined && output.DevStatusReqFreq !== null ? output.DevStatusReqFreq : undefined,
-    DlBucketSize: output.DlBucketSize !== undefined && output.DlBucketSize !== null ? output.DlBucketSize : undefined,
-    DlRate: output.DlRate !== undefined && output.DlRate !== null ? output.DlRate : undefined,
-    DlRatePolicy: output.DlRatePolicy !== undefined && output.DlRatePolicy !== null ? output.DlRatePolicy : undefined,
-    DrMax: output.DrMax !== undefined && output.DrMax !== null ? output.DrMax : undefined,
-    DrMin: output.DrMin !== undefined && output.DrMin !== null ? output.DrMin : undefined,
-    HrAllowed: output.HrAllowed !== undefined && output.HrAllowed !== null ? output.HrAllowed : undefined,
-    MinGwDiversity:
-      output.MinGwDiversity !== undefined && output.MinGwDiversity !== null ? output.MinGwDiversity : undefined,
-    NwkGeoLoc: output.NwkGeoLoc !== undefined && output.NwkGeoLoc !== null ? output.NwkGeoLoc : undefined,
-    PrAllowed: output.PrAllowed !== undefined && output.PrAllowed !== null ? output.PrAllowed : undefined,
-    RaAllowed: output.RaAllowed !== undefined && output.RaAllowed !== null ? output.RaAllowed : undefined,
-    ReportDevStatusBattery:
-      output.ReportDevStatusBattery !== undefined && output.ReportDevStatusBattery !== null
-        ? output.ReportDevStatusBattery
-        : undefined,
-    ReportDevStatusMargin:
-      output.ReportDevStatusMargin !== undefined && output.ReportDevStatusMargin !== null
-        ? output.ReportDevStatusMargin
-        : undefined,
-    TargetPer: output.TargetPer !== undefined && output.TargetPer !== null ? output.TargetPer : undefined,
-    UlBucketSize: output.UlBucketSize !== undefined && output.UlBucketSize !== null ? output.UlBucketSize : undefined,
-    UlRate: output.UlRate !== undefined && output.UlRate !== null ? output.UlRate : undefined,
-    UlRatePolicy: output.UlRatePolicy !== undefined && output.UlRatePolicy !== null ? output.UlRatePolicy : undefined,
+    AddGwMetadata: __expectBoolean(output.AddGwMetadata),
+    ChannelMask: __expectString(output.ChannelMask),
+    DevStatusReqFreq: __expectNumber(output.DevStatusReqFreq),
+    DlBucketSize: __expectNumber(output.DlBucketSize),
+    DlRate: __expectNumber(output.DlRate),
+    DlRatePolicy: __expectString(output.DlRatePolicy),
+    DrMax: __expectNumber(output.DrMax),
+    DrMin: __expectNumber(output.DrMin),
+    HrAllowed: __expectBoolean(output.HrAllowed),
+    MinGwDiversity: __expectNumber(output.MinGwDiversity),
+    NwkGeoLoc: __expectBoolean(output.NwkGeoLoc),
+    PrAllowed: __expectBoolean(output.PrAllowed),
+    RaAllowed: __expectBoolean(output.RaAllowed),
+    ReportDevStatusBattery: __expectBoolean(output.ReportDevStatusBattery),
+    ReportDevStatusMargin: __expectBoolean(output.ReportDevStatusMargin),
+    TargetPer: __expectNumber(output.TargetPer),
+    UlBucketSize: __expectNumber(output.UlBucketSize),
+    UlRate: __expectNumber(output.UlRate),
+    UlRatePolicy: __expectString(output.UlRatePolicy),
   } as any;
 };
 
 const deserializeAws_restJson1LoRaWANListDevice = (output: any, context: __SerdeContext): LoRaWANListDevice => {
   return {
-    DevEui: output.DevEui !== undefined && output.DevEui !== null ? output.DevEui : undefined,
+    DevEui: __expectString(output.DevEui),
   } as any;
 };
 
@@ -7901,9 +7911,8 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
       output.CurrentVersion !== undefined && output.CurrentVersion !== null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.CurrentVersion, context)
         : undefined,
-    SigKeyCrc: output.SigKeyCrc !== undefined && output.SigKeyCrc !== null ? output.SigKeyCrc : undefined,
-    UpdateSignature:
-      output.UpdateSignature !== undefined && output.UpdateSignature !== null ? output.UpdateSignature : undefined,
+    SigKeyCrc: __expectNumber(output.SigKeyCrc),
+    UpdateSignature: __expectString(output.UpdateSignature),
     UpdateVersion:
       output.UpdateVersion !== undefined && output.UpdateVersion !== null
         ? deserializeAws_restJson1LoRaWANGatewayVersion(output.UpdateVersion, context)
@@ -7934,30 +7943,30 @@ const deserializeAws_restJson1NetIdFilters = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1OtaaV1_0_x = (output: any, context: __SerdeContext): OtaaV1_0_x => {
   return {
-    AppEui: output.AppEui !== undefined && output.AppEui !== null ? output.AppEui : undefined,
-    AppKey: output.AppKey !== undefined && output.AppKey !== null ? output.AppKey : undefined,
+    AppEui: __expectString(output.AppEui),
+    AppKey: __expectString(output.AppKey),
   } as any;
 };
 
 const deserializeAws_restJson1OtaaV1_1 = (output: any, context: __SerdeContext): OtaaV1_1 => {
   return {
-    AppKey: output.AppKey !== undefined && output.AppKey !== null ? output.AppKey : undefined,
-    JoinEui: output.JoinEui !== undefined && output.JoinEui !== null ? output.JoinEui : undefined,
-    NwkKey: output.NwkKey !== undefined && output.NwkKey !== null ? output.NwkKey : undefined,
+    AppKey: __expectString(output.AppKey),
+    JoinEui: __expectString(output.JoinEui),
+    NwkKey: __expectString(output.NwkKey),
   } as any;
 };
 
 const deserializeAws_restJson1ServiceProfile = (output: any, context: __SerdeContext): ServiceProfile => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -7974,27 +7983,24 @@ const deserializeAws_restJson1ServiceProfileList = (output: any, context: __Serd
 
 const deserializeAws_restJson1SessionKeysAbpV1_0_x = (output: any, context: __SerdeContext): SessionKeysAbpV1_0_x => {
   return {
-    AppSKey: output.AppSKey !== undefined && output.AppSKey !== null ? output.AppSKey : undefined,
-    NwkSKey: output.NwkSKey !== undefined && output.NwkSKey !== null ? output.NwkSKey : undefined,
+    AppSKey: __expectString(output.AppSKey),
+    NwkSKey: __expectString(output.NwkSKey),
   } as any;
 };
 
 const deserializeAws_restJson1SessionKeysAbpV1_1 = (output: any, context: __SerdeContext): SessionKeysAbpV1_1 => {
   return {
-    AppSKey: output.AppSKey !== undefined && output.AppSKey !== null ? output.AppSKey : undefined,
-    FNwkSIntKey: output.FNwkSIntKey !== undefined && output.FNwkSIntKey !== null ? output.FNwkSIntKey : undefined,
-    NwkSEncKey: output.NwkSEncKey !== undefined && output.NwkSEncKey !== null ? output.NwkSEncKey : undefined,
-    SNwkSIntKey: output.SNwkSIntKey !== undefined && output.SNwkSIntKey !== null ? output.SNwkSIntKey : undefined,
+    AppSKey: __expectString(output.AppSKey),
+    FNwkSIntKey: __expectString(output.FNwkSIntKey),
+    NwkSEncKey: __expectString(output.NwkSEncKey),
+    SNwkSIntKey: __expectString(output.SNwkSIntKey),
   } as any;
 };
 
 const deserializeAws_restJson1SidewalkAccountInfo = (output: any, context: __SerdeContext): SidewalkAccountInfo => {
   return {
-    AmazonId: output.AmazonId !== undefined && output.AmazonId !== null ? output.AmazonId : undefined,
-    AppServerPrivateKey:
-      output.AppServerPrivateKey !== undefined && output.AppServerPrivateKey !== null
-        ? output.AppServerPrivateKey
-        : undefined,
+    AmazonId: __expectString(output.AmazonId),
+    AppServerPrivateKey: __expectString(output.AppServerPrivateKey),
   } as any;
 };
 
@@ -8003,9 +8009,9 @@ const deserializeAws_restJson1SidewalkAccountInfoWithFingerprint = (
   context: __SerdeContext
 ): SidewalkAccountInfoWithFingerprint => {
   return {
-    AmazonId: output.AmazonId !== undefined && output.AmazonId !== null ? output.AmazonId : undefined,
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Fingerprint: output.Fingerprint !== undefined && output.Fingerprint !== null ? output.Fingerprint : undefined,
+    AmazonId: __expectString(output.AmazonId),
+    Arn: __expectString(output.Arn),
+    Fingerprint: __expectString(output.Fingerprint),
   } as any;
 };
 
@@ -8029,11 +8035,8 @@ const deserializeAws_restJson1SidewalkDevice = (output: any, context: __SerdeCon
       output.DeviceCertificates !== undefined && output.DeviceCertificates !== null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)
         : undefined,
-    SidewalkId: output.SidewalkId !== undefined && output.SidewalkId !== null ? output.SidewalkId : undefined,
-    SidewalkManufacturingSn:
-      output.SidewalkManufacturingSn !== undefined && output.SidewalkManufacturingSn !== null
-        ? output.SidewalkManufacturingSn
-        : undefined,
+    SidewalkId: __expectString(output.SidewalkId),
+    SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
   } as any;
 };
 
@@ -8042,25 +8045,22 @@ const deserializeAws_restJson1SidewalkDeviceMetadata = (
   context: __SerdeContext
 ): SidewalkDeviceMetadata => {
   return {
-    BatteryLevel: output.BatteryLevel !== undefined && output.BatteryLevel !== null ? output.BatteryLevel : undefined,
-    DeviceState: output.DeviceState !== undefined && output.DeviceState !== null ? output.DeviceState : undefined,
-    Event: output.Event !== undefined && output.Event !== null ? output.Event : undefined,
-    Rssi: output.Rssi !== undefined && output.Rssi !== null ? output.Rssi : undefined,
+    BatteryLevel: __expectString(output.BatteryLevel),
+    DeviceState: __expectString(output.DeviceState),
+    Event: __expectString(output.Event),
+    Rssi: __expectNumber(output.Rssi),
   } as any;
 };
 
 const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __SerdeContext): SidewalkListDevice => {
   return {
-    AmazonId: output.AmazonId !== undefined && output.AmazonId !== null ? output.AmazonId : undefined,
+    AmazonId: __expectString(output.AmazonId),
     DeviceCertificates:
       output.DeviceCertificates !== undefined && output.DeviceCertificates !== null
         ? deserializeAws_restJson1DeviceCertificateList(output.DeviceCertificates, context)
         : undefined,
-    SidewalkId: output.SidewalkId !== undefined && output.SidewalkId !== null ? output.SidewalkId : undefined,
-    SidewalkManufacturingSn:
-      output.SidewalkManufacturingSn !== undefined && output.SidewalkManufacturingSn !== null
-        ? output.SidewalkManufacturingSn
-        : undefined,
+    SidewalkId: __expectString(output.SidewalkId),
+    SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
   } as any;
 };
 
@@ -8071,14 +8071,14 @@ const deserializeAws_restJson1SubBands = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -8102,10 +8102,8 @@ const deserializeAws_restJson1UpdateWirelessGatewayTaskCreate = (
       output.LoRaWAN !== undefined && output.LoRaWAN !== null
         ? deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate(output.LoRaWAN, context)
         : undefined,
-    UpdateDataRole:
-      output.UpdateDataRole !== undefined && output.UpdateDataRole !== null ? output.UpdateDataRole : undefined,
-    UpdateDataSource:
-      output.UpdateDataSource !== undefined && output.UpdateDataSource !== null ? output.UpdateDataSource : undefined,
+    UpdateDataRole: __expectString(output.UpdateDataRole),
+    UpdateDataSource: __expectString(output.UpdateDataSource),
   } as any;
 };
 
@@ -8114,8 +8112,8 @@ const deserializeAws_restJson1UpdateWirelessGatewayTaskEntry = (
   context: __SerdeContext
 ): UpdateWirelessGatewayTaskEntry => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
     LoRaWAN:
       output.LoRaWAN !== undefined && output.LoRaWAN !== null
         ? deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry(output.LoRaWAN, context)
@@ -8128,8 +8126,8 @@ const deserializeAws_restJson1WirelessDeviceEventLogOption = (
   context: __SerdeContext
 ): WirelessDeviceEventLogOption => {
   return {
-    Event: output.Event !== undefined && output.Event !== null ? output.Event : undefined,
-    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
+    Event: __expectString(output.Event),
+    LogLevel: __expectString(output.LogLevel),
   } as any;
 };
 
@@ -8156,8 +8154,8 @@ const deserializeAws_restJson1WirelessDeviceLogOption = (
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_restJson1WirelessDeviceEventLogOptionList(output.Events, context)
         : undefined,
-    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    LogLevel: __expectString(output.LogLevel),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8180,24 +8178,20 @@ const deserializeAws_restJson1WirelessDeviceStatistics = (
   context: __SerdeContext
 ): WirelessDeviceStatistics => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    DestinationName:
-      output.DestinationName !== undefined && output.DestinationName !== null ? output.DestinationName : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    LastUplinkReceivedAt:
-      output.LastUplinkReceivedAt !== undefined && output.LastUplinkReceivedAt !== null
-        ? output.LastUplinkReceivedAt
-        : undefined,
+    Arn: __expectString(output.Arn),
+    DestinationName: __expectString(output.DestinationName),
+    Id: __expectString(output.Id),
+    LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
     LoRaWAN:
       output.LoRaWAN !== undefined && output.LoRaWAN !== null
         ? deserializeAws_restJson1LoRaWANListDevice(output.LoRaWAN, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     Sidewalk:
       output.Sidewalk !== undefined && output.Sidewalk !== null
         ? deserializeAws_restJson1SidewalkListDevice(output.Sidewalk, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8220,8 +8214,8 @@ const deserializeAws_restJson1WirelessGatewayEventLogOption = (
   context: __SerdeContext
 ): WirelessGatewayEventLogOption => {
   return {
-    Event: output.Event !== undefined && output.Event !== null ? output.Event : undefined,
-    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
+    Event: __expectString(output.Event),
+    LogLevel: __expectString(output.LogLevel),
   } as any;
 };
 
@@ -8248,8 +8242,8 @@ const deserializeAws_restJson1WirelessGatewayLogOption = (
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_restJson1WirelessGatewayEventLogOptionList(output.Events, context)
         : undefined,
-    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    LogLevel: __expectString(output.LogLevel),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8272,18 +8266,15 @@ const deserializeAws_restJson1WirelessGatewayStatistics = (
   context: __SerdeContext
 ): WirelessGatewayStatistics => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    LastUplinkReceivedAt:
-      output.LastUplinkReceivedAt !== undefined && output.LastUplinkReceivedAt !== null
-        ? output.LastUplinkReceivedAt
-        : undefined,
+    Arn: __expectString(output.Arn),
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
     LoRaWAN:
       output.LoRaWAN !== undefined && output.LoRaWAN !== null
         ? deserializeAws_restJson1LoRaWANGateway(output.LoRaWAN, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
   } as any;
 };
 

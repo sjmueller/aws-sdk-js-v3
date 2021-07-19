@@ -21,6 +21,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -34,8 +36,10 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
   input: DeleteThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/things/{thingName}/shadow";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -49,7 +53,6 @@ export const serializeAws_restJson1DeleteThingShadowCommand = async (
     ...(input.shadowName !== undefined && { name: input.shadowName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -66,8 +69,10 @@ export const serializeAws_restJson1GetThingShadowCommand = async (
   input: GetThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/things/{thingName}/shadow";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -81,7 +86,6 @@ export const serializeAws_restJson1GetThingShadowCommand = async (
     ...(input.shadowName !== undefined && { name: input.shadowName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -98,8 +102,11 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
   input: ListNamedShadowsForThingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/api/things/shadow/ListNamedShadowsForThing/{thingName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/api/things/shadow/ListNamedShadowsForThing/{thingName}";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -114,7 +121,6 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -131,10 +137,11 @@ export const serializeAws_restJson1PublishCommand = async (
   input: PublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/topics/{topic}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/topics/{topic}";
   if (input.topic !== undefined) {
     const labelValue: string = input.topic;
     if (labelValue.length <= 0) {
@@ -151,7 +158,6 @@ export const serializeAws_restJson1PublishCommand = async (
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -168,10 +174,12 @@ export const serializeAws_restJson1UpdateThingShadowCommand = async (
   input: UpdateThingShadowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/things/{thingName}/shadow";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -188,7 +196,6 @@ export const serializeAws_restJson1UpdateThingShadowCommand = async (
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -434,13 +441,13 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.results !== undefined && data.results !== null) {
     contents.results = deserializeAws_restJson1NamedShadowList(data.results, context);
   }
   if (data.timestamp !== undefined && data.timestamp !== null) {
-    contents.timestamp = data.timestamp;
+    contents.timestamp = __expectNumber(data.timestamp);
   }
   return Promise.resolve(contents);
 };
@@ -734,7 +741,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -751,7 +758,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -768,7 +775,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -785,7 +792,7 @@ const deserializeAws_restJson1MethodNotAllowedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -802,7 +809,7 @@ const deserializeAws_restJson1RequestEntityTooLargeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -819,7 +826,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -836,7 +843,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -853,7 +860,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -870,7 +877,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -887,7 +894,7 @@ const deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse = asy
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -899,7 +906,7 @@ const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

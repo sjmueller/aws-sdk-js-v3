@@ -115,6 +115,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -128,8 +131,11 @@ export const serializeAws_restJson1AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -158,7 +164,6 @@ export const serializeAws_restJson1AbortMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -174,8 +179,11 @@ export const serializeAws_restJson1AbortVaultLockCommand = async (
   input: AbortVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -195,7 +203,6 @@ export const serializeAws_restJson1AbortVaultLockCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -211,10 +218,12 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   input: AddTagsToVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -240,7 +249,6 @@ export const serializeAws_restJson1AddTagsToVaultCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -257,11 +265,14 @@ export const serializeAws_restJson1CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.archiveSize) && { "x-amz-archive-size": input.archiveSize! }),
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -290,7 +301,6 @@ export const serializeAws_restJson1CompleteMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: uploadId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -306,8 +316,11 @@ export const serializeAws_restJson1CompleteVaultLockCommand = async (
   input: CompleteVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -336,7 +349,6 @@ export const serializeAws_restJson1CompleteVaultLockCommand = async (
     throw new Error("No value provided for input HTTP label: lockId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -352,8 +364,10 @@ export const serializeAws_restJson1CreateVaultCommand = async (
   input: CreateVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -373,7 +387,6 @@ export const serializeAws_restJson1CreateVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -389,8 +402,11 @@ export const serializeAws_restJson1DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -419,7 +435,6 @@ export const serializeAws_restJson1DeleteArchiveCommand = async (
     throw new Error("No value provided for input HTTP label: archiveId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -435,8 +450,10 @@ export const serializeAws_restJson1DeleteVaultCommand = async (
   input: DeleteVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -456,7 +473,6 @@ export const serializeAws_restJson1DeleteVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -472,8 +488,11 @@ export const serializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
   input: DeleteVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -493,7 +512,6 @@ export const serializeAws_restJson1DeleteVaultAccessPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -509,8 +527,11 @@ export const serializeAws_restJson1DeleteVaultNotificationsCommand = async (
   input: DeleteVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/notification-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -530,7 +551,6 @@ export const serializeAws_restJson1DeleteVaultNotificationsCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -546,8 +566,11 @@ export const serializeAws_restJson1DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -576,7 +599,6 @@ export const serializeAws_restJson1DescribeJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -592,8 +614,10 @@ export const serializeAws_restJson1DescribeVaultCommand = async (
   input: DescribeVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -613,7 +637,6 @@ export const serializeAws_restJson1DescribeVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -629,8 +652,10 @@ export const serializeAws_restJson1GetDataRetrievalPolicyCommand = async (
   input: GetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/policies/data-retrieval";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -641,7 +666,6 @@ export const serializeAws_restJson1GetDataRetrievalPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -657,10 +681,13 @@ export const serializeAws_restJson1GetJobOutputCommand = async (
   input: GetJobOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.range) && { range: input.range! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -689,7 +716,6 @@ export const serializeAws_restJson1GetJobOutputCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -705,8 +731,11 @@ export const serializeAws_restJson1GetVaultAccessPolicyCommand = async (
   input: GetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -726,7 +755,6 @@ export const serializeAws_restJson1GetVaultAccessPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -742,8 +770,11 @@ export const serializeAws_restJson1GetVaultLockCommand = async (
   input: GetVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -763,7 +794,6 @@ export const serializeAws_restJson1GetVaultLockCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -779,8 +809,11 @@ export const serializeAws_restJson1GetVaultNotificationsCommand = async (
   input: GetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/notification-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -800,7 +833,6 @@ export const serializeAws_restJson1GetVaultNotificationsCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -816,10 +848,12 @@ export const serializeAws_restJson1InitiateJobCommand = async (
   input: InitiateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -846,7 +880,6 @@ export const serializeAws_restJson1InitiateJobCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -862,13 +895,16 @@ export const serializeAws_restJson1InitiateMultipartUploadCommand = async (
   input: InitiateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.archiveDescription) && {
       "x-amz-archive-description": input.archiveDescription!,
     }),
     ...(isSerializableHeaderValue(input.partSize) && { "x-amz-part-size": input.partSize! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -888,7 +924,6 @@ export const serializeAws_restJson1InitiateMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -904,10 +939,13 @@ export const serializeAws_restJson1InitiateVaultLockCommand = async (
   input: InitiateVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/lock-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/lock-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -934,7 +972,6 @@ export const serializeAws_restJson1InitiateVaultLockCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -950,8 +987,10 @@ export const serializeAws_restJson1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/jobs";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -977,7 +1016,6 @@ export const serializeAws_restJson1ListJobsCommand = async (
     ...(input.completed !== undefined && { completed: input.completed }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -994,8 +1032,11 @@ export const serializeAws_restJson1ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1019,7 +1060,6 @@ export const serializeAws_restJson1ListMultipartUploadsCommand = async (
     ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1036,8 +1076,11 @@ export const serializeAws_restJson1ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1070,7 +1113,6 @@ export const serializeAws_restJson1ListPartsCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1087,8 +1129,10 @@ export const serializeAws_restJson1ListProvisionedCapacityCommand = async (
   input: ListProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/provisioned-capacity";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1099,7 +1143,6 @@ export const serializeAws_restJson1ListProvisionedCapacityCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1115,8 +1158,10 @@ export const serializeAws_restJson1ListTagsForVaultCommand = async (
   input: ListTagsForVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1136,7 +1181,6 @@ export const serializeAws_restJson1ListTagsForVaultCommand = async (
     throw new Error("No value provided for input HTTP label: vaultName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1152,8 +1196,9 @@ export const serializeAws_restJson1ListVaultsCommand = async (
   input: ListVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/vaults";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1168,7 +1213,6 @@ export const serializeAws_restJson1ListVaultsCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1185,8 +1229,10 @@ export const serializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
   input: PurchaseProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{accountId}/provisioned-capacity";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/provisioned-capacity";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1197,7 +1243,6 @@ export const serializeAws_restJson1PurchaseProvisionedCapacityCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1213,10 +1258,12 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
   input: RemoveTagsFromVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/tags";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1243,7 +1290,6 @@ export const serializeAws_restJson1RemoveTagsFromVaultCommand = async (
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1260,10 +1306,12 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
   input: SetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/policies/data-retrieval";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1278,7 +1326,6 @@ export const serializeAws_restJson1SetDataRetrievalPolicyCommand = async (
     ...(input.Policy !== undefined &&
       input.Policy !== null && { Policy: serializeAws_restJson1DataRetrievalPolicy(input.Policy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1294,10 +1341,13 @@ export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
   input: SetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/access-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/access-policy";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1324,7 +1374,6 @@ export const serializeAws_restJson1SetVaultAccessPolicyCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1340,10 +1389,13 @@ export const serializeAws_restJson1SetVaultNotificationsCommand = async (
   input: SetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/notification-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/notification-configuration";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1370,7 +1422,6 @@ export const serializeAws_restJson1SetVaultNotificationsCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1386,6 +1437,7 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
   input: UploadArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.archiveDescription) && {
@@ -1393,7 +1445,8 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
     }),
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/archives";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/archives";
   if (input.vaultName !== undefined) {
     const labelValue: string = input.vaultName;
     if (labelValue.length <= 0) {
@@ -1416,7 +1469,6 @@ export const serializeAws_restJson1UploadArchiveCommand = async (
   if (input.body !== undefined) {
     body = input.body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1432,12 +1484,15 @@ export const serializeAws_restJson1UploadMultipartPartCommand = async (
   input: UploadMultipartPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
     ...(isSerializableHeaderValue(input.range) && { "content-range": input.range! }),
   };
-  let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {
     const labelValue: string = input.accountId;
     if (labelValue.length <= 0) {
@@ -1469,7 +1524,6 @@ export const serializeAws_restJson1UploadMultipartPartCommand = async (
   if (input.body !== undefined) {
     body = input.body;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2288,25 +2342,25 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Action !== undefined && data.Action !== null) {
-    contents.Action = data.Action;
+    contents.Action = __expectString(data.Action);
   }
   if (data.ArchiveId !== undefined && data.ArchiveId !== null) {
-    contents.ArchiveId = data.ArchiveId;
+    contents.ArchiveId = __expectString(data.ArchiveId);
   }
   if (data.ArchiveSHA256TreeHash !== undefined && data.ArchiveSHA256TreeHash !== null) {
-    contents.ArchiveSHA256TreeHash = data.ArchiveSHA256TreeHash;
+    contents.ArchiveSHA256TreeHash = __expectString(data.ArchiveSHA256TreeHash);
   }
   if (data.ArchiveSizeInBytes !== undefined && data.ArchiveSizeInBytes !== null) {
-    contents.ArchiveSizeInBytes = data.ArchiveSizeInBytes;
+    contents.ArchiveSizeInBytes = __expectNumber(data.ArchiveSizeInBytes);
   }
   if (data.Completed !== undefined && data.Completed !== null) {
-    contents.Completed = data.Completed;
+    contents.Completed = __expectBoolean(data.Completed);
   }
   if (data.CompletionDate !== undefined && data.CompletionDate !== null) {
-    contents.CompletionDate = data.CompletionDate;
+    contents.CompletionDate = __expectString(data.CompletionDate);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = data.CreationDate;
+    contents.CreationDate = __expectString(data.CreationDate);
   }
   if (data.InventoryRetrievalParameters !== undefined && data.InventoryRetrievalParameters !== null) {
     contents.InventoryRetrievalParameters = deserializeAws_restJson1InventoryRetrievalJobDescription(
@@ -2315,43 +2369,43 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     );
   }
   if (data.InventorySizeInBytes !== undefined && data.InventorySizeInBytes !== null) {
-    contents.InventorySizeInBytes = data.InventorySizeInBytes;
+    contents.InventorySizeInBytes = __expectNumber(data.InventorySizeInBytes);
   }
   if (data.JobDescription !== undefined && data.JobDescription !== null) {
-    contents.JobDescription = data.JobDescription;
+    contents.JobDescription = __expectString(data.JobDescription);
   }
   if (data.JobId !== undefined && data.JobId !== null) {
-    contents.JobId = data.JobId;
+    contents.JobId = __expectString(data.JobId);
   }
   if (data.JobOutputPath !== undefined && data.JobOutputPath !== null) {
-    contents.JobOutputPath = data.JobOutputPath;
+    contents.JobOutputPath = __expectString(data.JobOutputPath);
   }
   if (data.OutputLocation !== undefined && data.OutputLocation !== null) {
     contents.OutputLocation = deserializeAws_restJson1OutputLocation(data.OutputLocation, context);
   }
   if (data.RetrievalByteRange !== undefined && data.RetrievalByteRange !== null) {
-    contents.RetrievalByteRange = data.RetrievalByteRange;
+    contents.RetrievalByteRange = __expectString(data.RetrievalByteRange);
   }
   if (data.SHA256TreeHash !== undefined && data.SHA256TreeHash !== null) {
-    contents.SHA256TreeHash = data.SHA256TreeHash;
+    contents.SHA256TreeHash = __expectString(data.SHA256TreeHash);
   }
   if (data.SNSTopic !== undefined && data.SNSTopic !== null) {
-    contents.SNSTopic = data.SNSTopic;
+    contents.SNSTopic = __expectString(data.SNSTopic);
   }
   if (data.SelectParameters !== undefined && data.SelectParameters !== null) {
     contents.SelectParameters = deserializeAws_restJson1SelectParameters(data.SelectParameters, context);
   }
   if (data.StatusCode !== undefined && data.StatusCode !== null) {
-    contents.StatusCode = data.StatusCode;
+    contents.StatusCode = __expectString(data.StatusCode);
   }
   if (data.StatusMessage !== undefined && data.StatusMessage !== null) {
-    contents.StatusMessage = data.StatusMessage;
+    contents.StatusMessage = __expectString(data.StatusMessage);
   }
   if (data.Tier !== undefined && data.Tier !== null) {
-    contents.Tier = data.Tier;
+    contents.Tier = __expectString(data.Tier);
   }
   if (data.VaultARN !== undefined && data.VaultARN !== null) {
-    contents.VaultARN = data.VaultARN;
+    contents.VaultARN = __expectString(data.VaultARN);
   }
   return Promise.resolve(contents);
 };
@@ -2435,22 +2489,22 @@ export const deserializeAws_restJson1DescribeVaultCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = data.CreationDate;
+    contents.CreationDate = __expectString(data.CreationDate);
   }
   if (data.LastInventoryDate !== undefined && data.LastInventoryDate !== null) {
-    contents.LastInventoryDate = data.LastInventoryDate;
+    contents.LastInventoryDate = __expectString(data.LastInventoryDate);
   }
   if (data.NumberOfArchives !== undefined && data.NumberOfArchives !== null) {
-    contents.NumberOfArchives = data.NumberOfArchives;
+    contents.NumberOfArchives = __expectNumber(data.NumberOfArchives);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
-    contents.SizeInBytes = data.SizeInBytes;
+    contents.SizeInBytes = __expectNumber(data.SizeInBytes);
   }
   if (data.VaultARN !== undefined && data.VaultARN !== null) {
-    contents.VaultARN = data.VaultARN;
+    contents.VaultARN = __expectString(data.VaultARN);
   }
   if (data.VaultName !== undefined && data.VaultName !== null) {
-    contents.VaultName = data.VaultName;
+    contents.VaultName = __expectString(data.VaultName);
   }
   return Promise.resolve(contents);
 };
@@ -2781,16 +2835,16 @@ export const deserializeAws_restJson1GetVaultLockCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = data.CreationDate;
+    contents.CreationDate = __expectString(data.CreationDate);
   }
   if (data.ExpirationDate !== undefined && data.ExpirationDate !== null) {
-    contents.ExpirationDate = data.ExpirationDate;
+    contents.ExpirationDate = __expectString(data.ExpirationDate);
   }
   if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = data.Policy;
+    contents.Policy = __expectString(data.Policy);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   return Promise.resolve(contents);
 };
@@ -3215,7 +3269,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
     contents.JobList = deserializeAws_restJson1JobList(data.JobList, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   return Promise.resolve(contents);
 };
@@ -3295,7 +3349,7 @@ export const deserializeAws_restJson1ListMultipartUploadsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   if (data.UploadsList !== undefined && data.UploadsList !== null) {
     contents.UploadsList = deserializeAws_restJson1UploadsList(data.UploadsList, context);
@@ -3383,25 +3437,25 @@ export const deserializeAws_restJson1ListPartsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ArchiveDescription !== undefined && data.ArchiveDescription !== null) {
-    contents.ArchiveDescription = data.ArchiveDescription;
+    contents.ArchiveDescription = __expectString(data.ArchiveDescription);
   }
   if (data.CreationDate !== undefined && data.CreationDate !== null) {
-    contents.CreationDate = data.CreationDate;
+    contents.CreationDate = __expectString(data.CreationDate);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   if (data.MultipartUploadId !== undefined && data.MultipartUploadId !== null) {
-    contents.MultipartUploadId = data.MultipartUploadId;
+    contents.MultipartUploadId = __expectString(data.MultipartUploadId);
   }
   if (data.PartSizeInBytes !== undefined && data.PartSizeInBytes !== null) {
-    contents.PartSizeInBytes = data.PartSizeInBytes;
+    contents.PartSizeInBytes = __expectNumber(data.PartSizeInBytes);
   }
   if (data.Parts !== undefined && data.Parts !== null) {
     contents.Parts = deserializeAws_restJson1PartList(data.Parts, context);
   }
   if (data.VaultARN !== undefined && data.VaultARN !== null) {
-    contents.VaultARN = data.VaultARN;
+    contents.VaultARN = __expectString(data.VaultARN);
   }
   return Promise.resolve(contents);
 };
@@ -3634,7 +3688,7 @@ export const deserializeAws_restJson1ListVaultsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   if (data.VaultList !== undefined && data.VaultList !== null) {
     contents.VaultList = deserializeAws_restJson1VaultList(data.VaultList, context);
@@ -4270,13 +4324,13 @@ const deserializeAws_restJson1InsufficientCapacityExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4295,13 +4349,13 @@ const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4320,13 +4374,13 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4345,13 +4399,13 @@ const deserializeAws_restJson1MissingParameterValueExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4370,13 +4424,13 @@ const deserializeAws_restJson1PolicyEnforcedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4395,13 +4449,13 @@ const deserializeAws_restJson1RequestTimeoutExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4420,13 +4474,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4445,13 +4499,13 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return contents;
 };
@@ -4550,7 +4604,7 @@ const serializeAws_restJson1Grantee = (input: Grantee, context: __SerdeContext):
 };
 
 const serializeAws_restJson1hashmap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4677,7 +4731,7 @@ const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4724,35 +4778,22 @@ const deserializeAws_restJson1AccessControlPolicyList = (output: any, context: _
 
 const deserializeAws_restJson1CSVInput = (output: any, context: __SerdeContext): CSVInput => {
   return {
-    Comments: output.Comments !== undefined && output.Comments !== null ? output.Comments : undefined,
-    FieldDelimiter:
-      output.FieldDelimiter !== undefined && output.FieldDelimiter !== null ? output.FieldDelimiter : undefined,
-    FileHeaderInfo:
-      output.FileHeaderInfo !== undefined && output.FileHeaderInfo !== null ? output.FileHeaderInfo : undefined,
-    QuoteCharacter:
-      output.QuoteCharacter !== undefined && output.QuoteCharacter !== null ? output.QuoteCharacter : undefined,
-    QuoteEscapeCharacter:
-      output.QuoteEscapeCharacter !== undefined && output.QuoteEscapeCharacter !== null
-        ? output.QuoteEscapeCharacter
-        : undefined,
-    RecordDelimiter:
-      output.RecordDelimiter !== undefined && output.RecordDelimiter !== null ? output.RecordDelimiter : undefined,
+    Comments: __expectString(output.Comments),
+    FieldDelimiter: __expectString(output.FieldDelimiter),
+    FileHeaderInfo: __expectString(output.FileHeaderInfo),
+    QuoteCharacter: __expectString(output.QuoteCharacter),
+    QuoteEscapeCharacter: __expectString(output.QuoteEscapeCharacter),
+    RecordDelimiter: __expectString(output.RecordDelimiter),
   } as any;
 };
 
 const deserializeAws_restJson1CSVOutput = (output: any, context: __SerdeContext): CSVOutput => {
   return {
-    FieldDelimiter:
-      output.FieldDelimiter !== undefined && output.FieldDelimiter !== null ? output.FieldDelimiter : undefined,
-    QuoteCharacter:
-      output.QuoteCharacter !== undefined && output.QuoteCharacter !== null ? output.QuoteCharacter : undefined,
-    QuoteEscapeCharacter:
-      output.QuoteEscapeCharacter !== undefined && output.QuoteEscapeCharacter !== null
-        ? output.QuoteEscapeCharacter
-        : undefined,
-    QuoteFields: output.QuoteFields !== undefined && output.QuoteFields !== null ? output.QuoteFields : undefined,
-    RecordDelimiter:
-      output.RecordDelimiter !== undefined && output.RecordDelimiter !== null ? output.RecordDelimiter : undefined,
+    FieldDelimiter: __expectString(output.FieldDelimiter),
+    QuoteCharacter: __expectString(output.QuoteCharacter),
+    QuoteEscapeCharacter: __expectString(output.QuoteEscapeCharacter),
+    QuoteFields: __expectString(output.QuoteFields),
+    RecordDelimiter: __expectString(output.RecordDelimiter),
   } as any;
 };
 
@@ -4767,8 +4808,8 @@ const deserializeAws_restJson1DataRetrievalPolicy = (output: any, context: __Ser
 
 const deserializeAws_restJson1DataRetrievalRule = (output: any, context: __SerdeContext): DataRetrievalRule => {
   return {
-    BytesPerHour: output.BytesPerHour !== undefined && output.BytesPerHour !== null ? output.BytesPerHour : undefined,
-    Strategy: output.Strategy !== undefined && output.Strategy !== null ? output.Strategy : undefined,
+    BytesPerHour: __expectNumber(output.BytesPerHour),
+    Strategy: __expectString(output.Strategy),
   } as any;
 };
 
@@ -4785,77 +4826,55 @@ const deserializeAws_restJson1DataRetrievalRulesList = (output: any, context: __
 
 const deserializeAws_restJson1DescribeVaultOutput = (output: any, context: __SerdeContext): DescribeVaultOutput => {
   return {
-    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
-    LastInventoryDate:
-      output.LastInventoryDate !== undefined && output.LastInventoryDate !== null
-        ? output.LastInventoryDate
-        : undefined,
-    NumberOfArchives:
-      output.NumberOfArchives !== undefined && output.NumberOfArchives !== null ? output.NumberOfArchives : undefined,
-    SizeInBytes: output.SizeInBytes !== undefined && output.SizeInBytes !== null ? output.SizeInBytes : undefined,
-    VaultARN: output.VaultARN !== undefined && output.VaultARN !== null ? output.VaultARN : undefined,
-    VaultName: output.VaultName !== undefined && output.VaultName !== null ? output.VaultName : undefined,
+    CreationDate: __expectString(output.CreationDate),
+    LastInventoryDate: __expectString(output.LastInventoryDate),
+    NumberOfArchives: __expectNumber(output.NumberOfArchives),
+    SizeInBytes: __expectNumber(output.SizeInBytes),
+    VaultARN: __expectString(output.VaultARN),
+    VaultName: __expectString(output.VaultName),
   } as any;
 };
 
 const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
-    EncryptionType:
-      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
-    KMSContext: output.KMSContext !== undefined && output.KMSContext !== null ? output.KMSContext : undefined,
-    KMSKeyId: output.KMSKeyId !== undefined && output.KMSKeyId !== null ? output.KMSKeyId : undefined,
+    EncryptionType: __expectString(output.EncryptionType),
+    KMSContext: __expectString(output.KMSContext),
+    KMSKeyId: __expectString(output.KMSKeyId),
   } as any;
 };
 
 const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __SerdeContext): GlacierJobDescription => {
   return {
-    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
-    ArchiveId: output.ArchiveId !== undefined && output.ArchiveId !== null ? output.ArchiveId : undefined,
-    ArchiveSHA256TreeHash:
-      output.ArchiveSHA256TreeHash !== undefined && output.ArchiveSHA256TreeHash !== null
-        ? output.ArchiveSHA256TreeHash
-        : undefined,
-    ArchiveSizeInBytes:
-      output.ArchiveSizeInBytes !== undefined && output.ArchiveSizeInBytes !== null
-        ? output.ArchiveSizeInBytes
-        : undefined,
-    Completed: output.Completed !== undefined && output.Completed !== null ? output.Completed : undefined,
-    CompletionDate:
-      output.CompletionDate !== undefined && output.CompletionDate !== null ? output.CompletionDate : undefined,
-    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
+    Action: __expectString(output.Action),
+    ArchiveId: __expectString(output.ArchiveId),
+    ArchiveSHA256TreeHash: __expectString(output.ArchiveSHA256TreeHash),
+    ArchiveSizeInBytes: __expectNumber(output.ArchiveSizeInBytes),
+    Completed: __expectBoolean(output.Completed),
+    CompletionDate: __expectString(output.CompletionDate),
+    CreationDate: __expectString(output.CreationDate),
     InventoryRetrievalParameters:
       output.InventoryRetrievalParameters !== undefined && output.InventoryRetrievalParameters !== null
         ? deserializeAws_restJson1InventoryRetrievalJobDescription(output.InventoryRetrievalParameters, context)
         : undefined,
-    InventorySizeInBytes:
-      output.InventorySizeInBytes !== undefined && output.InventorySizeInBytes !== null
-        ? output.InventorySizeInBytes
-        : undefined,
-    JobDescription:
-      output.JobDescription !== undefined && output.JobDescription !== null ? output.JobDescription : undefined,
-    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
-    JobOutputPath:
-      output.JobOutputPath !== undefined && output.JobOutputPath !== null ? output.JobOutputPath : undefined,
+    InventorySizeInBytes: __expectNumber(output.InventorySizeInBytes),
+    JobDescription: __expectString(output.JobDescription),
+    JobId: __expectString(output.JobId),
+    JobOutputPath: __expectString(output.JobOutputPath),
     OutputLocation:
       output.OutputLocation !== undefined && output.OutputLocation !== null
         ? deserializeAws_restJson1OutputLocation(output.OutputLocation, context)
         : undefined,
-    RetrievalByteRange:
-      output.RetrievalByteRange !== undefined && output.RetrievalByteRange !== null
-        ? output.RetrievalByteRange
-        : undefined,
-    SHA256TreeHash:
-      output.SHA256TreeHash !== undefined && output.SHA256TreeHash !== null ? output.SHA256TreeHash : undefined,
-    SNSTopic: output.SNSTopic !== undefined && output.SNSTopic !== null ? output.SNSTopic : undefined,
+    RetrievalByteRange: __expectString(output.RetrievalByteRange),
+    SHA256TreeHash: __expectString(output.SHA256TreeHash),
+    SNSTopic: __expectString(output.SNSTopic),
     SelectParameters:
       output.SelectParameters !== undefined && output.SelectParameters !== null
         ? deserializeAws_restJson1SelectParameters(output.SelectParameters, context)
         : undefined,
-    StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
-    StatusMessage:
-      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
-    Tier: output.Tier !== undefined && output.Tier !== null ? output.Tier : undefined,
-    VaultARN: output.VaultARN !== undefined && output.VaultARN !== null ? output.VaultARN : undefined,
+    StatusCode: __expectString(output.StatusCode),
+    StatusMessage: __expectString(output.StatusMessage),
+    Tier: __expectString(output.Tier),
+    VaultARN: __expectString(output.VaultARN),
   } as any;
 };
 
@@ -4865,17 +4884,17 @@ const deserializeAws_restJson1Grant = (output: any, context: __SerdeContext): Gr
       output.Grantee !== undefined && output.Grantee !== null
         ? deserializeAws_restJson1Grantee(output.Grantee, context)
         : undefined,
-    Permission: output.Permission !== undefined && output.Permission !== null ? output.Permission : undefined,
+    Permission: __expectString(output.Permission),
   } as any;
 };
 
 const deserializeAws_restJson1Grantee = (output: any, context: __SerdeContext): Grantee => {
   return {
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
-    ID: output.ID !== undefined && output.ID !== null ? output.ID : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    URI: output.URI !== undefined && output.URI !== null ? output.URI : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    EmailAddress: __expectString(output.EmailAddress),
+    ID: __expectString(output.ID),
+    Type: __expectString(output.Type),
+    URI: __expectString(output.URI),
   } as any;
 };
 
@@ -4886,7 +4905,7 @@ const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): 
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4905,11 +4924,11 @@ const deserializeAws_restJson1InventoryRetrievalJobDescription = (
   context: __SerdeContext
 ): InventoryRetrievalJobDescription => {
   return {
-    EndDate: output.EndDate !== undefined && output.EndDate !== null ? output.EndDate : undefined,
-    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
-    Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
-    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
-    StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
+    EndDate: __expectString(output.EndDate),
+    Format: __expectString(output.Format),
+    Limit: __expectString(output.Limit),
+    Marker: __expectString(output.Marker),
+    StartDate: __expectString(output.StartDate),
   } as any;
 };
 
@@ -4931,7 +4950,7 @@ const deserializeAws_restJson1NotificationEventList = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4966,9 +4985,8 @@ const deserializeAws_restJson1PartList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PartListElement = (output: any, context: __SerdeContext): PartListElement => {
   return {
-    RangeInBytes: output.RangeInBytes !== undefined && output.RangeInBytes !== null ? output.RangeInBytes : undefined,
-    SHA256TreeHash:
-      output.SHA256TreeHash !== undefined && output.SHA256TreeHash !== null ? output.SHA256TreeHash : undefined,
+    RangeInBytes: __expectString(output.RangeInBytes),
+    SHA256TreeHash: __expectString(output.SHA256TreeHash),
   } as any;
 };
 
@@ -4977,10 +4995,9 @@ const deserializeAws_restJson1ProvisionedCapacityDescription = (
   context: __SerdeContext
 ): ProvisionedCapacityDescription => {
   return {
-    CapacityId: output.CapacityId !== undefined && output.CapacityId !== null ? output.CapacityId : undefined,
-    ExpirationDate:
-      output.ExpirationDate !== undefined && output.ExpirationDate !== null ? output.ExpirationDate : undefined,
-    StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
+    CapacityId: __expectString(output.CapacityId),
+    ExpirationDate: __expectString(output.ExpirationDate),
+    StartDate: __expectString(output.StartDate),
   } as any;
 };
 
@@ -5004,14 +5021,14 @@ const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext
       output.AccessControlList !== undefined && output.AccessControlList !== null
         ? deserializeAws_restJson1AccessControlPolicyList(output.AccessControlList, context)
         : undefined,
-    BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
-    CannedACL: output.CannedACL !== undefined && output.CannedACL !== null ? output.CannedACL : undefined,
+    BucketName: __expectString(output.BucketName),
+    CannedACL: __expectString(output.CannedACL),
     Encryption:
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1Encryption(output.Encryption, context)
         : undefined,
-    Prefix: output.Prefix !== undefined && output.Prefix !== null ? output.Prefix : undefined,
-    StorageClass: output.StorageClass !== undefined && output.StorageClass !== null ? output.StorageClass : undefined,
+    Prefix: __expectString(output.Prefix),
+    StorageClass: __expectString(output.StorageClass),
     Tagging:
       output.Tagging !== undefined && output.Tagging !== null
         ? deserializeAws_restJson1hashmap(output.Tagging, context)
@@ -5025,9 +5042,8 @@ const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SelectParameters = (output: any, context: __SerdeContext): SelectParameters => {
   return {
-    Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined,
-    ExpressionType:
-      output.ExpressionType !== undefined && output.ExpressionType !== null ? output.ExpressionType : undefined,
+    Expression: __expectString(output.Expression),
+    ExpressionType: __expectString(output.ExpressionType),
     InputSerialization:
       output.InputSerialization !== undefined && output.InputSerialization !== null
         ? deserializeAws_restJson1InputSerialization(output.InputSerialization, context)
@@ -5046,25 +5062,18 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1UploadListElement = (output: any, context: __SerdeContext): UploadListElement => {
   return {
-    ArchiveDescription:
-      output.ArchiveDescription !== undefined && output.ArchiveDescription !== null
-        ? output.ArchiveDescription
-        : undefined,
-    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
-    MultipartUploadId:
-      output.MultipartUploadId !== undefined && output.MultipartUploadId !== null
-        ? output.MultipartUploadId
-        : undefined,
-    PartSizeInBytes:
-      output.PartSizeInBytes !== undefined && output.PartSizeInBytes !== null ? output.PartSizeInBytes : undefined,
-    VaultARN: output.VaultARN !== undefined && output.VaultARN !== null ? output.VaultARN : undefined,
+    ArchiveDescription: __expectString(output.ArchiveDescription),
+    CreationDate: __expectString(output.CreationDate),
+    MultipartUploadId: __expectString(output.MultipartUploadId),
+    PartSizeInBytes: __expectNumber(output.PartSizeInBytes),
+    VaultARN: __expectString(output.VaultARN),
   } as any;
 };
 
@@ -5081,7 +5090,7 @@ const deserializeAws_restJson1UploadsList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1VaultAccessPolicy = (output: any, context: __SerdeContext): VaultAccessPolicy => {
   return {
-    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
+    Policy: __expectString(output.Policy),
   } as any;
 };
 
@@ -5105,7 +5114,7 @@ const deserializeAws_restJson1VaultNotificationConfig = (
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_restJson1NotificationEventList(output.Events, context)
         : undefined,
-    SNSTopic: output.SNSTopic !== undefined && output.SNSTopic !== null ? output.SNSTopic : undefined,
+    SNSTopic: __expectString(output.SNSTopic),
   } as any;
 };
 

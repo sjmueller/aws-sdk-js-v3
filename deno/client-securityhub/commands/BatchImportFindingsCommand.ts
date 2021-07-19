@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_0.ts";
+import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1BatchImportFindingsCommand,
   serializeAws_restJson1BatchImportFindingsCommand,

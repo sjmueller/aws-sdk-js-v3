@@ -1,3 +1,7 @@
+import {
+  AddSourceIdentifierToSubscriptionCommandInput,
+  AddSourceIdentifierToSubscriptionCommandOutput,
+} from "../commands/AddSourceIdentifierToSubscriptionCommand.ts";
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand.ts";
 import {
   ApplyPendingMaintenanceActionCommandInput,
@@ -25,6 +29,14 @@ import {
   CreateDBSubnetGroupCommandInput,
   CreateDBSubnetGroupCommandOutput,
 } from "../commands/CreateDBSubnetGroupCommand.ts";
+import {
+  CreateEventSubscriptionCommandInput,
+  CreateEventSubscriptionCommandOutput,
+} from "../commands/CreateEventSubscriptionCommand.ts";
+import {
+  CreateGlobalClusterCommandInput,
+  CreateGlobalClusterCommandOutput,
+} from "../commands/CreateGlobalClusterCommand.ts";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "../commands/DeleteDBClusterCommand.ts";
 import {
   DeleteDBClusterParameterGroupCommandInput,
@@ -39,6 +51,14 @@ import {
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput,
 } from "../commands/DeleteDBSubnetGroupCommand.ts";
+import {
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput,
+} from "../commands/DeleteEventSubscriptionCommand.ts";
+import {
+  DeleteGlobalClusterCommandInput,
+  DeleteGlobalClusterCommandOutput,
+} from "../commands/DeleteGlobalClusterCommand.ts";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -80,7 +100,15 @@ import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "../commands/DescribeEventCategoriesCommand.ts";
+import {
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "../commands/DescribeEventSubscriptionsCommand.ts";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "../commands/DescribeEventsCommand.ts";
+import {
+  DescribeGlobalClustersCommandInput,
+  DescribeGlobalClustersCommandOutput,
+} from "../commands/DescribeGlobalClustersCommand.ts";
 import {
   DescribeOrderableDBInstanceOptionsCommandInput,
   DescribeOrderableDBInstanceOptionsCommandOutput,
@@ -108,7 +136,23 @@ import {
   ModifyDBSubnetGroupCommandInput,
   ModifyDBSubnetGroupCommandOutput,
 } from "../commands/ModifyDBSubnetGroupCommand.ts";
+import {
+  ModifyEventSubscriptionCommandInput,
+  ModifyEventSubscriptionCommandOutput,
+} from "../commands/ModifyEventSubscriptionCommand.ts";
+import {
+  ModifyGlobalClusterCommandInput,
+  ModifyGlobalClusterCommandOutput,
+} from "../commands/ModifyGlobalClusterCommand.ts";
 import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "../commands/RebootDBInstanceCommand.ts";
+import {
+  RemoveFromGlobalClusterCommandInput,
+  RemoveFromGlobalClusterCommandOutput,
+} from "../commands/RemoveFromGlobalClusterCommand.ts";
+import {
+  RemoveSourceIdentifierFromSubscriptionCommandInput,
+  RemoveSourceIdentifierFromSubscriptionCommandOutput,
+} from "../commands/RemoveSourceIdentifierFromSubscriptionCommand.ts";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput,
@@ -128,6 +172,8 @@ import {
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "../commands/StartDBClusterCommand.ts";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "../commands/StopDBClusterCommand.ts";
 import {
+  AddSourceIdentifierToSubscriptionMessage,
+  AddSourceIdentifierToSubscriptionResult,
   AddTagsToResourceMessage,
   ApplyPendingMaintenanceActionMessage,
   ApplyPendingMaintenanceActionResult,
@@ -151,6 +197,10 @@ import {
   CreateDBInstanceResult,
   CreateDBSubnetGroupMessage,
   CreateDBSubnetGroupResult,
+  CreateEventSubscriptionMessage,
+  CreateEventSubscriptionResult,
+  CreateGlobalClusterMessage,
+  CreateGlobalClusterResult,
   DBCluster,
   DBClusterAlreadyExistsFault,
   DBClusterMember,
@@ -198,6 +248,10 @@ import {
   DeleteDBInstanceMessage,
   DeleteDBInstanceResult,
   DeleteDBSubnetGroupMessage,
+  DeleteEventSubscriptionMessage,
+  DeleteEventSubscriptionResult,
+  DeleteGlobalClusterMessage,
+  DeleteGlobalClusterResult,
   DescribeCertificatesMessage,
   DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
@@ -211,7 +265,9 @@ import {
   DescribeEngineDefaultClusterParametersMessage,
   DescribeEngineDefaultClusterParametersResult,
   DescribeEventCategoriesMessage,
+  DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
+  DescribeGlobalClustersMessage,
   DescribeOrderableDBInstanceOptionsMessage,
   DescribePendingMaintenanceActionsMessage,
   Endpoint,
@@ -219,10 +275,19 @@ import {
   Event,
   EventCategoriesMap,
   EventCategoriesMessage,
+  EventSubscription,
+  EventSubscriptionQuotaExceededFault,
+  EventSubscriptionsMessage,
   EventsMessage,
   FailoverDBClusterMessage,
   FailoverDBClusterResult,
   Filter,
+  GlobalCluster,
+  GlobalClusterAlreadyExistsFault,
+  GlobalClusterMember,
+  GlobalClusterNotFoundFault,
+  GlobalClusterQuotaExceededFault,
+  GlobalClustersMessage,
   InstanceQuotaExceededFault,
   InsufficientDBClusterCapacityFault,
   InsufficientDBInstanceCapacityFault,
@@ -235,6 +300,8 @@ import {
   InvalidDBSnapshotStateFault,
   InvalidDBSubnetGroupStateFault,
   InvalidDBSubnetStateFault,
+  InvalidEventSubscriptionStateFault,
+  InvalidGlobalClusterStateFault,
   InvalidRestoreFault,
   InvalidSubnet,
   InvalidVPCNetworkStateFault,
@@ -249,6 +316,10 @@ import {
   ModifyDBInstanceResult,
   ModifyDBSubnetGroupMessage,
   ModifyDBSubnetGroupResult,
+  ModifyEventSubscriptionMessage,
+  ModifyEventSubscriptionResult,
+  ModifyGlobalClusterMessage,
+  ModifyGlobalClusterResult,
   OrderableDBInstanceOption,
   OrderableDBInstanceOptionsMessage,
   Parameter,
@@ -258,6 +329,10 @@ import {
   PendingModifiedValues,
   RebootDBInstanceMessage,
   RebootDBInstanceResult,
+  RemoveFromGlobalClusterMessage,
+  RemoveFromGlobalClusterResult,
+  RemoveSourceIdentifierFromSubscriptionMessage,
+  RemoveSourceIdentifierFromSubscriptionResult,
   RemoveTagsFromResourceMessage,
   ResetDBClusterParameterGroupMessage,
   ResourceNotFoundFault,
@@ -266,8 +341,12 @@ import {
   RestoreDBClusterFromSnapshotResult,
   RestoreDBClusterToPointInTimeMessage,
   RestoreDBClusterToPointInTimeResult,
+  SNSInvalidTopicFault,
+  SNSNoAuthorizationFault,
+  SNSTopicArnNotFoundFault,
   SharedSnapshotQuotaExceededFault,
   SnapshotQuotaExceededFault,
+  SourceNotFoundFault,
   StartDBClusterMessage,
   StartDBClusterResult,
   StopDBClusterMessage,
@@ -276,6 +355,9 @@ import {
   StorageTypeNotSupportedFault,
   Subnet,
   SubnetAlreadyInUse,
+  SubscriptionAlreadyExistFault,
+  SubscriptionCategoryNotFoundFault,
+  SubscriptionNotFoundFault,
   Tag,
   TagListMessage,
   UpgradeTarget,
@@ -284,9 +366,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -297,6 +381,22 @@ import {
 } from "../../types/mod.ts";
 import { decodeHTML } from "https://jspm.dev/entities";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
+
+export const serializeAws_queryAddSourceIdentifierToSubscriptionCommand = async (
+  input: AddSourceIdentifierToSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAddSourceIdentifierToSubscriptionMessage(input, context),
+    Action: "AddSourceIdentifierToSubscription",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_queryAddTagsToResourceCommand = async (
   input: AddTagsToResourceCommandInput,
@@ -442,6 +542,38 @@ export const serializeAws_queryCreateDBSubnetGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryCreateEventSubscriptionCommand = async (
+  input: CreateEventSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateEventSubscriptionMessage(input, context),
+    Action: "CreateEventSubscription",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateGlobalClusterCommand = async (
+  input: CreateGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateGlobalClusterMessage(input, context),
+    Action: "CreateGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDeleteDBClusterCommand = async (
   input: DeleteDBClusterCommandInput,
   context: __SerdeContext
@@ -517,6 +649,38 @@ export const serializeAws_queryDeleteDBSubnetGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteDBSubnetGroupMessage(input, context),
     Action: "DeleteDBSubnetGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteEventSubscriptionCommand = async (
+  input: DeleteEventSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteEventSubscriptionMessage(input, context),
+    Action: "DeleteEventSubscription",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteGlobalClusterCommand = async (
+  input: DeleteGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteGlobalClusterMessage(input, context),
+    Action: "DeleteGlobalCluster",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -714,6 +878,38 @@ export const serializeAws_queryDescribeEventsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
+  input: DescribeEventSubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeEventSubscriptionsMessage(input, context),
+    Action: "DescribeEventSubscriptions",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeGlobalClustersCommand = async (
+  input: DescribeGlobalClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeGlobalClustersMessage(input, context),
+    Action: "DescribeGlobalClusters",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeOrderableDBInstanceOptionsCommand = async (
   input: DescribeOrderableDBInstanceOptionsCommandInput,
   context: __SerdeContext
@@ -858,6 +1054,38 @@ export const serializeAws_queryModifyDBSubnetGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryModifyEventSubscriptionCommand = async (
+  input: ModifyEventSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyEventSubscriptionMessage(input, context),
+    Action: "ModifyEventSubscription",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyGlobalClusterCommand = async (
+  input: ModifyGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyGlobalClusterMessage(input, context),
+    Action: "ModifyGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryRebootDBInstanceCommand = async (
   input: RebootDBInstanceCommandInput,
   context: __SerdeContext
@@ -869,6 +1097,38 @@ export const serializeAws_queryRebootDBInstanceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryRebootDBInstanceMessage(input, context),
     Action: "RebootDBInstance",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryRemoveFromGlobalClusterCommand = async (
+  input: RemoveFromGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRemoveFromGlobalClusterMessage(input, context),
+    Action: "RemoveFromGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand = async (
+  input: RemoveSourceIdentifierFromSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRemoveSourceIdentifierFromSubscriptionMessage(input, context),
+    Action: "RemoveSourceIdentifierFromSubscription",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -968,6 +1228,71 @@ export const serializeAws_queryStopDBClusterCommand = async (
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_queryAddSourceIdentifierToSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryAddSourceIdentifierToSubscriptionResult(
+    data.AddSourceIdentifierToSubscriptionResult,
+    context
+  );
+  const response: AddSourceIdentifierToSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "SourceNotFoundFault":
+    case "com.amazonaws.docdb#SourceNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAddTagsToResourceCommand = async (
@@ -1356,6 +1681,14 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.docdb#GlobalClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InsufficientStorageClusterCapacityFault":
     case "com.amazonaws.docdb#InsufficientStorageClusterCapacityFault":
       response = {
@@ -1384,6 +1717,14 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     case "com.amazonaws.docdb#InvalidDBSubnetGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.docdb#InvalidGlobalClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1837,6 +2178,186 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryCreateEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateEventSubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
+  const response: CreateEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateEventSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EventSubscriptionQuotaExceededFault":
+    case "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SNSInvalidTopicFault":
+    case "com.amazonaws.docdb#SNSInvalidTopicFault":
+      response = {
+        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SNSNoAuthorizationFault":
+    case "com.amazonaws.docdb#SNSNoAuthorizationFault":
+      response = {
+        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SNSTopicArnNotFoundFault":
+    case "com.amazonaws.docdb#SNSTopicArnNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SourceNotFoundFault":
+    case "com.amazonaws.docdb#SourceNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionAlreadyExistFault":
+    case "com.amazonaws.docdb#SubscriptionAlreadyExistFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionCategoryNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryCreateGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateGlobalClusterResult(data.CreateGlobalClusterResult, context);
+  const response: CreateGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.docdb#DBClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlobalClusterAlreadyExistsFault":
+    case "com.amazonaws.docdb#GlobalClusterAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlobalClusterQuotaExceededFault":
+    case "com.amazonaws.docdb#GlobalClusterQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.docdb#InvalidDBClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDeleteDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2176,6 +2697,130 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
     case "com.amazonaws.docdb#InvalidDBSubnetStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBSubnetStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteEventSubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteEventSubscriptionResult(data.DeleteEventSubscriptionResult, context);
+  const response: DeleteEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidEventSubscriptionStateFault":
+    case "com.amazonaws.docdb#InvalidEventSubscriptionStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteGlobalClusterResult(data.DeleteGlobalClusterResult, context);
+  const response: DeleteGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.docdb#GlobalClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.docdb#InvalidGlobalClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2802,6 +3447,114 @@ const deserializeAws_queryDescribeEventsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeEventSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSubscriptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeEventSubscriptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
+  const response: DescribeEventSubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSubscriptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "SubscriptionNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeGlobalClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeGlobalClustersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGlobalClustersMessage(data.DescribeGlobalClustersResult, context);
+  const response: DescribeGlobalClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeGlobalClustersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalClustersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.docdb#GlobalClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -3570,6 +4323,162 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryModifyEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyEventSubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
+  const response: ModifyEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyEventSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEventSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EventSubscriptionQuotaExceededFault":
+    case "com.amazonaws.docdb#EventSubscriptionQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SNSInvalidTopicFault":
+    case "com.amazonaws.docdb#SNSInvalidTopicFault":
+      response = {
+        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SNSNoAuthorizationFault":
+    case "com.amazonaws.docdb#SNSNoAuthorizationFault":
+      response = {
+        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SNSTopicArnNotFoundFault":
+    case "com.amazonaws.docdb#SNSTopicArnNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionCategoryNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionCategoryNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryModifyGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
+  const response: ModifyGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.docdb#GlobalClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.docdb#InvalidGlobalClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryRebootDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3611,6 +4520,141 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
     case "com.amazonaws.docdb#InvalidDBInstanceStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryRemoveFromGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFromGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRemoveFromGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryRemoveFromGlobalClusterResult(data.RemoveFromGlobalClusterResult, context);
+  const response: RemoveFromGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRemoveFromGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFromGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.docdb#DBClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.docdb#GlobalClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.docdb#InvalidGlobalClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryRemoveSourceIdentifierFromSubscriptionResult(
+    data.RemoveSourceIdentifierFromSubscriptionResult,
+    context
+  );
+  const response: RemoveSourceIdentifierFromSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "SourceNotFoundFault":
+    case "com.amazonaws.docdb#SourceNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SubscriptionNotFoundFault":
+    case "com.amazonaws.docdb#SubscriptionNotFoundFault":
+      response = {
+        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4555,6 +5599,66 @@ const deserializeAws_queryDBUpgradeDependencyFailureFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EventSubscriptionQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEventSubscriptionQuotaExceededFault(body.Error, context);
+  const contents: EventSubscriptionQuotaExceededFault = {
+    name: "EventSubscriptionQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlobalClusterAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryGlobalClusterAlreadyExistsFault(body.Error, context);
+  const contents: GlobalClusterAlreadyExistsFault = {
+    name: "GlobalClusterAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlobalClusterNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryGlobalClusterNotFoundFault(body.Error, context);
+  const contents: GlobalClusterNotFoundFault = {
+    name: "GlobalClusterNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlobalClusterQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryGlobalClusterQuotaExceededFault(body.Error, context);
+  const contents: GlobalClusterQuotaExceededFault = {
+    name: "GlobalClusterQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryInstanceQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4735,6 +5839,36 @@ const deserializeAws_queryInvalidDBSubnetStateFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryInvalidEventSubscriptionStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidEventSubscriptionStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidEventSubscriptionStateFault(body.Error, context);
+  const contents: InvalidEventSubscriptionStateFault = {
+    name: "InvalidEventSubscriptionStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidGlobalClusterStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidGlobalClusterStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidGlobalClusterStateFault(body.Error, context);
+  const contents: InvalidGlobalClusterStateFault = {
+    name: "InvalidGlobalClusterStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryInvalidRestoreFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4840,6 +5974,66 @@ const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_querySNSInvalidTopicFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SNSInvalidTopicFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySNSInvalidTopicFault(body.Error, context);
+  const contents: SNSInvalidTopicFault = {
+    name: "SNSInvalidTopicFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SNSNoAuthorizationFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySNSNoAuthorizationFault(body.Error, context);
+  const contents: SNSNoAuthorizationFault = {
+    name: "SNSNoAuthorizationFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SNSTopicArnNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySNSTopicArnNotFoundFault(body.Error, context);
+  const contents: SNSTopicArnNotFoundFault = {
+    name: "SNSTopicArnNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_querySourceNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceNotFoundFault(body.Error, context);
+  const contents: SourceNotFoundFault = {
+    name: "SourceNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryStorageQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4883,6 +6077,65 @@ const deserializeAws_querySubnetAlreadyInUseResponse = async (
     ...deserialized,
   };
   return contents;
+};
+
+const deserializeAws_querySubscriptionAlreadyExistFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SubscriptionAlreadyExistFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySubscriptionAlreadyExistFault(body.Error, context);
+  const contents: SubscriptionAlreadyExistFault = {
+    name: "SubscriptionAlreadyExistFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_querySubscriptionCategoryNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SubscriptionCategoryNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySubscriptionCategoryNotFoundFault(body.Error, context);
+  const contents: SubscriptionCategoryNotFoundFault = {
+    name: "SubscriptionCategoryNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_querySubscriptionNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SubscriptionNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySubscriptionNotFoundFault(body.Error, context);
+  const contents: SubscriptionNotFoundFault = {
+    name: "SubscriptionNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const serializeAws_queryAddSourceIdentifierToSubscriptionMessage = (
+  input: AddSourceIdentifierToSubscriptionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
+    entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  if (input.SourceIdentifier !== undefined && input.SourceIdentifier !== null) {
+    entries["SourceIdentifier"] = input.SourceIdentifier;
+  }
+  return entries;
 };
 
 const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
@@ -5103,6 +6356,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
   return entries;
 };
 
@@ -5215,6 +6471,76 @@ const serializeAws_queryCreateDBSubnetGroupMessage = (
   return entries;
 };
 
+const serializeAws_queryCreateEventSubscriptionMessage = (
+  input: CreateEventSubscriptionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
+    entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  if (input.SnsTopicArn !== undefined && input.SnsTopicArn !== null) {
+    entries["SnsTopicArn"] = input.SnsTopicArn;
+  }
+  if (input.SourceType !== undefined && input.SourceType !== null) {
+    entries["SourceType"] = input.SourceType;
+  }
+  if (input.EventCategories !== undefined && input.EventCategories !== null) {
+    const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EventCategories.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SourceIds !== undefined && input.SourceIds !== null) {
+    const memberEntries = serializeAws_querySourceIdsList(input.SourceIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourceIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Enabled !== undefined && input.Enabled !== null) {
+    entries["Enabled"] = input.Enabled;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateGlobalClusterMessage = (
+  input: CreateGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.SourceDBClusterIdentifier !== undefined && input.SourceDBClusterIdentifier !== null) {
+    entries["SourceDBClusterIdentifier"] = input.SourceDBClusterIdentifier;
+  }
+  if (input.Engine !== undefined && input.Engine !== null) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
+    entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  if (input.DatabaseName !== undefined && input.DatabaseName !== null) {
+    entries["DatabaseName"] = input.DatabaseName;
+  }
+  if (input.StorageEncrypted !== undefined && input.StorageEncrypted !== null) {
+    entries["StorageEncrypted"] = input.StorageEncrypted;
+  }
+  return entries;
+};
+
 const serializeAws_queryDeleteDBClusterMessage = (input: DeleteDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DBClusterIdentifier !== undefined && input.DBClusterIdentifier !== null) {
@@ -5266,6 +6592,28 @@ const serializeAws_queryDeleteDBSubnetGroupMessage = (
   const entries: any = {};
   if (input.DBSubnetGroupName !== undefined && input.DBSubnetGroupName !== null) {
     entries["DBSubnetGroupName"] = input.DBSubnetGroupName;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteEventSubscriptionMessage = (
+  input: DeleteEventSubscriptionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
+    entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteGlobalClusterMessage = (
+  input: DeleteGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
   }
   return entries;
 };
@@ -5568,6 +6916,54 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
       const loc = `EventCategories.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeEventSubscriptionsMessage = (
+  input: DescribeEventSubscriptionsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
+    entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeGlobalClustersMessage = (
+  input: DescribeGlobalClustersMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
   }
   if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
@@ -5908,6 +7304,50 @@ const serializeAws_queryModifyDBSubnetGroupMessage = (
   return entries;
 };
 
+const serializeAws_queryModifyEventSubscriptionMessage = (
+  input: ModifyEventSubscriptionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
+    entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  if (input.SnsTopicArn !== undefined && input.SnsTopicArn !== null) {
+    entries["SnsTopicArn"] = input.SnsTopicArn;
+  }
+  if (input.SourceType !== undefined && input.SourceType !== null) {
+    entries["SourceType"] = input.SourceType;
+  }
+  if (input.EventCategories !== undefined && input.EventCategories !== null) {
+    const memberEntries = serializeAws_queryEventCategoriesList(input.EventCategories, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `EventCategories.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Enabled !== undefined && input.Enabled !== null) {
+    entries["Enabled"] = input.Enabled;
+  }
+  return entries;
+};
+
+const serializeAws_queryModifyGlobalClusterMessage = (
+  input: ModifyGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.NewGlobalClusterIdentifier !== undefined && input.NewGlobalClusterIdentifier !== null) {
+    entries["NewGlobalClusterIdentifier"] = input.NewGlobalClusterIdentifier;
+  }
+  if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
+    entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  return entries;
+};
+
 const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ParameterName !== undefined && input.ParameterName !== null) {
@@ -5966,6 +7406,34 @@ const serializeAws_queryRebootDBInstanceMessage = (input: RebootDBInstanceMessag
   }
   if (input.ForceFailover !== undefined && input.ForceFailover !== null) {
     entries["ForceFailover"] = input.ForceFailover;
+  }
+  return entries;
+};
+
+const serializeAws_queryRemoveFromGlobalClusterMessage = (
+  input: RemoveFromGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.DbClusterIdentifier !== undefined && input.DbClusterIdentifier !== null) {
+    entries["DbClusterIdentifier"] = input.DbClusterIdentifier;
+  }
+  return entries;
+};
+
+const serializeAws_queryRemoveSourceIdentifierFromSubscriptionMessage = (
+  input: RemoveSourceIdentifierFromSubscriptionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubscriptionName !== undefined && input.SubscriptionName !== null) {
+    entries["SubscriptionName"] = input.SubscriptionName;
+  }
+  if (input.SourceIdentifier !== undefined && input.SourceIdentifier !== null) {
+    entries["SourceIdentifier"] = input.SourceIdentifier;
   }
   return entries;
 };
@@ -6122,6 +7590,19 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   return entries;
 };
 
+const serializeAws_querySourceIdsList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`SourceId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryStartDBClusterMessage = (input: StartDBClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DBClusterIdentifier !== undefined && input.DBClusterIdentifier !== null) {
@@ -6191,6 +7672,19 @@ const serializeAws_queryVpcSecurityGroupIdList = (input: string[], context: __Se
   return entries;
 };
 
+const deserializeAws_queryAddSourceIdentifierToSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): AddSourceIdentifierToSubscriptionResult => {
+  let contents: any = {
+    EventSubscription: undefined,
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryApplyPendingMaintenanceActionResult = (
   output: any,
   context: __SerdeContext
@@ -6214,7 +7708,7 @@ const deserializeAws_queryAttributeValueList = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6226,7 +7720,7 @@ const deserializeAws_queryAuthorizationNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6236,7 +7730,7 @@ const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeConte
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   return contents;
 };
@@ -6259,7 +7753,7 @@ const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6273,13 +7767,13 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     CertificateArn: undefined,
   };
   if (output["CertificateIdentifier"] !== undefined) {
-    contents.CertificateIdentifier = output["CertificateIdentifier"];
+    contents.CertificateIdentifier = __expectString(output["CertificateIdentifier"]);
   }
   if (output["CertificateType"] !== undefined) {
-    contents.CertificateType = output["CertificateType"];
+    contents.CertificateType = __expectString(output["CertificateType"]);
   }
   if (output["Thumbprint"] !== undefined) {
-    contents.Thumbprint = output["Thumbprint"];
+    contents.Thumbprint = __expectString(output["Thumbprint"]);
   }
   if (output["ValidFrom"] !== undefined) {
     contents.ValidFrom = new Date(output["ValidFrom"]);
@@ -6288,7 +7782,7 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.ValidTill = new Date(output["ValidTill"]);
   }
   if (output["CertificateArn"] !== undefined) {
-    contents.CertificateArn = output["CertificateArn"];
+    contents.CertificateArn = __expectString(output["CertificateArn"]);
   }
   return contents;
 };
@@ -6319,7 +7813,7 @@ const deserializeAws_queryCertificateMessage = (output: any, context: __SerdeCon
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -6332,7 +7826,7 @@ const deserializeAws_queryCertificateNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6428,6 +7922,32 @@ const deserializeAws_queryCreateDBSubnetGroupResult = (
   return contents;
 };
 
+const deserializeAws_queryCreateEventSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): CreateEventSubscriptionResult => {
+  let contents: any = {
+    EventSubscription: undefined,
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): CreateGlobalClusterResult => {
+  let contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DBCluster => {
   let contents: any = {
     AvailabilityZones: undefined,
@@ -6448,6 +7968,8 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     MasterUsername: undefined,
     PreferredBackupWindow: undefined,
     PreferredMaintenanceWindow: undefined,
+    ReplicationSourceIdentifier: undefined,
+    ReadReplicaIdentifiers: undefined,
     DBClusterMembers: undefined,
     VpcSecurityGroups: undefined,
     HostedZoneId: undefined,
@@ -6473,37 +7995,37 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
   }
   if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = output["DBClusterIdentifier"];
+    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["DBClusterParameterGroup"] !== undefined) {
-    contents.DBClusterParameterGroup = output["DBClusterParameterGroup"];
+    contents.DBClusterParameterGroup = __expectString(output["DBClusterParameterGroup"]);
   }
   if (output["DBSubnetGroup"] !== undefined) {
-    contents.DBSubnetGroup = output["DBSubnetGroup"];
+    contents.DBSubnetGroup = __expectString(output["DBSubnetGroup"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["PercentProgress"] !== undefined) {
-    contents.PercentProgress = output["PercentProgress"];
+    contents.PercentProgress = __expectString(output["PercentProgress"]);
   }
   if (output["EarliestRestorableTime"] !== undefined) {
     contents.EarliestRestorableTime = new Date(output["EarliestRestorableTime"]);
   }
   if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = output["Endpoint"];
+    contents.Endpoint = __expectString(output["Endpoint"]);
   }
   if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = output["ReaderEndpoint"];
+    contents.ReaderEndpoint = __expectString(output["ReaderEndpoint"]);
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["LatestRestorableTime"] !== undefined) {
     contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
@@ -6512,13 +8034,28 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.Port = parseInt(output["Port"]);
   }
   if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = output["MasterUsername"];
+    contents.MasterUsername = __expectString(output["MasterUsername"]);
   }
   if (output["PreferredBackupWindow"] !== undefined) {
-    contents.PreferredBackupWindow = output["PreferredBackupWindow"];
+    contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
+    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
+  }
+  if (output["ReplicationSourceIdentifier"] !== undefined) {
+    contents.ReplicationSourceIdentifier = __expectString(output["ReplicationSourceIdentifier"]);
+  }
+  if (output.ReadReplicaIdentifiers === "") {
+    contents.ReadReplicaIdentifiers = [];
+  }
+  if (
+    output["ReadReplicaIdentifiers"] !== undefined &&
+    output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"] !== undefined
+  ) {
+    contents.ReadReplicaIdentifiers = deserializeAws_queryReadReplicaIdentifierList(
+      __getArrayIfSingleItem(output["ReadReplicaIdentifiers"]["ReadReplicaIdentifier"]),
+      context
+    );
   }
   if (output.DBClusterMembers === "") {
     contents.DBClusterMembers = [];
@@ -6542,19 +8079,19 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = output["HostedZoneId"];
+    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = output["KmsKeyId"];
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
   }
   if (output["DbClusterResourceId"] !== undefined) {
-    contents.DbClusterResourceId = output["DbClusterResourceId"];
+    contents.DbClusterResourceId = __expectString(output["DbClusterResourceId"]);
   }
   if (output["DBClusterArn"] !== undefined) {
-    contents.DBClusterArn = output["DBClusterArn"];
+    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
   }
   if (output.AssociatedRoles === "") {
     contents.AssociatedRoles = [];
@@ -6581,7 +8118,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = output["DeletionProtection"] == "true";
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
   return contents;
 };
@@ -6594,7 +8131,7 @@ const deserializeAws_queryDBClusterAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6618,13 +8155,13 @@ const deserializeAws_queryDBClusterMember = (output: any, context: __SerdeContex
     PromotionTier: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
+    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
   }
   if (output["IsClusterWriter"] !== undefined) {
-    contents.IsClusterWriter = output["IsClusterWriter"] == "true";
+    contents.IsClusterWriter = __parseBoolean(output["IsClusterWriter"]);
   }
   if (output["DBClusterParameterGroupStatus"] !== undefined) {
-    contents.DBClusterParameterGroupStatus = output["DBClusterParameterGroupStatus"];
+    contents.DBClusterParameterGroupStatus = __expectString(output["DBClusterParameterGroupStatus"]);
   }
   if (output["PromotionTier"] !== undefined) {
     contents.PromotionTier = parseInt(output["PromotionTier"]);
@@ -6649,7 +8186,7 @@ const deserializeAws_queryDBClusterMessage = (output: any, context: __SerdeConte
     DBClusters: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.DBClusters === "") {
     contents.DBClusters = [];
@@ -6668,7 +8205,7 @@ const deserializeAws_queryDBClusterNotFoundFault = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6681,16 +8218,16 @@ const deserializeAws_queryDBClusterParameterGroup = (output: any, context: __Ser
     DBClusterParameterGroupArn: undefined,
   };
   if (output["DBClusterParameterGroupName"] !== undefined) {
-    contents.DBClusterParameterGroupName = output["DBClusterParameterGroupName"];
+    contents.DBClusterParameterGroupName = __expectString(output["DBClusterParameterGroupName"]);
   }
   if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = output["DBParameterGroupFamily"];
+    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["DBClusterParameterGroupArn"] !== undefined) {
-    contents.DBClusterParameterGroupArn = output["DBClusterParameterGroupArn"];
+    contents.DBClusterParameterGroupArn = __expectString(output["DBClusterParameterGroupArn"]);
   }
   return contents;
 };
@@ -6713,7 +8250,7 @@ const deserializeAws_queryDBClusterParameterGroupDetails = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -6740,7 +8277,7 @@ const deserializeAws_queryDBClusterParameterGroupNameMessage = (
     DBClusterParameterGroupName: undefined,
   };
   if (output["DBClusterParameterGroupName"] !== undefined) {
-    contents.DBClusterParameterGroupName = output["DBClusterParameterGroupName"];
+    contents.DBClusterParameterGroupName = __expectString(output["DBClusterParameterGroupName"]);
   }
   return contents;
 };
@@ -6753,7 +8290,7 @@ const deserializeAws_queryDBClusterParameterGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6767,7 +8304,7 @@ const deserializeAws_queryDBClusterParameterGroupsMessage = (
     DBClusterParameterGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.DBClusterParameterGroups === "") {
     contents.DBClusterParameterGroups = [];
@@ -6792,7 +8329,7 @@ const deserializeAws_queryDBClusterQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6803,10 +8340,10 @@ const deserializeAws_queryDBClusterRole = (output: any, context: __SerdeContext)
     Status: undefined,
   };
   if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = output["RoleArn"];
+    contents.RoleArn = __expectString(output["RoleArn"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -6852,52 +8389,52 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     );
   }
   if (output["DBClusterSnapshotIdentifier"] !== undefined) {
-    contents.DBClusterSnapshotIdentifier = output["DBClusterSnapshotIdentifier"];
+    contents.DBClusterSnapshotIdentifier = __expectString(output["DBClusterSnapshotIdentifier"]);
   }
   if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = output["DBClusterIdentifier"];
+    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["SnapshotCreateTime"] !== undefined) {
     contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
   }
   if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
+    contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["ClusterCreateTime"] !== undefined) {
     contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
   }
   if (output["MasterUsername"] !== undefined) {
-    contents.MasterUsername = output["MasterUsername"];
+    contents.MasterUsername = __expectString(output["MasterUsername"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["SnapshotType"] !== undefined) {
-    contents.SnapshotType = output["SnapshotType"];
+    contents.SnapshotType = __expectString(output["SnapshotType"]);
   }
   if (output["PercentProgress"] !== undefined) {
     contents.PercentProgress = parseInt(output["PercentProgress"]);
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = output["KmsKeyId"];
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
   }
   if (output["DBClusterSnapshotArn"] !== undefined) {
-    contents.DBClusterSnapshotArn = output["DBClusterSnapshotArn"];
+    contents.DBClusterSnapshotArn = __expectString(output["DBClusterSnapshotArn"]);
   }
   if (output["SourceDBClusterSnapshotArn"] !== undefined) {
-    contents.SourceDBClusterSnapshotArn = output["SourceDBClusterSnapshotArn"];
+    contents.SourceDBClusterSnapshotArn = __expectString(output["SourceDBClusterSnapshotArn"]);
   }
   return contents;
 };
@@ -6910,7 +8447,7 @@ const deserializeAws_queryDBClusterSnapshotAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6924,7 +8461,7 @@ const deserializeAws_queryDBClusterSnapshotAttribute = (
     AttributeValues: undefined,
   };
   if (output["AttributeName"] !== undefined) {
-    contents.AttributeName = output["AttributeName"];
+    contents.AttributeName = __expectString(output["AttributeName"]);
   }
   if (output.AttributeValues === "") {
     contents.AttributeValues = [];
@@ -6961,7 +8498,7 @@ const deserializeAws_queryDBClusterSnapshotAttributesResult = (
     DBClusterSnapshotAttributes: undefined,
   };
   if (output["DBClusterSnapshotIdentifier"] !== undefined) {
-    contents.DBClusterSnapshotIdentifier = output["DBClusterSnapshotIdentifier"];
+    contents.DBClusterSnapshotIdentifier = __expectString(output["DBClusterSnapshotIdentifier"]);
   }
   if (output.DBClusterSnapshotAttributes === "") {
     contents.DBClusterSnapshotAttributes = [];
@@ -6998,7 +8535,7 @@ const deserializeAws_queryDBClusterSnapshotMessage = (
     DBClusterSnapshots: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.DBClusterSnapshots === "") {
     contents.DBClusterSnapshots = [];
@@ -7020,7 +8557,7 @@ const deserializeAws_queryDBClusterSnapshotNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7037,19 +8574,19 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     SupportsLogExportsToCloudwatchLogs: undefined,
   };
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = output["DBParameterGroupFamily"];
+    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
   }
   if (output["DBEngineDescription"] !== undefined) {
-    contents.DBEngineDescription = output["DBEngineDescription"];
+    contents.DBEngineDescription = __expectString(output["DBEngineDescription"]);
   }
   if (output["DBEngineVersionDescription"] !== undefined) {
-    contents.DBEngineVersionDescription = output["DBEngineVersionDescription"];
+    contents.DBEngineVersionDescription = __expectString(output["DBEngineVersionDescription"]);
   }
   if (output.ValidUpgradeTarget === "") {
     contents.ValidUpgradeTarget = [];
@@ -7070,7 +8607,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     );
   }
   if (output["SupportsLogExportsToCloudwatchLogs"] !== undefined) {
-    contents.SupportsLogExportsToCloudwatchLogs = output["SupportsLogExportsToCloudwatchLogs"] == "true";
+    contents.SupportsLogExportsToCloudwatchLogs = __parseBoolean(output["SupportsLogExportsToCloudwatchLogs"]);
   }
   return contents;
 };
@@ -7092,7 +8629,7 @@ const deserializeAws_queryDBEngineVersionMessage = (output: any, context: __Serd
     DBEngineVersions: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.DBEngineVersions === "") {
     contents.DBEngineVersions = [];
@@ -7136,16 +8673,16 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     EnabledCloudwatchLogsExports: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
+    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
   }
   if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = output["DBInstanceClass"];
+    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["DBInstanceStatus"] !== undefined) {
-    contents.DBInstanceStatus = output["DBInstanceStatus"];
+    contents.DBInstanceStatus = __expectString(output["DBInstanceStatus"]);
   }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
@@ -7154,7 +8691,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.InstanceCreateTime = new Date(output["InstanceCreateTime"]);
   }
   if (output["PreferredBackupWindow"] !== undefined) {
-    contents.PreferredBackupWindow = output["PreferredBackupWindow"];
+    contents.PreferredBackupWindow = __expectString(output["PreferredBackupWindow"]);
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
     contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
@@ -7172,13 +8709,13 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["AvailabilityZone"] !== undefined) {
-    contents.AvailabilityZone = output["AvailabilityZone"];
+    contents.AvailabilityZone = __expectString(output["AvailabilityZone"]);
   }
   if (output["DBSubnetGroup"] !== undefined) {
     contents.DBSubnetGroup = deserializeAws_queryDBSubnetGroup(output["DBSubnetGroup"], context);
   }
   if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
+    contents.PreferredMaintenanceWindow = __expectString(output["PreferredMaintenanceWindow"]);
   }
   if (output["PendingModifiedValues"] !== undefined) {
     contents.PendingModifiedValues = deserializeAws_queryPendingModifiedValues(
@@ -7190,13 +8727,13 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = output["PubliclyAccessible"] == "true";
+    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
   }
   if (output.StatusInfos === "") {
     contents.StatusInfos = [];
@@ -7208,25 +8745,25 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["DBClusterIdentifier"] !== undefined) {
-    contents.DBClusterIdentifier = output["DBClusterIdentifier"];
+    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = output["KmsKeyId"];
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
   }
   if (output["DbiResourceId"] !== undefined) {
-    contents.DbiResourceId = output["DbiResourceId"];
+    contents.DbiResourceId = __expectString(output["DbiResourceId"]);
   }
   if (output["CACertificateIdentifier"] !== undefined) {
-    contents.CACertificateIdentifier = output["CACertificateIdentifier"];
+    contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
   }
   if (output["PromotionTier"] !== undefined) {
     contents.PromotionTier = parseInt(output["PromotionTier"]);
   }
   if (output["DBInstanceArn"] !== undefined) {
-    contents.DBInstanceArn = output["DBInstanceArn"];
+    contents.DBInstanceArn = __expectString(output["DBInstanceArn"]);
   }
   if (output.EnabledCloudwatchLogsExports === "") {
     contents.EnabledCloudwatchLogsExports = [];
@@ -7251,7 +8788,7 @@ const deserializeAws_queryDBInstanceAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7273,7 +8810,7 @@ const deserializeAws_queryDBInstanceMessage = (output: any, context: __SerdeCont
     DBInstances: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.DBInstances === "") {
     contents.DBInstances = [];
@@ -7292,7 +8829,7 @@ const deserializeAws_queryDBInstanceNotFoundFault = (output: any, context: __Ser
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7305,16 +8842,16 @@ const deserializeAws_queryDBInstanceStatusInfo = (output: any, context: __SerdeC
     Message: undefined,
   };
   if (output["StatusType"] !== undefined) {
-    contents.StatusType = output["StatusType"];
+    contents.StatusType = __expectString(output["StatusType"]);
   }
   if (output["Normal"] !== undefined) {
-    contents.Normal = output["Normal"] == "true";
+    contents.Normal = __parseBoolean(output["Normal"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -7338,7 +8875,7 @@ const deserializeAws_queryDBParameterGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7351,7 +8888,7 @@ const deserializeAws_queryDBParameterGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7364,7 +8901,7 @@ const deserializeAws_queryDBParameterGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7377,7 +8914,7 @@ const deserializeAws_queryDBSecurityGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7390,7 +8927,7 @@ const deserializeAws_queryDBSnapshotAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7400,7 +8937,7 @@ const deserializeAws_queryDBSnapshotNotFoundFault = (output: any, context: __Ser
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7415,16 +8952,16 @@ const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext)
     DBSubnetGroupArn: undefined,
   };
   if (output["DBSubnetGroupName"] !== undefined) {
-    contents.DBSubnetGroupName = output["DBSubnetGroupName"];
+    contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
   }
   if (output["DBSubnetGroupDescription"] !== undefined) {
-    contents.DBSubnetGroupDescription = output["DBSubnetGroupDescription"];
+    contents.DBSubnetGroupDescription = __expectString(output["DBSubnetGroupDescription"]);
   }
   if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
+    contents.VpcId = __expectString(output["VpcId"]);
   }
   if (output["SubnetGroupStatus"] !== undefined) {
-    contents.SubnetGroupStatus = output["SubnetGroupStatus"];
+    contents.SubnetGroupStatus = __expectString(output["SubnetGroupStatus"]);
   }
   if (output.Subnets === "") {
     contents.Subnets = [];
@@ -7433,7 +8970,7 @@ const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext)
     contents.Subnets = deserializeAws_querySubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
   }
   if (output["DBSubnetGroupArn"] !== undefined) {
-    contents.DBSubnetGroupArn = output["DBSubnetGroupArn"];
+    contents.DBSubnetGroupArn = __expectString(output["DBSubnetGroupArn"]);
   }
   return contents;
 };
@@ -7446,7 +8983,7 @@ const deserializeAws_queryDBSubnetGroupAlreadyExistsFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7459,7 +8996,7 @@ const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZs = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7470,7 +9007,7 @@ const deserializeAws_queryDBSubnetGroupMessage = (output: any, context: __SerdeC
     DBSubnetGroups: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.DBSubnetGroups === "") {
     contents.DBSubnetGroups = [];
@@ -7492,7 +9029,7 @@ const deserializeAws_queryDBSubnetGroupNotFoundFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7505,7 +9042,7 @@ const deserializeAws_queryDBSubnetGroupQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7529,7 +9066,7 @@ const deserializeAws_queryDBSubnetQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7542,7 +9079,7 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7576,6 +9113,32 @@ const deserializeAws_queryDeleteDBInstanceResult = (output: any, context: __Serd
   };
   if (output["DBInstance"] !== undefined) {
     contents.DBInstance = deserializeAws_queryDBInstance(output["DBInstance"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDeleteEventSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteEventSubscriptionResult => {
+  let contents: any = {
+    EventSubscription: undefined,
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDeleteGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteGlobalClusterResult => {
+  let contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
   }
   return contents;
 };
@@ -7616,13 +9179,13 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
     HostedZoneId: undefined,
   };
   if (output["Address"] !== undefined) {
-    contents.Address = output["Address"];
+    contents.Address = __expectString(output["Address"]);
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
   }
   if (output["HostedZoneId"] !== undefined) {
-    contents.HostedZoneId = output["HostedZoneId"];
+    contents.HostedZoneId = __expectString(output["HostedZoneId"]);
   }
   return contents;
 };
@@ -7634,10 +9197,10 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
     Parameters: undefined,
   };
   if (output["DBParameterGroupFamily"] !== undefined) {
-    contents.DBParameterGroupFamily = output["DBParameterGroupFamily"];
+    contents.DBParameterGroupFamily = __expectString(output["DBParameterGroupFamily"]);
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
@@ -7661,13 +9224,13 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     SourceArn: undefined,
   };
   if (output["SourceIdentifier"] !== undefined) {
-    contents.SourceIdentifier = output["SourceIdentifier"];
+    contents.SourceIdentifier = __expectString(output["SourceIdentifier"]);
   }
   if (output["SourceType"] !== undefined) {
-    contents.SourceType = output["SourceType"];
+    contents.SourceType = __expectString(output["SourceType"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   if (output.EventCategories === "") {
     contents.EventCategories = [];
@@ -7682,7 +9245,7 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
     contents.Date = new Date(output["Date"]);
   }
   if (output["SourceArn"] !== undefined) {
-    contents.SourceArn = output["SourceArn"];
+    contents.SourceArn = __expectString(output["SourceArn"]);
   }
   return contents;
 };
@@ -7694,7 +9257,7 @@ const deserializeAws_queryEventCategoriesList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7704,7 +9267,7 @@ const deserializeAws_queryEventCategoriesMap = (output: any, context: __SerdeCon
     EventCategories: undefined,
   };
   if (output["SourceType"] !== undefined) {
-    contents.SourceType = output["SourceType"];
+    contents.SourceType = __expectString(output["SourceType"]);
   }
   if (output.EventCategories === "") {
     contents.EventCategories = [];
@@ -7765,13 +9328,121 @@ const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext)
     Events: undefined,
   };
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   if (output.Events === "") {
     contents.Events = [];
   }
   if (output["Events"] !== undefined && output["Events"]["Event"] !== undefined) {
     contents.Events = deserializeAws_queryEventList(__getArrayIfSingleItem(output["Events"]["Event"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryEventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
+  let contents: any = {
+    CustomerAwsId: undefined,
+    CustSubscriptionId: undefined,
+    SnsTopicArn: undefined,
+    Status: undefined,
+    SubscriptionCreationTime: undefined,
+    SourceType: undefined,
+    SourceIdsList: undefined,
+    EventCategoriesList: undefined,
+    Enabled: undefined,
+    EventSubscriptionArn: undefined,
+  };
+  if (output["CustomerAwsId"] !== undefined) {
+    contents.CustomerAwsId = __expectString(output["CustomerAwsId"]);
+  }
+  if (output["CustSubscriptionId"] !== undefined) {
+    contents.CustSubscriptionId = __expectString(output["CustSubscriptionId"]);
+  }
+  if (output["SnsTopicArn"] !== undefined) {
+    contents.SnsTopicArn = __expectString(output["SnsTopicArn"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["SubscriptionCreationTime"] !== undefined) {
+    contents.SubscriptionCreationTime = __expectString(output["SubscriptionCreationTime"]);
+  }
+  if (output["SourceType"] !== undefined) {
+    contents.SourceType = __expectString(output["SourceType"]);
+  }
+  if (output.SourceIdsList === "") {
+    contents.SourceIdsList = [];
+  }
+  if (output["SourceIdsList"] !== undefined && output["SourceIdsList"]["SourceId"] !== undefined) {
+    contents.SourceIdsList = deserializeAws_querySourceIdsList(
+      __getArrayIfSingleItem(output["SourceIdsList"]["SourceId"]),
+      context
+    );
+  }
+  if (output.EventCategoriesList === "") {
+    contents.EventCategoriesList = [];
+  }
+  if (output["EventCategoriesList"] !== undefined && output["EventCategoriesList"]["EventCategory"] !== undefined) {
+    contents.EventCategoriesList = deserializeAws_queryEventCategoriesList(
+      __getArrayIfSingleItem(output["EventCategoriesList"]["EventCategory"]),
+      context
+    );
+  }
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["Enabled"]);
+  }
+  if (output["EventSubscriptionArn"] !== undefined) {
+    contents.EventSubscriptionArn = __expectString(output["EventSubscriptionArn"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): EventSubscriptionQuotaExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryEventSubscriptionsList = (output: any, context: __SerdeContext): EventSubscription[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEventSubscription(entry, context);
+    });
+};
+
+const deserializeAws_queryEventSubscriptionsMessage = (
+  output: any,
+  context: __SerdeContext
+): EventSubscriptionsMessage => {
+  let contents: any = {
+    Marker: undefined,
+    EventSubscriptionsList: undefined,
+  };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.EventSubscriptionsList === "") {
+    contents.EventSubscriptionsList = [];
+  }
+  if (
+    output["EventSubscriptionsList"] !== undefined &&
+    output["EventSubscriptionsList"]["EventSubscription"] !== undefined
+  ) {
+    contents.EventSubscriptionsList = deserializeAws_queryEventSubscriptionsList(
+      __getArrayIfSingleItem(output["EventSubscriptionsList"]["EventSubscription"]),
+      context
+    );
   }
   return contents;
 };
@@ -7786,6 +9457,163 @@ const deserializeAws_queryFailoverDBClusterResult = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_queryGlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
+  let contents: any = {
+    GlobalClusterIdentifier: undefined,
+    GlobalClusterResourceId: undefined,
+    GlobalClusterArn: undefined,
+    Status: undefined,
+    Engine: undefined,
+    EngineVersion: undefined,
+    DatabaseName: undefined,
+    StorageEncrypted: undefined,
+    DeletionProtection: undefined,
+    GlobalClusterMembers: undefined,
+  };
+  if (output["GlobalClusterIdentifier"] !== undefined) {
+    contents.GlobalClusterIdentifier = __expectString(output["GlobalClusterIdentifier"]);
+  }
+  if (output["GlobalClusterResourceId"] !== undefined) {
+    contents.GlobalClusterResourceId = __expectString(output["GlobalClusterResourceId"]);
+  }
+  if (output["GlobalClusterArn"] !== undefined) {
+    contents.GlobalClusterArn = __expectString(output["GlobalClusterArn"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = __expectString(output["Engine"]);
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["DatabaseName"] !== undefined) {
+    contents.DatabaseName = __expectString(output["DatabaseName"]);
+  }
+  if (output["StorageEncrypted"] !== undefined) {
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
+  }
+  if (output["DeletionProtection"] !== undefined) {
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
+  }
+  if (output.GlobalClusterMembers === "") {
+    contents.GlobalClusterMembers = [];
+  }
+  if (
+    output["GlobalClusterMembers"] !== undefined &&
+    output["GlobalClusterMembers"]["GlobalClusterMember"] !== undefined
+  ) {
+    contents.GlobalClusterMembers = deserializeAws_queryGlobalClusterMemberList(
+      __getArrayIfSingleItem(output["GlobalClusterMembers"]["GlobalClusterMember"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): GlobalClusterAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterList = (output: any, context: __SerdeContext): GlobalCluster[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryGlobalCluster(entry, context);
+    });
+};
+
+const deserializeAws_queryGlobalClusterMember = (output: any, context: __SerdeContext): GlobalClusterMember => {
+  let contents: any = {
+    DBClusterArn: undefined,
+    Readers: undefined,
+    IsWriter: undefined,
+  };
+  if (output["DBClusterArn"] !== undefined) {
+    contents.DBClusterArn = __expectString(output["DBClusterArn"]);
+  }
+  if (output.Readers === "") {
+    contents.Readers = [];
+  }
+  if (output["Readers"] !== undefined && output["Readers"]["member"] !== undefined) {
+    contents.Readers = deserializeAws_queryReadersArnList(__getArrayIfSingleItem(output["Readers"]["member"]), context);
+  }
+  if (output["IsWriter"] !== undefined) {
+    contents.IsWriter = __parseBoolean(output["IsWriter"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterMemberList = (output: any, context: __SerdeContext): GlobalClusterMember[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryGlobalClusterMember(entry, context);
+    });
+};
+
+const deserializeAws_queryGlobalClusterNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): GlobalClusterNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClusterQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): GlobalClusterQuotaExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryGlobalClustersMessage = (output: any, context: __SerdeContext): GlobalClustersMessage => {
+  let contents: any = {
+    Marker: undefined,
+    GlobalClusters: undefined,
+  };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
+  if (output.GlobalClusters === "") {
+    contents.GlobalClusters = [];
+  }
+  if (output["GlobalClusters"] !== undefined && output["GlobalClusters"]["GlobalClusterMember"] !== undefined) {
+    contents.GlobalClusters = deserializeAws_queryGlobalClusterList(
+      __getArrayIfSingleItem(output["GlobalClusters"]["GlobalClusterMember"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryInstanceQuotaExceededFault = (
   output: any,
   context: __SerdeContext
@@ -7794,7 +9622,7 @@ const deserializeAws_queryInstanceQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7807,7 +9635,7 @@ const deserializeAws_queryInsufficientDBClusterCapacityFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7820,7 +9648,7 @@ const deserializeAws_queryInsufficientDBInstanceCapacityFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7833,7 +9661,7 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7846,7 +9674,7 @@ const deserializeAws_queryInvalidDBClusterSnapshotStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7859,7 +9687,7 @@ const deserializeAws_queryInvalidDBClusterStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7872,7 +9700,7 @@ const deserializeAws_queryInvalidDBInstanceStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7885,7 +9713,7 @@ const deserializeAws_queryInvalidDBParameterGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7898,7 +9726,7 @@ const deserializeAws_queryInvalidDBSecurityGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7911,7 +9739,7 @@ const deserializeAws_queryInvalidDBSnapshotStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7924,7 +9752,7 @@ const deserializeAws_queryInvalidDBSubnetGroupStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7937,7 +9765,33 @@ const deserializeAws_queryInvalidDBSubnetStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidEventSubscriptionStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidEventSubscriptionStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidGlobalClusterStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidGlobalClusterStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7947,7 +9801,7 @@ const deserializeAws_queryInvalidRestoreFault = (output: any, context: __SerdeCo
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7957,7 +9811,7 @@ const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext)
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7970,7 +9824,7 @@ const deserializeAws_queryInvalidVPCNetworkStateFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7983,7 +9837,7 @@ const deserializeAws_queryKMSKeyNotAccessibleFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -7995,7 +9849,7 @@ const deserializeAws_queryLogTypeList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -8048,6 +9902,32 @@ const deserializeAws_queryModifyDBSubnetGroupResult = (
   return contents;
 };
 
+const deserializeAws_queryModifyEventSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyEventSubscriptionResult => {
+  let contents: any = {
+    EventSubscription: undefined,
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyGlobalClusterResult => {
+  let contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryOrderableDBInstanceOption = (
   output: any,
   context: __SerdeContext
@@ -8061,16 +9941,16 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     Vpc: undefined,
   };
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = output["DBInstanceClass"];
+    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = output["LicenseModel"];
+    contents.LicenseModel = __expectString(output["LicenseModel"]);
   }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -8082,7 +9962,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     );
   }
   if (output["Vpc"] !== undefined) {
-    contents.Vpc = output["Vpc"] == "true";
+    contents.Vpc = __parseBoolean(output["Vpc"]);
   }
   return contents;
 };
@@ -8122,7 +10002,7 @@ const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -8141,34 +10021,34 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     ApplyMethod: undefined,
   };
   if (output["ParameterName"] !== undefined) {
-    contents.ParameterName = output["ParameterName"];
+    contents.ParameterName = __expectString(output["ParameterName"]);
   }
   if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = output["ParameterValue"];
+    contents.ParameterValue = __expectString(output["ParameterValue"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["Source"] !== undefined) {
-    contents.Source = output["Source"];
+    contents.Source = __expectString(output["Source"]);
   }
   if (output["ApplyType"] !== undefined) {
-    contents.ApplyType = output["ApplyType"];
+    contents.ApplyType = __expectString(output["ApplyType"]);
   }
   if (output["DataType"] !== undefined) {
-    contents.DataType = output["DataType"];
+    contents.DataType = __expectString(output["DataType"]);
   }
   if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = output["AllowedValues"];
+    contents.AllowedValues = __expectString(output["AllowedValues"]);
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = output["MinimumEngineVersion"];
+    contents.MinimumEngineVersion = __expectString(output["MinimumEngineVersion"]);
   }
   if (output["ApplyMethod"] !== undefined) {
-    contents.ApplyMethod = output["ApplyMethod"];
+    contents.ApplyMethod = __expectString(output["ApplyMethod"]);
   }
   return contents;
 };
@@ -8226,7 +10106,7 @@ const deserializeAws_queryPendingMaintenanceAction = (
     Description: undefined,
   };
   if (output["Action"] !== undefined) {
-    contents.Action = output["Action"];
+    contents.Action = __expectString(output["Action"]);
   }
   if (output["AutoAppliedAfterDate"] !== undefined) {
     contents.AutoAppliedAfterDate = new Date(output["AutoAppliedAfterDate"]);
@@ -8235,13 +10115,13 @@ const deserializeAws_queryPendingMaintenanceAction = (
     contents.ForcedApplyDate = new Date(output["ForcedApplyDate"]);
   }
   if (output["OptInStatus"] !== undefined) {
-    contents.OptInStatus = output["OptInStatus"];
+    contents.OptInStatus = __expectString(output["OptInStatus"]);
   }
   if (output["CurrentApplyDate"] !== undefined) {
     contents.CurrentApplyDate = new Date(output["CurrentApplyDate"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   return contents;
 };
@@ -8295,7 +10175,7 @@ const deserializeAws_queryPendingMaintenanceActionsMessage = (
     );
   }
   if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
+    contents.Marker = __expectString(output["Marker"]);
   }
   return contents;
 };
@@ -8318,13 +10198,13 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     PendingCloudwatchLogsExports: undefined,
   };
   if (output["DBInstanceClass"] !== undefined) {
-    contents.DBInstanceClass = output["DBInstanceClass"];
+    contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
   }
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = parseInt(output["AllocatedStorage"]);
   }
   if (output["MasterUserPassword"] !== undefined) {
-    contents.MasterUserPassword = output["MasterUserPassword"];
+    contents.MasterUserPassword = __expectString(output["MasterUserPassword"]);
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
@@ -8333,28 +10213,28 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["LicenseModel"] !== undefined) {
-    contents.LicenseModel = output["LicenseModel"];
+    contents.LicenseModel = __expectString(output["LicenseModel"]);
   }
   if (output["Iops"] !== undefined) {
     contents.Iops = parseInt(output["Iops"]);
   }
   if (output["DBInstanceIdentifier"] !== undefined) {
-    contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
+    contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
   }
   if (output["StorageType"] !== undefined) {
-    contents.StorageType = output["StorageType"];
+    contents.StorageType = __expectString(output["StorageType"]);
   }
   if (output["CACertificateIdentifier"] !== undefined) {
-    contents.CACertificateIdentifier = output["CACertificateIdentifier"];
+    contents.CACertificateIdentifier = __expectString(output["CACertificateIdentifier"]);
   }
   if (output["DBSubnetGroupName"] !== undefined) {
-    contents.DBSubnetGroupName = output["DBSubnetGroupName"];
+    contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
   }
   if (output["PendingCloudwatchLogsExports"] !== undefined) {
     contents.PendingCloudwatchLogsExports = deserializeAws_queryPendingCloudwatchLogsExports(
@@ -8363,6 +10243,28 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     );
   }
   return contents;
+};
+
+const deserializeAws_queryReadersArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_queryReadReplicaIdentifierList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_queryRebootDBInstanceResult = (output: any, context: __SerdeContext): RebootDBInstanceResult => {
@@ -8375,12 +10277,38 @@ const deserializeAws_queryRebootDBInstanceResult = (output: any, context: __Serd
   return contents;
 };
 
+const deserializeAws_queryRemoveFromGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): RemoveFromGlobalClusterResult => {
+  let contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionResult = (
+  output: any,
+  context: __SerdeContext
+): RemoveSourceIdentifierFromSubscriptionResult => {
+  let contents: any = {
+    EventSubscription: undefined,
+  };
+  if (output["EventSubscription"] !== undefined) {
+    contents.EventSubscription = deserializeAws_queryEventSubscription(output["EventSubscription"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryResourceNotFoundFault = (output: any, context: __SerdeContext): ResourceNotFoundFault => {
   let contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8394,7 +10322,7 @@ const deserializeAws_queryResourcePendingMaintenanceActions = (
     PendingMaintenanceActionDetails: undefined,
   };
   if (output["ResourceIdentifier"] !== undefined) {
-    contents.ResourceIdentifier = output["ResourceIdentifier"];
+    contents.ResourceIdentifier = __expectString(output["ResourceIdentifier"]);
   }
   if (output.PendingMaintenanceActionDetails === "") {
     contents.PendingMaintenanceActionDetails = [];
@@ -8445,7 +10373,7 @@ const deserializeAws_querySharedSnapshotQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8458,7 +10386,61 @@ const deserializeAws_querySnapshotQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNoAuthorizationFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySNSTopicArnNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SNSTopicArnNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySourceIdsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeContext): SourceNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8491,7 +10473,7 @@ const deserializeAws_queryStorageQuotaExceededFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8504,7 +10486,7 @@ const deserializeAws_queryStorageTypeNotSupportedFault = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8516,13 +10498,13 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
     SubnetStatus: undefined,
   };
   if (output["SubnetIdentifier"] !== undefined) {
-    contents.SubnetIdentifier = output["SubnetIdentifier"];
+    contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
   }
   if (output["SubnetAvailabilityZone"] !== undefined) {
     contents.SubnetAvailabilityZone = deserializeAws_queryAvailabilityZone(output["SubnetAvailabilityZone"], context);
   }
   if (output["SubnetStatus"] !== undefined) {
-    contents.SubnetStatus = output["SubnetStatus"];
+    contents.SubnetStatus = __expectString(output["SubnetStatus"]);
   }
   return contents;
 };
@@ -8532,7 +10514,7 @@ const deserializeAws_querySubnetAlreadyInUse = (output: any, context: __SerdeCon
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -8548,16 +10530,55 @@ const deserializeAws_querySubnetList = (output: any, context: __SerdeContext): S
     });
 };
 
+const deserializeAws_querySubscriptionAlreadyExistFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionAlreadyExistFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionCategoryNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionCategoryNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySubscriptionNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): SubscriptionNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
     Key: undefined,
     Value: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -8595,19 +10616,19 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     IsMajorVersionUpgrade: undefined,
   };
   if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
+    contents.Engine = __expectString(output["Engine"]);
   }
   if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["AutoUpgrade"] !== undefined) {
-    contents.AutoUpgrade = output["AutoUpgrade"] == "true";
+    contents.AutoUpgrade = __parseBoolean(output["AutoUpgrade"]);
   }
   if (output["IsMajorVersionUpgrade"] !== undefined) {
-    contents.IsMajorVersionUpgrade = output["IsMajorVersionUpgrade"] == "true";
+    contents.IsMajorVersionUpgrade = __parseBoolean(output["IsMajorVersionUpgrade"]);
   }
   return contents;
 };
@@ -8632,10 +10653,10 @@ const deserializeAws_queryVpcSecurityGroupMembership = (
     Status: undefined,
   };
   if (output["VpcSecurityGroupId"] !== undefined) {
-    contents.VpcSecurityGroupId = output["VpcSecurityGroupId"];
+    contents.VpcSecurityGroupId = __expectString(output["VpcSecurityGroupId"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };

@@ -26,6 +26,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -39,8 +41,10 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/things/{thingName}/jobs/{jobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -64,7 +68,6 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -81,8 +84,9 @@ export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/things/{thingName}/jobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -93,7 +97,6 @@ export const serializeAws_restJson1GetPendingJobExecutionsCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -109,10 +112,12 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
   input: StartNextPendingJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/things/{thingName}/jobs/$next";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/$next";
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -131,7 +136,6 @@ export const serializeAws_restJson1StartNextPendingJobExecutionCommand = async (
     ...(input.stepTimeoutInMinutes !== undefined &&
       input.stepTimeoutInMinutes !== null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -147,10 +151,12 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
   input: UpdateJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/things/{thingName}/jobs/{jobId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -187,7 +193,6 @@ export const serializeAws_restJson1UpdateJobExecutionCommand = async (
     ...(input.stepTimeoutInMinutes !== undefined &&
       input.stepTimeoutInMinutes !== null && { stepTimeoutInMinutes: input.stepTimeoutInMinutes }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,7 +494,7 @@ export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
     contents.executionState = deserializeAws_restJson1JobExecutionState(data.executionState, context);
   }
   if (data.jobDocument !== undefined && data.jobDocument !== null) {
-    contents.jobDocument = data.jobDocument;
+    contents.jobDocument = __expectString(data.jobDocument);
   }
   return Promise.resolve(contents);
 };
@@ -583,7 +588,7 @@ const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -600,7 +605,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -617,7 +622,7 @@ const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -634,7 +639,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -651,7 +656,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -668,7 +673,7 @@ const deserializeAws_restJson1TerminalStateExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -686,7 +691,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.payload !== undefined && data.payload !== null) {
     contents.payload = context.base64Decoder(data.payload);
@@ -695,7 +700,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
 };
 
 const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -713,59 +718,49 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    approximateSecondsBeforeTimedOut:
-      output.approximateSecondsBeforeTimedOut !== undefined && output.approximateSecondsBeforeTimedOut !== null
-        ? output.approximateSecondsBeforeTimedOut
-        : undefined,
-    executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
-    jobDocument: output.jobDocument !== undefined && output.jobDocument !== null ? output.jobDocument : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null ? output.lastUpdatedAt : undefined,
-    queuedAt: output.queuedAt !== undefined && output.queuedAt !== null ? output.queuedAt : undefined,
-    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    approximateSecondsBeforeTimedOut: __expectNumber(output.approximateSecondsBeforeTimedOut),
+    executionNumber: __expectNumber(output.executionNumber),
+    jobDocument: __expectString(output.jobDocument),
+    jobId: __expectString(output.jobId),
+    lastUpdatedAt: __expectNumber(output.lastUpdatedAt),
+    queuedAt: __expectNumber(output.queuedAt),
+    startedAt: __expectNumber(output.startedAt),
+    status: __expectString(output.status),
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
         : undefined,
-    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    thingName: __expectString(output.thingName),
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 
 const deserializeAws_restJson1JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1DetailsMap(output.statusDetails, context)
         : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
-    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
-    lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null ? output.lastUpdatedAt : undefined,
-    queuedAt: output.queuedAt !== undefined && output.queuedAt !== null ? output.queuedAt : undefined,
-    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
-    versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined,
+    executionNumber: __expectNumber(output.executionNumber),
+    jobId: __expectString(output.jobId),
+    lastUpdatedAt: __expectNumber(output.lastUpdatedAt),
+    queuedAt: __expectNumber(output.queuedAt),
+    startedAt: __expectNumber(output.startedAt),
+    versionNumber: __expectNumber(output.versionNumber),
   } as any;
 };
 

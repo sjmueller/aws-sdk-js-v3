@@ -40,7 +40,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -53,8 +57,9 @@ export const serializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
   input: ClaimDevicesByClaimCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/claims/{ClaimCode}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/claims/{ClaimCode}";
   if (input.ClaimCode !== undefined) {
     const labelValue: string = input.ClaimCode;
     if (labelValue.length <= 0) {
@@ -65,7 +70,6 @@ export const serializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
     throw new Error("No value provided for input HTTP label: ClaimCode.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -81,8 +85,9 @@ export const serializeAws_restJson1DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/devices/{DeviceId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -93,7 +98,6 @@ export const serializeAws_restJson1DescribeDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -109,10 +113,12 @@ export const serializeAws_restJson1FinalizeDeviceClaimCommand = async (
   input: FinalizeDeviceClaimCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/devices/{DeviceId}/finalize-claim";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/finalize-claim";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -127,7 +133,6 @@ export const serializeAws_restJson1FinalizeDeviceClaimCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,8 +148,10 @@ export const serializeAws_restJson1GetDeviceMethodsCommand = async (
   input: GetDeviceMethodsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/devices/{DeviceId}/methods";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -155,7 +162,6 @@ export const serializeAws_restJson1GetDeviceMethodsCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -171,8 +177,10 @@ export const serializeAws_restJson1InitiateDeviceClaimCommand = async (
   input: InitiateDeviceClaimCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/devices/{DeviceId}/initiate-claim";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/initiate-claim";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -183,7 +191,6 @@ export const serializeAws_restJson1InitiateDeviceClaimCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -199,10 +206,12 @@ export const serializeAws_restJson1InvokeDeviceMethodCommand = async (
   input: InvokeDeviceMethodCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/devices/{DeviceId}/methods";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -219,7 +228,6 @@ export const serializeAws_restJson1InvokeDeviceMethodCommand = async (
     ...(input.DeviceMethodParameters !== undefined &&
       input.DeviceMethodParameters !== null && { deviceMethodParameters: input.DeviceMethodParameters }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -235,8 +243,10 @@ export const serializeAws_restJson1ListDeviceEventsCommand = async (
   input: ListDeviceEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/devices/{DeviceId}/events";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/events";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -257,7 +267,6 @@ export const serializeAws_restJson1ListDeviceEventsCommand = async (
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -274,15 +283,15 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/devices";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices";
   const query: any = {
     ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,8 +308,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -311,7 +321,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,10 +336,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -345,7 +355,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -361,8 +370,10 @@ export const serializeAws_restJson1UnclaimDeviceCommand = async (
   input: UnclaimDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/devices/{DeviceId}/unclaim";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/unclaim";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -373,7 +384,6 @@ export const serializeAws_restJson1UnclaimDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -389,8 +399,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -404,7 +415,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -421,10 +431,12 @@ export const serializeAws_restJson1UpdateDeviceStateCommand = async (
   input: UpdateDeviceStateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/devices/{DeviceId}/state";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices/{DeviceId}/state";
   if (input.DeviceId !== undefined) {
     const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
@@ -438,7 +450,6 @@ export const serializeAws_restJson1UpdateDeviceStateCommand = async (
   body = JSON.stringify({
     ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -464,10 +475,10 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.claimCode !== undefined && data.claimCode !== null) {
-    contents.ClaimCode = data.claimCode;
+    contents.ClaimCode = __expectString(data.claimCode);
   }
   if (data.total !== undefined && data.total !== null) {
-    contents.Total = data.total;
+    contents.Total = __expectNumber(data.total);
   }
   return Promise.resolve(contents);
 };
@@ -609,7 +620,7 @@ export const deserializeAws_restJson1FinalizeDeviceClaimCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -767,7 +778,7 @@ export const deserializeAws_restJson1InitiateDeviceClaimCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -846,7 +857,7 @@ export const deserializeAws_restJson1InvokeDeviceMethodCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.deviceMethodResponse !== undefined && data.deviceMethodResponse !== null) {
-    contents.DeviceMethodResponse = data.deviceMethodResponse;
+    contents.DeviceMethodResponse = __expectString(data.deviceMethodResponse);
   }
   return Promise.resolve(contents);
 };
@@ -945,7 +956,7 @@ export const deserializeAws_restJson1ListDeviceEventsCommand = async (
     contents.Events = deserializeAws_restJson1__listOfDeviceEvent(data.events, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1028,7 +1039,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
     contents.Devices = deserializeAws_restJson1__listOfDeviceDescription(data.devices, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.NextToken = data.nextToken;
+    contents.NextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1229,7 +1240,7 @@ export const deserializeAws_restJson1UnclaimDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.state !== undefined && data.state !== null) {
-    contents.State = data.state;
+    contents.State = __expectString(data.state);
   }
   return Promise.resolve(contents);
 };
@@ -1434,10 +1445,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1455,10 +1466,10 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1476,10 +1487,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1497,10 +1508,10 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1518,10 +1529,10 @@ const deserializeAws_restJson1RangeNotSatisfiableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1539,10 +1550,10 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
@@ -1560,16 +1571,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.Code = data.code;
+    contents.Code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
 
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1630,7 +1641,7 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1645,8 +1656,8 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
         : undefined,
-    DeviceId: output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
-    Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    DeviceId: __expectString(output.deviceId),
+    Type: __expectString(output.type),
   } as any;
 };
 
@@ -1657,27 +1668,26 @@ const deserializeAws_restJson1DeviceAttributes = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1DeviceDescription = (output: any, context: __SerdeContext): DeviceDescription => {
   return {
-    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: __expectString(output.arn),
     Attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1DeviceAttributes(output.attributes, context)
         : undefined,
-    DeviceId: output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
-    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
-    RemainingLife:
-      output.remainingLife !== undefined && output.remainingLife !== null ? output.remainingLife : undefined,
+    DeviceId: __expectString(output.deviceId),
+    Enabled: __expectBoolean(output.enabled),
+    RemainingLife: __handleFloat(output.remainingLife),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__mapOf__string(output.tags, context)
         : undefined,
-    Type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    Type: __expectString(output.type),
   } as any;
 };
 
@@ -1687,14 +1697,14 @@ const deserializeAws_restJson1DeviceEvent = (output: any, context: __SerdeContex
       output.device !== undefined && output.device !== null
         ? deserializeAws_restJson1Device(output.device, context)
         : undefined,
-    StdEvent: output.stdEvent !== undefined && output.stdEvent !== null ? output.stdEvent : undefined,
+    StdEvent: __expectString(output.stdEvent),
   } as any;
 };
 
 const deserializeAws_restJson1DeviceMethod = (output: any, context: __SerdeContext): DeviceMethod => {
   return {
-    DeviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
-    MethodName: output.methodName !== undefined && output.methodName !== null ? output.methodName : undefined,
+    DeviceType: __expectString(output.deviceType),
+    MethodName: __expectString(output.methodName),
   } as any;
 };
 

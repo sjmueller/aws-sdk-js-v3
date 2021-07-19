@@ -13,7 +13,11 @@ import {
   SessionExpiredException,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
+import {
+  SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+} from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -25,10 +29,12 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
   input: GetIceServerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/get-ice-server-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/get-ice-server-config";
   let body: any;
   body = JSON.stringify({
     ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
@@ -36,7 +42,6 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
     ...(input.Service !== undefined && input.Service !== null && { Service: input.Service }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -52,10 +57,12 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   input: SendAlexaOfferToMasterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/send-alexa-offer-to-master";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/send-alexa-offer-to-master";
   let body: any;
   body = JSON.stringify({
     ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
@@ -64,7 +71,6 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
     ...(input.SenderClientId !== undefined &&
       input.SenderClientId !== null && { SenderClientId: input.SenderClientId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -184,7 +190,7 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Answer !== undefined && data.Answer !== null) {
-    contents.Answer = data.Answer;
+    contents.Answer = __expectString(data.Answer);
   }
   return Promise.resolve(contents);
 };
@@ -262,7 +268,7 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -279,7 +285,7 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -296,7 +302,7 @@ const deserializeAws_restJson1InvalidClientExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -313,7 +319,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -330,7 +336,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -347,20 +353,20 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
-    Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
-    Ttl: output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
+    Password: __expectString(output.Password),
+    Ttl: __expectNumber(output.Ttl),
     Uris:
       output.Uris !== undefined && output.Uris !== null
         ? deserializeAws_restJson1Uris(output.Uris, context)
         : undefined,
-    Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
+    Username: __expectString(output.Username),
   } as any;
 };
 
@@ -382,7 +388,7 @@ const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

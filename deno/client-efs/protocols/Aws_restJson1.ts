@@ -112,7 +112,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -126,10 +131,12 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/access-points";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -142,7 +149,6 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -158,10 +164,11 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
   input: CreateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
   let body: any;
   body = JSON.stringify({
     ...(input.AvailabilityZoneName !== undefined &&
@@ -174,13 +181,12 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
       input.PerformanceMode !== null && { PerformanceMode: input.PerformanceMode }),
     ...(input.ProvisionedThroughputInMibps !== undefined &&
       input.ProvisionedThroughputInMibps !== null && {
-        ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
+        ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
     ...(input.ThroughputMode !== undefined &&
       input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -196,10 +202,12 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
   input: CreateMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/mount-targets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
   let body: any;
   body = JSON.stringify({
     ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
@@ -210,7 +218,6 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
       }),
     ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -226,10 +233,12 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/create-tags/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/create-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -243,7 +252,6 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -259,8 +267,10 @@ export const serializeAws_restJson1DeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/access-points/{AccessPointId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points/{AccessPointId}";
   if (input.AccessPointId !== undefined) {
     const labelValue: string = input.AccessPointId;
     if (labelValue.length <= 0) {
@@ -271,7 +281,6 @@ export const serializeAws_restJson1DeleteAccessPointCommand = async (
     throw new Error("No value provided for input HTTP label: AccessPointId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -287,8 +296,10 @@ export const serializeAws_restJson1DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -299,7 +310,6 @@ export const serializeAws_restJson1DeleteFileSystemCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -315,8 +325,11 @@ export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
   input: DeleteFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -327,7 +340,6 @@ export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -343,8 +355,10 @@ export const serializeAws_restJson1DeleteMountTargetCommand = async (
   input: DeleteMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets/{MountTargetId}";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
@@ -355,7 +369,6 @@ export const serializeAws_restJson1DeleteMountTargetCommand = async (
     throw new Error("No value provided for input HTTP label: MountTargetId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -371,10 +384,12 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/delete-tags/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/delete-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -389,7 +404,6 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -405,8 +419,10 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   input: DescribeAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/access-points";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -414,7 +430,6 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
     ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -431,16 +446,17 @@ export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
   input: DescribeAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/account-preferences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -456,8 +472,11 @@ export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
   input: DescribeBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -468,7 +487,6 @@ export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -484,8 +502,11 @@ export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
   input: DescribeFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -496,7 +517,6 @@ export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -512,8 +532,9 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -521,7 +542,6 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
     ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -538,8 +558,11 @@ export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async
   input: DescribeLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -550,7 +573,6 @@ export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -566,8 +588,10 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
   input: DescribeMountTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/mount-targets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -576,7 +600,6 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
     ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -593,8 +616,11 @@ export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = as
   input: DescribeMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
@@ -605,7 +631,6 @@ export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = as
     throw new Error("No value provided for input HTTP label: MountTargetId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -621,8 +646,10 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/tags/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -637,7 +664,6 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
     ...(input.Marker !== undefined && { Marker: input.Marker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -654,8 +680,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
@@ -670,7 +698,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -687,10 +714,13 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   input: ModifyMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
@@ -707,7 +737,6 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
         SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -723,16 +752,17 @@ export const serializeAws_restJson1PutAccountPreferencesCommand = async (
   input: PutAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/account-preferences";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceIdType !== undefined &&
       input.ResourceIdType !== null && { ResourceIdType: input.ResourceIdType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -748,10 +778,13 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
   input: PutBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -766,7 +799,6 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
     ...(input.BackupPolicy !== undefined &&
       input.BackupPolicy !== null && { BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -782,10 +814,13 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
   input: PutFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -803,7 +838,6 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
       }),
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -819,10 +853,13 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
   input: PutLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -839,7 +876,6 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
         LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -855,10 +891,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
@@ -872,7 +910,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -888,8 +925,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
@@ -903,7 +942,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -920,10 +958,12 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
@@ -937,12 +977,11 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   body = JSON.stringify({
     ...(input.ProvisionedThroughputInMibps !== undefined &&
       input.ProvisionedThroughputInMibps !== null && {
-        ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
+        ProvisionedThroughputInMibps: __serializeFloat(input.ProvisionedThroughputInMibps),
       }),
     ...(input.ThroughputMode !== undefined &&
       input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -976,25 +1015,25 @@ export const deserializeAws_restJson1CreateAccessPointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccessPointArn !== undefined && data.AccessPointArn !== null) {
-    contents.AccessPointArn = data.AccessPointArn;
+    contents.AccessPointArn = __expectString(data.AccessPointArn);
   }
   if (data.AccessPointId !== undefined && data.AccessPointId !== null) {
-    contents.AccessPointId = data.AccessPointId;
+    contents.AccessPointId = __expectString(data.AccessPointId);
   }
   if (data.ClientToken !== undefined && data.ClientToken !== null) {
-    contents.ClientToken = data.ClientToken;
+    contents.ClientToken = __expectString(data.ClientToken);
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.LifeCycleState !== undefined && data.LifeCycleState !== null) {
-    contents.LifeCycleState = data.LifeCycleState;
+    contents.LifeCycleState = __expectString(data.LifeCycleState);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
-    contents.OwnerId = data.OwnerId;
+    contents.OwnerId = __expectString(data.OwnerId);
   }
   if (data.PosixUser !== undefined && data.PosixUser !== null) {
     contents.PosixUser = deserializeAws_restJson1PosixUser(data.PosixUser, context);
@@ -1114,46 +1153,46 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
-    contents.AvailabilityZoneId = data.AvailabilityZoneId;
+    contents.AvailabilityZoneId = __expectString(data.AvailabilityZoneId);
   }
   if (data.AvailabilityZoneName !== undefined && data.AvailabilityZoneName !== null) {
-    contents.AvailabilityZoneName = data.AvailabilityZoneName;
+    contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
   if (data.CreationToken !== undefined && data.CreationToken !== null) {
-    contents.CreationToken = data.CreationToken;
+    contents.CreationToken = __expectString(data.CreationToken);
   }
   if (data.Encrypted !== undefined && data.Encrypted !== null) {
-    contents.Encrypted = data.Encrypted;
+    contents.Encrypted = __expectBoolean(data.Encrypted);
   }
   if (data.FileSystemArn !== undefined && data.FileSystemArn !== null) {
-    contents.FileSystemArn = data.FileSystemArn;
+    contents.FileSystemArn = __expectString(data.FileSystemArn);
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.KmsKeyId !== undefined && data.KmsKeyId !== null) {
-    contents.KmsKeyId = data.KmsKeyId;
+    contents.KmsKeyId = __expectString(data.KmsKeyId);
   }
   if (data.LifeCycleState !== undefined && data.LifeCycleState !== null) {
-    contents.LifeCycleState = data.LifeCycleState;
+    contents.LifeCycleState = __expectString(data.LifeCycleState);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.NumberOfMountTargets !== undefined && data.NumberOfMountTargets !== null) {
-    contents.NumberOfMountTargets = data.NumberOfMountTargets;
+    contents.NumberOfMountTargets = __expectNumber(data.NumberOfMountTargets);
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
-    contents.OwnerId = data.OwnerId;
+    contents.OwnerId = __expectString(data.OwnerId);
   }
   if (data.PerformanceMode !== undefined && data.PerformanceMode !== null) {
-    contents.PerformanceMode = data.PerformanceMode;
+    contents.PerformanceMode = __expectString(data.PerformanceMode);
   }
   if (data.ProvisionedThroughputInMibps !== undefined && data.ProvisionedThroughputInMibps !== null) {
-    contents.ProvisionedThroughputInMibps = data.ProvisionedThroughputInMibps;
+    contents.ProvisionedThroughputInMibps = __handleFloat(data.ProvisionedThroughputInMibps);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
     contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
@@ -1162,7 +1201,7 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
   if (data.ThroughputMode !== undefined && data.ThroughputMode !== null) {
-    contents.ThroughputMode = data.ThroughputMode;
+    contents.ThroughputMode = __expectString(data.ThroughputMode);
   }
   return Promise.resolve(contents);
 };
@@ -1274,34 +1313,34 @@ export const deserializeAws_restJson1CreateMountTargetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
-    contents.AvailabilityZoneId = data.AvailabilityZoneId;
+    contents.AvailabilityZoneId = __expectString(data.AvailabilityZoneId);
   }
   if (data.AvailabilityZoneName !== undefined && data.AvailabilityZoneName !== null) {
-    contents.AvailabilityZoneName = data.AvailabilityZoneName;
+    contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.IpAddress !== undefined && data.IpAddress !== null) {
-    contents.IpAddress = data.IpAddress;
+    contents.IpAddress = __expectString(data.IpAddress);
   }
   if (data.LifeCycleState !== undefined && data.LifeCycleState !== null) {
-    contents.LifeCycleState = data.LifeCycleState;
+    contents.LifeCycleState = __expectString(data.LifeCycleState);
   }
   if (data.MountTargetId !== undefined && data.MountTargetId !== null) {
-    contents.MountTargetId = data.MountTargetId;
+    contents.MountTargetId = __expectString(data.MountTargetId);
   }
   if (data.NetworkInterfaceId !== undefined && data.NetworkInterfaceId !== null) {
-    contents.NetworkInterfaceId = data.NetworkInterfaceId;
+    contents.NetworkInterfaceId = __expectString(data.NetworkInterfaceId);
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
-    contents.OwnerId = data.OwnerId;
+    contents.OwnerId = __expectString(data.OwnerId);
   }
   if (data.SubnetId !== undefined && data.SubnetId !== null) {
-    contents.SubnetId = data.SubnetId;
+    contents.SubnetId = __expectString(data.SubnetId);
   }
   if (data.VpcId !== undefined && data.VpcId !== null) {
-    contents.VpcId = data.VpcId;
+    contents.VpcId = __expectString(data.VpcId);
   }
   return Promise.resolve(contents);
 };
@@ -1874,7 +1913,7 @@ export const deserializeAws_restJson1DescribeAccessPointsCommand = async (
     contents.AccessPoints = deserializeAws_restJson1AccessPointDescriptions(data.AccessPoints, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1954,7 +1993,7 @@ export const deserializeAws_restJson1DescribeAccountPreferencesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ResourceIdPreference !== undefined && data.ResourceIdPreference !== null) {
     contents.ResourceIdPreference = deserializeAws_restJson1ResourceIdPreference(data.ResourceIdPreference, context);
@@ -2100,10 +2139,10 @@ export const deserializeAws_restJson1DescribeFileSystemPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = data.Policy;
+    contents.Policy = __expectString(data.Policy);
   }
   return Promise.resolve(contents);
 };
@@ -2179,10 +2218,10 @@ export const deserializeAws_restJson1DescribeFileSystemsCommand = async (
     contents.FileSystems = deserializeAws_restJson1FileSystemDescriptions(data.FileSystems, context);
   }
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -2326,13 +2365,13 @@ export const deserializeAws_restJson1DescribeMountTargetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   if (data.MountTargets !== undefined && data.MountTargets !== null) {
     contents.MountTargets = deserializeAws_restJson1MountTargetDescriptions(data.MountTargets, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -2500,10 +2539,10 @@ export const deserializeAws_restJson1DescribeTagsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined && data.Marker !== null) {
-    contents.Marker = data.Marker;
+    contents.Marker = __expectString(data.Marker);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
@@ -2578,7 +2617,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
@@ -2894,10 +2933,10 @@ export const deserializeAws_restJson1PutFileSystemPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = data.Policy;
+    contents.Policy = __expectString(data.Policy);
   }
   return Promise.resolve(contents);
 };
@@ -3221,46 +3260,46 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
-    contents.AvailabilityZoneId = data.AvailabilityZoneId;
+    contents.AvailabilityZoneId = __expectString(data.AvailabilityZoneId);
   }
   if (data.AvailabilityZoneName !== undefined && data.AvailabilityZoneName !== null) {
-    contents.AvailabilityZoneName = data.AvailabilityZoneName;
+    contents.AvailabilityZoneName = __expectString(data.AvailabilityZoneName);
   }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
   if (data.CreationToken !== undefined && data.CreationToken !== null) {
-    contents.CreationToken = data.CreationToken;
+    contents.CreationToken = __expectString(data.CreationToken);
   }
   if (data.Encrypted !== undefined && data.Encrypted !== null) {
-    contents.Encrypted = data.Encrypted;
+    contents.Encrypted = __expectBoolean(data.Encrypted);
   }
   if (data.FileSystemArn !== undefined && data.FileSystemArn !== null) {
-    contents.FileSystemArn = data.FileSystemArn;
+    contents.FileSystemArn = __expectString(data.FileSystemArn);
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.KmsKeyId !== undefined && data.KmsKeyId !== null) {
-    contents.KmsKeyId = data.KmsKeyId;
+    contents.KmsKeyId = __expectString(data.KmsKeyId);
   }
   if (data.LifeCycleState !== undefined && data.LifeCycleState !== null) {
-    contents.LifeCycleState = data.LifeCycleState;
+    contents.LifeCycleState = __expectString(data.LifeCycleState);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.NumberOfMountTargets !== undefined && data.NumberOfMountTargets !== null) {
-    contents.NumberOfMountTargets = data.NumberOfMountTargets;
+    contents.NumberOfMountTargets = __expectNumber(data.NumberOfMountTargets);
   }
   if (data.OwnerId !== undefined && data.OwnerId !== null) {
-    contents.OwnerId = data.OwnerId;
+    contents.OwnerId = __expectString(data.OwnerId);
   }
   if (data.PerformanceMode !== undefined && data.PerformanceMode !== null) {
-    contents.PerformanceMode = data.PerformanceMode;
+    contents.PerformanceMode = __expectString(data.PerformanceMode);
   }
   if (data.ProvisionedThroughputInMibps !== undefined && data.ProvisionedThroughputInMibps !== null) {
-    contents.ProvisionedThroughputInMibps = data.ProvisionedThroughputInMibps;
+    contents.ProvisionedThroughputInMibps = __handleFloat(data.ProvisionedThroughputInMibps);
   }
   if (data.SizeInBytes !== undefined && data.SizeInBytes !== null) {
     contents.SizeInBytes = deserializeAws_restJson1FileSystemSize(data.SizeInBytes, context);
@@ -3269,7 +3308,7 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     contents.Tags = deserializeAws_restJson1Tags(data.Tags, context);
   }
   if (data.ThroughputMode !== undefined && data.ThroughputMode !== null) {
-    contents.ThroughputMode = data.ThroughputMode;
+    contents.ThroughputMode = __expectString(data.ThroughputMode);
   }
   return Promise.resolve(contents);
 };
@@ -3373,13 +3412,13 @@ const deserializeAws_restJson1AccessPointAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.AccessPointId !== undefined && data.AccessPointId !== null) {
-    contents.AccessPointId = data.AccessPointId;
+    contents.AccessPointId = __expectString(data.AccessPointId);
   }
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3397,10 +3436,10 @@ const deserializeAws_restJson1AccessPointLimitExceededResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3418,10 +3457,10 @@ const deserializeAws_restJson1AccessPointNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3439,10 +3478,10 @@ const deserializeAws_restJson1AvailabilityZonesMismatchResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3460,10 +3499,10 @@ const deserializeAws_restJson1BadRequestResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3481,10 +3520,10 @@ const deserializeAws_restJson1DependencyTimeoutResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3503,13 +3542,13 @@ const deserializeAws_restJson1FileSystemAlreadyExistsResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.FileSystemId !== undefined && data.FileSystemId !== null) {
-    contents.FileSystemId = data.FileSystemId;
+    contents.FileSystemId = __expectString(data.FileSystemId);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3527,10 +3566,10 @@ const deserializeAws_restJson1FileSystemInUseResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3548,10 +3587,10 @@ const deserializeAws_restJson1FileSystemLimitExceededResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3569,10 +3608,10 @@ const deserializeAws_restJson1FileSystemNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3590,10 +3629,10 @@ const deserializeAws_restJson1IncorrectFileSystemLifeCycleStateResponse = async 
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3611,10 +3650,10 @@ const deserializeAws_restJson1IncorrectMountTargetStateResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3632,10 +3671,10 @@ const deserializeAws_restJson1InsufficientThroughputCapacityResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3653,10 +3692,10 @@ const deserializeAws_restJson1InternalServerErrorResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3674,10 +3713,10 @@ const deserializeAws_restJson1InvalidPolicyExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3695,10 +3734,10 @@ const deserializeAws_restJson1IpAddressInUseResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3716,10 +3755,10 @@ const deserializeAws_restJson1MountTargetConflictResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3737,10 +3776,10 @@ const deserializeAws_restJson1MountTargetNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3758,10 +3797,10 @@ const deserializeAws_restJson1NetworkInterfaceLimitExceededResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3779,10 +3818,10 @@ const deserializeAws_restJson1NoFreeAddressesInSubnetResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3800,10 +3839,10 @@ const deserializeAws_restJson1PolicyNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3821,10 +3860,10 @@ const deserializeAws_restJson1SecurityGroupLimitExceededResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3842,10 +3881,10 @@ const deserializeAws_restJson1SecurityGroupNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3863,10 +3902,10 @@ const deserializeAws_restJson1SubnetNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3884,10 +3923,10 @@ const deserializeAws_restJson1ThroughputLimitExceededResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3905,10 +3944,10 @@ const deserializeAws_restJson1TooManyRequestsResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3926,10 +3965,10 @@ const deserializeAws_restJson1UnsupportedAvailabilityZoneResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3947,10 +3986,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
-    contents.ErrorCode = data.ErrorCode;
+    contents.ErrorCode = __expectString(data.ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4062,16 +4101,13 @@ const deserializeAws_restJson1AccessPointDescription = (
   context: __SerdeContext
 ): AccessPointDescription => {
   return {
-    AccessPointArn:
-      output.AccessPointArn !== undefined && output.AccessPointArn !== null ? output.AccessPointArn : undefined,
-    AccessPointId:
-      output.AccessPointId !== undefined && output.AccessPointId !== null ? output.AccessPointId : undefined,
-    ClientToken: output.ClientToken !== undefined && output.ClientToken !== null ? output.ClientToken : undefined,
-    FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
-    LifeCycleState:
-      output.LifeCycleState !== undefined && output.LifeCycleState !== null ? output.LifeCycleState : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    AccessPointArn: __expectString(output.AccessPointArn),
+    AccessPointId: __expectString(output.AccessPointId),
+    ClientToken: __expectString(output.ClientToken),
+    FileSystemId: __expectString(output.FileSystemId),
+    LifeCycleState: __expectString(output.LifeCycleState),
+    Name: __expectString(output.Name),
+    OwnerId: __expectString(output.OwnerId),
     PosixUser:
       output.PosixUser !== undefined && output.PosixUser !== null
         ? deserializeAws_restJson1PosixUser(output.PosixUser, context)
@@ -4103,53 +4139,37 @@ const deserializeAws_restJson1AccessPointDescriptions = (
 
 const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeContext): BackupPolicy => {
   return {
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
 const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeContext): CreationInfo => {
   return {
-    OwnerGid: output.OwnerGid !== undefined && output.OwnerGid !== null ? output.OwnerGid : undefined,
-    OwnerUid: output.OwnerUid !== undefined && output.OwnerUid !== null ? output.OwnerUid : undefined,
-    Permissions: output.Permissions !== undefined && output.Permissions !== null ? output.Permissions : undefined,
+    OwnerGid: __expectNumber(output.OwnerGid),
+    OwnerUid: __expectNumber(output.OwnerUid),
+    Permissions: __expectString(output.Permissions),
   } as any;
 };
 
 const deserializeAws_restJson1FileSystemDescription = (output: any, context: __SerdeContext): FileSystemDescription => {
   return {
-    AvailabilityZoneId:
-      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
-        ? output.AvailabilityZoneId
-        : undefined,
-    AvailabilityZoneName:
-      output.AvailabilityZoneName !== undefined && output.AvailabilityZoneName !== null
-        ? output.AvailabilityZoneName
-        : undefined,
+    AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
+    AvailabilityZoneName: __expectString(output.AvailabilityZoneName),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    CreationToken:
-      output.CreationToken !== undefined && output.CreationToken !== null ? output.CreationToken : undefined,
-    Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
-    FileSystemArn:
-      output.FileSystemArn !== undefined && output.FileSystemArn !== null ? output.FileSystemArn : undefined,
-    FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
-    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
-    LifeCycleState:
-      output.LifeCycleState !== undefined && output.LifeCycleState !== null ? output.LifeCycleState : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    NumberOfMountTargets:
-      output.NumberOfMountTargets !== undefined && output.NumberOfMountTargets !== null
-        ? output.NumberOfMountTargets
-        : undefined,
-    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
-    PerformanceMode:
-      output.PerformanceMode !== undefined && output.PerformanceMode !== null ? output.PerformanceMode : undefined,
-    ProvisionedThroughputInMibps:
-      output.ProvisionedThroughputInMibps !== undefined && output.ProvisionedThroughputInMibps !== null
-        ? output.ProvisionedThroughputInMibps
-        : undefined,
+    CreationToken: __expectString(output.CreationToken),
+    Encrypted: __expectBoolean(output.Encrypted),
+    FileSystemArn: __expectString(output.FileSystemArn),
+    FileSystemId: __expectString(output.FileSystemId),
+    KmsKeyId: __expectString(output.KmsKeyId),
+    LifeCycleState: __expectString(output.LifeCycleState),
+    Name: __expectString(output.Name),
+    NumberOfMountTargets: __expectNumber(output.NumberOfMountTargets),
+    OwnerId: __expectString(output.OwnerId),
+    PerformanceMode: __expectString(output.PerformanceMode),
+    ProvisionedThroughputInMibps: __handleFloat(output.ProvisionedThroughputInMibps),
     SizeInBytes:
       output.SizeInBytes !== undefined && output.SizeInBytes !== null
         ? deserializeAws_restJson1FileSystemSize(output.SizeInBytes, context)
@@ -4158,8 +4178,7 @@ const deserializeAws_restJson1FileSystemDescription = (output: any, context: __S
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1Tags(output.Tags, context)
         : undefined,
-    ThroughputMode:
-      output.ThroughputMode !== undefined && output.ThroughputMode !== null ? output.ThroughputMode : undefined,
+    ThroughputMode: __expectString(output.ThroughputMode),
   } as any;
 };
 
@@ -4183,10 +4202,9 @@ const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeCon
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
-    ValueInIA: output.ValueInIA !== undefined && output.ValueInIA !== null ? output.ValueInIA : undefined,
-    ValueInStandard:
-      output.ValueInStandard !== undefined && output.ValueInStandard !== null ? output.ValueInStandard : undefined,
+    Value: __expectNumber(output.Value),
+    ValueInIA: __expectNumber(output.ValueInIA),
+    ValueInStandard: __expectNumber(output.ValueInStandard),
   } as any;
 };
 
@@ -4203,8 +4221,7 @@ const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __Serde
 
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
-    TransitionToIA:
-      output.TransitionToIA !== undefined && output.TransitionToIA !== null ? output.TransitionToIA : undefined,
+    TransitionToIA: __expectString(output.TransitionToIA),
   } as any;
 };
 
@@ -4213,27 +4230,16 @@ const deserializeAws_restJson1MountTargetDescription = (
   context: __SerdeContext
 ): MountTargetDescription => {
   return {
-    AvailabilityZoneId:
-      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
-        ? output.AvailabilityZoneId
-        : undefined,
-    AvailabilityZoneName:
-      output.AvailabilityZoneName !== undefined && output.AvailabilityZoneName !== null
-        ? output.AvailabilityZoneName
-        : undefined,
-    FileSystemId: output.FileSystemId !== undefined && output.FileSystemId !== null ? output.FileSystemId : undefined,
-    IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
-    LifeCycleState:
-      output.LifeCycleState !== undefined && output.LifeCycleState !== null ? output.LifeCycleState : undefined,
-    MountTargetId:
-      output.MountTargetId !== undefined && output.MountTargetId !== null ? output.MountTargetId : undefined,
-    NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
-        ? output.NetworkInterfaceId
-        : undefined,
-    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
-    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    AvailabilityZoneId: __expectString(output.AvailabilityZoneId),
+    AvailabilityZoneName: __expectString(output.AvailabilityZoneName),
+    FileSystemId: __expectString(output.FileSystemId),
+    IpAddress: __expectString(output.IpAddress),
+    LifeCycleState: __expectString(output.LifeCycleState),
+    MountTargetId: __expectString(output.MountTargetId),
+    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
+    OwnerId: __expectString(output.OwnerId),
+    SubnetId: __expectString(output.SubnetId),
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 
@@ -4253,19 +4259,18 @@ const deserializeAws_restJson1MountTargetDescriptions = (
 
 const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
   return {
-    Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
+    Gid: __expectNumber(output.Gid),
     SecondaryGids:
       output.SecondaryGids !== undefined && output.SecondaryGids !== null
         ? deserializeAws_restJson1SecondaryGids(output.SecondaryGids, context)
         : undefined,
-    Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
+    Uid: __expectNumber(output.Uid),
   } as any;
 };
 
 const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __SerdeContext): ResourceIdPreference => {
   return {
-    ResourceIdType:
-      output.ResourceIdType !== undefined && output.ResourceIdType !== null ? output.ResourceIdType : undefined,
+    ResourceIdType: __expectString(output.ResourceIdType),
     Resources:
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_restJson1Resources(output.Resources, context)
@@ -4280,7 +4285,7 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4290,7 +4295,7 @@ const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeCont
       output.CreationInfo !== undefined && output.CreationInfo !== null
         ? deserializeAws_restJson1CreationInfo(output.CreationInfo, context)
         : undefined,
-    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    Path: __expectString(output.Path),
   } as any;
 };
 
@@ -4301,7 +4306,7 @@ const deserializeAws_restJson1SecondaryGids = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -4312,14 +4317,14 @@ const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 

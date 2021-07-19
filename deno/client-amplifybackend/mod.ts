@@ -17,6 +17,7 @@ export * from "./commands/GetBackendAPIModelsCommand.ts";
 export * from "./commands/GetBackendAuthCommand.ts";
 export * from "./commands/GetBackendJobCommand.ts";
 export * from "./commands/GetTokenCommand.ts";
+export * from "./commands/ImportBackendAuthCommand.ts";
 export * from "./commands/ListBackendJobsCommand.ts";
 export * from "./commands/RemoveAllBackendsCommand.ts";
 export * from "./commands/RemoveBackendConfigCommand.ts";

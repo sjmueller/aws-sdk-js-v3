@@ -4,7 +4,7 @@ import {
   deserializeAws_json1_0DescribeDatabaseCommand,
   serializeAws_json1_0DescribeDatabaseCommand,
 } from "../protocols/Aws_json1_0.ts";
-import { getEndpointDiscoveryRequiredPlugin } from "../../middleware-endpoint-discovery/mod.ts";
+import { getEndpointDiscoveryPlugin } from "../../middleware-endpoint-discovery/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -63,7 +63,9 @@ export class DescribeDatabaseCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeDatabaseCommandInput, DescribeDatabaseCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointDiscoveryRequiredPlugin(configuration, { clientStack, options }));
+    this.middlewareStack.use(
+      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

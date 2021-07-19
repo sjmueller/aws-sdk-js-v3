@@ -222,9 +222,11 @@ import {
 } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -241,11 +243,13 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -286,7 +290,6 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -302,11 +305,14 @@ export const serializeAws_restXmlCreateAccessPointForObjectLambdaCommand = async
   input: CreateAccessPointForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -336,7 +342,6 @@ export const serializeAws_restXmlCreateAccessPointForObjectLambdaCommand = async
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -352,6 +357,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -365,7 +371,8 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     }),
     ...(isSerializableHeaderValue(input.OutpostId) && { "x-amz-outpost-id": input.OutpostId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -386,7 +393,6 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     contents.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -402,11 +408,12 @@ export const serializeAws_restXmlCreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateJobRequest");
@@ -472,7 +479,6 @@ export const serializeAws_restXmlCreateJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -488,10 +494,12 @@ export const serializeAws_restXmlDeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -513,7 +521,6 @@ export const serializeAws_restXmlDeleteAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -529,10 +536,13 @@ export const serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand = async
   input: DeleteAccessPointForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -554,7 +564,6 @@ export const serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand = async
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -570,10 +579,12 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   input: DeleteAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -595,7 +606,6 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -611,10 +621,13 @@ export const serializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand =
   input: DeleteAccessPointPolicyForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -636,7 +649,6 @@ export const serializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand =
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -652,10 +664,12 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -677,7 +691,6 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -693,10 +706,13 @@ export const serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand = asy
   input: DeleteBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -718,7 +734,6 @@ export const serializeAws_restXmlDeleteBucketLifecycleConfigurationCommand = asy
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -734,10 +749,12 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   input: DeleteBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -759,7 +776,6 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -775,10 +791,12 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
   input: DeleteBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -800,7 +818,6 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -816,10 +833,12 @@ export const serializeAws_restXmlDeleteJobTaggingCommand = async (
   input: DeleteJobTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/tagging";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -841,7 +860,6 @@ export const serializeAws_restXmlDeleteJobTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -857,10 +875,13 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/configuration/publicAccessBlock";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/configuration/publicAccessBlock";
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -873,7 +894,6 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -889,10 +909,12 @@ export const serializeAws_restXmlDeleteStorageLensConfigurationCommand = async (
   input: DeleteStorageLensConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens/{ConfigId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}";
   if (input.ConfigId !== undefined) {
     const labelValue: string = input.ConfigId;
     if (labelValue.length <= 0) {
@@ -914,7 +936,6 @@ export const serializeAws_restXmlDeleteStorageLensConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -930,10 +951,12 @@ export const serializeAws_restXmlDeleteStorageLensConfigurationTaggingCommand = 
   input: DeleteStorageLensConfigurationTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens/{ConfigId}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
   if (input.ConfigId !== undefined) {
     const labelValue: string = input.ConfigId;
     if (labelValue.length <= 0) {
@@ -955,7 +978,6 @@ export const serializeAws_restXmlDeleteStorageLensConfigurationTaggingCommand = 
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -971,10 +993,11 @@ export const serializeAws_restXmlDescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs/{JobId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -996,7 +1019,6 @@ export const serializeAws_restXmlDescribeJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1012,10 +1034,12 @@ export const serializeAws_restXmlGetAccessPointCommand = async (
   input: GetAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1037,7 +1061,6 @@ export const serializeAws_restXmlGetAccessPointCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1053,10 +1076,13 @@ export const serializeAws_restXmlGetAccessPointConfigurationForObjectLambdaComma
   input: GetAccessPointConfigurationForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}/configuration";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1078,7 +1104,6 @@ export const serializeAws_restXmlGetAccessPointConfigurationForObjectLambdaComma
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1094,10 +1119,13 @@ export const serializeAws_restXmlGetAccessPointForObjectLambdaCommand = async (
   input: GetAccessPointForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1119,7 +1147,6 @@ export const serializeAws_restXmlGetAccessPointForObjectLambdaCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1135,10 +1162,12 @@ export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
   input: GetAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1160,7 +1189,6 @@ export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1176,10 +1204,13 @@ export const serializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand = as
   input: GetAccessPointPolicyForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1201,7 +1232,6 @@ export const serializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand = as
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1217,10 +1247,13 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   input: GetAccessPointPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspoint/{Name}/policyStatus";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1242,7 +1275,6 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1258,10 +1290,13 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaComman
   input: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policyStatus";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}/policyStatus";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1283,7 +1318,6 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaComman
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1299,10 +1333,12 @@ export const serializeAws_restXmlGetBucketCommand = async (
   input: GetBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1324,7 +1360,6 @@ export const serializeAws_restXmlGetBucketCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1340,10 +1375,13 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
   input: GetBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1365,7 +1403,6 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1381,10 +1418,12 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
   input: GetBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1406,7 +1445,6 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1422,10 +1460,12 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   input: GetBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1447,7 +1487,6 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1463,10 +1502,12 @@ export const serializeAws_restXmlGetJobTaggingCommand = async (
   input: GetJobTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/tagging";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -1488,7 +1529,6 @@ export const serializeAws_restXmlGetJobTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1504,10 +1544,13 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/configuration/publicAccessBlock";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/configuration/publicAccessBlock";
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1520,7 +1563,6 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1536,10 +1578,12 @@ export const serializeAws_restXmlGetStorageLensConfigurationCommand = async (
   input: GetStorageLensConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens/{ConfigId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}";
   if (input.ConfigId !== undefined) {
     const labelValue: string = input.ConfigId;
     if (labelValue.length <= 0) {
@@ -1561,7 +1605,6 @@ export const serializeAws_restXmlGetStorageLensConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1577,10 +1620,12 @@ export const serializeAws_restXmlGetStorageLensConfigurationTaggingCommand = asy
   input: GetStorageLensConfigurationTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens/{ConfigId}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
   if (input.ConfigId !== undefined) {
     const labelValue: string = input.ConfigId;
     if (labelValue.length <= 0) {
@@ -1602,7 +1647,6 @@ export const serializeAws_restXmlGetStorageLensConfigurationTaggingCommand = asy
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1618,10 +1662,11 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
   input: ListAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint";
   const query: any = {
     ...(input.Bucket !== undefined && { bucket: input.Bucket }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1639,7 +1684,6 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1656,10 +1700,12 @@ export const serializeAws_restXmlListAccessPointsForObjectLambdaCommand = async 
   input: ListAccessPointsForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspointforobjectlambda";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -1676,7 +1722,6 @@ export const serializeAws_restXmlListAccessPointsForObjectLambdaCommand = async 
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1693,10 +1738,11 @@ export const serializeAws_restXmlListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
   const query: any = {
     ...(input.JobStatuses !== undefined && { jobStatuses: (input.JobStatuses || []).map((_entry) => _entry) }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1714,7 +1760,6 @@ export const serializeAws_restXmlListJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1731,11 +1776,12 @@ export const serializeAws_restXmlListRegionalBucketsCommand = async (
   input: ListRegionalBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
     ...(isSerializableHeaderValue(input.OutpostId) && { "x-amz-outpost-id": input.OutpostId! }),
   };
-  let resolvedPath = "/v20180820/bucket";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -1752,7 +1798,6 @@ export const serializeAws_restXmlListRegionalBucketsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1769,10 +1814,11 @@ export const serializeAws_restXmlListStorageLensConfigurationsCommand = async (
   input: ListStorageLensConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
@@ -1788,7 +1834,6 @@ export const serializeAws_restXmlListStorageLensConfigurationsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1805,11 +1850,14 @@ export const serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaComma
   input: PutAccessPointConfigurationForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}/configuration";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1839,7 +1887,6 @@ export const serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaComma
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1855,11 +1902,13 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   input: PutAccessPointPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1889,7 +1938,6 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1905,11 +1953,14 @@ export const serializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand = as
   input: PutAccessPointPolicyForObjectLambdaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/accesspointforobjectlambda/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1939,7 +1990,6 @@ export const serializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand = as
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1955,11 +2005,14 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
   input: PutBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/bucket/{Bucket}/lifecycleconfiguration";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1991,7 +2044,6 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2007,6 +2059,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
   input: PutBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
@@ -2014,7 +2067,8 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
       "x-amz-confirm-remove-self-bucket-access": input.ConfirmRemoveSelfBucketAccess!.toString(),
     }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/policy";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2044,7 +2098,6 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2060,11 +2113,13 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   input: PutBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/bucket/{Bucket}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket/{Bucket}/tagging";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2096,7 +2151,6 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2112,11 +2166,13 @@ export const serializeAws_restXmlPutJobTaggingCommand = async (
   input: PutJobTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs/{JobId}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/tagging";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -2150,7 +2206,6 @@ export const serializeAws_restXmlPutJobTaggingCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2166,11 +2221,14 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/configuration/publicAccessBlock";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v20180820/configuration/publicAccessBlock";
   let body: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     body = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
@@ -2193,7 +2251,6 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2209,11 +2266,13 @@ export const serializeAws_restXmlPutStorageLensConfigurationCommand = async (
   input: PutStorageLensConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens/{ConfigId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}";
   if (input.ConfigId !== undefined) {
     const labelValue: string = input.ConfigId;
     if (labelValue.length <= 0) {
@@ -2253,7 +2312,6 @@ export const serializeAws_restXmlPutStorageLensConfigurationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2269,11 +2327,13 @@ export const serializeAws_restXmlPutStorageLensConfigurationTaggingCommand = asy
   input: PutStorageLensConfigurationTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/storagelens/{ConfigId}/tagging";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens/{ConfigId}/tagging";
   if (input.ConfigId !== undefined) {
     const labelValue: string = input.ConfigId;
     if (labelValue.length <= 0) {
@@ -2307,7 +2367,6 @@ export const serializeAws_restXmlPutStorageLensConfigurationTaggingCommand = asy
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2323,10 +2382,12 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
   input: UpdateJobPriorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs/{JobId}/priority";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/priority";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -2351,7 +2412,6 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2368,10 +2428,12 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
   input: UpdateJobStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = "/v20180820/jobs/{JobId}/status";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/status";
   if (input.JobId !== undefined) {
     const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
@@ -2397,7 +2459,6 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2423,7 +2484,7 @@ export const deserializeAws_restXmlCreateAccessPointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["AccessPointArn"] !== undefined) {
-    contents.AccessPointArn = data["AccessPointArn"];
+    contents.AccessPointArn = __expectString(data["AccessPointArn"]);
   }
   return Promise.resolve(contents);
 };
@@ -2470,7 +2531,7 @@ export const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data["ObjectLambdaAccessPointArn"] !== undefined) {
-    contents.ObjectLambdaAccessPointArn = data["ObjectLambdaAccessPointArn"];
+    contents.ObjectLambdaAccessPointArn = __expectString(data["ObjectLambdaAccessPointArn"]);
   }
   return Promise.resolve(contents);
 };
@@ -2521,7 +2582,7 @@ export const deserializeAws_restXmlCreateBucketCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data["BucketArn"] !== undefined) {
-    contents.BucketArn = data["BucketArn"];
+    contents.BucketArn = __expectString(data["BucketArn"]);
   }
   return Promise.resolve(contents);
 };
@@ -2584,7 +2645,7 @@ export const deserializeAws_restXmlCreateJobCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["JobId"] !== undefined) {
-    contents.JobId = data["JobId"];
+    contents.JobId = __expectString(data["JobId"]);
   }
   return Promise.resolve(contents);
 };
@@ -3287,16 +3348,16 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
-    contents.Bucket = data["Bucket"];
+    contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(data["CreationDate"]);
   }
   if (data["Name"] !== undefined) {
-    contents.Name = data["Name"];
+    contents.Name = __expectString(data["Name"]);
   }
   if (data["NetworkOrigin"] !== undefined) {
-    contents.NetworkOrigin = data["NetworkOrigin"];
+    contents.NetworkOrigin = __expectString(data["NetworkOrigin"]);
   }
   if (data["PublicAccessBlockConfiguration"] !== undefined) {
     contents.PublicAccessBlockConfiguration = deserializeAws_restXmlPublicAccessBlockConfiguration(
@@ -3404,7 +3465,7 @@ export const deserializeAws_restXmlGetAccessPointForObjectLambdaCommand = async 
     contents.CreationDate = new Date(data["CreationDate"]);
   }
   if (data["Name"] !== undefined) {
-    contents.Name = data["Name"];
+    contents.Name = __expectString(data["Name"]);
   }
   if (data["PublicAccessBlockConfiguration"] !== undefined) {
     contents.PublicAccessBlockConfiguration = deserializeAws_restXmlPublicAccessBlockConfiguration(
@@ -3457,7 +3518,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Policy"] !== undefined) {
-    contents.Policy = data["Policy"];
+    contents.Policy = __expectString(data["Policy"]);
   }
   return Promise.resolve(contents);
 };
@@ -3504,7 +3565,7 @@ export const deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data["Policy"] !== undefined) {
-    contents.Policy = data["Policy"];
+    contents.Policy = __expectString(data["Policy"]);
   }
   return Promise.resolve(contents);
 };
@@ -3647,13 +3708,13 @@ export const deserializeAws_restXmlGetBucketCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
-    contents.Bucket = data["Bucket"];
+    contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(data["CreationDate"]);
   }
   if (data["PublicAccessBlockEnabled"] !== undefined) {
-    contents.PublicAccessBlockEnabled = data["PublicAccessBlockEnabled"] == "true";
+    contents.PublicAccessBlockEnabled = __parseBoolean(data["PublicAccessBlockEnabled"]);
   }
   return Promise.resolve(contents);
 };
@@ -3750,7 +3811,7 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Policy"] !== undefined) {
-    contents.Policy = data["Policy"];
+    contents.Policy = __expectString(data["Policy"]);
   }
   return Promise.resolve(contents);
 };
@@ -4079,7 +4140,7 @@ export const deserializeAws_restXmlListAccessPointsCommand = async (
     );
   }
   if (data["NextToken"] !== undefined) {
-    contents.NextToken = data["NextToken"];
+    contents.NextToken = __expectString(data["NextToken"]);
   }
   return Promise.resolve(contents);
 };
@@ -4127,7 +4188,7 @@ export const deserializeAws_restXmlListAccessPointsForObjectLambdaCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data["NextToken"] !== undefined) {
-    contents.NextToken = data["NextToken"];
+    contents.NextToken = __expectString(data["NextToken"]);
   }
   if (data.ObjectLambdaAccessPointList === "") {
     contents.ObjectLambdaAccessPointList = [];
@@ -4196,7 +4257,7 @@ export const deserializeAws_restXmlListJobsCommand = async (
     );
   }
   if (data["NextToken"] !== undefined) {
-    contents.NextToken = data["NextToken"];
+    contents.NextToken = __expectString(data["NextToken"]);
   }
   return Promise.resolve(contents);
 };
@@ -4268,7 +4329,7 @@ export const deserializeAws_restXmlListRegionalBucketsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["NextToken"] !== undefined) {
-    contents.NextToken = data["NextToken"];
+    contents.NextToken = __expectString(data["NextToken"]);
   }
   if (data.RegionalBucketList === "") {
     contents.RegionalBucketList = [];
@@ -4325,7 +4386,7 @@ export const deserializeAws_restXmlListStorageLensConfigurationsCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data["NextToken"] !== undefined) {
-    contents.NextToken = data["NextToken"];
+    contents.NextToken = __expectString(data["NextToken"]);
   }
   if (data.StorageLensConfigurationList === "") {
     contents.StorageLensConfigurationList = [];
@@ -4844,7 +4905,7 @@ export const deserializeAws_restXmlUpdateJobPriorityCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["JobId"] !== undefined) {
-    contents.JobId = data["JobId"];
+    contents.JobId = __expectString(data["JobId"]);
   }
   if (data["Priority"] !== undefined) {
     contents.Priority = parseInt(data["Priority"]);
@@ -4928,13 +4989,13 @@ export const deserializeAws_restXmlUpdateJobStatusCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["JobId"] !== undefined) {
-    contents.JobId = data["JobId"];
+    contents.JobId = __expectString(data["JobId"]);
   }
   if (data["Status"] !== undefined) {
-    contents.Status = data["Status"];
+    contents.Status = __expectString(data["Status"]);
   }
   if (data["StatusUpdateReason"] !== undefined) {
-    contents.StatusUpdateReason = data["StatusUpdateReason"];
+    contents.StatusUpdateReason = __expectString(data["StatusUpdateReason"]);
   }
   return Promise.resolve(contents);
 };
@@ -5020,7 +5081,7 @@ const deserializeAws_restXmlBadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5063,7 +5124,7 @@ const deserializeAws_restXmlIdempotencyExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5080,7 +5141,7 @@ const deserializeAws_restXmlInternalServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5097,7 +5158,7 @@ const deserializeAws_restXmlInvalidNextTokenExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5114,7 +5175,7 @@ const deserializeAws_restXmlInvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5131,7 +5192,7 @@ const deserializeAws_restXmlJobStatusExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5148,7 +5209,7 @@ const deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse = async
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5165,7 +5226,7 @@ const deserializeAws_restXmlNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5182,7 +5243,7 @@ const deserializeAws_restXmlTooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5199,7 +5260,7 @@ const deserializeAws_restXmlTooManyTagsExceptionResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -6541,19 +6602,19 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
     AccessPointArn: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["NetworkOrigin"] !== undefined) {
-    contents.NetworkOrigin = output["NetworkOrigin"];
+    contents.NetworkOrigin = __expectString(output["NetworkOrigin"]);
   }
   if (output["VpcConfiguration"] !== undefined) {
     contents.VpcConfiguration = deserializeAws_restXmlVpcConfiguration(output["VpcConfiguration"], context);
   }
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["AccessPointArn"] !== undefined) {
-    contents.AccessPointArn = output["AccessPointArn"];
+    contents.AccessPointArn = __expectString(output["AccessPointArn"]);
   }
   return contents;
 };
@@ -6588,7 +6649,7 @@ const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeCont
     IsEnabled: undefined,
   };
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   return contents;
 };
@@ -6602,10 +6663,10 @@ const deserializeAws_restXmlAwsLambdaTransformation = (
     FunctionPayload: undefined,
   };
   if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = output["FunctionArn"];
+    contents.FunctionArn = __expectString(output["FunctionArn"]);
   }
   if (output["FunctionPayload"] !== undefined) {
-    contents.FunctionPayload = output["FunctionPayload"];
+    contents.FunctionPayload = __expectString(output["FunctionPayload"]);
   }
   return contents;
 };
@@ -6631,7 +6692,7 @@ const deserializeAws_restXmlBuckets = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6696,19 +6757,19 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     SuspendedCause: undefined,
   };
   if (output["JobId"] !== undefined) {
-    contents.JobId = output["JobId"];
+    contents.JobId = __expectString(output["JobId"]);
   }
   if (output["ConfirmationRequired"] !== undefined) {
-    contents.ConfirmationRequired = output["ConfirmationRequired"] == "true";
+    contents.ConfirmationRequired = __parseBoolean(output["ConfirmationRequired"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["JobArn"] !== undefined) {
-    contents.JobArn = output["JobArn"];
+    contents.JobArn = __expectString(output["JobArn"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Manifest"] !== undefined) {
     contents.Manifest = deserializeAws_restXmlJobManifest(output["Manifest"], context);
@@ -6723,7 +6784,7 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.ProgressSummary = deserializeAws_restXmlJobProgressSummary(output["ProgressSummary"], context);
   }
   if (output["StatusUpdateReason"] !== undefined) {
-    contents.StatusUpdateReason = output["StatusUpdateReason"];
+    contents.StatusUpdateReason = __expectString(output["StatusUpdateReason"]);
   }
   if (output.FailureReasons === "") {
     contents.FailureReasons = [];
@@ -6744,13 +6805,13 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.TerminationDate = new Date(output["TerminationDate"]);
   }
   if (output["RoleArn"] !== undefined) {
-    contents.RoleArn = output["RoleArn"];
+    contents.RoleArn = __expectString(output["RoleArn"]);
   }
   if (output["SuspendedDate"] !== undefined) {
     contents.SuspendedDate = new Date(output["SuspendedDate"]);
   }
   if (output["SuspendedCause"] !== undefined) {
-    contents.SuspendedCause = output["SuspendedCause"];
+    contents.SuspendedCause = __expectString(output["SuspendedCause"]);
   }
   return contents;
 };
@@ -6761,10 +6822,10 @@ const deserializeAws_restXmlJobFailure = (output: any, context: __SerdeContext):
     FailureReason: undefined,
   };
   if (output["FailureCode"] !== undefined) {
-    contents.FailureCode = output["FailureCode"];
+    contents.FailureCode = __expectString(output["FailureCode"]);
   }
   if (output["FailureReason"] !== undefined) {
-    contents.FailureReason = output["FailureReason"];
+    contents.FailureReason = __expectString(output["FailureReason"]);
   }
   return contents;
 };
@@ -6792,19 +6853,19 @@ const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeCo
     ProgressSummary: undefined,
   };
   if (output["JobId"] !== undefined) {
-    contents.JobId = output["JobId"];
+    contents.JobId = __expectString(output["JobId"]);
   }
   if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+    contents.Description = __expectString(output["Description"]);
   }
   if (output["Operation"] !== undefined) {
-    contents.Operation = output["Operation"];
+    contents.Operation = __expectString(output["Operation"]);
   }
   if (output["Priority"] !== undefined) {
     contents.Priority = parseInt(output["Priority"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["CreationTime"] !== undefined) {
     contents.CreationTime = new Date(output["CreationTime"]);
@@ -6853,7 +6914,7 @@ const deserializeAws_restXmlJobManifestFieldList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6864,13 +6925,13 @@ const deserializeAws_restXmlJobManifestLocation = (output: any, context: __Serde
     ETag: undefined,
   };
   if (output["ObjectArn"] !== undefined) {
-    contents.ObjectArn = output["ObjectArn"];
+    contents.ObjectArn = __expectString(output["ObjectArn"]);
   }
   if (output["ObjectVersionId"] !== undefined) {
-    contents.ObjectVersionId = output["ObjectVersionId"];
+    contents.ObjectVersionId = __expectString(output["ObjectVersionId"]);
   }
   if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
+    contents.ETag = __expectString(output["ETag"]);
   }
   return contents;
 };
@@ -6881,7 +6942,7 @@ const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeCont
     Fields: undefined,
   };
   if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
+    contents.Format = __expectString(output["Format"]);
   }
   if (output.Fields === "") {
     contents.Fields = [];
@@ -6975,19 +7036,19 @@ const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): 
     ReportScope: undefined,
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
+    contents.Format = __expectString(output["Format"]);
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["ReportScope"] !== undefined) {
-    contents.ReportScope = output["ReportScope"];
+    contents.ReportScope = __expectString(output["ReportScope"]);
   }
   return contents;
 };
@@ -6997,7 +7058,7 @@ const deserializeAws_restXmlLambdaInvokeOperation = (output: any, context: __Ser
     FunctionArn: undefined,
   };
   if (output["FunctionArn"] !== undefined) {
-    contents.FunctionArn = output["FunctionArn"];
+    contents.FunctionArn = __expectString(output["FunctionArn"]);
   }
   return contents;
 };
@@ -7015,7 +7076,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     contents.Days = parseInt(output["Days"]);
   }
   if (output["ExpiredObjectDeleteMarker"] !== undefined) {
-    contents.ExpiredObjectDeleteMarker = output["ExpiredObjectDeleteMarker"] == "true";
+    contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
   }
   return contents;
 };
@@ -7035,13 +7096,13 @@ const deserializeAws_restXmlLifecycleRule = (output: any, context: __SerdeContex
     contents.Expiration = deserializeAws_restXmlLifecycleExpiration(output["Expiration"], context);
   }
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlLifecycleRuleFilter(output["Filter"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output.Transitions === "") {
     contents.Transitions = [];
@@ -7088,7 +7149,7 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
     Tags: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -7106,7 +7167,7 @@ const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __Serde
     And: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["Tag"] !== undefined) {
     contents.Tag = deserializeAws_restXmlS3Tag(output["Tag"], context);
@@ -7139,16 +7200,16 @@ const deserializeAws_restXmlListStorageLensConfigurationEntry = (
     IsEnabled: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["StorageLensArn"] !== undefined) {
-    contents.StorageLensArn = output["StorageLensArn"];
+    contents.StorageLensArn = __expectString(output["StorageLensArn"]);
   }
   if (output["HomeRegion"] !== undefined) {
-    contents.HomeRegion = output["HomeRegion"];
+    contents.HomeRegion = __expectString(output["HomeRegion"]);
   }
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   return contents;
 };
@@ -7178,7 +7239,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
     contents.NoncurrentDays = parseInt(output["NoncurrentDays"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   return contents;
 };
@@ -7206,10 +7267,10 @@ const deserializeAws_restXmlObjectLambdaAccessPoint = (
     ObjectLambdaAccessPointArn: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["ObjectLambdaAccessPointArn"] !== undefined) {
-    contents.ObjectLambdaAccessPointArn = output["ObjectLambdaAccessPointArn"];
+    contents.ObjectLambdaAccessPointArn = __expectString(output["ObjectLambdaAccessPointArn"]);
   }
   return contents;
 };
@@ -7238,7 +7299,7 @@ const deserializeAws_restXmlObjectLambdaAllowedFeaturesList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7253,10 +7314,10 @@ const deserializeAws_restXmlObjectLambdaConfiguration = (
     TransformationConfigurations: undefined,
   };
   if (output["SupportingAccessPoint"] !== undefined) {
-    contents.SupportingAccessPoint = output["SupportingAccessPoint"];
+    contents.SupportingAccessPoint = __expectString(output["SupportingAccessPoint"]);
   }
   if (output["CloudWatchMetricsEnabled"] !== undefined) {
-    contents.CloudWatchMetricsEnabled = output["CloudWatchMetricsEnabled"] == "true";
+    contents.CloudWatchMetricsEnabled = __parseBoolean(output["CloudWatchMetricsEnabled"]);
   }
   if (output.AllowedFeatures === "") {
     contents.AllowedFeatures = [];
@@ -7330,7 +7391,7 @@ const deserializeAws_restXmlObjectLambdaTransformationConfigurationActionsList =
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7353,7 +7414,7 @@ const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext
     IsPublic: undefined,
   };
   if (output["IsPublic"] !== undefined) {
-    contents.IsPublic = output["IsPublic"] == "true";
+    contents.IsPublic = __parseBoolean(output["IsPublic"]);
   }
   return contents;
 };
@@ -7377,7 +7438,7 @@ const deserializeAws_restXmlPrefixLevelStorageMetrics = (
     SelectionCriteria: undefined,
   };
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   if (output["SelectionCriteria"] !== undefined) {
     contents.SelectionCriteria = deserializeAws_restXmlSelectionCriteria(output["SelectionCriteria"], context);
@@ -7396,16 +7457,16 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
     RestrictPublicBuckets: undefined,
   };
   if (output["BlockPublicAcls"] !== undefined) {
-    contents.BlockPublicAcls = output["BlockPublicAcls"] == "true";
+    contents.BlockPublicAcls = __parseBoolean(output["BlockPublicAcls"]);
   }
   if (output["IgnorePublicAcls"] !== undefined) {
-    contents.IgnorePublicAcls = output["IgnorePublicAcls"] == "true";
+    contents.IgnorePublicAcls = __parseBoolean(output["IgnorePublicAcls"]);
   }
   if (output["BlockPublicPolicy"] !== undefined) {
-    contents.BlockPublicPolicy = output["BlockPublicPolicy"] == "true";
+    contents.BlockPublicPolicy = __parseBoolean(output["BlockPublicPolicy"]);
   }
   if (output["RestrictPublicBuckets"] !== undefined) {
-    contents.RestrictPublicBuckets = output["RestrictPublicBuckets"] == "true";
+    contents.RestrictPublicBuckets = __parseBoolean(output["RestrictPublicBuckets"]);
   }
   return contents;
 };
@@ -7419,19 +7480,19 @@ const deserializeAws_restXmlRegionalBucket = (output: any, context: __SerdeConte
     OutpostId: undefined,
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["BucketArn"] !== undefined) {
-    contents.BucketArn = output["BucketArn"];
+    contents.BucketArn = __expectString(output["BucketArn"]);
   }
   if (output["PublicAccessBlockEnabled"] !== undefined) {
-    contents.PublicAccessBlockEnabled = output["PublicAccessBlockEnabled"] == "true";
+    contents.PublicAccessBlockEnabled = __parseBoolean(output["PublicAccessBlockEnabled"]);
   }
   if (output["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(output["CreationDate"]);
   }
   if (output["OutpostId"] !== undefined) {
-    contents.OutpostId = output["OutpostId"];
+    contents.OutpostId = __expectString(output["OutpostId"]);
   }
   return contents;
 };
@@ -7454,7 +7515,7 @@ const deserializeAws_restXmlRegions = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7484,7 +7545,7 @@ const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __Ser
     contents.AccessControlList = deserializeAws_restXmlS3AccessControlList(output["AccessControlList"], context);
   }
   if (output["CannedAccessControlList"] !== undefined) {
-    contents.CannedAccessControlList = output["CannedAccessControlList"];
+    contents.CannedAccessControlList = __expectString(output["CannedAccessControlList"]);
   }
   return contents;
 };
@@ -7499,19 +7560,19 @@ const deserializeAws_restXmlS3BucketDestination = (output: any, context: __Serde
     Encryption: undefined,
   };
   if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
+    contents.Format = __expectString(output["Format"]);
   }
   if (output["OutputSchemaVersion"] !== undefined) {
-    contents.OutputSchemaVersion = output["OutputSchemaVersion"];
+    contents.OutputSchemaVersion = __expectString(output["OutputSchemaVersion"]);
   }
   if (output["AccountId"] !== undefined) {
-    contents.AccountId = output["AccountId"];
+    contents.AccountId = __expectString(output["AccountId"]);
   }
   if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
+    contents.Arn = __expectString(output["Arn"]);
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["Encryption"] !== undefined) {
     contents.Encryption = deserializeAws_restXmlStorageLensDataExportEncryption(output["Encryption"], context);
@@ -7540,10 +7601,10 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     BucketKeyEnabled: undefined,
   };
   if (output["TargetResource"] !== undefined) {
-    contents.TargetResource = output["TargetResource"];
+    contents.TargetResource = __expectString(output["TargetResource"]);
   }
   if (output["CannedAccessControlList"] !== undefined) {
-    contents.CannedAccessControlList = output["CannedAccessControlList"];
+    contents.CannedAccessControlList = __expectString(output["CannedAccessControlList"]);
   }
   if (output.AccessControlGrants === "") {
     contents.AccessControlGrants = [];
@@ -7555,7 +7616,7 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     );
   }
   if (output["MetadataDirective"] !== undefined) {
-    contents.MetadataDirective = output["MetadataDirective"];
+    contents.MetadataDirective = __expectString(output["MetadataDirective"]);
   }
   if (output["ModifiedSinceConstraint"] !== undefined) {
     contents.ModifiedSinceConstraint = new Date(output["ModifiedSinceConstraint"]);
@@ -7573,34 +7634,34 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     );
   }
   if (output["RedirectLocation"] !== undefined) {
-    contents.RedirectLocation = output["RedirectLocation"];
+    contents.RedirectLocation = __expectString(output["RedirectLocation"]);
   }
   if (output["RequesterPays"] !== undefined) {
-    contents.RequesterPays = output["RequesterPays"] == "true";
+    contents.RequesterPays = __parseBoolean(output["RequesterPays"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["UnModifiedSinceConstraint"] !== undefined) {
     contents.UnModifiedSinceConstraint = new Date(output["UnModifiedSinceConstraint"]);
   }
   if (output["SSEAwsKmsKeyId"] !== undefined) {
-    contents.SSEAwsKmsKeyId = output["SSEAwsKmsKeyId"];
+    contents.SSEAwsKmsKeyId = __expectString(output["SSEAwsKmsKeyId"]);
   }
   if (output["TargetKeyPrefix"] !== undefined) {
-    contents.TargetKeyPrefix = output["TargetKeyPrefix"];
+    contents.TargetKeyPrefix = __expectString(output["TargetKeyPrefix"]);
   }
   if (output["ObjectLockLegalHoldStatus"] !== undefined) {
-    contents.ObjectLockLegalHoldStatus = output["ObjectLockLegalHoldStatus"];
+    contents.ObjectLockLegalHoldStatus = __expectString(output["ObjectLockLegalHoldStatus"]);
   }
   if (output["ObjectLockMode"] !== undefined) {
-    contents.ObjectLockMode = output["ObjectLockMode"];
+    contents.ObjectLockMode = __expectString(output["ObjectLockMode"]);
   }
   if (output["ObjectLockRetainUntilDate"] !== undefined) {
     contents.ObjectLockRetainUntilDate = new Date(output["ObjectLockRetainUntilDate"]);
   }
   if (output["BucketKeyEnabled"] !== undefined) {
-    contents.BucketKeyEnabled = output["BucketKeyEnabled"] == "true";
+    contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
   }
   return contents;
 };
@@ -7622,7 +7683,7 @@ const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3
     contents.Grantee = deserializeAws_restXmlS3Grantee(output["Grantee"], context);
   }
   if (output["Permission"] !== undefined) {
-    contents.Permission = output["Permission"];
+    contents.Permission = __expectString(output["Permission"]);
   }
   return contents;
 };
@@ -7634,13 +7695,13 @@ const deserializeAws_restXmlS3Grantee = (output: any, context: __SerdeContext): 
     DisplayName: undefined,
   };
   if (output["TypeIdentifier"] !== undefined) {
-    contents.TypeIdentifier = output["TypeIdentifier"];
+    contents.TypeIdentifier = __expectString(output["TypeIdentifier"]);
   }
   if (output["Identifier"] !== undefined) {
-    contents.Identifier = output["Identifier"];
+    contents.Identifier = __expectString(output["Identifier"]);
   }
   if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = output["DisplayName"];
+    contents.DisplayName = __expectString(output["DisplayName"]);
   }
   return contents;
 };
@@ -7668,7 +7729,7 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
     contents.ExpirationInDays = parseInt(output["ExpirationInDays"]);
   }
   if (output["GlacierJobTier"] !== undefined) {
-    contents.GlacierJobTier = output["GlacierJobTier"];
+    contents.GlacierJobTier = __expectString(output["GlacierJobTier"]);
   }
   return contents;
 };
@@ -7678,7 +7739,7 @@ const deserializeAws_restXmlS3ObjectLockLegalHold = (output: any, context: __Ser
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -7698,16 +7759,16 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     SSEAlgorithm: undefined,
   };
   if (output["CacheControl"] !== undefined) {
-    contents.CacheControl = output["CacheControl"];
+    contents.CacheControl = __expectString(output["CacheControl"]);
   }
   if (output["ContentDisposition"] !== undefined) {
-    contents.ContentDisposition = output["ContentDisposition"];
+    contents.ContentDisposition = __expectString(output["ContentDisposition"]);
   }
   if (output["ContentEncoding"] !== undefined) {
-    contents.ContentEncoding = output["ContentEncoding"];
+    contents.ContentEncoding = __expectString(output["ContentEncoding"]);
   }
   if (output["ContentLanguage"] !== undefined) {
-    contents.ContentLanguage = output["ContentLanguage"];
+    contents.ContentLanguage = __expectString(output["ContentLanguage"]);
   }
   if (output.UserMetadata === "") {
     contents.UserMetadata = {};
@@ -7722,19 +7783,19 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     contents.ContentLength = parseInt(output["ContentLength"]);
   }
   if (output["ContentMD5"] !== undefined) {
-    contents.ContentMD5 = output["ContentMD5"];
+    contents.ContentMD5 = __expectString(output["ContentMD5"]);
   }
   if (output["ContentType"] !== undefined) {
-    contents.ContentType = output["ContentType"];
+    contents.ContentType = __expectString(output["ContentType"]);
   }
   if (output["HttpExpiresDate"] !== undefined) {
     contents.HttpExpiresDate = new Date(output["HttpExpiresDate"]);
   }
   if (output["RequesterCharged"] !== undefined) {
-    contents.RequesterCharged = output["RequesterCharged"] == "true";
+    contents.RequesterCharged = __parseBoolean(output["RequesterCharged"]);
   }
   if (output["SSEAlgorithm"] !== undefined) {
-    contents.SSEAlgorithm = output["SSEAlgorithm"];
+    contents.SSEAlgorithm = __expectString(output["SSEAlgorithm"]);
   }
   return contents;
 };
@@ -7745,10 +7806,10 @@ const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContex
     DisplayName: undefined,
   };
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = output["DisplayName"];
+    contents.DisplayName = __expectString(output["DisplayName"]);
   }
   return contents;
 };
@@ -7762,7 +7823,7 @@ const deserializeAws_restXmlS3Retention = (output: any, context: __SerdeContext)
     contents.RetainUntilDate = new Date(output["RetainUntilDate"]);
   }
   if (output["Mode"] !== undefined) {
-    contents.Mode = output["Mode"];
+    contents.Mode = __expectString(output["Mode"]);
   }
   return contents;
 };
@@ -7802,7 +7863,7 @@ const deserializeAws_restXmlS3SetObjectRetentionOperation = (
     Retention: undefined,
   };
   if (output["BypassGovernanceRetention"] !== undefined) {
-    contents.BypassGovernanceRetention = output["BypassGovernanceRetention"] == "true";
+    contents.BypassGovernanceRetention = __parseBoolean(output["BypassGovernanceRetention"]);
   }
   if (output["Retention"] !== undefined) {
     contents.Retention = deserializeAws_restXmlS3Retention(output["Retention"], context);
@@ -7832,10 +7893,10 @@ const deserializeAws_restXmlS3Tag = (output: any, context: __SerdeContext): S3Ta
     Value: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -7858,7 +7919,7 @@ const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeConte
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -7870,7 +7931,7 @@ const deserializeAws_restXmlSelectionCriteria = (output: any, context: __SerdeCo
     MinStorageBytesPercentage: undefined,
   };
   if (output["Delimiter"] !== undefined) {
-    contents.Delimiter = output["Delimiter"];
+    contents.Delimiter = __expectString(output["Delimiter"]);
   }
   if (output["MaxDepth"] !== undefined) {
     contents.MaxDepth = parseInt(output["MaxDepth"]);
@@ -7886,7 +7947,7 @@ const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSE
     KeyId: undefined,
   };
   if (output["KeyId"] !== undefined) {
-    contents.KeyId = output["KeyId"];
+    contents.KeyId = __expectString(output["KeyId"]);
   }
   return contents;
 };
@@ -7901,7 +7962,7 @@ const deserializeAws_restXmlStorageLensAwsOrg = (output: any, context: __SerdeCo
     Arn: undefined,
   };
   if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
+    contents.Arn = __expectString(output["Arn"]);
   }
   return contents;
 };
@@ -7921,7 +7982,7 @@ const deserializeAws_restXmlStorageLensConfiguration = (
     StorageLensArn: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["AccountLevel"] !== undefined) {
     contents.AccountLevel = deserializeAws_restXmlAccountLevel(output["AccountLevel"], context);
@@ -7936,13 +7997,13 @@ const deserializeAws_restXmlStorageLensConfiguration = (
     contents.DataExport = deserializeAws_restXmlStorageLensDataExport(output["DataExport"], context);
   }
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   if (output["AwsOrg"] !== undefined) {
     contents.AwsOrg = deserializeAws_restXmlStorageLensAwsOrg(output["AwsOrg"], context);
   }
   if (output["StorageLensArn"] !== undefined) {
-    contents.StorageLensArn = output["StorageLensArn"];
+    contents.StorageLensArn = __expectString(output["StorageLensArn"]);
   }
   return contents;
 };
@@ -7994,10 +8055,10 @@ const deserializeAws_restXmlStorageLensTag = (output: any, context: __SerdeConte
     Value: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -8026,7 +8087,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     contents.Days = parseInt(output["Days"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   return contents;
 };
@@ -8047,7 +8108,7 @@ const deserializeAws_restXmlVpcConfiguration = (output: any, context: __SerdeCon
     VpcId: undefined,
   };
   if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
+    contents.VpcId = __expectString(output["VpcId"]);
   }
   return contents;
 };

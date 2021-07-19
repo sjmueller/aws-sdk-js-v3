@@ -13,6 +13,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -26,10 +27,12 @@ export const serializeAws_restJson1CreateEndpointCommand = async (
   input: CreateEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/S3Outposts/CreateEndpoint";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/CreateEndpoint";
   let body: any;
   body = JSON.stringify({
     ...(input.OutpostId !== undefined && input.OutpostId !== null && { OutpostId: input.OutpostId }),
@@ -37,7 +40,6 @@ export const serializeAws_restJson1CreateEndpointCommand = async (
       input.SecurityGroupId !== null && { SecurityGroupId: input.SecurityGroupId }),
     ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -53,14 +55,15 @@ export const serializeAws_restJson1DeleteEndpointCommand = async (
   input: DeleteEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/S3Outposts/DeleteEndpoint";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/DeleteEndpoint";
   const query: any = {
     ...(input.EndpointId !== undefined && { endpointId: input.EndpointId }),
     ...(input.OutpostId !== undefined && { outpostId: input.OutpostId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -77,14 +80,15 @@ export const serializeAws_restJson1ListEndpointsCommand = async (
   input: ListEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/S3Outposts/ListEndpoints";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/ListEndpoints";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -110,7 +114,7 @@ export const deserializeAws_restJson1CreateEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.EndpointArn !== undefined && data.EndpointArn !== null) {
-    contents.EndpointArn = data.EndpointArn;
+    contents.EndpointArn = __expectString(data.EndpointArn);
   }
   return Promise.resolve(contents);
 };
@@ -276,7 +280,7 @@ export const deserializeAws_restJson1ListEndpointsCommand = async (
     contents.Endpoints = deserializeAws_restJson1Endpoints(data.Endpoints, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -354,7 +358,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -371,7 +375,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -388,7 +392,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -405,7 +409,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -422,25 +426,25 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
-    CidrBlock: output.CidrBlock !== undefined && output.CidrBlock !== null ? output.CidrBlock : undefined,
+    CidrBlock: __expectString(output.CidrBlock),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    EndpointArn: output.EndpointArn !== undefined && output.EndpointArn !== null ? output.EndpointArn : undefined,
+    EndpointArn: __expectString(output.EndpointArn),
     NetworkInterfaces:
       output.NetworkInterfaces !== undefined && output.NetworkInterfaces !== null
         ? deserializeAws_restJson1NetworkInterfaces(output.NetworkInterfaces, context)
         : undefined,
-    OutpostsId: output.OutpostsId !== undefined && output.OutpostsId !== null ? output.OutpostsId : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    OutpostsId: __expectString(output.OutpostsId),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -457,10 +461,7 @@ const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    NetworkInterfaceId:
-      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
-        ? output.NetworkInterfaceId
-        : undefined,
+    NetworkInterfaceId: __expectString(output.NetworkInterfaceId),
   } as any;
 };
 

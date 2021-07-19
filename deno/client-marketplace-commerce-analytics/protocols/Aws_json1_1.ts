@@ -11,7 +11,7 @@ import {
   StartSupportDataExportResult,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
+import { SmithyException as __SmithyException, expectString as __expectString } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -170,7 +170,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
 };
 
 const serializeAws_json1_1CustomerDefinedValues = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -224,8 +224,7 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
 
 const deserializeAws_json1_1GenerateDataSetResult = (output: any, context: __SerdeContext): GenerateDataSetResult => {
   return {
-    dataSetRequestId:
-      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined,
+    dataSetRequestId: __expectString(output.dataSetRequestId),
   } as any;
 };
 
@@ -234,7 +233,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
   context: __SerdeContext
 ): MarketplaceCommerceAnalyticsException => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -243,8 +242,7 @@ const deserializeAws_json1_1StartSupportDataExportResult = (
   context: __SerdeContext
 ): StartSupportDataExportResult => {
   return {
-    dataSetRequestId:
-      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined,
+    dataSetRequestId: __expectString(output.dataSetRequestId),
   } as any;
 };
 

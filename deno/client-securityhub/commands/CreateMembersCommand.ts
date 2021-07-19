@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { CreateMembersRequest, CreateMembersResponse } from "../models/models_0.ts";
+import { CreateMembersRequest, CreateMembersResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1CreateMembersCommand,
   serializeAws_restJson1CreateMembersCommand,

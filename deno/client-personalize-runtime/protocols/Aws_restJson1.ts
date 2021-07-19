@@ -5,7 +5,11 @@ import {
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand.ts";
 import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
+import {
+  SmithyException as __SmithyException,
+  expectString as __expectString,
+  handleFloat as __handleFloat,
+} from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -17,10 +21,11 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   input: GetPersonalizedRankingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/personalize-ranking";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/personalize-ranking";
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
@@ -33,7 +38,6 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
       input.inputList !== null && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -49,10 +53,11 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/recommendations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/recommendations";
   let body: any;
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
@@ -65,7 +70,6 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
     ...(input.numResults !== undefined && input.numResults !== null && { numResults: input.numResults }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -94,7 +98,7 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
     contents.personalizedRanking = deserializeAws_restJson1ItemList(data.personalizedRanking, context);
   }
   if (data.recommendationId !== undefined && data.recommendationId !== null) {
-    contents.recommendationId = data.recommendationId;
+    contents.recommendationId = __expectString(data.recommendationId);
   }
   return Promise.resolve(contents);
 };
@@ -161,7 +165,7 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
     contents.itemList = deserializeAws_restJson1ItemList(data.itemList, context);
   }
   if (data.recommendationId !== undefined && data.recommendationId !== null) {
-    contents.recommendationId = data.recommendationId;
+    contents.recommendationId = __expectString(data.recommendationId);
   }
   return Promise.resolve(contents);
 };
@@ -223,7 +227,7 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -240,13 +244,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const serializeAws_restJson1Context = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -258,7 +262,7 @@ const serializeAws_restJson1Context = (input: { [key: string]: string }, context
 };
 
 const serializeAws_restJson1FilterValues = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -293,8 +297,8 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
-    itemId: output.itemId !== undefined && output.itemId !== null ? output.itemId : undefined,
-    score: output.score !== undefined && output.score !== null ? output.score : undefined,
+    itemId: __expectString(output.itemId),
+    score: __handleFloat(output.score),
   } as any;
 };
 

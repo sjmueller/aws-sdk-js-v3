@@ -69,6 +69,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "..
 import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -83,17 +85,17 @@ export const serializeAws_restJson1CreateDiscovererCommand = async (
   input: CreateDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/discoverers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -109,10 +111,12 @@ export const serializeAws_restJson1CreateRegistryCommand = async (
   input: CreateRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/registries/name/{RegistryName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -127,7 +131,6 @@ export const serializeAws_restJson1CreateRegistryCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,10 +146,13 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   input: CreateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -172,7 +178,6 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -188,8 +193,10 @@ export const serializeAws_restJson1DeleteDiscovererCommand = async (
   input: DeleteDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
@@ -200,7 +207,6 @@ export const serializeAws_restJson1DeleteDiscovererCommand = async (
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -216,8 +222,10 @@ export const serializeAws_restJson1DeleteRegistryCommand = async (
   input: DeleteRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -228,7 +236,6 @@ export const serializeAws_restJson1DeleteRegistryCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -244,13 +251,13 @@ export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/policy";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/policy";
   const query: any = {
     ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -267,8 +274,11 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -288,7 +298,6 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,8 +313,11 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
   input: DeleteSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -334,7 +346,6 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaVersion.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -350,8 +361,11 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
   input: DescribeCodeBindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.Language !== undefined) {
     const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
@@ -383,7 +397,6 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -400,8 +413,10 @@ export const serializeAws_restJson1DescribeDiscovererCommand = async (
   input: DescribeDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
@@ -412,7 +427,6 @@ export const serializeAws_restJson1DescribeDiscovererCommand = async (
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -428,8 +442,10 @@ export const serializeAws_restJson1DescribeRegistryCommand = async (
   input: DescribeRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -440,7 +456,6 @@ export const serializeAws_restJson1DescribeRegistryCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -456,8 +471,11 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
   input: DescribeSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -480,7 +498,6 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -497,8 +514,11 @@ export const serializeAws_restJson1ExportSchemaCommand = async (
   input: ExportSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -522,7 +542,6 @@ export const serializeAws_restJson1ExportSchemaCommand = async (
     ...(input.Type !== undefined && { type: input.Type }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -539,8 +558,11 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
   input: GetCodeBindingSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
   if (input.Language !== undefined) {
     const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
@@ -572,7 +594,6 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -589,10 +610,11 @@ export const serializeAws_restJson1GetDiscoveredSchemaCommand = async (
   input: GetDiscoveredSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/discover";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discover";
   let body: any;
   body = JSON.stringify({
     ...(input.Events !== undefined &&
@@ -601,7 +623,6 @@ export const serializeAws_restJson1GetDiscoveredSchemaCommand = async (
       }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -617,13 +638,13 @@ export const serializeAws_restJson1GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/policy";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/policy";
   const query: any = {
     ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -640,8 +661,9 @@ export const serializeAws_restJson1ListDiscoverersCommand = async (
   input: ListDiscoverersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/discoverers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers";
   const query: any = {
     ...(input.DiscovererIdPrefix !== undefined && { discovererIdPrefix: input.DiscovererIdPrefix }),
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
@@ -649,7 +671,6 @@ export const serializeAws_restJson1ListDiscoverersCommand = async (
     ...(input.SourceArnPrefix !== undefined && { sourceArnPrefix: input.SourceArnPrefix }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -666,8 +687,9 @@ export const serializeAws_restJson1ListRegistriesCommand = async (
   input: ListRegistriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries";
   const query: any = {
     ...(input.Limit !== undefined && { limit: input.Limit.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -675,7 +697,6 @@ export const serializeAws_restJson1ListRegistriesCommand = async (
     ...(input.Scope !== undefined && { scope: input.Scope }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -692,8 +713,11 @@ export const serializeAws_restJson1ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -709,7 +733,6 @@ export const serializeAws_restJson1ListSchemasCommand = async (
     ...(input.SchemaNamePrefix !== undefined && { schemaNamePrefix: input.SchemaNamePrefix }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -726,8 +749,11 @@ export const serializeAws_restJson1ListSchemaVersionsCommand = async (
   input: ListSchemaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -751,7 +777,6 @@ export const serializeAws_restJson1ListSchemaVersionsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -768,8 +793,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -780,7 +806,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -796,8 +821,11 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
   input: PutCodeBindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.Language !== undefined) {
     const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
@@ -829,7 +857,6 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
     ...(input.SchemaVersion !== undefined && { schemaVersion: input.SchemaVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -846,10 +873,11 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
   input: PutResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/policy";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/policy";
   const query: any = {
     ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
   };
@@ -858,7 +886,6 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: __LazyJsonString.fromObject(input.Policy) }),
     ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -875,8 +902,11 @@ export const serializeAws_restJson1SearchSchemasCommand = async (
   input: SearchSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/search";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/search";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -892,7 +922,6 @@ export const serializeAws_restJson1SearchSchemasCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -909,8 +938,10 @@ export const serializeAws_restJson1StartDiscovererCommand = async (
   input: StartDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/discoverers/id/{DiscovererId}/start";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}/start";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
@@ -921,7 +952,6 @@ export const serializeAws_restJson1StartDiscovererCommand = async (
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -937,8 +967,10 @@ export const serializeAws_restJson1StopDiscovererCommand = async (
   input: StopDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/discoverers/id/{DiscovererId}/stop";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}/stop";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
@@ -949,7 +981,6 @@ export const serializeAws_restJson1StopDiscovererCommand = async (
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -965,10 +996,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -982,7 +1014,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -998,8 +1029,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -1013,7 +1045,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1030,10 +1061,12 @@ export const serializeAws_restJson1UpdateDiscovererCommand = async (
   input: UpdateDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
@@ -1047,7 +1080,6 @@ export const serializeAws_restJson1UpdateDiscovererCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1063,10 +1095,12 @@ export const serializeAws_restJson1UpdateRegistryCommand = async (
   input: UpdateRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/registries/name/{RegistryName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -1080,7 +1114,6 @@ export const serializeAws_restJson1UpdateRegistryCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1096,10 +1129,13 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
   input: UpdateSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
@@ -1125,7 +1161,6 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1155,19 +1190,19 @@ export const deserializeAws_restJson1CreateDiscovererCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.DiscovererArn !== undefined && data.DiscovererArn !== null) {
-    contents.DiscovererArn = data.DiscovererArn;
+    contents.DiscovererArn = __expectString(data.DiscovererArn);
   }
   if (data.DiscovererId !== undefined && data.DiscovererId !== null) {
-    contents.DiscovererId = data.DiscovererId;
+    contents.DiscovererId = __expectString(data.DiscovererId);
   }
   if (data.SourceArn !== undefined && data.SourceArn !== null) {
-    contents.SourceArn = data.SourceArn;
+    contents.SourceArn = __expectString(data.SourceArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -1268,13 +1303,13 @@ export const deserializeAws_restJson1CreateRegistryCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.RegistryArn !== undefined && data.RegistryArn !== null) {
-    contents.RegistryArn = data.RegistryArn;
+    contents.RegistryArn = __expectString(data.RegistryArn);
   }
   if (data.RegistryName !== undefined && data.RegistryName !== null) {
-    contents.RegistryName = data.RegistryName;
+    contents.RegistryName = __expectString(data.RegistryName);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -1379,25 +1414,25 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(data.LastModified);
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = data.SchemaArn;
+    contents.SchemaArn = __expectString(data.SchemaArn);
   }
   if (data.SchemaName !== undefined && data.SchemaName !== null) {
-    contents.SchemaName = data.SchemaName;
+    contents.SchemaName = __expectString(data.SchemaName);
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
-    contents.SchemaVersion = data.SchemaVersion;
+    contents.SchemaVersion = __expectString(data.SchemaVersion);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate !== undefined && data.VersionCreatedDate !== null) {
     contents.VersionCreatedDate = new Date(data.VersionCreatedDate);
@@ -1943,10 +1978,10 @@ export const deserializeAws_restJson1DescribeCodeBindingCommand = async (
     contents.LastModified = new Date(data.LastModified);
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
-    contents.SchemaVersion = data.SchemaVersion;
+    contents.SchemaVersion = __expectString(data.SchemaVersion);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   return Promise.resolve(contents);
 };
@@ -2046,19 +2081,19 @@ export const deserializeAws_restJson1DescribeDiscovererCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.DiscovererArn !== undefined && data.DiscovererArn !== null) {
-    contents.DiscovererArn = data.DiscovererArn;
+    contents.DiscovererArn = __expectString(data.DiscovererArn);
   }
   if (data.DiscovererId !== undefined && data.DiscovererId !== null) {
-    contents.DiscovererId = data.DiscovererId;
+    contents.DiscovererId = __expectString(data.DiscovererId);
   }
   if (data.SourceArn !== undefined && data.SourceArn !== null) {
-    contents.SourceArn = data.SourceArn;
+    contents.SourceArn = __expectString(data.SourceArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -2159,13 +2194,13 @@ export const deserializeAws_restJson1DescribeRegistryCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.RegistryArn !== undefined && data.RegistryArn !== null) {
-    contents.RegistryArn = data.RegistryArn;
+    contents.RegistryArn = __expectString(data.RegistryArn);
   }
   if (data.RegistryName !== undefined && data.RegistryName !== null) {
-    contents.RegistryName = data.RegistryName;
+    contents.RegistryName = __expectString(data.RegistryName);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -2271,28 +2306,28 @@ export const deserializeAws_restJson1DescribeSchemaCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Content !== undefined && data.Content !== null) {
-    contents.Content = data.Content;
+    contents.Content = __expectString(data.Content);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(data.LastModified);
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = data.SchemaArn;
+    contents.SchemaArn = __expectString(data.SchemaArn);
   }
   if (data.SchemaName !== undefined && data.SchemaName !== null) {
-    contents.SchemaName = data.SchemaName;
+    contents.SchemaName = __expectString(data.SchemaName);
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
-    contents.SchemaVersion = data.SchemaVersion;
+    contents.SchemaVersion = __expectString(data.SchemaVersion);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate !== undefined && data.VersionCreatedDate !== null) {
     contents.VersionCreatedDate = new Date(data.VersionCreatedDate);
@@ -2394,19 +2429,19 @@ export const deserializeAws_restJson1ExportSchemaCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Content !== undefined && data.Content !== null) {
-    contents.Content = data.Content;
+    contents.Content = __expectString(data.Content);
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = data.SchemaArn;
+    contents.SchemaArn = __expectString(data.SchemaArn);
   }
   if (data.SchemaName !== undefined && data.SchemaName !== null) {
-    contents.SchemaName = data.SchemaName;
+    contents.SchemaName = __expectString(data.SchemaName);
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
-    contents.SchemaVersion = data.SchemaVersion;
+    contents.SchemaVersion = __expectString(data.SchemaVersion);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return Promise.resolve(contents);
 };
@@ -2602,7 +2637,7 @@ export const deserializeAws_restJson1GetDiscoveredSchemaCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Content !== undefined && data.Content !== null) {
-    contents.Content = data.Content;
+    contents.Content = __expectString(data.Content);
   }
   return Promise.resolve(contents);
 };
@@ -2693,7 +2728,7 @@ export const deserializeAws_restJson1GetResourcePolicyCommand = async (
     contents.Policy = new __LazyJsonString(data.Policy);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   return Promise.resolve(contents);
 };
@@ -2792,7 +2827,7 @@ export const deserializeAws_restJson1ListDiscoverersCommand = async (
     contents.Discoverers = deserializeAws_restJson1__listOfDiscovererSummary(data.Discoverers, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2880,7 +2915,7 @@ export const deserializeAws_restJson1ListRegistriesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Registries !== undefined && data.Registries !== null) {
     contents.Registries = deserializeAws_restJson1__listOfRegistrySummary(data.Registries, context);
@@ -2971,7 +3006,7 @@ export const deserializeAws_restJson1ListSchemasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Schemas !== undefined && data.Schemas !== null) {
     contents.Schemas = deserializeAws_restJson1__listOfSchemaSummary(data.Schemas, context);
@@ -3062,7 +3097,7 @@ export const deserializeAws_restJson1ListSchemaVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.SchemaVersions !== undefined && data.SchemaVersions !== null) {
     contents.SchemaVersions = deserializeAws_restJson1__listOfSchemaVersionSummary(data.SchemaVersions, context);
@@ -3248,10 +3283,10 @@ export const deserializeAws_restJson1PutCodeBindingCommand = async (
     contents.LastModified = new Date(data.LastModified);
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
-    contents.SchemaVersion = data.SchemaVersion;
+    contents.SchemaVersion = __expectString(data.SchemaVersion);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   return Promise.resolve(contents);
 };
@@ -3358,7 +3393,7 @@ export const deserializeAws_restJson1PutResourcePolicyCommand = async (
     contents.Policy = new __LazyJsonString(data.Policy);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   return Promise.resolve(contents);
 };
@@ -3462,7 +3497,7 @@ export const deserializeAws_restJson1SearchSchemasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.Schemas !== undefined && data.Schemas !== null) {
     contents.Schemas = deserializeAws_restJson1__listOfSearchSchemaSummary(data.Schemas, context);
@@ -3553,10 +3588,10 @@ export const deserializeAws_restJson1StartDiscovererCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DiscovererId !== undefined && data.DiscovererId !== null) {
-    contents.DiscovererId = data.DiscovererId;
+    contents.DiscovererId = __expectString(data.DiscovererId);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   return Promise.resolve(contents);
 };
@@ -3652,10 +3687,10 @@ export const deserializeAws_restJson1StopDiscovererCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DiscovererId !== undefined && data.DiscovererId !== null) {
-    contents.DiscovererId = data.DiscovererId;
+    contents.DiscovererId = __expectString(data.DiscovererId);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   return Promise.resolve(contents);
 };
@@ -3905,19 +3940,19 @@ export const deserializeAws_restJson1UpdateDiscovererCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.DiscovererArn !== undefined && data.DiscovererArn !== null) {
-    contents.DiscovererArn = data.DiscovererArn;
+    contents.DiscovererArn = __expectString(data.DiscovererArn);
   }
   if (data.DiscovererId !== undefined && data.DiscovererId !== null) {
-    contents.DiscovererId = data.DiscovererId;
+    contents.DiscovererId = __expectString(data.DiscovererId);
   }
   if (data.SourceArn !== undefined && data.SourceArn !== null) {
-    contents.SourceArn = data.SourceArn;
+    contents.SourceArn = __expectString(data.SourceArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -4018,13 +4053,13 @@ export const deserializeAws_restJson1UpdateRegistryCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.RegistryArn !== undefined && data.RegistryArn !== null) {
-    contents.RegistryArn = data.RegistryArn;
+    contents.RegistryArn = __expectString(data.RegistryArn);
   }
   if (data.RegistryName !== undefined && data.RegistryName !== null) {
-    contents.RegistryName = data.RegistryName;
+    contents.RegistryName = __expectString(data.RegistryName);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -4129,25 +4164,25 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(data.LastModified);
   }
   if (data.SchemaArn !== undefined && data.SchemaArn !== null) {
-    contents.SchemaArn = data.SchemaArn;
+    contents.SchemaArn = __expectString(data.SchemaArn);
   }
   if (data.SchemaName !== undefined && data.SchemaName !== null) {
-    contents.SchemaName = data.SchemaName;
+    contents.SchemaName = __expectString(data.SchemaName);
   }
   if (data.SchemaVersion !== undefined && data.SchemaVersion !== null) {
-    contents.SchemaVersion = data.SchemaVersion;
+    contents.SchemaVersion = __expectString(data.SchemaVersion);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.VersionCreatedDate !== undefined && data.VersionCreatedDate !== null) {
     contents.VersionCreatedDate = new Date(data.VersionCreatedDate);
@@ -4237,10 +4272,10 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4258,10 +4293,10 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4279,10 +4314,10 @@ const deserializeAws_restJson1ForbiddenExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4300,10 +4335,10 @@ const deserializeAws_restJson1GoneExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4321,10 +4356,10 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4342,10 +4377,10 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4363,10 +4398,10 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4384,10 +4419,10 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4405,10 +4440,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4426,10 +4461,10 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
-    contents.Code = data.Code;
+    contents.Code = __expectString(data.Code);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4449,7 +4484,7 @@ const serializeAws_restJson1__listOfGetDiscoveredSchemaVersionItemInput = (
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4540,11 +4575,10 @@ const deserializeAws_restJson1__listOfSearchSchemaVersionSummary = (
 
 const deserializeAws_restJson1DiscovererSummary = (output: any, context: __SerdeContext): DiscovererSummary => {
   return {
-    DiscovererArn:
-      output.DiscovererArn !== undefined && output.DiscovererArn !== null ? output.DiscovererArn : undefined,
-    DiscovererId: output.DiscovererId !== undefined && output.DiscovererId !== null ? output.DiscovererId : undefined,
-    SourceArn: output.SourceArn !== undefined && output.SourceArn !== null ? output.SourceArn : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    DiscovererArn: __expectString(output.DiscovererArn),
+    DiscovererId: __expectString(output.DiscovererId),
+    SourceArn: __expectString(output.SourceArn),
+    State: __expectString(output.State),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
@@ -4554,8 +4588,8 @@ const deserializeAws_restJson1DiscovererSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1RegistrySummary = (output: any, context: __SerdeContext): RegistrySummary => {
   return {
-    RegistryArn: output.RegistryArn !== undefined && output.RegistryArn !== null ? output.RegistryArn : undefined,
-    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
+    RegistryArn: __expectString(output.RegistryArn),
+    RegistryName: __expectString(output.RegistryName),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
@@ -4567,31 +4601,30 @@ const deserializeAws_restJson1SchemaSummary = (output: any, context: __SerdeCont
   return {
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null ? new Date(output.LastModified) : undefined,
-    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
-    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    SchemaArn: __expectString(output.SchemaArn),
+    SchemaName: __expectString(output.SchemaName),
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    VersionCount: output.VersionCount !== undefined && output.VersionCount !== null ? output.VersionCount : undefined,
+    VersionCount: __expectNumber(output.VersionCount),
   } as any;
 };
 
 const deserializeAws_restJson1SchemaVersionSummary = (output: any, context: __SerdeContext): SchemaVersionSummary => {
   return {
-    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
-    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
-    SchemaVersion:
-      output.SchemaVersion !== undefined && output.SchemaVersion !== null ? output.SchemaVersion : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    SchemaArn: __expectString(output.SchemaArn),
+    SchemaName: __expectString(output.SchemaName),
+    SchemaVersion: __expectString(output.SchemaVersion),
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_restJson1SearchSchemaSummary = (output: any, context: __SerdeContext): SearchSchemaSummary => {
   return {
-    RegistryName: output.RegistryName !== undefined && output.RegistryName !== null ? output.RegistryName : undefined,
-    SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
-    SchemaName: output.SchemaName !== undefined && output.SchemaName !== null ? output.SchemaName : undefined,
+    RegistryName: __expectString(output.RegistryName),
+    SchemaArn: __expectString(output.SchemaArn),
+    SchemaName: __expectString(output.SchemaName),
     SchemaVersions:
       output.SchemaVersions !== undefined && output.SchemaVersions !== null
         ? deserializeAws_restJson1__listOfSearchSchemaVersionSummary(output.SchemaVersions, context)
@@ -4606,9 +4639,8 @@ const deserializeAws_restJson1SearchSchemaVersionSummary = (
   return {
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null ? new Date(output.CreatedDate) : undefined,
-    SchemaVersion:
-      output.SchemaVersion !== undefined && output.SchemaVersion !== null ? output.SchemaVersion : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    SchemaVersion: __expectString(output.SchemaVersion),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -4619,7 +4651,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

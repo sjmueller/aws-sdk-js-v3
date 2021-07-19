@@ -128,6 +128,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -141,8 +143,10 @@ export const serializeAws_restJson1AssociateExternalConnectionCommand = async (
   input: AssociateExternalConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository/external-connection";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/external-connection";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -150,7 +154,6 @@ export const serializeAws_restJson1AssociateExternalConnectionCommand = async (
     ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -167,10 +170,12 @@ export const serializeAws_restJson1CopyPackageVersionsCommand = async (
   input: CopyPackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/package/versions/copy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/copy";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -193,7 +198,6 @@ export const serializeAws_restJson1CopyPackageVersionsCommand = async (
     ...(input.versions !== undefined &&
       input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -210,10 +214,11 @@ export const serializeAws_restJson1CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/domain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
   };
@@ -223,7 +228,6 @@ export const serializeAws_restJson1CreateDomainCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -240,10 +244,11 @@ export const serializeAws_restJson1CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/repository";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -259,7 +264,6 @@ export const serializeAws_restJson1CreateRepositoryCommand = async (
         upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -276,14 +280,14 @@ export const serializeAws_restJson1DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/domain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -300,15 +304,16 @@ export const serializeAws_restJson1DeleteDomainPermissionsPolicyCommand = async 
   input: DeleteDomainPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/domain/permissions/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -325,10 +330,12 @@ export const serializeAws_restJson1DeletePackageVersionsCommand = async (
   input: DeletePackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/package/versions/delete";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/delete";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -344,7 +351,6 @@ export const serializeAws_restJson1DeletePackageVersionsCommand = async (
     ...(input.versions !== undefined &&
       input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -361,15 +367,15 @@ export const serializeAws_restJson1DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -386,8 +392,10 @@ export const serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = as
   input: DeleteRepositoryPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository/permissions/policies";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policies";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -395,7 +403,6 @@ export const serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = as
     ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -412,14 +419,14 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/domain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,8 +443,9 @@ export const serializeAws_restJson1DescribePackageVersionCommand = async (
   input: DescribePackageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/package/version";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -448,7 +456,6 @@ export const serializeAws_restJson1DescribePackageVersionCommand = async (
     ...(input.packageVersion !== undefined && { version: input.packageVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,15 +472,15 @@ export const serializeAws_restJson1DescribeRepositoryCommand = async (
   input: DescribeRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -490,8 +497,10 @@ export const serializeAws_restJson1DisassociateExternalConnectionCommand = async
   input: DisassociateExternalConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository/external-connection";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/external-connection";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -499,7 +508,6 @@ export const serializeAws_restJson1DisassociateExternalConnectionCommand = async
     ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -516,10 +524,12 @@ export const serializeAws_restJson1DisposePackageVersionsCommand = async (
   input: DisposePackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/package/versions/dispose";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/dispose";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -539,7 +549,6 @@ export const serializeAws_restJson1DisposePackageVersionsCommand = async (
     ...(input.versions !== undefined &&
       input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -556,15 +565,15 @@ export const serializeAws_restJson1GetAuthorizationTokenCommand = async (
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/authorization-token";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/authorization-token";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.durationSeconds !== undefined && { duration: input.durationSeconds.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -581,14 +590,15 @@ export const serializeAws_restJson1GetDomainPermissionsPolicyCommand = async (
   input: GetDomainPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/domain/permissions/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -605,8 +615,10 @@ export const serializeAws_restJson1GetPackageVersionAssetCommand = async (
   input: GetPackageVersionAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/package/version/asset";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/asset";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -619,7 +631,6 @@ export const serializeAws_restJson1GetPackageVersionAssetCommand = async (
     ...(input.packageVersionRevision !== undefined && { revision: input.packageVersionRevision }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -636,8 +647,10 @@ export const serializeAws_restJson1GetPackageVersionReadmeCommand = async (
   input: GetPackageVersionReadmeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/package/version/readme";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/readme";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -648,7 +661,6 @@ export const serializeAws_restJson1GetPackageVersionReadmeCommand = async (
     ...(input.packageVersion !== undefined && { version: input.packageVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -665,8 +677,9 @@ export const serializeAws_restJson1GetRepositoryEndpointCommand = async (
   input: GetRepositoryEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository/endpoint";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/endpoint";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -674,7 +687,6 @@ export const serializeAws_restJson1GetRepositoryEndpointCommand = async (
     ...(input.format !== undefined && { format: input.format }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -691,15 +703,16 @@ export const serializeAws_restJson1GetRepositoryPermissionsPolicyCommand = async
   input: GetRepositoryPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repository/permissions/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policy";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -716,16 +729,16 @@ export const serializeAws_restJson1ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/domains";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domains";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -741,8 +754,9 @@ export const serializeAws_restJson1ListPackagesCommand = async (
   input: ListPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/packages";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/packages";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -754,7 +768,6 @@ export const serializeAws_restJson1ListPackagesCommand = async (
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -771,8 +784,10 @@ export const serializeAws_restJson1ListPackageVersionAssetsCommand = async (
   input: ListPackageVersionAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/package/version/assets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/assets";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -785,7 +800,6 @@ export const serializeAws_restJson1ListPackageVersionAssetsCommand = async (
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -802,8 +816,10 @@ export const serializeAws_restJson1ListPackageVersionDependenciesCommand = async
   input: ListPackageVersionDependenciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/package/version/dependencies";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/dependencies";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -815,7 +831,6 @@ export const serializeAws_restJson1ListPackageVersionDependenciesCommand = async
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -832,8 +847,9 @@ export const serializeAws_restJson1ListPackageVersionsCommand = async (
   input: ListPackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/package/versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -847,7 +863,6 @@ export const serializeAws_restJson1ListPackageVersionsCommand = async (
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -864,15 +879,15 @@ export const serializeAws_restJson1ListRepositoriesCommand = async (
   input: ListRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/repositories";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repositories";
   const query: any = {
     ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -889,8 +904,9 @@ export const serializeAws_restJson1ListRepositoriesInDomainCommand = async (
   input: ListRepositoriesInDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/domain/repositories";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/repositories";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -900,7 +916,6 @@ export const serializeAws_restJson1ListRepositoriesInDomainCommand = async (
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -917,13 +932,13 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -940,10 +955,12 @@ export const serializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
   input: PutDomainPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/domain/permissions/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   let body: any;
   body = JSON.stringify({
     ...(input.domain !== undefined && input.domain !== null && { domain: input.domain }),
@@ -953,7 +970,6 @@ export const serializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
     ...(input.policyRevision !== undefined &&
       input.policyRevision !== null && { policyRevision: input.policyRevision }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -969,10 +985,12 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
   input: PutRepositoryPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/repository/permissions/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policy";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -985,7 +1003,6 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
     ...(input.policyRevision !== undefined &&
       input.policyRevision !== null && { policyRevision: input.policyRevision }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1002,10 +1019,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/tag";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tag";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
@@ -1014,7 +1032,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1031,10 +1048,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/untag";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/untag";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
@@ -1043,7 +1061,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined &&
       input.tagKeys !== null && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1060,10 +1077,12 @@ export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
   input: UpdatePackageVersionsStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/package/versions/update_status";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/update_status";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -1084,7 +1103,6 @@ export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
     ...(input.versions !== undefined &&
       input.versions !== null && { versions: serializeAws_restJson1PackageVersionList(input.versions, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1101,10 +1119,11 @@ export const serializeAws_restJson1UpdateRepositoryCommand = async (
   input: UpdateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/repository";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = {
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
@@ -1118,7 +1137,6 @@ export const serializeAws_restJson1UpdateRepositoryCommand = async (
         upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2512,7 +2530,7 @@ export const deserializeAws_restJson1GetAuthorizationTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.authorizationToken !== undefined && data.authorizationToken !== null) {
-    contents.authorizationToken = data.authorizationToken;
+    contents.authorizationToken = __expectString(data.authorizationToken);
   }
   if (data.expiration !== undefined && data.expiration !== null) {
     contents.expiration = new Date(Math.round(data.expiration * 1000));
@@ -2799,22 +2817,22 @@ export const deserializeAws_restJson1GetPackageVersionReadmeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.format !== undefined && data.format !== null) {
-    contents.format = data.format;
+    contents.format = __expectString(data.format);
   }
   if (data.namespace !== undefined && data.namespace !== null) {
-    contents.namespace = data.namespace;
+    contents.namespace = __expectString(data.namespace);
   }
   if (data.package !== undefined && data.package !== null) {
-    contents.package = data.package;
+    contents.package = __expectString(data.package);
   }
   if (data.readme !== undefined && data.readme !== null) {
-    contents.readme = data.readme;
+    contents.readme = __expectString(data.readme);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   if (data.versionRevision !== undefined && data.versionRevision !== null) {
-    contents.versionRevision = data.versionRevision;
+    contents.versionRevision = __expectString(data.versionRevision);
   }
   return Promise.resolve(contents);
 };
@@ -2901,7 +2919,7 @@ export const deserializeAws_restJson1GetRepositoryEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.repositoryEndpoint !== undefined && data.repositoryEndpoint !== null) {
-    contents.repositoryEndpoint = data.repositoryEndpoint;
+    contents.repositoryEndpoint = __expectString(data.repositoryEndpoint);
   }
   return Promise.resolve(contents);
 };
@@ -3079,7 +3097,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     contents.domains = deserializeAws_restJson1DomainSummaryList(data.domains, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3159,7 +3177,7 @@ export const deserializeAws_restJson1ListPackagesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.packages !== undefined && data.packages !== null) {
     contents.packages = deserializeAws_restJson1PackageSummaryList(data.packages, context);
@@ -3258,22 +3276,22 @@ export const deserializeAws_restJson1ListPackageVersionAssetsCommand = async (
     contents.assets = deserializeAws_restJson1AssetSummaryList(data.assets, context);
   }
   if (data.format !== undefined && data.format !== null) {
-    contents.format = data.format;
+    contents.format = __expectString(data.format);
   }
   if (data.namespace !== undefined && data.namespace !== null) {
-    contents.namespace = data.namespace;
+    contents.namespace = __expectString(data.namespace);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.package !== undefined && data.package !== null) {
-    contents.package = data.package;
+    contents.package = __expectString(data.package);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   if (data.versionRevision !== undefined && data.versionRevision !== null) {
-    contents.versionRevision = data.versionRevision;
+    contents.versionRevision = __expectString(data.versionRevision);
   }
   return Promise.resolve(contents);
 };
@@ -3369,22 +3387,22 @@ export const deserializeAws_restJson1ListPackageVersionDependenciesCommand = asy
     contents.dependencies = deserializeAws_restJson1PackageDependencyList(data.dependencies, context);
   }
   if (data.format !== undefined && data.format !== null) {
-    contents.format = data.format;
+    contents.format = __expectString(data.format);
   }
   if (data.namespace !== undefined && data.namespace !== null) {
-    contents.namespace = data.namespace;
+    contents.namespace = __expectString(data.namespace);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.package !== undefined && data.package !== null) {
-    contents.package = data.package;
+    contents.package = __expectString(data.package);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   if (data.versionRevision !== undefined && data.versionRevision !== null) {
-    contents.versionRevision = data.versionRevision;
+    contents.versionRevision = __expectString(data.versionRevision);
   }
   return Promise.resolve(contents);
 };
@@ -3476,19 +3494,19 @@ export const deserializeAws_restJson1ListPackageVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.defaultDisplayVersion !== undefined && data.defaultDisplayVersion !== null) {
-    contents.defaultDisplayVersion = data.defaultDisplayVersion;
+    contents.defaultDisplayVersion = __expectString(data.defaultDisplayVersion);
   }
   if (data.format !== undefined && data.format !== null) {
-    contents.format = data.format;
+    contents.format = __expectString(data.format);
   }
   if (data.namespace !== undefined && data.namespace !== null) {
-    contents.namespace = data.namespace;
+    contents.namespace = __expectString(data.namespace);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.package !== undefined && data.package !== null) {
-    contents.package = data.package;
+    contents.package = __expectString(data.package);
   }
   if (data.versions !== undefined && data.versions !== null) {
     contents.versions = deserializeAws_restJson1PackageVersionSummaryList(data.versions, context);
@@ -3579,7 +3597,7 @@ export const deserializeAws_restJson1ListRepositoriesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.repositories !== undefined && data.repositories !== null) {
     contents.repositories = deserializeAws_restJson1RepositorySummaryList(data.repositories, context);
@@ -3662,7 +3680,7 @@ export const deserializeAws_restJson1ListRepositoriesInDomainCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.repositories !== undefined && data.repositories !== null) {
     contents.repositories = deserializeAws_restJson1RepositorySummaryList(data.repositories, context);
@@ -4399,7 +4417,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4418,13 +4436,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -4441,7 +4459,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4460,13 +4478,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -4485,13 +4503,13 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return contents;
 };
@@ -4512,7 +4530,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4530,10 +4548,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.reason !== undefined && data.reason !== null) {
-    contents.reason = data.reason;
+    contents.reason = __expectString(data.reason);
   }
   return contents;
 };
@@ -4553,7 +4571,7 @@ const serializeAws_restJson1PackageVersionRevisionMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4619,7 +4637,7 @@ const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContex
       }
       return {
         ...acc,
-        [key]: value,
+        [key]: __expectString(value) as any,
       };
     },
     {}
@@ -4632,8 +4650,8 @@ const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeConte
       output.hashes !== undefined && output.hashes !== null
         ? deserializeAws_restJson1AssetHashes(output.hashes, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    size: output.size !== undefined && output.size !== null ? output.size : undefined,
+    name: __expectString(output.name),
+    size: __expectNumber(output.size),
   } as any;
 };
 
@@ -4650,36 +4668,32 @@ const deserializeAws_restJson1AssetSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DomainDescription = (output: any, context: __SerdeContext): DomainDescription => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    assetSizeBytes:
-      output.assetSizeBytes !== undefined && output.assetSizeBytes !== null ? output.assetSizeBytes : undefined,
+    arn: __expectString(output.arn),
+    assetSizeBytes: __expectNumber(output.assetSizeBytes),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
         ? new Date(Math.round(output.createdTime * 1000))
         : undefined,
-    encryptionKey:
-      output.encryptionKey !== undefined && output.encryptionKey !== null ? output.encryptionKey : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
-    repositoryCount:
-      output.repositoryCount !== undefined && output.repositoryCount !== null ? output.repositoryCount : undefined,
-    s3BucketArn: output.s3BucketArn !== undefined && output.s3BucketArn !== null ? output.s3BucketArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    encryptionKey: __expectString(output.encryptionKey),
+    name: __expectString(output.name),
+    owner: __expectString(output.owner),
+    repositoryCount: __expectNumber(output.repositoryCount),
+    s3BucketArn: __expectString(output.s3BucketArn),
+    status: __expectString(output.status),
   } as any;
 };
 
 const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
         ? new Date(Math.round(output.createdTime * 1000))
         : undefined,
-    encryptionKey:
-      output.encryptionKey !== undefined && output.encryptionKey !== null ? output.encryptionKey : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    encryptionKey: __expectString(output.encryptionKey),
+    name: __expectString(output.name),
+    owner: __expectString(output.owner),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4696,8 +4710,8 @@ const deserializeAws_restJson1DomainSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1LicenseInfo = (output: any, context: __SerdeContext): LicenseInfo => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    name: __expectString(output.name),
+    url: __expectString(output.url),
   } as any;
 };
 
@@ -4714,14 +4728,10 @@ const deserializeAws_restJson1LicenseInfoList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1PackageDependency = (output: any, context: __SerdeContext): PackageDependency => {
   return {
-    dependencyType:
-      output.dependencyType !== undefined && output.dependencyType !== null ? output.dependencyType : undefined,
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
-    package: output.package !== undefined && output.package !== null ? output.package : undefined,
-    versionRequirement:
-      output.versionRequirement !== undefined && output.versionRequirement !== null
-        ? output.versionRequirement
-        : undefined,
+    dependencyType: __expectString(output.dependencyType),
+    namespace: __expectString(output.namespace),
+    package: __expectString(output.package),
+    versionRequirement: __expectString(output.versionRequirement),
   } as any;
 };
 
@@ -4738,9 +4748,9 @@ const deserializeAws_restJson1PackageDependencyList = (output: any, context: __S
 
 const deserializeAws_restJson1PackageSummary = (output: any, context: __SerdeContext): PackageSummary => {
   return {
-    format: output.format !== undefined && output.format !== null ? output.format : undefined,
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
-    package: output.package !== undefined && output.package !== null ? output.package : undefined,
+    format: __expectString(output.format),
+    namespace: __expectString(output.namespace),
+    package: __expectString(output.package),
   } as any;
 };
 
@@ -4760,34 +4770,31 @@ const deserializeAws_restJson1PackageVersionDescription = (
   context: __SerdeContext
 ): PackageVersionDescription => {
   return {
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    format: output.format !== undefined && output.format !== null ? output.format : undefined,
-    homePage: output.homePage !== undefined && output.homePage !== null ? output.homePage : undefined,
+    displayName: __expectString(output.displayName),
+    format: __expectString(output.format),
+    homePage: __expectString(output.homePage),
     licenses:
       output.licenses !== undefined && output.licenses !== null
         ? deserializeAws_restJson1LicenseInfoList(output.licenses, context)
         : undefined,
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
-    packageName: output.packageName !== undefined && output.packageName !== null ? output.packageName : undefined,
+    namespace: __expectString(output.namespace),
+    packageName: __expectString(output.packageName),
     publishedTime:
       output.publishedTime !== undefined && output.publishedTime !== null
         ? new Date(Math.round(output.publishedTime * 1000))
         : undefined,
-    revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
-    sourceCodeRepository:
-      output.sourceCodeRepository !== undefined && output.sourceCodeRepository !== null
-        ? output.sourceCodeRepository
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    summary: output.summary !== undefined && output.summary !== null ? output.summary : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    revision: __expectString(output.revision),
+    sourceCodeRepository: __expectString(output.sourceCodeRepository),
+    status: __expectString(output.status),
+    summary: __expectString(output.summary),
+    version: __expectString(output.version),
   } as any;
 };
 
 const deserializeAws_restJson1PackageVersionError = (output: any, context: __SerdeContext): PackageVersionError => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
   } as any;
 };
 
@@ -4808,9 +4815,9 @@ const deserializeAws_restJson1PackageVersionErrorMap = (
 
 const deserializeAws_restJson1PackageVersionSummary = (output: any, context: __SerdeContext): PackageVersionSummary => {
   return {
-    revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    revision: __expectString(output.revision),
+    status: __expectString(output.status),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -4830,19 +4837,16 @@ const deserializeAws_restJson1PackageVersionSummaryList = (
 
 const deserializeAws_restJson1RepositoryDescription = (output: any, context: __SerdeContext): RepositoryDescription => {
   return {
-    administratorAccount:
-      output.administratorAccount !== undefined && output.administratorAccount !== null
-        ? output.administratorAccount
-        : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    domainOwner: output.domainOwner !== undefined && output.domainOwner !== null ? output.domainOwner : undefined,
+    administratorAccount: __expectString(output.administratorAccount),
+    arn: __expectString(output.arn),
+    description: __expectString(output.description),
+    domainName: __expectString(output.domainName),
+    domainOwner: __expectString(output.domainOwner),
     externalConnections:
       output.externalConnections !== undefined && output.externalConnections !== null
         ? deserializeAws_restJson1RepositoryExternalConnectionInfoList(output.externalConnections, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     upstreams:
       output.upstreams !== undefined && output.upstreams !== null
         ? deserializeAws_restJson1UpstreamRepositoryInfoList(output.upstreams, context)
@@ -4855,13 +4859,9 @@ const deserializeAws_restJson1RepositoryExternalConnectionInfo = (
   context: __SerdeContext
 ): RepositoryExternalConnectionInfo => {
   return {
-    externalConnectionName:
-      output.externalConnectionName !== undefined && output.externalConnectionName !== null
-        ? output.externalConnectionName
-        : undefined,
-    packageFormat:
-      output.packageFormat !== undefined && output.packageFormat !== null ? output.packageFormat : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    externalConnectionName: __expectString(output.externalConnectionName),
+    packageFormat: __expectString(output.packageFormat),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4881,15 +4881,12 @@ const deserializeAws_restJson1RepositoryExternalConnectionInfoList = (
 
 const deserializeAws_restJson1RepositorySummary = (output: any, context: __SerdeContext): RepositorySummary => {
   return {
-    administratorAccount:
-      output.administratorAccount !== undefined && output.administratorAccount !== null
-        ? output.administratorAccount
-        : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
-    domainOwner: output.domainOwner !== undefined && output.domainOwner !== null ? output.domainOwner : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    administratorAccount: __expectString(output.administratorAccount),
+    arn: __expectString(output.arn),
+    description: __expectString(output.description),
+    domainName: __expectString(output.domainName),
+    domainOwner: __expectString(output.domainOwner),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -4906,9 +4903,9 @@ const deserializeAws_restJson1RepositorySummaryList = (output: any, context: __S
 
 const deserializeAws_restJson1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
   return {
-    document: output.document !== undefined && output.document !== null ? output.document : undefined,
-    resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
-    revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
+    document: __expectString(output.document),
+    resourceArn: __expectString(output.resourceArn),
+    revision: __expectString(output.revision),
   } as any;
 };
 
@@ -4917,8 +4914,8 @@ const deserializeAws_restJson1SuccessfulPackageVersionInfo = (
   context: __SerdeContext
 ): SuccessfulPackageVersionInfo => {
   return {
-    revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    revision: __expectString(output.revision),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -4942,8 +4939,8 @@ const deserializeAws_restJson1SuccessfulPackageVersionInfoMap = (
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -4963,8 +4960,7 @@ const deserializeAws_restJson1UpstreamRepositoryInfo = (
   context: __SerdeContext
 ): UpstreamRepositoryInfo => {
   return {
-    repositoryName:
-      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    repositoryName: __expectString(output.repositoryName),
   } as any;
 };
 

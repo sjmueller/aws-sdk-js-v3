@@ -58,6 +58,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -71,10 +73,11 @@ export const serializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
   input: BatchAcknowledgeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/acknowledge";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/acknowledge";
   let body: any;
   body = JSON.stringify({
     ...(input.acknowledgeActionRequests !== undefined &&
@@ -85,7 +88,6 @@ export const serializeAws_restJson1BatchAcknowledgeAlarmCommand = async (
         ),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -101,10 +103,11 @@ export const serializeAws_restJson1BatchDisableAlarmCommand = async (
   input: BatchDisableAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/disable";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/disable";
   let body: any;
   body = JSON.stringify({
     ...(input.disableActionRequests !== undefined &&
@@ -112,7 +115,6 @@ export const serializeAws_restJson1BatchDisableAlarmCommand = async (
         disableActionRequests: serializeAws_restJson1DisableAlarmActionRequests(input.disableActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -128,10 +130,11 @@ export const serializeAws_restJson1BatchEnableAlarmCommand = async (
   input: BatchEnableAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/enable";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/enable";
   let body: any;
   body = JSON.stringify({
     ...(input.enableActionRequests !== undefined &&
@@ -139,7 +142,6 @@ export const serializeAws_restJson1BatchEnableAlarmCommand = async (
         enableActionRequests: serializeAws_restJson1EnableAlarmActionRequests(input.enableActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -155,16 +157,16 @@ export const serializeAws_restJson1BatchPutMessageCommand = async (
   input: BatchPutMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/inputs/messages";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/inputs/messages";
   let body: any;
   body = JSON.stringify({
     ...(input.messages !== undefined &&
       input.messages !== null && { messages: serializeAws_restJson1Messages(input.messages, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -180,10 +182,11 @@ export const serializeAws_restJson1BatchResetAlarmCommand = async (
   input: BatchResetAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/reset";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/reset";
   let body: any;
   body = JSON.stringify({
     ...(input.resetActionRequests !== undefined &&
@@ -191,7 +194,6 @@ export const serializeAws_restJson1BatchResetAlarmCommand = async (
         resetActionRequests: serializeAws_restJson1ResetAlarmActionRequests(input.resetActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -207,10 +209,11 @@ export const serializeAws_restJson1BatchSnoozeAlarmCommand = async (
   input: BatchSnoozeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/alarms/snooze";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/snooze";
   let body: any;
   body = JSON.stringify({
     ...(input.snoozeActionRequests !== undefined &&
@@ -218,7 +221,6 @@ export const serializeAws_restJson1BatchSnoozeAlarmCommand = async (
         snoozeActionRequests: serializeAws_restJson1SnoozeAlarmActionRequests(input.snoozeActionRequests, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -234,10 +236,11 @@ export const serializeAws_restJson1BatchUpdateDetectorCommand = async (
   input: BatchUpdateDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/detectors";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors";
   let body: any;
   body = JSON.stringify({
     ...(input.detectors !== undefined &&
@@ -245,7 +248,6 @@ export const serializeAws_restJson1BatchUpdateDetectorCommand = async (
         detectors: serializeAws_restJson1UpdateDetectorRequests(input.detectors, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -261,8 +263,10 @@ export const serializeAws_restJson1DescribeAlarmCommand = async (
   input: DescribeAlarmCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/alarms/{alarmModelName}/keyValues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/{alarmModelName}/keyValues";
   if (input.alarmModelName !== undefined) {
     const labelValue: string = input.alarmModelName;
     if (labelValue.length <= 0) {
@@ -276,7 +280,6 @@ export const serializeAws_restJson1DescribeAlarmCommand = async (
     ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -293,8 +296,10 @@ export const serializeAws_restJson1DescribeDetectorCommand = async (
   input: DescribeDetectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/detectors/{detectorModelName}/keyValues";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/{detectorModelName}/keyValues";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
@@ -308,7 +313,6 @@ export const serializeAws_restJson1DescribeDetectorCommand = async (
     ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -325,8 +329,9 @@ export const serializeAws_restJson1ListAlarmsCommand = async (
   input: ListAlarmsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/alarms/{alarmModelName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/alarms/{alarmModelName}";
   if (input.alarmModelName !== undefined) {
     const labelValue: string = input.alarmModelName;
     if (labelValue.length <= 0) {
@@ -341,7 +346,6 @@ export const serializeAws_restJson1ListAlarmsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -358,8 +362,10 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
   input: ListDetectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/detectors/{detectorModelName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detectors/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
@@ -375,7 +381,6 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1138,7 +1143,7 @@ export const deserializeAws_restJson1ListAlarmsCommand = async (
     contents.alarmSummaries = deserializeAws_restJson1AlarmSummaries(data.alarmSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1229,7 +1234,7 @@ export const deserializeAws_restJson1ListDetectorsCommand = async (
     contents.detectorSummaries = deserializeAws_restJson1DetectorSummaries(data.detectorSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1315,7 +1320,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1332,7 +1337,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1349,7 +1354,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1366,7 +1371,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1383,7 +1388,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1628,18 +1633,14 @@ const deserializeAws_restJson1AcknowledgeActionConfiguration = (
   context: __SerdeContext
 ): AcknowledgeActionConfiguration => {
   return {
-    note: output.note !== undefined && output.note !== null ? output.note : undefined,
+    note: __expectString(output.note),
   } as any;
 };
 
 const deserializeAws_restJson1Alarm = (output: any, context: __SerdeContext): Alarm => {
   return {
-    alarmModelName:
-      output.alarmModelName !== undefined && output.alarmModelName !== null ? output.alarmModelName : undefined,
-    alarmModelVersion:
-      output.alarmModelVersion !== undefined && output.alarmModelVersion !== null
-        ? output.alarmModelVersion
-        : undefined,
+    alarmModelName: __expectString(output.alarmModelName),
+    alarmModelVersion: __expectString(output.alarmModelVersion),
     alarmState:
       output.alarmState !== undefined && output.alarmState !== null
         ? deserializeAws_restJson1AlarmState(output.alarmState, context)
@@ -1648,12 +1649,12 @@ const deserializeAws_restJson1Alarm = (output: any, context: __SerdeContext): Al
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    keyValue: output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined,
+    keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    severity: output.severity !== undefined && output.severity !== null ? output.severity : undefined,
+    severity: __expectNumber(output.severity),
   } as any;
 };
 
@@ -1667,7 +1668,7 @@ const deserializeAws_restJson1AlarmState = (output: any, context: __SerdeContext
       output.ruleEvaluation !== undefined && output.ruleEvaluation !== null
         ? deserializeAws_restJson1RuleEvaluation(output.ruleEvaluation, context)
         : undefined,
-    stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
+    stateName: __expectString(output.stateName),
     systemEvent:
       output.systemEvent !== undefined && output.systemEvent !== null
         ? deserializeAws_restJson1SystemEvent(output.systemEvent, context)
@@ -1688,22 +1689,18 @@ const deserializeAws_restJson1AlarmSummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1AlarmSummary = (output: any, context: __SerdeContext): AlarmSummary => {
   return {
-    alarmModelName:
-      output.alarmModelName !== undefined && output.alarmModelName !== null ? output.alarmModelName : undefined,
-    alarmModelVersion:
-      output.alarmModelVersion !== undefined && output.alarmModelVersion !== null
-        ? output.alarmModelVersion
-        : undefined,
+    alarmModelName: __expectString(output.alarmModelName),
+    alarmModelVersion: __expectString(output.alarmModelVersion),
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    keyValue: output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined,
+    keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
+    stateName: __expectString(output.stateName),
   } as any;
 };
 
@@ -1726,9 +1723,9 @@ const deserializeAws_restJson1BatchAlarmActionErrorEntry = (
   context: __SerdeContext
 ): BatchAlarmActionErrorEntry => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    requestId: output.requestId !== undefined && output.requestId !== null ? output.requestId : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    requestId: __expectString(output.requestId),
   } as any;
 };
 
@@ -1751,9 +1748,9 @@ const deserializeAws_restJson1BatchPutMessageErrorEntry = (
   context: __SerdeContext
 ): BatchPutMessageErrorEntry => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    messageId: __expectString(output.messageId),
   } as any;
 };
 
@@ -1776,9 +1773,9 @@ const deserializeAws_restJson1BatchUpdateDetectorErrorEntry = (
   context: __SerdeContext
 ): BatchUpdateDetectorErrorEntry => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
-    messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+    messageId: __expectString(output.messageId),
   } as any;
 };
 
@@ -1788,7 +1785,7 @@ const deserializeAws_restJson1CustomerAction = (output: any, context: __SerdeCon
       output.acknowledgeActionConfiguration !== undefined && output.acknowledgeActionConfiguration !== null
         ? deserializeAws_restJson1AcknowledgeActionConfiguration(output.acknowledgeActionConfiguration, context)
         : undefined,
-    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    actionName: __expectString(output.actionName),
     disableActionConfiguration:
       output.disableActionConfiguration !== undefined && output.disableActionConfiguration !== null
         ? deserializeAws_restJson1DisableActionConfiguration(output.disableActionConfiguration, context)
@@ -1814,15 +1811,9 @@ const deserializeAws_restJson1Detector = (output: any, context: __SerdeContext):
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    detectorModelName:
-      output.detectorModelName !== undefined && output.detectorModelName !== null
-        ? output.detectorModelName
-        : undefined,
-    detectorModelVersion:
-      output.detectorModelVersion !== undefined && output.detectorModelVersion !== null
-        ? output.detectorModelVersion
-        : undefined,
-    keyValue: output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined,
+    detectorModelName: __expectString(output.detectorModelName),
+    detectorModelVersion: __expectString(output.detectorModelVersion),
+    keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -1836,7 +1827,7 @@ const deserializeAws_restJson1Detector = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1DetectorState = (output: any, context: __SerdeContext): DetectorState => {
   return {
-    stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
+    stateName: __expectString(output.stateName),
     timers:
       output.timers !== undefined && output.timers !== null
         ? deserializeAws_restJson1Timers(output.timers, context)
@@ -1850,7 +1841,7 @@ const deserializeAws_restJson1DetectorState = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1DetectorStateSummary = (output: any, context: __SerdeContext): DetectorStateSummary => {
   return {
-    stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
+    stateName: __expectString(output.stateName),
   } as any;
 };
 
@@ -1871,15 +1862,9 @@ const deserializeAws_restJson1DetectorSummary = (output: any, context: __SerdeCo
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    detectorModelName:
-      output.detectorModelName !== undefined && output.detectorModelName !== null
-        ? output.detectorModelName
-        : undefined,
-    detectorModelVersion:
-      output.detectorModelVersion !== undefined && output.detectorModelVersion !== null
-        ? output.detectorModelVersion
-        : undefined,
-    keyValue: output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined,
+    detectorModelName: __expectString(output.detectorModelName),
+    detectorModelVersion: __expectString(output.detectorModelVersion),
+    keyValue: __expectString(output.keyValue),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -1896,7 +1881,7 @@ const deserializeAws_restJson1DisableActionConfiguration = (
   context: __SerdeContext
 ): DisableActionConfiguration => {
   return {
-    note: output.note !== undefined && output.note !== null ? output.note : undefined,
+    note: __expectString(output.note),
   } as any;
 };
 
@@ -1905,7 +1890,7 @@ const deserializeAws_restJson1EnableActionConfiguration = (
   context: __SerdeContext
 ): EnableActionConfiguration => {
   return {
-    note: output.note !== undefined && output.note !== null ? output.note : undefined,
+    note: __expectString(output.note),
   } as any;
 };
 
@@ -1914,7 +1899,7 @@ const deserializeAws_restJson1ResetActionConfiguration = (
   context: __SerdeContext
 ): ResetActionConfiguration => {
   return {
-    note: output.note !== undefined && output.note !== null ? output.note : undefined,
+    note: __expectString(output.note),
   } as any;
 };
 
@@ -1929,13 +1914,9 @@ const deserializeAws_restJson1RuleEvaluation = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SimpleRuleEvaluation = (output: any, context: __SerdeContext): SimpleRuleEvaluation => {
   return {
-    inputPropertyValue:
-      output.inputPropertyValue !== undefined && output.inputPropertyValue !== null
-        ? output.inputPropertyValue
-        : undefined,
-    operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
-    thresholdValue:
-      output.thresholdValue !== undefined && output.thresholdValue !== null ? output.thresholdValue : undefined,
+    inputPropertyValue: __expectString(output.inputPropertyValue),
+    operator: __expectString(output.operator),
+    thresholdValue: __expectString(output.thresholdValue),
   } as any;
 };
 
@@ -1944,9 +1925,8 @@ const deserializeAws_restJson1SnoozeActionConfiguration = (
   context: __SerdeContext
 ): SnoozeActionConfiguration => {
   return {
-    note: output.note !== undefined && output.note !== null ? output.note : undefined,
-    snoozeDuration:
-      output.snoozeDuration !== undefined && output.snoozeDuration !== null ? output.snoozeDuration : undefined,
+    note: __expectString(output.note),
+    snoozeDuration: __expectNumber(output.snoozeDuration),
   } as any;
 };
 
@@ -1955,13 +1935,13 @@ const deserializeAws_restJson1StateChangeConfiguration = (
   context: __SerdeContext
 ): StateChangeConfiguration => {
   return {
-    triggerType: output.triggerType !== undefined && output.triggerType !== null ? output.triggerType : undefined,
+    triggerType: __expectString(output.triggerType),
   } as any;
 };
 
 const deserializeAws_restJson1SystemEvent = (output: any, context: __SerdeContext): SystemEvent => {
   return {
-    eventType: output.eventType !== undefined && output.eventType !== null ? output.eventType : undefined,
+    eventType: __expectString(output.eventType),
     stateChangeConfiguration:
       output.stateChangeConfiguration !== undefined && output.stateChangeConfiguration !== null
         ? deserializeAws_restJson1StateChangeConfiguration(output.stateChangeConfiguration, context)
@@ -1971,7 +1951,7 @@ const deserializeAws_restJson1SystemEvent = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Timer = (output: any, context: __SerdeContext): Timer => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
@@ -1992,8 +1972,8 @@ const deserializeAws_restJson1Timers = (output: any, context: __SerdeContext): T
 
 const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext): Variable => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 

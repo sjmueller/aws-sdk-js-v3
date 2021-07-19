@@ -45,6 +45,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -58,10 +61,11 @@ export const serializeAws_restJson1CreateCanaryCommand = async (
   input: CreateCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/canary";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary";
   let body: any;
   body = JSON.stringify({
     ...(input.ArtifactS3Location !== undefined &&
@@ -89,7 +93,6 @@ export const serializeAws_restJson1CreateCanaryCommand = async (
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -105,8 +108,9 @@ export const serializeAws_restJson1DeleteCanaryCommand = async (
   input: DeleteCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/canary/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -117,7 +121,6 @@ export const serializeAws_restJson1DeleteCanaryCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -133,16 +136,16 @@ export const serializeAws_restJson1DescribeCanariesCommand = async (
   input: DescribeCanariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/canaries";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -158,16 +161,16 @@ export const serializeAws_restJson1DescribeCanariesLastRunCommand = async (
   input: DescribeCanariesLastRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/canaries/last-run";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canaries/last-run";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -183,16 +186,16 @@ export const serializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   input: DescribeRuntimeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/runtime-versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runtime-versions";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -208,8 +211,9 @@ export const serializeAws_restJson1GetCanaryCommand = async (
   input: GetCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/canary/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -220,7 +224,6 @@ export const serializeAws_restJson1GetCanaryCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -236,10 +239,11 @@ export const serializeAws_restJson1GetCanaryRunsCommand = async (
   input: GetCanaryRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/canary/{Name}/runs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/runs";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -254,7 +258,6 @@ export const serializeAws_restJson1GetCanaryRunsCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -270,8 +273,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -282,7 +286,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -298,8 +301,9 @@ export const serializeAws_restJson1StartCanaryCommand = async (
   input: StartCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/canary/{Name}/start";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/start";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -310,7 +314,6 @@ export const serializeAws_restJson1StartCanaryCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,8 +329,9 @@ export const serializeAws_restJson1StopCanaryCommand = async (
   input: StopCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/canary/{Name}/stop";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}/stop";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -338,7 +342,6 @@ export const serializeAws_restJson1StopCanaryCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -354,10 +357,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -371,7 +375,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -387,8 +390,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -402,7 +406,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -419,10 +422,11 @@ export const serializeAws_restJson1UpdateCanaryCommand = async (
   input: UpdateCanaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/canary/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -455,7 +459,6 @@ export const serializeAws_restJson1UpdateCanaryCommand = async (
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfigInput(input.VpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -622,7 +625,7 @@ export const deserializeAws_restJson1DescribeCanariesCommand = async (
     contents.Canaries = deserializeAws_restJson1Canaries(data.Canaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -689,7 +692,7 @@ export const deserializeAws_restJson1DescribeCanariesLastRunCommand = async (
     contents.CanariesLastRun = deserializeAws_restJson1CanariesLastRun(data.CanariesLastRun, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -753,7 +756,7 @@ export const deserializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.RuntimeVersions !== undefined && data.RuntimeVersions !== null) {
     contents.RuntimeVersions = deserializeAws_restJson1RuntimeVersionList(data.RuntimeVersions, context);
@@ -886,7 +889,7 @@ export const deserializeAws_restJson1GetCanaryRunsCommand = async (
     contents.CanaryRuns = deserializeAws_restJson1CanaryRuns(data.CanaryRuns, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1386,7 +1389,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1403,7 +1406,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1420,7 +1423,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1437,7 +1440,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1477,7 +1480,7 @@ const serializeAws_restJson1EnvironmentVariablesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1511,7 +1514,7 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1557,29 +1560,21 @@ const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): Canary => {
   return {
-    ArtifactS3Location:
-      output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
-        ? output.ArtifactS3Location
-        : undefined,
+    ArtifactS3Location: __expectString(output.ArtifactS3Location),
     Code:
       output.Code !== undefined && output.Code !== null
         ? deserializeAws_restJson1CanaryCodeOutput(output.Code, context)
         : undefined,
-    EngineArn: output.EngineArn !== undefined && output.EngineArn !== null ? output.EngineArn : undefined,
-    ExecutionRoleArn:
-      output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
-    FailureRetentionPeriodInDays:
-      output.FailureRetentionPeriodInDays !== undefined && output.FailureRetentionPeriodInDays !== null
-        ? output.FailureRetentionPeriodInDays
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    EngineArn: __expectString(output.EngineArn),
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
+    FailureRetentionPeriodInDays: __expectNumber(output.FailureRetentionPeriodInDays),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     RunConfig:
       output.RunConfig !== undefined && output.RunConfig !== null
         ? deserializeAws_restJson1CanaryRunConfigOutput(output.RunConfig, context)
         : undefined,
-    RuntimeVersion:
-      output.RuntimeVersion !== undefined && output.RuntimeVersion !== null ? output.RuntimeVersion : undefined,
+    RuntimeVersion: __expectString(output.RuntimeVersion),
     Schedule:
       output.Schedule !== undefined && output.Schedule !== null
         ? deserializeAws_restJson1CanaryScheduleOutput(output.Schedule, context)
@@ -1588,10 +1583,7 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1CanaryStatus(output.Status, context)
         : undefined,
-    SuccessRetentionPeriodInDays:
-      output.SuccessRetentionPeriodInDays !== undefined && output.SuccessRetentionPeriodInDays !== null
-        ? output.SuccessRetentionPeriodInDays
-        : undefined,
+    SuccessRetentionPeriodInDays: __expectNumber(output.SuccessRetentionPeriodInDays),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -1609,17 +1601,14 @@ const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): C
 
 const deserializeAws_restJson1CanaryCodeOutput = (output: any, context: __SerdeContext): CanaryCodeOutput => {
   return {
-    Handler: output.Handler !== undefined && output.Handler !== null ? output.Handler : undefined,
-    SourceLocationArn:
-      output.SourceLocationArn !== undefined && output.SourceLocationArn !== null
-        ? output.SourceLocationArn
-        : undefined,
+    Handler: __expectString(output.Handler),
+    SourceLocationArn: __expectString(output.SourceLocationArn),
   } as any;
 };
 
 const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeContext): CanaryLastRun => {
   return {
-    CanaryName: output.CanaryName !== undefined && output.CanaryName !== null ? output.CanaryName : undefined,
+    CanaryName: __expectString(output.CanaryName),
     LastRun:
       output.LastRun !== undefined && output.LastRun !== null
         ? deserializeAws_restJson1CanaryRun(output.LastRun, context)
@@ -1629,12 +1618,9 @@ const deserializeAws_restJson1CanaryLastRun = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext): CanaryRun => {
   return {
-    ArtifactS3Location:
-      output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
-        ? output.ArtifactS3Location
-        : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ArtifactS3Location: __expectString(output.ArtifactS3Location),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_restJson1CanaryRunStatus(output.Status, context)
@@ -1648,11 +1634,9 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
   return {
-    ActiveTracing:
-      output.ActiveTracing !== undefined && output.ActiveTracing !== null ? output.ActiveTracing : undefined,
-    MemoryInMB: output.MemoryInMB !== undefined && output.MemoryInMB !== null ? output.MemoryInMB : undefined,
-    TimeoutInSeconds:
-      output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,
+    ActiveTracing: __expectBoolean(output.ActiveTracing),
+    MemoryInMB: __expectNumber(output.MemoryInMB),
+    TimeoutInSeconds: __expectNumber(output.TimeoutInSeconds),
   } as any;
 };
 
@@ -1669,10 +1653,9 @@ const deserializeAws_restJson1CanaryRuns = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1CanaryRunStatus = (output: any, context: __SerdeContext): CanaryRunStatus => {
   return {
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
-    StateReasonCode:
-      output.StateReasonCode !== undefined && output.StateReasonCode !== null ? output.StateReasonCode : undefined,
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+    StateReasonCode: __expectString(output.StateReasonCode),
   } as any;
 };
 
@@ -1689,20 +1672,16 @@ const deserializeAws_restJson1CanaryRunTimeline = (output: any, context: __Serde
 
 const deserializeAws_restJson1CanaryScheduleOutput = (output: any, context: __SerdeContext): CanaryScheduleOutput => {
   return {
-    DurationInSeconds:
-      output.DurationInSeconds !== undefined && output.DurationInSeconds !== null
-        ? output.DurationInSeconds
-        : undefined,
-    Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined,
+    DurationInSeconds: __expectNumber(output.DurationInSeconds),
+    Expression: __expectString(output.Expression),
   } as any;
 };
 
 const deserializeAws_restJson1CanaryStatus = (output: any, context: __SerdeContext): CanaryStatus => {
   return {
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
-    StateReasonCode:
-      output.StateReasonCode !== undefined && output.StateReasonCode !== null ? output.StateReasonCode : undefined,
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+    StateReasonCode: __expectString(output.StateReasonCode),
   } as any;
 };
 
@@ -1731,12 +1710,12 @@ const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeCon
       output.DeprecationDate !== undefined && output.DeprecationDate !== null
         ? new Date(Math.round(output.DeprecationDate * 1000))
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     ReleaseDate:
       output.ReleaseDate !== undefined && output.ReleaseDate !== null
         ? new Date(Math.round(output.ReleaseDate * 1000))
         : undefined,
-    VersionName: output.VersionName !== undefined && output.VersionName !== null ? output.VersionName : undefined,
+    VersionName: __expectString(output.VersionName),
   } as any;
 };
 
@@ -1758,7 +1737,7 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1769,7 +1748,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1780,7 +1759,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1795,7 +1774,7 @@ const deserializeAws_restJson1VpcConfigOutput = (output: any, context: __SerdeCo
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_restJson1SubnetIds(output.SubnetIds, context)
         : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 

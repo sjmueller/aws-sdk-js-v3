@@ -197,7 +197,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -210,10 +214,12 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/configuration-sets";
   let body: any;
   body = JSON.stringify({
     ...(input.ConfigurationSetName !== undefined &&
@@ -237,7 +243,6 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
         TrackingOptions: serializeAws_restJson1TrackingOptions(input.TrackingOptions, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -253,10 +258,13 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -275,7 +283,6 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
     ...(input.EventDestinationName !== undefined &&
       input.EventDestinationName !== null && { EventDestinationName: input.EventDestinationName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -291,17 +298,18 @@ export const serializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   input: CreateDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/dedicated-ip-pools";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools";
   let body: any;
   body = JSON.stringify({
     ...(input.PoolName !== undefined && input.PoolName !== null && { PoolName: input.PoolName }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -317,10 +325,12 @@ export const serializeAws_restJson1CreateDeliverabilityTestReportCommand = async
   input: CreateDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/deliverability-dashboard/test";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard/test";
   let body: any;
   body = JSON.stringify({
     ...(input.Content !== undefined &&
@@ -331,7 +341,6 @@ export const serializeAws_restJson1CreateDeliverabilityTestReportCommand = async
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -347,17 +356,17 @@ export const serializeAws_restJson1CreateEmailIdentityCommand = async (
   input: CreateEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/identities";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities";
   let body: any;
   body = JSON.stringify({
     ...(input.EmailIdentity !== undefined && input.EmailIdentity !== null && { EmailIdentity: input.EmailIdentity }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -373,8 +382,11 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -385,7 +397,6 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
     throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -401,8 +412,11 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -422,7 +436,6 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
     throw new Error("No value provided for input HTTP label: EventDestinationName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -438,8 +451,10 @@ export const serializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
   input: DeleteDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/dedicated-ip-pools/{PoolName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools/{PoolName}";
   if (input.PoolName !== undefined) {
     const labelValue: string = input.PoolName;
     if (labelValue.length <= 0) {
@@ -450,7 +465,6 @@ export const serializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
     throw new Error("No value provided for input HTTP label: PoolName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -466,8 +480,10 @@ export const serializeAws_restJson1DeleteEmailIdentityCommand = async (
   input: DeleteEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/identities/{EmailIdentity}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities/{EmailIdentity}";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
@@ -478,7 +494,6 @@ export const serializeAws_restJson1DeleteEmailIdentityCommand = async (
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -494,13 +509,13 @@ export const serializeAws_restJson1GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/account";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -516,15 +531,17 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
   input: GetBlacklistReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/deliverability-dashboard/blacklist-report";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/deliverability-dashboard/blacklist-report";
   const query: any = {
     ...(input.BlacklistItemNames !== undefined && {
       BlacklistItemNames: (input.BlacklistItemNames || []).map((_entry) => _entry),
     }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -541,8 +558,11 @@ export const serializeAws_restJson1GetConfigurationSetCommand = async (
   input: GetConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -553,7 +573,6 @@ export const serializeAws_restJson1GetConfigurationSetCommand = async (
     throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -569,8 +588,11 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -581,7 +603,6 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
     throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -597,8 +618,10 @@ export const serializeAws_restJson1GetDedicatedIpCommand = async (
   input: GetDedicatedIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/dedicated-ips/{Ip}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips/{Ip}";
   if (input.Ip !== undefined) {
     const labelValue: string = input.Ip;
     if (labelValue.length <= 0) {
@@ -609,7 +632,6 @@ export const serializeAws_restJson1GetDedicatedIpCommand = async (
     throw new Error("No value provided for input HTTP label: Ip.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -625,15 +647,15 @@ export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   input: GetDedicatedIpsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/dedicated-ips";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips";
   const query: any = {
     ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -650,13 +672,14 @@ export const serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = as
   input: GetDeliverabilityDashboardOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/deliverability-dashboard";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -672,8 +695,11 @@ export const serializeAws_restJson1GetDeliverabilityTestReportCommand = async (
   input: GetDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/deliverability-dashboard/test-reports/{ReportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/deliverability-dashboard/test-reports/{ReportId}";
   if (input.ReportId !== undefined) {
     const labelValue: string = input.ReportId;
     if (labelValue.length <= 0) {
@@ -684,7 +710,6 @@ export const serializeAws_restJson1GetDeliverabilityTestReportCommand = async (
     throw new Error("No value provided for input HTTP label: ReportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -700,8 +725,11 @@ export const serializeAws_restJson1GetDomainDeliverabilityCampaignCommand = asyn
   input: GetDomainDeliverabilityCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/deliverability-dashboard/campaigns/{CampaignId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/deliverability-dashboard/campaigns/{CampaignId}";
   if (input.CampaignId !== undefined) {
     const labelValue: string = input.CampaignId;
     if (labelValue.length <= 0) {
@@ -712,7 +740,6 @@ export const serializeAws_restJson1GetDomainDeliverabilityCampaignCommand = asyn
     throw new Error("No value provided for input HTTP label: CampaignId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -728,8 +755,11 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   input: GetDomainStatisticsReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/deliverability-dashboard/statistics-report/{Domain}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/deliverability-dashboard/statistics-report/{Domain}";
   if (input.Domain !== undefined) {
     const labelValue: string = input.Domain;
     if (labelValue.length <= 0) {
@@ -744,7 +774,6 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
     ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -761,8 +790,10 @@ export const serializeAws_restJson1GetEmailIdentityCommand = async (
   input: GetEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/identities/{EmailIdentity}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities/{EmailIdentity}";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
@@ -773,7 +804,6 @@ export const serializeAws_restJson1GetEmailIdentityCommand = async (
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -789,14 +819,15 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/configuration-sets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/configuration-sets";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -813,14 +844,15 @@ export const serializeAws_restJson1ListDedicatedIpPoolsCommand = async (
   input: ListDedicatedIpPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/dedicated-ip-pools";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ip-pools";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -837,14 +869,16 @@ export const serializeAws_restJson1ListDeliverabilityTestReportsCommand = async 
   input: ListDeliverabilityTestReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/deliverability-dashboard/test-reports";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/deliverability-dashboard/test-reports";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -861,8 +895,11 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   input: ListDomainDeliverabilityCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
   if (input.SubscribedDomain !== undefined) {
     const labelValue: string = input.SubscribedDomain;
     if (labelValue.length <= 0) {
@@ -879,7 +916,6 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -896,14 +932,14 @@ export const serializeAws_restJson1ListEmailIdentitiesCommand = async (
   input: ListEmailIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/identities";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -920,13 +956,13 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -943,16 +979,17 @@ export const serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand 
   input: PutAccountDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/account/dedicated-ips/warmup";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account/dedicated-ips/warmup";
   let body: any;
   body = JSON.stringify({
     ...(input.AutoWarmupEnabled !== undefined &&
       input.AutoWarmupEnabled !== null && { AutoWarmupEnabled: input.AutoWarmupEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -968,16 +1005,17 @@ export const serializeAws_restJson1PutAccountSendingAttributesCommand = async (
   input: PutAccountSendingAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/account/sending";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/account/sending";
   let body: any;
   body = JSON.stringify({
     ...(input.SendingEnabled !== undefined &&
       input.SendingEnabled !== null && { SendingEnabled: input.SendingEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -993,10 +1031,13 @@ export const serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = a
   input: PutConfigurationSetDeliveryOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/delivery-options";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/delivery-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -1012,7 +1053,6 @@ export const serializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand = a
       input.SendingPoolName !== null && { SendingPoolName: input.SendingPoolName }),
     ...(input.TlsPolicy !== undefined && input.TlsPolicy !== null && { TlsPolicy: input.TlsPolicy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1028,10 +1068,13 @@ export const serializeAws_restJson1PutConfigurationSetReputationOptionsCommand =
   input: PutConfigurationSetReputationOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/reputation-options";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/reputation-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -1046,7 +1089,6 @@ export const serializeAws_restJson1PutConfigurationSetReputationOptionsCommand =
     ...(input.ReputationMetricsEnabled !== undefined &&
       input.ReputationMetricsEnabled !== null && { ReputationMetricsEnabled: input.ReputationMetricsEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1062,10 +1104,13 @@ export const serializeAws_restJson1PutConfigurationSetSendingOptionsCommand = as
   input: PutConfigurationSetSendingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/sending";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/sending";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -1080,7 +1125,6 @@ export const serializeAws_restJson1PutConfigurationSetSendingOptionsCommand = as
     ...(input.SendingEnabled !== undefined &&
       input.SendingEnabled !== null && { SendingEnabled: input.SendingEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1096,10 +1140,13 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
   input: PutConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/tracking-options";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/tracking-options";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -1114,7 +1161,6 @@ export const serializeAws_restJson1PutConfigurationSetTrackingOptionsCommand = a
     ...(input.CustomRedirectDomain !== undefined &&
       input.CustomRedirectDomain !== null && { CustomRedirectDomain: input.CustomRedirectDomain }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1130,10 +1176,12 @@ export const serializeAws_restJson1PutDedicatedIpInPoolCommand = async (
   input: PutDedicatedIpInPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/dedicated-ips/{Ip}/pool";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips/{Ip}/pool";
   if (input.Ip !== undefined) {
     const labelValue: string = input.Ip;
     if (labelValue.length <= 0) {
@@ -1148,7 +1196,6 @@ export const serializeAws_restJson1PutDedicatedIpInPoolCommand = async (
     ...(input.DestinationPoolName !== undefined &&
       input.DestinationPoolName !== null && { DestinationPoolName: input.DestinationPoolName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1164,10 +1211,12 @@ export const serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async
   input: PutDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/dedicated-ips/{Ip}/warmup";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/dedicated-ips/{Ip}/warmup";
   if (input.Ip !== undefined) {
     const labelValue: string = input.Ip;
     if (labelValue.length <= 0) {
@@ -1182,7 +1231,6 @@ export const serializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = async
     ...(input.WarmupPercentage !== undefined &&
       input.WarmupPercentage !== null && { WarmupPercentage: input.WarmupPercentage }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1198,10 +1246,12 @@ export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = asy
   input: PutDeliverabilityDashboardOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/deliverability-dashboard";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/deliverability-dashboard";
   let body: any;
   body = JSON.stringify({
     ...(input.DashboardEnabled !== undefined &&
@@ -1211,7 +1261,6 @@ export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = asy
         SubscribedDomains: serializeAws_restJson1DomainDeliverabilityTrackingOptions(input.SubscribedDomains, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1227,10 +1276,12 @@ export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async
   input: PutEmailIdentityDkimAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/identities/{EmailIdentity}/dkim";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/identities/{EmailIdentity}/dkim";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
@@ -1245,7 +1296,6 @@ export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async
     ...(input.SigningEnabled !== undefined &&
       input.SigningEnabled !== null && { SigningEnabled: input.SigningEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1261,10 +1311,13 @@ export const serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = a
   input: PutEmailIdentityFeedbackAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/identities/{EmailIdentity}/feedback";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/identities/{EmailIdentity}/feedback";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
@@ -1279,7 +1332,6 @@ export const serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand = a
     ...(input.EmailForwardingEnabled !== undefined &&
       input.EmailForwardingEnabled !== null && { EmailForwardingEnabled: input.EmailForwardingEnabled }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1295,10 +1347,13 @@ export const serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = a
   input: PutEmailIdentityMailFromAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/identities/{EmailIdentity}/mail-from";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/identities/{EmailIdentity}/mail-from";
   if (input.EmailIdentity !== undefined) {
     const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
@@ -1315,7 +1370,6 @@ export const serializeAws_restJson1PutEmailIdentityMailFromAttributesCommand = a
     ...(input.MailFromDomain !== undefined &&
       input.MailFromDomain !== null && { MailFromDomain: input.MailFromDomain }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1331,10 +1385,12 @@ export const serializeAws_restJson1SendEmailCommand = async (
   input: SendEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/outbound-emails";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/outbound-emails";
   let body: any;
   body = JSON.stringify({
     ...(input.ConfigurationSetName !== undefined &&
@@ -1356,7 +1412,6 @@ export const serializeAws_restJson1SendEmailCommand = async (
         ReplyToAddresses: serializeAws_restJson1EmailAddressList(input.ReplyToAddresses, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1372,17 +1427,17 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
   let body: any;
   body = JSON.stringify({
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1398,14 +1453,14 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/v1/email/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/email/tags";
   const query: any = {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.TagKeys !== undefined && { TagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1422,10 +1477,13 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
@@ -1451,7 +1509,6 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
         EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1734,10 +1791,10 @@ export const deserializeAws_restJson1CreateDeliverabilityTestReportCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeliverabilityTestStatus !== undefined && data.DeliverabilityTestStatus !== null) {
-    contents.DeliverabilityTestStatus = data.DeliverabilityTestStatus;
+    contents.DeliverabilityTestStatus = __expectString(data.DeliverabilityTestStatus);
   }
   if (data.ReportId !== undefined && data.ReportId !== null) {
-    contents.ReportId = data.ReportId;
+    contents.ReportId = __expectString(data.ReportId);
   }
   return Promise.resolve(contents);
 };
@@ -1861,10 +1918,10 @@ export const deserializeAws_restJson1CreateEmailIdentityCommand = async (
     contents.DkimAttributes = deserializeAws_restJson1DkimAttributes(data.DkimAttributes, context);
   }
   if (data.IdentityType !== undefined && data.IdentityType !== null) {
-    contents.IdentityType = data.IdentityType;
+    contents.IdentityType = __expectString(data.IdentityType);
   }
   if (data.VerifiedForSendingStatus !== undefined && data.VerifiedForSendingStatus !== null) {
-    contents.VerifiedForSendingStatus = data.VerifiedForSendingStatus;
+    contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
   }
   return Promise.resolve(contents);
 };
@@ -2239,19 +2296,19 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DedicatedIpAutoWarmupEnabled !== undefined && data.DedicatedIpAutoWarmupEnabled !== null) {
-    contents.DedicatedIpAutoWarmupEnabled = data.DedicatedIpAutoWarmupEnabled;
+    contents.DedicatedIpAutoWarmupEnabled = __expectBoolean(data.DedicatedIpAutoWarmupEnabled);
   }
   if (data.EnforcementStatus !== undefined && data.EnforcementStatus !== null) {
-    contents.EnforcementStatus = data.EnforcementStatus;
+    contents.EnforcementStatus = __expectString(data.EnforcementStatus);
   }
   if (data.ProductionAccessEnabled !== undefined && data.ProductionAccessEnabled !== null) {
-    contents.ProductionAccessEnabled = data.ProductionAccessEnabled;
+    contents.ProductionAccessEnabled = __expectBoolean(data.ProductionAccessEnabled);
   }
   if (data.SendQuota !== undefined && data.SendQuota !== null) {
     contents.SendQuota = deserializeAws_restJson1SendQuota(data.SendQuota, context);
   }
   if (data.SendingEnabled !== undefined && data.SendingEnabled !== null) {
-    contents.SendingEnabled = data.SendingEnabled;
+    contents.SendingEnabled = __expectBoolean(data.SendingEnabled);
   }
   return Promise.resolve(contents);
 };
@@ -2390,7 +2447,7 @@ export const deserializeAws_restJson1GetConfigurationSetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ConfigurationSetName !== undefined && data.ConfigurationSetName !== null) {
-    contents.ConfigurationSetName = data.ConfigurationSetName;
+    contents.ConfigurationSetName = __expectString(data.ConfigurationSetName);
   }
   if (data.DeliveryOptions !== undefined && data.DeliveryOptions !== null) {
     contents.DeliveryOptions = deserializeAws_restJson1DeliveryOptions(data.DeliveryOptions, context);
@@ -2622,7 +2679,7 @@ export const deserializeAws_restJson1GetDedicatedIpsCommand = async (
     contents.DedicatedIps = deserializeAws_restJson1DedicatedIpList(data.DedicatedIps, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2697,7 +2754,7 @@ export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountStatus !== undefined && data.AccountStatus !== null) {
-    contents.AccountStatus = data.AccountStatus;
+    contents.AccountStatus = __expectString(data.AccountStatus);
   }
   if (data.ActiveSubscribedDomains !== undefined && data.ActiveSubscribedDomains !== null) {
     contents.ActiveSubscribedDomains = deserializeAws_restJson1DomainDeliverabilityTrackingOptions(
@@ -2706,7 +2763,7 @@ export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = 
     );
   }
   if (data.DashboardEnabled !== undefined && data.DashboardEnabled !== null) {
-    contents.DashboardEnabled = data.DashboardEnabled;
+    contents.DashboardEnabled = __expectBoolean(data.DashboardEnabled);
   }
   if (data.PendingExpirationSubscribedDomains !== undefined && data.PendingExpirationSubscribedDomains !== null) {
     contents.PendingExpirationSubscribedDomains = deserializeAws_restJson1DomainDeliverabilityTrackingOptions(
@@ -2799,7 +2856,7 @@ export const deserializeAws_restJson1GetDeliverabilityTestReportCommand = async 
     contents.IspPlacements = deserializeAws_restJson1IspPlacements(data.IspPlacements, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.OverallPlacement !== undefined && data.OverallPlacement !== null) {
     contents.OverallPlacement = deserializeAws_restJson1PlacementStatistics(data.OverallPlacement, context);
@@ -3033,10 +3090,10 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
     contents.DkimAttributes = deserializeAws_restJson1DkimAttributes(data.DkimAttributes, context);
   }
   if (data.FeedbackForwardingStatus !== undefined && data.FeedbackForwardingStatus !== null) {
-    contents.FeedbackForwardingStatus = data.FeedbackForwardingStatus;
+    contents.FeedbackForwardingStatus = __expectBoolean(data.FeedbackForwardingStatus);
   }
   if (data.IdentityType !== undefined && data.IdentityType !== null) {
-    contents.IdentityType = data.IdentityType;
+    contents.IdentityType = __expectString(data.IdentityType);
   }
   if (data.MailFromAttributes !== undefined && data.MailFromAttributes !== null) {
     contents.MailFromAttributes = deserializeAws_restJson1MailFromAttributes(data.MailFromAttributes, context);
@@ -3045,7 +3102,7 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
     contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
   }
   if (data.VerifiedForSendingStatus !== undefined && data.VerifiedForSendingStatus !== null) {
-    contents.VerifiedForSendingStatus = data.VerifiedForSendingStatus;
+    contents.VerifiedForSendingStatus = __expectBoolean(data.VerifiedForSendingStatus);
   }
   return Promise.resolve(contents);
 };
@@ -3120,7 +3177,7 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
     contents.ConfigurationSets = deserializeAws_restJson1ConfigurationSetNameList(data.ConfigurationSets, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3187,7 +3244,7 @@ export const deserializeAws_restJson1ListDedicatedIpPoolsCommand = async (
     contents.DedicatedIpPools = deserializeAws_restJson1ListOfDedicatedIpPools(data.DedicatedIpPools, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3257,7 +3314,7 @@ export const deserializeAws_restJson1ListDeliverabilityTestReportsCommand = asyn
     );
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3335,7 +3392,7 @@ export const deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = 
     );
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3410,7 +3467,7 @@ export const deserializeAws_restJson1ListEmailIdentitiesCommand = async (
     contents.EmailIdentities = deserializeAws_restJson1IdentityInfoList(data.EmailIdentities, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4348,7 +4405,7 @@ export const deserializeAws_restJson1SendEmailCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MessageId !== undefined && data.MessageId !== null) {
-    contents.MessageId = data.MessageId;
+    contents.MessageId = __expectString(data.MessageId);
   }
   return Promise.resolve(contents);
 };
@@ -4675,7 +4732,7 @@ const deserializeAws_restJson1AccountSuspendedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4692,7 +4749,7 @@ const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4709,7 +4766,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4726,7 +4783,7 @@ const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4743,7 +4800,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4760,7 +4817,7 @@ const deserializeAws_restJson1MailFromDomainNotVerifiedExceptionResponse = async
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4777,7 +4834,7 @@ const deserializeAws_restJson1MessageRejectedResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4794,7 +4851,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4811,7 +4868,7 @@ const deserializeAws_restJson1SendingPausedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4828,7 +4885,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5150,12 +5207,12 @@ const deserializeAws_restJson1BlacklistEntries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeContext): BlacklistEntry => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     ListingTime:
       output.ListingTime !== undefined && output.ListingTime !== null
         ? new Date(Math.round(output.ListingTime * 1000))
         : undefined,
-    RblName: output.RblName !== undefined && output.RblName !== null ? output.RblName : undefined,
+    RblName: __expectString(output.RblName),
   } as any;
 };
 
@@ -5188,16 +5245,9 @@ const deserializeAws_restJson1CloudWatchDimensionConfiguration = (
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration => {
   return {
-    DefaultDimensionValue:
-      output.DefaultDimensionValue !== undefined && output.DefaultDimensionValue !== null
-        ? output.DefaultDimensionValue
-        : undefined,
-    DimensionName:
-      output.DimensionName !== undefined && output.DimensionName !== null ? output.DimensionName : undefined,
-    DimensionValueSource:
-      output.DimensionValueSource !== undefined && output.DimensionValueSource !== null
-        ? output.DimensionValueSource
-        : undefined,
+    DefaultDimensionValue: __expectString(output.DefaultDimensionValue),
+    DimensionName: __expectString(output.DimensionName),
+    DimensionValueSource: __expectString(output.DimensionValueSource),
   } as any;
 };
 
@@ -5222,7 +5272,7 @@ const deserializeAws_restJson1ConfigurationSetNameList = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5256,11 +5306,10 @@ const deserializeAws_restJson1DailyVolumes = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1DedicatedIp = (output: any, context: __SerdeContext): DedicatedIp => {
   return {
-    Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
-    PoolName: output.PoolName !== undefined && output.PoolName !== null ? output.PoolName : undefined,
-    WarmupPercentage:
-      output.WarmupPercentage !== undefined && output.WarmupPercentage !== null ? output.WarmupPercentage : undefined,
-    WarmupStatus: output.WarmupStatus !== undefined && output.WarmupStatus !== null ? output.WarmupStatus : undefined,
+    Ip: __expectString(output.Ip),
+    PoolName: __expectString(output.PoolName),
+    WarmupPercentage: __expectNumber(output.WarmupPercentage),
+    WarmupStatus: __expectString(output.WarmupStatus),
   } as any;
 };
 
@@ -5284,15 +5333,11 @@ const deserializeAws_restJson1DeliverabilityTestReport = (
       output.CreateDate !== undefined && output.CreateDate !== null
         ? new Date(Math.round(output.CreateDate * 1000))
         : undefined,
-    DeliverabilityTestStatus:
-      output.DeliverabilityTestStatus !== undefined && output.DeliverabilityTestStatus !== null
-        ? output.DeliverabilityTestStatus
-        : undefined,
-    FromEmailAddress:
-      output.FromEmailAddress !== undefined && output.FromEmailAddress !== null ? output.FromEmailAddress : undefined,
-    ReportId: output.ReportId !== undefined && output.ReportId !== null ? output.ReportId : undefined,
-    ReportName: output.ReportName !== undefined && output.ReportName !== null ? output.ReportName : undefined,
-    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
+    DeliverabilityTestStatus: __expectString(output.DeliverabilityTestStatus),
+    FromEmailAddress: __expectString(output.FromEmailAddress),
+    ReportId: __expectString(output.ReportId),
+    ReportName: __expectString(output.ReportName),
+    Subject: __expectString(output.Subject),
   } as any;
 };
 
@@ -5312,17 +5357,15 @@ const deserializeAws_restJson1DeliverabilityTestReports = (
 
 const deserializeAws_restJson1DeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
   return {
-    SendingPoolName:
-      output.SendingPoolName !== undefined && output.SendingPoolName !== null ? output.SendingPoolName : undefined,
-    TlsPolicy: output.TlsPolicy !== undefined && output.TlsPolicy !== null ? output.TlsPolicy : undefined,
+    SendingPoolName: __expectString(output.SendingPoolName),
+    TlsPolicy: __expectString(output.TlsPolicy),
   } as any;
 };
 
 const deserializeAws_restJson1DkimAttributes = (output: any, context: __SerdeContext): DkimAttributes => {
   return {
-    SigningEnabled:
-      output.SigningEnabled !== undefined && output.SigningEnabled !== null ? output.SigningEnabled : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    SigningEnabled: __expectBoolean(output.SigningEnabled),
+    Status: __expectString(output.Status),
     Tokens:
       output.Tokens !== undefined && output.Tokens !== null
         ? deserializeAws_restJson1DnsTokenList(output.Tokens, context)
@@ -5337,7 +5380,7 @@ const deserializeAws_restJson1DnsTokenList = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5346,8 +5389,8 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
   context: __SerdeContext
 ): DomainDeliverabilityCampaign => {
   return {
-    CampaignId: output.CampaignId !== undefined && output.CampaignId !== null ? output.CampaignId : undefined,
-    DeleteRate: output.DeleteRate !== undefined && output.DeleteRate !== null ? output.DeleteRate : undefined,
+    CampaignId: __expectString(output.CampaignId),
+    DeleteRate: __handleFloat(output.DeleteRate),
     Esps:
       output.Esps !== undefined && output.Esps !== null
         ? deserializeAws_restJson1Esps(output.Esps, context)
@@ -5356,24 +5399,22 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
       output.FirstSeenDateTime !== undefined && output.FirstSeenDateTime !== null
         ? new Date(Math.round(output.FirstSeenDateTime * 1000))
         : undefined,
-    FromAddress: output.FromAddress !== undefined && output.FromAddress !== null ? output.FromAddress : undefined,
-    ImageUrl: output.ImageUrl !== undefined && output.ImageUrl !== null ? output.ImageUrl : undefined,
-    InboxCount: output.InboxCount !== undefined && output.InboxCount !== null ? output.InboxCount : undefined,
+    FromAddress: __expectString(output.FromAddress),
+    ImageUrl: __expectString(output.ImageUrl),
+    InboxCount: __expectNumber(output.InboxCount),
     LastSeenDateTime:
       output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
         ? new Date(Math.round(output.LastSeenDateTime * 1000))
         : undefined,
-    ProjectedVolume:
-      output.ProjectedVolume !== undefined && output.ProjectedVolume !== null ? output.ProjectedVolume : undefined,
-    ReadDeleteRate:
-      output.ReadDeleteRate !== undefined && output.ReadDeleteRate !== null ? output.ReadDeleteRate : undefined,
-    ReadRate: output.ReadRate !== undefined && output.ReadRate !== null ? output.ReadRate : undefined,
+    ProjectedVolume: __expectNumber(output.ProjectedVolume),
+    ReadDeleteRate: __handleFloat(output.ReadDeleteRate),
+    ReadRate: __handleFloat(output.ReadRate),
     SendingIps:
       output.SendingIps !== undefined && output.SendingIps !== null
         ? deserializeAws_restJson1IpList(output.SendingIps, context)
         : undefined,
-    SpamCount: output.SpamCount !== undefined && output.SpamCount !== null ? output.SpamCount : undefined,
-    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
+    SpamCount: __expectNumber(output.SpamCount),
+    Subject: __expectString(output.Subject),
   } as any;
 };
 
@@ -5396,7 +5437,7 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOption = (
   context: __SerdeContext
 ): DomainDeliverabilityTrackingOption => {
   return {
-    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    Domain: __expectString(output.Domain),
     InboxPlacementTrackingOption:
       output.InboxPlacementTrackingOption !== undefined && output.InboxPlacementTrackingOption !== null
         ? deserializeAws_restJson1InboxPlacementTrackingOption(output.InboxPlacementTrackingOption, context)
@@ -5424,14 +5465,11 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOptions = (
 
 const deserializeAws_restJson1DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
   return {
-    InboxPercentage:
-      output.InboxPercentage !== undefined && output.InboxPercentage !== null ? output.InboxPercentage : undefined,
-    InboxRawCount:
-      output.InboxRawCount !== undefined && output.InboxRawCount !== null ? output.InboxRawCount : undefined,
-    IspName: output.IspName !== undefined && output.IspName !== null ? output.IspName : undefined,
-    SpamPercentage:
-      output.SpamPercentage !== undefined && output.SpamPercentage !== null ? output.SpamPercentage : undefined,
-    SpamRawCount: output.SpamRawCount !== undefined && output.SpamRawCount !== null ? output.SpamRawCount : undefined,
+    InboxPercentage: __handleFloat(output.InboxPercentage),
+    InboxRawCount: __expectNumber(output.InboxRawCount),
+    IspName: __expectString(output.IspName),
+    SpamPercentage: __handleFloat(output.SpamPercentage),
+    SpamRawCount: __expectNumber(output.SpamRawCount),
   } as any;
 };
 
@@ -5453,7 +5491,7 @@ const deserializeAws_restJson1Esps = (output: any, context: __SerdeContext): str
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5463,7 +5501,7 @@ const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeC
       output.CloudWatchDestination !== undefined && output.CloudWatchDestination !== null
         ? deserializeAws_restJson1CloudWatchDestination(output.CloudWatchDestination, context)
         : undefined,
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Enabled: __expectBoolean(output.Enabled),
     KinesisFirehoseDestination:
       output.KinesisFirehoseDestination !== undefined && output.KinesisFirehoseDestination !== null
         ? deserializeAws_restJson1KinesisFirehoseDestination(output.KinesisFirehoseDestination, context)
@@ -5472,7 +5510,7 @@ const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeC
       output.MatchingEventTypes !== undefined && output.MatchingEventTypes !== null
         ? deserializeAws_restJson1EventTypes(output.MatchingEventTypes, context)
         : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Name: __expectString(output.Name),
     PinpointDestination:
       output.PinpointDestination !== undefined && output.PinpointDestination !== null
         ? deserializeAws_restJson1PinpointDestination(output.PinpointDestination, context)
@@ -5502,16 +5540,15 @@ const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
   return {
-    IdentityName: output.IdentityName !== undefined && output.IdentityName !== null ? output.IdentityName : undefined,
-    IdentityType: output.IdentityType !== undefined && output.IdentityType !== null ? output.IdentityType : undefined,
-    SendingEnabled:
-      output.SendingEnabled !== undefined && output.SendingEnabled !== null ? output.SendingEnabled : undefined,
+    IdentityName: __expectString(output.IdentityName),
+    IdentityType: __expectString(output.IdentityType),
+    SendingEnabled: __expectBoolean(output.SendingEnabled),
   } as any;
 };
 
@@ -5531,7 +5568,7 @@ const deserializeAws_restJson1InboxPlacementTrackingOption = (
   context: __SerdeContext
 ): InboxPlacementTrackingOption => {
   return {
-    Global: output.Global !== undefined && output.Global !== null ? output.Global : undefined,
+    Global: __expectBoolean(output.Global),
     TrackedIsps:
       output.TrackedIsps !== undefined && output.TrackedIsps !== null
         ? deserializeAws_restJson1IspNameList(output.TrackedIsps, context)
@@ -5546,7 +5583,7 @@ const deserializeAws_restJson1IpList = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5557,13 +5594,13 @@ const deserializeAws_restJson1IspNameList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1IspPlacement = (output: any, context: __SerdeContext): IspPlacement => {
   return {
-    IspName: output.IspName !== undefined && output.IspName !== null ? output.IspName : undefined,
+    IspName: __expectString(output.IspName),
     PlacementStatistics:
       output.PlacementStatistics !== undefined && output.PlacementStatistics !== null
         ? deserializeAws_restJson1PlacementStatistics(output.PlacementStatistics, context)
@@ -5587,11 +5624,8 @@ const deserializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
   return {
-    DeliveryStreamArn:
-      output.DeliveryStreamArn !== undefined && output.DeliveryStreamArn !== null
-        ? output.DeliveryStreamArn
-        : undefined,
-    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
+    DeliveryStreamArn: __expectString(output.DeliveryStreamArn),
+    IamRoleArn: __expectString(output.IamRoleArn),
   } as any;
 };
 
@@ -5602,22 +5636,15 @@ const deserializeAws_restJson1ListOfDedicatedIpPools = (output: any, context: __
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1MailFromAttributes = (output: any, context: __SerdeContext): MailFromAttributes => {
   return {
-    BehaviorOnMxFailure:
-      output.BehaviorOnMxFailure !== undefined && output.BehaviorOnMxFailure !== null
-        ? output.BehaviorOnMxFailure
-        : undefined,
-    MailFromDomain:
-      output.MailFromDomain !== undefined && output.MailFromDomain !== null ? output.MailFromDomain : undefined,
-    MailFromDomainStatus:
-      output.MailFromDomainStatus !== undefined && output.MailFromDomainStatus !== null
-        ? output.MailFromDomainStatus
-        : undefined,
+    BehaviorOnMxFailure: __expectString(output.BehaviorOnMxFailure),
+    MailFromDomain: __expectString(output.MailFromDomain),
+    MailFromDomainStatus: __expectString(output.MailFromDomainStatus),
   } as any;
 };
 
@@ -5627,8 +5654,7 @@ const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeCont
       output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
         : undefined,
-    ReadRatePercent:
-      output.ReadRatePercent !== undefined && output.ReadRatePercent !== null ? output.ReadRatePercent : undefined,
+    ReadRatePercent: __handleFloat(output.ReadRatePercent),
     VolumeStatistics:
       output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
         ? deserializeAws_restJson1VolumeStatistics(output.VolumeStatistics, context)
@@ -5638,25 +5664,17 @@ const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1PinpointDestination = (output: any, context: __SerdeContext): PinpointDestination => {
   return {
-    ApplicationArn:
-      output.ApplicationArn !== undefined && output.ApplicationArn !== null ? output.ApplicationArn : undefined,
+    ApplicationArn: __expectString(output.ApplicationArn),
   } as any;
 };
 
 const deserializeAws_restJson1PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
   return {
-    DkimPercentage:
-      output.DkimPercentage !== undefined && output.DkimPercentage !== null ? output.DkimPercentage : undefined,
-    InboxPercentage:
-      output.InboxPercentage !== undefined && output.InboxPercentage !== null ? output.InboxPercentage : undefined,
-    MissingPercentage:
-      output.MissingPercentage !== undefined && output.MissingPercentage !== null
-        ? output.MissingPercentage
-        : undefined,
-    SpamPercentage:
-      output.SpamPercentage !== undefined && output.SpamPercentage !== null ? output.SpamPercentage : undefined,
-    SpfPercentage:
-      output.SpfPercentage !== undefined && output.SpfPercentage !== null ? output.SpfPercentage : undefined,
+    DkimPercentage: __handleFloat(output.DkimPercentage),
+    InboxPercentage: __handleFloat(output.InboxPercentage),
+    MissingPercentage: __handleFloat(output.MissingPercentage),
+    SpamPercentage: __handleFloat(output.SpamPercentage),
+    SpfPercentage: __handleFloat(output.SpfPercentage),
   } as any;
 };
 
@@ -5666,40 +5684,34 @@ const deserializeAws_restJson1ReputationOptions = (output: any, context: __Serde
       output.LastFreshStart !== undefined && output.LastFreshStart !== null
         ? new Date(Math.round(output.LastFreshStart * 1000))
         : undefined,
-    ReputationMetricsEnabled:
-      output.ReputationMetricsEnabled !== undefined && output.ReputationMetricsEnabled !== null
-        ? output.ReputationMetricsEnabled
-        : undefined,
+    ReputationMetricsEnabled: __expectBoolean(output.ReputationMetricsEnabled),
   } as any;
 };
 
 const deserializeAws_restJson1SendingOptions = (output: any, context: __SerdeContext): SendingOptions => {
   return {
-    SendingEnabled:
-      output.SendingEnabled !== undefined && output.SendingEnabled !== null ? output.SendingEnabled : undefined,
+    SendingEnabled: __expectBoolean(output.SendingEnabled),
   } as any;
 };
 
 const deserializeAws_restJson1SendQuota = (output: any, context: __SerdeContext): SendQuota => {
   return {
-    Max24HourSend:
-      output.Max24HourSend !== undefined && output.Max24HourSend !== null ? output.Max24HourSend : undefined,
-    MaxSendRate: output.MaxSendRate !== undefined && output.MaxSendRate !== null ? output.MaxSendRate : undefined,
-    SentLast24Hours:
-      output.SentLast24Hours !== undefined && output.SentLast24Hours !== null ? output.SentLast24Hours : undefined,
+    Max24HourSend: __handleFloat(output.Max24HourSend),
+    MaxSendRate: __handleFloat(output.MaxSendRate),
+    SentLast24Hours: __handleFloat(output.SentLast24Hours),
   } as any;
 };
 
 const deserializeAws_restJson1SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
   return {
-    TopicArn: output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined,
+    TopicArn: __expectString(output.TopicArn),
   } as any;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -5716,22 +5728,16 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
   return {
-    CustomRedirectDomain:
-      output.CustomRedirectDomain !== undefined && output.CustomRedirectDomain !== null
-        ? output.CustomRedirectDomain
-        : undefined,
+    CustomRedirectDomain: __expectString(output.CustomRedirectDomain),
   } as any;
 };
 
 const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeContext): VolumeStatistics => {
   return {
-    InboxRawCount:
-      output.InboxRawCount !== undefined && output.InboxRawCount !== null ? output.InboxRawCount : undefined,
-    ProjectedInbox:
-      output.ProjectedInbox !== undefined && output.ProjectedInbox !== null ? output.ProjectedInbox : undefined,
-    ProjectedSpam:
-      output.ProjectedSpam !== undefined && output.ProjectedSpam !== null ? output.ProjectedSpam : undefined,
-    SpamRawCount: output.SpamRawCount !== undefined && output.SpamRawCount !== null ? output.SpamRawCount : undefined,
+    InboxRawCount: __expectNumber(output.InboxRawCount),
+    ProjectedInbox: __expectNumber(output.ProjectedInbox),
+    ProjectedSpam: __expectNumber(output.ProjectedSpam),
+    SpamRawCount: __expectNumber(output.SpamRawCount),
   } as any;
 };
 

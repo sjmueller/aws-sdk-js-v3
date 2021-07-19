@@ -1,3 +1,8 @@
+import { ActivateTypeCommandInput, ActivateTypeCommandOutput } from "./commands/ActivateTypeCommand.ts";
+import {
+  BatchDescribeTypeConfigurationsCommandInput,
+  BatchDescribeTypeConfigurationsCommandOutput,
+} from "./commands/BatchDescribeTypeConfigurationsCommand.ts";
 import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "./commands/CancelUpdateStackCommand.ts";
 import {
   ContinueUpdateRollbackCommandInput,
@@ -10,6 +15,7 @@ import {
   CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand.ts";
 import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand.ts";
+import { DeactivateTypeCommandInput, DeactivateTypeCommandOutput } from "./commands/DeactivateTypeCommand.ts";
 import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand.ts";
 import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand.ts";
 import {
@@ -23,6 +29,7 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand.ts";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand.ts";
+import { DescribePublisherCommandInput, DescribePublisherCommandOutput } from "./commands/DescribePublisherCommand.ts";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
   DescribeStackDriftDetectionStatusCommandOutput,
@@ -96,12 +103,18 @@ import {
 } from "./commands/ListTypeRegistrationsCommand.ts";
 import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "./commands/ListTypeVersionsCommand.ts";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand.ts";
+import { PublishTypeCommandInput, PublishTypeCommandOutput } from "./commands/PublishTypeCommand.ts";
 import {
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput,
 } from "./commands/RecordHandlerProgressCommand.ts";
+import { RegisterPublisherCommandInput, RegisterPublisherCommandOutput } from "./commands/RegisterPublisherCommand.ts";
 import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand.ts";
 import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand.ts";
+import {
+  SetTypeConfigurationCommandInput,
+  SetTypeConfigurationCommandOutput,
+} from "./commands/SetTypeConfigurationCommand.ts";
 import {
   SetTypeDefaultVersionCommandInput,
   SetTypeDefaultVersionCommandOutput,
@@ -111,6 +124,7 @@ import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput,
 } from "./commands/StopStackSetOperationCommand.ts";
+import { TestTypeCommandInput, TestTypeCommandOutput } from "./commands/TestTypeCommand.ts";
 import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand.ts";
 import {
   UpdateStackInstancesCommandInput,
@@ -174,12 +188,15 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | ActivateTypeCommandInput
+  | BatchDescribeTypeConfigurationsCommandInput
   | CancelUpdateStackCommandInput
   | ContinueUpdateRollbackCommandInput
   | CreateChangeSetCommandInput
   | CreateStackCommandInput
   | CreateStackInstancesCommandInput
   | CreateStackSetCommandInput
+  | DeactivateTypeCommandInput
   | DeleteChangeSetCommandInput
   | DeleteStackCommandInput
   | DeleteStackInstancesCommandInput
@@ -187,6 +204,7 @@ export type ServiceInputTypes =
   | DeregisterTypeCommandInput
   | DescribeAccountLimitsCommandInput
   | DescribeChangeSetCommandInput
+  | DescribePublisherCommandInput
   | DescribeStackDriftDetectionStatusCommandInput
   | DescribeStackEventsCommandInput
   | DescribeStackInstanceCommandInput
@@ -218,12 +236,16 @@ export type ServiceInputTypes =
   | ListTypeRegistrationsCommandInput
   | ListTypeVersionsCommandInput
   | ListTypesCommandInput
+  | PublishTypeCommandInput
   | RecordHandlerProgressCommandInput
+  | RegisterPublisherCommandInput
   | RegisterTypeCommandInput
   | SetStackPolicyCommandInput
+  | SetTypeConfigurationCommandInput
   | SetTypeDefaultVersionCommandInput
   | SignalResourceCommandInput
   | StopStackSetOperationCommandInput
+  | TestTypeCommandInput
   | UpdateStackCommandInput
   | UpdateStackInstancesCommandInput
   | UpdateStackSetCommandInput
@@ -231,12 +253,15 @@ export type ServiceInputTypes =
   | ValidateTemplateCommandInput;
 
 export type ServiceOutputTypes =
+  | ActivateTypeCommandOutput
+  | BatchDescribeTypeConfigurationsCommandOutput
   | CancelUpdateStackCommandOutput
   | ContinueUpdateRollbackCommandOutput
   | CreateChangeSetCommandOutput
   | CreateStackCommandOutput
   | CreateStackInstancesCommandOutput
   | CreateStackSetCommandOutput
+  | DeactivateTypeCommandOutput
   | DeleteChangeSetCommandOutput
   | DeleteStackCommandOutput
   | DeleteStackInstancesCommandOutput
@@ -244,6 +269,7 @@ export type ServiceOutputTypes =
   | DeregisterTypeCommandOutput
   | DescribeAccountLimitsCommandOutput
   | DescribeChangeSetCommandOutput
+  | DescribePublisherCommandOutput
   | DescribeStackDriftDetectionStatusCommandOutput
   | DescribeStackEventsCommandOutput
   | DescribeStackInstanceCommandOutput
@@ -275,12 +301,16 @@ export type ServiceOutputTypes =
   | ListTypeRegistrationsCommandOutput
   | ListTypeVersionsCommandOutput
   | ListTypesCommandOutput
+  | PublishTypeCommandOutput
   | RecordHandlerProgressCommandOutput
+  | RegisterPublisherCommandOutput
   | RegisterTypeCommandOutput
   | SetStackPolicyCommandOutput
+  | SetTypeConfigurationCommandOutput
   | SetTypeDefaultVersionCommandOutput
   | SignalResourceCommandOutput
   | StopStackSetOperationCommandOutput
+  | TestTypeCommandOutput
   | UpdateStackCommandOutput
   | UpdateStackInstancesCommandOutput
   | UpdateStackSetCommandOutput

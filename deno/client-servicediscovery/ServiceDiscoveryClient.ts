@@ -35,9 +35,21 @@ import { RegisterInstanceCommandInput, RegisterInstanceCommandOutput } from "./c
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
+  UpdateHttpNamespaceCommandInput,
+  UpdateHttpNamespaceCommandOutput,
+} from "./commands/UpdateHttpNamespaceCommand.ts";
+import {
   UpdateInstanceCustomHealthStatusCommandInput,
   UpdateInstanceCustomHealthStatusCommandOutput,
 } from "./commands/UpdateInstanceCustomHealthStatusCommand.ts";
+import {
+  UpdatePrivateDnsNamespaceCommandInput,
+  UpdatePrivateDnsNamespaceCommandOutput,
+} from "./commands/UpdatePrivateDnsNamespaceCommand.ts";
+import {
+  UpdatePublicDnsNamespaceCommandInput,
+  UpdatePublicDnsNamespaceCommandOutput,
+} from "./commands/UpdatePublicDnsNamespaceCommand.ts";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -112,7 +124,10 @@ export type ServiceInputTypes =
   | RegisterInstanceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateHttpNamespaceCommandInput
   | UpdateInstanceCustomHealthStatusCommandInput
+  | UpdatePrivateDnsNamespaceCommandInput
+  | UpdatePublicDnsNamespaceCommandInput
   | UpdateServiceCommandInput;
 
 export type ServiceOutputTypes =
@@ -137,7 +152,10 @@ export type ServiceOutputTypes =
   | RegisterInstanceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateHttpNamespaceCommandOutput
   | UpdateInstanceCustomHealthStatusCommandOutput
+  | UpdatePrivateDnsNamespaceCommandOutput
+  | UpdatePublicDnsNamespaceCommandOutput
   | UpdateServiceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -280,9 +298,10 @@ type ServiceDiscoveryClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface ServiceDiscoveryClientResolvedConfig extends ServiceDiscoveryClientResolvedConfigType {}
 
 /**
- * <p>With AWS Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces that your microservice
- *    applications run in. When an instance becomes available, you can call the AWS Cloud Map API to register the instance
- *    with AWS Cloud Map. For public or private DNS namespaces, AWS Cloud Map automatically creates DNS records and an optional
+ * <fullname>Cloud Map</fullname>
+ *          <p>With Cloud Map, you can configure public DNS, private DNS, or HTTP namespaces that your microservice
+ *    applications run in. When an instance becomes available, you can call the Cloud Map API to register the instance
+ *    with Cloud Map. For public or private DNS namespaces, Cloud Map automatically creates DNS records and an optional
  *    health check. Clients that submit public or private DNS queries, or HTTP requests, for the service receive an answer
  *    that contains up to eight healthy records. </p>
  */

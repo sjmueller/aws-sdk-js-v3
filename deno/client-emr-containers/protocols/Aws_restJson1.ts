@@ -61,6 +61,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -75,8 +76,11 @@ export const serializeAws_restJson1CancelJobRunCommand = async (
   input: CancelJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/jobruns/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -96,7 +100,6 @@ export const serializeAws_restJson1CancelJobRunCommand = async (
     throw new Error("No value provided for input HTTP label: virtualClusterId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -112,10 +115,13 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
   input: CreateManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/endpoints";
   if (input.virtualClusterId !== undefined) {
     const labelValue: string = input.virtualClusterId;
     if (labelValue.length <= 0) {
@@ -141,7 +147,6 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -157,10 +162,11 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
   input: CreateVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/virtualclusters";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -171,7 +177,6 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -187,8 +192,11 @@ export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
   input: DeleteManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/endpoints/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -208,7 +216,6 @@ export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
     throw new Error("No value provided for input HTTP label: virtualClusterId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -224,8 +231,9 @@ export const serializeAws_restJson1DeleteVirtualClusterCommand = async (
   input: DeleteVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -236,7 +244,6 @@ export const serializeAws_restJson1DeleteVirtualClusterCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -252,8 +259,11 @@ export const serializeAws_restJson1DescribeJobRunCommand = async (
   input: DescribeJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/jobruns/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -273,7 +283,6 @@ export const serializeAws_restJson1DescribeJobRunCommand = async (
     throw new Error("No value provided for input HTTP label: virtualClusterId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -289,8 +298,11 @@ export const serializeAws_restJson1DescribeManagedEndpointCommand = async (
   input: DescribeManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/endpoints/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -310,7 +322,6 @@ export const serializeAws_restJson1DescribeManagedEndpointCommand = async (
     throw new Error("No value provided for input HTTP label: virtualClusterId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,8 +337,9 @@ export const serializeAws_restJson1DescribeVirtualClusterCommand = async (
   input: DescribeVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -338,7 +350,6 @@ export const serializeAws_restJson1DescribeVirtualClusterCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -354,8 +365,11 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
   input: ListJobRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/jobruns";
   if (input.virtualClusterId !== undefined) {
     const labelValue: string = input.virtualClusterId;
     if (labelValue.length <= 0) {
@@ -378,7 +392,6 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -395,8 +408,11 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
   input: ListManagedEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/endpoints";
   if (input.virtualClusterId !== undefined) {
     const labelValue: string = input.virtualClusterId;
     if (labelValue.length <= 0) {
@@ -419,7 +435,6 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -436,8 +451,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -448,7 +464,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -464,8 +479,9 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
   input: ListVirtualClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/virtualclusters";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters";
   const query: any = {
     ...(input.containerProviderId !== undefined && { containerProviderId: input.containerProviderId }),
     ...(input.containerProviderType !== undefined && { containerProviderType: input.containerProviderType }),
@@ -480,7 +496,6 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -497,10 +512,13 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   input: StartJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/virtualclusters/{virtualClusterId}/jobruns";
   if (input.virtualClusterId !== undefined) {
     const labelValue: string = input.virtualClusterId;
     if (labelValue.length <= 0) {
@@ -525,7 +543,6 @@ export const serializeAws_restJson1StartJobRunCommand = async (
     ...(input.releaseLabel !== undefined && input.releaseLabel !== null && { releaseLabel: input.releaseLabel }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -541,10 +558,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -558,7 +576,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -574,8 +591,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -589,7 +607,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -616,10 +633,10 @@ export const deserializeAws_restJson1CancelJobRunCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.id !== undefined && data.id !== null) {
-    contents.id = data.id;
+    contents.id = __expectString(data.id);
   }
   if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
-    contents.virtualClusterId = data.virtualClusterId;
+    contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
   return Promise.resolve(contents);
 };
@@ -685,16 +702,16 @@ export const deserializeAws_restJson1CreateManagedEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.id = data.id;
+    contents.id = __expectString(data.id);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
-    contents.virtualClusterId = data.virtualClusterId;
+    contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
   return Promise.resolve(contents);
 };
@@ -767,13 +784,13 @@ export const deserializeAws_restJson1CreateVirtualClusterCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.id = data.id;
+    contents.id = __expectString(data.id);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -845,10 +862,10 @@ export const deserializeAws_restJson1DeleteManagedEndpointCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.id !== undefined && data.id !== null) {
-    contents.id = data.id;
+    contents.id = __expectString(data.id);
   }
   if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
-    contents.virtualClusterId = data.virtualClusterId;
+    contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
   return Promise.resolve(contents);
 };
@@ -911,7 +928,7 @@ export const deserializeAws_restJson1DeleteVirtualClusterCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.id !== undefined && data.id !== null) {
-    contents.id = data.id;
+    contents.id = __expectString(data.id);
   }
   return Promise.resolve(contents);
 };
@@ -1191,7 +1208,7 @@ export const deserializeAws_restJson1ListJobRunsCommand = async (
     contents.jobRuns = deserializeAws_restJson1JobRuns(data.jobRuns, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1258,7 +1275,7 @@ export const deserializeAws_restJson1ListManagedEndpointsCommand = async (
     contents.endpoints = deserializeAws_restJson1Endpoints(data.endpoints, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1393,7 +1410,7 @@ export const deserializeAws_restJson1ListVirtualClustersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.virtualClusters !== undefined && data.virtualClusters !== null) {
     contents.virtualClusters = deserializeAws_restJson1VirtualClusters(data.virtualClusters, context);
@@ -1462,16 +1479,16 @@ export const deserializeAws_restJson1StartJobRunCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
-    contents.arn = data.arn;
+    contents.arn = __expectString(data.arn);
   }
   if (data.id !== undefined && data.id !== null) {
-    contents.id = data.id;
+    contents.id = __expectString(data.id);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
-    contents.virtualClusterId = data.virtualClusterId;
+    contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
   return Promise.resolve(contents);
 };
@@ -1675,7 +1692,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1692,7 +1709,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1709,7 +1726,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1843,7 +1860,7 @@ const serializeAws_restJson1SensitivePropertiesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1867,7 +1884,7 @@ const serializeAws_restJson1SparkSubmitJobDriver = (input: SparkSubmitJobDriver,
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1883,18 +1900,14 @@ const deserializeAws_restJson1CloudWatchMonitoringConfiguration = (
   context: __SerdeContext
 ): CloudWatchMonitoringConfiguration => {
   return {
-    logGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
-    logStreamNamePrefix:
-      output.logStreamNamePrefix !== undefined && output.logStreamNamePrefix !== null
-        ? output.logStreamNamePrefix
-        : undefined,
+    logGroupName: __expectString(output.logGroupName),
+    logStreamNamePrefix: __expectString(output.logStreamNamePrefix),
   } as any;
 };
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    classification:
-      output.classification !== undefined && output.classification !== null ? output.classification : undefined,
+    classification: __expectString(output.classification),
     configurations:
       output.configurations !== undefined && output.configurations !== null
         ? deserializeAws_restJson1ConfigurationList(output.configurations, context)
@@ -1944,26 +1957,25 @@ const deserializeAws_restJson1ContainerInfo = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ContainerProvider = (output: any, context: __SerdeContext): ContainerProvider => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
     info:
       output.info !== undefined && output.info !== null
         ? deserializeAws_restJson1ContainerInfo(output.info, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1EksInfo = (output: any, context: __SerdeContext): EksInfo => {
   return {
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
+    namespace: __expectString(output.namespace),
   } as any;
 };
 
 const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+    arn: __expectString(output.arn),
+    certificateArn: __expectString(output.certificateArn),
     configurationOverrides:
       output.configurationOverrides !== undefined && output.configurationOverrides !== null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
@@ -1972,15 +1984,13 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    executionRoleArn:
-      output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    releaseLabel: output.releaseLabel !== undefined && output.releaseLabel !== null ? output.releaseLabel : undefined,
-    securityGroup:
-      output.securityGroup !== undefined && output.securityGroup !== null ? output.securityGroup : undefined,
-    serverUrl: output.serverUrl !== undefined && output.serverUrl !== null ? output.serverUrl : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    executionRoleArn: __expectString(output.executionRoleArn),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    releaseLabel: __expectString(output.releaseLabel),
+    securityGroup: __expectString(output.securityGroup),
+    serverUrl: __expectString(output.serverUrl),
+    state: __expectString(output.state),
     subnetIds:
       output.subnetIds !== undefined && output.subnetIds !== null
         ? deserializeAws_restJson1SubnetIds(output.subnetIds, context)
@@ -1989,9 +1999,8 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    virtualClusterId:
-      output.virtualClusterId !== undefined && output.virtualClusterId !== null ? output.virtualClusterId : undefined,
+    type: __expectString(output.type),
+    virtualClusterId: __expectString(output.virtualClusterId),
   } as any;
 };
 
@@ -2013,7 +2022,7 @@ const deserializeAws_restJson1EntryPointArguments = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2028,8 +2037,8 @@ const deserializeAws_restJson1JobDriver = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): JobRun => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    clientToken: output.clientToken !== undefined && output.clientToken !== null ? output.clientToken : undefined,
+    arn: __expectString(output.arn),
+    clientToken: __expectString(output.clientToken),
     configurationOverrides:
       output.configurationOverrides !== undefined && output.configurationOverrides !== null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)
@@ -2038,30 +2047,27 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    executionRoleArn:
-      output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    createdBy: __expectString(output.createdBy),
+    executionRoleArn: __expectString(output.executionRoleArn),
+    failureReason: __expectString(output.failureReason),
     finishedAt:
       output.finishedAt !== undefined && output.finishedAt !== null
         ? new Date(Math.round(output.finishedAt * 1000))
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
     jobDriver:
       output.jobDriver !== undefined && output.jobDriver !== null
         ? deserializeAws_restJson1JobDriver(output.jobDriver, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    releaseLabel: output.releaseLabel !== undefined && output.releaseLabel !== null ? output.releaseLabel : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    stateDetails: output.stateDetails !== undefined && output.stateDetails !== null ? output.stateDetails : undefined,
+    name: __expectString(output.name),
+    releaseLabel: __expectString(output.releaseLabel),
+    state: __expectString(output.state),
+    stateDetails: __expectString(output.stateDetails),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    virtualClusterId:
-      output.virtualClusterId !== undefined && output.virtualClusterId !== null ? output.virtualClusterId : undefined,
+    virtualClusterId: __expectString(output.virtualClusterId),
   } as any;
 };
 
@@ -2085,8 +2091,7 @@ const deserializeAws_restJson1MonitoringConfiguration = (
       output.cloudWatchMonitoringConfiguration !== undefined && output.cloudWatchMonitoringConfiguration !== null
         ? deserializeAws_restJson1CloudWatchMonitoringConfiguration(output.cloudWatchMonitoringConfiguration, context)
         : undefined,
-    persistentAppUI:
-      output.persistentAppUI !== undefined && output.persistentAppUI !== null ? output.persistentAppUI : undefined,
+    persistentAppUI: __expectString(output.persistentAppUI),
     s3MonitoringConfiguration:
       output.s3MonitoringConfiguration !== undefined && output.s3MonitoringConfiguration !== null
         ? deserializeAws_restJson1S3MonitoringConfiguration(output.s3MonitoringConfiguration, context)
@@ -2099,7 +2104,7 @@ const deserializeAws_restJson1S3MonitoringConfiguration = (
   context: __SerdeContext
 ): S3MonitoringConfiguration => {
   return {
-    logUri: output.logUri !== undefined && output.logUri !== null ? output.logUri : undefined,
+    logUri: __expectString(output.logUri),
   } as any;
 };
 
@@ -2113,22 +2118,19 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1SparkSubmitJobDriver = (output: any, context: __SerdeContext): SparkSubmitJobDriver => {
   return {
-    entryPoint: output.entryPoint !== undefined && output.entryPoint !== null ? output.entryPoint : undefined,
+    entryPoint: __expectString(output.entryPoint),
     entryPointArguments:
       output.entryPointArguments !== undefined && output.entryPointArguments !== null
         ? deserializeAws_restJson1EntryPointArguments(output.entryPointArguments, context)
         : undefined,
-    sparkSubmitParameters:
-      output.sparkSubmitParameters !== undefined && output.sparkSubmitParameters !== null
-        ? output.sparkSubmitParameters
-        : undefined,
+    sparkSubmitParameters: __expectString(output.sparkSubmitParameters),
   } as any;
 };
 
@@ -2139,7 +2141,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2150,14 +2152,14 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     containerProvider:
       output.containerProvider !== undefined && output.containerProvider !== null
         ? deserializeAws_restJson1ContainerProvider(output.containerProvider, context)
@@ -2166,9 +2168,9 @@ const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeCon
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    state: __expectString(output.state),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)

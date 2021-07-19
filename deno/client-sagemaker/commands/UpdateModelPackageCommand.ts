@@ -1,5 +1,6 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { UpdateModelPackageInput, UpdateModelPackageOutput } from "../models/models_2.ts";
+import { UpdateModelPackageInput } from "../models/models_2.ts";
+import { UpdateModelPackageOutput } from "../models/models_3.ts";
 import {
   deserializeAws_json1_1UpdateModelPackageCommand,
   serializeAws_json1_1UpdateModelPackageCommand,

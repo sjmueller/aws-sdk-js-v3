@@ -131,6 +131,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -145,10 +148,13 @@ export const serializeAws_restJson1AssociateEncryptionConfigCommand = async (
   input: AssociateEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/encryption-config/associate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/encryption-config/associate";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -166,7 +172,6 @@ export const serializeAws_restJson1AssociateEncryptionConfigCommand = async (
         encryptionConfig: serializeAws_restJson1EncryptionConfigList(input.encryptionConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -182,10 +187,13 @@ export const serializeAws_restJson1AssociateIdentityProviderConfigCommand = asyn
   input: AssociateIdentityProviderConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs/associate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/identity-provider-configs/associate";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -202,7 +210,6 @@ export const serializeAws_restJson1AssociateIdentityProviderConfigCommand = asyn
       input.oidc !== null && { oidc: serializeAws_restJson1OidcIdentityProviderConfigRequest(input.oidc, context) }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -218,10 +225,12 @@ export const serializeAws_restJson1CreateAddonCommand = async (
   input: CreateAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/addons";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/addons";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -242,7 +251,6 @@ export const serializeAws_restJson1CreateAddonCommand = async (
       input.serviceAccountRoleArn !== null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -258,10 +266,11 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters";
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
@@ -287,7 +296,6 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -303,10 +311,12 @@ export const serializeAws_restJson1CreateFargateProfileCommand = async (
   input: CreateFargateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/fargate-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/fargate-profiles";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -331,7 +341,6 @@ export const serializeAws_restJson1CreateFargateProfileCommand = async (
       input.subnets !== null && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -347,10 +356,12 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
   input: CreateNodegroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/node-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/node-groups";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -399,7 +410,6 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
       }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -415,8 +425,11 @@ export const serializeAws_restJson1DeleteAddonCommand = async (
   input: DeleteAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/addons/{addonName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/addons/{addonName}";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -436,7 +449,6 @@ export const serializeAws_restJson1DeleteAddonCommand = async (
     throw new Error("No value provided for input HTTP label: addonName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -452,8 +464,9 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -464,7 +477,6 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -480,8 +492,11 @@ export const serializeAws_restJson1DeleteFargateProfileCommand = async (
   input: DeleteFargateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -501,7 +516,6 @@ export const serializeAws_restJson1DeleteFargateProfileCommand = async (
     throw new Error("No value provided for input HTTP label: fargateProfileName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -517,8 +531,11 @@ export const serializeAws_restJson1DeleteNodegroupCommand = async (
   input: DeleteNodegroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/node-groups/{nodegroupName}";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -538,7 +555,6 @@ export const serializeAws_restJson1DeleteNodegroupCommand = async (
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -554,8 +570,11 @@ export const serializeAws_restJson1DescribeAddonCommand = async (
   input: DescribeAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/addons/{addonName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/addons/{addonName}";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -575,7 +594,6 @@ export const serializeAws_restJson1DescribeAddonCommand = async (
     throw new Error("No value provided for input HTTP label: addonName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -591,8 +609,10 @@ export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
   input: DescribeAddonVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/addons/supported-versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/addons/supported-versions";
   const query: any = {
     ...(input.kubernetesVersion !== undefined && { kubernetesVersion: input.kubernetesVersion }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -600,7 +620,6 @@ export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
     ...(input.addonName !== undefined && { addonName: input.addonName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -617,8 +636,9 @@ export const serializeAws_restJson1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -629,7 +649,6 @@ export const serializeAws_restJson1DescribeClusterCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -645,8 +664,11 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
   input: DescribeFargateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -666,7 +688,6 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
     throw new Error("No value provided for input HTTP label: fargateProfileName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -682,10 +703,13 @@ export const serializeAws_restJson1DescribeIdentityProviderConfigCommand = async
   input: DescribeIdentityProviderConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs/describe";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/identity-provider-configs/describe";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -702,7 +726,6 @@ export const serializeAws_restJson1DescribeIdentityProviderConfigCommand = async
         identityProviderConfig: serializeAws_restJson1IdentityProviderConfig(input.identityProviderConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -718,8 +741,11 @@ export const serializeAws_restJson1DescribeNodegroupCommand = async (
   input: DescribeNodegroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/node-groups/{nodegroupName}";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -739,7 +765,6 @@ export const serializeAws_restJson1DescribeNodegroupCommand = async (
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -755,8 +780,10 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
   input: DescribeUpdateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{name}/updates/{updateId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates/{updateId}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -780,7 +807,6 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
     ...(input.addonName !== undefined && { addonName: input.addonName }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -797,10 +823,13 @@ export const serializeAws_restJson1DisassociateIdentityProviderConfigCommand = a
   input: DisassociateIdentityProviderConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs/disassociate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/identity-provider-configs/disassociate";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -818,7 +847,6 @@ export const serializeAws_restJson1DisassociateIdentityProviderConfigCommand = a
         identityProviderConfig: serializeAws_restJson1IdentityProviderConfig(input.identityProviderConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -834,8 +862,10 @@ export const serializeAws_restJson1ListAddonsCommand = async (
   input: ListAddonsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/addons";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/addons";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -850,7 +880,6 @@ export const serializeAws_restJson1ListAddonsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -867,14 +896,14 @@ export const serializeAws_restJson1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -891,8 +920,10 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
   input: ListFargateProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/fargate-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/fargate-profiles";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -907,7 +938,6 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -924,8 +954,11 @@ export const serializeAws_restJson1ListIdentityProviderConfigsCommand = async (
   input: ListIdentityProviderConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/identity-provider-configs";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -940,7 +973,6 @@ export const serializeAws_restJson1ListIdentityProviderConfigsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -957,8 +989,10 @@ export const serializeAws_restJson1ListNodegroupsCommand = async (
   input: ListNodegroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{clusterName}/node-groups";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{clusterName}/node-groups";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -973,7 +1007,6 @@ export const serializeAws_restJson1ListNodegroupsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -990,8 +1023,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1002,7 +1036,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1018,8 +1051,9 @@ export const serializeAws_restJson1ListUpdatesCommand = async (
   input: ListUpdatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clusters/{name}/updates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1036,7 +1070,6 @@ export const serializeAws_restJson1ListUpdatesCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1053,10 +1086,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1070,7 +1104,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1086,8 +1119,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1101,7 +1135,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1118,10 +1151,13 @@ export const serializeAws_restJson1UpdateAddonCommand = async (
   input: UpdateAddonCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/addons/{addonName}/update";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/addons/{addonName}/update";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -1149,7 +1185,6 @@ export const serializeAws_restJson1UpdateAddonCommand = async (
     ...(input.serviceAccountRoleArn !== undefined &&
       input.serviceAccountRoleArn !== null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1165,10 +1200,12 @@ export const serializeAws_restJson1UpdateClusterConfigCommand = async (
   input: UpdateClusterConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{name}/update-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/update-config";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1188,7 +1225,6 @@ export const serializeAws_restJson1UpdateClusterConfigCommand = async (
         resourcesVpcConfig: serializeAws_restJson1VpcConfigRequest(input.resourcesVpcConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1204,10 +1240,11 @@ export const serializeAws_restJson1UpdateClusterVersionCommand = async (
   input: UpdateClusterVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{name}/updates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clusters/{name}/updates";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1222,7 +1259,6 @@ export const serializeAws_restJson1UpdateClusterVersionCommand = async (
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1238,10 +1274,13 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
   input: UpdateNodegroupConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -1276,7 +1315,6 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
         updateConfig: serializeAws_restJson1NodegroupUpdateConfig(input.updateConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1292,10 +1330,13 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
   input: UpdateNodegroupVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -1326,7 +1367,6 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
       input.releaseVersion !== null && { releaseVersion: input.releaseVersion }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2380,7 +2420,7 @@ export const deserializeAws_restJson1DescribeAddonVersionsCommand = async (
     contents.addons = deserializeAws_restJson1Addons(data.addons, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2964,7 +3004,7 @@ export const deserializeAws_restJson1ListAddonsCommand = async (
     contents.addons = deserializeAws_restJson1StringList(data.addons, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3055,7 +3095,7 @@ export const deserializeAws_restJson1ListClustersCommand = async (
     contents.clusters = deserializeAws_restJson1StringList(data.clusters, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3138,7 +3178,7 @@ export const deserializeAws_restJson1ListFargateProfilesCommand = async (
     contents.fargateProfileNames = deserializeAws_restJson1StringList(data.fargateProfileNames, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3224,7 +3264,7 @@ export const deserializeAws_restJson1ListIdentityProviderConfigsCommand = async 
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3312,7 +3352,7 @@ export const deserializeAws_restJson1ListNodegroupsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.nodegroups !== undefined && data.nodegroups !== null) {
     contents.nodegroups = deserializeAws_restJson1StringList(data.nodegroups, context);
@@ -3466,7 +3506,7 @@ export const deserializeAws_restJson1ListUpdatesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.updateIds !== undefined && data.updateIds !== null) {
     contents.updateIds = deserializeAws_restJson1StringList(data.updateIds, context);
@@ -4140,7 +4180,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4160,16 +4200,16 @@ const deserializeAws_restJson1ClientExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.addonName !== undefined && data.addonName !== null) {
-    contents.addonName = data.addonName;
+    contents.addonName = __expectString(data.addonName);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4190,19 +4230,19 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.addonName !== undefined && data.addonName !== null) {
-    contents.addonName = data.addonName;
+    contents.addonName = __expectString(data.addonName);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.fargateProfileName !== undefined && data.fargateProfileName !== null) {
-    contents.fargateProfileName = data.fargateProfileName;
+    contents.fargateProfileName = __expectString(data.fargateProfileName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4222,16 +4262,16 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.addonName !== undefined && data.addonName !== null) {
-    contents.addonName = data.addonName;
+    contents.addonName = __expectString(data.addonName);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4248,7 +4288,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4268,16 +4308,16 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.addonName !== undefined && data.addonName !== null) {
-    contents.addonName = data.addonName;
+    contents.addonName = __expectString(data.addonName);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4296,13 +4336,13 @@ const deserializeAws_restJson1ResourceLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4323,19 +4363,19 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.addonName !== undefined && data.addonName !== null) {
-    contents.addonName = data.addonName;
+    contents.addonName = __expectString(data.addonName);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.fargateProfileName !== undefined && data.fargateProfileName !== null) {
-    contents.fargateProfileName = data.fargateProfileName;
+    contents.fargateProfileName = __expectString(data.fargateProfileName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4355,16 +4395,16 @@ const deserializeAws_restJson1ServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.addonName !== undefined && data.addonName !== null) {
-    contents.addonName = data.addonName;
+    contents.addonName = __expectString(data.addonName);
   }
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   return contents;
 };
@@ -4381,7 +4421,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -4401,13 +4441,13 @@ const deserializeAws_restJson1UnsupportedAvailabilityZoneExceptionResponse = asy
   };
   const data: any = parsedOutput.body;
   if (data.clusterName !== undefined && data.clusterName !== null) {
-    contents.clusterName = data.clusterName;
+    contents.clusterName = __expectString(data.clusterName);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.nodegroupName !== undefined && data.nodegroupName !== null) {
-    contents.nodegroupName = data.nodegroupName;
+    contents.nodegroupName = __expectString(data.nodegroupName);
   }
   if (data.validZones !== undefined && data.validZones !== null) {
     contents.validZones = deserializeAws_restJson1StringList(data.validZones, context);
@@ -4436,7 +4476,7 @@ const serializeAws_restJson1EncryptionConfigList = (input: EncryptionConfig[], c
 };
 
 const serializeAws_restJson1FargateProfileLabel = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4498,7 +4538,7 @@ const serializeAws_restJson1labelsKeyList = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1labelsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4614,7 +4654,7 @@ const serializeAws_restJson1RemoteAccessConfig = (input: RemoteAccessConfig, con
 };
 
 const serializeAws_restJson1requiredClaimsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4637,7 +4677,7 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4712,10 +4752,10 @@ const serializeAws_restJson1VpcConfigRequest = (input: VpcConfigRequest, context
 
 const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Addon => {
   return {
-    addonArn: output.addonArn !== undefined && output.addonArn !== null ? output.addonArn : undefined,
-    addonName: output.addonName !== undefined && output.addonName !== null ? output.addonName : undefined,
-    addonVersion: output.addonVersion !== undefined && output.addonVersion !== null ? output.addonVersion : undefined,
-    clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
+    addonArn: __expectString(output.addonArn),
+    addonName: __expectString(output.addonName),
+    addonVersion: __expectString(output.addonVersion),
+    clusterName: __expectString(output.clusterName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -4728,11 +4768,8 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
       output.modifiedAt !== undefined && output.modifiedAt !== null
         ? new Date(Math.round(output.modifiedAt * 1000))
         : undefined,
-    serviceAccountRoleArn:
-      output.serviceAccountRoleArn !== undefined && output.serviceAccountRoleArn !== null
-        ? output.serviceAccountRoleArn
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    serviceAccountRoleArn: __expectString(output.serviceAccountRoleArn),
+    status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -4751,19 +4788,19 @@ const deserializeAws_restJson1AddonHealth = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AddonInfo = (output: any, context: __SerdeContext): AddonInfo => {
   return {
-    addonName: output.addonName !== undefined && output.addonName !== null ? output.addonName : undefined,
+    addonName: __expectString(output.addonName),
     addonVersions:
       output.addonVersions !== undefined && output.addonVersions !== null
         ? deserializeAws_restJson1AddonVersionInfoList(output.addonVersions, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1AddonIssue = (output: any, context: __SerdeContext): AddonIssue => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
     resourceIds:
       output.resourceIds !== undefined && output.resourceIds !== null
         ? deserializeAws_restJson1StringList(output.resourceIds, context)
@@ -4795,7 +4832,7 @@ const deserializeAws_restJson1Addons = (output: any, context: __SerdeContext): A
 
 const deserializeAws_restJson1AddonVersionInfo = (output: any, context: __SerdeContext): AddonVersionInfo => {
   return {
-    addonVersion: output.addonVersion !== undefined && output.addonVersion !== null ? output.addonVersion : undefined,
+    addonVersion: __expectString(output.addonVersion),
     architecture:
       output.architecture !== undefined && output.architecture !== null
         ? deserializeAws_restJson1StringList(output.architecture, context)
@@ -4820,7 +4857,7 @@ const deserializeAws_restJson1AddonVersionInfoList = (output: any, context: __Se
 
 const deserializeAws_restJson1AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -4837,21 +4874,18 @@ const deserializeAws_restJson1AutoScalingGroupList = (output: any, context: __Se
 
 const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    data: output.data !== undefined && output.data !== null ? output.data : undefined,
+    data: __expectString(output.data),
   } as any;
 };
 
 const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     certificateAuthority:
       output.certificateAuthority !== undefined && output.certificateAuthority !== null
         ? deserializeAws_restJson1Certificate(output.certificateAuthority, context)
         : undefined,
-    clientRequestToken:
-      output.clientRequestToken !== undefined && output.clientRequestToken !== null
-        ? output.clientRequestToken
-        : undefined,
+    clientRequestToken: __expectString(output.clientRequestToken),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -4860,7 +4894,7 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
       output.encryptionConfig !== undefined && output.encryptionConfig !== null
         ? deserializeAws_restJson1EncryptionConfigList(output.encryptionConfig, context)
         : undefined,
-    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
+    endpoint: __expectString(output.endpoint),
     identity:
       output.identity !== undefined && output.identity !== null
         ? deserializeAws_restJson1Identity(output.identity, context)
@@ -4873,20 +4907,19 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
       output.logging !== undefined && output.logging !== null
         ? deserializeAws_restJson1Logging(output.logging, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    platformVersion:
-      output.platformVersion !== undefined && output.platformVersion !== null ? output.platformVersion : undefined,
+    name: __expectString(output.name),
+    platformVersion: __expectString(output.platformVersion),
     resourcesVpcConfig:
       output.resourcesVpcConfig !== undefined && output.resourcesVpcConfig !== null
         ? deserializeAws_restJson1VpcConfigResponse(output.resourcesVpcConfig, context)
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    roleArn: __expectString(output.roleArn),
+    status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -4903,10 +4936,8 @@ const deserializeAws_restJson1Compatibilities = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Compatibility = (output: any, context: __SerdeContext): Compatibility => {
   return {
-    clusterVersion:
-      output.clusterVersion !== undefined && output.clusterVersion !== null ? output.clusterVersion : undefined,
-    defaultVersion:
-      output.defaultVersion !== undefined && output.defaultVersion !== null ? output.defaultVersion : undefined,
+    clusterVersion: __expectString(output.clusterVersion),
+    defaultVersion: __expectBoolean(output.defaultVersion),
     platformVersions:
       output.platformVersions !== undefined && output.platformVersions !== null
         ? deserializeAws_restJson1StringList(output.platformVersions, context)
@@ -4940,8 +4971,8 @@ const deserializeAws_restJson1EncryptionConfigList = (output: any, context: __Se
 
 const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
     resourceIds:
       output.resourceIds !== undefined && output.resourceIds !== null
         ? deserializeAws_restJson1StringList(output.resourceIds, context)
@@ -4962,28 +4993,19 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FargateProfile = (output: any, context: __SerdeContext): FargateProfile => {
   return {
-    clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
+    clusterName: __expectString(output.clusterName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    fargateProfileArn:
-      output.fargateProfileArn !== undefined && output.fargateProfileArn !== null
-        ? output.fargateProfileArn
-        : undefined,
-    fargateProfileName:
-      output.fargateProfileName !== undefined && output.fargateProfileName !== null
-        ? output.fargateProfileName
-        : undefined,
-    podExecutionRoleArn:
-      output.podExecutionRoleArn !== undefined && output.podExecutionRoleArn !== null
-        ? output.podExecutionRoleArn
-        : undefined,
+    fargateProfileArn: __expectString(output.fargateProfileArn),
+    fargateProfileName: __expectString(output.fargateProfileName),
+    podExecutionRoleArn: __expectString(output.podExecutionRoleArn),
     selectors:
       output.selectors !== undefined && output.selectors !== null
         ? deserializeAws_restJson1FargateProfileSelectors(output.selectors, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     subnets:
       output.subnets !== undefined && output.subnets !== null
         ? deserializeAws_restJson1StringList(output.subnets, context)
@@ -5005,7 +5027,7 @@ const deserializeAws_restJson1FargateProfileLabel = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5019,7 +5041,7 @@ const deserializeAws_restJson1FargateProfileSelector = (
       output.labels !== undefined && output.labels !== null
         ? deserializeAws_restJson1FargateProfileLabel(output.labels, context)
         : undefined,
-    namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
+    namespace: __expectString(output.namespace),
   } as any;
 };
 
@@ -5051,8 +5073,8 @@ const deserializeAws_restJson1IdentityProviderConfig = (
   context: __SerdeContext
 ): IdentityProviderConfig => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    name: __expectString(output.name),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5084,8 +5106,8 @@ const deserializeAws_restJson1IdentityProviderConfigs = (
 
 const deserializeAws_restJson1Issue = (output: any, context: __SerdeContext): Issue => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
     resourceIds:
       output.resourceIds !== undefined && output.resourceIds !== null
         ? deserializeAws_restJson1StringList(output.resourceIds, context)
@@ -5109,8 +5131,7 @@ const deserializeAws_restJson1KubernetesNetworkConfigResponse = (
   context: __SerdeContext
 ): KubernetesNetworkConfigResponse => {
   return {
-    serviceIpv4Cidr:
-      output.serviceIpv4Cidr !== undefined && output.serviceIpv4Cidr !== null ? output.serviceIpv4Cidr : undefined,
+    serviceIpv4Cidr: __expectString(output.serviceIpv4Cidr),
   } as any;
 };
 
@@ -5121,7 +5142,7 @@ const deserializeAws_restJson1labelsMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5131,9 +5152,9 @@ const deserializeAws_restJson1LaunchTemplateSpecification = (
   context: __SerdeContext
 ): LaunchTemplateSpecification => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    id: __expectString(output.id),
+    name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -5148,7 +5169,7 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1LogSetup = (output: any, context: __SerdeContext): LogSetup => {
   return {
-    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    enabled: __expectBoolean(output.enabled),
     types:
       output.types !== undefined && output.types !== null
         ? deserializeAws_restJson1LogTypes(output.types, context)
@@ -5174,20 +5195,20 @@ const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {
   return {
-    amiType: output.amiType !== undefined && output.amiType !== null ? output.amiType : undefined,
-    capacityType: output.capacityType !== undefined && output.capacityType !== null ? output.capacityType : undefined,
-    clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
+    amiType: __expectString(output.amiType),
+    capacityType: __expectString(output.capacityType),
+    clusterName: __expectString(output.clusterName),
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    diskSize: output.diskSize !== undefined && output.diskSize !== null ? output.diskSize : undefined,
+    diskSize: __expectNumber(output.diskSize),
     health:
       output.health !== undefined && output.health !== null
         ? deserializeAws_restJson1NodegroupHealth(output.health, context)
@@ -5208,12 +5229,10 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.modifiedAt !== undefined && output.modifiedAt !== null
         ? new Date(Math.round(output.modifiedAt * 1000))
         : undefined,
-    nodeRole: output.nodeRole !== undefined && output.nodeRole !== null ? output.nodeRole : undefined,
-    nodegroupArn: output.nodegroupArn !== undefined && output.nodegroupArn !== null ? output.nodegroupArn : undefined,
-    nodegroupName:
-      output.nodegroupName !== undefined && output.nodegroupName !== null ? output.nodegroupName : undefined,
-    releaseVersion:
-      output.releaseVersion !== undefined && output.releaseVersion !== null ? output.releaseVersion : undefined,
+    nodeRole: __expectString(output.nodeRole),
+    nodegroupArn: __expectString(output.nodegroupArn),
+    nodegroupName: __expectString(output.nodegroupName),
+    releaseVersion: __expectString(output.releaseVersion),
     remoteAccess:
       output.remoteAccess !== undefined && output.remoteAccess !== null
         ? deserializeAws_restJson1RemoteAccessConfig(output.remoteAccess, context)
@@ -5226,7 +5245,7 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.scalingConfig !== undefined && output.scalingConfig !== null
         ? deserializeAws_restJson1NodegroupScalingConfig(output.scalingConfig, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     subnets:
       output.subnets !== undefined && output.subnets !== null
         ? deserializeAws_restJson1StringList(output.subnets, context)
@@ -5243,7 +5262,7 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.updateConfig !== undefined && output.updateConfig !== null
         ? deserializeAws_restJson1NodegroupUpdateConfig(output.updateConfig, context)
         : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -5262,10 +5281,7 @@ const deserializeAws_restJson1NodegroupResources = (output: any, context: __Serd
       output.autoScalingGroups !== undefined && output.autoScalingGroups !== null
         ? deserializeAws_restJson1AutoScalingGroupList(output.autoScalingGroups, context)
         : undefined,
-    remoteAccessSecurityGroup:
-      output.remoteAccessSecurityGroup !== undefined && output.remoteAccessSecurityGroup !== null
-        ? output.remoteAccessSecurityGroup
-        : undefined,
+    remoteAccessSecurityGroup: __expectString(output.remoteAccessSecurityGroup),
   } as any;
 };
 
@@ -5274,26 +5290,22 @@ const deserializeAws_restJson1NodegroupScalingConfig = (
   context: __SerdeContext
 ): NodegroupScalingConfig => {
   return {
-    desiredSize: output.desiredSize !== undefined && output.desiredSize !== null ? output.desiredSize : undefined,
-    maxSize: output.maxSize !== undefined && output.maxSize !== null ? output.maxSize : undefined,
-    minSize: output.minSize !== undefined && output.minSize !== null ? output.minSize : undefined,
+    desiredSize: __expectNumber(output.desiredSize),
+    maxSize: __expectNumber(output.maxSize),
+    minSize: __expectNumber(output.minSize),
   } as any;
 };
 
 const deserializeAws_restJson1NodegroupUpdateConfig = (output: any, context: __SerdeContext): NodegroupUpdateConfig => {
   return {
-    maxUnavailable:
-      output.maxUnavailable !== undefined && output.maxUnavailable !== null ? output.maxUnavailable : undefined,
-    maxUnavailablePercentage:
-      output.maxUnavailablePercentage !== undefined && output.maxUnavailablePercentage !== null
-        ? output.maxUnavailablePercentage
-        : undefined,
+    maxUnavailable: __expectNumber(output.maxUnavailable),
+    maxUnavailablePercentage: __expectNumber(output.maxUnavailablePercentage),
   } as any;
 };
 
 const deserializeAws_restJson1OIDC = (output: any, context: __SerdeContext): OIDC => {
   return {
-    issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined,
+    issuer: __expectString(output.issuer),
   } as any;
 };
 
@@ -5302,44 +5314,36 @@ const deserializeAws_restJson1OidcIdentityProviderConfig = (
   context: __SerdeContext
 ): OidcIdentityProviderConfig => {
   return {
-    clientId: output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
-    clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
-    groupsClaim: output.groupsClaim !== undefined && output.groupsClaim !== null ? output.groupsClaim : undefined,
-    groupsPrefix: output.groupsPrefix !== undefined && output.groupsPrefix !== null ? output.groupsPrefix : undefined,
-    identityProviderConfigArn:
-      output.identityProviderConfigArn !== undefined && output.identityProviderConfigArn !== null
-        ? output.identityProviderConfigArn
-        : undefined,
-    identityProviderConfigName:
-      output.identityProviderConfigName !== undefined && output.identityProviderConfigName !== null
-        ? output.identityProviderConfigName
-        : undefined,
-    issuerUrl: output.issuerUrl !== undefined && output.issuerUrl !== null ? output.issuerUrl : undefined,
+    clientId: __expectString(output.clientId),
+    clusterName: __expectString(output.clusterName),
+    groupsClaim: __expectString(output.groupsClaim),
+    groupsPrefix: __expectString(output.groupsPrefix),
+    identityProviderConfigArn: __expectString(output.identityProviderConfigArn),
+    identityProviderConfigName: __expectString(output.identityProviderConfigName),
+    issuerUrl: __expectString(output.issuerUrl),
     requiredClaims:
       output.requiredClaims !== undefined && output.requiredClaims !== null
         ? deserializeAws_restJson1requiredClaimsMap(output.requiredClaims, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
-    usernameClaim:
-      output.usernameClaim !== undefined && output.usernameClaim !== null ? output.usernameClaim : undefined,
-    usernamePrefix:
-      output.usernamePrefix !== undefined && output.usernamePrefix !== null ? output.usernamePrefix : undefined,
+    usernameClaim: __expectString(output.usernameClaim),
+    usernamePrefix: __expectString(output.usernamePrefix),
   } as any;
 };
 
 const deserializeAws_restJson1Provider = (output: any, context: __SerdeContext): Provider => {
   return {
-    keyArn: output.keyArn !== undefined && output.keyArn !== null ? output.keyArn : undefined,
+    keyArn: __expectString(output.keyArn),
   } as any;
 };
 
 const deserializeAws_restJson1RemoteAccessConfig = (output: any, context: __SerdeContext): RemoteAccessConfig => {
   return {
-    ec2SshKey: output.ec2SshKey !== undefined && output.ec2SshKey !== null ? output.ec2SshKey : undefined,
+    ec2SshKey: __expectString(output.ec2SshKey),
     sourceSecurityGroups:
       output.sourceSecurityGroups !== undefined && output.sourceSecurityGroups !== null
         ? deserializeAws_restJson1StringList(output.sourceSecurityGroups, context)
@@ -5354,7 +5358,7 @@ const deserializeAws_restJson1requiredClaimsMap = (output: any, context: __Serde
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -5366,7 +5370,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5377,16 +5381,16 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1Taint = (output: any, context: __SerdeContext): Taint => {
   return {
-    effect: output.effect !== undefined && output.effect !== null ? output.effect : undefined,
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    effect: __expectString(output.effect),
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -5411,20 +5415,20 @@ const deserializeAws_restJson1Update = (output: any, context: __SerdeContext): U
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_restJson1ErrorDetails(output.errors, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
     params:
       output.params !== undefined && output.params !== null
         ? deserializeAws_restJson1UpdateParams(output.params, context)
         : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    status: __expectString(output.status),
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1UpdateParam = (output: any, context: __SerdeContext): UpdateParam => {
   return {
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    type: __expectString(output.type),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -5441,18 +5445,9 @@ const deserializeAws_restJson1UpdateParams = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __SerdeContext): VpcConfigResponse => {
   return {
-    clusterSecurityGroupId:
-      output.clusterSecurityGroupId !== undefined && output.clusterSecurityGroupId !== null
-        ? output.clusterSecurityGroupId
-        : undefined,
-    endpointPrivateAccess:
-      output.endpointPrivateAccess !== undefined && output.endpointPrivateAccess !== null
-        ? output.endpointPrivateAccess
-        : undefined,
-    endpointPublicAccess:
-      output.endpointPublicAccess !== undefined && output.endpointPublicAccess !== null
-        ? output.endpointPublicAccess
-        : undefined,
+    clusterSecurityGroupId: __expectString(output.clusterSecurityGroupId),
+    endpointPrivateAccess: __expectBoolean(output.endpointPrivateAccess),
+    endpointPublicAccess: __expectBoolean(output.endpointPublicAccess),
     publicAccessCidrs:
       output.publicAccessCidrs !== undefined && output.publicAccessCidrs !== null
         ? deserializeAws_restJson1StringList(output.publicAccessCidrs, context)
@@ -5465,7 +5460,7 @@ const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __Serde
       output.subnetIds !== undefined && output.subnetIds !== null
         ? deserializeAws_restJson1StringList(output.subnetIds, context)
         : undefined,
-    vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+    vpcId: __expectString(output.vpcId),
   } as any;
 };
 

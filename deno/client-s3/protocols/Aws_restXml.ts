@@ -393,9 +393,11 @@ import {
 import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
@@ -412,13 +414,14 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -448,7 +451,6 @@ export const serializeAws_restXmlAbortMultipartUploadCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,6 +467,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -472,7 +475,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -512,7 +515,6 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -529,6 +531,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
   input: CopyObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
@@ -616,7 +619,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -645,7 +648,6 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-id": "CopyObject",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -662,6 +664,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
   input: CreateBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -674,7 +677,7 @@ export const serializeAws_restXmlCreateBucketCommand = async (
       "x-amz-bucket-object-lock-enabled": input.ObjectLockEnabledForBucket!.toString(),
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -695,7 +698,6 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -711,6 +713,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
   input: CreateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
@@ -771,7 +774,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -801,7 +804,6 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "x-id": "CreateMultipartUpload",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -818,12 +820,13 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
   input: DeleteBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -834,7 +837,6 @@ export const serializeAws_restXmlDeleteBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -850,12 +852,13 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
   input: DeleteBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -870,7 +873,6 @@ export const serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand = asy
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -887,12 +889,13 @@ export const serializeAws_restXmlDeleteBucketCorsCommand = async (
   input: DeleteBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -906,7 +909,6 @@ export const serializeAws_restXmlDeleteBucketCorsCommand = async (
     cors: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -923,12 +925,13 @@ export const serializeAws_restXmlDeleteBucketEncryptionCommand = async (
   input: DeleteBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -942,7 +945,6 @@ export const serializeAws_restXmlDeleteBucketEncryptionCommand = async (
     encryption: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -959,8 +961,9 @@ export const serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationComm
   input: DeleteBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -975,7 +978,6 @@ export const serializeAws_restXmlDeleteBucketIntelligentTieringConfigurationComm
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -992,12 +994,13 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
   input: DeleteBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1012,7 +1015,6 @@ export const serializeAws_restXmlDeleteBucketInventoryConfigurationCommand = asy
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1029,12 +1031,13 @@ export const serializeAws_restXmlDeleteBucketLifecycleCommand = async (
   input: DeleteBucketLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1048,7 +1051,6 @@ export const serializeAws_restXmlDeleteBucketLifecycleCommand = async (
     lifecycle: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1065,12 +1067,13 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
   input: DeleteBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1085,7 +1088,6 @@ export const serializeAws_restXmlDeleteBucketMetricsConfigurationCommand = async
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1102,12 +1104,13 @@ export const serializeAws_restXmlDeleteBucketOwnershipControlsCommand = async (
   input: DeleteBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1121,7 +1124,6 @@ export const serializeAws_restXmlDeleteBucketOwnershipControlsCommand = async (
     ownershipControls: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1138,12 +1140,13 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
   input: DeleteBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1157,7 +1160,6 @@ export const serializeAws_restXmlDeleteBucketPolicyCommand = async (
     policy: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1174,12 +1176,13 @@ export const serializeAws_restXmlDeleteBucketReplicationCommand = async (
   input: DeleteBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1193,7 +1196,6 @@ export const serializeAws_restXmlDeleteBucketReplicationCommand = async (
     replication: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1210,12 +1212,13 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
   input: DeleteBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1229,7 +1232,6 @@ export const serializeAws_restXmlDeleteBucketTaggingCommand = async (
     tagging: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1246,12 +1248,13 @@ export const serializeAws_restXmlDeleteBucketWebsiteCommand = async (
   input: DeleteBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1265,7 +1268,6 @@ export const serializeAws_restXmlDeleteBucketWebsiteCommand = async (
     website: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1282,6 +1284,7 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.MFA) && { "x-amz-mfa": input.MFA! }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -1292,7 +1295,7 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1322,7 +1325,6 @@ export const serializeAws_restXmlDeleteObjectCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1339,6 +1341,7 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
   input: DeleteObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.MFA) && { "x-amz-mfa": input.MFA! }),
@@ -1350,7 +1353,7 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1375,7 +1378,6 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1392,12 +1394,13 @@ export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
   input: DeleteObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1427,7 +1430,6 @@ export const serializeAws_restXmlDeleteObjectTaggingCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1444,12 +1446,13 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   input: DeletePublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1463,7 +1466,6 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
     publicAccessBlock: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1480,12 +1482,13 @@ export const serializeAws_restXmlGetBucketAccelerateConfigurationCommand = async
   input: GetBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1499,7 +1502,6 @@ export const serializeAws_restXmlGetBucketAccelerateConfigurationCommand = async
     accelerate: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1516,12 +1518,13 @@ export const serializeAws_restXmlGetBucketAclCommand = async (
   input: GetBucketAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1535,7 +1538,6 @@ export const serializeAws_restXmlGetBucketAclCommand = async (
     acl: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1552,12 +1554,13 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
   input: GetBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1573,7 +1576,6 @@ export const serializeAws_restXmlGetBucketAnalyticsConfigurationCommand = async 
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1590,12 +1592,13 @@ export const serializeAws_restXmlGetBucketCorsCommand = async (
   input: GetBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1609,7 +1612,6 @@ export const serializeAws_restXmlGetBucketCorsCommand = async (
     cors: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1626,12 +1628,13 @@ export const serializeAws_restXmlGetBucketEncryptionCommand = async (
   input: GetBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1645,7 +1648,6 @@ export const serializeAws_restXmlGetBucketEncryptionCommand = async (
     encryption: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1662,8 +1664,9 @@ export const serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand
   input: GetBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1679,7 +1682,6 @@ export const serializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1696,12 +1698,13 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
   input: GetBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1717,7 +1720,6 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1734,12 +1736,13 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
   input: GetBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1753,7 +1756,6 @@ export const serializeAws_restXmlGetBucketLifecycleConfigurationCommand = async 
     lifecycle: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1770,12 +1772,13 @@ export const serializeAws_restXmlGetBucketLocationCommand = async (
   input: GetBucketLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1789,7 +1792,6 @@ export const serializeAws_restXmlGetBucketLocationCommand = async (
     location: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1806,12 +1808,13 @@ export const serializeAws_restXmlGetBucketLoggingCommand = async (
   input: GetBucketLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1825,7 +1828,6 @@ export const serializeAws_restXmlGetBucketLoggingCommand = async (
     logging: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1842,12 +1844,13 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
   input: GetBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1863,7 +1866,6 @@ export const serializeAws_restXmlGetBucketMetricsConfigurationCommand = async (
     ...(input.Id !== undefined && { id: input.Id }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1880,12 +1882,13 @@ export const serializeAws_restXmlGetBucketNotificationConfigurationCommand = asy
   input: GetBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1899,7 +1902,6 @@ export const serializeAws_restXmlGetBucketNotificationConfigurationCommand = asy
     notification: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1916,12 +1918,13 @@ export const serializeAws_restXmlGetBucketOwnershipControlsCommand = async (
   input: GetBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1935,7 +1938,6 @@ export const serializeAws_restXmlGetBucketOwnershipControlsCommand = async (
     ownershipControls: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1952,12 +1954,13 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
   input: GetBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -1971,7 +1974,6 @@ export const serializeAws_restXmlGetBucketPolicyCommand = async (
     policy: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1988,12 +1990,13 @@ export const serializeAws_restXmlGetBucketPolicyStatusCommand = async (
   input: GetBucketPolicyStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2007,7 +2010,6 @@ export const serializeAws_restXmlGetBucketPolicyStatusCommand = async (
     policyStatus: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2024,12 +2026,13 @@ export const serializeAws_restXmlGetBucketReplicationCommand = async (
   input: GetBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2043,7 +2046,6 @@ export const serializeAws_restXmlGetBucketReplicationCommand = async (
     replication: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2060,12 +2062,13 @@ export const serializeAws_restXmlGetBucketRequestPaymentCommand = async (
   input: GetBucketRequestPaymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2079,7 +2082,6 @@ export const serializeAws_restXmlGetBucketRequestPaymentCommand = async (
     requestPayment: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2096,12 +2098,13 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
   input: GetBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2115,7 +2118,6 @@ export const serializeAws_restXmlGetBucketTaggingCommand = async (
     tagging: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2132,12 +2134,13 @@ export const serializeAws_restXmlGetBucketVersioningCommand = async (
   input: GetBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2151,7 +2154,6 @@ export const serializeAws_restXmlGetBucketVersioningCommand = async (
     versioning: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2168,12 +2170,13 @@ export const serializeAws_restXmlGetBucketWebsiteCommand = async (
   input: GetBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2187,7 +2190,6 @@ export const serializeAws_restXmlGetBucketWebsiteCommand = async (
     website: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2204,6 +2206,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
   input: GetObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
     ...(isSerializableHeaderValue(input.IfModifiedSince) && {
@@ -2228,7 +2231,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2269,7 +2272,6 @@ export const serializeAws_restXmlGetObjectCommand = async (
     ...(input.PartNumber !== undefined && { partNumber: input.PartNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2286,13 +2288,14 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
   input: GetObjectAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2322,7 +2325,6 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2339,13 +2341,14 @@ export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
   input: GetObjectLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2375,7 +2378,6 @@ export const serializeAws_restXmlGetObjectLegalHoldCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2392,12 +2394,13 @@ export const serializeAws_restXmlGetObjectLockConfigurationCommand = async (
   input: GetObjectLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2411,7 +2414,6 @@ export const serializeAws_restXmlGetObjectLockConfigurationCommand = async (
     "object-lock": "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2428,13 +2430,14 @@ export const serializeAws_restXmlGetObjectRetentionCommand = async (
   input: GetObjectRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2464,7 +2467,6 @@ export const serializeAws_restXmlGetObjectRetentionCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2481,13 +2483,14 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
   input: GetObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2517,7 +2520,6 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2534,13 +2536,14 @@ export const serializeAws_restXmlGetObjectTorrentCommand = async (
   input: GetObjectTorrentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2569,7 +2572,6 @@ export const serializeAws_restXmlGetObjectTorrentCommand = async (
     torrent: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2586,12 +2588,13 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   input: GetPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2605,7 +2608,6 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
     publicAccessBlock: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2622,12 +2624,13 @@ export const serializeAws_restXmlHeadBucketCommand = async (
   input: HeadBucketCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2638,7 +2641,6 @@ export const serializeAws_restXmlHeadBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2654,6 +2656,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
   input: HeadObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
     ...(isSerializableHeaderValue(input.IfModifiedSince) && {
@@ -2678,7 +2681,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2708,7 +2711,6 @@ export const serializeAws_restXmlHeadObjectCommand = async (
     ...(input.PartNumber !== undefined && { partNumber: input.PartNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2725,12 +2727,13 @@ export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = asyn
   input: ListBucketAnalyticsConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2746,7 +2749,6 @@ export const serializeAws_restXmlListBucketAnalyticsConfigurationsCommand = asyn
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2763,8 +2765,9 @@ export const serializeAws_restXmlListBucketIntelligentTieringConfigurationsComma
   input: ListBucketIntelligentTieringConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2780,7 +2783,6 @@ export const serializeAws_restXmlListBucketIntelligentTieringConfigurationsComma
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2797,12 +2799,13 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
   input: ListBucketInventoryConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2818,7 +2821,6 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2835,12 +2837,13 @@ export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async 
   input: ListBucketMetricsConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2856,7 +2859,6 @@ export const serializeAws_restXmlListBucketMetricsConfigurationsCommand = async 
     ...(input.ContinuationToken !== undefined && { "continuation-token": input.ContinuationToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2873,13 +2875,13 @@ export const serializeAws_restXmlListBucketsCommand = async (
   input: ListBucketsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2895,12 +2897,13 @@ export const serializeAws_restXmlListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2920,7 +2923,6 @@ export const serializeAws_restXmlListMultipartUploadsCommand = async (
     ...(input.UploadIdMarker !== undefined && { "upload-id-marker": input.UploadIdMarker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2937,13 +2939,14 @@ export const serializeAws_restXmlListObjectsCommand = async (
   input: ListObjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -2961,7 +2964,6 @@ export const serializeAws_restXmlListObjectsCommand = async (
     ...(input.Prefix !== undefined && { prefix: input.Prefix }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2978,13 +2980,14 @@ export const serializeAws_restXmlListObjectsV2Command = async (
   input: ListObjectsV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3005,7 +3008,6 @@ export const serializeAws_restXmlListObjectsV2Command = async (
     ...(input.StartAfter !== undefined && { "start-after": input.StartAfter }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3022,12 +3024,13 @@ export const serializeAws_restXmlListObjectVersionsCommand = async (
   input: ListObjectVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3047,7 +3050,6 @@ export const serializeAws_restXmlListObjectVersionsCommand = async (
     ...(input.VersionIdMarker !== undefined && { "version-id-marker": input.VersionIdMarker }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3064,13 +3066,14 @@ export const serializeAws_restXmlListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3102,7 +3105,6 @@ export const serializeAws_restXmlListPartsCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3119,13 +3121,14 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
   input: PutBucketAccelerateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3149,7 +3152,6 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3166,6 +3168,7 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
   input: PutBucketAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -3179,7 +3182,7 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3203,7 +3206,6 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3220,13 +3222,14 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
   input: PutBucketAnalyticsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3251,7 +3254,6 @@ export const serializeAws_restXmlPutBucketAnalyticsConfigurationCommand = async 
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3268,6 +3270,7 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
   input: PutBucketCorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3275,7 +3278,7 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3299,7 +3302,6 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3316,6 +3318,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
   input: PutBucketEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3323,7 +3326,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3347,7 +3350,6 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3364,10 +3366,11 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
   input: PutBucketIntelligentTieringConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3392,7 +3395,6 @@ export const serializeAws_restXmlPutBucketIntelligentTieringConfigurationCommand
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3409,13 +3411,14 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
   input: PutBucketInventoryConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3440,7 +3443,6 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3457,13 +3459,14 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
   input: PutBucketLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3487,7 +3490,6 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3504,6 +3506,7 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
   input: PutBucketLoggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3511,7 +3514,7 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3535,7 +3538,6 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3552,13 +3554,14 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
   input: PutBucketMetricsConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3583,7 +3586,6 @@ export const serializeAws_restXmlPutBucketMetricsConfigurationCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3600,13 +3602,14 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
   input: PutBucketNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3630,7 +3633,6 @@ export const serializeAws_restXmlPutBucketNotificationConfigurationCommand = asy
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3647,6 +3649,7 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
   input: PutBucketOwnershipControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3654,7 +3657,7 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3678,7 +3681,6 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3695,6 +3697,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
   input: PutBucketPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3705,7 +3708,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3727,7 +3730,6 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
     contents = input.Policy;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3744,6 +3746,7 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
   input: PutBucketReplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3752,7 +3755,7 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3776,7 +3779,6 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3793,6 +3795,7 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
   input: PutBucketRequestPaymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3800,7 +3803,7 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3824,7 +3827,6 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3841,6 +3843,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   input: PutBucketTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3848,7 +3851,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3872,7 +3875,6 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3889,6 +3891,7 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
   input: PutBucketVersioningCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3897,7 +3900,7 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3921,7 +3924,6 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3938,6 +3940,7 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
   input: PutBucketWebsiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -3945,7 +3948,7 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -3969,7 +3972,6 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3986,6 +3988,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
   input: PutObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -4049,7 +4052,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4086,7 +4089,6 @@ export const serializeAws_restXmlPutObjectCommand = async (
     contents = input.Body;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4103,6 +4105,7 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
   input: PutObjectAclCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
@@ -4117,7 +4120,7 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4157,7 +4160,6 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4174,6 +4176,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
   input: PutObjectLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4182,7 +4185,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4222,7 +4225,6 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4239,6 +4241,7 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
   input: PutObjectLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4248,7 +4251,7 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4272,7 +4275,6 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4289,6 +4291,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
   input: PutObjectRetentionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4300,7 +4303,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4340,7 +4343,6 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4357,6 +4359,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
   input: PutObjectTaggingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -4365,7 +4368,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4405,7 +4408,6 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4422,6 +4424,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   input: PutPublicAccessBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
@@ -4429,7 +4432,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4453,7 +4456,6 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4470,6 +4472,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
   input: RestoreObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
@@ -4477,7 +4480,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4518,7 +4521,6 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4535,6 +4537,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
   input: SelectObjectContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
@@ -4550,7 +4553,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4615,7 +4618,6 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4632,6 +4634,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
   input: UploadPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
@@ -4650,7 +4653,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4689,7 +4692,6 @@ export const serializeAws_restXmlUploadPartCommand = async (
     contents = input.Body;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4706,6 +4708,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
   input: UploadPartCopyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.CopySource) && { "x-amz-copy-source": input.CopySource! }),
     ...(isSerializableHeaderValue(input.CopySourceIfMatch) && {
@@ -4747,7 +4750,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
       "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     }),
   };
-  let resolvedPath = "/{Bucket}/{Key+}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
     const labelValue: string = input.Bucket;
     if (labelValue.length <= 0) {
@@ -4778,7 +4781,6 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4795,6 +4797,7 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
   input: WriteGetObjectResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
@@ -4883,7 +4886,7 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/WriteGetObjectResponse";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/WriteGetObjectResponse";
   const query: any = {
     "x-id": "WriteGetObjectResponse",
   };
@@ -4907,7 +4910,6 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -5008,23 +5010,23 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
-    contents.Bucket = data["Bucket"];
+    contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["ETag"] !== undefined) {
-    contents.ETag = data["ETag"];
+    contents.ETag = __expectString(data["ETag"]);
   }
   if (data["Key"] !== undefined) {
-    contents.Key = data["Key"];
+    contents.Key = __expectString(data["Key"]);
   }
   if (data["Location"] !== undefined) {
-    contents.Location = data["Location"];
+    contents.Location = __expectString(data["Location"]);
   }
   return Promise.resolve(contents);
 };
@@ -5104,7 +5106,7 @@ export const deserializeAws_restXmlCopyObjectCommand = async (
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -5258,20 +5260,20 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
   }
   const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
-    contents.Bucket = data["Bucket"];
+    contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["Key"] !== undefined) {
-    contents.Key = data["Key"];
+    contents.Key = __expectString(data["Key"]);
   }
   if (data["UploadId"] !== undefined) {
-    contents.UploadId = data["UploadId"];
+    contents.UploadId = __expectString(data["UploadId"]);
   }
   return Promise.resolve(contents);
 };
@@ -5878,7 +5880,7 @@ export const deserializeAws_restXmlDeleteObjectCommand = async (
     VersionId: undefined,
   };
   if (output.headers["x-amz-delete-marker"] !== undefined) {
-    contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
   }
   if (output.headers["x-amz-version-id"] !== undefined) {
     contents.VersionId = output.headers["x-amz-version-id"];
@@ -6083,7 +6085,7 @@ export const deserializeAws_restXmlGetBucketAccelerateConfigurationCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data["Status"] !== undefined) {
-    contents.Status = data["Status"];
+    contents.Status = __expectString(data["Status"]);
   }
   return Promise.resolve(contents);
 };
@@ -6464,7 +6466,7 @@ export const deserializeAws_restXmlGetBucketLocationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["LocationConstraint"] !== undefined) {
-    contents.LocationConstraint = data["LocationConstraint"];
+    contents.LocationConstraint = __expectString(data["LocationConstraint"]);
   }
   return Promise.resolve(contents);
 };
@@ -6720,7 +6722,7 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
     Policy: undefined,
   };
   const data: any = await collectBodyString(output.body, context);
-  contents.Policy = data;
+  contents.Policy = __expectString(data);
   return Promise.resolve(contents);
 };
 
@@ -6856,7 +6858,7 @@ export const deserializeAws_restXmlGetBucketRequestPaymentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Payer"] !== undefined) {
-    contents.Payer = data["Payer"];
+    contents.Payer = __expectString(data["Payer"]);
   }
   return Promise.resolve(contents);
 };
@@ -6954,10 +6956,10 @@ export const deserializeAws_restXmlGetBucketVersioningCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["MfaDelete"] !== undefined) {
-    contents.MFADelete = data["MfaDelete"];
+    contents.MFADelete = __expectString(data["MfaDelete"]);
   }
   if (data["Status"] !== undefined) {
-    contents.Status = data["Status"];
+    contents.Status = __expectString(data["Status"]);
   }
   return Promise.resolve(contents);
 };
@@ -7102,7 +7104,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     WebsiteRedirectLocation: undefined,
   };
   if (output.headers["x-amz-delete-marker"] !== undefined) {
-    contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
   }
   if (output.headers["accept-ranges"] !== undefined) {
     contents.AcceptRanges = output.headers["accept-ranges"];
@@ -7165,7 +7167,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-storage-class"] !== undefined) {
     contents.StorageClass = output.headers["x-amz-storage-class"];
@@ -7690,7 +7692,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     WebsiteRedirectLocation: undefined,
   };
   if (output.headers["x-amz-delete-marker"] !== undefined) {
-    contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
   }
   if (output.headers["accept-ranges"] !== undefined) {
     contents.AcceptRanges = output.headers["accept-ranges"];
@@ -7753,7 +7755,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-storage-class"] !== undefined) {
     contents.StorageClass = output.headers["x-amz-storage-class"];
@@ -7850,13 +7852,13 @@ export const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand = as
     );
   }
   if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = data["ContinuationToken"];
+    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = data["NextContinuationToken"];
+    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
   }
   return Promise.resolve(contents);
 };
@@ -7906,7 +7908,7 @@ export const deserializeAws_restXmlListBucketIntelligentTieringConfigurationsCom
   };
   const data: any = await parseBody(output.body, context);
   if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = data["ContinuationToken"];
+    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
   }
   if (data.IntelligentTieringConfiguration === "") {
     contents.IntelligentTieringConfigurationList = [];
@@ -7918,10 +7920,10 @@ export const deserializeAws_restXmlListBucketIntelligentTieringConfigurationsCom
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = data["NextContinuationToken"];
+    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
   }
   return Promise.resolve(contents);
 };
@@ -7971,7 +7973,7 @@ export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = as
   };
   const data: any = await parseBody(output.body, context);
   if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = data["ContinuationToken"];
+    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
   }
   if (data.InventoryConfiguration === "") {
     contents.InventoryConfigurationList = [];
@@ -7983,10 +7985,10 @@ export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = as
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = data["NextContinuationToken"];
+    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
   }
   return Promise.resolve(contents);
 };
@@ -8036,10 +8038,10 @@ export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = data["ContinuationToken"];
+    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data.MetricsConfiguration === "") {
     contents.MetricsConfigurationList = [];
@@ -8051,7 +8053,7 @@ export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = asyn
     );
   }
   if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = data["NextContinuationToken"];
+    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
   }
   return Promise.resolve(contents);
 };
@@ -8163,7 +8165,7 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
-    contents.Bucket = data["Bucket"];
+    contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data.CommonPrefixes === "") {
     contents.CommonPrefixes = [];
@@ -8175,31 +8177,31 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
     );
   }
   if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = data["Delimiter"];
+    contents.Delimiter = __expectString(data["Delimiter"]);
   }
   if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = data["EncodingType"];
+    contents.EncodingType = __expectString(data["EncodingType"]);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["KeyMarker"] !== undefined) {
-    contents.KeyMarker = data["KeyMarker"];
+    contents.KeyMarker = __expectString(data["KeyMarker"]);
   }
   if (data["MaxUploads"] !== undefined) {
     contents.MaxUploads = parseInt(data["MaxUploads"]);
   }
   if (data["NextKeyMarker"] !== undefined) {
-    contents.NextKeyMarker = data["NextKeyMarker"];
+    contents.NextKeyMarker = __expectString(data["NextKeyMarker"]);
   }
   if (data["NextUploadIdMarker"] !== undefined) {
-    contents.NextUploadIdMarker = data["NextUploadIdMarker"];
+    contents.NextUploadIdMarker = __expectString(data["NextUploadIdMarker"]);
   }
   if (data["Prefix"] !== undefined) {
-    contents.Prefix = data["Prefix"];
+    contents.Prefix = __expectString(data["Prefix"]);
   }
   if (data["UploadIdMarker"] !== undefined) {
-    contents.UploadIdMarker = data["UploadIdMarker"];
+    contents.UploadIdMarker = __expectString(data["UploadIdMarker"]);
   }
   if (data.Upload === "") {
     contents.Uploads = [];
@@ -8276,28 +8278,28 @@ export const deserializeAws_restXmlListObjectsCommand = async (
     contents.Contents = deserializeAws_restXmlObjectList(__getArrayIfSingleItem(data["Contents"]), context);
   }
   if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = data["Delimiter"];
+    contents.Delimiter = __expectString(data["Delimiter"]);
   }
   if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = data["EncodingType"];
+    contents.EncodingType = __expectString(data["EncodingType"]);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["Marker"] !== undefined) {
-    contents.Marker = data["Marker"];
+    contents.Marker = __expectString(data["Marker"]);
   }
   if (data["MaxKeys"] !== undefined) {
     contents.MaxKeys = parseInt(data["MaxKeys"]);
   }
   if (data["Name"] !== undefined) {
-    contents.Name = data["Name"];
+    contents.Name = __expectString(data["Name"]);
   }
   if (data["NextMarker"] !== undefined) {
-    contents.NextMarker = data["NextMarker"];
+    contents.NextMarker = __expectString(data["NextMarker"]);
   }
   if (data["Prefix"] !== undefined) {
-    contents.Prefix = data["Prefix"];
+    contents.Prefix = __expectString(data["Prefix"]);
   }
   return Promise.resolve(contents);
 };
@@ -8378,16 +8380,16 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.Contents = deserializeAws_restXmlObjectList(__getArrayIfSingleItem(data["Contents"]), context);
   }
   if (data["ContinuationToken"] !== undefined) {
-    contents.ContinuationToken = data["ContinuationToken"];
+    contents.ContinuationToken = __expectString(data["ContinuationToken"]);
   }
   if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = data["Delimiter"];
+    contents.Delimiter = __expectString(data["Delimiter"]);
   }
   if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = data["EncodingType"];
+    contents.EncodingType = __expectString(data["EncodingType"]);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["KeyCount"] !== undefined) {
     contents.KeyCount = parseInt(data["KeyCount"]);
@@ -8396,16 +8398,16 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
     contents.MaxKeys = parseInt(data["MaxKeys"]);
   }
   if (data["Name"] !== undefined) {
-    contents.Name = data["Name"];
+    contents.Name = __expectString(data["Name"]);
   }
   if (data["NextContinuationToken"] !== undefined) {
-    contents.NextContinuationToken = data["NextContinuationToken"];
+    contents.NextContinuationToken = __expectString(data["NextContinuationToken"]);
   }
   if (data["Prefix"] !== undefined) {
-    contents.Prefix = data["Prefix"];
+    contents.Prefix = __expectString(data["Prefix"]);
   }
   if (data["StartAfter"] !== undefined) {
-    contents.StartAfter = data["StartAfter"];
+    contents.StartAfter = __expectString(data["StartAfter"]);
   }
   return Promise.resolve(contents);
 };
@@ -8487,34 +8489,34 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
     contents.DeleteMarkers = deserializeAws_restXmlDeleteMarkers(__getArrayIfSingleItem(data["DeleteMarker"]), context);
   }
   if (data["Delimiter"] !== undefined) {
-    contents.Delimiter = data["Delimiter"];
+    contents.Delimiter = __expectString(data["Delimiter"]);
   }
   if (data["EncodingType"] !== undefined) {
-    contents.EncodingType = data["EncodingType"];
+    contents.EncodingType = __expectString(data["EncodingType"]);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["KeyMarker"] !== undefined) {
-    contents.KeyMarker = data["KeyMarker"];
+    contents.KeyMarker = __expectString(data["KeyMarker"]);
   }
   if (data["MaxKeys"] !== undefined) {
     contents.MaxKeys = parseInt(data["MaxKeys"]);
   }
   if (data["Name"] !== undefined) {
-    contents.Name = data["Name"];
+    contents.Name = __expectString(data["Name"]);
   }
   if (data["NextKeyMarker"] !== undefined) {
-    contents.NextKeyMarker = data["NextKeyMarker"];
+    contents.NextKeyMarker = __expectString(data["NextKeyMarker"]);
   }
   if (data["NextVersionIdMarker"] !== undefined) {
-    contents.NextVersionIdMarker = data["NextVersionIdMarker"];
+    contents.NextVersionIdMarker = __expectString(data["NextVersionIdMarker"]);
   }
   if (data["Prefix"] !== undefined) {
-    contents.Prefix = data["Prefix"];
+    contents.Prefix = __expectString(data["Prefix"]);
   }
   if (data["VersionIdMarker"] !== undefined) {
-    contents.VersionIdMarker = data["VersionIdMarker"];
+    contents.VersionIdMarker = __expectString(data["VersionIdMarker"]);
   }
   if (data.Version === "") {
     contents.Versions = [];
@@ -8589,28 +8591,28 @@ export const deserializeAws_restXmlListPartsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
-    contents.Bucket = data["Bucket"];
+    contents.Bucket = __expectString(data["Bucket"]);
   }
   if (data["Initiator"] !== undefined) {
     contents.Initiator = deserializeAws_restXmlInitiator(data["Initiator"], context);
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["Key"] !== undefined) {
-    contents.Key = data["Key"];
+    contents.Key = __expectString(data["Key"]);
   }
   if (data["MaxParts"] !== undefined) {
     contents.MaxParts = parseInt(data["MaxParts"]);
   }
   if (data["NextPartNumberMarker"] !== undefined) {
-    contents.NextPartNumberMarker = data["NextPartNumberMarker"];
+    contents.NextPartNumberMarker = __expectString(data["NextPartNumberMarker"]);
   }
   if (data["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(data["Owner"], context);
   }
   if (data["PartNumberMarker"] !== undefined) {
-    contents.PartNumberMarker = data["PartNumberMarker"];
+    contents.PartNumberMarker = __expectString(data["PartNumberMarker"]);
   }
   if (data.Part === "") {
     contents.Parts = [];
@@ -8619,10 +8621,10 @@ export const deserializeAws_restXmlListPartsCommand = async (
     contents.Parts = deserializeAws_restXmlParts(__getArrayIfSingleItem(data["Part"]), context);
   }
   if (data["StorageClass"] !== undefined) {
-    contents.StorageClass = data["StorageClass"];
+    contents.StorageClass = __expectString(data["StorageClass"]);
   }
   if (data["UploadId"] !== undefined) {
-    contents.UploadId = data["UploadId"];
+    contents.UploadId = __expectString(data["UploadId"]);
   }
   return Promise.resolve(contents);
 };
@@ -9475,7 +9477,7 @@ export const deserializeAws_restXmlPutObjectCommand = async (
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -9950,7 +9952,7 @@ export const deserializeAws_restXmlUploadPartCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -10022,7 +10024,7 @@ export const deserializeAws_restXmlUploadPartCopyCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -10206,10 +10208,10 @@ const deserializeAws_restXmlInvalidObjectStateResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data["AccessTier"] !== undefined) {
-    contents.AccessTier = data["AccessTier"];
+    contents.AccessTier = __expectString(data["AccessTier"]);
   }
   if (data["StorageClass"] !== undefined) {
-    contents.StorageClass = data["StorageClass"];
+    contents.StorageClass = __expectString(data["StorageClass"]);
   }
   return contents;
 };
@@ -12546,7 +12548,7 @@ const deserializeAws_restXmlAccessControlTranslation = (
     Owner: undefined,
   };
   if (output["Owner"] !== undefined) {
-    contents.Owner = output["Owner"];
+    contents.Owner = __expectString(output["Owner"]);
   }
   return contents;
 };
@@ -12558,7 +12560,7 @@ const deserializeAws_restXmlAllowedHeaders = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -12569,7 +12571,7 @@ const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -12580,7 +12582,7 @@ const deserializeAws_restXmlAllowedOrigins = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -12590,7 +12592,7 @@ const deserializeAws_restXmlAnalyticsAndOperator = (output: any, context: __Serd
     Tags: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output.Tag === "") {
     contents.Tags = [];
@@ -12608,7 +12610,7 @@ const deserializeAws_restXmlAnalyticsConfiguration = (output: any, context: __Se
     StorageClassAnalysis: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlAnalyticsFilter(output["Filter"], context);
@@ -12652,7 +12654,7 @@ const deserializeAws_restXmlAnalyticsExportDestination = (
 const deserializeAws_restXmlAnalyticsFilter = (output: any, context: __SerdeContext): AnalyticsFilter => {
   if (output["Prefix"] !== undefined) {
     return {
-      Prefix: output["Prefix"],
+      Prefix: __expectString(output["Prefix"]) as any,
     };
   }
   if (output["Tag"] !== undefined) {
@@ -12679,16 +12681,16 @@ const deserializeAws_restXmlAnalyticsS3BucketDestination = (
     Prefix: undefined,
   };
   if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
+    contents.Format = __expectString(output["Format"]);
   }
   if (output["BucketAccountId"] !== undefined) {
-    contents.BucketAccountId = output["BucketAccountId"];
+    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
   }
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   return contents;
 };
@@ -12699,7 +12701,7 @@ const deserializeAws_restXmlBucket = (output: any, context: __SerdeContext): Buc
     CreationDate: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(output["CreationDate"]);
@@ -12723,7 +12725,7 @@ const deserializeAws_restXmlCommonPrefix = (output: any, context: __SerdeContext
     Prefix: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   return contents;
 };
@@ -12745,10 +12747,10 @@ const deserializeAws_restXmlCondition = (output: any, context: __SerdeContext): 
     KeyPrefixEquals: undefined,
   };
   if (output["HttpErrorCodeReturnedEquals"] !== undefined) {
-    contents.HttpErrorCodeReturnedEquals = output["HttpErrorCodeReturnedEquals"];
+    contents.HttpErrorCodeReturnedEquals = __expectString(output["HttpErrorCodeReturnedEquals"]);
   }
   if (output["KeyPrefixEquals"] !== undefined) {
-    contents.KeyPrefixEquals = output["KeyPrefixEquals"];
+    contents.KeyPrefixEquals = __expectString(output["KeyPrefixEquals"]);
   }
   return contents;
 };
@@ -12764,7 +12766,7 @@ const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeCon
     LastModified: undefined,
   };
   if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
+    contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
@@ -12778,7 +12780,7 @@ const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeConte
     LastModified: undefined,
   };
   if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
+    contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
@@ -12796,7 +12798,7 @@ const deserializeAws_restXmlCORSRule = (output: any, context: __SerdeContext): C
     MaxAgeSeconds: undefined,
   };
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output.AllowedHeader === "") {
     contents.AllowedHeaders = [];
@@ -12858,7 +12860,7 @@ const deserializeAws_restXmlDefaultRetention = (output: any, context: __SerdeCon
     Years: undefined,
   };
   if (output["Mode"] !== undefined) {
-    contents.Mode = output["Mode"];
+    contents.Mode = __expectString(output["Mode"]);
   }
   if (output["Days"] !== undefined) {
     contents.Days = parseInt(output["Days"]);
@@ -12877,16 +12879,16 @@ const deserializeAws_restXmlDeletedObject = (output: any, context: __SerdeContex
     DeleteMarkerVersionId: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["VersionId"] !== undefined) {
-    contents.VersionId = output["VersionId"];
+    contents.VersionId = __expectString(output["VersionId"]);
   }
   if (output["DeleteMarker"] !== undefined) {
-    contents.DeleteMarker = output["DeleteMarker"] == "true";
+    contents.DeleteMarker = __parseBoolean(output["DeleteMarker"]);
   }
   if (output["DeleteMarkerVersionId"] !== undefined) {
-    contents.DeleteMarkerVersionId = output["DeleteMarkerVersionId"];
+    contents.DeleteMarkerVersionId = __expectString(output["DeleteMarkerVersionId"]);
   }
   return contents;
 };
@@ -12914,13 +12916,13 @@ const deserializeAws_restXmlDeleteMarkerEntry = (output: any, context: __SerdeCo
     contents.Owner = deserializeAws_restXmlOwner(output["Owner"], context);
   }
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["VersionId"] !== undefined) {
-    contents.VersionId = output["VersionId"];
+    contents.VersionId = __expectString(output["VersionId"]);
   }
   if (output["IsLatest"] !== undefined) {
-    contents.IsLatest = output["IsLatest"] == "true";
+    contents.IsLatest = __parseBoolean(output["IsLatest"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
@@ -12936,7 +12938,7 @@ const deserializeAws_restXmlDeleteMarkerReplication = (
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -12963,13 +12965,13 @@ const deserializeAws_restXmlDestination = (output: any, context: __SerdeContext)
     Metrics: undefined,
   };
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["Account"] !== undefined) {
-    contents.Account = output["Account"];
+    contents.Account = __expectString(output["Account"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["AccessControlTranslation"] !== undefined) {
     contents.AccessControlTranslation = deserializeAws_restXmlAccessControlTranslation(
@@ -13000,7 +13002,7 @@ const deserializeAws_restXmlEncryptionConfiguration = (
     ReplicaKmsKeyID: undefined,
   };
   if (output["ReplicaKmsKeyID"] !== undefined) {
-    contents.ReplicaKmsKeyID = output["ReplicaKmsKeyID"];
+    contents.ReplicaKmsKeyID = __expectString(output["ReplicaKmsKeyID"]);
   }
   return contents;
 };
@@ -13018,16 +13020,16 @@ const deserializeAws_restXml_Error = (output: any, context: __SerdeContext): _Er
     Message: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["VersionId"] !== undefined) {
-    contents.VersionId = output["VersionId"];
+    contents.VersionId = __expectString(output["VersionId"]);
   }
   if (output["Code"] !== undefined) {
-    contents.Code = output["Code"];
+    contents.Code = __expectString(output["Code"]);
   }
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -13037,7 +13039,7 @@ const deserializeAws_restXmlErrorDocument = (output: any, context: __SerdeContex
     Key: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   return contents;
 };
@@ -13060,7 +13062,7 @@ const deserializeAws_restXmlEventList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13072,7 +13074,7 @@ const deserializeAws_restXmlExistingObjectReplication = (
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -13084,7 +13086,7 @@ const deserializeAws_restXmlExposeHeaders = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13094,10 +13096,10 @@ const deserializeAws_restXmlFilterRule = (output: any, context: __SerdeContext):
     Value: undefined,
   };
   if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
+    contents.Name = __expectString(output["Name"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -13122,7 +13124,7 @@ const deserializeAws_restXmlGrant = (output: any, context: __SerdeContext): Gran
     contents.Grantee = deserializeAws_restXmlGrantee(output["Grantee"], context);
   }
   if (output["Permission"] !== undefined) {
-    contents.Permission = output["Permission"];
+    contents.Permission = __expectString(output["Permission"]);
   }
   return contents;
 };
@@ -13136,19 +13138,19 @@ const deserializeAws_restXmlGrantee = (output: any, context: __SerdeContext): Gr
     Type: undefined,
   };
   if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = output["DisplayName"];
+    contents.DisplayName = __expectString(output["DisplayName"]);
   }
   if (output["EmailAddress"] !== undefined) {
-    contents.EmailAddress = output["EmailAddress"];
+    contents.EmailAddress = __expectString(output["EmailAddress"]);
   }
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output["URI"] !== undefined) {
-    contents.URI = output["URI"];
+    contents.URI = __expectString(output["URI"]);
   }
   if (output["xsi:type"] !== undefined) {
-    contents.Type = output["xsi:type"];
+    contents.Type = __expectString(output["xsi:type"]);
   }
   return contents;
 };
@@ -13169,7 +13171,7 @@ const deserializeAws_restXmlIndexDocument = (output: any, context: __SerdeContex
     Suffix: undefined,
   };
   if (output["Suffix"] !== undefined) {
-    contents.Suffix = output["Suffix"];
+    contents.Suffix = __expectString(output["Suffix"]);
   }
   return contents;
 };
@@ -13180,10 +13182,10 @@ const deserializeAws_restXmlInitiator = (output: any, context: __SerdeContext): 
     DisplayName: undefined,
   };
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = output["DisplayName"];
+    contents.DisplayName = __expectString(output["DisplayName"]);
   }
   return contents;
 };
@@ -13197,7 +13199,7 @@ const deserializeAws_restXmlIntelligentTieringAndOperator = (
     Tags: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output.Tag === "") {
     contents.Tags = [];
@@ -13219,13 +13221,13 @@ const deserializeAws_restXmlIntelligentTieringConfiguration = (
     Tierings: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlIntelligentTieringFilter(output["Filter"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output.Tiering === "") {
     contents.Tierings = [];
@@ -13260,7 +13262,7 @@ const deserializeAws_restXmlIntelligentTieringFilter = (
     And: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["Tag"] !== undefined) {
     contents.Tag = deserializeAws_restXmlTag(output["Tag"], context);
@@ -13285,16 +13287,16 @@ const deserializeAws_restXmlInventoryConfiguration = (output: any, context: __Se
     contents.Destination = deserializeAws_restXmlInventoryDestination(output["Destination"], context);
   }
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlInventoryFilter(output["Filter"], context);
   }
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["IncludedObjectVersions"] !== undefined) {
-    contents.IncludedObjectVersions = output["IncludedObjectVersions"];
+    contents.IncludedObjectVersions = __expectString(output["IncludedObjectVersions"]);
   }
   if (output.OptionalFields === "") {
     contents.OptionalFields = [];
@@ -13357,7 +13359,7 @@ const deserializeAws_restXmlInventoryFilter = (output: any, context: __SerdeCont
     Prefix: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   return contents;
 };
@@ -13372,7 +13374,7 @@ const deserializeAws_restXmlInventoryOptionalFields = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -13388,16 +13390,16 @@ const deserializeAws_restXmlInventoryS3BucketDestination = (
     Encryption: undefined,
   };
   if (output["AccountId"] !== undefined) {
-    contents.AccountId = output["AccountId"];
+    contents.AccountId = __expectString(output["AccountId"]);
   }
   if (output["Bucket"] !== undefined) {
-    contents.Bucket = output["Bucket"];
+    contents.Bucket = __expectString(output["Bucket"]);
   }
   if (output["Format"] !== undefined) {
-    contents.Format = output["Format"];
+    contents.Format = __expectString(output["Format"]);
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["Encryption"] !== undefined) {
     contents.Encryption = deserializeAws_restXmlInventoryEncryption(output["Encryption"], context);
@@ -13410,7 +13412,7 @@ const deserializeAws_restXmlInventorySchedule = (output: any, context: __SerdeCo
     Frequency: undefined,
   };
   if (output["Frequency"] !== undefined) {
-    contents.Frequency = output["Frequency"];
+    contents.Frequency = __expectString(output["Frequency"]);
   }
   return contents;
 };
@@ -13426,10 +13428,10 @@ const deserializeAws_restXmlLambdaFunctionConfiguration = (
     Filter: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["CloudFunction"] !== undefined) {
-    contents.LambdaFunctionArn = output["CloudFunction"];
+    contents.LambdaFunctionArn = __expectString(output["CloudFunction"]);
   }
   if (output.Event === "") {
     contents.Events = [];
@@ -13470,7 +13472,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     contents.Days = parseInt(output["Days"]);
   }
   if (output["ExpiredObjectDeleteMarker"] !== undefined) {
-    contents.ExpiredObjectDeleteMarker = output["ExpiredObjectDeleteMarker"] == "true";
+    contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
   }
   return contents;
 };
@@ -13491,16 +13493,16 @@ const deserializeAws_restXmlLifecycleRule = (output: any, context: __SerdeContex
     contents.Expiration = deserializeAws_restXmlLifecycleExpiration(output["Expiration"], context);
   }
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlLifecycleRuleFilter(output["Filter"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output.Transition === "") {
     contents.Transitions = [];
@@ -13541,7 +13543,7 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
     Tags: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output.Tag === "") {
     contents.Tags = [];
@@ -13555,7 +13557,7 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
 const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
   if (output["Prefix"] !== undefined) {
     return {
-      Prefix: output["Prefix"],
+      Prefix: __expectString(output["Prefix"]) as any,
     };
   }
   if (output["Tag"] !== undefined) {
@@ -13589,7 +13591,7 @@ const deserializeAws_restXmlLoggingEnabled = (output: any, context: __SerdeConte
     TargetPrefix: undefined,
   };
   if (output["TargetBucket"] !== undefined) {
-    contents.TargetBucket = output["TargetBucket"];
+    contents.TargetBucket = __expectString(output["TargetBucket"]);
   }
   if (output.TargetGrants === "") {
     contents.TargetGrants = [];
@@ -13601,7 +13603,7 @@ const deserializeAws_restXmlLoggingEnabled = (output: any, context: __SerdeConte
     );
   }
   if (output["TargetPrefix"] !== undefined) {
-    contents.TargetPrefix = output["TargetPrefix"];
+    contents.TargetPrefix = __expectString(output["TargetPrefix"]);
   }
   return contents;
 };
@@ -13612,7 +13614,7 @@ const deserializeAws_restXmlMetrics = (output: any, context: __SerdeContext): Me
     EventThreshold: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["EventThreshold"] !== undefined) {
     contents.EventThreshold = deserializeAws_restXmlReplicationTimeValue(output["EventThreshold"], context);
@@ -13626,7 +13628,7 @@ const deserializeAws_restXmlMetricsAndOperator = (output: any, context: __SerdeC
     Tags: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output.Tag === "") {
     contents.Tags = [];
@@ -13643,7 +13645,7 @@ const deserializeAws_restXmlMetricsConfiguration = (output: any, context: __Serd
     Filter: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlMetricsFilter(output["Filter"], context);
@@ -13668,7 +13670,7 @@ const deserializeAws_restXmlMetricsConfigurationList = (
 const deserializeAws_restXmlMetricsFilter = (output: any, context: __SerdeContext): MetricsFilter => {
   if (output["Prefix"] !== undefined) {
     return {
-      Prefix: output["Prefix"],
+      Prefix: __expectString(output["Prefix"]) as any,
     };
   }
   if (output["Tag"] !== undefined) {
@@ -13694,16 +13696,16 @@ const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeCont
     Initiator: undefined,
   };
   if (output["UploadId"] !== undefined) {
-    contents.UploadId = output["UploadId"];
+    contents.UploadId = __expectString(output["UploadId"]);
   }
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Initiated"] !== undefined) {
     contents.Initiated = new Date(output["Initiated"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(output["Owner"], context);
@@ -13750,7 +13752,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
     contents.NoncurrentDays = parseInt(output["NoncurrentDays"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   return contents;
 };
@@ -13792,19 +13794,19 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
     Owner: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
   }
   if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
+    contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
     contents.Size = parseInt(output["Size"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = deserializeAws_restXmlOwner(output["Owner"], context);
@@ -13832,7 +13834,7 @@ const deserializeAws_restXmlObjectLockConfiguration = (
     Rule: undefined,
   };
   if (output["ObjectLockEnabled"] !== undefined) {
-    contents.ObjectLockEnabled = output["ObjectLockEnabled"];
+    contents.ObjectLockEnabled = __expectString(output["ObjectLockEnabled"]);
   }
   if (output["Rule"] !== undefined) {
     contents.Rule = deserializeAws_restXmlObjectLockRule(output["Rule"], context);
@@ -13845,7 +13847,7 @@ const deserializeAws_restXmlObjectLockLegalHold = (output: any, context: __Serde
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -13856,7 +13858,7 @@ const deserializeAws_restXmlObjectLockRetention = (output: any, context: __Serde
     RetainUntilDate: undefined,
   };
   if (output["Mode"] !== undefined) {
-    contents.Mode = output["Mode"];
+    contents.Mode = __expectString(output["Mode"]);
   }
   if (output["RetainUntilDate"] !== undefined) {
     contents.RetainUntilDate = new Date(output["RetainUntilDate"]);
@@ -13886,22 +13888,22 @@ const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContex
     Owner: undefined,
   };
   if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
+    contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
     contents.Size = parseInt(output["Size"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["VersionId"] !== undefined) {
-    contents.VersionId = output["VersionId"];
+    contents.VersionId = __expectString(output["VersionId"]);
   }
   if (output["IsLatest"] !== undefined) {
-    contents.IsLatest = output["IsLatest"] == "true";
+    contents.IsLatest = __parseBoolean(output["IsLatest"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = new Date(output["LastModified"]);
@@ -13929,10 +13931,10 @@ const deserializeAws_restXmlOwner = (output: any, context: __SerdeContext): Owne
     ID: undefined,
   };
   if (output["DisplayName"] !== undefined) {
-    contents.DisplayName = output["DisplayName"];
+    contents.DisplayName = __expectString(output["DisplayName"]);
   }
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   return contents;
 };
@@ -13955,7 +13957,7 @@ const deserializeAws_restXmlOwnershipControlsRule = (output: any, context: __Ser
     ObjectOwnership: undefined,
   };
   if (output["ObjectOwnership"] !== undefined) {
-    contents.ObjectOwnership = output["ObjectOwnership"];
+    contents.ObjectOwnership = __expectString(output["ObjectOwnership"]);
   }
   return contents;
 };
@@ -13988,7 +13990,7 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     contents.LastModified = new Date(output["LastModified"]);
   }
   if (output["ETag"] !== undefined) {
-    contents.ETag = output["ETag"];
+    contents.ETag = __expectString(output["ETag"]);
   }
   if (output["Size"] !== undefined) {
     contents.Size = parseInt(output["Size"]);
@@ -14012,7 +14014,7 @@ const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext
     IsPublic: undefined,
   };
   if (output["IsPublic"] !== undefined) {
-    contents.IsPublic = output["IsPublic"] == "true";
+    contents.IsPublic = __parseBoolean(output["IsPublic"]);
   }
   return contents;
 };
@@ -14056,16 +14058,16 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
     RestrictPublicBuckets: undefined,
   };
   if (output["BlockPublicAcls"] !== undefined) {
-    contents.BlockPublicAcls = output["BlockPublicAcls"] == "true";
+    contents.BlockPublicAcls = __parseBoolean(output["BlockPublicAcls"]);
   }
   if (output["IgnorePublicAcls"] !== undefined) {
-    contents.IgnorePublicAcls = output["IgnorePublicAcls"] == "true";
+    contents.IgnorePublicAcls = __parseBoolean(output["IgnorePublicAcls"]);
   }
   if (output["BlockPublicPolicy"] !== undefined) {
-    contents.BlockPublicPolicy = output["BlockPublicPolicy"] == "true";
+    contents.BlockPublicPolicy = __parseBoolean(output["BlockPublicPolicy"]);
   }
   if (output["RestrictPublicBuckets"] !== undefined) {
-    contents.RestrictPublicBuckets = output["RestrictPublicBuckets"] == "true";
+    contents.RestrictPublicBuckets = __parseBoolean(output["RestrictPublicBuckets"]);
   }
   return contents;
 };
@@ -14078,10 +14080,10 @@ const deserializeAws_restXmlQueueConfiguration = (output: any, context: __SerdeC
     Filter: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["Queue"] !== undefined) {
-    contents.QueueArn = output["Queue"];
+    contents.QueueArn = __expectString(output["Queue"]);
   }
   if (output.Event === "") {
     contents.Events = [];
@@ -14125,19 +14127,19 @@ const deserializeAws_restXmlRedirect = (output: any, context: __SerdeContext): R
     ReplaceKeyWith: undefined,
   };
   if (output["HostName"] !== undefined) {
-    contents.HostName = output["HostName"];
+    contents.HostName = __expectString(output["HostName"]);
   }
   if (output["HttpRedirectCode"] !== undefined) {
-    contents.HttpRedirectCode = output["HttpRedirectCode"];
+    contents.HttpRedirectCode = __expectString(output["HttpRedirectCode"]);
   }
   if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
+    contents.Protocol = __expectString(output["Protocol"]);
   }
   if (output["ReplaceKeyPrefixWith"] !== undefined) {
-    contents.ReplaceKeyPrefixWith = output["ReplaceKeyPrefixWith"];
+    contents.ReplaceKeyPrefixWith = __expectString(output["ReplaceKeyPrefixWith"]);
   }
   if (output["ReplaceKeyWith"] !== undefined) {
-    contents.ReplaceKeyWith = output["ReplaceKeyWith"];
+    contents.ReplaceKeyWith = __expectString(output["ReplaceKeyWith"]);
   }
   return contents;
 };
@@ -14148,10 +14150,10 @@ const deserializeAws_restXmlRedirectAllRequestsTo = (output: any, context: __Ser
     Protocol: undefined,
   };
   if (output["HostName"] !== undefined) {
-    contents.HostName = output["HostName"];
+    contents.HostName = __expectString(output["HostName"]);
   }
   if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
+    contents.Protocol = __expectString(output["Protocol"]);
   }
   return contents;
 };
@@ -14161,7 +14163,7 @@ const deserializeAws_restXmlReplicaModifications = (output: any, context: __Serd
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -14175,7 +14177,7 @@ const deserializeAws_restXmlReplicationConfiguration = (
     Rules: undefined,
   };
   if (output["Role"] !== undefined) {
-    contents.Role = output["Role"];
+    contents.Role = __expectString(output["Role"]);
   }
   if (output.Rule === "") {
     contents.Rules = [];
@@ -14199,19 +14201,19 @@ const deserializeAws_restXmlReplicationRule = (output: any, context: __SerdeCont
     DeleteMarkerReplication: undefined,
   };
   if (output["ID"] !== undefined) {
-    contents.ID = output["ID"];
+    contents.ID = __expectString(output["ID"]);
   }
   if (output["Priority"] !== undefined) {
     contents.Priority = parseInt(output["Priority"]);
   }
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output["Filter"] !== undefined) {
     contents.Filter = deserializeAws_restXmlReplicationRuleFilter(output["Filter"], context);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["SourceSelectionCriteria"] !== undefined) {
     contents.SourceSelectionCriteria = deserializeAws_restXmlSourceSelectionCriteria(
@@ -14246,7 +14248,7 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
     Tags: undefined,
   };
   if (output["Prefix"] !== undefined) {
-    contents.Prefix = output["Prefix"];
+    contents.Prefix = __expectString(output["Prefix"]);
   }
   if (output.Tag === "") {
     contents.Tags = [];
@@ -14260,7 +14262,7 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
 const deserializeAws_restXmlReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
   if (output["Prefix"] !== undefined) {
     return {
-      Prefix: output["Prefix"],
+      Prefix: __expectString(output["Prefix"]) as any,
     };
   }
   if (output["Tag"] !== undefined) {
@@ -14293,7 +14295,7 @@ const deserializeAws_restXmlReplicationTime = (output: any, context: __SerdeCont
     Time: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Time"] !== undefined) {
     contents.Time = deserializeAws_restXmlReplicationTimeValue(output["Time"], context);
@@ -14390,10 +14392,10 @@ const deserializeAws_restXmlServerSideEncryptionByDefault = (
     KMSMasterKeyID: undefined,
   };
   if (output["SSEAlgorithm"] !== undefined) {
-    contents.SSEAlgorithm = output["SSEAlgorithm"];
+    contents.SSEAlgorithm = __expectString(output["SSEAlgorithm"]);
   }
   if (output["KMSMasterKeyID"] !== undefined) {
-    contents.KMSMasterKeyID = output["KMSMasterKeyID"];
+    contents.KMSMasterKeyID = __expectString(output["KMSMasterKeyID"]);
   }
   return contents;
 };
@@ -14429,7 +14431,7 @@ const deserializeAws_restXmlServerSideEncryptionRule = (
     );
   }
   if (output["BucketKeyEnabled"] !== undefined) {
-    contents.BucketKeyEnabled = output["BucketKeyEnabled"] == "true";
+    contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
   }
   return contents;
 };
@@ -14473,7 +14475,7 @@ const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSE
     KeyId: undefined,
   };
   if (output["KeyId"] !== undefined) {
-    contents.KeyId = output["KeyId"];
+    contents.KeyId = __expectString(output["KeyId"]);
   }
   return contents;
 };
@@ -14483,7 +14485,7 @@ const deserializeAws_restXmlSseKmsEncryptedObjects = (output: any, context: __Se
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -14540,7 +14542,7 @@ const deserializeAws_restXmlStorageClassAnalysisDataExport = (
     Destination: undefined,
   };
   if (output["OutputSchemaVersion"] !== undefined) {
-    contents.OutputSchemaVersion = output["OutputSchemaVersion"];
+    contents.OutputSchemaVersion = __expectString(output["OutputSchemaVersion"]);
   }
   if (output["Destination"] !== undefined) {
     contents.Destination = deserializeAws_restXmlAnalyticsExportDestination(output["Destination"], context);
@@ -14554,10 +14556,10 @@ const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag =>
     Value: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -14582,7 +14584,7 @@ const deserializeAws_restXmlTargetGrant = (output: any, context: __SerdeContext)
     contents.Grantee = deserializeAws_restXmlGrantee(output["Grantee"], context);
   }
   if (output["Permission"] !== undefined) {
-    contents.Permission = output["Permission"];
+    contents.Permission = __expectString(output["Permission"]);
   }
   return contents;
 };
@@ -14607,7 +14609,7 @@ const deserializeAws_restXmlTiering = (output: any, context: __SerdeContext): Ti
     contents.Days = parseInt(output["Days"]);
   }
   if (output["AccessTier"] !== undefined) {
-    contents.AccessTier = output["AccessTier"];
+    contents.AccessTier = __expectString(output["AccessTier"]);
   }
   return contents;
 };
@@ -14631,10 +14633,10 @@ const deserializeAws_restXmlTopicConfiguration = (output: any, context: __SerdeC
     Filter: undefined,
   };
   if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+    contents.Id = __expectString(output["Id"]);
   }
   if (output["Topic"] !== undefined) {
-    contents.TopicArn = output["Topic"];
+    contents.TopicArn = __expectString(output["Topic"]);
   }
   if (output.Event === "") {
     contents.Events = [];
@@ -14672,7 +14674,7 @@ const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext):
     contents.Days = parseInt(output["Days"]);
   }
   if (output["StorageClass"] !== undefined) {
-    contents.StorageClass = output["StorageClass"];
+    contents.StorageClass = __expectString(output["StorageClass"]);
   }
   return contents;
 };

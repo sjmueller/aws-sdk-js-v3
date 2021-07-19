@@ -5,7 +5,11 @@ import {
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand.ts";
 import { EdgeMetric, InternalServiceException, Model } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
+import {
+  SmithyException as __SmithyException,
+  expectString as __expectString,
+  serializeFloat as __serializeFloat,
+} from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -17,17 +21,17 @@ export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   input: GetDeviceRegistrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/GetDeviceRegistration";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeviceRegistration";
   let body: any;
   body = JSON.stringify({
     ...(input.DeviceFleetName !== undefined &&
       input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
     ...(input.DeviceName !== undefined && input.DeviceName !== null && { DeviceName: input.DeviceName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -43,10 +47,11 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   input: SendHeartbeatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/SendHeartbeat";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
   let body: any;
   body = JSON.stringify({
     ...(input.AgentMetrics !== undefined &&
@@ -58,7 +63,6 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
     ...(input.Models !== undefined &&
       input.Models !== null && { Models: serializeAws_restJson1Models(input.Models, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -84,10 +88,10 @@ export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CacheTTL !== undefined && data.CacheTTL !== null) {
-    contents.CacheTTL = data.CacheTTL;
+    contents.CacheTTL = __expectString(data.CacheTTL);
   }
   if (data.DeviceRegistration !== undefined && data.DeviceRegistration !== null) {
-    contents.DeviceRegistration = data.DeviceRegistration;
+    contents.DeviceRegistration = __expectString(data.DeviceRegistration);
   }
   return Promise.resolve(contents);
 };
@@ -192,7 +196,7 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -203,7 +207,7 @@ const serializeAws_restJson1EdgeMetric = (input: EdgeMetric, context: __SerdeCon
     ...(input.MetricName !== undefined && input.MetricName !== null && { MetricName: input.MetricName }),
     ...(input.Timestamp !== undefined &&
       input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: __serializeFloat(input.Value) }),
   };
 };
 

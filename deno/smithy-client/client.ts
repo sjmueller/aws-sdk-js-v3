@@ -1,5 +1,5 @@
 import { constructStack } from "../middleware-stack/mod.ts";
-import { Client as IClient, Command, MetadataBearer, RequestHandler } from "../types/mod.ts";
+import { Client as IClient, Command, MetadataBearer, MiddlewareStack, RequestHandler } from "../types/mod.ts";
 
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
@@ -20,7 +20,7 @@ export class Client<
   ResolvedClientConfiguration extends SmithyResolvedConfiguration<HandlerOptions>
 > implements IClient<ClientInput, ClientOutput, ResolvedClientConfiguration>
 {
-  public middlewareStack = constructStack<ClientInput, ClientOutput>();
+  public middlewareStack: MiddlewareStack<ClientInput, ClientOutput> = constructStack<ClientInput, ClientOutput>();
   readonly config: ResolvedClientConfiguration;
   constructor(config: ResolvedClientConfiguration) {
     this.config = config;

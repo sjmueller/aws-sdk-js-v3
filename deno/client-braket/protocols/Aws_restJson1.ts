@@ -29,6 +29,8 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "..
 import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "../../smithy-client/mod.ts";
 import {
@@ -43,10 +45,12 @@ export const serializeAws_restJson1CancelQuantumTaskCommand = async (
   input: CancelQuantumTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/quantum-task/{quantumTaskArn}/cancel";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quantum-task/{quantumTaskArn}/cancel";
   if (input.quantumTaskArn !== undefined) {
     const labelValue: string = input.quantumTaskArn;
     if (labelValue.length <= 0) {
@@ -60,7 +64,6 @@ export const serializeAws_restJson1CancelQuantumTaskCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -76,10 +79,11 @@ export const serializeAws_restJson1CreateQuantumTaskCommand = async (
   input: CreateQuantumTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/quantum-task";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quantum-task";
   let body: any;
   body = JSON.stringify({
     ...(input.action !== undefined && input.action !== null && { action: __LazyJsonString.fromObject(input.action) }),
@@ -95,7 +99,6 @@ export const serializeAws_restJson1CreateQuantumTaskCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -111,8 +114,9 @@ export const serializeAws_restJson1GetDeviceCommand = async (
   input: GetDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/device/{deviceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/device/{deviceArn}";
   if (input.deviceArn !== undefined) {
     const labelValue: string = input.deviceArn;
     if (labelValue.length <= 0) {
@@ -123,7 +127,6 @@ export const serializeAws_restJson1GetDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: deviceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -139,8 +142,10 @@ export const serializeAws_restJson1GetQuantumTaskCommand = async (
   input: GetQuantumTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/quantum-task/{quantumTaskArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quantum-task/{quantumTaskArn}";
   if (input.quantumTaskArn !== undefined) {
     const labelValue: string = input.quantumTaskArn;
     if (labelValue.length <= 0) {
@@ -151,7 +156,6 @@ export const serializeAws_restJson1GetQuantumTaskCommand = async (
     throw new Error("No value provided for input HTTP label: quantumTaskArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -167,8 +171,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -179,7 +184,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -195,10 +199,11 @@ export const serializeAws_restJson1SearchDevicesCommand = async (
   input: SearchDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/devices";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/devices";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -206,7 +211,6 @@ export const serializeAws_restJson1SearchDevicesCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,10 +226,11 @@ export const serializeAws_restJson1SearchQuantumTasksCommand = async (
   input: SearchQuantumTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/quantum-tasks";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quantum-tasks";
   let body: any;
   body = JSON.stringify({
     ...(input.filters !== undefined &&
@@ -235,7 +240,6 @@ export const serializeAws_restJson1SearchQuantumTasksCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -251,10 +255,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -269,7 +274,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -285,8 +289,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -300,7 +305,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -327,10 +331,10 @@ export const deserializeAws_restJson1CancelQuantumTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.cancellationStatus !== undefined && data.cancellationStatus !== null) {
-    contents.cancellationStatus = data.cancellationStatus;
+    contents.cancellationStatus = __expectString(data.cancellationStatus);
   }
   if (data.quantumTaskArn !== undefined && data.quantumTaskArn !== null) {
-    contents.quantumTaskArn = data.quantumTaskArn;
+    contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
   return Promise.resolve(contents);
 };
@@ -425,7 +429,7 @@ export const deserializeAws_restJson1CreateQuantumTaskCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.quantumTaskArn !== undefined && data.quantumTaskArn !== null) {
-    contents.quantumTaskArn = data.quantumTaskArn;
+    contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
   return Promise.resolve(contents);
 };
@@ -525,22 +529,22 @@ export const deserializeAws_restJson1GetDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.deviceArn !== undefined && data.deviceArn !== null) {
-    contents.deviceArn = data.deviceArn;
+    contents.deviceArn = __expectString(data.deviceArn);
   }
   if (data.deviceCapabilities !== undefined && data.deviceCapabilities !== null) {
     contents.deviceCapabilities = new __LazyJsonString(data.deviceCapabilities);
   }
   if (data.deviceName !== undefined && data.deviceName !== null) {
-    contents.deviceName = data.deviceName;
+    contents.deviceName = __expectString(data.deviceName);
   }
   if (data.deviceStatus !== undefined && data.deviceStatus !== null) {
-    contents.deviceStatus = data.deviceStatus;
+    contents.deviceStatus = __expectString(data.deviceStatus);
   }
   if (data.deviceType !== undefined && data.deviceType !== null) {
-    contents.deviceType = data.deviceType;
+    contents.deviceType = __expectString(data.deviceType);
   }
   if (data.providerName !== undefined && data.providerName !== null) {
-    contents.providerName = data.providerName;
+    contents.providerName = __expectString(data.providerName);
   }
   return Promise.resolve(contents);
 };
@@ -656,7 +660,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.createdAt = new Date(Math.round(data.createdAt * 1000));
   }
   if (data.deviceArn !== undefined && data.deviceArn !== null) {
-    contents.deviceArn = data.deviceArn;
+    contents.deviceArn = __expectString(data.deviceArn);
   }
   if (data.deviceParameters !== undefined && data.deviceParameters !== null) {
     contents.deviceParameters = new __LazyJsonString(data.deviceParameters);
@@ -665,22 +669,22 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
     contents.endedAt = new Date(Math.round(data.endedAt * 1000));
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = data.failureReason;
+    contents.failureReason = __expectString(data.failureReason);
   }
   if (data.outputS3Bucket !== undefined && data.outputS3Bucket !== null) {
-    contents.outputS3Bucket = data.outputS3Bucket;
+    contents.outputS3Bucket = __expectString(data.outputS3Bucket);
   }
   if (data.outputS3Directory !== undefined && data.outputS3Directory !== null) {
-    contents.outputS3Directory = data.outputS3Directory;
+    contents.outputS3Directory = __expectString(data.outputS3Directory);
   }
   if (data.quantumTaskArn !== undefined && data.quantumTaskArn !== null) {
-    contents.quantumTaskArn = data.quantumTaskArn;
+    contents.quantumTaskArn = __expectString(data.quantumTaskArn);
   }
   if (data.shots !== undefined && data.shots !== null) {
-    contents.shots = data.shots;
+    contents.shots = __expectNumber(data.shots);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
@@ -845,7 +849,7 @@ export const deserializeAws_restJson1SearchDevicesCommand = async (
     contents.devices = deserializeAws_restJson1DeviceSummaryList(data.devices, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -925,7 +929,7 @@ export const deserializeAws_restJson1SearchQuantumTasksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.quantumTasks !== undefined && data.quantumTasks !== null) {
     contents.quantumTasks = deserializeAws_restJson1QuantumTaskSummaryList(data.quantumTasks, context);
@@ -1140,7 +1144,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1157,7 +1161,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1174,7 +1178,7 @@ const deserializeAws_restJson1DeviceOfflineExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1191,7 +1195,7 @@ const deserializeAws_restJson1DeviceRetiredExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1208,7 +1212,7 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1225,7 +1229,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1242,7 +1246,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1259,7 +1263,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1276,7 +1280,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1338,7 +1342,7 @@ const serializeAws_restJson1String256List = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1351,11 +1355,11 @@ const serializeAws_restJson1TagsMap = (input: { [key: string]: string }, context
 
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
-    deviceArn: output.deviceArn !== undefined && output.deviceArn !== null ? output.deviceArn : undefined,
-    deviceName: output.deviceName !== undefined && output.deviceName !== null ? output.deviceName : undefined,
-    deviceStatus: output.deviceStatus !== undefined && output.deviceStatus !== null ? output.deviceStatus : undefined,
-    deviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
-    providerName: output.providerName !== undefined && output.providerName !== null ? output.providerName : undefined,
+    deviceArn: __expectString(output.deviceArn),
+    deviceName: __expectString(output.deviceName),
+    deviceStatus: __expectString(output.deviceStatus),
+    deviceType: __expectString(output.deviceType),
+    providerName: __expectString(output.providerName),
   } as any;
 };
 
@@ -1376,19 +1380,14 @@ const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __Serd
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    deviceArn: output.deviceArn !== undefined && output.deviceArn !== null ? output.deviceArn : undefined,
+    deviceArn: __expectString(output.deviceArn),
     endedAt:
       output.endedAt !== undefined && output.endedAt !== null ? new Date(Math.round(output.endedAt * 1000)) : undefined,
-    outputS3Bucket:
-      output.outputS3Bucket !== undefined && output.outputS3Bucket !== null ? output.outputS3Bucket : undefined,
-    outputS3Directory:
-      output.outputS3Directory !== undefined && output.outputS3Directory !== null
-        ? output.outputS3Directory
-        : undefined,
-    quantumTaskArn:
-      output.quantumTaskArn !== undefined && output.quantumTaskArn !== null ? output.quantumTaskArn : undefined,
-    shots: output.shots !== undefined && output.shots !== null ? output.shots : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    outputS3Bucket: __expectString(output.outputS3Bucket),
+    outputS3Directory: __expectString(output.outputS3Directory),
+    quantumTaskArn: __expectString(output.quantumTaskArn),
+    shots: __expectNumber(output.shots),
+    status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagsMap(output.tags, context)
@@ -1414,7 +1413,7 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

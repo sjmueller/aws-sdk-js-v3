@@ -10,7 +10,12 @@ import {
   User,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  expectString as __expectString,
+  serializeFloat as __serializeFloat,
+} from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -22,10 +27,11 @@ export const serializeAws_restJson1PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/events";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
   let body: any;
   body = JSON.stringify({
     ...(input.eventList !== undefined &&
@@ -34,7 +40,6 @@ export const serializeAws_restJson1PutEventsCommand = async (
     ...(input.trackingId !== undefined && input.trackingId !== null && { trackingId: input.trackingId }),
     ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -50,17 +55,17 @@ export const serializeAws_restJson1PutItemsCommand = async (
   input: PutItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/items";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
     ...(input.items !== undefined &&
       input.items !== null && { items: serializeAws_restJson1ItemList(input.items, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -76,17 +81,17 @@ export const serializeAws_restJson1PutUsersCommand = async (
   input: PutUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/users";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
   let body: any;
   body = JSON.stringify({
     ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
     ...(input.users !== undefined &&
       input.users !== null && { users: serializeAws_restJson1UserList(input.users, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -295,7 +300,7 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -312,7 +317,7 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -329,7 +334,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -338,7 +343,8 @@ const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any
   return {
     ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
     ...(input.eventType !== undefined && input.eventType !== null && { eventType: input.eventType }),
-    ...(input.eventValue !== undefined && input.eventValue !== null && { eventValue: input.eventValue }),
+    ...(input.eventValue !== undefined &&
+      input.eventValue !== null && { eventValue: __serializeFloat(input.eventValue) }),
     ...(input.impression !== undefined &&
       input.impression !== null && { impression: serializeAws_restJson1Impression(input.impression, context) }),
     ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
