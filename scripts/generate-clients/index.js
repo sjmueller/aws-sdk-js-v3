@@ -3,7 +3,7 @@ const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateProtocolTests } = require("./code-gen");
-const { copyToClients } = require("./copy-to-clients");
+const { copyToClients, copyServerTests } = require("./copy-to-clients");
 const { copyToDeno } = require("./copy-to-deno");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
@@ -17,7 +17,13 @@ const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..
 const SDK_DENO_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "deno"));
 const PACKAGES_DIR = path.normalize(path.join(__dirname, "..", "..", "packages"));
 
-const { models, globs, output: clientsDir } = yargs
+const {
+  models,
+  globs,
+  output: clientsDir,
+  noProtocolTest,
+  s: serverOnly,
+} = yargs
   .alias("m", "models")
   .string("m")
   .describe("m", "The path to directory with models.")
@@ -29,22 +35,42 @@ const { models, globs, output: clientsDir } = yargs
   .string("o")
   .describe("o", "The output directory for built clients")
   .default("o", SDK_CLIENTS_DIR)
+  .alias("n", "noProtocolTest")
+  .boolean("n")
+  .describe("n", "Disable generating protocol test files")
+  .alias("s", "server-artifacts")
+  .boolean("s")
+  .describe("s", "Generate server artifacts instead of client ones")
+  .conflicts("s", ["m", "g", "n"])
   .help().argv;
 
 (async () => {
   try {
+    if (serverOnly === true) {
+      await generateProtocolTests();
+      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+
+      emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
+
+      rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
+      return;
+    }
+
     await generateClients(models || globs);
-    await generateProtocolTests();
+    if (!noProtocolTest) await generateProtocolTests();
 
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
-    await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+    if (!noProtocolTest) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+
     await copyToDeno([clientsDir, PACKAGES_DIR], SDK_DENO_CLIENTS_DIR);
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
-    emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noProtocolTest) emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
 
     rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
