@@ -92,6 +92,9 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -106,10 +109,12 @@ export const serializeAws_restJson1AssociateLensesCommand = async (
   input: AssociateLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/associateLenses";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/associateLenses";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -124,7 +129,6 @@ export const serializeAws_restJson1AssociateLensesCommand = async (
     ...(input.LensAliases !== undefined &&
       input.LensAliases !== null && { LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -140,10 +144,12 @@ export const serializeAws_restJson1CreateMilestoneCommand = async (
   input: CreateMilestoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/milestones";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/milestones";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -158,7 +164,6 @@ export const serializeAws_restJson1CreateMilestoneCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.MilestoneName !== undefined && input.MilestoneName !== null && { MilestoneName: input.MilestoneName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -174,10 +179,11 @@ export const serializeAws_restJson1CreateWorkloadCommand = async (
   input: CreateWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads";
   let body: any;
   body = JSON.stringify({
     ...(input.AccountIds !== undefined &&
@@ -206,7 +212,6 @@ export const serializeAws_restJson1CreateWorkloadCommand = async (
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.WorkloadName !== undefined && input.WorkloadName !== null && { WorkloadName: input.WorkloadName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -222,10 +227,12 @@ export const serializeAws_restJson1CreateWorkloadShareCommand = async (
   input: CreateWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/shares";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -242,7 +249,6 @@ export const serializeAws_restJson1CreateWorkloadShareCommand = async (
       input.PermissionType !== null && { PermissionType: input.PermissionType }),
     ...(input.SharedWith !== undefined && input.SharedWith !== null && { SharedWith: input.SharedWith }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -258,8 +264,9 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
   input: DeleteWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -273,7 +280,6 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
     ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -290,8 +296,10 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
   input: DeleteWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/shares/{ShareId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares/{ShareId}";
   if (input.ShareId !== undefined) {
     const labelValue: string = input.ShareId;
     if (labelValue.length <= 0) {
@@ -314,7 +322,6 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
     ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -331,10 +338,13 @@ export const serializeAws_restJson1DisassociateLensesCommand = async (
   input: DisassociateLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/disassociateLenses";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/disassociateLenses";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -349,7 +359,6 @@ export const serializeAws_restJson1DisassociateLensesCommand = async (
     ...(input.LensAliases !== undefined &&
       input.LensAliases !== null && { LensAliases: serializeAws_restJson1LensAliases(input.LensAliases, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -365,8 +374,11 @@ export const serializeAws_restJson1GetAnswerCommand = async (
   input: GetAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -398,7 +410,6 @@ export const serializeAws_restJson1GetAnswerCommand = async (
     ...(input.MilestoneNumber !== undefined && { MilestoneNumber: input.MilestoneNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -415,8 +426,11 @@ export const serializeAws_restJson1GetLensReviewCommand = async (
   input: GetLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -439,7 +453,6 @@ export const serializeAws_restJson1GetLensReviewCommand = async (
     ...(input.MilestoneNumber !== undefined && { MilestoneNumber: input.MilestoneNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -456,8 +469,11 @@ export const serializeAws_restJson1GetLensReviewReportCommand = async (
   input: GetLensReviewReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -480,7 +496,6 @@ export const serializeAws_restJson1GetLensReviewReportCommand = async (
     ...(input.MilestoneNumber !== undefined && { MilestoneNumber: input.MilestoneNumber.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -497,8 +512,10 @@ export const serializeAws_restJson1GetLensVersionDifferenceCommand = async (
   input: GetLensVersionDifferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/lenses/{LensAlias}/versionDifference";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/versionDifference";
   if (input.LensAlias !== undefined) {
     const labelValue: string = input.LensAlias;
     if (labelValue.length <= 0) {
@@ -512,7 +529,6 @@ export const serializeAws_restJson1GetLensVersionDifferenceCommand = async (
     ...(input.BaseLensVersion !== undefined && { BaseLensVersion: input.BaseLensVersion }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -529,8 +545,11 @@ export const serializeAws_restJson1GetMilestoneCommand = async (
   input: GetMilestoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/milestones/{MilestoneNumber}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/milestones/{MilestoneNumber}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -550,7 +569,6 @@ export const serializeAws_restJson1GetMilestoneCommand = async (
     throw new Error("No value provided for input HTTP label: MilestoneNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -566,8 +584,9 @@ export const serializeAws_restJson1GetWorkloadCommand = async (
   input: GetWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -578,7 +597,6 @@ export const serializeAws_restJson1GetWorkloadCommand = async (
     throw new Error("No value provided for input HTTP label: WorkloadId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -594,8 +612,11 @@ export const serializeAws_restJson1ListAnswersCommand = async (
   input: ListAnswersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -621,7 +642,6 @@ export const serializeAws_restJson1ListAnswersCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -638,14 +658,14 @@ export const serializeAws_restJson1ListLensesCommand = async (
   input: ListLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/lenses";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -662,8 +682,11 @@ export const serializeAws_restJson1ListLensReviewImprovementsCommand = async (
   input: ListLensReviewImprovementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -689,7 +712,6 @@ export const serializeAws_restJson1ListLensReviewImprovementsCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -706,8 +728,10 @@ export const serializeAws_restJson1ListLensReviewsCommand = async (
   input: ListLensReviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/lensReviews";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -723,7 +747,6 @@ export const serializeAws_restJson1ListLensReviewsCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -740,10 +763,13 @@ export const serializeAws_restJson1ListMilestonesCommand = async (
   input: ListMilestonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/milestonesSummaries";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/milestonesSummaries";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -758,7 +784,6 @@ export const serializeAws_restJson1ListMilestonesCommand = async (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -774,17 +799,17 @@ export const serializeAws_restJson1ListNotificationsCommand = async (
   input: ListNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/notifications";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/notifications";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.WorkloadId !== undefined && input.WorkloadId !== null && { WorkloadId: input.WorkloadId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -800,15 +825,15 @@ export const serializeAws_restJson1ListShareInvitationsCommand = async (
   input: ListShareInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/shareInvitations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shareInvitations";
   const query: any = {
     ...(input.WorkloadNamePrefix !== undefined && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -825,8 +850,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{WorkloadArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   if (input.WorkloadArn !== undefined) {
     const labelValue: string = input.WorkloadArn;
     if (labelValue.length <= 0) {
@@ -837,7 +863,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: WorkloadArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -853,10 +878,11 @@ export const serializeAws_restJson1ListWorkloadsCommand = async (
   input: ListWorkloadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloadsSummaries";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloadsSummaries";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -864,7 +890,6 @@ export const serializeAws_restJson1ListWorkloadsCommand = async (
     ...(input.WorkloadNamePrefix !== undefined &&
       input.WorkloadNamePrefix !== null && { WorkloadNamePrefix: input.WorkloadNamePrefix }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -880,8 +905,10 @@ export const serializeAws_restJson1ListWorkloadSharesCommand = async (
   input: ListWorkloadSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/workloads/{WorkloadId}/shares";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -897,7 +924,6 @@ export const serializeAws_restJson1ListWorkloadSharesCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -914,10 +940,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{WorkloadArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   if (input.WorkloadArn !== undefined) {
     const labelValue: string = input.WorkloadArn;
     if (labelValue.length <= 0) {
@@ -931,7 +958,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -947,8 +973,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{WorkloadArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   if (input.WorkloadArn !== undefined) {
     const labelValue: string = input.WorkloadArn;
     if (labelValue.length <= 0) {
@@ -962,7 +989,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -979,10 +1005,13 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
   input: UpdateAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1019,7 +1048,6 @@ export const serializeAws_restJson1UpdateAnswerCommand = async (
         SelectedChoices: serializeAws_restJson1SelectedChoices(input.SelectedChoices, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1035,10 +1063,13 @@ export const serializeAws_restJson1UpdateLensReviewCommand = async (
   input: UpdateLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1063,7 +1094,6 @@ export const serializeAws_restJson1UpdateLensReviewCommand = async (
     ...(input.PillarNotes !== undefined &&
       input.PillarNotes !== null && { PillarNotes: serializeAws_restJson1PillarNotes(input.PillarNotes, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1079,10 +1109,12 @@ export const serializeAws_restJson1UpdateShareInvitationCommand = async (
   input: UpdateShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/shareInvitations/{ShareInvitationId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shareInvitations/{ShareInvitationId}";
   if (input.ShareInvitationId !== undefined) {
     const labelValue: string = input.ShareInvitationId;
     if (labelValue.length <= 0) {
@@ -1097,7 +1129,6 @@ export const serializeAws_restJson1UpdateShareInvitationCommand = async (
     ...(input.ShareInvitationAction !== undefined &&
       input.ShareInvitationAction !== null && { ShareInvitationAction: input.ShareInvitationAction }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1113,10 +1144,11 @@ export const serializeAws_restJson1UpdateWorkloadCommand = async (
   input: UpdateWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1156,7 +1188,6 @@ export const serializeAws_restJson1UpdateWorkloadCommand = async (
     ...(input.ReviewOwner !== undefined && input.ReviewOwner !== null && { ReviewOwner: input.ReviewOwner }),
     ...(input.WorkloadName !== undefined && input.WorkloadName !== null && { WorkloadName: input.WorkloadName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1172,10 +1203,12 @@ export const serializeAws_restJson1UpdateWorkloadShareCommand = async (
   input: UpdateWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/shares/{ShareId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares/{ShareId}";
   if (input.ShareId !== undefined) {
     const labelValue: string = input.ShareId;
     if (labelValue.length <= 0) {
@@ -1199,7 +1232,6 @@ export const serializeAws_restJson1UpdateWorkloadShareCommand = async (
     ...(input.PermissionType !== undefined &&
       input.PermissionType !== null && { PermissionType: input.PermissionType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1215,10 +1247,13 @@ export const serializeAws_restJson1UpgradeLensReviewCommand = async (
   input: UpgradeLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade";
   if (input.WorkloadId !== undefined) {
     const labelValue: string = input.WorkloadId;
     if (labelValue.length <= 0) {
@@ -1243,7 +1278,6 @@ export const serializeAws_restJson1UpgradeLensReviewCommand = async (
       input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
     ...(input.MilestoneName !== undefined && input.MilestoneName !== null && { MilestoneName: input.MilestoneName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1360,10 +1394,10 @@ export const deserializeAws_restJson1CreateMilestoneCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -1467,10 +1501,10 @@ export const deserializeAws_restJson1CreateWorkloadCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.WorkloadArn !== undefined && data.WorkloadArn !== null) {
-    contents.WorkloadArn = data.WorkloadArn;
+    contents.WorkloadArn = __expectString(data.WorkloadArn);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -1566,10 +1600,10 @@ export const deserializeAws_restJson1CreateWorkloadShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ShareId !== undefined && data.ShareId !== null) {
-    contents.ShareId = data.ShareId;
+    contents.ShareId = __expectString(data.ShareId);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -1951,13 +1985,13 @@ export const deserializeAws_restJson1GetAnswerCommand = async (
     contents.Answer = deserializeAws_restJson1Answer(data.Answer, context);
   }
   if (data.LensAlias !== undefined && data.LensAlias !== null) {
-    contents.LensAlias = data.LensAlias;
+    contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2049,10 +2083,10 @@ export const deserializeAws_restJson1GetLensReviewCommand = async (
     contents.LensReview = deserializeAws_restJson1LensReview(data.LensReview, context);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2144,10 +2178,10 @@ export const deserializeAws_restJson1GetLensReviewReportCommand = async (
     contents.LensReviewReport = deserializeAws_restJson1LensReviewReport(data.LensReviewReport, context);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2237,13 +2271,13 @@ export const deserializeAws_restJson1GetLensVersionDifferenceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BaseLensVersion !== undefined && data.BaseLensVersion !== null) {
-    contents.BaseLensVersion = data.BaseLensVersion;
+    contents.BaseLensVersion = __expectString(data.BaseLensVersion);
   }
   if (data.LatestLensVersion !== undefined && data.LatestLensVersion !== null) {
-    contents.LatestLensVersion = data.LatestLensVersion;
+    contents.LatestLensVersion = __expectString(data.LatestLensVersion);
   }
   if (data.LensAlias !== undefined && data.LensAlias !== null) {
-    contents.LensAlias = data.LensAlias;
+    contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.VersionDifferences !== undefined && data.VersionDifferences !== null) {
     contents.VersionDifferences = deserializeAws_restJson1VersionDifferences(data.VersionDifferences, context);
@@ -2337,7 +2371,7 @@ export const deserializeAws_restJson1GetMilestoneCommand = async (
     contents.Milestone = deserializeAws_restJson1Milestone(data.Milestone, context);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2518,16 +2552,16 @@ export const deserializeAws_restJson1ListAnswersCommand = async (
     contents.AnswerSummaries = deserializeAws_restJson1AnswerSummaries(data.AnswerSummaries, context);
   }
   if (data.LensAlias !== undefined && data.LensAlias !== null) {
-    contents.LensAlias = data.LensAlias;
+    contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2618,7 +2652,7 @@ export const deserializeAws_restJson1ListLensesCommand = async (
     contents.LensSummaries = deserializeAws_restJson1LensSummaries(data.LensSummaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2704,16 +2738,16 @@ export const deserializeAws_restJson1ListLensReviewImprovementsCommand = async (
     contents.ImprovementSummaries = deserializeAws_restJson1ImprovementSummaries(data.ImprovementSummaries, context);
   }
   if (data.LensAlias !== undefined && data.LensAlias !== null) {
-    contents.LensAlias = data.LensAlias;
+    contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2806,13 +2840,13 @@ export const deserializeAws_restJson1ListLensReviewsCommand = async (
     contents.LensReviewSummaries = deserializeAws_restJson1LensReviewSummaries(data.LensReviewSummaries, context);
   }
   if (data.MilestoneNumber !== undefined && data.MilestoneNumber !== null) {
-    contents.MilestoneNumber = data.MilestoneNumber;
+    contents.MilestoneNumber = __expectNumber(data.MilestoneNumber);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2904,10 +2938,10 @@ export const deserializeAws_restJson1ListMilestonesCommand = async (
     contents.MilestoneSummaries = deserializeAws_restJson1MilestoneSummaries(data.MilestoneSummaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -2995,7 +3029,7 @@ export const deserializeAws_restJson1ListNotificationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.NotificationSummaries !== undefined && data.NotificationSummaries !== null) {
     contents.NotificationSummaries = deserializeAws_restJson1NotificationSummaries(data.NotificationSummaries, context);
@@ -3078,7 +3112,7 @@ export const deserializeAws_restJson1ListShareInvitationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.ShareInvitationSummaries !== undefined && data.ShareInvitationSummaries !== null) {
     contents.ShareInvitationSummaries = deserializeAws_restJson1ShareInvitationSummaries(
@@ -3227,7 +3261,7 @@ export const deserializeAws_restJson1ListWorkloadsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WorkloadSummaries !== undefined && data.WorkloadSummaries !== null) {
     contents.WorkloadSummaries = deserializeAws_restJson1WorkloadSummaries(data.WorkloadSummaries, context);
@@ -3311,10 +3345,10 @@ export const deserializeAws_restJson1ListWorkloadSharesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   if (data.WorkloadShareSummaries !== undefined && data.WorkloadShareSummaries !== null) {
     contents.WorkloadShareSummaries = deserializeAws_restJson1WorkloadShareSummaries(
@@ -3530,10 +3564,10 @@ export const deserializeAws_restJson1UpdateAnswerCommand = async (
     contents.Answer = deserializeAws_restJson1Answer(data.Answer, context);
   }
   if (data.LensAlias !== undefined && data.LensAlias !== null) {
-    contents.LensAlias = data.LensAlias;
+    contents.LensAlias = __expectString(data.LensAlias);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -3632,7 +3666,7 @@ export const deserializeAws_restJson1UpdateLensReviewCommand = async (
     contents.LensReview = deserializeAws_restJson1LensReview(data.LensReview, context);
   }
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   return Promise.resolve(contents);
 };
@@ -3918,7 +3952,7 @@ export const deserializeAws_restJson1UpdateWorkloadShareCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.WorkloadId !== undefined && data.WorkloadId !== null) {
-    contents.WorkloadId = data.WorkloadId;
+    contents.WorkloadId = __expectString(data.WorkloadId);
   }
   if (data.WorkloadShare !== undefined && data.WorkloadShare !== null) {
     contents.WorkloadShare = deserializeAws_restJson1WorkloadShare(data.WorkloadShare, context);
@@ -4106,7 +4140,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4125,13 +4159,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -4148,7 +4182,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -4167,13 +4201,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   return contents;
 };
@@ -4194,19 +4228,19 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.QuotaCode !== undefined && data.QuotaCode !== null) {
-    contents.QuotaCode = data.QuotaCode;
+    contents.QuotaCode = __expectString(data.QuotaCode);
   }
   if (data.ResourceId !== undefined && data.ResourceId !== null) {
-    contents.ResourceId = data.ResourceId;
+    contents.ResourceId = __expectString(data.ResourceId);
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
-    contents.ResourceType = data.ResourceType;
+    contents.ResourceType = __expectString(data.ResourceType);
   }
   if (data.ServiceCode !== undefined && data.ServiceCode !== null) {
-    contents.ServiceCode = data.ServiceCode;
+    contents.ServiceCode = __expectString(data.ServiceCode);
   }
   return contents;
 };
@@ -4225,13 +4259,13 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.QuotaCode !== undefined && data.QuotaCode !== null) {
-    contents.QuotaCode = data.QuotaCode;
+    contents.QuotaCode = __expectString(data.QuotaCode);
   }
   if (data.ServiceCode !== undefined && data.ServiceCode !== null) {
-    contents.ServiceCode = data.ServiceCode;
+    contents.ServiceCode = __expectString(data.ServiceCode);
   }
   return contents;
 };
@@ -4253,10 +4287,10 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     contents.Fields = deserializeAws_restJson1ValidationExceptionFieldList(data.Fields, context);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Reason !== undefined && data.Reason !== null) {
-    contents.Reason = data.Reason;
+    contents.Reason = __expectString(data.Reason);
   }
   return contents;
 };
@@ -4273,7 +4307,7 @@ const serializeAws_restJson1LensAliases = (input: string[], context: __SerdeCont
 };
 
 const serializeAws_restJson1PillarNotes = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4296,7 +4330,7 @@ const serializeAws_restJson1SelectedChoices = (input: string[], context: __Serde
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4368,25 +4402,15 @@ const deserializeAws_restJson1Answer = (output: any, context: __SerdeContext): A
       output.Choices !== undefined && output.Choices !== null
         ? deserializeAws_restJson1Choices(output.Choices, context)
         : undefined,
-    HelpfulResourceUrl:
-      output.HelpfulResourceUrl !== undefined && output.HelpfulResourceUrl !== null
-        ? output.HelpfulResourceUrl
-        : undefined,
-    ImprovementPlanUrl:
-      output.ImprovementPlanUrl !== undefined && output.ImprovementPlanUrl !== null
-        ? output.ImprovementPlanUrl
-        : undefined,
-    IsApplicable: output.IsApplicable !== undefined && output.IsApplicable !== null ? output.IsApplicable : undefined,
-    Notes: output.Notes !== undefined && output.Notes !== null ? output.Notes : undefined,
-    PillarId: output.PillarId !== undefined && output.PillarId !== null ? output.PillarId : undefined,
-    QuestionDescription:
-      output.QuestionDescription !== undefined && output.QuestionDescription !== null
-        ? output.QuestionDescription
-        : undefined,
-    QuestionId: output.QuestionId !== undefined && output.QuestionId !== null ? output.QuestionId : undefined,
-    QuestionTitle:
-      output.QuestionTitle !== undefined && output.QuestionTitle !== null ? output.QuestionTitle : undefined,
-    Risk: output.Risk !== undefined && output.Risk !== null ? output.Risk : undefined,
+    HelpfulResourceUrl: __expectString(output.HelpfulResourceUrl),
+    ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
+    IsApplicable: __expectBoolean(output.IsApplicable),
+    Notes: __expectString(output.Notes),
+    PillarId: __expectString(output.PillarId),
+    QuestionDescription: __expectString(output.QuestionDescription),
+    QuestionId: __expectString(output.QuestionId),
+    QuestionTitle: __expectString(output.QuestionTitle),
+    Risk: __expectString(output.Risk),
     SelectedChoices:
       output.SelectedChoices !== undefined && output.SelectedChoices !== null
         ? deserializeAws_restJson1SelectedChoices(output.SelectedChoices, context)
@@ -4411,12 +4435,11 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
       output.Choices !== undefined && output.Choices !== null
         ? deserializeAws_restJson1Choices(output.Choices, context)
         : undefined,
-    IsApplicable: output.IsApplicable !== undefined && output.IsApplicable !== null ? output.IsApplicable : undefined,
-    PillarId: output.PillarId !== undefined && output.PillarId !== null ? output.PillarId : undefined,
-    QuestionId: output.QuestionId !== undefined && output.QuestionId !== null ? output.QuestionId : undefined,
-    QuestionTitle:
-      output.QuestionTitle !== undefined && output.QuestionTitle !== null ? output.QuestionTitle : undefined,
-    Risk: output.Risk !== undefined && output.Risk !== null ? output.Risk : undefined,
+    IsApplicable: __expectBoolean(output.IsApplicable),
+    PillarId: __expectString(output.PillarId),
+    QuestionId: __expectString(output.QuestionId),
+    QuestionTitle: __expectString(output.QuestionTitle),
+    Risk: __expectString(output.Risk),
     SelectedChoices:
       output.SelectedChoices !== undefined && output.SelectedChoices !== null
         ? deserializeAws_restJson1SelectedChoices(output.SelectedChoices, context)
@@ -4426,9 +4449,9 @@ const deserializeAws_restJson1AnswerSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Choice = (output: any, context: __SerdeContext): Choice => {
   return {
-    ChoiceId: output.ChoiceId !== undefined && output.ChoiceId !== null ? output.ChoiceId : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Title: output.Title !== undefined && output.Title !== null ? output.Title : undefined,
+    ChoiceId: __expectString(output.ChoiceId),
+    Description: __expectString(output.Description),
+    Title: __expectString(output.Title),
   } as any;
 };
 
@@ -4456,26 +4479,22 @@ const deserializeAws_restJson1ImprovementSummaries = (output: any, context: __Se
 
 const deserializeAws_restJson1ImprovementSummary = (output: any, context: __SerdeContext): ImprovementSummary => {
   return {
-    ImprovementPlanUrl:
-      output.ImprovementPlanUrl !== undefined && output.ImprovementPlanUrl !== null
-        ? output.ImprovementPlanUrl
-        : undefined,
-    PillarId: output.PillarId !== undefined && output.PillarId !== null ? output.PillarId : undefined,
-    QuestionId: output.QuestionId !== undefined && output.QuestionId !== null ? output.QuestionId : undefined,
-    QuestionTitle:
-      output.QuestionTitle !== undefined && output.QuestionTitle !== null ? output.QuestionTitle : undefined,
-    Risk: output.Risk !== undefined && output.Risk !== null ? output.Risk : undefined,
+    ImprovementPlanUrl: __expectString(output.ImprovementPlanUrl),
+    PillarId: __expectString(output.PillarId),
+    QuestionId: __expectString(output.QuestionId),
+    QuestionTitle: __expectString(output.QuestionTitle),
+    Risk: __expectString(output.Risk),
   } as any;
 };
 
 const deserializeAws_restJson1LensReview = (output: any, context: __SerdeContext): LensReview => {
   return {
-    LensAlias: output.LensAlias !== undefined && output.LensAlias !== null ? output.LensAlias : undefined,
-    LensName: output.LensName !== undefined && output.LensName !== null ? output.LensName : undefined,
-    LensStatus: output.LensStatus !== undefined && output.LensStatus !== null ? output.LensStatus : undefined,
-    LensVersion: output.LensVersion !== undefined && output.LensVersion !== null ? output.LensVersion : undefined,
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
-    Notes: output.Notes !== undefined && output.Notes !== null ? output.Notes : undefined,
+    LensAlias: __expectString(output.LensAlias),
+    LensName: __expectString(output.LensName),
+    LensStatus: __expectString(output.LensStatus),
+    LensVersion: __expectString(output.LensVersion),
+    NextToken: __expectString(output.NextToken),
+    Notes: __expectString(output.Notes),
     PillarReviewSummaries:
       output.PillarReviewSummaries !== undefined && output.PillarReviewSummaries !== null
         ? deserializeAws_restJson1PillarReviewSummaries(output.PillarReviewSummaries, context)
@@ -4493,8 +4512,8 @@ const deserializeAws_restJson1LensReview = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1LensReviewReport = (output: any, context: __SerdeContext): LensReviewReport => {
   return {
-    Base64String: output.Base64String !== undefined && output.Base64String !== null ? output.Base64String : undefined,
-    LensAlias: output.LensAlias !== undefined && output.LensAlias !== null ? output.LensAlias : undefined,
+    Base64String: __expectString(output.Base64String),
+    LensAlias: __expectString(output.LensAlias),
   } as any;
 };
 
@@ -4511,10 +4530,10 @@ const deserializeAws_restJson1LensReviewSummaries = (output: any, context: __Ser
 
 const deserializeAws_restJson1LensReviewSummary = (output: any, context: __SerdeContext): LensReviewSummary => {
   return {
-    LensAlias: output.LensAlias !== undefined && output.LensAlias !== null ? output.LensAlias : undefined,
-    LensName: output.LensName !== undefined && output.LensName !== null ? output.LensName : undefined,
-    LensStatus: output.LensStatus !== undefined && output.LensStatus !== null ? output.LensStatus : undefined,
-    LensVersion: output.LensVersion !== undefined && output.LensVersion !== null ? output.LensVersion : undefined,
+    LensAlias: __expectString(output.LensAlias),
+    LensName: __expectString(output.LensName),
+    LensStatus: __expectString(output.LensStatus),
+    LensVersion: __expectString(output.LensVersion),
     RiskCounts:
       output.RiskCounts !== undefined && output.RiskCounts !== null
         ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
@@ -4539,35 +4558,27 @@ const deserializeAws_restJson1LensSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1LensSummary = (output: any, context: __SerdeContext): LensSummary => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    LensAlias: output.LensAlias !== undefined && output.LensAlias !== null ? output.LensAlias : undefined,
-    LensName: output.LensName !== undefined && output.LensName !== null ? output.LensName : undefined,
-    LensVersion: output.LensVersion !== undefined && output.LensVersion !== null ? output.LensVersion : undefined,
+    Description: __expectString(output.Description),
+    LensAlias: __expectString(output.LensAlias),
+    LensName: __expectString(output.LensName),
+    LensVersion: __expectString(output.LensVersion),
   } as any;
 };
 
 const deserializeAws_restJson1LensUpgradeSummary = (output: any, context: __SerdeContext): LensUpgradeSummary => {
   return {
-    CurrentLensVersion:
-      output.CurrentLensVersion !== undefined && output.CurrentLensVersion !== null
-        ? output.CurrentLensVersion
-        : undefined,
-    LatestLensVersion:
-      output.LatestLensVersion !== undefined && output.LatestLensVersion !== null
-        ? output.LatestLensVersion
-        : undefined,
-    LensAlias: output.LensAlias !== undefined && output.LensAlias !== null ? output.LensAlias : undefined,
-    WorkloadId: output.WorkloadId !== undefined && output.WorkloadId !== null ? output.WorkloadId : undefined,
-    WorkloadName: output.WorkloadName !== undefined && output.WorkloadName !== null ? output.WorkloadName : undefined,
+    CurrentLensVersion: __expectString(output.CurrentLensVersion),
+    LatestLensVersion: __expectString(output.LatestLensVersion),
+    LensAlias: __expectString(output.LensAlias),
+    WorkloadId: __expectString(output.WorkloadId),
+    WorkloadName: __expectString(output.WorkloadName),
   } as any;
 };
 
 const deserializeAws_restJson1Milestone = (output: any, context: __SerdeContext): Milestone => {
   return {
-    MilestoneName:
-      output.MilestoneName !== undefined && output.MilestoneName !== null ? output.MilestoneName : undefined,
-    MilestoneNumber:
-      output.MilestoneNumber !== undefined && output.MilestoneNumber !== null ? output.MilestoneNumber : undefined,
+    MilestoneName: __expectString(output.MilestoneName),
+    MilestoneNumber: __expectNumber(output.MilestoneNumber),
     RecordedAt:
       output.RecordedAt !== undefined && output.RecordedAt !== null
         ? new Date(Math.round(output.RecordedAt * 1000))
@@ -4592,10 +4603,8 @@ const deserializeAws_restJson1MilestoneSummaries = (output: any, context: __Serd
 
 const deserializeAws_restJson1MilestoneSummary = (output: any, context: __SerdeContext): MilestoneSummary => {
   return {
-    MilestoneName:
-      output.MilestoneName !== undefined && output.MilestoneName !== null ? output.MilestoneName : undefined,
-    MilestoneNumber:
-      output.MilestoneNumber !== undefined && output.MilestoneNumber !== null ? output.MilestoneNumber : undefined,
+    MilestoneName: __expectString(output.MilestoneName),
+    MilestoneNumber: __expectNumber(output.MilestoneNumber),
     RecordedAt:
       output.RecordedAt !== undefined && output.RecordedAt !== null
         ? new Date(Math.round(output.RecordedAt * 1000))
@@ -4624,15 +4633,14 @@ const deserializeAws_restJson1NotificationSummary = (output: any, context: __Ser
       output.LensUpgradeSummary !== undefined && output.LensUpgradeSummary !== null
         ? deserializeAws_restJson1LensUpgradeSummary(output.LensUpgradeSummary, context)
         : undefined,
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
 const deserializeAws_restJson1PillarDifference = (output: any, context: __SerdeContext): PillarDifference => {
   return {
-    DifferenceStatus:
-      output.DifferenceStatus !== undefined && output.DifferenceStatus !== null ? output.DifferenceStatus : undefined,
-    PillarId: output.PillarId !== undefined && output.PillarId !== null ? output.PillarId : undefined,
+    DifferenceStatus: __expectString(output.DifferenceStatus),
+    PillarId: __expectString(output.PillarId),
     QuestionDifferences:
       output.QuestionDifferences !== undefined && output.QuestionDifferences !== null
         ? deserializeAws_restJson1QuestionDifferences(output.QuestionDifferences, context)
@@ -4664,9 +4672,9 @@ const deserializeAws_restJson1PillarReviewSummaries = (output: any, context: __S
 
 const deserializeAws_restJson1PillarReviewSummary = (output: any, context: __SerdeContext): PillarReviewSummary => {
   return {
-    Notes: output.Notes !== undefined && output.Notes !== null ? output.Notes : undefined,
-    PillarId: output.PillarId !== undefined && output.PillarId !== null ? output.PillarId : undefined,
-    PillarName: output.PillarName !== undefined && output.PillarName !== null ? output.PillarName : undefined,
+    Notes: __expectString(output.Notes),
+    PillarId: __expectString(output.PillarId),
+    PillarName: __expectString(output.PillarName),
     RiskCounts:
       output.RiskCounts !== undefined && output.RiskCounts !== null
         ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
@@ -4676,11 +4684,9 @@ const deserializeAws_restJson1PillarReviewSummary = (output: any, context: __Ser
 
 const deserializeAws_restJson1QuestionDifference = (output: any, context: __SerdeContext): QuestionDifference => {
   return {
-    DifferenceStatus:
-      output.DifferenceStatus !== undefined && output.DifferenceStatus !== null ? output.DifferenceStatus : undefined,
-    QuestionId: output.QuestionId !== undefined && output.QuestionId !== null ? output.QuestionId : undefined,
-    QuestionTitle:
-      output.QuestionTitle !== undefined && output.QuestionTitle !== null ? output.QuestionTitle : undefined,
+    DifferenceStatus: __expectString(output.DifferenceStatus),
+    QuestionId: __expectString(output.QuestionId),
+    QuestionTitle: __expectString(output.QuestionTitle),
   } as any;
 };
 
@@ -4702,7 +4708,7 @@ const deserializeAws_restJson1RiskCounts = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
     };
   }, {});
 };
@@ -4714,17 +4720,14 @@ const deserializeAws_restJson1SelectedChoices = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ShareInvitation = (output: any, context: __SerdeContext): ShareInvitation => {
   return {
-    ShareInvitationId:
-      output.ShareInvitationId !== undefined && output.ShareInvitationId !== null
-        ? output.ShareInvitationId
-        : undefined,
-    WorkloadId: output.WorkloadId !== undefined && output.WorkloadId !== null ? output.WorkloadId : undefined,
+    ShareInvitationId: __expectString(output.ShareInvitationId),
+    WorkloadId: __expectString(output.WorkloadId),
   } as any;
 };
 
@@ -4747,16 +4750,12 @@ const deserializeAws_restJson1ShareInvitationSummary = (
   context: __SerdeContext
 ): ShareInvitationSummary => {
   return {
-    PermissionType:
-      output.PermissionType !== undefined && output.PermissionType !== null ? output.PermissionType : undefined,
-    ShareInvitationId:
-      output.ShareInvitationId !== undefined && output.ShareInvitationId !== null
-        ? output.ShareInvitationId
-        : undefined,
-    SharedBy: output.SharedBy !== undefined && output.SharedBy !== null ? output.SharedBy : undefined,
-    SharedWith: output.SharedWith !== undefined && output.SharedWith !== null ? output.SharedWith : undefined,
-    WorkloadId: output.WorkloadId !== undefined && output.WorkloadId !== null ? output.WorkloadId : undefined,
-    WorkloadName: output.WorkloadName !== undefined && output.WorkloadName !== null ? output.WorkloadName : undefined,
+    PermissionType: __expectString(output.PermissionType),
+    ShareInvitationId: __expectString(output.ShareInvitationId),
+    SharedBy: __expectString(output.SharedBy),
+    SharedWith: __expectString(output.SharedWith),
+    WorkloadId: __expectString(output.WorkloadId),
+    WorkloadName: __expectString(output.WorkloadName),
   } as any;
 };
 
@@ -4767,7 +4766,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4777,8 +4776,8 @@ const deserializeAws_restJson1ValidationExceptionField = (
   context: __SerdeContext
 ): ValidationExceptionField => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Message: __expectString(output.Message),
+    Name: __expectString(output.Name),
   } as any;
 };
 
@@ -4811,26 +4810,17 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
       output.AccountIds !== undefined && output.AccountIds !== null
         ? deserializeAws_restJson1WorkloadAccountIds(output.AccountIds, context)
         : undefined,
-    ArchitecturalDesign:
-      output.ArchitecturalDesign !== undefined && output.ArchitecturalDesign !== null
-        ? output.ArchitecturalDesign
-        : undefined,
+    ArchitecturalDesign: __expectString(output.ArchitecturalDesign),
     AwsRegions:
       output.AwsRegions !== undefined && output.AwsRegions !== null
         ? deserializeAws_restJson1WorkloadAwsRegions(output.AwsRegions, context)
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    Environment: output.Environment !== undefined && output.Environment !== null ? output.Environment : undefined,
-    ImprovementStatus:
-      output.ImprovementStatus !== undefined && output.ImprovementStatus !== null
-        ? output.ImprovementStatus
-        : undefined,
-    Industry: output.Industry !== undefined && output.Industry !== null ? output.Industry : undefined,
-    IndustryType: output.IndustryType !== undefined && output.IndustryType !== null ? output.IndustryType : undefined,
-    IsReviewOwnerUpdateAcknowledged:
-      output.IsReviewOwnerUpdateAcknowledged !== undefined && output.IsReviewOwnerUpdateAcknowledged !== null
-        ? output.IsReviewOwnerUpdateAcknowledged
-        : undefined,
+    Description: __expectString(output.Description),
+    Environment: __expectString(output.Environment),
+    ImprovementStatus: __expectString(output.ImprovementStatus),
+    Industry: __expectString(output.Industry),
+    IndustryType: __expectString(output.IndustryType),
+    IsReviewOwnerUpdateAcknowledged: __expectBoolean(output.IsReviewOwnerUpdateAcknowledged),
     Lenses:
       output.Lenses !== undefined && output.Lenses !== null
         ? deserializeAws_restJson1WorkloadLenses(output.Lenses, context)
@@ -4839,13 +4829,13 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
       output.NonAwsRegions !== undefined && output.NonAwsRegions !== null
         ? deserializeAws_restJson1WorkloadNonAwsRegions(output.NonAwsRegions, context)
         : undefined,
-    Notes: output.Notes !== undefined && output.Notes !== null ? output.Notes : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
+    Notes: __expectString(output.Notes),
+    Owner: __expectString(output.Owner),
     PillarPriorities:
       output.PillarPriorities !== undefined && output.PillarPriorities !== null
         ? deserializeAws_restJson1WorkloadPillarPriorities(output.PillarPriorities, context)
         : undefined,
-    ReviewOwner: output.ReviewOwner !== undefined && output.ReviewOwner !== null ? output.ReviewOwner : undefined,
+    ReviewOwner: __expectString(output.ReviewOwner),
     ReviewRestrictionDate:
       output.ReviewRestrictionDate !== undefined && output.ReviewRestrictionDate !== null
         ? new Date(Math.round(output.ReviewRestrictionDate * 1000))
@@ -4854,10 +4844,7 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
       output.RiskCounts !== undefined && output.RiskCounts !== null
         ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
         : undefined,
-    ShareInvitationId:
-      output.ShareInvitationId !== undefined && output.ShareInvitationId !== null
-        ? output.ShareInvitationId
-        : undefined,
+    ShareInvitationId: __expectString(output.ShareInvitationId),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -4866,9 +4853,9 @@ const deserializeAws_restJson1Workload = (output: any, context: __SerdeContext):
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
         : undefined,
-    WorkloadArn: output.WorkloadArn !== undefined && output.WorkloadArn !== null ? output.WorkloadArn : undefined,
-    WorkloadId: output.WorkloadId !== undefined && output.WorkloadId !== null ? output.WorkloadId : undefined,
-    WorkloadName: output.WorkloadName !== undefined && output.WorkloadName !== null ? output.WorkloadName : undefined,
+    WorkloadArn: __expectString(output.WorkloadArn),
+    WorkloadId: __expectString(output.WorkloadId),
+    WorkloadName: __expectString(output.WorkloadName),
   } as any;
 };
 
@@ -4879,7 +4866,7 @@ const deserializeAws_restJson1WorkloadAccountIds = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4890,7 +4877,7 @@ const deserializeAws_restJson1WorkloadAwsRegions = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4901,7 +4888,7 @@ const deserializeAws_restJson1WorkloadLenses = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4912,7 +4899,7 @@ const deserializeAws_restJson1WorkloadNonAwsRegions = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4923,20 +4910,19 @@ const deserializeAws_restJson1WorkloadPillarPriorities = (output: any, context: 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1WorkloadShare = (output: any, context: __SerdeContext): WorkloadShare => {
   return {
-    PermissionType:
-      output.PermissionType !== undefined && output.PermissionType !== null ? output.PermissionType : undefined,
-    ShareId: output.ShareId !== undefined && output.ShareId !== null ? output.ShareId : undefined,
-    SharedBy: output.SharedBy !== undefined && output.SharedBy !== null ? output.SharedBy : undefined,
-    SharedWith: output.SharedWith !== undefined && output.SharedWith !== null ? output.SharedWith : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    WorkloadId: output.WorkloadId !== undefined && output.WorkloadId !== null ? output.WorkloadId : undefined,
-    WorkloadName: output.WorkloadName !== undefined && output.WorkloadName !== null ? output.WorkloadName : undefined,
+    PermissionType: __expectString(output.PermissionType),
+    ShareId: __expectString(output.ShareId),
+    SharedBy: __expectString(output.SharedBy),
+    SharedWith: __expectString(output.SharedWith),
+    Status: __expectString(output.Status),
+    WorkloadId: __expectString(output.WorkloadId),
+    WorkloadName: __expectString(output.WorkloadName),
   } as any;
 };
 
@@ -4956,11 +4942,10 @@ const deserializeAws_restJson1WorkloadShareSummaries = (
 
 const deserializeAws_restJson1WorkloadShareSummary = (output: any, context: __SerdeContext): WorkloadShareSummary => {
   return {
-    PermissionType:
-      output.PermissionType !== undefined && output.PermissionType !== null ? output.PermissionType : undefined,
-    ShareId: output.ShareId !== undefined && output.ShareId !== null ? output.ShareId : undefined,
-    SharedWith: output.SharedWith !== undefined && output.SharedWith !== null ? output.SharedWith : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    PermissionType: __expectString(output.PermissionType),
+    ShareId: __expectString(output.ShareId),
+    SharedWith: __expectString(output.SharedWith),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -4977,15 +4962,12 @@ const deserializeAws_restJson1WorkloadSummaries = (output: any, context: __Serde
 
 const deserializeAws_restJson1WorkloadSummary = (output: any, context: __SerdeContext): WorkloadSummary => {
   return {
-    ImprovementStatus:
-      output.ImprovementStatus !== undefined && output.ImprovementStatus !== null
-        ? output.ImprovementStatus
-        : undefined,
+    ImprovementStatus: __expectString(output.ImprovementStatus),
     Lenses:
       output.Lenses !== undefined && output.Lenses !== null
         ? deserializeAws_restJson1WorkloadLenses(output.Lenses, context)
         : undefined,
-    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
+    Owner: __expectString(output.Owner),
     RiskCounts:
       output.RiskCounts !== undefined && output.RiskCounts !== null
         ? deserializeAws_restJson1RiskCounts(output.RiskCounts, context)
@@ -4994,9 +4976,9 @@ const deserializeAws_restJson1WorkloadSummary = (output: any, context: __SerdeCo
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
         : undefined,
-    WorkloadArn: output.WorkloadArn !== undefined && output.WorkloadArn !== null ? output.WorkloadArn : undefined,
-    WorkloadId: output.WorkloadId !== undefined && output.WorkloadId !== null ? output.WorkloadId : undefined,
-    WorkloadName: output.WorkloadName !== undefined && output.WorkloadName !== null ? output.WorkloadName : undefined,
+    WorkloadArn: __expectString(output.WorkloadArn),
+    WorkloadId: __expectString(output.WorkloadId),
+    WorkloadName: __expectString(output.WorkloadName),
   } as any;
 };
 

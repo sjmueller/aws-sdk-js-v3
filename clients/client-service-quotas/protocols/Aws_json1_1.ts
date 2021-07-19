@@ -125,7 +125,14 @@ import {
   UntagResourceResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -2722,7 +2729,8 @@ const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
 ): any => {
   return {
     ...(input.AwsRegion !== undefined && input.AwsRegion !== null && { AwsRegion: input.AwsRegion }),
-    ...(input.DesiredValue !== undefined && input.DesiredValue !== null && { DesiredValue: input.DesiredValue }),
+    ...(input.DesiredValue !== undefined &&
+      input.DesiredValue !== null && { DesiredValue: __serializeFloat(input.DesiredValue) }),
     ...(input.QuotaCode !== undefined && input.QuotaCode !== null && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
   };
@@ -2733,7 +2741,8 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredValue !== undefined && input.DesiredValue !== null && { DesiredValue: input.DesiredValue }),
+    ...(input.DesiredValue !== undefined &&
+      input.DesiredValue !== null && { DesiredValue: __serializeFloat(input.DesiredValue) }),
     ...(input.QuotaCode !== undefined && input.QuotaCode !== null && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
   };
@@ -2764,7 +2773,7 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2780,7 +2789,7 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
   context: __SerdeContext
 ): AWSServiceAccessNotEnabledException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2796,7 +2805,7 @@ const deserializeAws_json1_1DependencyAccessDeniedException = (
   context: __SerdeContext
 ): DependencyAccessDeniedException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2809,8 +2818,8 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse = (
 
 const deserializeAws_json1_1ErrorReason = (output: any, context: __SerdeContext): ErrorReason => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 
@@ -2819,11 +2828,7 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse = (
   context: __SerdeContext
 ): GetAssociationForServiceQuotaTemplateResponse => {
   return {
-    ServiceQuotaTemplateAssociationStatus:
-      output.ServiceQuotaTemplateAssociationStatus !== undefined &&
-      output.ServiceQuotaTemplateAssociationStatus !== null
-        ? output.ServiceQuotaTemplateAssociationStatus
-        : undefined,
+    ServiceQuotaTemplateAssociationStatus: __expectString(output.ServiceQuotaTemplateAssociationStatus),
   } as any;
 };
 
@@ -2884,7 +2889,7 @@ const deserializeAws_json1_1IllegalArgumentException = (
   context: __SerdeContext
 ): IllegalArgumentException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2893,7 +2898,7 @@ const deserializeAws_json1_1InvalidPaginationTokenException = (
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2902,7 +2907,7 @@ const deserializeAws_json1_1InvalidResourceStateException = (
   context: __SerdeContext
 ): InvalidResourceStateException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -2911,7 +2916,7 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse = (
   context: __SerdeContext
 ): ListAWSDefaultServiceQuotasResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Quotas:
       output.Quotas !== undefined && output.Quotas !== null
         ? deserializeAws_json1_1ServiceQuotaListDefinition(output.Quotas, context)
@@ -2924,7 +2929,7 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaRespons
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryByQuotaResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     RequestedQuotas:
       output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
         ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(output.RequestedQuotas, context)
@@ -2937,7 +2942,7 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse = (
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     RequestedQuotas:
       output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
         ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(output.RequestedQuotas, context)
@@ -2950,7 +2955,7 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse =
   context: __SerdeContext
 ): ListServiceQuotaIncreaseRequestsInTemplateResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     ServiceQuotaIncreaseRequestInTemplateList:
       output.ServiceQuotaIncreaseRequestInTemplateList !== undefined &&
       output.ServiceQuotaIncreaseRequestInTemplateList !== null
@@ -2967,7 +2972,7 @@ const deserializeAws_json1_1ListServiceQuotasResponse = (
   context: __SerdeContext
 ): ListServiceQuotasResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Quotas:
       output.Quotas !== undefined && output.Quotas !== null
         ? deserializeAws_json1_1ServiceQuotaListDefinition(output.Quotas, context)
@@ -2977,7 +2982,7 @@ const deserializeAws_json1_1ListServiceQuotasResponse = (
 
 const deserializeAws_json1_1ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
   return {
-    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    NextToken: __expectString(output.NextToken),
     Services:
       output.Services !== undefined && output.Services !== null
         ? deserializeAws_json1_1ServiceInfoListDefinition(output.Services, context)
@@ -3007,7 +3012,7 @@ const deserializeAws_json1_1MetricDimensionsMapDefinition = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -3018,13 +3023,9 @@ const deserializeAws_json1_1MetricInfo = (output: any, context: __SerdeContext):
       output.MetricDimensions !== undefined && output.MetricDimensions !== null
         ? deserializeAws_json1_1MetricDimensionsMapDefinition(output.MetricDimensions, context)
         : undefined,
-    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
-    MetricNamespace:
-      output.MetricNamespace !== undefined && output.MetricNamespace !== null ? output.MetricNamespace : undefined,
-    MetricStatisticRecommendation:
-      output.MetricStatisticRecommendation !== undefined && output.MetricStatisticRecommendation !== null
-        ? output.MetricStatisticRecommendation
-        : undefined,
+    MetricName: __expectString(output.MetricName),
+    MetricNamespace: __expectString(output.MetricNamespace),
+    MetricStatisticRecommendation: __expectString(output.MetricStatisticRecommendation),
   } as any;
 };
 
@@ -3033,7 +3034,7 @@ const deserializeAws_json1_1NoAvailableOrganizationException = (
   context: __SerdeContext
 ): NoAvailableOrganizationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3042,7 +3043,7 @@ const deserializeAws_json1_1NoSuchResourceException = (
   context: __SerdeContext
 ): NoSuchResourceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3051,7 +3052,7 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
   context: __SerdeContext
 ): OrganizationNotInAllFeaturesModeException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3084,14 +3085,14 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse =
 
 const deserializeAws_json1_1QuotaExceededException = (output: any, context: __SerdeContext): QuotaExceededException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1QuotaPeriod = (output: any, context: __SerdeContext): QuotaPeriod => {
   return {
-    PeriodUnit: output.PeriodUnit !== undefined && output.PeriodUnit !== null ? output.PeriodUnit : undefined,
-    PeriodValue: output.PeriodValue !== undefined && output.PeriodValue !== null ? output.PeriodValue : undefined,
+    PeriodUnit: __expectString(output.PeriodUnit),
+    PeriodValue: __expectNumber(output.PeriodValue),
   } as any;
 };
 
@@ -3100,24 +3101,24 @@ const deserializeAws_json1_1RequestedServiceQuotaChange = (
   context: __SerdeContext
 ): RequestedServiceQuotaChange => {
   return {
-    CaseId: output.CaseId !== undefined && output.CaseId !== null ? output.CaseId : undefined,
+    CaseId: __expectString(output.CaseId),
     Created:
       output.Created !== undefined && output.Created !== null ? new Date(Math.round(output.Created * 1000)) : undefined,
-    DesiredValue: output.DesiredValue !== undefined && output.DesiredValue !== null ? output.DesiredValue : undefined,
-    GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
-    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    DesiredValue: __handleFloat(output.DesiredValue),
+    GlobalQuota: __expectBoolean(output.GlobalQuota),
+    Id: __expectString(output.Id),
     LastUpdated:
       output.LastUpdated !== undefined && output.LastUpdated !== null
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
-    QuotaArn: output.QuotaArn !== undefined && output.QuotaArn !== null ? output.QuotaArn : undefined,
-    QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
-    QuotaName: output.QuotaName !== undefined && output.QuotaName !== null ? output.QuotaName : undefined,
-    Requester: output.Requester !== undefined && output.Requester !== null ? output.Requester : undefined,
-    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
-    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    QuotaArn: __expectString(output.QuotaArn),
+    QuotaCode: __expectString(output.QuotaCode),
+    QuotaName: __expectString(output.QuotaName),
+    Requester: __expectString(output.Requester),
+    ServiceCode: __expectString(output.ServiceCode),
+    ServiceName: __expectString(output.ServiceName),
+    Status: __expectString(output.Status),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
@@ -3152,20 +3153,20 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1ServiceInfo = (output: any, context: __SerdeContext): ServiceInfo => {
   return {
-    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
-    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+    ServiceCode: __expectString(output.ServiceCode),
+    ServiceName: __expectString(output.ServiceName),
   } as any;
 };
 
@@ -3182,27 +3183,27 @@ const deserializeAws_json1_1ServiceInfoListDefinition = (output: any, context: _
 
 const deserializeAws_json1_1ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
   return {
-    Adjustable: output.Adjustable !== undefined && output.Adjustable !== null ? output.Adjustable : undefined,
+    Adjustable: __expectBoolean(output.Adjustable),
     ErrorReason:
       output.ErrorReason !== undefined && output.ErrorReason !== null
         ? deserializeAws_json1_1ErrorReason(output.ErrorReason, context)
         : undefined,
-    GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
+    GlobalQuota: __expectBoolean(output.GlobalQuota),
     Period:
       output.Period !== undefined && output.Period !== null
         ? deserializeAws_json1_1QuotaPeriod(output.Period, context)
         : undefined,
-    QuotaArn: output.QuotaArn !== undefined && output.QuotaArn !== null ? output.QuotaArn : undefined,
-    QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
-    QuotaName: output.QuotaName !== undefined && output.QuotaName !== null ? output.QuotaName : undefined,
-    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
-    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    QuotaArn: __expectString(output.QuotaArn),
+    QuotaCode: __expectString(output.QuotaCode),
+    QuotaName: __expectString(output.QuotaName),
+    ServiceCode: __expectString(output.ServiceCode),
+    ServiceName: __expectString(output.ServiceName),
+    Unit: __expectString(output.Unit),
     UsageMetric:
       output.UsageMetric !== undefined && output.UsageMetric !== null
         ? deserializeAws_json1_1MetricInfo(output.UsageMetric, context)
         : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __handleFloat(output.Value),
   } as any;
 };
 
@@ -3211,14 +3212,14 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
   context: __SerdeContext
 ): ServiceQuotaIncreaseRequestInTemplate => {
   return {
-    AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
-    DesiredValue: output.DesiredValue !== undefined && output.DesiredValue !== null ? output.DesiredValue : undefined,
-    GlobalQuota: output.GlobalQuota !== undefined && output.GlobalQuota !== null ? output.GlobalQuota : undefined,
-    QuotaCode: output.QuotaCode !== undefined && output.QuotaCode !== null ? output.QuotaCode : undefined,
-    QuotaName: output.QuotaName !== undefined && output.QuotaName !== null ? output.QuotaName : undefined,
-    ServiceCode: output.ServiceCode !== undefined && output.ServiceCode !== null ? output.ServiceCode : undefined,
-    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
-    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    AwsRegion: __expectString(output.AwsRegion),
+    DesiredValue: __handleFloat(output.DesiredValue),
+    GlobalQuota: __expectBoolean(output.GlobalQuota),
+    QuotaCode: __expectString(output.QuotaCode),
+    QuotaName: __expectString(output.QuotaName),
+    ServiceCode: __expectString(output.ServiceCode),
+    ServiceName: __expectString(output.ServiceName),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 
@@ -3252,14 +3253,14 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
   context: __SerdeContext
 ): ServiceQuotaTemplateNotInUseException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -3268,7 +3269,7 @@ const deserializeAws_json1_1TagPolicyViolationException = (
   context: __SerdeContext
 ): TagPolicyViolationException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3281,7 +3282,7 @@ const deserializeAws_json1_1TemplatesNotAvailableInRegionException = (
   context: __SerdeContext
 ): TemplatesNotAvailableInRegionException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -3290,13 +3291,13 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 

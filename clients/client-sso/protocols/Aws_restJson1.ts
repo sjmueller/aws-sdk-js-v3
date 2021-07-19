@@ -14,6 +14,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -27,16 +29,16 @@ export const serializeAws_restJson1GetRoleCredentialsCommand = async (
   input: GetRoleCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
-  let resolvedPath = "/federation/credentials";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
   const query: any = {
     ...(input.roleName !== undefined && { role_name: input.roleName }),
     ...(input.accountId !== undefined && { account_id: input.accountId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -53,17 +55,17 @@ export const serializeAws_restJson1ListAccountRolesCommand = async (
   input: ListAccountRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
-  let resolvedPath = "/assignment/roles";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
   const query: any = {
     ...(input.nextToken !== undefined && { next_token: input.nextToken }),
     ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.accountId !== undefined && { account_id: input.accountId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -80,16 +82,16 @@ export const serializeAws_restJson1ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
-  let resolvedPath = "/assignment/accounts";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
   const query: any = {
     ...(input.nextToken !== undefined && { next_token: input.nextToken }),
     ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -106,12 +108,12 @@ export const serializeAws_restJson1LogoutCommand = async (
   input: LogoutCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
   };
-  let resolvedPath = "/logout";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -216,7 +218,7 @@ export const deserializeAws_restJson1ListAccountRolesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.roleList !== undefined && data.roleList !== null) {
     contents.roleList = deserializeAws_restJson1RoleListType(data.roleList, context);
@@ -302,7 +304,7 @@ export const deserializeAws_restJson1ListAccountsCommand = async (
     contents.accountList = deserializeAws_restJson1AccountListType(data.accountList, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -447,7 +449,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -464,7 +466,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -481,7 +483,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -498,16 +500,16 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContext): AccountInfo => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    accountName: output.accountName !== undefined && output.accountName !== null ? output.accountName : undefined,
-    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
+    accountId: __expectString(output.accountId),
+    accountName: __expectString(output.accountName),
+    emailAddress: __expectString(output.emailAddress),
   } as any;
 };
 
@@ -524,18 +526,17 @@ const deserializeAws_restJson1AccountListType = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1RoleCredentials = (output: any, context: __SerdeContext): RoleCredentials => {
   return {
-    accessKeyId: output.accessKeyId !== undefined && output.accessKeyId !== null ? output.accessKeyId : undefined,
-    expiration: output.expiration !== undefined && output.expiration !== null ? output.expiration : undefined,
-    secretAccessKey:
-      output.secretAccessKey !== undefined && output.secretAccessKey !== null ? output.secretAccessKey : undefined,
-    sessionToken: output.sessionToken !== undefined && output.sessionToken !== null ? output.sessionToken : undefined,
+    accessKeyId: __expectString(output.accessKeyId),
+    expiration: __expectNumber(output.expiration),
+    secretAccessKey: __expectString(output.secretAccessKey),
+    sessionToken: __expectString(output.sessionToken),
   } as any;
 };
 
 const deserializeAws_restJson1RoleInfo = (output: any, context: __SerdeContext): RoleInfo => {
   return {
-    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
-    roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
+    accountId: __expectString(output.accountId),
+    roleName: __expectString(output.roleName),
   } as any;
 };
 

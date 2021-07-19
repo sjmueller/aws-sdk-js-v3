@@ -11,6 +11,11 @@ import {
   ConstantQueryStringCommandOutput,
 } from "../commands/ConstantQueryStringCommand";
 import {
+  DocumentTypeAsPayloadCommandInput,
+  DocumentTypeAsPayloadCommandOutput,
+} from "../commands/DocumentTypeAsPayloadCommand";
+import { DocumentTypeCommandInput, DocumentTypeCommandOutput } from "../commands/DocumentTypeCommand";
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
@@ -36,6 +41,10 @@ import {
   HttpPrefixHeadersResponseCommandOutput,
 } from "../commands/HttpPrefixHeadersResponseCommand";
 import {
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "../commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "../commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -53,11 +62,6 @@ import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
 } from "../commands/IgnoreQueryParamsInResponseCommand";
-import {
-  InlineDocumentAsPayloadCommandInput,
-  InlineDocumentAsPayloadCommandOutput,
-} from "../commands/InlineDocumentAsPayloadCommand";
-import { InlineDocumentCommandInput, InlineDocumentCommandOutput } from "../commands/InlineDocumentCommand";
 import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
@@ -134,7 +138,13 @@ import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
 } from "@aws-sdk/smithy-client";
 import {
@@ -149,8 +159,10 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/AllQueryStringTypesInput";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AllQueryStringTypesInput";
   const query: any = {
     ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
@@ -193,7 +205,6 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
     ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -210,15 +221,16 @@ export const serializeAws_restJson1ConstantAndVariableQueryStringCommand = async
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/ConstantAndVariableQueryString";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantAndVariableQueryString";
   const query: any = {
     foo: "bar",
     ...(input.baz !== undefined && { baz: input.baz }),
     ...(input.maybeSet !== undefined && { maybeSet: input.maybeSet }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -235,8 +247,10 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/ConstantQueryString/{hello}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantQueryString/{hello}";
   if (input.hello !== undefined) {
     const labelValue: string = input.hello;
     if (labelValue.length <= 0) {
@@ -251,7 +265,6 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
     hello: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -264,17 +277,73 @@ export const serializeAws_restJson1ConstantQueryStringCommand = async (
   });
 };
 
+export const serializeAws_restJson1DocumentTypeCommand = async (
+  input: DocumentTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DocumentType";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.documentValue !== undefined &&
+      input.documentValue !== null && { documentValue: serializeAws_restJson1Document(input.documentValue, context) }),
+    ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DocumentTypeAsPayloadCommand = async (
+  input: DocumentTypeAsPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DocumentTypeAsPayload";
+  let body: any;
+  if (input.documentValue !== undefined) {
+    if (input.documentValue === null) {
+      body = "null";
+    } else {
+      body = input.documentValue;
+    }
+  }
+  body = JSON.stringify(body);
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/EmptyInputAndEmptyOutput";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -290,10 +359,11 @@ export const serializeAws_restJson1EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/EndpointOperation";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointOperation";
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -303,7 +373,6 @@ export const serializeAws_restJson1EndpointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -319,10 +388,12 @@ export const serializeAws_restJson1EndpointWithHostLabelOperationCommand = async
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/EndpointWithHostLabelOperation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelOperation";
   let body: any;
   body = JSON.stringify({
     ...(input.label !== undefined && input.label !== null && { label: input.label }),
@@ -338,7 +409,6 @@ export const serializeAws_restJson1EndpointWithHostLabelOperationCommand = async
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -354,13 +424,13 @@ export const serializeAws_restJson1GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/GreetingWithErrors";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GreetingWithErrors";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -376,15 +446,15 @@ export const serializeAws_restJson1HttpEnumPayloadCommand = async (
   input: HttpEnumPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
   };
-  let resolvedPath = "/EnumPayload";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EnumPayload";
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -400,16 +470,16 @@ export const serializeAws_restJson1HttpPayloadTraitsCommand = async (
   input: HttpPayloadTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/HttpPayloadTraits";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraits";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -425,16 +495,17 @@ export const serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand = async
   input: HttpPayloadTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/HttpPayloadTraitsWithMediaType";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraitsWithMediaType";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -450,10 +521,12 @@ export const serializeAws_restJson1HttpPayloadWithStructureCommand = async (
   input: HttpPayloadWithStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/HttpPayloadWithStructure";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restJson1NestedPayload(input.nested, context);
@@ -462,7 +535,6 @@ export const serializeAws_restJson1HttpPayloadWithStructureCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -478,6 +550,7 @@ export const serializeAws_restJson1HttpPrefixHeadersCommand = async (
   input: HttpPrefixHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
     ...(input.fooMap !== undefined &&
@@ -489,9 +562,8 @@ export const serializeAws_restJson1HttpPrefixHeadersCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/HttpPrefixHeaders";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -507,13 +579,52 @@ export const serializeAws_restJson1HttpPrefixHeadersResponseCommand = async (
   input: HttpPrefixHeadersResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/HttpPrefixHeadersResponse";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeadersResponse";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1HttpRequestWithFloatLabelsCommand = async (
+  input: HttpRequestWithFloatLabelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FloatHttpLabels/{float}/{double}";
+  if (input.float !== undefined) {
+    const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: float.");
+    }
+    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: float.");
+  }
+  if (input.double !== undefined) {
+    const labelValue: string = input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: double.");
+    }
+    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: double.");
+  }
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -529,8 +640,11 @@ export const serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = asy
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
   if (input.foo !== undefined) {
     const labelValue: string = input.foo;
     if (labelValue.length <= 0) {
@@ -556,7 +670,6 @@ export const serializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = asy
     throw new Error("No value provided for input HTTP label: baz.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -572,8 +685,11 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
   if (input.string !== undefined) {
     const labelValue: string = input.string;
     if (labelValue.length <= 0) {
@@ -647,7 +763,6 @@ export const serializeAws_restJson1HttpRequestWithLabelsCommand = async (
     throw new Error("No value provided for input HTTP label: timestamp.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -663,8 +778,10 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
   if (input.memberEpochSeconds !== undefined) {
     const labelValue: string = Math.round(input.memberEpochSeconds.getTime() / 1000).toString();
@@ -730,7 +847,6 @@ export const serializeAws_restJson1HttpRequestWithLabelsAndTimestampFormatComman
     throw new Error("No value provided for input HTTP label: targetDateTime.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -746,13 +862,13 @@ export const serializeAws_restJson1HttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/HttpResponseCode";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpResponseCode";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -768,15 +884,15 @@ export const serializeAws_restJson1HttpStringPayloadCommand = async (
   input: HttpStringPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
   };
-  let resolvedPath = "/StringPayload";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringPayload";
   let body: any;
   if (input.payload !== undefined) {
     body = input.payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -792,13 +908,14 @@ export const serializeAws_restJson1IgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/IgnoreQueryParamsInResponse";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -810,65 +927,11 @@ export const serializeAws_restJson1IgnoreQueryParamsInResponseCommand = async (
   });
 };
 
-export const serializeAws_restJson1InlineDocumentCommand = async (
-  input: InlineDocumentCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  let resolvedPath = "/InlineDocument";
-  let body: any;
-  body = JSON.stringify({
-    ...(input.documentValue !== undefined &&
-      input.documentValue !== null && { documentValue: serializeAws_restJson1Document(input.documentValue, context) }),
-    ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
-  });
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
-export const serializeAws_restJson1InlineDocumentAsPayloadCommand = async (
-  input: InlineDocumentAsPayloadCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "application/json",
-  };
-  let resolvedPath = "/InlineDocumentAsPayload";
-  let body: any;
-  if (input.documentValue !== undefined) {
-    if (input.documentValue === null) {
-      body = "null";
-    } else {
-      body = input.documentValue;
-    }
-  }
-  body = JSON.stringify(body);
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
-};
-
 export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.headerString) && { "x-string": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerByte) && { "x-byte": input.headerByte!.toString() }),
@@ -905,9 +968,9 @@ export const serializeAws_restJson1InputAndOutputWithHeadersCommand = async (
       "x-enumlist": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
     }),
   };
-  let resolvedPath = "/InputAndOutputWithHeaders";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InputAndOutputWithHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -923,15 +986,15 @@ export const serializeAws_restJson1JsonBlobsCommand = async (
   input: JsonBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonBlobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonBlobs";
   let body: any;
   body = JSON.stringify({
     ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -947,10 +1010,11 @@ export const serializeAws_restJson1JsonEnumsCommand = async (
   input: JsonEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonEnums";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonEnums";
   let body: any;
   body = JSON.stringify({
     ...(input.fooEnum1 !== undefined && input.fooEnum1 !== null && { fooEnum1: input.fooEnum1 }),
@@ -963,7 +1027,6 @@ export const serializeAws_restJson1JsonEnumsCommand = async (
     ...(input.fooEnumSet !== undefined &&
       input.fooEnumSet !== null && { fooEnumSet: serializeAws_restJson1FooEnumSet(input.fooEnumSet, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -979,10 +1042,11 @@ export const serializeAws_restJson1JsonListsCommand = async (
   input: JsonListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonLists";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonLists";
   let body: any;
   body = JSON.stringify({
     ...(input.booleanList !== undefined &&
@@ -1012,7 +1076,6 @@ export const serializeAws_restJson1JsonListsCommand = async (
         timestampList: serializeAws_restJson1TimestampList(input.timestampList, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1028,10 +1091,11 @@ export const serializeAws_restJson1JsonMapsCommand = async (
   input: JsonMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonMaps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonMaps";
   let body: any;
   body = JSON.stringify({
     ...(input.denseBooleanMap !== undefined &&
@@ -1042,6 +1106,8 @@ export const serializeAws_restJson1JsonMapsCommand = async (
       input.denseNumberMap !== null && {
         denseNumberMap: serializeAws_restJson1DenseNumberMap(input.denseNumberMap, context),
       }),
+    ...(input.denseSetMap !== undefined &&
+      input.denseSetMap !== null && { denseSetMap: serializeAws_restJson1DenseSetMap(input.denseSetMap, context) }),
     ...(input.denseStringMap !== undefined &&
       input.denseStringMap !== null && {
         denseStringMap: serializeAws_restJson1DenseStringMap(input.denseStringMap, context),
@@ -1058,6 +1124,8 @@ export const serializeAws_restJson1JsonMapsCommand = async (
       input.sparseNumberMap !== null && {
         sparseNumberMap: serializeAws_restJson1SparseNumberMap(input.sparseNumberMap, context),
       }),
+    ...(input.sparseSetMap !== undefined &&
+      input.sparseSetMap !== null && { sparseSetMap: serializeAws_restJson1SparseSetMap(input.sparseSetMap, context) }),
     ...(input.sparseStringMap !== undefined &&
       input.sparseStringMap !== null && {
         sparseStringMap: serializeAws_restJson1SparseStringMap(input.sparseStringMap, context),
@@ -1067,7 +1135,6 @@ export const serializeAws_restJson1JsonMapsCommand = async (
         sparseStructMap: serializeAws_restJson1SparseStructMap(input.sparseStructMap, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1083,10 +1150,11 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
   input: JsonTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonTimestamps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonTimestamps";
   let body: any;
   body = JSON.stringify({
     ...(input.dateTime !== undefined &&
@@ -1096,7 +1164,6 @@ export const serializeAws_restJson1JsonTimestampsCommand = async (
     ...(input.httpDate !== undefined && input.httpDate !== null && { httpDate: __dateToUtcString(input.httpDate) }),
     ...(input.normal !== undefined && input.normal !== null && { normal: Math.round(input.normal.getTime() / 1000) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1112,16 +1179,16 @@ export const serializeAws_restJson1JsonUnionsCommand = async (
   input: JsonUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/JsonUnions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/JsonUnions";
   let body: any;
   body = JSON.stringify({
     ...(input.contents !== undefined &&
       input.contents !== null && { contents: serializeAws_restJson1MyUnion(input.contents, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1137,14 +1204,14 @@ export const serializeAws_restJson1MediaTypeHeaderCommand = async (
   input: MediaTypeHeaderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.json) && {
       "x-json": Buffer.from(__LazyJsonString.fromObject(input.json!)).toString("base64"),
     }),
   };
-  let resolvedPath = "/MediaTypeHeader";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MediaTypeHeader";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1160,13 +1227,13 @@ export const serializeAws_restJson1NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/NoInputAndNoOutput";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndNoOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1182,13 +1249,13 @@ export const serializeAws_restJson1NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/NoInputAndOutputOutput";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndOutputOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1204,14 +1271,15 @@ export const serializeAws_restJson1NullAndEmptyHeadersClientCommand = async (
   input: NullAndEmptyHeadersClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
-  let resolvedPath = "/NullAndEmptyHeadersClient";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersClient";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1227,14 +1295,15 @@ export const serializeAws_restJson1NullAndEmptyHeadersServerCommand = async (
   input: NullAndEmptyHeadersServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
-  let resolvedPath = "/NullAndEmptyHeadersServer";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersServer";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1250,14 +1319,15 @@ export const serializeAws_restJson1OmitsNullSerializesEmptyStringCommand = async
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/OmitsNullSerializesEmptyString";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsNullSerializesEmptyString";
   const query: any = {
     ...(input.nullValue !== undefined && { Null: input.nullValue }),
     ...(input.emptyString !== undefined && { Empty: input.emptyString }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1274,13 +1344,14 @@ export const serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand = async 
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/QueryIdempotencyTokenAutoFill";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1297,14 +1368,14 @@ export const serializeAws_restJson1QueryParamsAsStringListMapCommand = async (
   input: QueryParamsAsStringListMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/StringListMap";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringListMap";
   const query: any = {
     ...(input.foo !== undefined && input.foo),
     ...(input.qux !== undefined && { corge: input.qux }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1321,14 +1392,14 @@ export const serializeAws_restJson1QueryPrecedenceCommand = async (
   input: QueryPrecedenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/Precedence";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Precedence";
   const query: any = {
     ...(input.baz !== undefined && input.baz),
     ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1345,10 +1416,11 @@ export const serializeAws_restJson1RecursiveShapesCommand = async (
   input: RecursiveShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/RecursiveShapes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RecursiveShapes";
   let body: any;
   body = JSON.stringify({
     ...(input.nested !== undefined &&
@@ -1356,7 +1428,6 @@ export const serializeAws_restJson1RecursiveShapesCommand = async (
         nested: serializeAws_restJson1RecursiveShapesInputOutputNested1(input.nested, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1372,18 +1443,21 @@ export const serializeAws_restJson1SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/SimpleScalarProperties";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SimpleScalarProperties";
   let body: any;
   body = JSON.stringify({
     ...(input.byteValue !== undefined && input.byteValue !== null && { byteValue: input.byteValue }),
-    ...(input.doubleValue !== undefined && input.doubleValue !== null && { DoubleDribble: input.doubleValue }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { DoubleDribble: __serializeFloat(input.doubleValue) }),
     ...(input.falseBooleanValue !== undefined &&
       input.falseBooleanValue !== null && { falseBooleanValue: input.falseBooleanValue }),
-    ...(input.floatValue !== undefined && input.floatValue !== null && { floatValue: input.floatValue }),
+    ...(input.floatValue !== undefined &&
+      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
     ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
     ...(input.longValue !== undefined && input.longValue !== null && { longValue: input.longValue }),
     ...(input.shortValue !== undefined && input.shortValue !== null && { shortValue: input.shortValue }),
@@ -1391,7 +1465,6 @@ export const serializeAws_restJson1SimpleScalarPropertiesCommand = async (
     ...(input.trueBooleanValue !== undefined &&
       input.trueBooleanValue !== null && { trueBooleanValue: input.trueBooleanValue }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1407,16 +1480,16 @@ export const serializeAws_restJson1StreamingTraitsCommand = async (
   input: StreamingTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/StreamingTraits";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraits";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1432,16 +1505,17 @@ export const serializeAws_restJson1StreamingTraitsRequireLengthCommand = async (
   input: StreamingTraitsRequireLengthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/StreamingTraitsRequireLength";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraitsRequireLength";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1457,16 +1531,17 @@ export const serializeAws_restJson1StreamingTraitsWithMediaTypeCommand = async (
   input: StreamingTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/StreamingTraitsWithMediaType";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StreamingTraitsWithMediaType";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1482,6 +1557,7 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
   input: TimestampFormatHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
       "x-memberepochseconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
@@ -1505,9 +1581,8 @@ export const serializeAws_restJson1TimestampFormatHeadersCommand = async (
       "x-targetdatetime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     }),
   };
-  let resolvedPath = "/TimestampFormatHeaders";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimestampFormatHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1623,6 +1698,103 @@ const deserializeAws_restJson1ConstantQueryStringCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DocumentTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DocumentTypeCommandError(output, context);
+  }
+  const contents: DocumentTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    documentValue: undefined,
+    stringValue: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.documentValue !== undefined && data.documentValue !== null) {
+    contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
+  }
+  if (data.stringValue !== undefined && data.stringValue !== null) {
+    contents.stringValue = __expectString(data.stringValue);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DocumentTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DocumentTypeAsPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeAsPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DocumentTypeAsPayloadCommandError(output, context);
+  }
+  const contents: DocumentTypeAsPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    documentValue: undefined,
+  };
+  const data: any = await collectBodyString(output.body, context);
+  contents.documentValue = data;
+  contents.documentValue = JSON.parse(data);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DocumentTypeAsPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeAsPayloadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1860,7 +2032,7 @@ export const deserializeAws_restJson1HttpEnumPayloadCommand = async (
     payload: undefined,
   };
   const data: any = await collectBodyString(output.body, context);
-  contents.payload = data;
+  contents.payload = __expectString(data);
   return Promise.resolve(contents);
 };
 
@@ -2144,6 +2316,49 @@ const deserializeAws_restJson1HttpPrefixHeadersResponseCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1HttpRequestWithFloatLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1HttpRequestWithFloatLabelsCommandError(output, context);
+  }
+  const contents: HttpRequestWithFloatLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1HttpRequestWithFloatLabelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1HttpRequestWithGreedyLabelInPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2332,7 +2547,7 @@ export const deserializeAws_restJson1HttpStringPayloadCommand = async (
     payload: undefined,
   };
   const data: any = await collectBodyString(output.body, context);
-  contents.payload = data;
+  contents.payload = __expectString(data);
   return Promise.resolve(contents);
 };
 
@@ -2378,7 +2593,7 @@ export const deserializeAws_restJson1IgnoreQueryParamsInResponseCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.baz !== undefined && data.baz !== null) {
-    contents.baz = data.baz;
+    contents.baz = __expectString(data.baz);
   }
   return Promise.resolve(contents);
 };
@@ -2387,103 +2602,6 @@ const deserializeAws_restJson1IgnoreQueryParamsInResponseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1InlineDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InlineDocumentCommandError(output, context);
-  }
-  const contents: InlineDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    documentValue: undefined,
-    stringValue: undefined,
-  };
-  const data: any = await parseBody(output.body, context);
-  if (data.documentValue !== undefined && data.documentValue !== null) {
-    contents.documentValue = deserializeAws_restJson1Document(data.documentValue, context);
-  }
-  if (data.stringValue !== undefined && data.stringValue !== null) {
-    contents.stringValue = data.stringValue;
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1InlineDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
-export const deserializeAws_restJson1InlineDocumentAsPayloadCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentAsPayloadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1InlineDocumentAsPayloadCommandError(output, context);
-  }
-  const contents: InlineDocumentAsPayloadCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    documentValue: undefined,
-  };
-  const data: any = await collectBodyString(output.body, context);
-  contents.documentValue = data;
-  contents.documentValue = JSON.parse(data);
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1InlineDocumentAsPayloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InlineDocumentAsPayloadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2557,10 +2675,10 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
     contents.headerDouble = parseFloat(output.headers["x-double"]);
   }
   if (output.headers["x-boolean1"] !== undefined) {
-    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
+    contents.headerTrueBool = __parseBoolean(output.headers["x-boolean1"]);
   }
   if (output.headers["x-boolean2"] !== undefined) {
-    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
+    contents.headerFalseBool = __parseBoolean(output.headers["x-boolean2"]);
   }
   if (output.headers["x-stringlist"] !== undefined) {
     contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim());
@@ -2576,7 +2694,7 @@ export const deserializeAws_restJson1InputAndOutputWithHeadersCommand = async (
   if (output.headers["x-booleanlist"] !== undefined) {
     contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
       .split(",")
-      .map((_entry) => _entry.trim() === "true");
+      .map((_entry) => __parseBoolean(_entry.trim()));
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
@@ -2687,13 +2805,13 @@ export const deserializeAws_restJson1JsonEnumsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.fooEnum1 !== undefined && data.fooEnum1 !== null) {
-    contents.fooEnum1 = data.fooEnum1;
+    contents.fooEnum1 = __expectString(data.fooEnum1);
   }
   if (data.fooEnum2 !== undefined && data.fooEnum2 !== null) {
-    contents.fooEnum2 = data.fooEnum2;
+    contents.fooEnum2 = __expectString(data.fooEnum2);
   }
   if (data.fooEnum3 !== undefined && data.fooEnum3 !== null) {
-    contents.fooEnum3 = data.fooEnum3;
+    contents.fooEnum3 = __expectString(data.fooEnum3);
   }
   if (data.fooEnumList !== undefined && data.fooEnumList !== null) {
     contents.fooEnumList = deserializeAws_restJson1FooEnumList(data.fooEnumList, context);
@@ -2826,10 +2944,12 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
     $metadata: deserializeMetadata(output),
     denseBooleanMap: undefined,
     denseNumberMap: undefined,
+    denseSetMap: undefined,
     denseStringMap: undefined,
     denseStructMap: undefined,
     sparseBooleanMap: undefined,
     sparseNumberMap: undefined,
+    sparseSetMap: undefined,
     sparseStringMap: undefined,
     sparseStructMap: undefined,
   };
@@ -2839,6 +2959,9 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
   }
   if (data.denseNumberMap !== undefined && data.denseNumberMap !== null) {
     contents.denseNumberMap = deserializeAws_restJson1DenseNumberMap(data.denseNumberMap, context);
+  }
+  if (data.denseSetMap !== undefined && data.denseSetMap !== null) {
+    contents.denseSetMap = deserializeAws_restJson1DenseSetMap(data.denseSetMap, context);
   }
   if (data.denseStringMap !== undefined && data.denseStringMap !== null) {
     contents.denseStringMap = deserializeAws_restJson1DenseStringMap(data.denseStringMap, context);
@@ -2851,6 +2974,9 @@ export const deserializeAws_restJson1JsonMapsCommand = async (
   }
   if (data.sparseNumberMap !== undefined && data.sparseNumberMap !== null) {
     contents.sparseNumberMap = deserializeAws_restJson1SparseNumberMap(data.sparseNumberMap, context);
+  }
+  if (data.sparseSetMap !== undefined && data.sparseSetMap !== null) {
+    contents.sparseSetMap = deserializeAws_restJson1SparseSetMap(data.sparseSetMap, context);
   }
   if (data.sparseStringMap !== undefined && data.sparseStringMap !== null) {
     contents.sparseStringMap = deserializeAws_restJson1SparseStringMap(data.sparseStringMap, context);
@@ -3483,31 +3609,31 @@ export const deserializeAws_restJson1SimpleScalarPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   if (data.byteValue !== undefined && data.byteValue !== null) {
-    contents.byteValue = data.byteValue;
+    contents.byteValue = __expectNumber(data.byteValue);
   }
   if (data.DoubleDribble !== undefined && data.DoubleDribble !== null) {
-    contents.doubleValue = data.DoubleDribble;
+    contents.doubleValue = __handleFloat(data.DoubleDribble);
   }
   if (data.falseBooleanValue !== undefined && data.falseBooleanValue !== null) {
-    contents.falseBooleanValue = data.falseBooleanValue;
+    contents.falseBooleanValue = __expectBoolean(data.falseBooleanValue);
   }
   if (data.floatValue !== undefined && data.floatValue !== null) {
-    contents.floatValue = data.floatValue;
+    contents.floatValue = __handleFloat(data.floatValue);
   }
   if (data.integerValue !== undefined && data.integerValue !== null) {
-    contents.integerValue = data.integerValue;
+    contents.integerValue = __expectNumber(data.integerValue);
   }
   if (data.longValue !== undefined && data.longValue !== null) {
-    contents.longValue = data.longValue;
+    contents.longValue = __expectNumber(data.longValue);
   }
   if (data.shortValue !== undefined && data.shortValue !== null) {
-    contents.shortValue = data.shortValue;
+    contents.shortValue = __expectNumber(data.shortValue);
   }
   if (data.stringValue !== undefined && data.stringValue !== null) {
-    contents.stringValue = data.stringValue;
+    contents.stringValue = __expectString(data.stringValue);
   }
   if (data.trueBooleanValue !== undefined && data.trueBooleanValue !== null) {
-    contents.trueBooleanValue = data.trueBooleanValue;
+    contents.trueBooleanValue = __expectBoolean(data.trueBooleanValue);
   }
   return Promise.resolve(contents);
 };
@@ -3779,7 +3905,7 @@ const deserializeAws_restJson1ComplexErrorResponse = async (
     contents.Nested = deserializeAws_restJson1ComplexNestedErrorData(data.Nested, context);
   }
   if (data.TopLevel !== undefined && data.TopLevel !== null) {
-    contents.TopLevel = data.TopLevel;
+    contents.TopLevel = __expectString(data.TopLevel);
   }
   return contents;
 };
@@ -3809,13 +3935,13 @@ const deserializeAws_restJson1InvalidGreetingResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
 
 const serializeAws_restJson1DenseBooleanMap = (input: { [key: string]: boolean }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3827,7 +3953,7 @@ const serializeAws_restJson1DenseBooleanMap = (input: { [key: string]: boolean }
 };
 
 const serializeAws_restJson1DenseNumberMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3838,8 +3964,20 @@ const serializeAws_restJson1DenseNumberMap = (input: { [key: string]: number }, 
   }, {});
 };
 
+const serializeAws_restJson1DenseSetMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1StringSet(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1DenseStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3854,7 +3992,7 @@ const serializeAws_restJson1DenseStructMap = (
   input: { [key: string]: GreetingStruct },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: GreetingStruct }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3921,7 +4059,7 @@ const serializeAws_restJson1RecursiveShapesInputOutputNested2 = (
 };
 
 const serializeAws_restJson1SparseBooleanMap = (input: { [key: string]: boolean }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: boolean }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -3933,7 +4071,7 @@ const serializeAws_restJson1SparseBooleanMap = (input: { [key: string]: boolean 
 };
 
 const serializeAws_restJson1SparseNumberMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -3944,11 +4082,23 @@ const serializeAws_restJson1SparseNumberMap = (input: { [key: string]: number },
   }, {});
 };
 
+const serializeAws_restJson1SparseSetMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return { ...acc, [key]: null as any };
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1StringSet(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1SparseStructMap = (
   input: { [key: string]: GreetingStruct },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: GreetingStruct }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -4006,7 +4156,7 @@ const serializeAws_restJson1FooEnumList = (input: (FooEnum | string)[], context:
 };
 
 const serializeAws_restJson1FooEnumMap = (input: { [key: string]: FooEnum | string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: FooEnum | string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4066,7 +4216,7 @@ const serializeAws_restJson1SparseStringList = (input: string[], context: __Serd
 };
 
 const serializeAws_restJson1SparseStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -4089,7 +4239,7 @@ const serializeAws_restJson1StringList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -4127,7 +4277,7 @@ const deserializeAws_restJson1ComplexNestedErrorData = (
   context: __SerdeContext
 ): ComplexNestedErrorData => {
   return {
-    Foo: output.Fooooo !== undefined && output.Fooooo !== null ? output.Fooooo : undefined,
+    Foo: __expectString(output.Fooooo),
   } as any;
 };
 
@@ -4138,7 +4288,7 @@ const deserializeAws_restJson1DenseBooleanMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectBoolean(value) as any,
     };
   }, {});
 };
@@ -4150,7 +4300,19 @@ const deserializeAws_restJson1DenseNumberMap = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1DenseSetMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1StringSet(value, context),
     };
   }, {});
 };
@@ -4162,7 +4324,7 @@ const deserializeAws_restJson1DenseStringMap = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4192,15 +4354,11 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (output.booleanValue !== undefined && output.booleanValue !== null) {
-    return {
-      booleanValue: output.booleanValue,
-    };
+  if (__expectBoolean(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (output.enumValue !== undefined && output.enumValue !== null) {
-    return {
-      enumValue: output.enumValue,
-    };
+  if (__expectString(output.enumValue) !== undefined) {
+    return { enumValue: __expectString(output.enumValue) as any };
   }
   if (output.listValue !== undefined && output.listValue !== null) {
     return {
@@ -4212,20 +4370,16 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
       mapValue: deserializeAws_restJson1StringMap(output.mapValue, context),
     };
   }
-  if (output.numberValue !== undefined && output.numberValue !== null) {
-    return {
-      numberValue: output.numberValue,
-    };
+  if (__expectNumber(output.numberValue) !== undefined) {
+    return { numberValue: __expectNumber(output.numberValue) as any };
   }
   if (output.renamedStructureValue !== undefined && output.renamedStructureValue !== null) {
     return {
       renamedStructureValue: deserializeAws_restJson1RenamedGreeting(output.renamedStructureValue, context),
     };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   if (output.structureValue !== undefined && output.structureValue !== null) {
     return {
@@ -4242,8 +4396,8 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1NestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
   return {
-    greeting: output.greeting !== undefined && output.greeting !== null ? output.greeting : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    greeting: __expectString(output.greeting),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -4252,7 +4406,7 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
   return {
-    foo: output.foo !== undefined && output.foo !== null ? output.foo : undefined,
+    foo: __expectString(output.foo),
     nested:
       output.nested !== undefined && output.nested !== null
         ? deserializeAws_restJson1RecursiveShapesInputOutputNested2(output.nested, context)
@@ -4265,7 +4419,7 @@ const deserializeAws_restJson1RecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
   return {
-    bar: output.bar !== undefined && output.bar !== null ? output.bar : undefined,
+    bar: __expectString(output.bar),
     recursiveMember:
       output.recursiveMember !== undefined && output.recursiveMember !== null
         ? deserializeAws_restJson1RecursiveShapesInputOutputNested1(output.recursiveMember, context)
@@ -4280,7 +4434,7 @@ const deserializeAws_restJson1SparseBooleanMap = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectBoolean(value) as any,
     };
   }, {});
 };
@@ -4292,7 +4446,19 @@ const deserializeAws_restJson1SparseNumberMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectNumber(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1SparseSetMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return { ...acc, [key]: null as any };
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1StringSet(value, context),
     };
   }, {});
 };
@@ -4325,14 +4491,14 @@ const deserializeAws_restJson1StructureList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   return {
-    a: output.value !== undefined && output.value !== null ? output.value : undefined,
-    b: output.other !== undefined && output.other !== null ? output.other : undefined,
+    a: __expectString(output.value),
+    b: __expectString(output.other),
   } as any;
 };
 
 const deserializeAws_restJson1RenamedGreeting = (output: any, context: __SerdeContext): RenamedGreeting => {
   return {
-    salutation: output.salutation !== undefined && output.salutation !== null ? output.salutation : undefined,
+    salutation: __expectString(output.salutation),
   } as any;
 };
 
@@ -4343,7 +4509,7 @@ const deserializeAws_restJson1BooleanList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectBoolean(entry) as any;
     });
 };
 
@@ -4354,7 +4520,7 @@ const deserializeAws_restJson1FooEnumList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4368,7 +4534,7 @@ const deserializeAws_restJson1FooEnumMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4380,13 +4546,13 @@ const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   return {
-    hi: output.hi !== undefined && output.hi !== null ? output.hi : undefined,
+    hi: __expectString(output.hi),
   } as any;
 };
 
@@ -4397,7 +4563,7 @@ const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectNumber(entry) as any;
     });
 };
 
@@ -4417,7 +4583,7 @@ const deserializeAws_restJson1SparseStringList = (output: any, context: __SerdeC
     if (entry === null) {
       return null as any;
     }
-    return entry;
+    return __expectString(entry) as any;
   });
 };
 
@@ -4428,7 +4594,7 @@ const deserializeAws_restJson1SparseStringMap = (output: any, context: __SerdeCo
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4440,7 +4606,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4451,7 +4617,7 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4463,7 +4629,7 @@ const deserializeAws_restJson1StringSet = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

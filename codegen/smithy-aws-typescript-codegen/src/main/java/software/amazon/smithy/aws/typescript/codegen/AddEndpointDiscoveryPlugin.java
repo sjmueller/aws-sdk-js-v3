@@ -15,18 +15,27 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientDiscoveredEndpointTrait;
+import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientEndpointDiscoveryIdTrait;
 import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientEndpointDiscoveryTrait;
 import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -67,24 +76,20 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
-                        // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
-                        .additionalResolveFunctionParameters("DescribeEndpointsCommand")
+                        .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                            put("endpointDiscoveryCommandCtor",
+                                    Symbol.builder().name(getClientDiscoveryCommand(s)).build());
+                        }})
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build(),
-                // ToDo: The value ClientDiscoveredEndpointTrait.isRequired() needs to be passed to Plugin instead
-                // of creating two functions Required and Optional. The map of identifiers also needs to be passed.
+                // ToDo: Pass the map of identifiers to the EndpointDiscovery plugin.
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
-                                "EndpointDiscoveryRequired", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
-                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointRequired(s, o))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
-                                "EndpointDiscoveryOptional", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
-                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointOptional(s, o))
-                        .build()
+                                "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                        .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
+                        .operationPredicate((m, s, o) ->
+                            isClientDiscoveredEndpointRequired(s, o) || isClientDiscoveredEndpointOptional(s, o)
+                        ).build()
         );
     }
 
@@ -157,5 +162,59 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             return !operation.getTrait(ClientDiscoveredEndpointTrait.class).orElse(null).isRequired();
         }
         return false;
+    }
+
+    private static String getClientDiscoveryCommand(ServiceShape service) {
+        if (!hasClientEndpointDiscovery(service)) {
+            throw new CodegenException(
+                "EndpointDiscovery command discovery attempt for service without endpoint discovery"
+            );
+        }
+        return service.getTrait(ClientEndpointDiscoveryTrait.class).orElse(null).getOperation().getName() + "Command";
+    }
+
+    private static Map<String, Object> getPluginFunctionParams(
+        Model model,
+        ServiceShape serviceShape,
+        OperationShape operationShape
+    ) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("clientStack", Symbol.builder().name("clientStack").build());
+        params.put("options", Symbol.builder().name("options").build());
+        params.put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(
+            serviceShape, operationShape));
+
+        OperationIndex operationIndex = OperationIndex.of(model);
+        List membersWithClientEndpointDiscoveryId = getMembersWithClientEndpointDiscoveryId(
+            operationIndex.getInput(operationShape)
+        );
+
+        if (!membersWithClientEndpointDiscoveryId.isEmpty()) {
+            params.put("identifiers", getClientEndpointDiscoveryIdentifiers(membersWithClientEndpointDiscoveryId));
+        }
+        return params;
+    }
+
+    private static String getClientEndpointDiscoveryIdentifiers(
+        List<MemberShape> membersWithClientEndpointDiscoveryId
+    ) {
+        return membersWithClientEndpointDiscoveryId.stream()
+            .map(member -> member.getMemberName() + ": input." + member.getMemberName())
+            .collect(Collectors.joining(", ", "{", "}"));
+    }
+
+    private static List<MemberShape> getMembersWithClientEndpointDiscoveryId(
+        Optional<StructureShape> optionalShape
+    ) {
+        List<MemberShape> membersWithClientEndpointDiscoveryId = new ArrayList<>();
+        if (optionalShape.isPresent()) {
+            StructureShape structureShape = optionalShape.get();
+            for (MemberShape member : structureShape.getAllMembers().values()) {
+                if (member.getTrait(ClientEndpointDiscoveryIdTrait.class).isPresent()) {
+                    membersWithClientEndpointDiscoveryId.add(member);
+                }
+            }
+        }
+        return membersWithClientEndpointDiscoveryId;
     }
 }

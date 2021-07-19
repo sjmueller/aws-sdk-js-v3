@@ -21,6 +21,10 @@ import {
   PutAndGetInlineDocumentsCommandOutput,
 } from "../commands/PutAndGetInlineDocumentsCommand";
 import {
+  SimpleScalarPropertiesCommandInput,
+  SimpleScalarPropertiesCommandOutput,
+} from "../commands/SimpleScalarPropertiesCommand";
+import {
   ComplexError,
   ComplexNestedErrorData,
   EmptyStruct,
@@ -37,6 +41,7 @@ import {
   MyUnion,
   NullOperationInputOutput,
   PutAndGetInlineDocumentsInputOutput,
+  SimpleScalarPropertiesInputOutput,
   SimpleStruct,
   StructWithLocationName,
   UnionInputOutput,
@@ -51,6 +56,11 @@ import {
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -203,6 +213,19 @@ export const serializeAws_json1_1PutAndGetInlineDocumentsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAndGetInlineDocumentsInputOutput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SimpleScalarPropertiesCommand = async (
+  input: SimpleScalarPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.SimpleScalarProperties",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SimpleScalarPropertiesInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -697,6 +720,52 @@ const deserializeAws_json1_1PutAndGetInlineDocumentsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1SimpleScalarPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleScalarPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SimpleScalarPropertiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SimpleScalarPropertiesInputOutput(data, context);
+  const response: SimpleScalarPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SimpleScalarPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleScalarPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1ComplexErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -804,10 +873,10 @@ const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeCon
   return {
     ...(input.Blob !== undefined && input.Blob !== null && { Blob: context.base64Encoder(input.Blob) }),
     ...(input.Boolean !== undefined && input.Boolean !== null && { Boolean: input.Boolean }),
-    ...(input.Double !== undefined && input.Double !== null && { Double: input.Double }),
+    ...(input.Double !== undefined && input.Double !== null && { Double: __serializeFloat(input.Double) }),
     ...(input.EmptyStruct !== undefined &&
       input.EmptyStruct !== null && { EmptyStruct: serializeAws_json1_1EmptyStruct(input.EmptyStruct, context) }),
-    ...(input.Float !== undefined && input.Float !== null && { Float: input.Float }),
+    ...(input.Float !== undefined && input.Float !== null && { Float: __serializeFloat(input.Float) }),
     ...(input.HttpdateTimestamp !== undefined &&
       input.HttpdateTimestamp !== null && { HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp) }),
     ...(input.Integer !== undefined && input.Integer !== null && { Integer: input.Integer }),
@@ -926,7 +995,7 @@ const serializeAws_json1_1ListOfStructs = (input: SimpleStruct[], context: __Ser
 };
 
 const serializeAws_json1_1MapOfKitchenSinks = (input: { [key: string]: KitchenSink }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: KitchenSink }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -938,7 +1007,7 @@ const serializeAws_json1_1MapOfKitchenSinks = (input: { [key: string]: KitchenSi
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -953,22 +1022,19 @@ const serializeAws_json1_1MapOfMapOfStrings = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1MapOfStrings(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1MapOfStrings(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1MapOfStrings = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -980,7 +1046,7 @@ const serializeAws_json1_1MapOfStrings = (input: { [key: string]: string }, cont
 };
 
 const serializeAws_json1_1MapOfStructs = (input: { [key: string]: SimpleStruct }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: SimpleStruct }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1033,6 +1099,18 @@ const serializeAws_json1_1PutAndGetInlineDocumentsInputOutput = (
   };
 };
 
+const serializeAws_json1_1SimpleScalarPropertiesInputOutput = (
+  input: SimpleScalarPropertiesInputOutput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
+    ...(input.floatValue !== undefined &&
+      input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
+  };
+};
+
 const serializeAws_json1_1SimpleStruct = (input: SimpleStruct, context: __SerdeContext): any => {
   return {
     ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
@@ -1064,7 +1142,7 @@ const serializeAws_json1_1FooEnumList = (input: (FooEnum | string)[], context: _
 };
 
 const serializeAws_json1_1FooEnumMap = (input: { [key: string]: FooEnum | string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: FooEnum | string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1102,7 +1180,7 @@ const serializeAws_json1_1SparseStringList = (input: string[], context: __SerdeC
 };
 
 const serializeAws_json1_1SparseStringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return { ...acc, [key]: null as any };
     }
@@ -1125,7 +1203,7 @@ const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext
 };
 
 const serializeAws_json1_1StringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1142,13 +1220,13 @@ const deserializeAws_json1_1ComplexError = (output: any, context: __SerdeContext
       output.Nested !== undefined && output.Nested !== null
         ? deserializeAws_json1_1ComplexNestedErrorData(output.Nested, context)
         : undefined,
-    TopLevel: output.TopLevel !== undefined && output.TopLevel !== null ? output.TopLevel : undefined,
+    TopLevel: __expectString(output.TopLevel),
   } as any;
 };
 
 const deserializeAws_json1_1ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   return {
-    Foo: output.Fooooo !== undefined && output.Fooooo !== null ? output.Fooooo : undefined,
+    Foo: __expectString(output.Fooooo),
   } as any;
 };
 
@@ -1162,12 +1240,12 @@ const deserializeAws_json1_1EmptyStruct = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ErrorWithMembers = (output: any, context: __SerdeContext): ErrorWithMembers => {
   return {
-    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Code: __expectString(output.Code),
     ComplexData:
       output.ComplexData !== undefined && output.ComplexData !== null
         ? deserializeAws_json1_1KitchenSink(output.ComplexData, context)
         : undefined,
-    IntegerField: output.IntegerField !== undefined && output.IntegerField !== null ? output.IntegerField : undefined,
+    IntegerField: __expectNumber(output.IntegerField),
     ListField:
       output.ListField !== undefined && output.ListField !== null
         ? deserializeAws_json1_1ListOfStrings(output.ListField, context)
@@ -1176,8 +1254,8 @@ const deserializeAws_json1_1ErrorWithMembers = (output: any, context: __SerdeCon
       output.MapField !== undefined && output.MapField !== null
         ? deserializeAws_json1_1MapOfStrings(output.MapField, context)
         : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
-    StringField: output.StringField !== undefined && output.StringField !== null ? output.StringField : undefined,
+    Message: __expectString(output.Message),
+    StringField: __expectString(output.StringField),
   } as any;
 };
 
@@ -1194,21 +1272,21 @@ const deserializeAws_json1_1GreetingWithErrorsOutput = (
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
   return {
-    greeting: output.greeting !== undefined && output.greeting !== null ? output.greeting : undefined,
+    greeting: __expectString(output.greeting),
   } as any;
 };
 
 const deserializeAws_json1_1InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
   return {
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Message: __expectString(output.Message),
   } as any;
 };
 
 const deserializeAws_json1_1JsonEnumsInputOutput = (output: any, context: __SerdeContext): JsonEnumsInputOutput => {
   return {
-    fooEnum1: output.fooEnum1 !== undefined && output.fooEnum1 !== null ? output.fooEnum1 : undefined,
-    fooEnum2: output.fooEnum2 !== undefined && output.fooEnum2 !== null ? output.fooEnum2 : undefined,
-    fooEnum3: output.fooEnum3 !== undefined && output.fooEnum3 !== null ? output.fooEnum3 : undefined,
+    fooEnum1: __expectString(output.fooEnum1),
+    fooEnum2: __expectString(output.fooEnum2),
+    fooEnum3: __expectString(output.fooEnum3),
     fooEnumList:
       output.fooEnumList !== undefined && output.fooEnumList !== null
         ? deserializeAws_json1_1FooEnumList(output.fooEnumList, context)
@@ -1227,18 +1305,18 @@ const deserializeAws_json1_1JsonEnumsInputOutput = (output: any, context: __Serd
 const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext): KitchenSink => {
   return {
     Blob: output.Blob !== undefined && output.Blob !== null ? context.base64Decoder(output.Blob) : undefined,
-    Boolean: output.Boolean !== undefined && output.Boolean !== null ? output.Boolean : undefined,
-    Double: output.Double !== undefined && output.Double !== null ? output.Double : undefined,
+    Boolean: __expectBoolean(output.Boolean),
+    Double: __handleFloat(output.Double),
     EmptyStruct:
       output.EmptyStruct !== undefined && output.EmptyStruct !== null
         ? deserializeAws_json1_1EmptyStruct(output.EmptyStruct, context)
         : undefined,
-    Float: output.Float !== undefined && output.Float !== null ? output.Float : undefined,
+    Float: __handleFloat(output.Float),
     HttpdateTimestamp:
       output.HttpdateTimestamp !== undefined && output.HttpdateTimestamp !== null
         ? new Date(Math.round(output.HttpdateTimestamp * 1000))
         : undefined,
-    Integer: output.Integer !== undefined && output.Integer !== null ? output.Integer : undefined,
+    Integer: __expectNumber(output.Integer),
     Iso8601Timestamp:
       output.Iso8601Timestamp !== undefined && output.Iso8601Timestamp !== null
         ? new Date(Math.round(output.Iso8601Timestamp * 1000))
@@ -1261,7 +1339,7 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
       output.ListOfStructs !== undefined && output.ListOfStructs !== null
         ? deserializeAws_json1_1ListOfStructs(output.ListOfStructs, context)
         : undefined,
-    Long: output.Long !== undefined && output.Long !== null ? output.Long : undefined,
+    Long: __expectNumber(output.Long),
     MapOfListsOfStrings:
       output.MapOfListsOfStrings !== undefined && output.MapOfListsOfStrings !== null
         ? deserializeAws_json1_1MapOfListsOfStrings(output.MapOfListsOfStrings, context)
@@ -1294,7 +1372,7 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
       output.SimpleStruct !== undefined && output.SimpleStruct !== null
         ? deserializeAws_json1_1SimpleStruct(output.SimpleStruct, context)
         : undefined,
-    String: output.String !== undefined && output.String !== null ? output.String : undefined,
+    String: __expectString(output.String),
     StructWithLocationName:
       output.StructWithLocationName !== undefined && output.StructWithLocationName !== null
         ? deserializeAws_json1_1StructWithLocationName(output.StructWithLocationName, context)
@@ -1353,7 +1431,7 @@ const deserializeAws_json1_1ListOfStrings = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1423,7 +1501,7 @@ const deserializeAws_json1_1MapOfStrings = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1446,15 +1524,11 @@ const deserializeAws_json1_1MyUnion = (output: any, context: __SerdeContext): My
       blobValue: context.base64Decoder(output.blobValue),
     };
   }
-  if (output.booleanValue !== undefined && output.booleanValue !== null) {
-    return {
-      booleanValue: output.booleanValue,
-    };
+  if (__expectBoolean(output.booleanValue) !== undefined) {
+    return { booleanValue: __expectBoolean(output.booleanValue) as any };
   }
-  if (output.enumValue !== undefined && output.enumValue !== null) {
-    return {
-      enumValue: output.enumValue,
-    };
+  if (__expectString(output.enumValue) !== undefined) {
+    return { enumValue: __expectString(output.enumValue) as any };
   }
   if (output.listValue !== undefined && output.listValue !== null) {
     return {
@@ -1466,15 +1540,11 @@ const deserializeAws_json1_1MyUnion = (output: any, context: __SerdeContext): My
       mapValue: deserializeAws_json1_1StringMap(output.mapValue, context),
     };
   }
-  if (output.numberValue !== undefined && output.numberValue !== null) {
-    return {
-      numberValue: output.numberValue,
-    };
+  if (__expectNumber(output.numberValue) !== undefined) {
+    return { numberValue: __expectNumber(output.numberValue) as any };
   }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    return {
-      stringValue: output.stringValue,
-    };
+  if (__expectString(output.stringValue) !== undefined) {
+    return { stringValue: __expectString(output.stringValue) as any };
   }
   if (output.structureValue !== undefined && output.structureValue !== null) {
     return {
@@ -1502,7 +1572,7 @@ const deserializeAws_json1_1NullOperationInputOutput = (
       output.sparseStringMap !== undefined && output.sparseStringMap !== null
         ? deserializeAws_json1_1SparseStringMap(output.sparseStringMap, context)
         : undefined,
-    string: output.string !== undefined && output.string !== null ? output.string : undefined,
+    string: __expectString(output.string),
   } as any;
 };
 
@@ -1518,15 +1588,25 @@ const deserializeAws_json1_1PutAndGetInlineDocumentsInputOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1SimpleScalarPropertiesInputOutput = (
+  output: any,
+  context: __SerdeContext
+): SimpleScalarPropertiesInputOutput => {
+  return {
+    doubleValue: __handleFloat(output.doubleValue),
+    floatValue: __handleFloat(output.floatValue),
+  } as any;
+};
+
 const deserializeAws_json1_1SimpleStruct = (output: any, context: __SerdeContext): SimpleStruct => {
   return {
-    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+    Value: __expectString(output.Value),
   } as any;
 };
 
 const deserializeAws_json1_1StructWithLocationName = (output: any, context: __SerdeContext): StructWithLocationName => {
   return {
-    Value: output.RenamedMember !== undefined && output.RenamedMember !== null ? output.RenamedMember : undefined,
+    Value: __expectString(output.RenamedMember),
   } as any;
 };
 
@@ -1546,7 +1626,7 @@ const deserializeAws_json1_1FooEnumList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1560,7 +1640,7 @@ const deserializeAws_json1_1FooEnumMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1572,13 +1652,13 @@ const deserializeAws_json1_1FooEnumSet = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_json1_1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   return {
-    hi: output.hi !== undefined && output.hi !== null ? output.hi : undefined,
+    hi: __expectString(output.hi),
   } as any;
 };
 
@@ -1587,7 +1667,7 @@ const deserializeAws_json1_1SparseStringList = (output: any, context: __SerdeCon
     if (entry === null) {
       return null as any;
     }
-    return entry;
+    return __expectString(entry) as any;
   });
 };
 
@@ -1598,7 +1678,7 @@ const deserializeAws_json1_1SparseStringMap = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1610,7 +1690,7 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1621,7 +1701,7 @@ const deserializeAws_json1_1StringMap = (output: any, context: __SerdeContext): 
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

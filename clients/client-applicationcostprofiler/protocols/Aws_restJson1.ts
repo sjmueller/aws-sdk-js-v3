@@ -35,6 +35,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -48,8 +49,10 @@ export const serializeAws_restJson1DeleteReportDefinitionCommand = async (
   input: DeleteReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/reportDefinition/{reportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   if (input.reportId !== undefined) {
     const labelValue: string = input.reportId;
     if (labelValue.length <= 0) {
@@ -60,7 +63,6 @@ export const serializeAws_restJson1DeleteReportDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: reportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -76,8 +78,10 @@ export const serializeAws_restJson1GetReportDefinitionCommand = async (
   input: GetReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/reportDefinition/{reportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   if (input.reportId !== undefined) {
     const labelValue: string = input.reportId;
     if (labelValue.length <= 0) {
@@ -88,7 +92,6 @@ export const serializeAws_restJson1GetReportDefinitionCommand = async (
     throw new Error("No value provided for input HTTP label: reportId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -104,10 +107,11 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
   input: ImportApplicationUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/importApplicationUsage";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importApplicationUsage";
   let body: any;
   body = JSON.stringify({
     ...(input.sourceS3Location !== undefined &&
@@ -115,7 +119,6 @@ export const serializeAws_restJson1ImportApplicationUsageCommand = async (
         sourceS3Location: serializeAws_restJson1SourceS3Location(input.sourceS3Location, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -131,14 +134,14 @@ export const serializeAws_restJson1ListReportDefinitionsCommand = async (
   input: ListReportDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/reportDefinition";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -155,10 +158,11 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
   input: PutReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/reportDefinition";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition";
   let body: any;
   body = JSON.stringify({
     ...(input.destinationS3Location !== undefined &&
@@ -172,7 +176,6 @@ export const serializeAws_restJson1PutReportDefinitionCommand = async (
       input.reportFrequency !== null && { reportFrequency: input.reportFrequency }),
     ...(input.reportId !== undefined && input.reportId !== null && { reportId: input.reportId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -188,10 +191,12 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
   input: UpdateReportDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/reportDefinition/{reportId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/reportDefinition/{reportId}";
   if (input.reportId !== undefined) {
     const labelValue: string = input.reportId;
     if (labelValue.length <= 0) {
@@ -213,7 +218,6 @@ export const serializeAws_restJson1UpdateReportDefinitionCommand = async (
     ...(input.reportFrequency !== undefined &&
       input.reportFrequency !== null && { reportFrequency: input.reportFrequency }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -238,7 +242,7 @@ export const deserializeAws_restJson1DeleteReportDefinitionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.reportId !== undefined && data.reportId !== null) {
-    contents.reportId = data.reportId;
+    contents.reportId = __expectString(data.reportId);
   }
   return Promise.resolve(contents);
 };
@@ -329,19 +333,19 @@ export const deserializeAws_restJson1GetReportDefinitionCommand = async (
     contents.destinationS3Location = deserializeAws_restJson1S3Location(data.destinationS3Location, context);
   }
   if (data.format !== undefined && data.format !== null) {
-    contents.format = data.format;
+    contents.format = __expectString(data.format);
   }
   if (data.lastUpdated !== undefined && data.lastUpdated !== null) {
     contents.lastUpdated = new Date(Math.round(data.lastUpdated * 1000));
   }
   if (data.reportDescription !== undefined && data.reportDescription !== null) {
-    contents.reportDescription = data.reportDescription;
+    contents.reportDescription = __expectString(data.reportDescription);
   }
   if (data.reportFrequency !== undefined && data.reportFrequency !== null) {
-    contents.reportFrequency = data.reportFrequency;
+    contents.reportFrequency = __expectString(data.reportFrequency);
   }
   if (data.reportId !== undefined && data.reportId !== null) {
-    contents.reportId = data.reportId;
+    contents.reportId = __expectString(data.reportId);
   }
   return Promise.resolve(contents);
 };
@@ -420,7 +424,7 @@ export const deserializeAws_restJson1ImportApplicationUsageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.importId !== undefined && data.importId !== null) {
-    contents.importId = data.importId;
+    contents.importId = __expectString(data.importId);
   }
   return Promise.resolve(contents);
 };
@@ -500,7 +504,7 @@ export const deserializeAws_restJson1ListReportDefinitionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.reportDefinitions !== undefined && data.reportDefinitions !== null) {
     contents.reportDefinitions = deserializeAws_restJson1ReportDefinitionList(data.reportDefinitions, context);
@@ -582,7 +586,7 @@ export const deserializeAws_restJson1PutReportDefinitionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.reportId !== undefined && data.reportId !== null) {
-    contents.reportId = data.reportId;
+    contents.reportId = __expectString(data.reportId);
   }
   return Promise.resolve(contents);
 };
@@ -669,7 +673,7 @@ export const deserializeAws_restJson1UpdateReportDefinitionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.reportId !== undefined && data.reportId !== null) {
-    contents.reportId = data.reportId;
+    contents.reportId = __expectString(data.reportId);
   }
   return Promise.resolve(contents);
 };
@@ -747,7 +751,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -764,7 +768,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -781,7 +785,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -798,7 +802,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -815,7 +819,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -845,18 +849,14 @@ const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeC
       output.destinationS3Location !== undefined && output.destinationS3Location !== null
         ? deserializeAws_restJson1S3Location(output.destinationS3Location, context)
         : undefined,
-    format: output.format !== undefined && output.format !== null ? output.format : undefined,
+    format: __expectString(output.format),
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
         : undefined,
-    reportDescription:
-      output.reportDescription !== undefined && output.reportDescription !== null
-        ? output.reportDescription
-        : undefined,
-    reportFrequency:
-      output.reportFrequency !== undefined && output.reportFrequency !== null ? output.reportFrequency : undefined,
-    reportId: output.reportId !== undefined && output.reportId !== null ? output.reportId : undefined,
+    reportDescription: __expectString(output.reportDescription),
+    reportFrequency: __expectString(output.reportFrequency),
+    reportId: __expectString(output.reportId),
   } as any;
 };
 
@@ -873,8 +873,8 @@ const deserializeAws_restJson1ReportDefinitionList = (output: any, context: __Se
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
-    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    bucket: __expectString(output.bucket),
+    prefix: __expectString(output.prefix),
   } as any;
 };
 

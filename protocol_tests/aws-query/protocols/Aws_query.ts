@@ -62,6 +62,8 @@ import {
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
   InvalidGreeting,
+  NestedStructWithList,
+  NestedStructWithMap,
   NestedStructuresInput,
   NoInputAndOutputOutput,
   QueryIdempotencyTokenAutoFillInput,
@@ -91,9 +93,12 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1950,6 +1955,30 @@ const serializeAws_queryNestedStructuresInput = (input: NestedStructuresInput, c
   return entries;
 };
 
+const serializeAws_queryNestedStructWithList = (input: NestedStructWithList, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ListArg !== undefined && input.ListArg !== null) {
+    const memberEntries = serializeAws_queryStringList(input.ListArg, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ListArg.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryNestedStructWithMap = (input: NestedStructWithMap, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.MapArg !== undefined && input.MapArg !== null) {
+    const memberEntries = serializeAws_queryStringMap(input.MapArg, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MapArg.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryNoInputAndOutputOutput = (input: NoInputAndOutputOutput, context: __SerdeContext): any => {
   const entries: any = {};
   return entries;
@@ -2003,6 +2032,13 @@ const serializeAws_queryQueryListsInput = (input: QueryListsInput, context: __Se
     const memberEntries = serializeAws_queryListWithXmlName(input.FlattenedListArgWithXmlName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NestedWithList !== undefined && input.NestedWithList !== null) {
+    const memberEntries = serializeAws_queryNestedStructWithList(input.NestedWithList, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NestedWithList.${key}`;
       entries[loc] = value;
     });
   }
@@ -2060,6 +2096,13 @@ const serializeAws_queryQueryMapsInput = (input: QueryMapsInput, context: __Serd
       entries[loc] = value;
     });
   }
+  if (input.NestedStructWithMap !== undefined && input.NestedStructWithMap !== null) {
+    const memberEntries = serializeAws_queryNestedStructWithMap(input.NestedStructWithMap, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NestedStructWithMap.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -2091,8 +2134,11 @@ const serializeAws_querySimpleInputParamsInput = (input: SimpleInputParamsInput,
   if (input.Bam !== undefined && input.Bam !== null) {
     entries["Bam"] = input.Bam;
   }
+  if (input.FloatValue !== undefined && input.FloatValue !== null) {
+    entries["FloatValue"] = __serializeFloat(input.FloatValue);
+  }
   if (input.Boo !== undefined && input.Boo !== null) {
-    entries["Boo"] = input.Boo;
+    entries["Boo"] = __serializeFloat(input.Boo);
   }
   if (input.Qux !== undefined && input.Qux !== null) {
     entries["Qux"] = context.base64Encoder(input.Qux);
@@ -2177,7 +2223,7 @@ const deserializeAws_queryComplexError = (output: any, context: __SerdeContext):
     Nested: undefined,
   };
   if (output["TopLevel"] !== undefined) {
-    contents.TopLevel = output["TopLevel"];
+    contents.TopLevel = __expectString(output["TopLevel"]);
   }
   if (output["Nested"] !== undefined) {
     contents.Nested = deserializeAws_queryComplexNestedErrorData(output["Nested"], context);
@@ -2190,7 +2236,7 @@ const deserializeAws_queryComplexNestedErrorData = (output: any, context: __Serd
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo = output["Foo"];
+    contents.Foo = __expectString(output["Foo"]);
   }
   return contents;
 };
@@ -2200,7 +2246,7 @@ const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContex
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -2255,7 +2301,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
     }
     return {
       ...acc,
-      [pair["K"]]: pair["V"],
+      [pair["K"]]: __expectString(pair["V"]) as any,
     };
   }, {});
 };
@@ -2289,7 +2335,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap = (
     }
     return {
       ...acc,
-      [pair["K"]]: pair["V"],
+      [pair["K"]]: __expectString(pair["V"]) as any,
     };
   }, {});
 };
@@ -2302,7 +2348,7 @@ const deserializeAws_queryGreetingWithErrorsOutput = (
     greeting: undefined,
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting = output["greeting"];
+    contents.greeting = __expectString(output["greeting"]);
   }
   return contents;
 };
@@ -2315,7 +2361,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
     foo: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   return contents;
 };
@@ -2325,7 +2371,7 @@ const deserializeAws_queryInvalidGreeting = (output: any, context: __SerdeContex
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -2337,7 +2383,7 @@ const deserializeAws_queryListWithMemberNamespace = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2348,7 +2394,7 @@ const deserializeAws_queryListWithNamespace = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2374,7 +2420,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested1 = (
     nested: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_queryRecursiveXmlShapesOutputNested2(output["nested"], context);
@@ -2391,7 +2437,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested2 = (
     recursiveMember: undefined,
   };
   if (output["bar"] !== undefined) {
-    contents.bar = output["bar"];
+    contents.bar = __expectString(output["bar"]);
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_queryRecursiveXmlShapesOutputNested1(output["recursiveMember"], context);
@@ -2406,7 +2452,7 @@ const deserializeAws_queryRenamedListMembers = (output: any, context: __SerdeCon
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2427,16 +2473,16 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
     doubleValue: undefined,
   };
   if (output["stringValue"] !== undefined) {
-    contents.stringValue = output["stringValue"];
+    contents.stringValue = __expectString(output["stringValue"]);
   }
   if (output["emptyStringValue"] !== undefined) {
-    contents.emptyStringValue = output["emptyStringValue"];
+    contents.emptyStringValue = __expectString(output["emptyStringValue"]);
   }
   if (output["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = output["trueBooleanValue"] == "true";
+    contents.trueBooleanValue = __parseBoolean(output["trueBooleanValue"]);
   }
   if (output["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = output["falseBooleanValue"] == "true";
+    contents.falseBooleanValue = __parseBoolean(output["falseBooleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
     contents.byteValue = parseInt(output["byteValue"]);
@@ -2476,10 +2522,10 @@ const deserializeAws_queryStructureListMember = (output: any, context: __SerdeCo
     b: undefined,
   };
   if (output["value"] !== undefined) {
-    contents.a = output["value"];
+    contents.a = __expectString(output["value"]);
   }
   if (output["other"] !== undefined) {
-    contents.b = output["other"];
+    contents.b = __expectString(output["other"]);
   }
   return contents;
 };
@@ -2504,13 +2550,13 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
     fooEnumMap: undefined,
   };
   if (output["fooEnum1"] !== undefined) {
-    contents.fooEnum1 = output["fooEnum1"];
+    contents.fooEnum1 = __expectString(output["fooEnum1"]);
   }
   if (output["fooEnum2"] !== undefined) {
-    contents.fooEnum2 = output["fooEnum2"];
+    contents.fooEnum2 = __expectString(output["fooEnum2"]);
   }
   if (output["fooEnum3"] !== undefined) {
-    contents.fooEnum3 = output["fooEnum3"];
+    contents.fooEnum3 = __expectString(output["fooEnum3"]);
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -2738,7 +2784,7 @@ const deserializeAws_queryXmlNamespacedList = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2748,7 +2794,7 @@ const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeCon
     values: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output.values === "") {
     contents.values = [];
@@ -2801,7 +2847,7 @@ const deserializeAws_queryBooleanList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry == "true";
+      return __parseBoolean(entry);
     });
 };
 
@@ -2812,7 +2858,7 @@ const deserializeAws_queryFooEnumList = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2823,7 +2869,7 @@ const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -2835,7 +2881,7 @@ const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2844,7 +2890,7 @@ const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext
     hi: undefined,
   };
   if (output["hi"] !== undefined) {
-    contents.hi = output["hi"];
+    contents.hi = __expectString(output["hi"]);
   }
   return contents;
 };
@@ -2878,7 +2924,7 @@ const deserializeAws_queryStringList = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2889,7 +2935,7 @@ const deserializeAws_queryStringSet = (output: any, context: __SerdeContext): st
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

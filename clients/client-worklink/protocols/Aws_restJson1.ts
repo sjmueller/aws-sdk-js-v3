@@ -107,6 +107,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -120,10 +122,11 @@ export const serializeAws_restJson1AssociateDomainCommand = async (
   input: AssociateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/associateDomain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateDomain";
   let body: any;
   body = JSON.stringify({
     ...(input.AcmCertificateArn !== undefined &&
@@ -132,7 +135,6 @@ export const serializeAws_restJson1AssociateDomainCommand = async (
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -148,10 +150,12 @@ export const serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand 
   input: AssociateWebsiteAuthorizationProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/associateWebsiteAuthorizationProvider";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateWebsiteAuthorizationProvider";
   let body: any;
   body = JSON.stringify({
     ...(input.AuthorizationProviderType !== undefined &&
@@ -159,7 +163,6 @@ export const serializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand 
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -175,17 +178,18 @@ export const serializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand =
   input: AssociateWebsiteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/associateWebsiteCertificateAuthority";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateWebsiteCertificateAuthority";
   let body: any;
   body = JSON.stringify({
     ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
     ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -201,10 +205,11 @@ export const serializeAws_restJson1CreateFleetCommand = async (
   input: CreateFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/createFleet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createFleet";
   let body: any;
   body = JSON.stringify({
     ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
@@ -213,7 +218,6 @@ export const serializeAws_restJson1CreateFleetCommand = async (
       input.OptimizeForEndUserLocation !== null && { OptimizeForEndUserLocation: input.OptimizeForEndUserLocation }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -229,15 +233,15 @@ export const serializeAws_restJson1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/deleteFleet";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteFleet";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -253,15 +257,16 @@ export const serializeAws_restJson1DescribeAuditStreamConfigurationCommand = asy
   input: DescribeAuditStreamConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeAuditStreamConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeAuditStreamConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -277,15 +282,16 @@ export const serializeAws_restJson1DescribeCompanyNetworkConfigurationCommand = 
   input: DescribeCompanyNetworkConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeCompanyNetworkConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeCompanyNetworkConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -301,16 +307,16 @@ export const serializeAws_restJson1DescribeDeviceCommand = async (
   input: DescribeDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeDevice";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDevice";
   let body: any;
   body = JSON.stringify({
     ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -326,15 +332,16 @@ export const serializeAws_restJson1DescribeDevicePolicyConfigurationCommand = as
   input: DescribeDevicePolicyConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeDevicePolicyConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDevicePolicyConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -350,16 +357,16 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeDomain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeDomain";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -375,15 +382,15 @@ export const serializeAws_restJson1DescribeFleetMetadataCommand = async (
   input: DescribeFleetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeFleetMetadata";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeFleetMetadata";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -399,15 +406,16 @@ export const serializeAws_restJson1DescribeIdentityProviderConfigurationCommand 
   input: DescribeIdentityProviderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeIdentityProviderConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeIdentityProviderConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -423,16 +431,17 @@ export const serializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand = 
   input: DescribeWebsiteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describeWebsiteCertificateAuthority";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeWebsiteCertificateAuthority";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.WebsiteCaId !== undefined && input.WebsiteCaId !== null && { WebsiteCaId: input.WebsiteCaId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -448,16 +457,16 @@ export const serializeAws_restJson1DisassociateDomainCommand = async (
   input: DisassociateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/disassociateDomain";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateDomain";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -473,17 +482,18 @@ export const serializeAws_restJson1DisassociateWebsiteAuthorizationProviderComma
   input: DisassociateWebsiteAuthorizationProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/disassociateWebsiteAuthorizationProvider";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateWebsiteAuthorizationProvider";
   let body: any;
   body = JSON.stringify({
     ...(input.AuthorizationProviderId !== undefined &&
       input.AuthorizationProviderId !== null && { AuthorizationProviderId: input.AuthorizationProviderId }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -499,16 +509,17 @@ export const serializeAws_restJson1DisassociateWebsiteCertificateAuthorityComman
   input: DisassociateWebsiteCertificateAuthorityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/disassociateWebsiteCertificateAuthority";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateWebsiteCertificateAuthority";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.WebsiteCaId !== undefined && input.WebsiteCaId !== null && { WebsiteCaId: input.WebsiteCaId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -524,17 +535,17 @@ export const serializeAws_restJson1ListDevicesCommand = async (
   input: ListDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listDevices";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDevices";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -550,17 +561,17 @@ export const serializeAws_restJson1ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listDomains";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDomains";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -576,16 +587,16 @@ export const serializeAws_restJson1ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listFleets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFleets";
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -601,8 +612,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -613,7 +625,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -629,17 +640,18 @@ export const serializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = as
   input: ListWebsiteAuthorizationProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listWebsiteAuthorizationProviders";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWebsiteAuthorizationProviders";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -655,17 +667,18 @@ export const serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand = as
   input: ListWebsiteCertificateAuthoritiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/listWebsiteCertificateAuthorities";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWebsiteCertificateAuthorities";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -681,16 +694,16 @@ export const serializeAws_restJson1RestoreDomainAccessCommand = async (
   input: RestoreDomainAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/restoreDomainAccess";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restoreDomainAccess";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -706,16 +719,16 @@ export const serializeAws_restJson1RevokeDomainAccessCommand = async (
   input: RevokeDomainAccessCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/revokeDomainAccess";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/revokeDomainAccess";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -731,16 +744,16 @@ export const serializeAws_restJson1SignOutUserCommand = async (
   input: SignOutUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/signOutUser";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/signOutUser";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -756,10 +769,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -773,7 +787,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -789,8 +802,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -804,7 +818,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -821,17 +834,18 @@ export const serializeAws_restJson1UpdateAuditStreamConfigurationCommand = async
   input: UpdateAuditStreamConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateAuditStreamConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateAuditStreamConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.AuditStreamArn !== undefined &&
       input.AuditStreamArn !== null && { AuditStreamArn: input.AuditStreamArn }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -847,10 +861,12 @@ export const serializeAws_restJson1UpdateCompanyNetworkConfigurationCommand = as
   input: UpdateCompanyNetworkConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateCompanyNetworkConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateCompanyNetworkConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
@@ -862,7 +878,6 @@ export const serializeAws_restJson1UpdateCompanyNetworkConfigurationCommand = as
       input.SubnetIds !== null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
     ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -878,17 +893,18 @@ export const serializeAws_restJson1UpdateDevicePolicyConfigurationCommand = asyn
   input: UpdateDevicePolicyConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateDevicePolicyConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDevicePolicyConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.DeviceCaCertificate !== undefined &&
       input.DeviceCaCertificate !== null && { DeviceCaCertificate: input.DeviceCaCertificate }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -904,17 +920,17 @@ export const serializeAws_restJson1UpdateDomainMetadataCommand = async (
   input: UpdateDomainMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateDomainMetadata";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateDomainMetadata";
   let body: any;
   body = JSON.stringify({
     ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -930,10 +946,11 @@ export const serializeAws_restJson1UpdateFleetMetadataCommand = async (
   input: UpdateFleetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/UpdateFleetMetadata";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateFleetMetadata";
   let body: any;
   body = JSON.stringify({
     ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
@@ -941,7 +958,6 @@ export const serializeAws_restJson1UpdateFleetMetadataCommand = async (
     ...(input.OptimizeForEndUserLocation !== undefined &&
       input.OptimizeForEndUserLocation !== null && { OptimizeForEndUserLocation: input.OptimizeForEndUserLocation }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -957,10 +973,12 @@ export const serializeAws_restJson1UpdateIdentityProviderConfigurationCommand = 
   input: UpdateIdentityProviderConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/updateIdentityProviderConfiguration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateIdentityProviderConfiguration";
   let body: any;
   body = JSON.stringify({
     ...(input.FleetArn !== undefined && input.FleetArn !== null && { FleetArn: input.FleetArn }),
@@ -971,7 +989,6 @@ export const serializeAws_restJson1UpdateIdentityProviderConfigurationCommand = 
     ...(input.IdentityProviderType !== undefined &&
       input.IdentityProviderType !== null && { IdentityProviderType: input.IdentityProviderType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1087,7 +1104,7 @@ export const deserializeAws_restJson1AssociateWebsiteAuthorizationProviderComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.AuthorizationProviderId !== undefined && data.AuthorizationProviderId !== null) {
-    contents.AuthorizationProviderId = data.AuthorizationProviderId;
+    contents.AuthorizationProviderId = __expectString(data.AuthorizationProviderId);
   }
   return Promise.resolve(contents);
 };
@@ -1182,7 +1199,7 @@ export const deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand
   };
   const data: any = await parseBody(output.body, context);
   if (data.WebsiteCaId !== undefined && data.WebsiteCaId !== null) {
-    contents.WebsiteCaId = data.WebsiteCaId;
+    contents.WebsiteCaId = __expectString(data.WebsiteCaId);
   }
   return Promise.resolve(contents);
 };
@@ -1277,7 +1294,7 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.FleetArn !== undefined && data.FleetArn !== null) {
-    contents.FleetArn = data.FleetArn;
+    contents.FleetArn = __expectString(data.FleetArn);
   }
   return Promise.resolve(contents);
 };
@@ -1455,7 +1472,7 @@ export const deserializeAws_restJson1DescribeAuditStreamConfigurationCommand = a
   };
   const data: any = await parseBody(output.body, context);
   if (data.AuditStreamArn !== undefined && data.AuditStreamArn !== null) {
-    contents.AuditStreamArn = data.AuditStreamArn;
+    contents.AuditStreamArn = __expectString(data.AuditStreamArn);
   }
   return Promise.resolve(contents);
 };
@@ -1550,7 +1567,7 @@ export const deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand 
     contents.SubnetIds = deserializeAws_restJson1SubnetIds(data.SubnetIds, context);
   }
   if (data.VpcId !== undefined && data.VpcId !== null) {
-    contents.VpcId = data.VpcId;
+    contents.VpcId = __expectString(data.VpcId);
   }
   return Promise.resolve(contents);
 };
@@ -1651,25 +1668,25 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     contents.LastAccessedTime = new Date(Math.round(data.LastAccessedTime * 1000));
   }
   if (data.Manufacturer !== undefined && data.Manufacturer !== null) {
-    contents.Manufacturer = data.Manufacturer;
+    contents.Manufacturer = __expectString(data.Manufacturer);
   }
   if (data.Model !== undefined && data.Model !== null) {
-    contents.Model = data.Model;
+    contents.Model = __expectString(data.Model);
   }
   if (data.OperatingSystem !== undefined && data.OperatingSystem !== null) {
-    contents.OperatingSystem = data.OperatingSystem;
+    contents.OperatingSystem = __expectString(data.OperatingSystem);
   }
   if (data.OperatingSystemVersion !== undefined && data.OperatingSystemVersion !== null) {
-    contents.OperatingSystemVersion = data.OperatingSystemVersion;
+    contents.OperatingSystemVersion = __expectString(data.OperatingSystemVersion);
   }
   if (data.PatchLevel !== undefined && data.PatchLevel !== null) {
-    contents.PatchLevel = data.PatchLevel;
+    contents.PatchLevel = __expectString(data.PatchLevel);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.Username !== undefined && data.Username !== null) {
-    contents.Username = data.Username;
+    contents.Username = __expectString(data.Username);
   }
   return Promise.resolve(contents);
 };
@@ -1756,7 +1773,7 @@ export const deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeviceCaCertificate !== undefined && data.DeviceCaCertificate !== null) {
-    contents.DeviceCaCertificate = data.DeviceCaCertificate;
+    contents.DeviceCaCertificate = __expectString(data.DeviceCaCertificate);
   }
   return Promise.resolve(contents);
 };
@@ -1847,19 +1864,19 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AcmCertificateArn !== undefined && data.AcmCertificateArn !== null) {
-    contents.AcmCertificateArn = data.AcmCertificateArn;
+    contents.AcmCertificateArn = __expectString(data.AcmCertificateArn);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
-    contents.DisplayName = data.DisplayName;
+    contents.DisplayName = __expectString(data.DisplayName);
   }
   if (data.DomainName !== undefined && data.DomainName !== null) {
-    contents.DomainName = data.DomainName;
+    contents.DomainName = __expectString(data.DomainName);
   }
   if (data.DomainStatus !== undefined && data.DomainStatus !== null) {
-    contents.DomainStatus = data.DomainStatus;
+    contents.DomainStatus = __expectString(data.DomainStatus);
   }
   return Promise.resolve(contents);
 };
@@ -1953,25 +1970,25 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CompanyCode !== undefined && data.CompanyCode !== null) {
-    contents.CompanyCode = data.CompanyCode;
+    contents.CompanyCode = __expectString(data.CompanyCode);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
-    contents.DisplayName = data.DisplayName;
+    contents.DisplayName = __expectString(data.DisplayName);
   }
   if (data.FleetName !== undefined && data.FleetName !== null) {
-    contents.FleetName = data.FleetName;
+    contents.FleetName = __expectString(data.FleetName);
   }
   if (data.FleetStatus !== undefined && data.FleetStatus !== null) {
-    contents.FleetStatus = data.FleetStatus;
+    contents.FleetStatus = __expectString(data.FleetStatus);
   }
   if (data.LastUpdatedTime !== undefined && data.LastUpdatedTime !== null) {
     contents.LastUpdatedTime = new Date(Math.round(data.LastUpdatedTime * 1000));
   }
   if (data.OptimizeForEndUserLocation !== undefined && data.OptimizeForEndUserLocation !== null) {
-    contents.OptimizeForEndUserLocation = data.OptimizeForEndUserLocation;
+    contents.OptimizeForEndUserLocation = __expectBoolean(data.OptimizeForEndUserLocation);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -2063,13 +2080,13 @@ export const deserializeAws_restJson1DescribeIdentityProviderConfigurationComman
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityProviderSamlMetadata !== undefined && data.IdentityProviderSamlMetadata !== null) {
-    contents.IdentityProviderSamlMetadata = data.IdentityProviderSamlMetadata;
+    contents.IdentityProviderSamlMetadata = __expectString(data.IdentityProviderSamlMetadata);
   }
   if (data.IdentityProviderType !== undefined && data.IdentityProviderType !== null) {
-    contents.IdentityProviderType = data.IdentityProviderType;
+    contents.IdentityProviderType = __expectString(data.IdentityProviderType);
   }
   if (data.ServiceProviderSamlMetadata !== undefined && data.ServiceProviderSamlMetadata !== null) {
-    contents.ServiceProviderSamlMetadata = data.ServiceProviderSamlMetadata;
+    contents.ServiceProviderSamlMetadata = __expectString(data.ServiceProviderSamlMetadata);
   }
   return Promise.resolve(contents);
 };
@@ -2158,13 +2175,13 @@ export const deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand 
   };
   const data: any = await parseBody(output.body, context);
   if (data.Certificate !== undefined && data.Certificate !== null) {
-    contents.Certificate = data.Certificate;
+    contents.Certificate = __expectString(data.Certificate);
   }
   if (data.CreatedTime !== undefined && data.CreatedTime !== null) {
     contents.CreatedTime = new Date(Math.round(data.CreatedTime * 1000));
   }
   if (data.DisplayName !== undefined && data.DisplayName !== null) {
-    contents.DisplayName = data.DisplayName;
+    contents.DisplayName = __expectString(data.DisplayName);
   }
   return Promise.resolve(contents);
 };
@@ -2512,7 +2529,7 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
     contents.Devices = deserializeAws_restJson1DeviceSummaryList(data.Devices, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2603,7 +2620,7 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
     contents.Domains = deserializeAws_restJson1DomainSummaryList(data.Domains, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2694,7 +2711,7 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
     contents.FleetSummaryList = deserializeAws_restJson1FleetSummaryList(data.FleetSummaryList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -2829,7 +2846,7 @@ export const deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WebsiteAuthorizationProviders !== undefined && data.WebsiteAuthorizationProviders !== null) {
     contents.WebsiteAuthorizationProviders = deserializeAws_restJson1WebsiteAuthorizationProvidersSummaryList(
@@ -2923,7 +2940,7 @@ export const deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   if (data.WebsiteCertificateAuthorities !== undefined && data.WebsiteCertificateAuthorities !== null) {
     contents.WebsiteCertificateAuthorities = deserializeAws_restJson1WebsiteCaSummaryList(
@@ -3856,7 +3873,7 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3873,7 +3890,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3890,7 +3907,7 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3907,7 +3924,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3924,7 +3941,7 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3941,7 +3958,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -3969,7 +3986,7 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -3982,8 +3999,8 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
-    DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
-    DeviceStatus: output.DeviceStatus !== undefined && output.DeviceStatus !== null ? output.DeviceStatus : undefined,
+    DeviceId: __expectString(output.DeviceId),
+    DeviceStatus: __expectString(output.DeviceStatus),
   } as any;
 };
 
@@ -4004,9 +4021,9 @@ const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeCont
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
-    DomainStatus: output.DomainStatus !== undefined && output.DomainStatus !== null ? output.DomainStatus : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    DomainName: __expectString(output.DomainName),
+    DomainStatus: __expectString(output.DomainStatus),
   } as any;
 };
 
@@ -4023,15 +4040,15 @@ const deserializeAws_restJson1DomainSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
   return {
-    CompanyCode: output.CompanyCode !== undefined && output.CompanyCode !== null ? output.CompanyCode : undefined,
+    CompanyCode: __expectString(output.CompanyCode),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
-    FleetName: output.FleetName !== undefined && output.FleetName !== null ? output.FleetName : undefined,
-    FleetStatus: output.FleetStatus !== undefined && output.FleetStatus !== null ? output.FleetStatus : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    FleetArn: __expectString(output.FleetArn),
+    FleetName: __expectString(output.FleetName),
+    FleetStatus: __expectString(output.FleetStatus),
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
@@ -4061,7 +4078,7 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4072,7 +4089,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -4083,7 +4100,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -4107,19 +4124,13 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary => {
   return {
-    AuthorizationProviderId:
-      output.AuthorizationProviderId !== undefined && output.AuthorizationProviderId !== null
-        ? output.AuthorizationProviderId
-        : undefined,
-    AuthorizationProviderType:
-      output.AuthorizationProviderType !== undefined && output.AuthorizationProviderType !== null
-        ? output.AuthorizationProviderType
-        : undefined,
+    AuthorizationProviderId: __expectString(output.AuthorizationProviderId),
+    AuthorizationProviderType: __expectString(output.AuthorizationProviderType),
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainName: __expectString(output.DomainName),
   } as any;
 };
 
@@ -4129,8 +4140,8 @@ const deserializeAws_restJson1WebsiteCaSummary = (output: any, context: __SerdeC
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
-    WebsiteCaId: output.WebsiteCaId !== undefined && output.WebsiteCaId !== null ? output.WebsiteCaId : undefined,
+    DisplayName: __expectString(output.DisplayName),
+    WebsiteCaId: __expectString(output.WebsiteCaId),
   } as any;
 };
 

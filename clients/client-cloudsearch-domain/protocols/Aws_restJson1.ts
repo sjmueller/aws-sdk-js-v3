@@ -18,7 +18,10 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -31,8 +34,9 @@ export const serializeAws_restJson1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2013-01-01/search";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/search";
   const query: any = {
     format: "sdk",
     pretty: "true",
@@ -52,7 +56,6 @@ export const serializeAws_restJson1SearchCommand = async (
     ...(input.stats !== undefined && { stats: input.stats }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -69,8 +72,9 @@ export const serializeAws_restJson1SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2013-01-01/suggest";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
     pretty: "true",
@@ -79,7 +83,6 @@ export const serializeAws_restJson1SuggestCommand = async (
     ...(input.size !== undefined && { size: input.size.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -96,11 +99,13 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   input: UploadDocumentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
   };
-  let resolvedPath = "/2013-01-01/documents/batch";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-01-01/documents/batch";
   const query: any = {
     format: "sdk",
   };
@@ -108,7 +113,6 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   if (input.documents !== undefined) {
     body = input.documents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -263,13 +267,13 @@ export const deserializeAws_restJson1UploadDocumentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.adds !== undefined && data.adds !== null) {
-    contents.adds = data.adds;
+    contents.adds = __expectNumber(data.adds);
   }
   if (data.deletes !== undefined && data.deletes !== null) {
-    contents.deletes = data.deletes;
+    contents.deletes = __expectNumber(data.deletes);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.warnings !== undefined && data.warnings !== null) {
     contents.warnings = deserializeAws_restJson1DocumentServiceWarnings(data.warnings, context);
@@ -327,10 +331,10 @@ const deserializeAws_restJson1DocumentServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   return contents;
 };
@@ -347,15 +351,15 @@ const deserializeAws_restJson1SearchExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1Bucket = (output: any, context: __SerdeContext): Bucket => {
   return {
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    count: __expectNumber(output.count),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -384,7 +388,7 @@ const deserializeAws_restJson1DocumentServiceWarning = (
   context: __SerdeContext
 ): DocumentServiceWarning => {
   return {
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -409,7 +413,7 @@ const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): { 
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -440,14 +444,14 @@ const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext): FieldStats => {
   return {
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    max: output.max !== undefined && output.max !== null ? output.max : undefined,
-    mean: output.mean !== undefined && output.mean !== null ? output.mean : undefined,
-    min: output.min !== undefined && output.min !== null ? output.min : undefined,
-    missing: output.missing !== undefined && output.missing !== null ? output.missing : undefined,
-    stddev: output.stddev !== undefined && output.stddev !== null ? output.stddev : undefined,
-    sum: output.sum !== undefined && output.sum !== null ? output.sum : undefined,
-    sumOfSquares: output.sumOfSquares !== undefined && output.sumOfSquares !== null ? output.sumOfSquares : undefined,
+    count: __expectNumber(output.count),
+    max: __expectString(output.max),
+    mean: __expectString(output.mean),
+    min: __expectString(output.min),
+    missing: __expectNumber(output.missing),
+    stddev: __handleFloat(output.stddev),
+    sum: __handleFloat(output.sum),
+    sumOfSquares: __handleFloat(output.sumOfSquares),
   } as any;
 };
 
@@ -458,7 +462,7 @@ const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -469,7 +473,7 @@ const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -488,7 +492,7 @@ const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit 
       output.highlights !== undefined && output.highlights !== null
         ? deserializeAws_restJson1Highlights(output.highlights, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
@@ -505,20 +509,20 @@ const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hits => {
   return {
-    cursor: output.cursor !== undefined && output.cursor !== null ? output.cursor : undefined,
-    found: output.found !== undefined && output.found !== null ? output.found : undefined,
+    cursor: __expectString(output.cursor),
+    found: __expectNumber(output.found),
     hit:
       output.hit !== undefined && output.hit !== null
         ? deserializeAws_restJson1HitList(output.hit, context)
         : undefined,
-    start: output.start !== undefined && output.start !== null ? output.start : undefined,
+    start: __expectNumber(output.start),
   } as any;
 };
 
 const deserializeAws_restJson1SearchStatus = (output: any, context: __SerdeContext): SearchStatus => {
   return {
-    rid: output.rid !== undefined && output.rid !== null ? output.rid : undefined,
-    timems: output.timems !== undefined && output.timems !== null ? output.timems : undefined,
+    rid: __expectString(output.rid),
+    timems: __expectNumber(output.timems),
   } as any;
 };
 
@@ -536,9 +540,9 @@ const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): { 
 
 const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    score: output.score !== undefined && output.score !== null ? output.score : undefined,
-    suggestion: output.suggestion !== undefined && output.suggestion !== null ? output.suggestion : undefined,
+    id: __expectString(output.id),
+    score: __expectNumber(output.score),
+    suggestion: __expectString(output.suggestion),
   } as any;
 };
 
@@ -555,8 +559,8 @@ const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
   return {
-    found: output.found !== undefined && output.found !== null ? output.found : undefined,
-    query: output.query !== undefined && output.query !== null ? output.query : undefined,
+    found: __expectNumber(output.found),
+    query: __expectString(output.query),
     suggestions:
       output.suggestions !== undefined && output.suggestions !== null
         ? deserializeAws_restJson1Suggestions(output.suggestions, context)
@@ -566,8 +570,8 @@ const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SuggestStatus = (output: any, context: __SerdeContext): SuggestStatus => {
   return {
-    rid: output.rid !== undefined && output.rid !== null ? output.rid : undefined,
-    timems: output.timems !== undefined && output.timems !== null ? output.timems : undefined,
+    rid: __expectString(output.rid),
+    timems: __expectNumber(output.timems),
   } as any;
 };
 

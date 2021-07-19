@@ -40,7 +40,11 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -53,8 +57,9 @@ export const serializeAws_restJson1CreateCliTokenCommand = async (
   input: CreateCliTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/clitoken/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/clitoken/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -72,7 +77,6 @@ export const serializeAws_restJson1CreateCliTokenCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -88,10 +92,11 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/environments/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -153,7 +158,6 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -169,8 +173,9 @@ export const serializeAws_restJson1CreateWebLoginTokenCommand = async (
   input: CreateWebLoginTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/webtoken/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/webtoken/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -188,7 +193,6 @@ export const serializeAws_restJson1CreateWebLoginTokenCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -204,8 +208,9 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/environments/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -223,7 +228,6 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -239,8 +243,9 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/environments/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -258,7 +263,6 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -274,8 +278,9 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/environments";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
@@ -288,7 +293,6 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -305,8 +309,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -324,7 +329,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -340,10 +344,12 @@ export const serializeAws_restJson1PublishMetricsCommand = async (
   input: PublishMetricsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/metrics/environments/{EnvironmentName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/environments/{EnvironmentName}";
   if (input.EnvironmentName !== undefined) {
     const labelValue: string = input.EnvironmentName;
     if (labelValue.length <= 0) {
@@ -365,7 +371,6 @@ export const serializeAws_restJson1PublishMetricsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -381,10 +386,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -405,7 +411,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -421,8 +426,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{ResourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
@@ -443,7 +449,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -460,10 +465,11 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/environments/{Name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environments/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -526,7 +532,6 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -552,10 +557,10 @@ export const deserializeAws_restJson1CreateCliTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CliToken !== undefined && data.CliToken !== null) {
-    contents.CliToken = data.CliToken;
+    contents.CliToken = __expectString(data.CliToken);
   }
   if (data.WebServerHostname !== undefined && data.WebServerHostname !== null) {
-    contents.WebServerHostname = data.WebServerHostname;
+    contents.WebServerHostname = __expectString(data.WebServerHostname);
   }
   return Promise.resolve(contents);
 };
@@ -610,7 +615,7 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   return Promise.resolve(contents);
 };
@@ -674,10 +679,10 @@ export const deserializeAws_restJson1CreateWebLoginTokenCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.WebServerHostname !== undefined && data.WebServerHostname !== null) {
-    contents.WebServerHostname = data.WebServerHostname;
+    contents.WebServerHostname = __expectString(data.WebServerHostname);
   }
   if (data.WebToken !== undefined && data.WebToken !== null) {
-    contents.WebToken = data.WebToken;
+    contents.WebToken = __expectString(data.WebToken);
   }
   return Promise.resolve(contents);
 };
@@ -898,7 +903,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
     contents.Environments = deserializeAws_restJson1EnvironmentList(data.Environments, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1225,7 +1230,7 @@ export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
-    contents.Arn = data.Arn;
+    contents.Arn = __expectString(data.Arn);
   }
   return Promise.resolve(contents);
 };
@@ -1295,7 +1300,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1312,7 +1317,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1329,7 +1334,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1346,7 +1351,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1355,7 +1360,7 @@ const serializeAws_restJson1AirflowConfigurationOptions = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1435,7 +1440,7 @@ const serializeAws_restJson1MetricDatum = (input: MetricDatum, context: __SerdeC
     ...(input.Timestamp !== undefined &&
       input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
     ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
-    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: __serializeFloat(input.Value) }),
   };
 };
 
@@ -1473,10 +1478,10 @@ const serializeAws_restJson1SecurityGroupList = (input: string[], context: __Ser
 
 const serializeAws_restJson1StatisticSet = (input: StatisticSet, context: __SerdeContext): any => {
   return {
-    ...(input.Maximum !== undefined && input.Maximum !== null && { Maximum: input.Maximum }),
-    ...(input.Minimum !== undefined && input.Minimum !== null && { Minimum: input.Minimum }),
+    ...(input.Maximum !== undefined && input.Maximum !== null && { Maximum: __serializeFloat(input.Maximum) }),
+    ...(input.Minimum !== undefined && input.Minimum !== null && { Minimum: __serializeFloat(input.Minimum) }),
     ...(input.SampleCount !== undefined && input.SampleCount !== null && { SampleCount: input.SampleCount }),
-    ...(input.Sum !== undefined && input.Sum !== null && { Sum: input.Sum }),
+    ...(input.Sum !== undefined && input.Sum !== null && { Sum: __serializeFloat(input.Sum) }),
   };
 };
 
@@ -1492,7 +1497,7 @@ const serializeAws_restJson1SubnetList = (input: string[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1525,7 +1530,7 @@ const deserializeAws_restJson1AirflowConfigurationOptions = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1536,19 +1541,16 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
       output.AirflowConfigurationOptions !== undefined && output.AirflowConfigurationOptions !== null
         ? deserializeAws_restJson1AirflowConfigurationOptions(output.AirflowConfigurationOptions, context)
         : undefined,
-    AirflowVersion:
-      output.AirflowVersion !== undefined && output.AirflowVersion !== null ? output.AirflowVersion : undefined,
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    AirflowVersion: __expectString(output.AirflowVersion),
+    Arn: __expectString(output.Arn),
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
-    DagS3Path: output.DagS3Path !== undefined && output.DagS3Path !== null ? output.DagS3Path : undefined,
-    EnvironmentClass:
-      output.EnvironmentClass !== undefined && output.EnvironmentClass !== null ? output.EnvironmentClass : undefined,
-    ExecutionRoleArn:
-      output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
-    KmsKey: output.KmsKey !== undefined && output.KmsKey !== null ? output.KmsKey : undefined,
+    DagS3Path: __expectString(output.DagS3Path),
+    EnvironmentClass: __expectString(output.EnvironmentClass),
+    ExecutionRoleArn: __expectString(output.ExecutionRoleArn),
+    KmsKey: __expectString(output.KmsKey),
     LastUpdate:
       output.LastUpdate !== undefined && output.LastUpdate !== null
         ? deserializeAws_restJson1LastUpdate(output.LastUpdate, context)
@@ -1557,46 +1559,28 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
       output.LoggingConfiguration !== undefined && output.LoggingConfiguration !== null
         ? deserializeAws_restJson1LoggingConfiguration(output.LoggingConfiguration, context)
         : undefined,
-    MaxWorkers: output.MaxWorkers !== undefined && output.MaxWorkers !== null ? output.MaxWorkers : undefined,
-    MinWorkers: output.MinWorkers !== undefined && output.MinWorkers !== null ? output.MinWorkers : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    MaxWorkers: __expectNumber(output.MaxWorkers),
+    MinWorkers: __expectNumber(output.MinWorkers),
+    Name: __expectString(output.Name),
     NetworkConfiguration:
       output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
         ? deserializeAws_restJson1NetworkConfiguration(output.NetworkConfiguration, context)
         : undefined,
-    PluginsS3ObjectVersion:
-      output.PluginsS3ObjectVersion !== undefined && output.PluginsS3ObjectVersion !== null
-        ? output.PluginsS3ObjectVersion
-        : undefined,
-    PluginsS3Path:
-      output.PluginsS3Path !== undefined && output.PluginsS3Path !== null ? output.PluginsS3Path : undefined,
-    RequirementsS3ObjectVersion:
-      output.RequirementsS3ObjectVersion !== undefined && output.RequirementsS3ObjectVersion !== null
-        ? output.RequirementsS3ObjectVersion
-        : undefined,
-    RequirementsS3Path:
-      output.RequirementsS3Path !== undefined && output.RequirementsS3Path !== null
-        ? output.RequirementsS3Path
-        : undefined,
-    Schedulers: output.Schedulers !== undefined && output.Schedulers !== null ? output.Schedulers : undefined,
-    ServiceRoleArn:
-      output.ServiceRoleArn !== undefined && output.ServiceRoleArn !== null ? output.ServiceRoleArn : undefined,
-    SourceBucketArn:
-      output.SourceBucketArn !== undefined && output.SourceBucketArn !== null ? output.SourceBucketArn : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    PluginsS3ObjectVersion: __expectString(output.PluginsS3ObjectVersion),
+    PluginsS3Path: __expectString(output.PluginsS3Path),
+    RequirementsS3ObjectVersion: __expectString(output.RequirementsS3ObjectVersion),
+    RequirementsS3Path: __expectString(output.RequirementsS3Path),
+    Schedulers: __expectNumber(output.Schedulers),
+    ServiceRoleArn: __expectString(output.ServiceRoleArn),
+    SourceBucketArn: __expectString(output.SourceBucketArn),
+    Status: __expectString(output.Status),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
         : undefined,
-    WebserverAccessMode:
-      output.WebserverAccessMode !== undefined && output.WebserverAccessMode !== null
-        ? output.WebserverAccessMode
-        : undefined,
-    WebserverUrl: output.WebserverUrl !== undefined && output.WebserverUrl !== null ? output.WebserverUrl : undefined,
-    WeeklyMaintenanceWindowStart:
-      output.WeeklyMaintenanceWindowStart !== undefined && output.WeeklyMaintenanceWindowStart !== null
-        ? output.WeeklyMaintenanceWindowStart
-        : undefined,
+    WebserverAccessMode: __expectString(output.WebserverAccessMode),
+    WebserverUrl: __expectString(output.WebserverUrl),
+    WeeklyMaintenanceWindowStart: __expectString(output.WeeklyMaintenanceWindowStart),
   } as any;
 };
 
@@ -1607,7 +1591,7 @@ const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1621,7 +1605,7 @@ const deserializeAws_restJson1LastUpdate = (output: any, context: __SerdeContext
       output.Error !== undefined && output.Error !== null
         ? deserializeAws_restJson1UpdateError(output.Error, context)
         : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -1655,12 +1639,9 @@ const deserializeAws_restJson1ModuleLoggingConfiguration = (
   context: __SerdeContext
 ): ModuleLoggingConfiguration => {
   return {
-    CloudWatchLogGroupArn:
-      output.CloudWatchLogGroupArn !== undefined && output.CloudWatchLogGroupArn !== null
-        ? output.CloudWatchLogGroupArn
-        : undefined,
-    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
-    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
+    CloudWatchLogGroupArn: __expectString(output.CloudWatchLogGroupArn),
+    Enabled: __expectBoolean(output.Enabled),
+    LogLevel: __expectString(output.LogLevel),
   } as any;
 };
 
@@ -1684,7 +1665,7 @@ const deserializeAws_restJson1SecurityGroupList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1695,7 +1676,7 @@ const deserializeAws_restJson1SubnetList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -1706,15 +1687,15 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1UpdateError = (output: any, context: __SerdeContext): UpdateError => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
   } as any;
 };
 

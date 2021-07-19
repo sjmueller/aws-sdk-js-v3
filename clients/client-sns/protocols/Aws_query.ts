@@ -212,9 +212,11 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5260,7 +5262,7 @@ const deserializeAws_queryAuthorizationErrorException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5273,7 +5275,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
     isOptedOut: undefined,
   };
   if (output["isOptedOut"] !== undefined) {
-    contents.isOptedOut = output["isOptedOut"] == "true";
+    contents.isOptedOut = __parseBoolean(output["isOptedOut"]);
   }
   return contents;
 };
@@ -5286,7 +5288,7 @@ const deserializeAws_queryConcurrentAccessException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5299,7 +5301,7 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
     SubscriptionArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = output["SubscriptionArn"];
+    contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
   return contents;
 };
@@ -5309,7 +5311,7 @@ const deserializeAws_queryCreateEndpointResponse = (output: any, context: __Serd
     EndpointArn: undefined,
   };
   if (output["EndpointArn"] !== undefined) {
-    contents.EndpointArn = output["EndpointArn"];
+    contents.EndpointArn = __expectString(output["EndpointArn"]);
   }
   return contents;
 };
@@ -5322,7 +5324,7 @@ const deserializeAws_queryCreatePlatformApplicationResponse = (
     PlatformApplicationArn: undefined,
   };
   if (output["PlatformApplicationArn"] !== undefined) {
-    contents.PlatformApplicationArn = output["PlatformApplicationArn"];
+    contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
   }
   return contents;
 };
@@ -5340,7 +5342,7 @@ const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeCo
     TopicArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   return contents;
 };
@@ -5359,7 +5361,7 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
     Attributes: undefined,
   };
   if (output["EndpointArn"] !== undefined) {
-    contents.EndpointArn = output["EndpointArn"];
+    contents.EndpointArn = __expectString(output["EndpointArn"]);
   }
   if (output.Attributes === "") {
     contents.Attributes = {};
@@ -5381,7 +5383,7 @@ const deserializeAws_queryEndpointDisabledException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5394,7 +5396,7 @@ const deserializeAws_queryFilterPolicyLimitExceededException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5464,7 +5466,7 @@ const deserializeAws_queryGetSMSSandboxAccountStatusResult = (
     IsInSandbox: undefined,
   };
   if (output["IsInSandbox"] !== undefined) {
-    contents.IsInSandbox = output["IsInSandbox"] == "true";
+    contents.IsInSandbox = __parseBoolean(output["IsInSandbox"]);
   }
   return contents;
 };
@@ -5512,7 +5514,7 @@ const deserializeAws_queryInternalErrorException = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5525,7 +5527,7 @@ const deserializeAws_queryInvalidParameterException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5538,7 +5540,7 @@ const deserializeAws_queryInvalidParameterValueException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5551,7 +5553,7 @@ const deserializeAws_queryInvalidSecurityException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5564,7 +5566,7 @@ const deserializeAws_queryKMSAccessDeniedException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5574,7 +5576,7 @@ const deserializeAws_queryKMSDisabledException = (output: any, context: __SerdeC
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5587,7 +5589,7 @@ const deserializeAws_queryKMSInvalidStateException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5597,7 +5599,7 @@ const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeC
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5607,7 +5609,7 @@ const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeConte
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5617,7 +5619,7 @@ const deserializeAws_queryKMSThrottlingException = (output: any, context: __Serd
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5640,7 +5642,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -5679,7 +5681,7 @@ const deserializeAws_queryListOriginationNumbersResult = (
     PhoneNumbers: undefined,
   };
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   if (output.PhoneNumbers === "") {
     contents.PhoneNumbers = [];
@@ -5711,7 +5713,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
     );
   }
   if (output["nextToken"] !== undefined) {
-    contents.nextToken = output["nextToken"];
+    contents.nextToken = __expectString(output["nextToken"]);
   }
   return contents;
 };
@@ -5734,7 +5736,7 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -5757,7 +5759,7 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersResult = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -5780,7 +5782,7 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -5803,7 +5805,7 @@ const deserializeAws_queryListSubscriptionsResponse = (
     );
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -5836,7 +5838,7 @@ const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeCon
     contents.Topics = deserializeAws_queryTopicsList(__getArrayIfSingleItem(output["Topics"]["member"]), context);
   }
   if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
+    contents.NextToken = __expectString(output["NextToken"]);
   }
   return contents;
 };
@@ -5848,7 +5850,7 @@ const deserializeAws_queryMapStringToString = (output: any, context: __SerdeCont
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -5858,7 +5860,7 @@ const deserializeAws_queryNotFoundException = (output: any, context: __SerdeCont
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5873,7 +5875,7 @@ const deserializeAws_queryNumberCapabilityList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5882,7 +5884,7 @@ const deserializeAws_queryOptedOutException = (output: any, context: __SerdeCont
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5908,16 +5910,16 @@ const deserializeAws_queryPhoneNumberInformation = (output: any, context: __Serd
     contents.CreatedAt = new Date(output["CreatedAt"]);
   }
   if (output["PhoneNumber"] !== undefined) {
-    contents.PhoneNumber = output["PhoneNumber"];
+    contents.PhoneNumber = __expectString(output["PhoneNumber"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   if (output["Iso2CountryCode"] !== undefined) {
-    contents.Iso2CountryCode = output["Iso2CountryCode"];
+    contents.Iso2CountryCode = __expectString(output["Iso2CountryCode"]);
   }
   if (output["RouteType"] !== undefined) {
-    contents.RouteType = output["RouteType"];
+    contents.RouteType = __expectString(output["RouteType"]);
   }
   if (output.NumberCapabilities === "") {
     contents.NumberCapabilities = [];
@@ -5952,7 +5954,7 @@ const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5962,7 +5964,7 @@ const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeCo
     Attributes: undefined,
   };
   if (output["PlatformApplicationArn"] !== undefined) {
-    contents.PlatformApplicationArn = output["PlatformApplicationArn"];
+    contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
   }
   if (output.Attributes === "") {
     contents.Attributes = {};
@@ -5984,7 +5986,7 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -5995,10 +5997,10 @@ const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContex
     SequenceNumber: undefined,
   };
   if (output["MessageId"] !== undefined) {
-    contents.MessageId = output["MessageId"];
+    contents.MessageId = __expectString(output["MessageId"]);
   }
   if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = output["SequenceNumber"];
+    contents.SequenceNumber = __expectString(output["SequenceNumber"]);
   }
   return contents;
 };
@@ -6011,7 +6013,7 @@ const deserializeAws_queryResourceNotFoundException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6030,10 +6032,10 @@ const deserializeAws_querySMSSandboxPhoneNumber = (output: any, context: __Serde
     Status: undefined,
   };
   if (output["PhoneNumber"] !== undefined) {
-    contents.PhoneNumber = output["PhoneNumber"];
+    contents.PhoneNumber = __expectString(output["PhoneNumber"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };
@@ -6057,7 +6059,7 @@ const deserializeAws_queryStaleTagException = (output: any, context: __SerdeCont
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6067,7 +6069,7 @@ const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeCont
     SubscriptionArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = output["SubscriptionArn"];
+    contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
   return contents;
 };
@@ -6081,19 +6083,19 @@ const deserializeAws_querySubscription = (output: any, context: __SerdeContext):
     TopicArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = output["SubscriptionArn"];
+    contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
   }
   if (output["Owner"] !== undefined) {
-    contents.Owner = output["Owner"];
+    contents.Owner = __expectString(output["Owner"]);
   }
   if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
+    contents.Protocol = __expectString(output["Protocol"]);
   }
   if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = output["Endpoint"];
+    contents.Endpoint = __expectString(output["Endpoint"]);
   }
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   return contents;
 };
@@ -6108,7 +6110,7 @@ const deserializeAws_querySubscriptionAttributesMap = (
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -6121,7 +6123,7 @@ const deserializeAws_querySubscriptionLimitExceededException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6143,10 +6145,10 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
     Value: undefined,
   };
   if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
+    contents.Key = __expectString(output["Key"]);
   }
   if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
+    contents.Value = __expectString(output["Value"]);
   }
   return contents;
 };
@@ -6159,7 +6161,7 @@ const deserializeAws_queryTagLimitExceededException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6180,7 +6182,7 @@ const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeCon
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6195,7 +6197,7 @@ const deserializeAws_queryThrottledException = (output: any, context: __SerdeCon
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6205,7 +6207,7 @@ const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic 
     TopicArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
+    contents.TopicArn = __expectString(output["TopicArn"]);
   }
   return contents;
 };
@@ -6217,7 +6219,7 @@ const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeCon
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -6230,7 +6232,7 @@ const deserializeAws_queryTopicLimitExceededException = (
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6256,7 +6258,7 @@ const deserializeAws_queryUserErrorException = (output: any, context: __SerdeCon
     message: undefined,
   };
   if (output["message"] !== undefined) {
-    contents.message = output["message"];
+    contents.message = __expectString(output["message"]);
   }
   return contents;
 };
@@ -6266,7 +6268,7 @@ const deserializeAws_queryValidationException = (output: any, context: __SerdeCo
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   return contents;
 };
@@ -6277,10 +6279,10 @@ const deserializeAws_queryVerificationException = (output: any, context: __Serde
     Status: undefined,
   };
   if (output["Message"] !== undefined) {
-    contents.Message = output["Message"];
+    contents.Message = __expectString(output["Message"]);
   }
   if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };

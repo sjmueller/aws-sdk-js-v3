@@ -236,7 +236,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -249,10 +254,13 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
   input: AddLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -282,7 +290,6 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
     ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
     ...(input.StatementId !== undefined && input.StatementId !== null && { StatementId: input.StatementId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -299,10 +306,13 @@ export const serializeAws_restJson1AddPermissionCommand = async (
   input: AddPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -326,7 +336,6 @@ export const serializeAws_restJson1AddPermissionCommand = async (
     ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
     ...(input.StatementId !== undefined && input.StatementId !== null && { StatementId: input.StatementId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -343,10 +352,13 @@ export const serializeAws_restJson1CreateAliasCommand = async (
   input: CreateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -367,7 +379,6 @@ export const serializeAws_restJson1CreateAliasCommand = async (
         RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -383,10 +394,12 @@ export const serializeAws_restJson1CreateCodeSigningConfigCommand = async (
   input: CreateCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-04-22/code-signing-configs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
   let body: any;
   body = JSON.stringify({
     ...(input.AllowedPublishers !== undefined &&
@@ -399,7 +412,6 @@ export const serializeAws_restJson1CreateCodeSigningConfigCommand = async (
       }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -415,10 +427,12 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
   input: CreateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/event-source-mappings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   let body: any;
   body = JSON.stringify({
     ...(input.BatchSize !== undefined && input.BatchSize !== null && { BatchSize: input.BatchSize }),
@@ -470,7 +484,6 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.TumblingWindowInSeconds !== undefined &&
       input.TumblingWindowInSeconds !== null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -486,10 +499,11 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   input: CreateFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
   let body: any;
   body = JSON.stringify({
     ...(input.Code !== undefined &&
@@ -528,7 +542,6 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfig(input.VpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -544,8 +557,11 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -565,7 +581,6 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -581,8 +596,11 @@ export const serializeAws_restJson1DeleteCodeSigningConfigCommand = async (
   input: DeleteCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -593,7 +611,6 @@ export const serializeAws_restJson1DeleteCodeSigningConfigCommand = async (
     throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -609,8 +626,10 @@ export const serializeAws_restJson1DeleteEventSourceMappingCommand = async (
   input: DeleteEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
@@ -621,7 +640,6 @@ export const serializeAws_restJson1DeleteEventSourceMappingCommand = async (
     throw new Error("No value provided for input HTTP label: UUID.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -637,8 +655,10 @@ export const serializeAws_restJson1DeleteFunctionCommand = async (
   input: DeleteFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -652,7 +672,6 @@ export const serializeAws_restJson1DeleteFunctionCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -669,8 +688,11 @@ export const serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = asyn
   input: DeleteFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-06-30/functions/{FunctionName}/code-signing-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -681,7 +703,6 @@ export const serializeAws_restJson1DeleteFunctionCodeSigningConfigCommand = asyn
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -697,8 +718,11 @@ export const serializeAws_restJson1DeleteFunctionConcurrencyCommand = async (
   input: DeleteFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -709,7 +733,6 @@ export const serializeAws_restJson1DeleteFunctionConcurrencyCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -725,8 +748,11 @@ export const serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = asyn
   input: DeleteFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -740,7 +766,6 @@ export const serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = asyn
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -757,8 +782,11 @@ export const serializeAws_restJson1DeleteLayerVersionCommand = async (
   input: DeleteLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -778,7 +806,6 @@ export const serializeAws_restJson1DeleteLayerVersionCommand = async (
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -794,8 +821,11 @@ export const serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = a
   input: DeleteProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -809,7 +839,6 @@ export const serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand = a
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -826,13 +855,14 @@ export const serializeAws_restJson1GetAccountSettingsCommand = async (
   input: GetAccountSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2016-08-19/account-settings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2016-08-19/account-settings";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -848,8 +878,11 @@ export const serializeAws_restJson1GetAliasCommand = async (
   input: GetAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -869,7 +902,6 @@ export const serializeAws_restJson1GetAliasCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -885,8 +917,11 @@ export const serializeAws_restJson1GetCodeSigningConfigCommand = async (
   input: GetCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -897,7 +932,6 @@ export const serializeAws_restJson1GetCodeSigningConfigCommand = async (
     throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -913,8 +947,10 @@ export const serializeAws_restJson1GetEventSourceMappingCommand = async (
   input: GetEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
@@ -925,7 +961,6 @@ export const serializeAws_restJson1GetEventSourceMappingCommand = async (
     throw new Error("No value provided for input HTTP label: UUID.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -941,8 +976,10 @@ export const serializeAws_restJson1GetFunctionCommand = async (
   input: GetFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -956,7 +993,6 @@ export const serializeAws_restJson1GetFunctionCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -973,8 +1009,11 @@ export const serializeAws_restJson1GetFunctionCodeSigningConfigCommand = async (
   input: GetFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-06-30/functions/{FunctionName}/code-signing-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -985,7 +1024,6 @@ export const serializeAws_restJson1GetFunctionCodeSigningConfigCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1001,8 +1039,11 @@ export const serializeAws_restJson1GetFunctionConcurrencyCommand = async (
   input: GetFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1013,7 +1054,6 @@ export const serializeAws_restJson1GetFunctionConcurrencyCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1029,8 +1069,11 @@ export const serializeAws_restJson1GetFunctionConfigurationCommand = async (
   input: GetFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1044,7 +1087,6 @@ export const serializeAws_restJson1GetFunctionConfigurationCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1061,8 +1103,11 @@ export const serializeAws_restJson1GetFunctionEventInvokeConfigCommand = async (
   input: GetFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1076,7 +1121,6 @@ export const serializeAws_restJson1GetFunctionEventInvokeConfigCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1093,8 +1137,11 @@ export const serializeAws_restJson1GetLayerVersionCommand = async (
   input: GetLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1114,7 +1161,6 @@ export const serializeAws_restJson1GetLayerVersionCommand = async (
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1130,14 +1176,14 @@ export const serializeAws_restJson1GetLayerVersionByArnCommand = async (
   input: GetLayerVersionByArnCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
   const query: any = {
     find: "LayerVersion",
     ...(input.Arn !== undefined && { Arn: input.Arn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1154,8 +1200,11 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
   input: GetLayerVersionPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1175,7 +1224,6 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1191,8 +1239,11 @@ export const serializeAws_restJson1GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/policy";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1206,7 +1257,6 @@ export const serializeAws_restJson1GetPolicyCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1223,8 +1273,11 @@ export const serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = asyn
   input: GetProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1238,7 +1291,6 @@ export const serializeAws_restJson1GetProvisionedConcurrencyConfigCommand = asyn
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1255,13 +1307,16 @@ export const serializeAws_restJson1InvokeCommand = async (
   input: InvokeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.InvocationType) && { "x-amz-invocation-type": input.InvocationType! }),
     ...(isSerializableHeaderValue(input.LogType) && { "x-amz-log-type": input.LogType! }),
     ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-client-context": input.ClientContext! }),
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1278,7 +1333,6 @@ export const serializeAws_restJson1InvokeCommand = async (
   if (input.Payload !== undefined) {
     body = input.Payload;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1295,10 +1349,13 @@ export const serializeAws_restJson1InvokeAsyncCommand = async (
   input: InvokeAsyncCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/2014-11-13/functions/{FunctionName}/invoke-async";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2014-11-13/functions/{FunctionName}/invoke-async";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1312,7 +1369,6 @@ export const serializeAws_restJson1InvokeAsyncCommand = async (
   if (input.InvokeArgs !== undefined) {
     body = input.InvokeArgs;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1328,8 +1384,11 @@ export const serializeAws_restJson1ListAliasesCommand = async (
   input: ListAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1345,7 +1404,6 @@ export const serializeAws_restJson1ListAliasesCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1362,14 +1420,15 @@ export const serializeAws_restJson1ListCodeSigningConfigsCommand = async (
   input: ListCodeSigningConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-04-22/code-signing-configs";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1386,8 +1445,10 @@ export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
   input: ListEventSourceMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/event-source-mappings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings";
   const query: any = {
     ...(input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn }),
     ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
@@ -1395,7 +1456,6 @@ export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1412,8 +1472,11 @@ export const serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = async
   input: ListFunctionEventInvokeConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config/list";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1428,7 +1491,6 @@ export const serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = async
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1445,8 +1507,9 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
   input: ListFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
   const query: any = {
     ...(input.MasterRegion !== undefined && { MasterRegion: input.MasterRegion }),
     ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
@@ -1454,7 +1517,6 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1471,8 +1533,11 @@ export const serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = asy
   input: ListFunctionsByCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -1487,7 +1552,6 @@ export const serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = asy
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1504,15 +1568,15 @@ export const serializeAws_restJson1ListLayersCommand = async (
   input: ListLayersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers";
   const query: any = {
     ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1529,8 +1593,10 @@ export const serializeAws_restJson1ListLayerVersionsCommand = async (
   input: ListLayerVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1546,7 +1612,6 @@ export const serializeAws_restJson1ListLayerVersionsCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1563,8 +1628,11 @@ export const serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = as
   input: ListProvisionedConcurrencyConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1580,7 +1648,6 @@ export const serializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = as
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1597,8 +1664,10 @@ export const serializeAws_restJson1ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2017-03-31/tags/{Resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
@@ -1609,7 +1678,6 @@ export const serializeAws_restJson1ListTagsCommand = async (
     throw new Error("No value provided for input HTTP label: Resource.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1625,8 +1693,11 @@ export const serializeAws_restJson1ListVersionsByFunctionCommand = async (
   input: ListVersionsByFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1641,7 +1712,6 @@ export const serializeAws_restJson1ListVersionsByFunctionCommand = async (
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1658,10 +1728,12 @@ export const serializeAws_restJson1PublishLayerVersionCommand = async (
   input: PublishLayerVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2018-10-31/layers/{LayerName}/versions";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1682,7 +1754,6 @@ export const serializeAws_restJson1PublishLayerVersionCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.LicenseInfo !== undefined && input.LicenseInfo !== null && { LicenseInfo: input.LicenseInfo }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1698,10 +1769,13 @@ export const serializeAws_restJson1PublishVersionCommand = async (
   input: PublishVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/versions";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1717,7 +1791,6 @@ export const serializeAws_restJson1PublishVersionCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1733,10 +1806,13 @@ export const serializeAws_restJson1PutFunctionCodeSigningConfigCommand = async (
   input: PutFunctionCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-06-30/functions/{FunctionName}/code-signing-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-06-30/functions/{FunctionName}/code-signing-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1751,7 +1827,6 @@ export const serializeAws_restJson1PutFunctionCodeSigningConfigCommand = async (
     ...(input.CodeSigningConfigArn !== undefined &&
       input.CodeSigningConfigArn !== null && { CodeSigningConfigArn: input.CodeSigningConfigArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1767,10 +1842,13 @@ export const serializeAws_restJson1PutFunctionConcurrencyCommand = async (
   input: PutFunctionConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2017-10-31/functions/{FunctionName}/concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2017-10-31/functions/{FunctionName}/concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1787,7 +1865,6 @@ export const serializeAws_restJson1PutFunctionConcurrencyCommand = async (
         ReservedConcurrentExecutions: input.ReservedConcurrentExecutions,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1803,10 +1880,13 @@ export const serializeAws_restJson1PutFunctionEventInvokeConfigCommand = async (
   input: PutFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1830,7 +1910,6 @@ export const serializeAws_restJson1PutFunctionEventInvokeConfigCommand = async (
     ...(input.MaximumRetryAttempts !== undefined &&
       input.MaximumRetryAttempts !== null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1847,10 +1926,13 @@ export const serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = asyn
   input: PutProvisionedConcurrencyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-30/functions/{FunctionName}/provisioned-concurrency";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1870,7 +1952,6 @@ export const serializeAws_restJson1PutProvisionedConcurrencyConfigCommand = asyn
         ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions,
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1887,8 +1968,11 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
   input: RemoveLayerVersionPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1920,7 +2004,6 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1937,8 +2020,11 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/policy/{StatementId}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1962,7 +2048,6 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1979,10 +2064,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2017-03-31/tags/{Resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
@@ -1996,7 +2083,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2012,8 +2098,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2017-03-31/tags/{Resource}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-03-31/tags/{Resource}";
   if (input.Resource !== undefined) {
     const labelValue: string = input.Resource;
     if (labelValue.length <= 0) {
@@ -2027,7 +2115,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2044,10 +2131,13 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
   input: UpdateAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2077,7 +2167,6 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
         RoutingConfig: serializeAws_restJson1AliasRoutingConfiguration(input.RoutingConfig, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2093,10 +2182,13 @@ export const serializeAws_restJson1UpdateCodeSigningConfigCommand = async (
   input: UpdateCodeSigningConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-04-22/code-signing-configs/{CodeSigningConfigArn}";
   if (input.CodeSigningConfigArn !== undefined) {
     const labelValue: string = input.CodeSigningConfigArn;
     if (labelValue.length <= 0) {
@@ -2118,7 +2210,6 @@ export const serializeAws_restJson1UpdateCodeSigningConfigCommand = async (
       }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2134,10 +2225,12 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
   input: UpdateEventSourceMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/event-source-mappings/{UUID}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/event-source-mappings/{UUID}";
   if (input.UUID !== undefined) {
     const labelValue: string = input.UUID;
     if (labelValue.length <= 0) {
@@ -2182,7 +2275,6 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
     ...(input.TumblingWindowInSeconds !== undefined &&
       input.TumblingWindowInSeconds !== null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2198,10 +2290,12 @@ export const serializeAws_restJson1UpdateFunctionCodeCommand = async (
   input: UpdateFunctionCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/code";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions/{FunctionName}/code";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2223,7 +2317,6 @@ export const serializeAws_restJson1UpdateFunctionCodeCommand = async (
       input.S3ObjectVersion !== null && { S3ObjectVersion: input.S3ObjectVersion }),
     ...(input.ZipFile !== undefined && input.ZipFile !== null && { ZipFile: context.base64Encoder(input.ZipFile) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2239,10 +2332,13 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
   input: UpdateFunctionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2015-03-31/functions/{FunctionName}/configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-03-31/functions/{FunctionName}/configuration";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2283,7 +2379,6 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
     ...(input.VpcConfig !== undefined &&
       input.VpcConfig !== null && { VpcConfig: serializeAws_restJson1VpcConfig(input.VpcConfig, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2299,10 +2394,13 @@ export const serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = asyn
   input: UpdateFunctionEventInvokeConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2019-09-25/functions/{FunctionName}/event-invoke-config";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -2326,7 +2424,6 @@ export const serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = asyn
     ...(input.MaximumRetryAttempts !== undefined &&
       input.MaximumRetryAttempts !== null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2353,10 +2450,10 @@ export const deserializeAws_restJson1AddLayerVersionPermissionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.Statement !== undefined && data.Statement !== null) {
-    contents.Statement = data.Statement;
+    contents.Statement = __expectString(data.Statement);
   }
   return Promise.resolve(contents);
 };
@@ -2459,7 +2556,7 @@ export const deserializeAws_restJson1AddPermissionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Statement !== undefined && data.Statement !== null) {
-    contents.Statement = data.Statement;
+    contents.Statement = __expectString(data.Statement);
   }
   return Promise.resolve(contents);
 };
@@ -2567,19 +2664,19 @@ export const deserializeAws_restJson1CreateAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AliasArn !== undefined && data.AliasArn !== null) {
-    contents.AliasArn = data.AliasArn;
+    contents.AliasArn = __expectString(data.AliasArn);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.FunctionVersion !== undefined && data.FunctionVersion !== null) {
-    contents.FunctionVersion = data.FunctionVersion;
+    contents.FunctionVersion = __expectString(data.FunctionVersion);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.RoutingConfig !== undefined && data.RoutingConfig !== null) {
     contents.RoutingConfig = deserializeAws_restJson1AliasRoutingConfiguration(data.RoutingConfig, context);
@@ -2753,19 +2850,19 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = data.BatchSize;
+    contents.BatchSize = __expectNumber(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
-    contents.BisectBatchOnFunctionError = data.BisectBatchOnFunctionError;
+    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
   }
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
-    contents.EventSourceArn = data.EventSourceArn;
+    contents.EventSourceArn = __expectString(data.EventSourceArn);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
     contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
@@ -2777,19 +2874,19 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
-    contents.LastProcessingResult = data.LastProcessingResult;
+    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = data.MaximumBatchingWindowInSeconds;
+    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = data.MaximumRecordAgeInSeconds;
+    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = data.ParallelizationFactor;
+    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -2807,25 +2904,25 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     );
   }
   if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
-    contents.StartingPosition = data.StartingPosition;
+    contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
     contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
-    contents.StateTransitionReason = data.StateTransitionReason;
+    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
+    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
-    contents.UUID = data.UUID;
+    contents.UUID = __expectString(data.UUID);
   }
   return Promise.resolve(contents);
 };
@@ -2942,16 +3039,16 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
-    contents.CodeSha256 = data.CodeSha256;
+    contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = data.CodeSize;
+    contents.CodeSize = __expectNumber(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
@@ -2960,76 +3057,76 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   if (data.Handler !== undefined && data.Handler !== null) {
-    contents.Handler = data.Handler;
+    contents.Handler = __expectString(data.Handler);
   }
   if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
     contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
   }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
-    contents.KMSKeyArn = data.KMSKeyArn;
+    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
-    contents.LastUpdateStatus = data.LastUpdateStatus;
+    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
   }
   if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
-    contents.LastUpdateStatusReason = data.LastUpdateStatusReason;
+    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
   }
   if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
-    contents.LastUpdateStatusReasonCode = data.LastUpdateStatusReasonCode;
+    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
   }
   if (data.Layers !== undefined && data.Layers !== null) {
     contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
   }
   if (data.MasterArn !== undefined && data.MasterArn !== null) {
-    contents.MasterArn = data.MasterArn;
+    contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = data.MemorySize;
+    contents.MemorySize = __expectNumber(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
-    contents.PackageType = data.PackageType;
+    contents.PackageType = __expectString(data.PackageType);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.Role !== undefined && data.Role !== null) {
-    contents.Role = data.Role;
+    contents.Role = __expectString(data.Role);
   }
   if (data.Runtime !== undefined && data.Runtime !== null) {
-    contents.Runtime = data.Runtime;
+    contents.Runtime = __expectString(data.Runtime);
   }
   if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
-    contents.SigningJobArn = data.SigningJobArn;
+    contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
-    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateReason !== undefined && data.StateReason !== null) {
-    contents.StateReason = data.StateReason;
+    contents.StateReason = __expectString(data.StateReason);
   }
   if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
-    contents.StateReasonCode = data.StateReasonCode;
+    contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = data.Timeout;
+    contents.Timeout = __expectNumber(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectString(data.Version);
   }
   if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
     contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
@@ -3322,19 +3419,19 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = data.BatchSize;
+    contents.BatchSize = __expectNumber(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
-    contents.BisectBatchOnFunctionError = data.BisectBatchOnFunctionError;
+    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
   }
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
-    contents.EventSourceArn = data.EventSourceArn;
+    contents.EventSourceArn = __expectString(data.EventSourceArn);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
     contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
@@ -3346,19 +3443,19 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
-    contents.LastProcessingResult = data.LastProcessingResult;
+    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = data.MaximumBatchingWindowInSeconds;
+    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = data.MaximumRecordAgeInSeconds;
+    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = data.ParallelizationFactor;
+    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -3376,25 +3473,25 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     );
   }
   if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
-    contents.StartingPosition = data.StartingPosition;
+    contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
     contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
-    contents.StateTransitionReason = data.StateTransitionReason;
+    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
+    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
-    contents.UUID = data.UUID;
+    contents.UUID = __expectString(data.UUID);
   }
   return Promise.resolve(contents);
 };
@@ -4027,19 +4124,19 @@ export const deserializeAws_restJson1GetAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AliasArn !== undefined && data.AliasArn !== null) {
-    contents.AliasArn = data.AliasArn;
+    contents.AliasArn = __expectString(data.AliasArn);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.FunctionVersion !== undefined && data.FunctionVersion !== null) {
-    contents.FunctionVersion = data.FunctionVersion;
+    contents.FunctionVersion = __expectString(data.FunctionVersion);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.RoutingConfig !== undefined && data.RoutingConfig !== null) {
     contents.RoutingConfig = deserializeAws_restJson1AliasRoutingConfiguration(data.RoutingConfig, context);
@@ -4213,19 +4310,19 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = data.BatchSize;
+    contents.BatchSize = __expectNumber(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
-    contents.BisectBatchOnFunctionError = data.BisectBatchOnFunctionError;
+    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
   }
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
-    contents.EventSourceArn = data.EventSourceArn;
+    contents.EventSourceArn = __expectString(data.EventSourceArn);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
     contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
@@ -4237,19 +4334,19 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
-    contents.LastProcessingResult = data.LastProcessingResult;
+    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = data.MaximumBatchingWindowInSeconds;
+    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = data.MaximumRecordAgeInSeconds;
+    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = data.ParallelizationFactor;
+    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -4267,25 +4364,25 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     );
   }
   if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
-    contents.StartingPosition = data.StartingPosition;
+    contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
     contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
-    contents.StateTransitionReason = data.StateTransitionReason;
+    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
+    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
-    contents.UUID = data.UUID;
+    contents.UUID = __expectString(data.UUID);
   }
   return Promise.resolve(contents);
 };
@@ -4456,10 +4553,10 @@ export const deserializeAws_restJson1GetFunctionCodeSigningConfigCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
-    contents.CodeSigningConfigArn = data.CodeSigningConfigArn;
+    contents.CodeSigningConfigArn = __expectString(data.CodeSigningConfigArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   return Promise.resolve(contents);
 };
@@ -4538,7 +4635,7 @@ export const deserializeAws_restJson1GetFunctionConcurrencyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
-    contents.ReservedConcurrentExecutions = data.ReservedConcurrentExecutions;
+    contents.ReservedConcurrentExecutions = __expectNumber(data.ReservedConcurrentExecutions);
   }
   return Promise.resolve(contents);
 };
@@ -4647,16 +4744,16 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
-    contents.CodeSha256 = data.CodeSha256;
+    contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = data.CodeSize;
+    contents.CodeSize = __expectNumber(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
@@ -4665,76 +4762,76 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   if (data.Handler !== undefined && data.Handler !== null) {
-    contents.Handler = data.Handler;
+    contents.Handler = __expectString(data.Handler);
   }
   if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
     contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
   }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
-    contents.KMSKeyArn = data.KMSKeyArn;
+    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
-    contents.LastUpdateStatus = data.LastUpdateStatus;
+    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
   }
   if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
-    contents.LastUpdateStatusReason = data.LastUpdateStatusReason;
+    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
   }
   if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
-    contents.LastUpdateStatusReasonCode = data.LastUpdateStatusReasonCode;
+    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
   }
   if (data.Layers !== undefined && data.Layers !== null) {
     contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
   }
   if (data.MasterArn !== undefined && data.MasterArn !== null) {
-    contents.MasterArn = data.MasterArn;
+    contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = data.MemorySize;
+    contents.MemorySize = __expectNumber(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
-    contents.PackageType = data.PackageType;
+    contents.PackageType = __expectString(data.PackageType);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.Role !== undefined && data.Role !== null) {
-    contents.Role = data.Role;
+    contents.Role = __expectString(data.Role);
   }
   if (data.Runtime !== undefined && data.Runtime !== null) {
-    contents.Runtime = data.Runtime;
+    contents.Runtime = __expectString(data.Runtime);
   }
   if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
-    contents.SigningJobArn = data.SigningJobArn;
+    contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
-    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateReason !== undefined && data.StateReason !== null) {
-    contents.StateReason = data.StateReason;
+    contents.StateReason = __expectString(data.StateReason);
   }
   if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
-    contents.StateReasonCode = data.StateReasonCode;
+    contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = data.Timeout;
+    contents.Timeout = __expectNumber(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectString(data.Version);
   }
   if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
     contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
@@ -4823,16 +4920,16 @@ export const deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = async
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
-    contents.MaximumEventAgeInSeconds = data.MaximumEventAgeInSeconds;
+    contents.MaximumEventAgeInSeconds = __expectNumber(data.MaximumEventAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   return Promise.resolve(contents);
 };
@@ -4924,22 +5021,22 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
     contents.Content = deserializeAws_restJson1LayerVersionContentOutput(data.Content, context);
   }
   if (data.CreatedDate !== undefined && data.CreatedDate !== null) {
-    contents.CreatedDate = data.CreatedDate;
+    contents.CreatedDate = __expectString(data.CreatedDate);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.LayerArn !== undefined && data.LayerArn !== null) {
-    contents.LayerArn = data.LayerArn;
+    contents.LayerArn = __expectString(data.LayerArn);
   }
   if (data.LayerVersionArn !== undefined && data.LayerVersionArn !== null) {
-    contents.LayerVersionArn = data.LayerVersionArn;
+    contents.LayerVersionArn = __expectString(data.LayerVersionArn);
   }
   if (data.LicenseInfo !== undefined && data.LicenseInfo !== null) {
-    contents.LicenseInfo = data.LicenseInfo;
+    contents.LicenseInfo = __expectString(data.LicenseInfo);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectNumber(data.Version);
   }
   return Promise.resolve(contents);
 };
@@ -5031,22 +5128,22 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
     contents.Content = deserializeAws_restJson1LayerVersionContentOutput(data.Content, context);
   }
   if (data.CreatedDate !== undefined && data.CreatedDate !== null) {
-    contents.CreatedDate = data.CreatedDate;
+    contents.CreatedDate = __expectString(data.CreatedDate);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.LayerArn !== undefined && data.LayerArn !== null) {
-    contents.LayerArn = data.LayerArn;
+    contents.LayerArn = __expectString(data.LayerArn);
   }
   if (data.LayerVersionArn !== undefined && data.LayerVersionArn !== null) {
-    contents.LayerVersionArn = data.LayerVersionArn;
+    contents.LayerVersionArn = __expectString(data.LayerVersionArn);
   }
   if (data.LicenseInfo !== undefined && data.LicenseInfo !== null) {
-    contents.LicenseInfo = data.LicenseInfo;
+    contents.LicenseInfo = __expectString(data.LicenseInfo);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectNumber(data.Version);
   }
   return Promise.resolve(contents);
 };
@@ -5126,10 +5223,10 @@ export const deserializeAws_restJson1GetLayerVersionPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = data.Policy;
+    contents.Policy = __expectString(data.Policy);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   return Promise.resolve(contents);
 };
@@ -5209,10 +5306,10 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Policy !== undefined && data.Policy !== null) {
-    contents.Policy = data.Policy;
+    contents.Policy = __expectString(data.Policy);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   return Promise.resolve(contents);
 };
@@ -5299,28 +5396,28 @@ export const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = as
     data.AllocatedProvisionedConcurrentExecutions !== undefined &&
     data.AllocatedProvisionedConcurrentExecutions !== null
   ) {
-    contents.AllocatedProvisionedConcurrentExecutions = data.AllocatedProvisionedConcurrentExecutions;
+    contents.AllocatedProvisionedConcurrentExecutions = __expectNumber(data.AllocatedProvisionedConcurrentExecutions);
   }
   if (
     data.AvailableProvisionedConcurrentExecutions !== undefined &&
     data.AvailableProvisionedConcurrentExecutions !== null
   ) {
-    contents.AvailableProvisionedConcurrentExecutions = data.AvailableProvisionedConcurrentExecutions;
+    contents.AvailableProvisionedConcurrentExecutions = __expectNumber(data.AvailableProvisionedConcurrentExecutions);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (
     data.RequestedProvisionedConcurrentExecutions !== undefined &&
     data.RequestedProvisionedConcurrentExecutions !== null
   ) {
-    contents.RequestedProvisionedConcurrentExecutions = data.RequestedProvisionedConcurrentExecutions;
+    contents.RequestedProvisionedConcurrentExecutions = __expectNumber(data.RequestedProvisionedConcurrentExecutions);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.StatusReason !== undefined && data.StatusReason !== null) {
-    contents.StatusReason = data.StatusReason;
+    contents.StatusReason = __expectString(data.StatusReason);
   }
   return Promise.resolve(contents);
 };
@@ -5767,7 +5864,7 @@ export const deserializeAws_restJson1ListAliasesCommand = async (
     contents.Aliases = deserializeAws_restJson1AliasList(data.Aliases, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -5850,7 +5947,7 @@ export const deserializeAws_restJson1ListCodeSigningConfigsCommand = async (
     contents.CodeSigningConfigs = deserializeAws_restJson1CodeSigningConfigList(data.CodeSigningConfigs, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -5917,7 +6014,7 @@ export const deserializeAws_restJson1ListEventSourceMappingsCommand = async (
     contents.EventSourceMappings = deserializeAws_restJson1EventSourceMappingsList(data.EventSourceMappings, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -6003,7 +6100,7 @@ export const deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand = asy
     );
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -6086,7 +6183,7 @@ export const deserializeAws_restJson1ListFunctionsCommand = async (
     contents.Functions = deserializeAws_restJson1FunctionList(data.Functions, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -6161,7 +6258,7 @@ export const deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = a
     contents.FunctionArns = deserializeAws_restJson1FunctionArnList(data.FunctionArns, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -6236,7 +6333,7 @@ export const deserializeAws_restJson1ListLayersCommand = async (
     contents.Layers = deserializeAws_restJson1LayersList(data.Layers, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -6311,7 +6408,7 @@ export const deserializeAws_restJson1ListLayerVersionsCommand = async (
     contents.LayerVersions = deserializeAws_restJson1LayerVersionsList(data.LayerVersions, context);
   }
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   return Promise.resolve(contents);
 };
@@ -6391,7 +6488,7 @@ export const deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = 
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   if (data.ProvisionedConcurrencyConfigs !== undefined && data.ProvisionedConcurrencyConfigs !== null) {
     contents.ProvisionedConcurrencyConfigs = deserializeAws_restJson1ProvisionedConcurrencyConfigList(
@@ -6556,7 +6653,7 @@ export const deserializeAws_restJson1ListVersionsByFunctionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextMarker !== undefined && data.NextMarker !== null) {
-    contents.NextMarker = data.NextMarker;
+    contents.NextMarker = __expectString(data.NextMarker);
   }
   if (data.Versions !== undefined && data.Versions !== null) {
     contents.Versions = deserializeAws_restJson1FunctionList(data.Versions, context);
@@ -6651,22 +6748,22 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
     contents.Content = deserializeAws_restJson1LayerVersionContentOutput(data.Content, context);
   }
   if (data.CreatedDate !== undefined && data.CreatedDate !== null) {
-    contents.CreatedDate = data.CreatedDate;
+    contents.CreatedDate = __expectString(data.CreatedDate);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.LayerArn !== undefined && data.LayerArn !== null) {
-    contents.LayerArn = data.LayerArn;
+    contents.LayerArn = __expectString(data.LayerArn);
   }
   if (data.LayerVersionArn !== undefined && data.LayerVersionArn !== null) {
-    contents.LayerVersionArn = data.LayerVersionArn;
+    contents.LayerVersionArn = __expectString(data.LayerVersionArn);
   }
   if (data.LicenseInfo !== undefined && data.LicenseInfo !== null) {
-    contents.LicenseInfo = data.LicenseInfo;
+    contents.LicenseInfo = __expectString(data.LicenseInfo);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectNumber(data.Version);
   }
   return Promise.resolve(contents);
 };
@@ -6783,16 +6880,16 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
-    contents.CodeSha256 = data.CodeSha256;
+    contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = data.CodeSize;
+    contents.CodeSize = __expectNumber(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
@@ -6801,76 +6898,76 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   if (data.Handler !== undefined && data.Handler !== null) {
-    contents.Handler = data.Handler;
+    contents.Handler = __expectString(data.Handler);
   }
   if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
     contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
   }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
-    contents.KMSKeyArn = data.KMSKeyArn;
+    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
-    contents.LastUpdateStatus = data.LastUpdateStatus;
+    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
   }
   if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
-    contents.LastUpdateStatusReason = data.LastUpdateStatusReason;
+    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
   }
   if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
-    contents.LastUpdateStatusReasonCode = data.LastUpdateStatusReasonCode;
+    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
   }
   if (data.Layers !== undefined && data.Layers !== null) {
     contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
   }
   if (data.MasterArn !== undefined && data.MasterArn !== null) {
-    contents.MasterArn = data.MasterArn;
+    contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = data.MemorySize;
+    contents.MemorySize = __expectNumber(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
-    contents.PackageType = data.PackageType;
+    contents.PackageType = __expectString(data.PackageType);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.Role !== undefined && data.Role !== null) {
-    contents.Role = data.Role;
+    contents.Role = __expectString(data.Role);
   }
   if (data.Runtime !== undefined && data.Runtime !== null) {
-    contents.Runtime = data.Runtime;
+    contents.Runtime = __expectString(data.Runtime);
   }
   if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
-    contents.SigningJobArn = data.SigningJobArn;
+    contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
-    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateReason !== undefined && data.StateReason !== null) {
-    contents.StateReason = data.StateReason;
+    contents.StateReason = __expectString(data.StateReason);
   }
   if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
-    contents.StateReasonCode = data.StateReasonCode;
+    contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = data.Timeout;
+    contents.Timeout = __expectNumber(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectString(data.Version);
   }
   if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
     contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
@@ -6977,10 +7074,10 @@ export const deserializeAws_restJson1PutFunctionCodeSigningConfigCommand = async
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSigningConfigArn !== undefined && data.CodeSigningConfigArn !== null) {
-    contents.CodeSigningConfigArn = data.CodeSigningConfigArn;
+    contents.CodeSigningConfigArn = __expectString(data.CodeSigningConfigArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   return Promise.resolve(contents);
 };
@@ -7075,7 +7172,7 @@ export const deserializeAws_restJson1PutFunctionConcurrencyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ReservedConcurrentExecutions !== undefined && data.ReservedConcurrentExecutions !== null) {
-    contents.ReservedConcurrentExecutions = data.ReservedConcurrentExecutions;
+    contents.ReservedConcurrentExecutions = __expectNumber(data.ReservedConcurrentExecutions);
   }
   return Promise.resolve(contents);
 };
@@ -7169,16 +7266,16 @@ export const deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = async
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
-    contents.MaximumEventAgeInSeconds = data.MaximumEventAgeInSeconds;
+    contents.MaximumEventAgeInSeconds = __expectNumber(data.MaximumEventAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   return Promise.resolve(contents);
 };
@@ -7265,28 +7362,28 @@ export const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = as
     data.AllocatedProvisionedConcurrentExecutions !== undefined &&
     data.AllocatedProvisionedConcurrentExecutions !== null
   ) {
-    contents.AllocatedProvisionedConcurrentExecutions = data.AllocatedProvisionedConcurrentExecutions;
+    contents.AllocatedProvisionedConcurrentExecutions = __expectNumber(data.AllocatedProvisionedConcurrentExecutions);
   }
   if (
     data.AvailableProvisionedConcurrentExecutions !== undefined &&
     data.AvailableProvisionedConcurrentExecutions !== null
   ) {
-    contents.AvailableProvisionedConcurrentExecutions = data.AvailableProvisionedConcurrentExecutions;
+    contents.AvailableProvisionedConcurrentExecutions = __expectNumber(data.AvailableProvisionedConcurrentExecutions);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (
     data.RequestedProvisionedConcurrentExecutions !== undefined &&
     data.RequestedProvisionedConcurrentExecutions !== null
   ) {
-    contents.RequestedProvisionedConcurrentExecutions = data.RequestedProvisionedConcurrentExecutions;
+    contents.RequestedProvisionedConcurrentExecutions = __expectNumber(data.RequestedProvisionedConcurrentExecutions);
   }
   if (data.Status !== undefined && data.Status !== null) {
-    contents.Status = data.Status;
+    contents.Status = __expectString(data.Status);
   }
   if (data.StatusReason !== undefined && data.StatusReason !== null) {
-    contents.StatusReason = data.StatusReason;
+    contents.StatusReason = __expectString(data.StatusReason);
   }
   return Promise.resolve(contents);
 };
@@ -7710,19 +7807,19 @@ export const deserializeAws_restJson1UpdateAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.AliasArn !== undefined && data.AliasArn !== null) {
-    contents.AliasArn = data.AliasArn;
+    contents.AliasArn = __expectString(data.AliasArn);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.FunctionVersion !== undefined && data.FunctionVersion !== null) {
-    contents.FunctionVersion = data.FunctionVersion;
+    contents.FunctionVersion = __expectString(data.FunctionVersion);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.RoutingConfig !== undefined && data.RoutingConfig !== null) {
     contents.RoutingConfig = deserializeAws_restJson1AliasRoutingConfiguration(data.RoutingConfig, context);
@@ -7912,19 +8009,19 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.BatchSize !== undefined && data.BatchSize !== null) {
-    contents.BatchSize = data.BatchSize;
+    contents.BatchSize = __expectNumber(data.BatchSize);
   }
   if (data.BisectBatchOnFunctionError !== undefined && data.BisectBatchOnFunctionError !== null) {
-    contents.BisectBatchOnFunctionError = data.BisectBatchOnFunctionError;
+    contents.BisectBatchOnFunctionError = __expectBoolean(data.BisectBatchOnFunctionError);
   }
   if (data.DestinationConfig !== undefined && data.DestinationConfig !== null) {
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.EventSourceArn !== undefined && data.EventSourceArn !== null) {
-    contents.EventSourceArn = data.EventSourceArn;
+    contents.EventSourceArn = __expectString(data.EventSourceArn);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
     contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
@@ -7936,19 +8033,19 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.LastProcessingResult !== undefined && data.LastProcessingResult !== null) {
-    contents.LastProcessingResult = data.LastProcessingResult;
+    contents.LastProcessingResult = __expectString(data.LastProcessingResult);
   }
   if (data.MaximumBatchingWindowInSeconds !== undefined && data.MaximumBatchingWindowInSeconds !== null) {
-    contents.MaximumBatchingWindowInSeconds = data.MaximumBatchingWindowInSeconds;
+    contents.MaximumBatchingWindowInSeconds = __expectNumber(data.MaximumBatchingWindowInSeconds);
   }
   if (data.MaximumRecordAgeInSeconds !== undefined && data.MaximumRecordAgeInSeconds !== null) {
-    contents.MaximumRecordAgeInSeconds = data.MaximumRecordAgeInSeconds;
+    contents.MaximumRecordAgeInSeconds = __expectNumber(data.MaximumRecordAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
-    contents.ParallelizationFactor = data.ParallelizationFactor;
+    contents.ParallelizationFactor = __expectNumber(data.ParallelizationFactor);
   }
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
@@ -7966,25 +8063,25 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     );
   }
   if (data.StartingPosition !== undefined && data.StartingPosition !== null) {
-    contents.StartingPosition = data.StartingPosition;
+    contents.StartingPosition = __expectString(data.StartingPosition);
   }
   if (data.StartingPositionTimestamp !== undefined && data.StartingPositionTimestamp !== null) {
     contents.StartingPositionTimestamp = new Date(Math.round(data.StartingPositionTimestamp * 1000));
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
-    contents.StateTransitionReason = data.StateTransitionReason;
+    contents.StateTransitionReason = __expectString(data.StateTransitionReason);
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
-    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
+    contents.TumblingWindowInSeconds = __expectNumber(data.TumblingWindowInSeconds);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
-    contents.UUID = data.UUID;
+    contents.UUID = __expectString(data.UUID);
   }
   return Promise.resolve(contents);
 };
@@ -8109,16 +8206,16 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
-    contents.CodeSha256 = data.CodeSha256;
+    contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = data.CodeSize;
+    contents.CodeSize = __expectNumber(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
@@ -8127,76 +8224,76 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   if (data.Handler !== undefined && data.Handler !== null) {
-    contents.Handler = data.Handler;
+    contents.Handler = __expectString(data.Handler);
   }
   if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
     contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
   }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
-    contents.KMSKeyArn = data.KMSKeyArn;
+    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
-    contents.LastUpdateStatus = data.LastUpdateStatus;
+    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
   }
   if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
-    contents.LastUpdateStatusReason = data.LastUpdateStatusReason;
+    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
   }
   if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
-    contents.LastUpdateStatusReasonCode = data.LastUpdateStatusReasonCode;
+    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
   }
   if (data.Layers !== undefined && data.Layers !== null) {
     contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
   }
   if (data.MasterArn !== undefined && data.MasterArn !== null) {
-    contents.MasterArn = data.MasterArn;
+    contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = data.MemorySize;
+    contents.MemorySize = __expectNumber(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
-    contents.PackageType = data.PackageType;
+    contents.PackageType = __expectString(data.PackageType);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.Role !== undefined && data.Role !== null) {
-    contents.Role = data.Role;
+    contents.Role = __expectString(data.Role);
   }
   if (data.Runtime !== undefined && data.Runtime !== null) {
-    contents.Runtime = data.Runtime;
+    contents.Runtime = __expectString(data.Runtime);
   }
   if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
-    contents.SigningJobArn = data.SigningJobArn;
+    contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
-    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateReason !== undefined && data.StateReason !== null) {
-    contents.StateReason = data.StateReason;
+    contents.StateReason = __expectString(data.StateReason);
   }
   if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
-    contents.StateReasonCode = data.StateReasonCode;
+    contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = data.Timeout;
+    contents.Timeout = __expectNumber(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectString(data.Version);
   }
   if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
     contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
@@ -8356,16 +8453,16 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
-    contents.CodeSha256 = data.CodeSha256;
+    contents.CodeSha256 = __expectString(data.CodeSha256);
   }
   if (data.CodeSize !== undefined && data.CodeSize !== null) {
-    contents.CodeSize = data.CodeSize;
+    contents.CodeSize = __expectNumber(data.CodeSize);
   }
   if (data.DeadLetterConfig !== undefined && data.DeadLetterConfig !== null) {
     contents.DeadLetterConfig = deserializeAws_restJson1DeadLetterConfig(data.DeadLetterConfig, context);
   }
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
@@ -8374,76 +8471,76 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.FunctionName !== undefined && data.FunctionName !== null) {
-    contents.FunctionName = data.FunctionName;
+    contents.FunctionName = __expectString(data.FunctionName);
   }
   if (data.Handler !== undefined && data.Handler !== null) {
-    contents.Handler = data.Handler;
+    contents.Handler = __expectString(data.Handler);
   }
   if (data.ImageConfigResponse !== undefined && data.ImageConfigResponse !== null) {
     contents.ImageConfigResponse = deserializeAws_restJson1ImageConfigResponse(data.ImageConfigResponse, context);
   }
   if (data.KMSKeyArn !== undefined && data.KMSKeyArn !== null) {
-    contents.KMSKeyArn = data.KMSKeyArn;
+    contents.KMSKeyArn = __expectString(data.KMSKeyArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
-    contents.LastModified = data.LastModified;
+    contents.LastModified = __expectString(data.LastModified);
   }
   if (data.LastUpdateStatus !== undefined && data.LastUpdateStatus !== null) {
-    contents.LastUpdateStatus = data.LastUpdateStatus;
+    contents.LastUpdateStatus = __expectString(data.LastUpdateStatus);
   }
   if (data.LastUpdateStatusReason !== undefined && data.LastUpdateStatusReason !== null) {
-    contents.LastUpdateStatusReason = data.LastUpdateStatusReason;
+    contents.LastUpdateStatusReason = __expectString(data.LastUpdateStatusReason);
   }
   if (data.LastUpdateStatusReasonCode !== undefined && data.LastUpdateStatusReasonCode !== null) {
-    contents.LastUpdateStatusReasonCode = data.LastUpdateStatusReasonCode;
+    contents.LastUpdateStatusReasonCode = __expectString(data.LastUpdateStatusReasonCode);
   }
   if (data.Layers !== undefined && data.Layers !== null) {
     contents.Layers = deserializeAws_restJson1LayersReferenceList(data.Layers, context);
   }
   if (data.MasterArn !== undefined && data.MasterArn !== null) {
-    contents.MasterArn = data.MasterArn;
+    contents.MasterArn = __expectString(data.MasterArn);
   }
   if (data.MemorySize !== undefined && data.MemorySize !== null) {
-    contents.MemorySize = data.MemorySize;
+    contents.MemorySize = __expectNumber(data.MemorySize);
   }
   if (data.PackageType !== undefined && data.PackageType !== null) {
-    contents.PackageType = data.PackageType;
+    contents.PackageType = __expectString(data.PackageType);
   }
   if (data.RevisionId !== undefined && data.RevisionId !== null) {
-    contents.RevisionId = data.RevisionId;
+    contents.RevisionId = __expectString(data.RevisionId);
   }
   if (data.Role !== undefined && data.Role !== null) {
-    contents.Role = data.Role;
+    contents.Role = __expectString(data.Role);
   }
   if (data.Runtime !== undefined && data.Runtime !== null) {
-    contents.Runtime = data.Runtime;
+    contents.Runtime = __expectString(data.Runtime);
   }
   if (data.SigningJobArn !== undefined && data.SigningJobArn !== null) {
-    contents.SigningJobArn = data.SigningJobArn;
+    contents.SigningJobArn = __expectString(data.SigningJobArn);
   }
   if (data.SigningProfileVersionArn !== undefined && data.SigningProfileVersionArn !== null) {
-    contents.SigningProfileVersionArn = data.SigningProfileVersionArn;
+    contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
   if (data.State !== undefined && data.State !== null) {
-    contents.State = data.State;
+    contents.State = __expectString(data.State);
   }
   if (data.StateReason !== undefined && data.StateReason !== null) {
-    contents.StateReason = data.StateReason;
+    contents.StateReason = __expectString(data.StateReason);
   }
   if (data.StateReasonCode !== undefined && data.StateReasonCode !== null) {
-    contents.StateReasonCode = data.StateReasonCode;
+    contents.StateReasonCode = __expectString(data.StateReasonCode);
   }
   if (data.Timeout !== undefined && data.Timeout !== null) {
-    contents.Timeout = data.Timeout;
+    contents.Timeout = __expectNumber(data.Timeout);
   }
   if (data.TracingConfig !== undefined && data.TracingConfig !== null) {
     contents.TracingConfig = deserializeAws_restJson1TracingConfigResponse(data.TracingConfig, context);
   }
   if (data.Version !== undefined && data.Version !== null) {
-    contents.Version = data.Version;
+    contents.Version = __expectString(data.Version);
   }
   if (data.VpcConfig !== undefined && data.VpcConfig !== null) {
     contents.VpcConfig = deserializeAws_restJson1VpcConfigResponse(data.VpcConfig, context);
@@ -8572,16 +8669,16 @@ export const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = as
     contents.DestinationConfig = deserializeAws_restJson1DestinationConfig(data.DestinationConfig, context);
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
-    contents.FunctionArn = data.FunctionArn;
+    contents.FunctionArn = __expectString(data.FunctionArn);
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
   }
   if (data.MaximumEventAgeInSeconds !== undefined && data.MaximumEventAgeInSeconds !== null) {
-    contents.MaximumEventAgeInSeconds = data.MaximumEventAgeInSeconds;
+    contents.MaximumEventAgeInSeconds = __expectNumber(data.MaximumEventAgeInSeconds);
   }
   if (data.MaximumRetryAttempts !== undefined && data.MaximumRetryAttempts !== null) {
-    contents.MaximumRetryAttempts = data.MaximumRetryAttempts;
+    contents.MaximumRetryAttempts = __expectNumber(data.MaximumRetryAttempts);
   }
   return Promise.resolve(contents);
 };
@@ -8660,10 +8757,10 @@ const deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse = async
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8681,10 +8778,10 @@ const deserializeAws_restJson1CodeStorageExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -8702,10 +8799,10 @@ const deserializeAws_restJson1CodeVerificationFailedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8723,10 +8820,10 @@ const deserializeAws_restJson1EC2AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8744,10 +8841,10 @@ const deserializeAws_restJson1EC2ThrottledExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8766,13 +8863,13 @@ const deserializeAws_restJson1EC2UnexpectedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.EC2ErrorCode !== undefined && data.EC2ErrorCode !== null) {
-    contents.EC2ErrorCode = data.EC2ErrorCode;
+    contents.EC2ErrorCode = __expectString(data.EC2ErrorCode);
   }
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8790,10 +8887,10 @@ const deserializeAws_restJson1EFSIOExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8811,10 +8908,10 @@ const deserializeAws_restJson1EFSMountConnectivityExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8832,10 +8929,10 @@ const deserializeAws_restJson1EFSMountFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8853,10 +8950,10 @@ const deserializeAws_restJson1EFSMountTimeoutExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8874,10 +8971,10 @@ const deserializeAws_restJson1ENILimitReachedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8895,10 +8992,10 @@ const deserializeAws_restJson1InvalidCodeSignatureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8916,10 +9013,10 @@ const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -8937,10 +9034,10 @@ const deserializeAws_restJson1InvalidRequestContentExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -8958,10 +9055,10 @@ const deserializeAws_restJson1InvalidRuntimeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -8979,10 +9076,10 @@ const deserializeAws_restJson1InvalidSecurityGroupIDExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9000,10 +9097,10 @@ const deserializeAws_restJson1InvalidSubnetIDExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9021,10 +9118,10 @@ const deserializeAws_restJson1InvalidZipFileExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9042,10 +9139,10 @@ const deserializeAws_restJson1KMSAccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9063,10 +9160,10 @@ const deserializeAws_restJson1KMSDisabledExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9084,10 +9181,10 @@ const deserializeAws_restJson1KMSInvalidStateExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9105,10 +9202,10 @@ const deserializeAws_restJson1KMSNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9126,10 +9223,10 @@ const deserializeAws_restJson1PolicyLengthExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9147,10 +9244,10 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9168,10 +9265,10 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigNotFoundExceptionRespo
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9189,10 +9286,10 @@ const deserializeAws_restJson1RequestTooLargeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9210,10 +9307,10 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9231,10 +9328,10 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9252,10 +9349,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9273,10 +9370,10 @@ const deserializeAws_restJson1ResourceNotReadyExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9294,10 +9391,10 @@ const deserializeAws_restJson1ServiceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9315,10 +9412,10 @@ const deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse = asy
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   return contents;
 };
@@ -9341,13 +9438,13 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.Reason !== undefined && data.Reason !== null) {
-    contents.Reason = data.Reason;
+    contents.Reason = __expectString(data.Reason);
   }
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9365,10 +9462,10 @@ const deserializeAws_restJson1UnsupportedMediaTypeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Type !== undefined && data.Type !== null) {
-    contents.Type = data.Type;
+    contents.Type = __expectString(data.Type);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -9377,13 +9474,13 @@ const serializeAws_restJson1AdditionalVersionWeights = (
   input: { [key: string]: number },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __serializeFloat(value),
     };
   }, {});
 };
@@ -9462,18 +9559,15 @@ const serializeAws_restJson1EndpointLists = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1Endpoints = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [EndPointType | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1EndpointLists(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [EndPointType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1EndpointLists(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1Environment = (input: Environment, context: __SerdeContext): any => {
@@ -9484,7 +9578,7 @@ const serializeAws_restJson1Environment = (input: Environment, context: __SerdeC
 };
 
 const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9673,7 +9767,7 @@ const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContex
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -9714,29 +9808,18 @@ const serializeAws_restJson1VpcConfig = (input: VpcConfig, context: __SerdeConte
 
 const deserializeAws_restJson1AccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   return {
-    CodeSizeUnzipped:
-      output.CodeSizeUnzipped !== undefined && output.CodeSizeUnzipped !== null ? output.CodeSizeUnzipped : undefined,
-    CodeSizeZipped:
-      output.CodeSizeZipped !== undefined && output.CodeSizeZipped !== null ? output.CodeSizeZipped : undefined,
-    ConcurrentExecutions:
-      output.ConcurrentExecutions !== undefined && output.ConcurrentExecutions !== null
-        ? output.ConcurrentExecutions
-        : undefined,
-    TotalCodeSize:
-      output.TotalCodeSize !== undefined && output.TotalCodeSize !== null ? output.TotalCodeSize : undefined,
-    UnreservedConcurrentExecutions:
-      output.UnreservedConcurrentExecutions !== undefined && output.UnreservedConcurrentExecutions !== null
-        ? output.UnreservedConcurrentExecutions
-        : undefined,
+    CodeSizeUnzipped: __expectNumber(output.CodeSizeUnzipped),
+    CodeSizeZipped: __expectNumber(output.CodeSizeZipped),
+    ConcurrentExecutions: __expectNumber(output.ConcurrentExecutions),
+    TotalCodeSize: __expectNumber(output.TotalCodeSize),
+    UnreservedConcurrentExecutions: __expectNumber(output.UnreservedConcurrentExecutions),
   } as any;
 };
 
 const deserializeAws_restJson1AccountUsage = (output: any, context: __SerdeContext): AccountUsage => {
   return {
-    FunctionCount:
-      output.FunctionCount !== undefined && output.FunctionCount !== null ? output.FunctionCount : undefined,
-    TotalCodeSize:
-      output.TotalCodeSize !== undefined && output.TotalCodeSize !== null ? output.TotalCodeSize : undefined,
+    FunctionCount: __expectNumber(output.FunctionCount),
+    TotalCodeSize: __expectNumber(output.TotalCodeSize),
   } as any;
 };
 
@@ -9750,19 +9833,18 @@ const deserializeAws_restJson1AdditionalVersionWeights = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __handleFloat(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1AliasConfiguration = (output: any, context: __SerdeContext): AliasConfiguration => {
   return {
-    AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    FunctionVersion:
-      output.FunctionVersion !== undefined && output.FunctionVersion !== null ? output.FunctionVersion : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
+    AliasArn: __expectString(output.AliasArn),
+    Description: __expectString(output.Description),
+    FunctionVersion: __expectString(output.FunctionVersion),
+    Name: __expectString(output.Name),
+    RevisionId: __expectString(output.RevisionId),
     RoutingConfig:
       output.RoutingConfig !== undefined && output.RoutingConfig !== null
         ? deserializeAws_restJson1AliasRoutingConfiguration(output.RoutingConfig, context)
@@ -9808,20 +9890,14 @@ const deserializeAws_restJson1CodeSigningConfig = (output: any, context: __Serde
       output.AllowedPublishers !== undefined && output.AllowedPublishers !== null
         ? deserializeAws_restJson1AllowedPublishers(output.AllowedPublishers, context)
         : undefined,
-    CodeSigningConfigArn:
-      output.CodeSigningConfigArn !== undefined && output.CodeSigningConfigArn !== null
-        ? output.CodeSigningConfigArn
-        : undefined,
-    CodeSigningConfigId:
-      output.CodeSigningConfigId !== undefined && output.CodeSigningConfigId !== null
-        ? output.CodeSigningConfigId
-        : undefined,
+    CodeSigningConfigArn: __expectString(output.CodeSigningConfigArn),
+    CodeSigningConfigId: __expectString(output.CodeSigningConfigId),
     CodeSigningPolicies:
       output.CodeSigningPolicies !== undefined && output.CodeSigningPolicies !== null
         ? deserializeAws_restJson1CodeSigningPolicies(output.CodeSigningPolicies, context)
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    LastModified: output.LastModified !== undefined && output.LastModified !== null ? output.LastModified : undefined,
+    Description: __expectString(output.Description),
+    LastModified: __expectString(output.LastModified),
   } as any;
 };
 
@@ -9838,10 +9914,7 @@ const deserializeAws_restJson1CodeSigningConfigList = (output: any, context: __S
 
 const deserializeAws_restJson1CodeSigningPolicies = (output: any, context: __SerdeContext): CodeSigningPolicies => {
   return {
-    UntrustedArtifactOnDeployment:
-      output.UntrustedArtifactOnDeployment !== undefined && output.UntrustedArtifactOnDeployment !== null
-        ? output.UntrustedArtifactOnDeployment
-        : undefined,
+    UntrustedArtifactOnDeployment: __expectString(output.UntrustedArtifactOnDeployment),
   } as any;
 };
 
@@ -9852,22 +9925,19 @@ const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __Serd
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Concurrency = (output: any, context: __SerdeContext): Concurrency => {
   return {
-    ReservedConcurrentExecutions:
-      output.ReservedConcurrentExecutions !== undefined && output.ReservedConcurrentExecutions !== null
-        ? output.ReservedConcurrentExecutions
-        : undefined,
+    ReservedConcurrentExecutions: __expectNumber(output.ReservedConcurrentExecutions),
   } as any;
 };
 
 const deserializeAws_restJson1DeadLetterConfig = (output: any, context: __SerdeContext): DeadLetterConfig => {
   return {
-    TargetArn: output.TargetArn !== undefined && output.TargetArn !== null ? output.TargetArn : undefined,
+    TargetArn: __expectString(output.TargetArn),
   } as any;
 };
 
@@ -9891,7 +9961,7 @@ const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeCont
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -9912,8 +9982,8 @@ const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1EnvironmentError = (output: any, context: __SerdeContext): EnvironmentError => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -9940,7 +10010,7 @@ const deserializeAws_restJson1EnvironmentVariables = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -9950,18 +10020,14 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
   context: __SerdeContext
 ): EventSourceMappingConfiguration => {
   return {
-    BatchSize: output.BatchSize !== undefined && output.BatchSize !== null ? output.BatchSize : undefined,
-    BisectBatchOnFunctionError:
-      output.BisectBatchOnFunctionError !== undefined && output.BisectBatchOnFunctionError !== null
-        ? output.BisectBatchOnFunctionError
-        : undefined,
+    BatchSize: __expectNumber(output.BatchSize),
+    BisectBatchOnFunctionError: __expectBoolean(output.BisectBatchOnFunctionError),
     DestinationConfig:
       output.DestinationConfig !== undefined && output.DestinationConfig !== null
         ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
         : undefined,
-    EventSourceArn:
-      output.EventSourceArn !== undefined && output.EventSourceArn !== null ? output.EventSourceArn : undefined,
-    FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
+    EventSourceArn: __expectString(output.EventSourceArn),
+    FunctionArn: __expectString(output.FunctionArn),
     FunctionResponseTypes:
       output.FunctionResponseTypes !== undefined && output.FunctionResponseTypes !== null
         ? deserializeAws_restJson1FunctionResponseTypeList(output.FunctionResponseTypes, context)
@@ -9970,26 +10036,11 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    LastProcessingResult:
-      output.LastProcessingResult !== undefined && output.LastProcessingResult !== null
-        ? output.LastProcessingResult
-        : undefined,
-    MaximumBatchingWindowInSeconds:
-      output.MaximumBatchingWindowInSeconds !== undefined && output.MaximumBatchingWindowInSeconds !== null
-        ? output.MaximumBatchingWindowInSeconds
-        : undefined,
-    MaximumRecordAgeInSeconds:
-      output.MaximumRecordAgeInSeconds !== undefined && output.MaximumRecordAgeInSeconds !== null
-        ? output.MaximumRecordAgeInSeconds
-        : undefined,
-    MaximumRetryAttempts:
-      output.MaximumRetryAttempts !== undefined && output.MaximumRetryAttempts !== null
-        ? output.MaximumRetryAttempts
-        : undefined,
-    ParallelizationFactor:
-      output.ParallelizationFactor !== undefined && output.ParallelizationFactor !== null
-        ? output.ParallelizationFactor
-        : undefined,
+    LastProcessingResult: __expectString(output.LastProcessingResult),
+    MaximumBatchingWindowInSeconds: __expectNumber(output.MaximumBatchingWindowInSeconds),
+    MaximumRecordAgeInSeconds: __expectNumber(output.MaximumRecordAgeInSeconds),
+    MaximumRetryAttempts: __expectNumber(output.MaximumRetryAttempts),
+    ParallelizationFactor: __expectNumber(output.ParallelizationFactor),
     Queues:
       output.Queues !== undefined && output.Queues !== null
         ? deserializeAws_restJson1Queues(output.Queues, context)
@@ -10002,26 +10053,19 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
       output.SourceAccessConfigurations !== undefined && output.SourceAccessConfigurations !== null
         ? deserializeAws_restJson1SourceAccessConfigurations(output.SourceAccessConfigurations, context)
         : undefined,
-    StartingPosition:
-      output.StartingPosition !== undefined && output.StartingPosition !== null ? output.StartingPosition : undefined,
+    StartingPosition: __expectString(output.StartingPosition),
     StartingPositionTimestamp:
       output.StartingPositionTimestamp !== undefined && output.StartingPositionTimestamp !== null
         ? new Date(Math.round(output.StartingPositionTimestamp * 1000))
         : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateTransitionReason:
-      output.StateTransitionReason !== undefined && output.StateTransitionReason !== null
-        ? output.StateTransitionReason
-        : undefined,
+    State: __expectString(output.State),
+    StateTransitionReason: __expectString(output.StateTransitionReason),
     Topics:
       output.Topics !== undefined && output.Topics !== null
         ? deserializeAws_restJson1Topics(output.Topics, context)
         : undefined,
-    TumblingWindowInSeconds:
-      output.TumblingWindowInSeconds !== undefined && output.TumblingWindowInSeconds !== null
-        ? output.TumblingWindowInSeconds
-        : undefined,
-    UUID: output.UUID !== undefined && output.UUID !== null ? output.UUID : undefined,
+    TumblingWindowInSeconds: __expectNumber(output.TumblingWindowInSeconds),
+    UUID: __expectString(output.UUID),
   } as any;
 };
 
@@ -10041,9 +10085,8 @@ const deserializeAws_restJson1EventSourceMappingsList = (
 
 const deserializeAws_restJson1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    LocalMountPath:
-      output.LocalMountPath !== undefined && output.LocalMountPath !== null ? output.LocalMountPath : undefined,
+    Arn: __expectString(output.Arn),
+    LocalMountPath: __expectString(output.LocalMountPath),
   } as any;
 };
 
@@ -10065,30 +10108,28 @@ const deserializeAws_restJson1FunctionArnList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
   return {
-    ImageUri: output.ImageUri !== undefined && output.ImageUri !== null ? output.ImageUri : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    RepositoryType:
-      output.RepositoryType !== undefined && output.RepositoryType !== null ? output.RepositoryType : undefined,
-    ResolvedImageUri:
-      output.ResolvedImageUri !== undefined && output.ResolvedImageUri !== null ? output.ResolvedImageUri : undefined,
+    ImageUri: __expectString(output.ImageUri),
+    Location: __expectString(output.Location),
+    RepositoryType: __expectString(output.RepositoryType),
+    ResolvedImageUri: __expectString(output.ResolvedImageUri),
   } as any;
 };
 
 const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
-    CodeSha256: output.CodeSha256 !== undefined && output.CodeSha256 !== null ? output.CodeSha256 : undefined,
-    CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
+    CodeSha256: __expectString(output.CodeSha256),
+    CodeSize: __expectNumber(output.CodeSize),
     DeadLetterConfig:
       output.DeadLetterConfig !== undefined && output.DeadLetterConfig !== null
         ? deserializeAws_restJson1DeadLetterConfig(output.DeadLetterConfig, context)
         : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Description: __expectString(output.Description),
     Environment:
       output.Environment !== undefined && output.Environment !== null
         ? deserializeAws_restJson1EnvironmentResponse(output.Environment, context)
@@ -10097,51 +10138,39 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
       output.FileSystemConfigs !== undefined && output.FileSystemConfigs !== null
         ? deserializeAws_restJson1FileSystemConfigList(output.FileSystemConfigs, context)
         : undefined,
-    FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
-    FunctionName: output.FunctionName !== undefined && output.FunctionName !== null ? output.FunctionName : undefined,
-    Handler: output.Handler !== undefined && output.Handler !== null ? output.Handler : undefined,
+    FunctionArn: __expectString(output.FunctionArn),
+    FunctionName: __expectString(output.FunctionName),
+    Handler: __expectString(output.Handler),
     ImageConfigResponse:
       output.ImageConfigResponse !== undefined && output.ImageConfigResponse !== null
         ? deserializeAws_restJson1ImageConfigResponse(output.ImageConfigResponse, context)
         : undefined,
-    KMSKeyArn: output.KMSKeyArn !== undefined && output.KMSKeyArn !== null ? output.KMSKeyArn : undefined,
-    LastModified: output.LastModified !== undefined && output.LastModified !== null ? output.LastModified : undefined,
-    LastUpdateStatus:
-      output.LastUpdateStatus !== undefined && output.LastUpdateStatus !== null ? output.LastUpdateStatus : undefined,
-    LastUpdateStatusReason:
-      output.LastUpdateStatusReason !== undefined && output.LastUpdateStatusReason !== null
-        ? output.LastUpdateStatusReason
-        : undefined,
-    LastUpdateStatusReasonCode:
-      output.LastUpdateStatusReasonCode !== undefined && output.LastUpdateStatusReasonCode !== null
-        ? output.LastUpdateStatusReasonCode
-        : undefined,
+    KMSKeyArn: __expectString(output.KMSKeyArn),
+    LastModified: __expectString(output.LastModified),
+    LastUpdateStatus: __expectString(output.LastUpdateStatus),
+    LastUpdateStatusReason: __expectString(output.LastUpdateStatusReason),
+    LastUpdateStatusReasonCode: __expectString(output.LastUpdateStatusReasonCode),
     Layers:
       output.Layers !== undefined && output.Layers !== null
         ? deserializeAws_restJson1LayersReferenceList(output.Layers, context)
         : undefined,
-    MasterArn: output.MasterArn !== undefined && output.MasterArn !== null ? output.MasterArn : undefined,
-    MemorySize: output.MemorySize !== undefined && output.MemorySize !== null ? output.MemorySize : undefined,
-    PackageType: output.PackageType !== undefined && output.PackageType !== null ? output.PackageType : undefined,
-    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
-    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
-    Runtime: output.Runtime !== undefined && output.Runtime !== null ? output.Runtime : undefined,
-    SigningJobArn:
-      output.SigningJobArn !== undefined && output.SigningJobArn !== null ? output.SigningJobArn : undefined,
-    SigningProfileVersionArn:
-      output.SigningProfileVersionArn !== undefined && output.SigningProfileVersionArn !== null
-        ? output.SigningProfileVersionArn
-        : undefined,
-    State: output.State !== undefined && output.State !== null ? output.State : undefined,
-    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
-    StateReasonCode:
-      output.StateReasonCode !== undefined && output.StateReasonCode !== null ? output.StateReasonCode : undefined,
-    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
+    MasterArn: __expectString(output.MasterArn),
+    MemorySize: __expectNumber(output.MemorySize),
+    PackageType: __expectString(output.PackageType),
+    RevisionId: __expectString(output.RevisionId),
+    Role: __expectString(output.Role),
+    Runtime: __expectString(output.Runtime),
+    SigningJobArn: __expectString(output.SigningJobArn),
+    SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+    StateReasonCode: __expectString(output.StateReasonCode),
+    Timeout: __expectNumber(output.Timeout),
     TracingConfig:
       output.TracingConfig !== undefined && output.TracingConfig !== null
         ? deserializeAws_restJson1TracingConfigResponse(output.TracingConfig, context)
         : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    Version: __expectString(output.Version),
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
         ? deserializeAws_restJson1VpcConfigResponse(output.VpcConfig, context)
@@ -10158,19 +10187,13 @@ const deserializeAws_restJson1FunctionEventInvokeConfig = (
       output.DestinationConfig !== undefined && output.DestinationConfig !== null
         ? deserializeAws_restJson1DestinationConfig(output.DestinationConfig, context)
         : undefined,
-    FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
+    FunctionArn: __expectString(output.FunctionArn),
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
         : undefined,
-    MaximumEventAgeInSeconds:
-      output.MaximumEventAgeInSeconds !== undefined && output.MaximumEventAgeInSeconds !== null
-        ? output.MaximumEventAgeInSeconds
-        : undefined,
-    MaximumRetryAttempts:
-      output.MaximumRetryAttempts !== undefined && output.MaximumRetryAttempts !== null
-        ? output.MaximumRetryAttempts
-        : undefined,
+    MaximumEventAgeInSeconds: __expectNumber(output.MaximumEventAgeInSeconds),
+    MaximumRetryAttempts: __expectNumber(output.MaximumRetryAttempts),
   } as any;
 };
 
@@ -10209,7 +10232,7 @@ const deserializeAws_restJson1FunctionResponseTypeList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10223,15 +10246,14 @@ const deserializeAws_restJson1ImageConfig = (output: any, context: __SerdeContex
       output.EntryPoint !== undefined && output.EntryPoint !== null
         ? deserializeAws_restJson1StringList(output.EntryPoint, context)
         : undefined,
-    WorkingDirectory:
-      output.WorkingDirectory !== undefined && output.WorkingDirectory !== null ? output.WorkingDirectory : undefined,
+    WorkingDirectory: __expectString(output.WorkingDirectory),
   } as any;
 };
 
 const deserializeAws_restJson1ImageConfigError = (output: any, context: __SerdeContext): ImageConfigError => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -10250,14 +10272,10 @@ const deserializeAws_restJson1ImageConfigResponse = (output: any, context: __Ser
 
 const deserializeAws_restJson1Layer = (output: any, context: __SerdeContext): Layer => {
   return {
-    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
-    SigningJobArn:
-      output.SigningJobArn !== undefined && output.SigningJobArn !== null ? output.SigningJobArn : undefined,
-    SigningProfileVersionArn:
-      output.SigningProfileVersionArn !== undefined && output.SigningProfileVersionArn !== null
-        ? output.SigningProfileVersionArn
-        : undefined,
+    Arn: __expectString(output.Arn),
+    CodeSize: __expectNumber(output.CodeSize),
+    SigningJobArn: __expectString(output.SigningJobArn),
+    SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
   } as any;
 };
 
@@ -10278,8 +10296,8 @@ const deserializeAws_restJson1LayersListItem = (output: any, context: __SerdeCon
       output.LatestMatchingVersion !== undefined && output.LatestMatchingVersion !== null
         ? deserializeAws_restJson1LayerVersionsListItem(output.LatestMatchingVersion, context)
         : undefined,
-    LayerArn: output.LayerArn !== undefined && output.LayerArn !== null ? output.LayerArn : undefined,
-    LayerName: output.LayerName !== undefined && output.LayerName !== null ? output.LayerName : undefined,
+    LayerArn: __expectString(output.LayerArn),
+    LayerName: __expectString(output.LayerName),
   } as any;
 };
 
@@ -10299,15 +10317,11 @@ const deserializeAws_restJson1LayerVersionContentOutput = (
   context: __SerdeContext
 ): LayerVersionContentOutput => {
   return {
-    CodeSha256: output.CodeSha256 !== undefined && output.CodeSha256 !== null ? output.CodeSha256 : undefined,
-    CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
-    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
-    SigningJobArn:
-      output.SigningJobArn !== undefined && output.SigningJobArn !== null ? output.SigningJobArn : undefined,
-    SigningProfileVersionArn:
-      output.SigningProfileVersionArn !== undefined && output.SigningProfileVersionArn !== null
-        ? output.SigningProfileVersionArn
-        : undefined,
+    CodeSha256: __expectString(output.CodeSha256),
+    CodeSize: __expectNumber(output.CodeSize),
+    Location: __expectString(output.Location),
+    SigningJobArn: __expectString(output.SigningJobArn),
+    SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
   } as any;
 };
 
@@ -10328,24 +10342,23 @@ const deserializeAws_restJson1LayerVersionsListItem = (output: any, context: __S
       output.CompatibleRuntimes !== undefined && output.CompatibleRuntimes !== null
         ? deserializeAws_restJson1CompatibleRuntimes(output.CompatibleRuntimes, context)
         : undefined,
-    CreatedDate: output.CreatedDate !== undefined && output.CreatedDate !== null ? output.CreatedDate : undefined,
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    LayerVersionArn:
-      output.LayerVersionArn !== undefined && output.LayerVersionArn !== null ? output.LayerVersionArn : undefined,
-    LicenseInfo: output.LicenseInfo !== undefined && output.LicenseInfo !== null ? output.LicenseInfo : undefined,
-    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    CreatedDate: __expectString(output.CreatedDate),
+    Description: __expectString(output.Description),
+    LayerVersionArn: __expectString(output.LayerVersionArn),
+    LicenseInfo: __expectString(output.LicenseInfo),
+    Version: __expectNumber(output.Version),
   } as any;
 };
 
 const deserializeAws_restJson1OnFailure = (output: any, context: __SerdeContext): OnFailure => {
   return {
-    Destination: output.Destination !== undefined && output.Destination !== null ? output.Destination : undefined,
+    Destination: __expectString(output.Destination),
   } as any;
 };
 
 const deserializeAws_restJson1OnSuccess = (output: any, context: __SerdeContext): OnSuccess => {
   return {
-    Destination: output.Destination !== undefined && output.Destination !== null ? output.Destination : undefined,
+    Destination: __expectString(output.Destination),
   } as any;
 };
 
@@ -10368,25 +10381,13 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = (
   context: __SerdeContext
 ): ProvisionedConcurrencyConfigListItem => {
   return {
-    AllocatedProvisionedConcurrentExecutions:
-      output.AllocatedProvisionedConcurrentExecutions !== undefined &&
-      output.AllocatedProvisionedConcurrentExecutions !== null
-        ? output.AllocatedProvisionedConcurrentExecutions
-        : undefined,
-    AvailableProvisionedConcurrentExecutions:
-      output.AvailableProvisionedConcurrentExecutions !== undefined &&
-      output.AvailableProvisionedConcurrentExecutions !== null
-        ? output.AvailableProvisionedConcurrentExecutions
-        : undefined,
-    FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
-    LastModified: output.LastModified !== undefined && output.LastModified !== null ? output.LastModified : undefined,
-    RequestedProvisionedConcurrentExecutions:
-      output.RequestedProvisionedConcurrentExecutions !== undefined &&
-      output.RequestedProvisionedConcurrentExecutions !== null
-        ? output.RequestedProvisionedConcurrentExecutions
-        : undefined,
-    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
-    StatusReason: output.StatusReason !== undefined && output.StatusReason !== null ? output.StatusReason : undefined,
+    AllocatedProvisionedConcurrentExecutions: __expectNumber(output.AllocatedProvisionedConcurrentExecutions),
+    AvailableProvisionedConcurrentExecutions: __expectNumber(output.AvailableProvisionedConcurrentExecutions),
+    FunctionArn: __expectString(output.FunctionArn),
+    LastModified: __expectString(output.LastModified),
+    RequestedProvisionedConcurrentExecutions: __expectNumber(output.RequestedProvisionedConcurrentExecutions),
+    Status: __expectString(output.Status),
+    StatusReason: __expectString(output.StatusReason),
   } as any;
 };
 
@@ -10397,7 +10398,7 @@ const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10408,7 +10409,7 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10431,7 +10432,7 @@ const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context:
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10440,8 +10441,8 @@ const deserializeAws_restJson1SourceAccessConfiguration = (
   context: __SerdeContext
 ): SourceAccessConfiguration => {
   return {
-    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
-    URI: output.URI !== undefined && output.URI !== null ? output.URI : undefined,
+    Type: __expectString(output.Type),
+    URI: __expectString(output.URI),
   } as any;
 };
 
@@ -10466,7 +10467,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10477,7 +10478,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -10488,7 +10489,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -10500,13 +10501,13 @@ const deserializeAws_restJson1Topics = (output: any, context: __SerdeContext): s
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1TracingConfigResponse = (output: any, context: __SerdeContext): TracingConfigResponse => {
   return {
-    Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    Mode: __expectString(output.Mode),
   } as any;
 };
 
@@ -10520,7 +10521,7 @@ const deserializeAws_restJson1VpcConfigResponse = (output: any, context: __Serde
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_restJson1SubnetIds(output.SubnetIds, context)
         : undefined,
-    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 

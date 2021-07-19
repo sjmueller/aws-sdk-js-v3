@@ -165,6 +165,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -179,11 +181,14 @@ export const serializeAws_restJson1AcceptEulasCommand = async (
   input: AcceptEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/eula-acceptances";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/eula-acceptances";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -198,7 +203,6 @@ export const serializeAws_restJson1AcceptEulasCommand = async (
     ...(input.eulaIds !== undefined &&
       input.eulaIds !== null && { eulaIds: serializeAws_restJson1EulaIdList(input.eulaIds, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -214,11 +218,14 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
   input: CreateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -253,7 +260,6 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -269,11 +275,14 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
   input: CreateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -290,7 +299,6 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -306,11 +314,14 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
   input: CreateStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -330,7 +341,6 @@ export const serializeAws_restJson1CreateStreamingSessionCommand = async (
       input.streamingImageId !== null && { streamingImageId: input.streamingImageId }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -346,11 +356,14 @@ export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
   input: CreateStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -374,7 +387,6 @@ export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
     ...(input.expirationInSeconds !== undefined &&
       input.expirationInSeconds !== null && { expirationInSeconds: input.expirationInSeconds }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -390,11 +402,12 @@ export const serializeAws_restJson1CreateStudioCommand = async (
   input: CreateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
   let body: any;
   body = JSON.stringify({
     ...(input.adminRoleArn !== undefined && input.adminRoleArn !== null && { adminRoleArn: input.adminRoleArn }),
@@ -410,7 +423,6 @@ export const serializeAws_restJson1CreateStudioCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
     ...(input.userRoleArn !== undefined && input.userRoleArn !== null && { userRoleArn: input.userRoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -426,11 +438,14 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
   input: CreateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -473,7 +488,6 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -489,10 +503,13 @@ export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
   input: DeleteLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -512,7 +529,6 @@ export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -528,10 +544,13 @@ export const serializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
   input: DeleteLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -560,7 +579,6 @@ export const serializeAws_restJson1DeleteLaunchProfileMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -576,10 +594,13 @@ export const serializeAws_restJson1DeleteStreamingImageCommand = async (
   input: DeleteStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
   if (input.streamingImageId !== undefined) {
     const labelValue: string = input.streamingImageId;
     if (labelValue.length <= 0) {
@@ -599,7 +620,6 @@ export const serializeAws_restJson1DeleteStreamingImageCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -615,10 +635,13 @@ export const serializeAws_restJson1DeleteStreamingSessionCommand = async (
   input: DeleteStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -638,7 +661,6 @@ export const serializeAws_restJson1DeleteStreamingSessionCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -654,10 +676,12 @@ export const serializeAws_restJson1DeleteStudioCommand = async (
   input: DeleteStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -668,7 +692,6 @@ export const serializeAws_restJson1DeleteStudioCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -684,10 +707,13 @@ export const serializeAws_restJson1DeleteStudioComponentCommand = async (
   input: DeleteStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
   if (input.studioComponentId !== undefined) {
     const labelValue: string = input.studioComponentId;
     if (labelValue.length <= 0) {
@@ -707,7 +733,6 @@ export const serializeAws_restJson1DeleteStudioComponentCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -723,10 +748,13 @@ export const serializeAws_restJson1DeleteStudioMemberCommand = async (
   input: DeleteStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/membership/{principalId}";
   if (input.principalId !== undefined) {
     const labelValue: string = input.principalId;
     if (labelValue.length <= 0) {
@@ -746,7 +774,6 @@ export const serializeAws_restJson1DeleteStudioMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -762,8 +789,10 @@ export const serializeAws_restJson1GetEulaCommand = async (
   input: GetEulaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/eulas/{eulaId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas/{eulaId}";
   if (input.eulaId !== undefined) {
     const labelValue: string = input.eulaId;
     if (labelValue.length <= 0) {
@@ -774,7 +803,6 @@ export const serializeAws_restJson1GetEulaCommand = async (
     throw new Error("No value provided for input HTTP label: eulaId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -790,8 +818,11 @@ export const serializeAws_restJson1GetLaunchProfileCommand = async (
   input: GetLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -811,7 +842,6 @@ export const serializeAws_restJson1GetLaunchProfileCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -827,8 +857,11 @@ export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
   input: GetLaunchProfileDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -848,7 +881,6 @@ export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -864,8 +896,11 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   input: GetLaunchProfileInitializationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -892,7 +927,6 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
     ...(input.platform !== undefined && { platform: input.platform }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -909,8 +943,11 @@ export const serializeAws_restJson1GetLaunchProfileMemberCommand = async (
   input: GetLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -939,7 +976,6 @@ export const serializeAws_restJson1GetLaunchProfileMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -955,8 +991,11 @@ export const serializeAws_restJson1GetStreamingImageCommand = async (
   input: GetStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
   if (input.streamingImageId !== undefined) {
     const labelValue: string = input.streamingImageId;
     if (labelValue.length <= 0) {
@@ -976,7 +1015,6 @@ export const serializeAws_restJson1GetStreamingImageCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -992,8 +1030,11 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
   input: GetStreamingSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -1013,7 +1054,6 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1029,8 +1069,11 @@ export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
   input: GetStreamingSessionStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}";
   if (input.sessionId !== undefined) {
     const labelValue: string = input.sessionId;
     if (labelValue.length <= 0) {
@@ -1059,7 +1102,6 @@ export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1075,8 +1117,10 @@ export const serializeAws_restJson1GetStudioCommand = async (
   input: GetStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1087,7 +1131,6 @@ export const serializeAws_restJson1GetStudioCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1103,8 +1146,11 @@ export const serializeAws_restJson1GetStudioComponentCommand = async (
   input: GetStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
   if (input.studioComponentId !== undefined) {
     const labelValue: string = input.studioComponentId;
     if (labelValue.length <= 0) {
@@ -1124,7 +1170,6 @@ export const serializeAws_restJson1GetStudioComponentCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1140,8 +1185,11 @@ export const serializeAws_restJson1GetStudioMemberCommand = async (
   input: GetStudioMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/membership/{principalId}";
   if (input.principalId !== undefined) {
     const labelValue: string = input.principalId;
     if (labelValue.length <= 0) {
@@ -1161,7 +1209,6 @@ export const serializeAws_restJson1GetStudioMemberCommand = async (
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1177,8 +1224,11 @@ export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
   input: ListEulaAcceptancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/eula-acceptances";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/eula-acceptances";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1193,7 +1243,6 @@ export const serializeAws_restJson1ListEulaAcceptancesCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1210,14 +1259,14 @@ export const serializeAws_restJson1ListEulasCommand = async (
   input: ListEulasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/eulas";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/eulas";
   const query: any = {
     ...(input.eulaIds !== undefined && { eulaIds: (input.eulaIds || []).map((_entry) => _entry) }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1234,8 +1283,11 @@ export const serializeAws_restJson1ListLaunchProfileMembersCommand = async (
   input: ListLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1259,7 +1311,6 @@ export const serializeAws_restJson1ListLaunchProfileMembersCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1276,8 +1327,11 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
   input: ListLaunchProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1294,7 +1348,6 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
     ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1311,8 +1364,11 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
   input: ListStreamingImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1327,7 +1383,6 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
     ...(input.owner !== undefined && { owner: input.owner }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1344,8 +1399,11 @@ export const serializeAws_restJson1ListStreamingSessionsCommand = async (
   input: ListStreamingSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-sessions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1361,7 +1419,6 @@ export const serializeAws_restJson1ListStreamingSessionsCommand = async (
     ...(input.sessionIds !== undefined && { sessionIds: input.sessionIds }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1378,8 +1435,11 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
   input: ListStudioComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1396,7 +1456,6 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
     ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1413,8 +1472,10 @@ export const serializeAws_restJson1ListStudioMembersCommand = async (
   input: ListStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1429,7 +1490,6 @@ export const serializeAws_restJson1ListStudioMembersCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1446,13 +1506,13 @@ export const serializeAws_restJson1ListStudiosCommand = async (
   input: ListStudiosCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/studios";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1469,8 +1529,10 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/tags/{resourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1481,7 +1543,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1497,11 +1558,14 @@ export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
   input: PutLaunchProfileMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1527,7 +1591,6 @@ export const serializeAws_restJson1PutLaunchProfileMembersCommand = async (
     ...(input.members !== undefined &&
       input.members !== null && { members: serializeAws_restJson1NewLaunchProfileMemberList(input.members, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1543,11 +1606,13 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
   input: PutStudioMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/membership";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}/membership";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1564,7 +1629,6 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
     ...(input.members !== undefined &&
       input.members !== null && { members: serializeAws_restJson1NewStudioMemberList(input.members, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1580,10 +1644,13 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
   input: StartStudioSSOConfigurationRepairCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/sso-configuration";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/sso-configuration";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1594,7 +1661,6 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
     throw new Error("No value provided for input HTTP label: studioId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1610,10 +1676,12 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/2020-08-01/tags/{resourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1627,7 +1695,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1643,8 +1710,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/2020-08-01/tags/{resourceArn}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1658,7 +1727,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1675,11 +1743,14 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
   input: UpdateLaunchProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1718,7 +1789,6 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
         studioComponentIds: serializeAws_restJson1LaunchProfileStudioComponentIdList(input.studioComponentIds, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1734,11 +1804,14 @@ export const serializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
   input: UpdateLaunchProfileMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/membership/{principalId}";
   if (input.launchProfileId !== undefined) {
     const labelValue: string = input.launchProfileId;
     if (labelValue.length <= 0) {
@@ -1770,7 +1843,6 @@ export const serializeAws_restJson1UpdateLaunchProfileMemberCommand = async (
   body = JSON.stringify({
     ...(input.persona !== undefined && input.persona !== null && { persona: input.persona }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1786,11 +1858,14 @@ export const serializeAws_restJson1UpdateStreamingImageCommand = async (
   input: UpdateStreamingImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
   if (input.streamingImageId !== undefined) {
     const labelValue: string = input.streamingImageId;
     if (labelValue.length <= 0) {
@@ -1814,7 +1889,6 @@ export const serializeAws_restJson1UpdateStreamingImageCommand = async (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1830,11 +1904,13 @@ export const serializeAws_restJson1UpdateStudioCommand = async (
   input: UpdateStudioCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   if (input.studioId !== undefined) {
     const labelValue: string = input.studioId;
     if (labelValue.length <= 0) {
@@ -1850,7 +1926,6 @@ export const serializeAws_restJson1UpdateStudioCommand = async (
     ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
     ...(input.userRoleArn !== undefined && input.userRoleArn !== null && { userRoleArn: input.userRoleArn }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1866,11 +1941,14 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
   input: UpdateStudioComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
   };
-  let resolvedPath = "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
   if (input.studioComponentId !== undefined) {
     const labelValue: string = input.studioComponentId;
     if (labelValue.length <= 0) {
@@ -1921,7 +1999,6 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
     ...(input.subtype !== undefined && input.subtype !== null && { subtype: input.subtype }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -4531,7 +4608,7 @@ export const deserializeAws_restJson1ListEulaAcceptancesCommand = async (
     contents.eulaAcceptances = deserializeAws_restJson1EulaAcceptanceList(data.eulaAcceptances, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4638,7 +4715,7 @@ export const deserializeAws_restJson1ListEulasCommand = async (
     contents.eulas = deserializeAws_restJson1EulaList(data.eulas, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4745,7 +4822,7 @@ export const deserializeAws_restJson1ListLaunchProfileMembersCommand = async (
     contents.members = deserializeAws_restJson1LaunchProfileMembershipList(data.members, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4852,7 +4929,7 @@ export const deserializeAws_restJson1ListLaunchProfilesCommand = async (
     contents.launchProfiles = deserializeAws_restJson1LaunchProfileList(data.launchProfiles, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4956,7 +5033,7 @@ export const deserializeAws_restJson1ListStreamingImagesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.streamingImages !== undefined && data.streamingImages !== null) {
     contents.streamingImages = deserializeAws_restJson1StreamingImageList(data.streamingImages, context);
@@ -5063,7 +5140,7 @@ export const deserializeAws_restJson1ListStreamingSessionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.sessions !== undefined && data.sessions !== null) {
     contents.sessions = deserializeAws_restJson1StreamingSessionList(data.sessions, context);
@@ -5170,7 +5247,7 @@ export const deserializeAws_restJson1ListStudioComponentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.studioComponents !== undefined && data.studioComponents !== null) {
     contents.studioComponents = deserializeAws_restJson1StudioComponentList(data.studioComponents, context);
@@ -5280,7 +5357,7 @@ export const deserializeAws_restJson1ListStudioMembersCommand = async (
     contents.members = deserializeAws_restJson1StudioMembershipList(data.members, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5384,7 +5461,7 @@ export const deserializeAws_restJson1ListStudiosCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.studios !== undefined && data.studios !== null) {
     contents.studios = deserializeAws_restJson1StudioList(data.studios, context);
@@ -6608,13 +6685,13 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -6633,13 +6710,13 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -6658,13 +6735,13 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -6683,13 +6760,13 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -6708,13 +6785,13 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -6733,13 +6810,13 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -6758,13 +6835,13 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.context !== undefined && data.context !== null) {
     contents.context = deserializeAws_restJson1ExceptionContext(data.context, context);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7086,7 +7163,7 @@ const serializeAws_restJson1StudioEncryptionConfiguration = (
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -7102,8 +7179,8 @@ const deserializeAws_restJson1ActiveDirectoryComputerAttribute = (
   context: __SerdeContext
 ): ActiveDirectoryComputerAttribute => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    name: __expectString(output.name),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -7130,11 +7207,8 @@ const deserializeAws_restJson1ActiveDirectoryConfiguration = (
       output.computerAttributes !== undefined && output.computerAttributes !== null
         ? deserializeAws_restJson1ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
         : undefined,
-    directoryId: output.directoryId !== undefined && output.directoryId !== null ? output.directoryId : undefined,
-    organizationalUnitDistinguishedName:
-      output.organizationalUnitDistinguishedName !== undefined && output.organizationalUnitDistinguishedName !== null
-        ? output.organizationalUnitDistinguishedName
-        : undefined,
+    directoryId: __expectString(output.directoryId),
+    organizationalUnitDistinguishedName: __expectString(output.organizationalUnitDistinguishedName),
   } as any;
 };
 
@@ -7145,7 +7219,7 @@ const deserializeAws_restJson1ActiveDirectoryDnsIpAddressList = (output: any, co
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7154,11 +7228,8 @@ const deserializeAws_restJson1ComputeFarmConfiguration = (
   context: __SerdeContext
 ): ComputeFarmConfiguration => {
   return {
-    activeDirectoryUser:
-      output.activeDirectoryUser !== undefined && output.activeDirectoryUser !== null
-        ? output.activeDirectoryUser
-        : undefined,
-    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
+    activeDirectoryUser: __expectString(output.activeDirectoryUser),
+    endpoint: __expectString(output.endpoint),
   } as any;
 };
 
@@ -7169,16 +7240,16 @@ const deserializeAws_restJson1EC2SubnetIdList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eula => {
   return {
-    content: output.content !== undefined && output.content !== null ? output.content : undefined,
+    content: __expectString(output.content),
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    eulaId: output.eulaId !== undefined && output.eulaId !== null ? output.eulaId : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    eulaId: __expectString(output.eulaId),
+    name: __expectString(output.name),
     updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
   } as any;
 };
@@ -7186,11 +7257,10 @@ const deserializeAws_restJson1Eula = (output: any, context: __SerdeContext): Eul
 const deserializeAws_restJson1EulaAcceptance = (output: any, context: __SerdeContext): EulaAcceptance => {
   return {
     acceptedAt: output.acceptedAt !== undefined && output.acceptedAt !== null ? new Date(output.acceptedAt) : undefined,
-    acceptedBy: output.acceptedBy !== undefined && output.acceptedBy !== null ? output.acceptedBy : undefined,
-    accepteeId: output.accepteeId !== undefined && output.accepteeId !== null ? output.accepteeId : undefined,
-    eulaAcceptanceId:
-      output.eulaAcceptanceId !== undefined && output.eulaAcceptanceId !== null ? output.eulaAcceptanceId : undefined,
-    eulaId: output.eulaId !== undefined && output.eulaId !== null ? output.eulaId : undefined,
+    acceptedBy: __expectString(output.acceptedBy),
+    accepteeId: __expectString(output.accepteeId),
+    eulaAcceptanceId: __expectString(output.eulaAcceptanceId),
+    eulaId: __expectString(output.eulaId),
   } as any;
 };
 
@@ -7212,7 +7282,7 @@ const deserializeAws_restJson1EulaIdList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7234,32 +7304,30 @@ const deserializeAws_restJson1ExceptionContext = (output: any, context: __SerdeC
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeContext): LaunchProfile => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    createdBy: __expectString(output.createdBy),
+    description: __expectString(output.description),
     ec2SubnetIds:
       output.ec2SubnetIds !== undefined && output.ec2SubnetIds !== null
         ? deserializeAws_restJson1EC2SubnetIdList(output.ec2SubnetIds, context)
         : undefined,
-    launchProfileId:
-      output.launchProfileId !== undefined && output.launchProfileId !== null ? output.launchProfileId : undefined,
+    launchProfileId: __expectString(output.launchProfileId),
     launchProfileProtocolVersions:
       output.launchProfileProtocolVersions !== undefined && output.launchProfileProtocolVersions !== null
         ? deserializeAws_restJson1LaunchProfileProtocolVersionList(output.launchProfileProtocolVersions, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    name: __expectString(output.name),
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
     streamConfiguration:
       output.streamConfiguration !== undefined && output.streamConfiguration !== null
         ? deserializeAws_restJson1StreamConfiguration(output.streamConfiguration, context)
@@ -7273,7 +7341,7 @@ const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
     updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
-    updatedBy: output.updatedBy !== undefined && output.updatedBy !== null ? output.updatedBy : undefined,
+    updatedBy: __expectString(output.updatedBy),
   } as any;
 };
 
@@ -7290,16 +7358,11 @@ const deserializeAws_restJson1LaunchProfileInitialization = (
       output.ec2SecurityGroupIds !== undefined && output.ec2SecurityGroupIds !== null
         ? deserializeAws_restJson1LaunchProfileSecurityGroupIdList(output.ec2SecurityGroupIds, context)
         : undefined,
-    launchProfileId:
-      output.launchProfileId !== undefined && output.launchProfileId !== null ? output.launchProfileId : undefined,
-    launchProfileProtocolVersion:
-      output.launchProfileProtocolVersion !== undefined && output.launchProfileProtocolVersion !== null
-        ? output.launchProfileProtocolVersion
-        : undefined,
-    launchPurpose:
-      output.launchPurpose !== undefined && output.launchPurpose !== null ? output.launchPurpose : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    launchProfileId: __expectString(output.launchProfileId),
+    launchProfileProtocolVersion: __expectString(output.launchProfileProtocolVersion),
+    launchPurpose: __expectString(output.launchPurpose),
+    name: __expectString(output.name),
+    platform: __expectString(output.platform),
     systemInitializationScripts:
       output.systemInitializationScripts !== undefined && output.systemInitializationScripts !== null
         ? deserializeAws_restJson1LaunchProfileInitializationScriptList(output.systemInitializationScripts, context)
@@ -7320,25 +7383,15 @@ const deserializeAws_restJson1LaunchProfileInitializationActiveDirectory = (
       output.computerAttributes !== undefined && output.computerAttributes !== null
         ? deserializeAws_restJson1ActiveDirectoryComputerAttributeList(output.computerAttributes, context)
         : undefined,
-    directoryId: output.directoryId !== undefined && output.directoryId !== null ? output.directoryId : undefined,
-    directoryName:
-      output.directoryName !== undefined && output.directoryName !== null ? output.directoryName : undefined,
+    directoryId: __expectString(output.directoryId),
+    directoryName: __expectString(output.directoryName),
     dnsIpAddresses:
       output.dnsIpAddresses !== undefined && output.dnsIpAddresses !== null
         ? deserializeAws_restJson1ActiveDirectoryDnsIpAddressList(output.dnsIpAddresses, context)
         : undefined,
-    organizationalUnitDistinguishedName:
-      output.organizationalUnitDistinguishedName !== undefined && output.organizationalUnitDistinguishedName !== null
-        ? output.organizationalUnitDistinguishedName
-        : undefined,
-    studioComponentId:
-      output.studioComponentId !== undefined && output.studioComponentId !== null
-        ? output.studioComponentId
-        : undefined,
-    studioComponentName:
-      output.studioComponentName !== undefined && output.studioComponentName !== null
-        ? output.studioComponentName
-        : undefined,
+    organizationalUnitDistinguishedName: __expectString(output.organizationalUnitDistinguishedName),
+    studioComponentId: __expectString(output.studioComponentId),
+    studioComponentName: __expectString(output.studioComponentName),
   } as any;
 };
 
@@ -7347,15 +7400,9 @@ const deserializeAws_restJson1LaunchProfileInitializationScript = (
   context: __SerdeContext
 ): LaunchProfileInitializationScript => {
   return {
-    script: output.script !== undefined && output.script !== null ? output.script : undefined,
-    studioComponentId:
-      output.studioComponentId !== undefined && output.studioComponentId !== null
-        ? output.studioComponentId
-        : undefined,
-    studioComponentName:
-      output.studioComponentName !== undefined && output.studioComponentName !== null
-        ? output.studioComponentName
-        : undefined,
+    script: __expectString(output.script),
+    studioComponentId: __expectString(output.studioComponentId),
+    studioComponentName: __expectString(output.studioComponentName),
   } as any;
 };
 
@@ -7389,10 +7436,9 @@ const deserializeAws_restJson1LaunchProfileMembership = (
   context: __SerdeContext
 ): LaunchProfileMembership => {
   return {
-    identityStoreId:
-      output.identityStoreId !== undefined && output.identityStoreId !== null ? output.identityStoreId : undefined,
-    persona: output.persona !== undefined && output.persona !== null ? output.persona : undefined,
-    principalId: output.principalId !== undefined && output.principalId !== null ? output.principalId : undefined,
+    identityStoreId: __expectString(output.identityStoreId),
+    persona: __expectString(output.persona),
+    principalId: __expectString(output.principalId),
   } as any;
 };
 
@@ -7417,7 +7463,7 @@ const deserializeAws_restJson1LaunchProfileProtocolVersionList = (output: any, c
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7428,7 +7474,7 @@ const deserializeAws_restJson1LaunchProfileSecurityGroupIdList = (output: any, c
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7439,7 +7485,7 @@ const deserializeAws_restJson1LaunchProfileStudioComponentIdList = (output: any,
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7448,7 +7494,7 @@ const deserializeAws_restJson1LicenseServiceConfiguration = (
   context: __SerdeContext
 ): LicenseServiceConfiguration => {
   return {
-    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
+    endpoint: __expectString(output.endpoint),
   } as any;
 };
 
@@ -7457,8 +7503,8 @@ const deserializeAws_restJson1ScriptParameterKeyValue = (
   context: __SerdeContext
 ): ScriptParameterKeyValue => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -7467,30 +7513,22 @@ const deserializeAws_restJson1SharedFileSystemConfiguration = (
   context: __SerdeContext
 ): SharedFileSystemConfiguration => {
   return {
-    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
-    fileSystemId: output.fileSystemId !== undefined && output.fileSystemId !== null ? output.fileSystemId : undefined,
-    linuxMountPoint:
-      output.linuxMountPoint !== undefined && output.linuxMountPoint !== null ? output.linuxMountPoint : undefined,
-    shareName: output.shareName !== undefined && output.shareName !== null ? output.shareName : undefined,
-    windowsMountDrive:
-      output.windowsMountDrive !== undefined && output.windowsMountDrive !== null
-        ? output.windowsMountDrive
-        : undefined,
+    endpoint: __expectString(output.endpoint),
+    fileSystemId: __expectString(output.fileSystemId),
+    linuxMountPoint: __expectString(output.linuxMountPoint),
+    shareName: __expectString(output.shareName),
+    windowsMountDrive: __expectString(output.windowsMountDrive),
   } as any;
 };
 
 const deserializeAws_restJson1StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
   return {
-    clipboardMode:
-      output.clipboardMode !== undefined && output.clipboardMode !== null ? output.clipboardMode : undefined,
+    clipboardMode: __expectString(output.clipboardMode),
     ec2InstanceTypes:
       output.ec2InstanceTypes !== undefined && output.ec2InstanceTypes !== null
         ? deserializeAws_restJson1StreamingInstanceTypeList(output.ec2InstanceTypes, context)
         : undefined,
-    maxSessionLengthInMinutes:
-      output.maxSessionLengthInMinutes !== undefined && output.maxSessionLengthInMinutes !== null
-        ? output.maxSessionLengthInMinutes
-        : undefined,
+    maxSessionLengthInMinutes: __expectNumber(output.maxSessionLengthInMinutes),
     streamingImageIds:
       output.streamingImageIds !== undefined && output.streamingImageIds !== null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)
@@ -7500,9 +7538,9 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
 
 const deserializeAws_restJson1StreamingImage = (output: any, context: __SerdeContext): StreamingImage => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    ec2ImageId: output.ec2ImageId !== undefined && output.ec2ImageId !== null ? output.ec2ImageId : undefined,
+    arn: __expectString(output.arn),
+    description: __expectString(output.description),
+    ec2ImageId: __expectString(output.ec2ImageId),
     encryptionConfiguration:
       output.encryptionConfiguration !== undefined && output.encryptionConfiguration !== null
         ? deserializeAws_restJson1StreamingImageEncryptionConfiguration(output.encryptionConfiguration, context)
@@ -7511,15 +7549,13 @@ const deserializeAws_restJson1StreamingImage = (output: any, context: __SerdeCon
       output.eulaIds !== undefined && output.eulaIds !== null
         ? deserializeAws_restJson1EulaIdList(output.eulaIds, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
-    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    streamingImageId:
-      output.streamingImageId !== undefined && output.streamingImageId !== null ? output.streamingImageId : undefined,
+    name: __expectString(output.name),
+    owner: __expectString(output.owner),
+    platform: __expectString(output.platform),
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
+    streamingImageId: __expectString(output.streamingImageId),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
@@ -7532,8 +7568,8 @@ const deserializeAws_restJson1StreamingImageEncryptionConfiguration = (
   context: __SerdeContext
 ): StreamingImageEncryptionConfiguration => {
   return {
-    keyArn: output.keyArn !== undefined && output.keyArn !== null ? output.keyArn : undefined,
-    keyType: output.keyType !== undefined && output.keyType !== null ? output.keyType : undefined,
+    keyArn: __expectString(output.keyArn),
+    keyType: __expectString(output.keyType),
   } as any;
 };
 
@@ -7544,7 +7580,7 @@ const deserializeAws_restJson1StreamingImageIdList = (output: any, context: __Se
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7569,26 +7605,22 @@ const deserializeAws_restJson1StreamingInstanceTypeList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    ec2InstanceType:
-      output.ec2InstanceType !== undefined && output.ec2InstanceType !== null ? output.ec2InstanceType : undefined,
-    launchProfileId:
-      output.launchProfileId !== undefined && output.launchProfileId !== null ? output.launchProfileId : undefined,
-    sessionId: output.sessionId !== undefined && output.sessionId !== null ? output.sessionId : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    streamingImageId:
-      output.streamingImageId !== undefined && output.streamingImageId !== null ? output.streamingImageId : undefined,
+    createdBy: __expectString(output.createdBy),
+    ec2InstanceType: __expectString(output.ec2InstanceType),
+    launchProfileId: __expectString(output.launchProfileId),
+    sessionId: __expectString(output.sessionId),
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
+    streamingImageId: __expectString(output.streamingImageId),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
@@ -7596,7 +7628,7 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
     terminateAt:
       output.terminateAt !== undefined && output.terminateAt !== null ? new Date(output.terminateAt) : undefined,
     updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
-    updatedBy: output.updatedBy !== undefined && output.updatedBy !== null ? output.updatedBy : undefined,
+    updatedBy: __expectString(output.updatedBy),
   } as any;
 };
 
@@ -7617,53 +7649,52 @@ const deserializeAws_restJson1StreamingSessionStream = (
 ): StreamingSessionStream => {
   return {
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
+    createdBy: __expectString(output.createdBy),
     expiresAt: output.expiresAt !== undefined && output.expiresAt !== null ? new Date(output.expiresAt) : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
-    streamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    streamId: __expectString(output.streamId),
+    url: __expectString(output.url),
   } as any;
 };
 
 const deserializeAws_restJson1Studio = (output: any, context: __SerdeContext): Studio => {
   return {
-    adminRoleArn: output.adminRoleArn !== undefined && output.adminRoleArn !== null ? output.adminRoleArn : undefined,
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    adminRoleArn: __expectString(output.adminRoleArn),
+    arn: __expectString(output.arn),
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
-    homeRegion: output.homeRegion !== undefined && output.homeRegion !== null ? output.homeRegion : undefined,
-    ssoClientId: output.ssoClientId !== undefined && output.ssoClientId !== null ? output.ssoClientId : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    displayName: __expectString(output.displayName),
+    homeRegion: __expectString(output.homeRegion),
+    ssoClientId: __expectString(output.ssoClientId),
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
     studioEncryptionConfiguration:
       output.studioEncryptionConfiguration !== undefined && output.studioEncryptionConfiguration !== null
         ? deserializeAws_restJson1StudioEncryptionConfiguration(output.studioEncryptionConfiguration, context)
         : undefined,
-    studioId: output.studioId !== undefined && output.studioId !== null ? output.studioId : undefined,
-    studioName: output.studioName !== undefined && output.studioName !== null ? output.studioName : undefined,
-    studioUrl: output.studioUrl !== undefined && output.studioUrl !== null ? output.studioUrl : undefined,
+    studioId: __expectString(output.studioId),
+    studioName: __expectString(output.studioName),
+    studioUrl: __expectString(output.studioUrl),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
     updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
-    userRoleArn: output.userRoleArn !== undefined && output.userRoleArn !== null ? output.userRoleArn : undefined,
+    userRoleArn: __expectString(output.userRoleArn),
   } as any;
 };
 
 const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeContext): StudioComponent => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     configuration:
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_restJson1StudioComponentConfiguration(output.configuration, context)
         : undefined,
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    createdBy: __expectString(output.createdBy),
+    description: __expectString(output.description),
     ec2SecurityGroupIds:
       output.ec2SecurityGroupIds !== undefined && output.ec2SecurityGroupIds !== null
         ? deserializeAws_restJson1StudioComponentSecurityGroupIdList(output.ec2SecurityGroupIds, context)
@@ -7672,27 +7703,23 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
       output.initializationScripts !== undefined && output.initializationScripts !== null
         ? deserializeAws_restJson1StudioComponentInitializationScriptList(output.initializationScripts, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     scriptParameters:
       output.scriptParameters !== undefined && output.scriptParameters !== null
         ? deserializeAws_restJson1StudioComponentScriptParameterKeyValueList(output.scriptParameters, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
-    statusMessage:
-      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
-    studioComponentId:
-      output.studioComponentId !== undefined && output.studioComponentId !== null
-        ? output.studioComponentId
-        : undefined,
-    subtype: output.subtype !== undefined && output.subtype !== null ? output.subtype : undefined,
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
+    studioComponentId: __expectString(output.studioComponentId),
+    subtype: __expectString(output.subtype),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
     updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
-    updatedBy: output.updatedBy !== undefined && output.updatedBy !== null ? output.updatedBy : undefined,
+    updatedBy: __expectString(output.updatedBy),
   } as any;
 };
 
@@ -7725,13 +7752,10 @@ const deserializeAws_restJson1StudioComponentInitializationScript = (
   context: __SerdeContext
 ): StudioComponentInitializationScript => {
   return {
-    launchProfileProtocolVersion:
-      output.launchProfileProtocolVersion !== undefined && output.launchProfileProtocolVersion !== null
-        ? output.launchProfileProtocolVersion
-        : undefined,
-    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
-    runContext: output.runContext !== undefined && output.runContext !== null ? output.runContext : undefined,
-    script: output.script !== undefined && output.script !== null ? output.script : undefined,
+    launchProfileProtocolVersion: __expectString(output.launchProfileProtocolVersion),
+    platform: __expectString(output.platform),
+    runContext: __expectString(output.runContext),
+    script: __expectString(output.script),
   } as any;
 };
 
@@ -7781,7 +7805,7 @@ const deserializeAws_restJson1StudioComponentSecurityGroupIdList = (output: any,
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -7791,17 +7815,14 @@ const deserializeAws_restJson1StudioComponentSummary = (
 ): StudioComponentSummary => {
   return {
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
-    createdBy: output.createdBy !== undefined && output.createdBy !== null ? output.createdBy : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    studioComponentId:
-      output.studioComponentId !== undefined && output.studioComponentId !== null
-        ? output.studioComponentId
-        : undefined,
-    subtype: output.subtype !== undefined && output.subtype !== null ? output.subtype : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    createdBy: __expectString(output.createdBy),
+    description: __expectString(output.description),
+    name: __expectString(output.name),
+    studioComponentId: __expectString(output.studioComponentId),
+    subtype: __expectString(output.subtype),
+    type: __expectString(output.type),
     updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined,
-    updatedBy: output.updatedBy !== undefined && output.updatedBy !== null ? output.updatedBy : undefined,
+    updatedBy: __expectString(output.updatedBy),
   } as any;
 };
 
@@ -7824,8 +7845,8 @@ const deserializeAws_restJson1StudioEncryptionConfiguration = (
   context: __SerdeContext
 ): StudioEncryptionConfiguration => {
   return {
-    keyArn: output.keyArn !== undefined && output.keyArn !== null ? output.keyArn : undefined,
-    keyType: output.keyType !== undefined && output.keyType !== null ? output.keyType : undefined,
+    keyArn: __expectString(output.keyArn),
+    keyType: __expectString(output.keyType),
   } as any;
 };
 
@@ -7842,10 +7863,9 @@ const deserializeAws_restJson1StudioList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1StudioMembership = (output: any, context: __SerdeContext): StudioMembership => {
   return {
-    identityStoreId:
-      output.identityStoreId !== undefined && output.identityStoreId !== null ? output.identityStoreId : undefined,
-    persona: output.persona !== undefined && output.persona !== null ? output.persona : undefined,
-    principalId: output.principalId !== undefined && output.principalId !== null ? output.principalId : undefined,
+    identityStoreId: __expectString(output.identityStoreId),
+    persona: __expectString(output.persona),
+    principalId: __expectString(output.principalId),
   } as any;
 };
 
@@ -7867,7 +7887,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

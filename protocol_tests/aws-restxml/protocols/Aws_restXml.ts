@@ -61,6 +61,10 @@ import {
 } from "../commands/HttpPayloadWithXmlNamespaceCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "../commands/HttpPrefixHeadersCommand";
 import {
+  HttpRequestWithFloatLabelsCommandInput,
+  HttpRequestWithFloatLabelsCommandOutput,
+} from "../commands/HttpRequestWithFloatLabelsCommand";
+import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput,
 } from "../commands/HttpRequestWithGreedyLabelInPathCommand";
@@ -157,9 +161,11 @@ import {
 import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
   splitEvery as __splitEvery,
 } from "@aws-sdk/smithy-client";
 import {
@@ -177,8 +183,10 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/AllQueryStringTypesInput";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AllQueryStringTypesInput";
   const query: any = {
     ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
@@ -221,7 +229,6 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
     ...(input.queryEnumList !== undefined && { EnumList: (input.queryEnumList || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -238,10 +245,11 @@ export const serializeAws_restXmlBodyWithXmlNameCommand = async (
   input: BodyWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/BodyWithXmlName";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BodyWithXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("Ahoy");
@@ -250,7 +258,6 @@ export const serializeAws_restXmlBodyWithXmlNameCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -266,15 +273,16 @@ export const serializeAws_restXmlConstantAndVariableQueryStringCommand = async (
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/ConstantAndVariableQueryString";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantAndVariableQueryString";
   const query: any = {
     foo: "bar",
     ...(input.baz !== undefined && { baz: input.baz }),
     ...(input.maybeSet !== undefined && { maybeSet: input.maybeSet }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -291,8 +299,10 @@ export const serializeAws_restXmlConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/ConstantQueryString/{hello}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantQueryString/{hello}";
   if (input.hello !== undefined) {
     const labelValue: string = input.hello;
     if (labelValue.length <= 0) {
@@ -307,7 +317,6 @@ export const serializeAws_restXmlConstantQueryStringCommand = async (
     hello: "",
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -324,13 +333,14 @@ export const serializeAws_restXmlEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/EmptyInputAndEmptyOutput";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -346,10 +356,11 @@ export const serializeAws_restXmlEndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/EndpointOperation";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointOperation";
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -359,7 +370,6 @@ export const serializeAws_restXmlEndpointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -375,10 +385,12 @@ export const serializeAws_restXmlEndpointWithHostLabelHeaderOperationCommand = a
   input: EndpointWithHostLabelHeaderOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.accountId) && { "x-amz-account-id": input.accountId! }),
   };
-  let resolvedPath = "/EndpointWithHostLabelHeaderOperation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelHeaderOperation";
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -391,7 +403,6 @@ export const serializeAws_restXmlEndpointWithHostLabelHeaderOperationCommand = a
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -407,10 +418,12 @@ export const serializeAws_restXmlEndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/EndpointWithHostLabelOperation";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelOperation";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("HostLabelInput");
@@ -430,7 +443,6 @@ export const serializeAws_restXmlEndpointWithHostLabelOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -446,10 +458,11 @@ export const serializeAws_restXmlFlattenedXmlMapCommand = async (
   input: FlattenedXmlMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/FlattenedXmlMap";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMap";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("FlattenedXmlMapInputOutput");
@@ -461,7 +474,6 @@ export const serializeAws_restXmlFlattenedXmlMapCommand = async (
     });
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -477,10 +489,12 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
   input: FlattenedXmlMapWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/FlattenedXmlMapWithXmlName";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMapWithXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("FlattenedXmlMapWithXmlNameInputOutput");
@@ -492,7 +506,6 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
     });
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -508,13 +521,14 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommand = async 
   input: FlattenedXmlMapWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/FlattenedXmlMapWithXmlNamespace";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMapWithXmlNamespace";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -530,13 +544,13 @@ export const serializeAws_restXmlGreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/GreetingWithErrors";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GreetingWithErrors";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -552,11 +566,12 @@ export const serializeAws_restXmlHttpPayloadTraitsCommand = async (
   input: HttpPayloadTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/HttpPayloadTraits";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraits";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
@@ -566,7 +581,6 @@ export const serializeAws_restXmlHttpPayloadTraitsCommand = async (
     contents = input.blob;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -582,11 +596,13 @@ export const serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async (
   input: HttpPayloadTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/HttpPayloadTraitsWithMediaType";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraitsWithMediaType";
   let body: any;
   if (input.blob !== undefined) {
     body = input.blob;
@@ -596,7 +612,6 @@ export const serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async (
     contents = input.blob;
     body = contents;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -612,10 +627,12 @@ export const serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
   input: HttpPayloadWithMemberXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/HttpPayloadWithMemberXmlName";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithMemberXmlName";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
@@ -626,7 +643,6 @@ export const serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -642,10 +658,12 @@ export const serializeAws_restXmlHttpPayloadWithStructureCommand = async (
   input: HttpPayloadWithStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/HttpPayloadWithStructure";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restXmlNestedPayload(input.nested, context);
@@ -656,7 +674,6 @@ export const serializeAws_restXmlHttpPayloadWithStructureCommand = async (
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -672,10 +689,11 @@ export const serializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
   input: HttpPayloadWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/HttpPayloadWithXmlName";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlName";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
@@ -686,7 +704,6 @@ export const serializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -702,10 +719,12 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
   input: HttpPayloadWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/HttpPayloadWithXmlNamespace";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlNamespace";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restXmlPayloadWithXmlNamespace(input.nested, context);
@@ -717,7 +736,6 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
     contents.addAttribute("xmlns", "http://foo.com");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -733,10 +751,12 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand = a
   input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/HttpPayloadWithXmlNamespaceAndPrefix";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlNamespaceAndPrefix";
   let body: any;
   if (input.nested !== undefined) {
     body = serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix(input.nested, context);
@@ -748,7 +768,6 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand = a
     contents.addAttribute("xmlns:baz", "http://foo.com");
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -764,6 +783,7 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
   input: HttpPrefixHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
     ...(input.fooMap !== undefined &&
@@ -775,9 +795,46 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
         {}
       )),
   };
-  let resolvedPath = "/HttpPrefixHeaders";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlHttpRequestWithFloatLabelsCommand = async (
+  input: HttpRequestWithFloatLabelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FloatHttpLabels/{float}/{double}";
+  if (input.float !== undefined) {
+    const labelValue: string = input.float % 1 == 0 ? input.float + ".0" : input.float.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: float.");
+    }
+    resolvedPath = resolvedPath.replace("{float}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: float.");
+  }
+  if (input.double !== undefined) {
+    const labelValue: string = input.double % 1 == 0 ? input.double + ".0" : input.double.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: double.");
+    }
+    resolvedPath = resolvedPath.replace("{double}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: double.");
+  }
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -793,8 +850,11 @@ export const serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand = async
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
   if (input.foo !== undefined) {
     const labelValue: string = input.foo;
     if (labelValue.length <= 0) {
@@ -820,7 +880,6 @@ export const serializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand = async
     throw new Error("No value provided for input HTTP label: baz.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -836,8 +895,11 @@ export const serializeAws_restXmlHttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
   if (input.string !== undefined) {
     const labelValue: string = input.string;
     if (labelValue.length <= 0) {
@@ -911,7 +973,6 @@ export const serializeAws_restXmlHttpRequestWithLabelsCommand = async (
     throw new Error("No value provided for input HTTP label: timestamp.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -927,8 +988,10 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
   if (input.memberEpochSeconds !== undefined) {
     const labelValue: string = Math.round(input.memberEpochSeconds.getTime() / 1000).toString();
@@ -994,7 +1057,6 @@ export const serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand 
     throw new Error("No value provided for input HTTP label: targetDateTime.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1010,13 +1072,13 @@ export const serializeAws_restXmlHttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/HttpResponseCode";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpResponseCode";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1032,13 +1094,14 @@ export const serializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/IgnoreQueryParamsInResponse";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1054,6 +1117,7 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.headerString) && { "x-string": input.headerString! }),
     ...(isSerializableHeaderValue(input.headerByte) && { "x-byte": input.headerByte!.toString() }),
@@ -1090,9 +1154,9 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
       "x-enumlist": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
     }),
   };
-  let resolvedPath = "/InputAndOutputWithHeaders";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InputAndOutputWithHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1108,10 +1172,11 @@ export const serializeAws_restXmlNestedXmlMapsCommand = async (
   input: NestedXmlMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/NestedXmlMaps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NestedXmlMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("NestedXmlMapsInputOutput");
@@ -1131,7 +1196,6 @@ export const serializeAws_restXmlNestedXmlMapsCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1147,13 +1211,13 @@ export const serializeAws_restXmlNoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/NoInputAndNoOutput";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndNoOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1169,13 +1233,13 @@ export const serializeAws_restXmlNoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/NoInputAndOutputOutput";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndOutputOutput";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1191,14 +1255,15 @@ export const serializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   input: NullAndEmptyHeadersClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
-  let resolvedPath = "/NullAndEmptyHeadersClient";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersClient";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1214,14 +1279,15 @@ export const serializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   input: NullAndEmptyHeadersServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
     ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
     ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
-  let resolvedPath = "/NullAndEmptyHeadersServer";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersServer";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1237,14 +1303,15 @@ export const serializeAws_restXmlOmitsNullSerializesEmptyStringCommand = async (
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/OmitsNullSerializesEmptyString";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsNullSerializesEmptyString";
   const query: any = {
     ...(input.nullValue !== undefined && { Null: input.nullValue }),
     ...(input.emptyString !== undefined && { Empty: input.emptyString }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1261,13 +1328,14 @@ export const serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/QueryIdempotencyTokenAutoFill";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1284,14 +1352,14 @@ export const serializeAws_restXmlQueryParamsAsStringListMapCommand = async (
   input: QueryParamsAsStringListMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/StringListMap";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringListMap";
   const query: any = {
     ...(input.foo !== undefined && input.foo),
     ...(input.qux !== undefined && { corge: input.qux }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1308,14 +1376,14 @@ export const serializeAws_restXmlQueryPrecedenceCommand = async (
   input: QueryPrecedenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/Precedence";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Precedence";
   const query: any = {
     ...(input.baz !== undefined && input.baz),
     ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1332,10 +1400,11 @@ export const serializeAws_restXmlRecursiveShapesCommand = async (
   input: RecursiveShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/RecursiveShapes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RecursiveShapes";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("RecursiveShapesInputOutput");
@@ -1344,7 +1413,6 @@ export const serializeAws_restXmlRecursiveShapesCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1360,11 +1428,12 @@ export const serializeAws_restXmlSimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
-  let resolvedPath = "/SimpleScalarProperties";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SimpleScalarProperties";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("SimpleScalarPropertiesInputOutput");
@@ -1413,7 +1482,6 @@ export const serializeAws_restXmlSimpleScalarPropertiesCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1429,6 +1497,7 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
   input: TimestampFormatHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
       "x-memberepochseconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
@@ -1452,9 +1521,8 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
       "x-targetdatetime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     }),
   };
-  let resolvedPath = "/TimestampFormatHeaders";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimestampFormatHeaders";
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1470,10 +1538,11 @@ export const serializeAws_restXmlXmlAttributesCommand = async (
   input: XmlAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlAttributes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlAttributes";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlAttributesInputOutput");
@@ -1485,7 +1554,6 @@ export const serializeAws_restXmlXmlAttributesCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1501,10 +1569,11 @@ export const serializeAws_restXmlXmlAttributesOnPayloadCommand = async (
   input: XmlAttributesOnPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlAttributesOnPayload";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlAttributesOnPayload";
   let body: any;
   if (input.payload !== undefined) {
     body = serializeAws_restXmlXmlAttributesInputOutput(input.payload, context);
@@ -1515,7 +1584,6 @@ export const serializeAws_restXmlXmlAttributesOnPayloadCommand = async (
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     body += contents.toString();
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1531,10 +1599,11 @@ export const serializeAws_restXmlXmlBlobsCommand = async (
   input: XmlBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlBlobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlBlobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlBlobsInputOutput");
@@ -1543,7 +1612,6 @@ export const serializeAws_restXmlXmlBlobsCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1559,10 +1627,11 @@ export const serializeAws_restXmlXmlEmptyBlobsCommand = async (
   input: XmlEmptyBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlEmptyBlobs";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyBlobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlBlobsInputOutput");
@@ -1571,7 +1640,6 @@ export const serializeAws_restXmlXmlEmptyBlobsCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1587,10 +1655,11 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   input: XmlEmptyListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlEmptyLists";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyLists";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlListsInputOutput");
@@ -1702,7 +1771,6 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1718,10 +1786,11 @@ export const serializeAws_restXmlXmlEmptyMapsCommand = async (
   input: XmlEmptyMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlEmptyMaps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlMapsInputOutput");
@@ -1734,7 +1803,6 @@ export const serializeAws_restXmlXmlEmptyMapsCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1750,10 +1818,11 @@ export const serializeAws_restXmlXmlEmptyStringsCommand = async (
   input: XmlEmptyStringsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlEmptyStrings";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyStrings";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlEmptyStringsInputOutput");
@@ -1762,7 +1831,6 @@ export const serializeAws_restXmlXmlEmptyStringsCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1778,10 +1846,11 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
   input: XmlEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlEnums";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEnums";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlEnumsInputOutput");
@@ -1822,7 +1891,6 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1838,10 +1906,11 @@ export const serializeAws_restXmlXmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlLists";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlLists";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlListsInputOutput");
@@ -1953,7 +2022,6 @@ export const serializeAws_restXmlXmlListsCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1969,10 +2037,11 @@ export const serializeAws_restXmlXmlMapsCommand = async (
   input: XmlMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlMaps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlMapsInputOutput");
@@ -1985,7 +2054,6 @@ export const serializeAws_restXmlXmlMapsCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2001,10 +2069,11 @@ export const serializeAws_restXmlXmlMapsXmlNameCommand = async (
   input: XmlMapsXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlMapsXmlName";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMapsXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlMapsXmlNameInputOutput");
@@ -2017,7 +2086,6 @@ export const serializeAws_restXmlXmlMapsXmlNameCommand = async (
     bodyNode.addChildNode(containerNode);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2033,10 +2101,11 @@ export const serializeAws_restXmlXmlNamespacesCommand = async (
   input: XmlNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlNamespaces";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlNamespaces";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlNamespacesInputOutput");
@@ -2046,7 +2115,6 @@ export const serializeAws_restXmlXmlNamespacesCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2062,10 +2130,11 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
   input: XmlTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlTimestamps";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlTimestamps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlTimestampsInputOutput");
@@ -2094,7 +2163,6 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2110,10 +2178,11 @@ export const serializeAws_restXmlXmlUnionsCommand = async (
   input: XmlUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = "/XmlUnions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlUnions";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("XmlUnionsInputOutput");
@@ -2122,7 +2191,6 @@ export const serializeAws_restXmlXmlUnionsCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3080,6 +3148,49 @@ const deserializeAws_restXmlHttpPrefixHeadersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlHttpRequestWithFloatLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlHttpRequestWithFloatLabelsCommandError(output, context);
+  }
+  const contents: HttpRequestWithFloatLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlHttpRequestWithFloatLabelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3269,7 +3380,7 @@ export const deserializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["baz"] !== undefined) {
-    contents.baz = data["baz"];
+    contents.baz = __expectString(data["baz"]);
   }
   return Promise.resolve(contents);
 };
@@ -3351,10 +3462,10 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     contents.headerDouble = parseFloat(output.headers["x-double"]);
   }
   if (output.headers["x-boolean1"] !== undefined) {
-    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
+    contents.headerTrueBool = __parseBoolean(output.headers["x-boolean1"]);
   }
   if (output.headers["x-boolean2"] !== undefined) {
-    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
+    contents.headerFalseBool = __parseBoolean(output.headers["x-boolean2"]);
   }
   if (output.headers["x-stringlist"] !== undefined) {
     contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim());
@@ -3370,7 +3481,7 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   if (output.headers["x-booleanlist"] !== undefined) {
     contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
       .split(",")
-      .map((_entry) => _entry.trim() === "true");
+      .map((_entry) => __parseBoolean(_entry.trim()));
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
@@ -3919,7 +4030,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.doubleValue = parseFloat(data["DoubleDribble"]);
   }
   if (data["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = data["falseBooleanValue"] == "true";
+    contents.falseBooleanValue = __parseBoolean(data["falseBooleanValue"]);
   }
   if (data["floatValue"] !== undefined) {
     contents.floatValue = parseFloat(data["floatValue"]);
@@ -3934,10 +4045,10 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.shortValue = parseInt(data["shortValue"]);
   }
   if (data["stringValue"] !== undefined) {
-    contents.stringValue = data["stringValue"];
+    contents.stringValue = __expectString(data["stringValue"]);
   }
   if (data["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = data["trueBooleanValue"] == "true";
+    contents.trueBooleanValue = __parseBoolean(data["trueBooleanValue"]);
   }
   return Promise.resolve(contents);
 };
@@ -4056,10 +4167,10 @@ export const deserializeAws_restXmlXmlAttributesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["test"] !== undefined) {
-    contents.attr = data["test"];
+    contents.attr = __expectString(data["test"]);
   }
   if (data["foo"] !== undefined) {
-    contents.foo = data["foo"];
+    contents.foo = __expectString(data["foo"]);
   }
   return Promise.resolve(contents);
 };
@@ -4475,7 +4586,7 @@ export const deserializeAws_restXmlXmlEmptyStringsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["emptyString"] !== undefined) {
-    contents.emptyString = data["emptyString"];
+    contents.emptyString = __expectString(data["emptyString"]);
   }
   return Promise.resolve(contents);
 };
@@ -4527,13 +4638,13 @@ export const deserializeAws_restXmlXmlEnumsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["fooEnum1"] !== undefined) {
-    contents.fooEnum1 = data["fooEnum1"];
+    contents.fooEnum1 = __expectString(data["fooEnum1"]);
   }
   if (data["fooEnum2"] !== undefined) {
-    contents.fooEnum2 = data["fooEnum2"];
+    contents.fooEnum2 = __expectString(data["fooEnum2"]);
   }
   if (data["fooEnum3"] !== undefined) {
-    contents.fooEnum3 = data["fooEnum3"];
+    contents.fooEnum3 = __expectString(data["fooEnum3"]);
   }
   if (data.fooEnumList === "") {
     contents.fooEnumList = [];
@@ -5050,7 +5161,7 @@ const deserializeAws_restXmlComplexErrorResponse = async (
     contents.Nested = deserializeAws_restXmlComplexNestedErrorData(data["Nested"], context);
   }
   if (data["TopLevel"] !== undefined) {
-    contents.TopLevel = data["TopLevel"];
+    contents.TopLevel = __expectString(data["TopLevel"]);
   }
   return contents;
 };
@@ -5067,7 +5178,7 @@ const deserializeAws_restXmlInvalidGreetingResponse = async (
   };
   const data: any = parsedOutput.body.Error;
   if (data["Message"] !== undefined) {
-    contents.Message = data["Message"];
+    contents.Message = __expectString(data["Message"]);
   }
   return contents;
 };
@@ -5550,7 +5661,7 @@ const deserializeAws_restXmlComplexNestedErrorData = (output: any, context: __Se
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
-    contents.Foo = output["Foo"];
+    contents.Foo = __expectString(output["Foo"]);
   }
   return contents;
 };
@@ -5565,7 +5676,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
     }
     return {
       ...acc,
-      [pair["K"]]: pair["V"],
+      [pair["K"]]: __expectString(pair["V"]) as any,
     };
   }, {});
 };
@@ -5580,7 +5691,7 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceOutputMap = (
     }
     return {
       ...acc,
-      [pair["K"]]: pair["V"],
+      [pair["K"]]: __expectString(pair["V"]) as any,
     };
   }, {});
 };
@@ -5592,7 +5703,7 @@ const deserializeAws_restXmlListWithMemberNamespace = (output: any, context: __S
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5603,7 +5714,7 @@ const deserializeAws_restXmlListWithNamespace = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5628,10 +5739,10 @@ const deserializeAws_restXmlNestedPayload = (output: any, context: __SerdeContex
     name: undefined,
   };
   if (output["greeting"] !== undefined) {
-    contents.greeting = output["greeting"];
+    contents.greeting = __expectString(output["greeting"]);
   }
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5641,7 +5752,7 @@ const deserializeAws_restXmlPayloadWithXmlName = (output: any, context: __SerdeC
     name: undefined,
   };
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5654,7 +5765,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespace = (
     name: undefined,
   };
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5667,7 +5778,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
     name: undefined,
   };
   if (output["name"] !== undefined) {
-    contents.name = output["name"];
+    contents.name = __expectString(output["name"]);
   }
   return contents;
 };
@@ -5681,7 +5792,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested1 = (
     nested: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_restXmlRecursiveShapesInputOutputNested2(output["nested"], context);
@@ -5698,7 +5809,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested2 = (
     recursiveMember: undefined,
   };
   if (output["bar"] !== undefined) {
-    contents.bar = output["bar"];
+    contents.bar = __expectString(output["bar"]);
   }
   if (output["recursiveMember"] !== undefined) {
     contents.recursiveMember = deserializeAws_restXmlRecursiveShapesInputOutputNested1(
@@ -5716,7 +5827,7 @@ const deserializeAws_restXmlRenamedListMembers = (output: any, context: __SerdeC
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5737,10 +5848,10 @@ const deserializeAws_restXmlStructureListMember = (output: any, context: __Serde
     b: undefined,
   };
   if (output["value"] !== undefined) {
-    contents.a = output["value"];
+    contents.a = __expectString(output["value"]);
   }
   if (output["other"] !== undefined) {
-    contents.b = output["other"];
+    contents.b = __expectString(output["other"]);
   }
   return contents;
 };
@@ -5754,10 +5865,10 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
     attr: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output["test"] !== undefined) {
-    contents.attr = output["test"];
+    contents.attr = __expectString(output["test"]);
   }
   return contents;
 };
@@ -5799,7 +5910,7 @@ const deserializeAws_restXmlXmlNamespacedList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5809,7 +5920,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeC
     values: undefined,
   };
   if (output["foo"] !== undefined) {
-    contents.foo = output["foo"];
+    contents.foo = __expectString(output["foo"]);
   }
   if (output.values === "") {
     contents.values = [];
@@ -5835,10 +5946,10 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
     doubleValue: undefined,
   };
   if (output["stringValue"] !== undefined) {
-    contents.stringValue = output["stringValue"];
+    contents.stringValue = __expectString(output["stringValue"]);
   }
   if (output["booleanValue"] !== undefined) {
-    contents.booleanValue = output["booleanValue"] == "true";
+    contents.booleanValue = __parseBoolean(output["booleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
     contents.byteValue = parseInt(output["byteValue"]);
@@ -5864,12 +5975,12 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
 const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContext): XmlUnionShape => {
   if (output["stringValue"] !== undefined) {
     return {
-      stringValue: output["stringValue"],
+      stringValue: __expectString(output["stringValue"]) as any,
     };
   }
   if (output["booleanValue"] !== undefined) {
     return {
-      booleanValue: output["booleanValue"] == "true",
+      booleanValue: __parseBoolean(output["booleanValue"]),
     };
   }
   if (output["byteValue"] !== undefined) {
@@ -5922,7 +6033,7 @@ const deserializeAws_restXmlBooleanList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry == "true";
+      return __parseBoolean(entry);
     });
 };
 
@@ -5933,7 +6044,7 @@ const deserializeAws_restXmlFooEnumList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5947,7 +6058,7 @@ const deserializeAws_restXmlFooEnumMap = (
     }
     return {
       ...acc,
-      [pair["key"]]: pair["value"],
+      [pair["key"]]: __expectString(pair["value"]) as any,
     };
   }, {});
 };
@@ -5959,7 +6070,7 @@ const deserializeAws_restXmlFooEnumSet = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -5968,7 +6079,7 @@ const deserializeAws_restXmlGreetingStruct = (output: any, context: __SerdeConte
     hi: undefined,
   };
   if (output["hi"] !== undefined) {
-    contents.hi = output["hi"];
+    contents.hi = __expectString(output["hi"]);
   }
   return contents;
 };
@@ -6002,7 +6113,7 @@ const deserializeAws_restXmlStringList = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6013,7 +6124,7 @@ const deserializeAws_restXmlStringSet = (output: any, context: __SerdeContext): 
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

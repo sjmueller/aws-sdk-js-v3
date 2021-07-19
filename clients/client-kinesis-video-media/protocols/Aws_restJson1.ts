@@ -9,7 +9,7 @@ import {
   StartSelector,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -21,10 +21,11 @@ export const serializeAws_restJson1GetMediaCommand = async (
   input: GetMediaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/getMedia";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMedia";
   let body: any;
   body = JSON.stringify({
     ...(input.StartSelector !== undefined &&
@@ -34,7 +35,6 @@ export const serializeAws_restJson1GetMediaCommand = async (
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -155,7 +155,7 @@ const deserializeAws_restJson1ClientLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -172,7 +172,7 @@ const deserializeAws_restJson1ConnectionLimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -189,7 +189,7 @@ const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -206,7 +206,7 @@ const deserializeAws_restJson1InvalidEndpointExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -223,7 +223,7 @@ const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -240,7 +240,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };

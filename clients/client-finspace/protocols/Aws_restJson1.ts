@@ -24,6 +24,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -37,10 +38,11 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/environment";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
@@ -54,7 +56,6 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -70,8 +71,10 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/environment/{environmentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
   if (input.environmentId !== undefined) {
     const labelValue: string = input.environmentId;
     if (labelValue.length <= 0) {
@@ -82,7 +85,6 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
     throw new Error("No value provided for input HTTP label: environmentId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -98,8 +100,10 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/environment/{environmentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
   if (input.environmentId !== undefined) {
     const labelValue: string = input.environmentId;
     if (labelValue.length <= 0) {
@@ -110,7 +114,6 @@ export const serializeAws_restJson1GetEnvironmentCommand = async (
     throw new Error("No value provided for input HTTP label: environmentId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -126,14 +129,14 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/environment";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -150,8 +153,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -162,7 +166,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -178,10 +181,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -195,7 +199,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -211,8 +214,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -226,7 +230,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -243,10 +246,12 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/environment/{environmentId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
   if (input.environmentId !== undefined) {
     const labelValue: string = input.environmentId;
     if (labelValue.length <= 0) {
@@ -267,7 +272,6 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
       }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -294,13 +298,13 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.environmentArn !== undefined && data.environmentArn !== null) {
-    contents.environmentArn = data.environmentArn;
+    contents.environmentArn = __expectString(data.environmentArn);
   }
   if (data.environmentId !== undefined && data.environmentId !== null) {
-    contents.environmentId = data.environmentId;
+    contents.environmentId = __expectString(data.environmentId);
   }
   if (data.environmentUrl !== undefined && data.environmentUrl !== null) {
-    contents.environmentUrl = data.environmentUrl;
+    contents.environmentUrl = __expectString(data.environmentUrl);
   }
   return Promise.resolve(contents);
 };
@@ -561,7 +565,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
     contents.environments = deserializeAws_restJson1EnvironmentList(data.environments, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -928,7 +932,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -945,7 +949,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -962,7 +966,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -979,7 +983,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -996,7 +1000,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1026,13 +1030,13 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const serializeAws_restJson1AttributeMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1060,7 +1064,7 @@ const serializeAws_restJson1FederationParameters = (input: FederationParameters,
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1078,38 +1082,28 @@ const deserializeAws_restJson1AttributeMap = (output: any, context: __SerdeConte
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
-    awsAccountId: output.awsAccountId !== undefined && output.awsAccountId !== null ? output.awsAccountId : undefined,
-    dedicatedServiceAccountId:
-      output.dedicatedServiceAccountId !== undefined && output.dedicatedServiceAccountId !== null
-        ? output.dedicatedServiceAccountId
-        : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    environmentArn:
-      output.environmentArn !== undefined && output.environmentArn !== null ? output.environmentArn : undefined,
-    environmentId:
-      output.environmentId !== undefined && output.environmentId !== null ? output.environmentId : undefined,
-    environmentUrl:
-      output.environmentUrl !== undefined && output.environmentUrl !== null ? output.environmentUrl : undefined,
-    federationMode:
-      output.federationMode !== undefined && output.federationMode !== null ? output.federationMode : undefined,
+    awsAccountId: __expectString(output.awsAccountId),
+    dedicatedServiceAccountId: __expectString(output.dedicatedServiceAccountId),
+    description: __expectString(output.description),
+    environmentArn: __expectString(output.environmentArn),
+    environmentId: __expectString(output.environmentId),
+    environmentUrl: __expectString(output.environmentUrl),
+    federationMode: __expectString(output.federationMode),
     federationParameters:
       output.federationParameters !== undefined && output.federationParameters !== null
         ? deserializeAws_restJson1FederationParameters(output.federationParameters, context)
         : undefined,
-    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    sageMakerStudioDomainUrl:
-      output.sageMakerStudioDomainUrl !== undefined && output.sageMakerStudioDomainUrl !== null
-        ? output.sageMakerStudioDomainUrl
-        : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    kmsKeyId: __expectString(output.kmsKeyId),
+    name: __expectString(output.name),
+    sageMakerStudioDomainUrl: __expectString(output.sageMakerStudioDomainUrl),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -1126,26 +1120,15 @@ const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1FederationParameters = (output: any, context: __SerdeContext): FederationParameters => {
   return {
-    applicationCallBackURL:
-      output.applicationCallBackURL !== undefined && output.applicationCallBackURL !== null
-        ? output.applicationCallBackURL
-        : undefined,
+    applicationCallBackURL: __expectString(output.applicationCallBackURL),
     attributeMap:
       output.attributeMap !== undefined && output.attributeMap !== null
         ? deserializeAws_restJson1AttributeMap(output.attributeMap, context)
         : undefined,
-    federationProviderName:
-      output.federationProviderName !== undefined && output.federationProviderName !== null
-        ? output.federationProviderName
-        : undefined,
-    federationURN:
-      output.federationURN !== undefined && output.federationURN !== null ? output.federationURN : undefined,
-    samlMetadataDocument:
-      output.samlMetadataDocument !== undefined && output.samlMetadataDocument !== null
-        ? output.samlMetadataDocument
-        : undefined,
-    samlMetadataURL:
-      output.samlMetadataURL !== undefined && output.samlMetadataURL !== null ? output.samlMetadataURL : undefined,
+    federationProviderName: __expectString(output.federationProviderName),
+    federationURN: __expectString(output.federationURN),
+    samlMetadataDocument: __expectString(output.samlMetadataDocument),
+    samlMetadataURL: __expectString(output.samlMetadataURL),
   } as any;
 };
 
@@ -1156,7 +1139,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

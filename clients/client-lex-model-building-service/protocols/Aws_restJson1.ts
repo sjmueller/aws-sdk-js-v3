@@ -112,7 +112,12 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -125,10 +130,11 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
   input: CreateBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{name}/versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -142,7 +148,6 @@ export const serializeAws_restJson1CreateBotVersionCommand = async (
   body = JSON.stringify({
     ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -158,10 +163,11 @@ export const serializeAws_restJson1CreateIntentVersionCommand = async (
   input: CreateIntentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/intents/{name}/versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -175,7 +181,6 @@ export const serializeAws_restJson1CreateIntentVersionCommand = async (
   body = JSON.stringify({
     ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -191,10 +196,12 @@ export const serializeAws_restJson1CreateSlotTypeVersionCommand = async (
   input: CreateSlotTypeVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/slottypes/{name}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -208,7 +215,6 @@ export const serializeAws_restJson1CreateSlotTypeVersionCommand = async (
   body = JSON.stringify({
     ...(input.checksum !== undefined && input.checksum !== null && { checksum: input.checksum }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -224,8 +230,9 @@ export const serializeAws_restJson1DeleteBotCommand = async (
   input: DeleteBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -236,7 +243,6 @@ export const serializeAws_restJson1DeleteBotCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -252,8 +258,10 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
   input: DeleteBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/aliases/{name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -273,7 +281,6 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
     throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -289,8 +296,11 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
   input: DeleteBotChannelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botName}/aliases/{botAlias}/channels/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -319,7 +329,6 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -335,8 +344,10 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
   input: DeleteBotVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{name}/versions/{version}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -356,7 +367,6 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
     throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -372,8 +382,9 @@ export const serializeAws_restJson1DeleteIntentCommand = async (
   input: DeleteIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/intents/{name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -384,7 +395,6 @@ export const serializeAws_restJson1DeleteIntentCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -400,8 +410,10 @@ export const serializeAws_restJson1DeleteIntentVersionCommand = async (
   input: DeleteIntentVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/intents/{name}/versions/{version}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -421,7 +433,6 @@ export const serializeAws_restJson1DeleteIntentVersionCommand = async (
     throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -437,8 +448,9 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
   input: DeleteSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/slottypes/{name}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -449,7 +461,6 @@ export const serializeAws_restJson1DeleteSlotTypeCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -465,8 +476,10 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
   input: DeleteSlotTypeVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/slottypes/{name}/version/{version}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/version/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -486,7 +499,6 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -502,8 +514,10 @@ export const serializeAws_restJson1DeleteUtterancesCommand = async (
   input: DeleteUtterancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/utterances/{userId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/utterances/{userId}";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -523,7 +537,6 @@ export const serializeAws_restJson1DeleteUtterancesCommand = async (
     throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -539,8 +552,10 @@ export const serializeAws_restJson1GetBotCommand = async (
   input: GetBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{name}/versions/{versionOrAlias}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/{versionOrAlias}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -560,7 +575,6 @@ export const serializeAws_restJson1GetBotCommand = async (
     throw new Error("No value provided for input HTTP label: versionOrAlias.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -576,8 +590,10 @@ export const serializeAws_restJson1GetBotAliasCommand = async (
   input: GetBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/aliases/{name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -597,7 +613,6 @@ export const serializeAws_restJson1GetBotAliasCommand = async (
     throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -613,8 +628,9 @@ export const serializeAws_restJson1GetBotAliasesCommand = async (
   input: GetBotAliasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/aliases";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -630,7 +646,6 @@ export const serializeAws_restJson1GetBotAliasesCommand = async (
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -647,8 +662,11 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
   input: GetBotChannelAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botName}/aliases/{botAlias}/channels/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -677,7 +695,6 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -693,8 +710,11 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
   input: GetBotChannelAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botName}/aliases/{botAlias}/channels";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -719,7 +739,6 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -736,15 +755,15 @@ export const serializeAws_restJson1GetBotsCommand = async (
   input: GetBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -761,8 +780,9 @@ export const serializeAws_restJson1GetBotVersionsCommand = async (
   input: GetBotVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{name}/versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -777,7 +797,6 @@ export const serializeAws_restJson1GetBotVersionsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -794,8 +813,10 @@ export const serializeAws_restJson1GetBuiltinIntentCommand = async (
   input: GetBuiltinIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/builtins/intents/{signature}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/intents/{signature}";
   if (input.signature !== undefined) {
     const labelValue: string = input.signature;
     if (labelValue.length <= 0) {
@@ -806,7 +827,6 @@ export const serializeAws_restJson1GetBuiltinIntentCommand = async (
     throw new Error("No value provided for input HTTP label: signature.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -822,8 +842,9 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
   input: GetBuiltinIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/builtins/intents";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/intents";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
@@ -831,7 +852,6 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -848,8 +868,9 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   input: GetBuiltinSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/builtins/slottypes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/builtins/slottypes";
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
@@ -857,7 +878,6 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -874,8 +894,9 @@ export const serializeAws_restJson1GetExportCommand = async (
   input: GetExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/exports";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
   const query: any = {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.version !== undefined && { version: input.version }),
@@ -883,7 +904,6 @@ export const serializeAws_restJson1GetExportCommand = async (
     ...(input.exportType !== undefined && { exportType: input.exportType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -900,8 +920,9 @@ export const serializeAws_restJson1GetImportCommand = async (
   input: GetImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/imports/{importId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports/{importId}";
   if (input.importId !== undefined) {
     const labelValue: string = input.importId;
     if (labelValue.length <= 0) {
@@ -912,7 +933,6 @@ export const serializeAws_restJson1GetImportCommand = async (
     throw new Error("No value provided for input HTTP label: importId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -928,8 +948,10 @@ export const serializeAws_restJson1GetIntentCommand = async (
   input: GetIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/intents/{name}/versions/{version}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -949,7 +971,6 @@ export const serializeAws_restJson1GetIntentCommand = async (
     throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -965,15 +986,15 @@ export const serializeAws_restJson1GetIntentsCommand = async (
   input: GetIntentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/intents";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -990,8 +1011,9 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
   input: GetIntentVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/intents/{name}/versions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1006,7 +1028,6 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1023,8 +1044,10 @@ export const serializeAws_restJson1GetSlotTypeCommand = async (
   input: GetSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/slottypes/{name}/versions/{version}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions/{version}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1044,7 +1067,6 @@ export const serializeAws_restJson1GetSlotTypeCommand = async (
     throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1060,15 +1082,15 @@ export const serializeAws_restJson1GetSlotTypesCommand = async (
   input: GetSlotTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/slottypes";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1085,8 +1107,10 @@ export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
   input: GetSlotTypeVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/slottypes/{name}/versions";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1101,7 +1125,6 @@ export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1118,8 +1141,10 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   input: GetUtterancesViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/bots/{botName}/utterances";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/utterances";
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -1135,7 +1160,6 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
     ...(input.statusType !== undefined && { status_type: input.statusType }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1152,8 +1176,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1164,7 +1189,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1180,10 +1204,12 @@ export const serializeAws_restJson1PutBotCommand = async (
   input: PutBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{name}/versions/$LATEST";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{name}/versions/$LATEST";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1218,7 +1244,7 @@ export const serializeAws_restJson1PutBotCommand = async (
     ...(input.locale !== undefined && input.locale !== null && { locale: input.locale }),
     ...(input.nluIntentConfidenceThreshold !== undefined &&
       input.nluIntentConfidenceThreshold !== null && {
-        nluIntentConfidenceThreshold: input.nluIntentConfidenceThreshold,
+        nluIntentConfidenceThreshold: __serializeFloat(input.nluIntentConfidenceThreshold),
       }),
     ...(input.processBehavior !== undefined &&
       input.processBehavior !== null && { processBehavior: input.processBehavior }),
@@ -1226,7 +1252,6 @@ export const serializeAws_restJson1PutBotCommand = async (
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.voiceId !== undefined && input.voiceId !== null && { voiceId: input.voiceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1242,10 +1267,12 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
   input: PutBotAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/bots/{botName}/aliases/{name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/bots/{botName}/aliases/{name}";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1276,7 +1303,6 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1292,10 +1318,12 @@ export const serializeAws_restJson1PutIntentCommand = async (
   input: PutIntentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/intents/{name}/versions/$LATEST";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/intents/{name}/versions/$LATEST";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1355,7 +1383,6 @@ export const serializeAws_restJson1PutIntentCommand = async (
     ...(input.slots !== undefined &&
       input.slots !== null && { slots: serializeAws_restJson1SlotList(input.slots, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1371,10 +1398,12 @@ export const serializeAws_restJson1PutSlotTypeCommand = async (
   input: PutSlotTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/slottypes/{name}/versions/$LATEST";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/slottypes/{name}/versions/$LATEST";
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1402,7 +1431,6 @@ export const serializeAws_restJson1PutSlotTypeCommand = async (
     ...(input.valueSelectionStrategy !== undefined &&
       input.valueSelectionStrategy !== null && { valueSelectionStrategy: input.valueSelectionStrategy }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1418,10 +1446,11 @@ export const serializeAws_restJson1StartImportCommand = async (
   input: StartImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/imports";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/imports";
   let body: any;
   body = JSON.stringify({
     ...(input.mergeStrategy !== undefined && input.mergeStrategy !== null && { mergeStrategy: input.mergeStrategy }),
@@ -1430,7 +1459,6 @@ export const serializeAws_restJson1StartImportCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1446,10 +1474,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1464,7 +1493,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1480,8 +1508,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -1495,7 +1524,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1540,10 +1568,10 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.childDirected !== undefined && data.childDirected !== null) {
-    contents.childDirected = data.childDirected;
+    contents.childDirected = __expectBoolean(data.childDirected);
   }
   if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
     contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
@@ -1552,19 +1580,19 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
-    contents.detectSentiment = data.detectSentiment;
+    contents.detectSentiment = __expectBoolean(data.detectSentiment);
   }
   if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
-    contents.enableModelImprovements = data.enableModelImprovements;
+    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = data.failureReason;
+    contents.failureReason = __expectString(data.failureReason);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
+    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
   }
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
@@ -1573,19 +1601,19 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.locale !== undefined && data.locale !== null) {
-    contents.locale = data.locale;
+    contents.locale = __expectString(data.locale);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   if (data.voiceId !== undefined && data.voiceId !== null) {
-    contents.voiceId = data.voiceId;
+    contents.voiceId = __expectString(data.voiceId);
   }
   return Promise.resolve(contents);
 };
@@ -1697,7 +1725,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
     contents.conclusionStatement = deserializeAws_restJson1Statement(data.conclusionStatement, context);
@@ -1709,7 +1737,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
     contents.dialogCodeHook = deserializeAws_restJson1CodeHook(data.dialogCodeHook, context);
@@ -1730,13 +1758,13 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.outputContexts !== undefined && data.outputContexts !== null) {
     contents.outputContexts = deserializeAws_restJson1OutputContextList(data.outputContexts, context);
   }
   if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
-    contents.parentIntentSignature = data.parentIntentSignature;
+    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
   }
   if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
     contents.rejectionStatement = deserializeAws_restJson1Statement(data.rejectionStatement, context);
@@ -1748,7 +1776,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
     contents.slots = deserializeAws_restJson1SlotList(data.slots, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -1852,13 +1880,13 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
     contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
@@ -1867,10 +1895,10 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
-    contents.parentSlotTypeSignature = data.parentSlotTypeSignature;
+    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
   }
   if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
     contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
@@ -1879,10 +1907,10 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
     );
   }
   if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
-    contents.valueSelectionStrategy = data.valueSelectionStrategy;
+    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -2792,10 +2820,10 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.childDirected !== undefined && data.childDirected !== null) {
-    contents.childDirected = data.childDirected;
+    contents.childDirected = __expectBoolean(data.childDirected);
   }
   if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
     contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
@@ -2804,19 +2832,19 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
-    contents.detectSentiment = data.detectSentiment;
+    contents.detectSentiment = __expectBoolean(data.detectSentiment);
   }
   if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
-    contents.enableModelImprovements = data.enableModelImprovements;
+    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = data.failureReason;
+    contents.failureReason = __expectString(data.failureReason);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
+    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
   }
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
@@ -2825,22 +2853,22 @@ export const deserializeAws_restJson1GetBotCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.locale !== undefined && data.locale !== null) {
-    contents.locale = data.locale;
+    contents.locale = __expectString(data.locale);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = data.nluIntentConfidenceThreshold;
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   if (data.voiceId !== undefined && data.voiceId !== null) {
-    contents.voiceId = data.voiceId;
+    contents.voiceId = __expectString(data.voiceId);
   }
   return Promise.resolve(contents);
 };
@@ -2926,13 +2954,13 @@ export const deserializeAws_restJson1GetBotAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = data.botName;
+    contents.botName = __expectString(data.botName);
   }
   if (data.botVersion !== undefined && data.botVersion !== null) {
-    contents.botVersion = data.botVersion;
+    contents.botVersion = __expectString(data.botVersion);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.conversationLogs !== undefined && data.conversationLogs !== null) {
     contents.conversationLogs = deserializeAws_restJson1ConversationLogsResponse(data.conversationLogs, context);
@@ -2941,13 +2969,13 @@ export const deserializeAws_restJson1GetBotAliasCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   return Promise.resolve(contents);
 };
@@ -3030,7 +3058,7 @@ export const deserializeAws_restJson1GetBotAliasesCommand = async (
     contents.BotAliases = deserializeAws_restJson1BotAliasMetadataList(data.BotAliases, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3109,31 +3137,31 @@ export const deserializeAws_restJson1GetBotChannelAssociationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.botAlias !== undefined && data.botAlias !== null) {
-    contents.botAlias = data.botAlias;
+    contents.botAlias = __expectString(data.botAlias);
   }
   if (data.botConfiguration !== undefined && data.botConfiguration !== null) {
     contents.botConfiguration = deserializeAws_restJson1ChannelConfigurationMap(data.botConfiguration, context);
   }
   if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = data.botName;
+    contents.botName = __expectString(data.botName);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = data.failureReason;
+    contents.failureReason = __expectString(data.failureReason);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.type !== undefined && data.type !== null) {
-    contents.type = data.type;
+    contents.type = __expectString(data.type);
   }
   return Promise.resolve(contents);
 };
@@ -3219,7 +3247,7 @@ export const deserializeAws_restJson1GetBotChannelAssociationsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3294,7 +3322,7 @@ export const deserializeAws_restJson1GetBotsCommand = async (
     contents.bots = deserializeAws_restJson1BotMetadataList(data.bots, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3377,7 +3405,7 @@ export const deserializeAws_restJson1GetBotVersionsCommand = async (
     contents.bots = deserializeAws_restJson1BotMetadataList(data.bots, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3458,7 +3486,7 @@ export const deserializeAws_restJson1GetBuiltinIntentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.signature !== undefined && data.signature !== null) {
-    contents.signature = data.signature;
+    contents.signature = __expectString(data.signature);
   }
   if (data.slots !== undefined && data.slots !== null) {
     contents.slots = deserializeAws_restJson1BuiltinIntentSlotList(data.slots, context);
@@ -3547,7 +3575,7 @@ export const deserializeAws_restJson1GetBuiltinIntentsCommand = async (
     contents.intents = deserializeAws_restJson1BuiltinIntentMetadataList(data.intents, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -3619,7 +3647,7 @@ export const deserializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.slotTypes !== undefined && data.slotTypes !== null) {
     contents.slotTypes = deserializeAws_restJson1BuiltinSlotTypeMetadataList(data.slotTypes, context);
@@ -3699,25 +3727,25 @@ export const deserializeAws_restJson1GetExportCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.exportStatus !== undefined && data.exportStatus !== null) {
-    contents.exportStatus = data.exportStatus;
+    contents.exportStatus = __expectString(data.exportStatus);
   }
   if (data.exportType !== undefined && data.exportType !== null) {
-    contents.exportType = data.exportType;
+    contents.exportType = __expectString(data.exportType);
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = data.failureReason;
+    contents.failureReason = __expectString(data.failureReason);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   if (data.url !== undefined && data.url !== null) {
-    contents.url = data.url;
+    contents.url = __expectString(data.url);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -3808,19 +3836,19 @@ export const deserializeAws_restJson1GetImportCommand = async (
     contents.failureReason = deserializeAws_restJson1StringList(data.failureReason, context);
   }
   if (data.importId !== undefined && data.importId !== null) {
-    contents.importId = data.importId;
+    contents.importId = __expectString(data.importId);
   }
   if (data.importStatus !== undefined && data.importStatus !== null) {
-    contents.importStatus = data.importStatus;
+    contents.importStatus = __expectString(data.importStatus);
   }
   if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
-    contents.mergeStrategy = data.mergeStrategy;
+    contents.mergeStrategy = __expectString(data.mergeStrategy);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   return Promise.resolve(contents);
 };
@@ -3916,7 +3944,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
     contents.conclusionStatement = deserializeAws_restJson1Statement(data.conclusionStatement, context);
@@ -3928,7 +3956,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
     contents.dialogCodeHook = deserializeAws_restJson1CodeHook(data.dialogCodeHook, context);
@@ -3949,13 +3977,13 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.outputContexts !== undefined && data.outputContexts !== null) {
     contents.outputContexts = deserializeAws_restJson1OutputContextList(data.outputContexts, context);
   }
   if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
-    contents.parentIntentSignature = data.parentIntentSignature;
+    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
   }
   if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
     contents.rejectionStatement = deserializeAws_restJson1Statement(data.rejectionStatement, context);
@@ -3967,7 +3995,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
     contents.slots = deserializeAws_restJson1SlotList(data.slots, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -4050,7 +4078,7 @@ export const deserializeAws_restJson1GetIntentsCommand = async (
     contents.intents = deserializeAws_restJson1IntentMetadataList(data.intents, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4133,7 +4161,7 @@ export const deserializeAws_restJson1GetIntentVersionsCommand = async (
     contents.intents = deserializeAws_restJson1IntentMetadataList(data.intents, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -4221,13 +4249,13 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
     contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
@@ -4236,10 +4264,10 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
-    contents.parentSlotTypeSignature = data.parentSlotTypeSignature;
+    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
   }
   if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
     contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
@@ -4248,10 +4276,10 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
     );
   }
   if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
-    contents.valueSelectionStrategy = data.valueSelectionStrategy;
+    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -4331,7 +4359,7 @@ export const deserializeAws_restJson1GetSlotTypesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.slotTypes !== undefined && data.slotTypes !== null) {
     contents.slotTypes = deserializeAws_restJson1SlotTypeMetadataList(data.slotTypes, context);
@@ -4414,7 +4442,7 @@ export const deserializeAws_restJson1GetSlotTypeVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.slotTypes !== undefined && data.slotTypes !== null) {
     contents.slotTypes = deserializeAws_restJson1SlotTypeMetadataList(data.slotTypes, context);
@@ -4497,7 +4525,7 @@ export const deserializeAws_restJson1GetUtterancesViewCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = data.botName;
+    contents.botName = __expectString(data.botName);
   }
   if (data.utterances !== undefined && data.utterances !== null) {
     contents.utterances = deserializeAws_restJson1ListsOfUtterances(data.utterances, context);
@@ -4672,34 +4700,34 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.abortStatement = deserializeAws_restJson1Statement(data.abortStatement, context);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.childDirected !== undefined && data.childDirected !== null) {
-    contents.childDirected = data.childDirected;
+    contents.childDirected = __expectBoolean(data.childDirected);
   }
   if (data.clarificationPrompt !== undefined && data.clarificationPrompt !== null) {
     contents.clarificationPrompt = deserializeAws_restJson1Prompt(data.clarificationPrompt, context);
   }
   if (data.createVersion !== undefined && data.createVersion !== null) {
-    contents.createVersion = data.createVersion;
+    contents.createVersion = __expectBoolean(data.createVersion);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
-    contents.detectSentiment = data.detectSentiment;
+    contents.detectSentiment = __expectBoolean(data.detectSentiment);
   }
   if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
-    contents.enableModelImprovements = data.enableModelImprovements;
+    contents.enableModelImprovements = __expectBoolean(data.enableModelImprovements);
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
-    contents.failureReason = data.failureReason;
+    contents.failureReason = __expectString(data.failureReason);
   }
   if (data.idleSessionTTLInSeconds !== undefined && data.idleSessionTTLInSeconds !== null) {
-    contents.idleSessionTTLInSeconds = data.idleSessionTTLInSeconds;
+    contents.idleSessionTTLInSeconds = __expectNumber(data.idleSessionTTLInSeconds);
   }
   if (data.intents !== undefined && data.intents !== null) {
     contents.intents = deserializeAws_restJson1IntentList(data.intents, context);
@@ -4708,25 +4736,25 @@ export const deserializeAws_restJson1PutBotCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.locale !== undefined && data.locale !== null) {
-    contents.locale = data.locale;
+    contents.locale = __expectString(data.locale);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
-    contents.nluIntentConfidenceThreshold = data.nluIntentConfidenceThreshold;
+    contents.nluIntentConfidenceThreshold = __handleFloat(data.nluIntentConfidenceThreshold);
   }
   if (data.status !== undefined && data.status !== null) {
-    contents.status = data.status;
+    contents.status = __expectString(data.status);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   if (data.voiceId !== undefined && data.voiceId !== null) {
-    contents.voiceId = data.voiceId;
+    contents.voiceId = __expectString(data.voiceId);
   }
   return Promise.resolve(contents);
 };
@@ -4821,13 +4849,13 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.botName !== undefined && data.botName !== null) {
-    contents.botName = data.botName;
+    contents.botName = __expectString(data.botName);
   }
   if (data.botVersion !== undefined && data.botVersion !== null) {
-    contents.botVersion = data.botVersion;
+    contents.botVersion = __expectString(data.botVersion);
   }
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.conversationLogs !== undefined && data.conversationLogs !== null) {
     contents.conversationLogs = deserializeAws_restJson1ConversationLogsResponse(data.conversationLogs, context);
@@ -4836,13 +4864,13 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
@@ -4950,7 +4978,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.conclusionStatement !== undefined && data.conclusionStatement !== null) {
     contents.conclusionStatement = deserializeAws_restJson1Statement(data.conclusionStatement, context);
@@ -4959,13 +4987,13 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     contents.confirmationPrompt = deserializeAws_restJson1Prompt(data.confirmationPrompt, context);
   }
   if (data.createVersion !== undefined && data.createVersion !== null) {
-    contents.createVersion = data.createVersion;
+    contents.createVersion = __expectBoolean(data.createVersion);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.dialogCodeHook !== undefined && data.dialogCodeHook !== null) {
     contents.dialogCodeHook = deserializeAws_restJson1CodeHook(data.dialogCodeHook, context);
@@ -4986,13 +5014,13 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.outputContexts !== undefined && data.outputContexts !== null) {
     contents.outputContexts = deserializeAws_restJson1OutputContextList(data.outputContexts, context);
   }
   if (data.parentIntentSignature !== undefined && data.parentIntentSignature !== null) {
-    contents.parentIntentSignature = data.parentIntentSignature;
+    contents.parentIntentSignature = __expectString(data.parentIntentSignature);
   }
   if (data.rejectionStatement !== undefined && data.rejectionStatement !== null) {
     contents.rejectionStatement = deserializeAws_restJson1Statement(data.rejectionStatement, context);
@@ -5004,7 +5032,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
     contents.slots = deserializeAws_restJson1SlotList(data.slots, context);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -5101,16 +5129,16 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.checksum !== undefined && data.checksum !== null) {
-    contents.checksum = data.checksum;
+    contents.checksum = __expectString(data.checksum);
   }
   if (data.createVersion !== undefined && data.createVersion !== null) {
-    contents.createVersion = data.createVersion;
+    contents.createVersion = __expectBoolean(data.createVersion);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.description !== undefined && data.description !== null) {
-    contents.description = data.description;
+    contents.description = __expectString(data.description);
   }
   if (data.enumerationValues !== undefined && data.enumerationValues !== null) {
     contents.enumerationValues = deserializeAws_restJson1EnumerationValues(data.enumerationValues, context);
@@ -5119,10 +5147,10 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
     contents.lastUpdatedDate = new Date(Math.round(data.lastUpdatedDate * 1000));
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.parentSlotTypeSignature !== undefined && data.parentSlotTypeSignature !== null) {
-    contents.parentSlotTypeSignature = data.parentSlotTypeSignature;
+    contents.parentSlotTypeSignature = __expectString(data.parentSlotTypeSignature);
   }
   if (data.slotTypeConfigurations !== undefined && data.slotTypeConfigurations !== null) {
     contents.slotTypeConfigurations = deserializeAws_restJson1SlotTypeConfigurations(
@@ -5131,10 +5159,10 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
     );
   }
   if (data.valueSelectionStrategy !== undefined && data.valueSelectionStrategy !== null) {
-    contents.valueSelectionStrategy = data.valueSelectionStrategy;
+    contents.valueSelectionStrategy = __expectString(data.valueSelectionStrategy);
   }
   if (data.version !== undefined && data.version !== null) {
-    contents.version = data.version;
+    contents.version = __expectString(data.version);
   }
   return Promise.resolve(contents);
 };
@@ -5230,19 +5258,19 @@ export const deserializeAws_restJson1StartImportCommand = async (
     contents.createdDate = new Date(Math.round(data.createdDate * 1000));
   }
   if (data.importId !== undefined && data.importId !== null) {
-    contents.importId = data.importId;
+    contents.importId = __expectString(data.importId);
   }
   if (data.importStatus !== undefined && data.importStatus !== null) {
-    contents.importStatus = data.importStatus;
+    contents.importStatus = __expectString(data.importStatus);
   }
   if (data.mergeStrategy !== undefined && data.mergeStrategy !== null) {
-    contents.mergeStrategy = data.mergeStrategy;
+    contents.mergeStrategy = __expectString(data.mergeStrategy);
   }
   if (data.name !== undefined && data.name !== null) {
-    contents.name = data.name;
+    contents.name = __expectString(data.name);
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
-    contents.resourceType = data.resourceType;
+    contents.resourceType = __expectString(data.resourceType);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagList(data.tags, context);
@@ -5481,7 +5509,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5498,7 +5526,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5515,7 +5543,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5536,7 +5564,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5553,7 +5581,7 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5570,7 +5598,7 @@ const deserializeAws_restJson1PreconditionFailedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -5591,7 +5619,7 @@ const deserializeAws_restJson1ResourceInUseExceptionResponse = async (
     contents.exampleReference = deserializeAws_restJson1ResourceReference(data.exampleReference, context);
   }
   if (data.referenceType !== undefined && data.referenceType !== null) {
-    contents.referenceType = data.referenceType;
+    contents.referenceType = __expectString(data.referenceType);
   }
   return contents;
 };
@@ -5922,9 +5950,9 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const deserializeAws_restJson1BotAliasMetadata = (output: any, context: __SerdeContext): BotAliasMetadata => {
   return {
-    botName: output.botName !== undefined && output.botName !== null ? output.botName : undefined,
-    botVersion: output.botVersion !== undefined && output.botVersion !== null ? output.botVersion : undefined,
-    checksum: output.checksum !== undefined && output.checksum !== null ? output.checksum : undefined,
+    botName: __expectString(output.botName),
+    botVersion: __expectString(output.botVersion),
+    checksum: __expectString(output.checksum),
     conversationLogs:
       output.conversationLogs !== undefined && output.conversationLogs !== null
         ? deserializeAws_restJson1ConversationLogsResponse(output.conversationLogs, context)
@@ -5933,12 +5961,12 @@ const deserializeAws_restJson1BotAliasMetadata = (output: any, context: __SerdeC
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -5955,22 +5983,21 @@ const deserializeAws_restJson1BotAliasMetadataList = (output: any, context: __Se
 
 const deserializeAws_restJson1BotChannelAssociation = (output: any, context: __SerdeContext): BotChannelAssociation => {
   return {
-    botAlias: output.botAlias !== undefined && output.botAlias !== null ? output.botAlias : undefined,
+    botAlias: __expectString(output.botAlias),
     botConfiguration:
       output.botConfiguration !== undefined && output.botConfiguration !== null
         ? deserializeAws_restJson1ChannelConfigurationMap(output.botConfiguration, context)
         : undefined,
-    botName: output.botName !== undefined && output.botName !== null ? output.botName : undefined,
+    botName: __expectString(output.botName),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    failureReason:
-      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    description: __expectString(output.description),
+    failureReason: __expectString(output.failureReason),
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -5994,14 +6021,14 @@ const deserializeAws_restJson1BotMetadata = (output: any, context: __SerdeContex
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    status: __expectString(output.status),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -6018,7 +6045,7 @@ const deserializeAws_restJson1BotMetadataList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BuiltinIntentMetadata = (output: any, context: __SerdeContext): BuiltinIntentMetadata => {
   return {
-    signature: output.signature !== undefined && output.signature !== null ? output.signature : undefined,
+    signature: __expectString(output.signature),
     supportedLocales:
       output.supportedLocales !== undefined && output.supportedLocales !== null
         ? deserializeAws_restJson1LocaleList(output.supportedLocales, context)
@@ -6042,7 +6069,7 @@ const deserializeAws_restJson1BuiltinIntentMetadataList = (
 
 const deserializeAws_restJson1BuiltinIntentSlot = (output: any, context: __SerdeContext): BuiltinIntentSlot => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -6062,7 +6089,7 @@ const deserializeAws_restJson1BuiltinSlotTypeMetadata = (
   context: __SerdeContext
 ): BuiltinSlotTypeMetadata => {
   return {
-    signature: output.signature !== undefined && output.signature !== null ? output.signature : undefined,
+    signature: __expectString(output.signature),
     supportedLocales:
       output.supportedLocales !== undefined && output.supportedLocales !== null
         ? deserializeAws_restJson1LocaleList(output.supportedLocales, context)
@@ -6094,16 +6121,15 @@ const deserializeAws_restJson1ChannelConfigurationMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1CodeHook = (output: any, context: __SerdeContext): CodeHook => {
   return {
-    messageVersion:
-      output.messageVersion !== undefined && output.messageVersion !== null ? output.messageVersion : undefined,
-    uri: output.uri !== undefined && output.uri !== null ? output.uri : undefined,
+    messageVersion: __expectString(output.messageVersion),
+    uri: __expectString(output.uri),
   } as any;
 };
 
@@ -6112,7 +6138,7 @@ const deserializeAws_restJson1ConversationLogsResponse = (
   context: __SerdeContext
 ): ConversationLogsResponse => {
   return {
-    iamRoleArn: output.iamRoleArn !== undefined && output.iamRoleArn !== null ? output.iamRoleArn : undefined,
+    iamRoleArn: __expectString(output.iamRoleArn),
     logSettings:
       output.logSettings !== undefined && output.logSettings !== null
         ? deserializeAws_restJson1LogSettingsResponseList(output.logSettings, context)
@@ -6126,7 +6152,7 @@ const deserializeAws_restJson1EnumerationValue = (output: any, context: __SerdeC
       output.synonyms !== undefined && output.synonyms !== null
         ? deserializeAws_restJson1SynonymList(output.synonyms, context)
         : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -6160,13 +6186,13 @@ const deserializeAws_restJson1FulfillmentActivity = (output: any, context: __Ser
       output.codeHook !== undefined && output.codeHook !== null
         ? deserializeAws_restJson1CodeHook(output.codeHook, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1InputContext = (output: any, context: __SerdeContext): InputContext => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -6183,9 +6209,8 @@ const deserializeAws_restJson1InputContextList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Intent = (output: any, context: __SerdeContext): Intent => {
   return {
-    intentName: output.intentName !== undefined && output.intentName !== null ? output.intentName : undefined,
-    intentVersion:
-      output.intentVersion !== undefined && output.intentVersion !== null ? output.intentVersion : undefined,
+    intentName: __expectString(output.intentName),
+    intentVersion: __expectString(output.intentVersion),
   } as any;
 };
 
@@ -6206,13 +6231,13 @@ const deserializeAws_restJson1IntentMetadata = (output: any, context: __SerdeCon
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -6234,18 +6259,15 @@ const deserializeAws_restJson1IntentUtteranceList = (output: any, context: __Ser
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1KendraConfiguration = (output: any, context: __SerdeContext): KendraConfiguration => {
   return {
-    kendraIndex: output.kendraIndex !== undefined && output.kendraIndex !== null ? output.kendraIndex : undefined,
-    queryFilterString:
-      output.queryFilterString !== undefined && output.queryFilterString !== null
-        ? output.queryFilterString
-        : undefined,
-    role: output.role !== undefined && output.role !== null ? output.role : undefined,
+    kendraIndex: __expectString(output.kendraIndex),
+    queryFilterString: __expectString(output.queryFilterString),
+    role: __expectString(output.role),
   } as any;
 };
 
@@ -6278,18 +6300,17 @@ const deserializeAws_restJson1LocaleList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1LogSettingsResponse = (output: any, context: __SerdeContext): LogSettingsResponse => {
   return {
-    destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
-    kmsKeyArn: output.kmsKeyArn !== undefined && output.kmsKeyArn !== null ? output.kmsKeyArn : undefined,
-    logType: output.logType !== undefined && output.logType !== null ? output.logType : undefined,
-    resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
-    resourcePrefix:
-      output.resourcePrefix !== undefined && output.resourcePrefix !== null ? output.resourcePrefix : undefined,
+    destination: __expectString(output.destination),
+    kmsKeyArn: __expectString(output.kmsKeyArn),
+    logType: __expectString(output.logType),
+    resourceArn: __expectString(output.resourceArn),
+    resourcePrefix: __expectString(output.resourcePrefix),
   } as any;
 };
 
@@ -6309,9 +6330,9 @@ const deserializeAws_restJson1LogSettingsResponseList = (
 
 const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
   return {
-    content: output.content !== undefined && output.content !== null ? output.content : undefined,
-    contentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
-    groupNumber: output.groupNumber !== undefined && output.groupNumber !== null ? output.groupNumber : undefined,
+    content: __expectString(output.content),
+    contentType: __expectString(output.contentType),
+    groupNumber: __expectNumber(output.groupNumber),
   } as any;
 };
 
@@ -6328,12 +6349,9 @@ const deserializeAws_restJson1MessageList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1OutputContext = (output: any, context: __SerdeContext): OutputContext => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    timeToLiveInSeconds:
-      output.timeToLiveInSeconds !== undefined && output.timeToLiveInSeconds !== null
-        ? output.timeToLiveInSeconds
-        : undefined,
-    turnsToLive: output.turnsToLive !== undefined && output.turnsToLive !== null ? output.turnsToLive : undefined,
+    name: __expectString(output.name),
+    timeToLiveInSeconds: __expectNumber(output.timeToLiveInSeconds),
+    turnsToLive: __expectNumber(output.turnsToLive),
   } as any;
 };
 
@@ -6350,19 +6368,19 @@ const deserializeAws_restJson1OutputContextList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Prompt = (output: any, context: __SerdeContext): Prompt => {
   return {
-    maxAttempts: output.maxAttempts !== undefined && output.maxAttempts !== null ? output.maxAttempts : undefined,
+    maxAttempts: __expectNumber(output.maxAttempts),
     messages:
       output.messages !== undefined && output.messages !== null
         ? deserializeAws_restJson1MessageList(output.messages, context)
         : undefined,
-    responseCard: output.responseCard !== undefined && output.responseCard !== null ? output.responseCard : undefined,
+    responseCard: __expectString(output.responseCard),
   } as any;
 };
 
 const deserializeAws_restJson1ResourceReference = (output: any, context: __SerdeContext): ResourceReference => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -6372,23 +6390,18 @@ const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slo
       output.defaultValueSpec !== undefined && output.defaultValueSpec !== null
         ? deserializeAws_restJson1SlotDefaultValueSpec(output.defaultValueSpec, context)
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    obfuscationSetting:
-      output.obfuscationSetting !== undefined && output.obfuscationSetting !== null
-        ? output.obfuscationSetting
-        : undefined,
-    priority: output.priority !== undefined && output.priority !== null ? output.priority : undefined,
-    responseCard: output.responseCard !== undefined && output.responseCard !== null ? output.responseCard : undefined,
+    description: __expectString(output.description),
+    name: __expectString(output.name),
+    obfuscationSetting: __expectString(output.obfuscationSetting),
+    priority: __expectNumber(output.priority),
+    responseCard: __expectString(output.responseCard),
     sampleUtterances:
       output.sampleUtterances !== undefined && output.sampleUtterances !== null
         ? deserializeAws_restJson1SlotUtteranceList(output.sampleUtterances, context)
         : undefined,
-    slotConstraint:
-      output.slotConstraint !== undefined && output.slotConstraint !== null ? output.slotConstraint : undefined,
-    slotType: output.slotType !== undefined && output.slotType !== null ? output.slotType : undefined,
-    slotTypeVersion:
-      output.slotTypeVersion !== undefined && output.slotTypeVersion !== null ? output.slotTypeVersion : undefined,
+    slotConstraint: __expectString(output.slotConstraint),
+    slotType: __expectString(output.slotType),
+    slotTypeVersion: __expectString(output.slotTypeVersion),
     valueElicitationPrompt:
       output.valueElicitationPrompt !== undefined && output.valueElicitationPrompt !== null
         ? deserializeAws_restJson1Prompt(output.valueElicitationPrompt, context)
@@ -6398,7 +6411,7 @@ const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slo
 
 const deserializeAws_restJson1SlotDefaultValue = (output: any, context: __SerdeContext): SlotDefaultValue => {
   return {
-    defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
+    defaultValue: __expectString(output.defaultValue),
   } as any;
 };
 
@@ -6462,13 +6475,13 @@ const deserializeAws_restJson1SlotTypeMetadata = (output: any, context: __SerdeC
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     lastUpdatedDate:
       output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
         ? new Date(Math.round(output.lastUpdatedDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    name: __expectString(output.name),
+    version: __expectString(output.version),
   } as any;
 };
 
@@ -6488,7 +6501,7 @@ const deserializeAws_restJson1SlotTypeRegexConfiguration = (
   context: __SerdeContext
 ): SlotTypeRegexConfiguration => {
   return {
-    pattern: output.pattern !== undefined && output.pattern !== null ? output.pattern : undefined,
+    pattern: __expectString(output.pattern),
   } as any;
 };
 
@@ -6499,7 +6512,7 @@ const deserializeAws_restJson1SlotUtteranceList = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6509,7 +6522,7 @@ const deserializeAws_restJson1Statement = (output: any, context: __SerdeContext)
       output.messages !== undefined && output.messages !== null
         ? deserializeAws_restJson1MessageList(output.messages, context)
         : undefined,
-    responseCard: output.responseCard !== undefined && output.responseCard !== null ? output.responseCard : undefined,
+    responseCard: __expectString(output.responseCard),
   } as any;
 };
 
@@ -6520,7 +6533,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -6531,14 +6544,14 @@ const deserializeAws_restJson1SynonymList = (output: any, context: __SerdeContex
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -6555,9 +6568,8 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeContext): UtteranceData => {
   return {
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    distinctUsers:
-      output.distinctUsers !== undefined && output.distinctUsers !== null ? output.distinctUsers : undefined,
+    count: __expectNumber(output.count),
+    distinctUsers: __expectNumber(output.distinctUsers),
     firstUtteredDate:
       output.firstUtteredDate !== undefined && output.firstUtteredDate !== null
         ? new Date(Math.round(output.firstUtteredDate * 1000))
@@ -6566,14 +6578,13 @@ const deserializeAws_restJson1UtteranceData = (output: any, context: __SerdeCont
       output.lastUtteredDate !== undefined && output.lastUtteredDate !== null
         ? new Date(Math.round(output.lastUtteredDate * 1000))
         : undefined,
-    utteranceString:
-      output.utteranceString !== undefined && output.utteranceString !== null ? output.utteranceString : undefined,
+    utteranceString: __expectString(output.utteranceString),
   } as any;
 };
 
 const deserializeAws_restJson1UtteranceList = (output: any, context: __SerdeContext): UtteranceList => {
   return {
-    botVersion: output.botVersion !== undefined && output.botVersion !== null ? output.botVersion : undefined,
+    botVersion: __expectString(output.botVersion),
     utterances:
       output.utterances !== undefined && output.utterances !== null
         ? deserializeAws_restJson1ListOfUtterance(output.utterances, context)

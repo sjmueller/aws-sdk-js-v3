@@ -11,6 +11,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -24,8 +25,10 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/@connections/{ConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
@@ -36,7 +39,6 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -52,8 +54,10 @@ export const serializeAws_restJson1GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/@connections/{ConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
@@ -64,7 +68,6 @@ export const serializeAws_restJson1GetConnectionCommand = async (
     throw new Error("No value provided for input HTTP label: ConnectionId.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -80,10 +83,12 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   input: PostToConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/octet-stream",
   };
-  let resolvedPath = "/@connections/{ConnectionId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
@@ -97,7 +102,6 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   if (input.Data !== undefined) {
     body = input.Data;
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -381,15 +385,15 @@ const deserializeAws_restJson1PayloadTooLargeExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.Message = data.message;
+    contents.Message = __expectString(data.message);
   }
   return contents;
 };
 
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
-    SourceIp: output.sourceIp !== undefined && output.sourceIp !== null ? output.sourceIp : undefined,
-    UserAgent: output.userAgent !== undefined && output.userAgent !== null ? output.userAgent : undefined,
+    SourceIp: __expectString(output.sourceIp),
+    UserAgent: __expectString(output.userAgent),
   } as any;
 };
 

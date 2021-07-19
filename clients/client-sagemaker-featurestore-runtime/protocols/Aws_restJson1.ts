@@ -16,6 +16,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -29,10 +30,11 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
   input: BatchGetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/BatchGetRecord";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
   let body: any;
   body = JSON.stringify({
     ...(input.Identifiers !== undefined &&
@@ -40,7 +42,6 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
         Identifiers: serializeAws_restJson1BatchGetRecordIdentifiers(input.Identifiers, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -56,8 +57,10 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
   input: DeleteRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
     if (labelValue.length <= 0) {
@@ -74,7 +77,6 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
     ...(input.EventTime !== undefined && { EventTime: input.EventTime }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -91,8 +93,10 @@ export const serializeAws_restJson1GetRecordCommand = async (
   input: GetRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
     if (labelValue.length <= 0) {
@@ -109,7 +113,6 @@ export const serializeAws_restJson1GetRecordCommand = async (
     ...(input.FeatureNames !== undefined && { FeatureName: (input.FeatureNames || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -126,10 +129,12 @@ export const serializeAws_restJson1PutRecordCommand = async (
   input: PutRecordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/FeatureGroup/{FeatureGroupName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FeatureGroup/{FeatureGroupName}";
   if (input.FeatureGroupName !== undefined) {
     const labelValue: string = input.FeatureGroupName;
     if (labelValue.length <= 0) {
@@ -144,7 +149,6 @@ export const serializeAws_restJson1PutRecordCommand = async (
     ...(input.Record !== undefined &&
       input.Record !== null && { Record: serializeAws_restJson1Record(input.Record, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -495,7 +499,7 @@ const deserializeAws_restJson1AccessForbiddenResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -512,7 +516,7 @@ const deserializeAws_restJson1InternalFailureResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -529,7 +533,7 @@ const deserializeAws_restJson1ResourceNotFoundResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -546,7 +550,7 @@ const deserializeAws_restJson1ServiceUnavailableResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -563,7 +567,7 @@ const deserializeAws_restJson1ValidationErrorResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -643,14 +647,10 @@ const serializeAws_restJson1RecordIdentifiers = (input: string[], context: __Ser
 
 const deserializeAws_restJson1BatchGetRecordError = (output: any, context: __SerdeContext): BatchGetRecordError => {
   return {
-    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
-    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
-    FeatureGroupName:
-      output.FeatureGroupName !== undefined && output.FeatureGroupName !== null ? output.FeatureGroupName : undefined,
-    RecordIdentifierValueAsString:
-      output.RecordIdentifierValueAsString !== undefined && output.RecordIdentifierValueAsString !== null
-        ? output.RecordIdentifierValueAsString
-        : undefined,
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    FeatureGroupName: __expectString(output.FeatureGroupName),
+    RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
   } as any;
 };
 
@@ -670,8 +670,7 @@ const deserializeAws_restJson1BatchGetRecordIdentifier = (
   context: __SerdeContext
 ): BatchGetRecordIdentifier => {
   return {
-    FeatureGroupName:
-      output.FeatureGroupName !== undefined && output.FeatureGroupName !== null ? output.FeatureGroupName : undefined,
+    FeatureGroupName: __expectString(output.FeatureGroupName),
     FeatureNames:
       output.FeatureNames !== undefined && output.FeatureNames !== null
         ? deserializeAws_restJson1FeatureNames(output.FeatureNames, context)
@@ -688,16 +687,12 @@ const deserializeAws_restJson1BatchGetRecordResultDetail = (
   context: __SerdeContext
 ): BatchGetRecordResultDetail => {
   return {
-    FeatureGroupName:
-      output.FeatureGroupName !== undefined && output.FeatureGroupName !== null ? output.FeatureGroupName : undefined,
+    FeatureGroupName: __expectString(output.FeatureGroupName),
     Record:
       output.Record !== undefined && output.Record !== null
         ? deserializeAws_restJson1Record(output.Record, context)
         : undefined,
-    RecordIdentifierValueAsString:
-      output.RecordIdentifierValueAsString !== undefined && output.RecordIdentifierValueAsString !== null
-        ? output.RecordIdentifierValueAsString
-        : undefined,
+    RecordIdentifierValueAsString: __expectString(output.RecordIdentifierValueAsString),
   } as any;
 };
 
@@ -722,15 +717,14 @@ const deserializeAws_restJson1FeatureNames = (output: any, context: __SerdeConte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1FeatureValue = (output: any, context: __SerdeContext): FeatureValue => {
   return {
-    FeatureName: output.FeatureName !== undefined && output.FeatureName !== null ? output.FeatureName : undefined,
-    ValueAsString:
-      output.ValueAsString !== undefined && output.ValueAsString !== null ? output.ValueAsString : undefined,
+    FeatureName: __expectString(output.FeatureName),
+    ValueAsString: __expectString(output.ValueAsString),
   } as any;
 };
 
@@ -752,7 +746,7 @@ const deserializeAws_restJson1RecordIdentifiers = (output: any, context: __Serde
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 

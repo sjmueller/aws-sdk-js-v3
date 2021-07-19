@@ -193,7 +193,12 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  handleFloat as __handleFloat,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -207,10 +212,12 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
   input: AssociateAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/assets/{assetId}/associate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/associate";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -233,7 +240,6 @@ export const serializeAws_restJson1AssociateAssetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -249,10 +255,12 @@ export const serializeAws_restJson1BatchAssociateProjectAssetsCommand = async (
   input: BatchAssociateProjectAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectId}/assets/associate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}/assets/associate";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
@@ -275,7 +283,6 @@ export const serializeAws_restJson1BatchAssociateProjectAssetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -291,10 +298,12 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
   input: BatchDisassociateProjectAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectId}/assets/disassociate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}/assets/disassociate";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
@@ -317,7 +326,6 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -333,10 +341,11 @@ export const serializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
   input: BatchPutAssetPropertyValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/properties";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties";
   let body: any;
   body = JSON.stringify({
     ...(input.entries !== undefined &&
@@ -351,7 +360,6 @@ export const serializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -367,10 +375,11 @@ export const serializeAws_restJson1CreateAccessPolicyCommand = async (
   input: CreateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/access-policies";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies";
   let body: any;
   body = JSON.stringify({
     ...(input.accessPolicyIdentity !== undefined &&
@@ -393,7 +402,6 @@ export const serializeAws_restJson1CreateAccessPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -409,10 +417,11 @@ export const serializeAws_restJson1CreateAssetCommand = async (
   input: CreateAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/assets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets";
   let body: any;
   body = JSON.stringify({
     ...(input.assetModelId !== undefined && input.assetModelId !== null && { assetModelId: input.assetModelId }),
@@ -427,7 +436,6 @@ export const serializeAws_restJson1CreateAssetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -443,10 +451,11 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
   input: CreateAssetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/asset-models";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models";
   let body: any;
   body = JSON.stringify({
     ...(input.assetModelCompositeModels !== undefined &&
@@ -481,7 +490,6 @@ export const serializeAws_restJson1CreateAssetModelCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -497,10 +505,11 @@ export const serializeAws_restJson1CreateDashboardCommand = async (
   input: CreateDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/dashboards";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -519,7 +528,6 @@ export const serializeAws_restJson1CreateDashboardCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -535,10 +543,11 @@ export const serializeAws_restJson1CreateGatewayCommand = async (
   input: CreateGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/20200301/gateways";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways";
   let body: any;
   body = JSON.stringify({
     ...(input.gatewayName !== undefined && input.gatewayName !== null && { gatewayName: input.gatewayName }),
@@ -555,7 +564,6 @@ export const serializeAws_restJson1CreateGatewayCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -571,10 +579,11 @@ export const serializeAws_restJson1CreatePortalCommand = async (
   input: CreatePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/portals";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals";
   let body: any;
   body = JSON.stringify({
     ...(input.alarms !== undefined &&
@@ -603,7 +612,6 @@ export const serializeAws_restJson1CreatePortalCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -619,10 +627,11 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -639,7 +648,6 @@ export const serializeAws_restJson1CreateProjectCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -655,8 +663,10 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
   input: DeleteAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/access-policies/{accessPolicyId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies/{accessPolicyId}";
   if (input.accessPolicyId !== undefined) {
     const labelValue: string = input.accessPolicyId;
     if (labelValue.length <= 0) {
@@ -677,7 +687,6 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -694,8 +703,9 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   input: DeleteAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/assets/{assetId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -716,7 +726,6 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -733,8 +742,10 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
   input: DeleteAssetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/asset-models/{assetModelId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models/{assetModelId}";
   if (input.assetModelId !== undefined) {
     const labelValue: string = input.assetModelId;
     if (labelValue.length <= 0) {
@@ -755,7 +766,6 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -772,8 +782,10 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
   input: DeleteDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/dashboards/{dashboardId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards/{dashboardId}";
   if (input.dashboardId !== undefined) {
     const labelValue: string = input.dashboardId;
     if (labelValue.length <= 0) {
@@ -794,7 +806,6 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -811,8 +822,10 @@ export const serializeAws_restJson1DeleteGatewayCommand = async (
   input: DeleteGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/20200301/gateways/{gatewayId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways/{gatewayId}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
     if (labelValue.length <= 0) {
@@ -830,7 +843,6 @@ export const serializeAws_restJson1DeleteGatewayCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -846,8 +858,9 @@ export const serializeAws_restJson1DeletePortalCommand = async (
   input: DeletePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/portals/{portalId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalId}";
   if (input.portalId !== undefined) {
     const labelValue: string = input.portalId;
     if (labelValue.length <= 0) {
@@ -868,7 +881,6 @@ export const serializeAws_restJson1DeletePortalCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -885,8 +897,9 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
@@ -907,7 +920,6 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -924,8 +936,10 @@ export const serializeAws_restJson1DescribeAccessPolicyCommand = async (
   input: DescribeAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/access-policies/{accessPolicyId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies/{accessPolicyId}";
   if (input.accessPolicyId !== undefined) {
     const labelValue: string = input.accessPolicyId;
     if (labelValue.length <= 0) {
@@ -943,7 +957,6 @@ export const serializeAws_restJson1DescribeAccessPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -959,8 +972,9 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
   input: DescribeAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/assets/{assetId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -978,7 +992,6 @@ export const serializeAws_restJson1DescribeAssetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -994,8 +1007,10 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
   input: DescribeAssetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/asset-models/{assetModelId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models/{assetModelId}";
   if (input.assetModelId !== undefined) {
     const labelValue: string = input.assetModelId;
     if (labelValue.length <= 0) {
@@ -1013,7 +1028,6 @@ export const serializeAws_restJson1DescribeAssetModelCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1029,8 +1043,10 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
   input: DescribeAssetPropertyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/assets/{assetId}/properties/{propertyId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/properties/{propertyId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -1057,7 +1073,6 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1073,8 +1088,10 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
   input: DescribeDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/dashboards/{dashboardId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards/{dashboardId}";
   if (input.dashboardId !== undefined) {
     const labelValue: string = input.dashboardId;
     if (labelValue.length <= 0) {
@@ -1092,7 +1109,6 @@ export const serializeAws_restJson1DescribeDashboardCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1108,13 +1124,14 @@ export const serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand
   input: DescribeDefaultEncryptionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/configuration/account/encryption";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/encryption";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1130,8 +1147,10 @@ export const serializeAws_restJson1DescribeGatewayCommand = async (
   input: DescribeGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/20200301/gateways/{gatewayId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways/{gatewayId}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
     if (labelValue.length <= 0) {
@@ -1149,7 +1168,6 @@ export const serializeAws_restJson1DescribeGatewayCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1165,8 +1183,11 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
   input: DescribeGatewayCapabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
     if (labelValue.length <= 0) {
@@ -1193,7 +1214,6 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1209,10 +1229,11 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   input: DescribeLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/logging";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging";
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1222,7 +1243,6 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1238,8 +1258,9 @@ export const serializeAws_restJson1DescribePortalCommand = async (
   input: DescribePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/portals/{portalId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalId}";
   if (input.portalId !== undefined) {
     const labelValue: string = input.portalId;
     if (labelValue.length <= 0) {
@@ -1257,7 +1278,6 @@ export const serializeAws_restJson1DescribePortalCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1273,8 +1293,9 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
@@ -1292,7 +1313,6 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1308,10 +1328,12 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
   input: DisassociateAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/assets/{assetId}/disassociate";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/disassociate";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -1334,7 +1356,6 @@ export const serializeAws_restJson1DisassociateAssetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1350,8 +1371,9 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   input: GetAssetPropertyAggregatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/properties/aggregates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/aggregates";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
@@ -1373,7 +1395,6 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1390,8 +1411,9 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
   input: GetAssetPropertyValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/properties/latest";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/latest";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
@@ -1405,7 +1427,6 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1422,8 +1443,9 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
   input: GetAssetPropertyValueHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/properties/history";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/history";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
@@ -1443,7 +1465,6 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1460,8 +1481,9 @@ export const serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand = a
   input: GetInterpolatedAssetPropertyValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/properties/interpolated";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/interpolated";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
@@ -1486,7 +1508,6 @@ export const serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand = a
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1503,8 +1524,9 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   input: ListAccessPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/access-policies";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies";
   const query: any = {
     ...(input.identityType !== undefined && { identityType: input.identityType }),
     ...(input.identityId !== undefined && { identityId: input.identityId }),
@@ -1522,7 +1544,6 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1539,8 +1560,9 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   input: ListAssetModelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/asset-models";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -1553,7 +1575,6 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1570,8 +1591,10 @@ export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
   input: ListAssetRelationshipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/assets/{assetId}/assetRelationships";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/assetRelationships";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -1594,7 +1617,6 @@ export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1611,8 +1633,9 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   input: ListAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/assets";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -1627,7 +1650,6 @@ export const serializeAws_restJson1ListAssetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1644,8 +1666,10 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
   input: ListAssociatedAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/assets/{assetId}/hierarchies";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/hierarchies";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -1669,7 +1693,6 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1686,8 +1709,9 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   input: ListDashboardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/dashboards";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards";
   const query: any = {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1701,7 +1725,6 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1718,8 +1741,9 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
   input: ListGatewaysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/20200301/gateways";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -1732,7 +1756,6 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1749,8 +1772,9 @@ export const serializeAws_restJson1ListPortalsCommand = async (
   input: ListPortalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/portals";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -1763,7 +1787,6 @@ export const serializeAws_restJson1ListPortalsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1780,8 +1803,10 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
   input: ListProjectAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectId}/assets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}/assets";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
@@ -1803,7 +1828,6 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1820,8 +1844,9 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   const query: any = {
     ...(input.portalId !== undefined && { portalId: input.portalId }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -1835,7 +1860,6 @@ export const serializeAws_restJson1ListProjectsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1852,13 +1876,13 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1875,17 +1899,18 @@ export const serializeAws_restJson1PutDefaultEncryptionConfigurationCommand = as
   input: PutDefaultEncryptionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/configuration/account/encryption";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration/account/encryption";
   let body: any;
   body = JSON.stringify({
     ...(input.encryptionType !== undefined &&
       input.encryptionType !== null && { encryptionType: input.encryptionType }),
     ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1901,10 +1926,11 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
   input: PutLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/logging";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logging";
   let body: any;
   body = JSON.stringify({
     ...(input.loggingOptions !== undefined &&
@@ -1919,7 +1945,6 @@ export const serializeAws_restJson1PutLoggingOptionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -1935,10 +1960,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
@@ -1946,7 +1972,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1963,14 +1988,14 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1987,10 +2012,12 @@ export const serializeAws_restJson1UpdateAccessPolicyCommand = async (
   input: UpdateAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/access-policies/{accessPolicyId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-policies/{accessPolicyId}";
   if (input.accessPolicyId !== undefined) {
     const labelValue: string = input.accessPolicyId;
     if (labelValue.length <= 0) {
@@ -2021,7 +2048,6 @@ export const serializeAws_restJson1UpdateAccessPolicyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2037,10 +2063,11 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
   input: UpdateAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/assets/{assetId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -2062,7 +2089,6 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2078,10 +2104,12 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
   input: UpdateAssetModelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/asset-models/{assetModelId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/asset-models/{assetModelId}";
   if (input.assetModelId !== undefined) {
     const labelValue: string = input.assetModelId;
     if (labelValue.length <= 0) {
@@ -2121,7 +2149,6 @@ export const serializeAws_restJson1UpdateAssetModelCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2137,10 +2164,12 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
   input: UpdateAssetPropertyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/assets/{assetId}/properties/{propertyId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/properties/{propertyId}";
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -2173,7 +2202,6 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2189,10 +2217,12 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
   input: UpdateDashboardCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/dashboards/{dashboardId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards/{dashboardId}";
   if (input.dashboardId !== undefined) {
     const labelValue: string = input.dashboardId;
     if (labelValue.length <= 0) {
@@ -2218,7 +2248,6 @@ export const serializeAws_restJson1UpdateDashboardCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2234,10 +2263,12 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
   input: UpdateGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/20200301/gateways/{gatewayId}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways/{gatewayId}";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
     if (labelValue.length <= 0) {
@@ -2258,7 +2289,6 @@ export const serializeAws_restJson1UpdateGatewayCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2274,10 +2304,12 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
   input: UpdateGatewayCapabilityConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/20200301/gateways/{gatewayId}/capability";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/20200301/gateways/{gatewayId}/capability";
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
     if (labelValue.length <= 0) {
@@ -2301,7 +2333,6 @@ export const serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand =
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2317,10 +2348,11 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
   input: UpdatePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/portals/{portalId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalId}";
   if (input.portalId !== undefined) {
     const labelValue: string = input.portalId;
     if (labelValue.length <= 0) {
@@ -2355,7 +2387,6 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2371,10 +2402,11 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectId}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
     if (labelValue.length <= 0) {
@@ -2398,7 +2430,6 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
@@ -2784,10 +2815,10 @@ export const deserializeAws_restJson1CreateAccessPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accessPolicyArn !== undefined && data.accessPolicyArn !== null) {
-    contents.accessPolicyArn = data.accessPolicyArn;
+    contents.accessPolicyArn = __expectString(data.accessPolicyArn);
   }
   if (data.accessPolicyId !== undefined && data.accessPolicyId !== null) {
-    contents.accessPolicyId = data.accessPolicyId;
+    contents.accessPolicyId = __expectString(data.accessPolicyId);
   }
   return Promise.resolve(contents);
 };
@@ -2876,10 +2907,10 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.assetArn !== undefined && data.assetArn !== null) {
-    contents.assetArn = data.assetArn;
+    contents.assetArn = __expectString(data.assetArn);
   }
   if (data.assetId !== undefined && data.assetId !== null) {
-    contents.assetId = data.assetId;
+    contents.assetId = __expectString(data.assetId);
   }
   if (data.assetStatus !== undefined && data.assetStatus !== null) {
     contents.assetStatus = deserializeAws_restJson1AssetStatus(data.assetStatus, context);
@@ -2987,10 +3018,10 @@ export const deserializeAws_restJson1CreateAssetModelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.assetModelArn !== undefined && data.assetModelArn !== null) {
-    contents.assetModelArn = data.assetModelArn;
+    contents.assetModelArn = __expectString(data.assetModelArn);
   }
   if (data.assetModelId !== undefined && data.assetModelId !== null) {
-    contents.assetModelId = data.assetModelId;
+    contents.assetModelId = __expectString(data.assetModelId);
   }
   if (data.assetModelStatus !== undefined && data.assetModelStatus !== null) {
     contents.assetModelStatus = deserializeAws_restJson1AssetModelStatus(data.assetModelStatus, context);
@@ -3097,10 +3128,10 @@ export const deserializeAws_restJson1CreateDashboardCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dashboardArn !== undefined && data.dashboardArn !== null) {
-    contents.dashboardArn = data.dashboardArn;
+    contents.dashboardArn = __expectString(data.dashboardArn);
   }
   if (data.dashboardId !== undefined && data.dashboardId !== null) {
-    contents.dashboardId = data.dashboardId;
+    contents.dashboardId = __expectString(data.dashboardId);
   }
   return Promise.resolve(contents);
 };
@@ -3188,10 +3219,10 @@ export const deserializeAws_restJson1CreateGatewayCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.gatewayArn !== undefined && data.gatewayArn !== null) {
-    contents.gatewayArn = data.gatewayArn;
+    contents.gatewayArn = __expectString(data.gatewayArn);
   }
   if (data.gatewayId !== undefined && data.gatewayId !== null) {
-    contents.gatewayId = data.gatewayId;
+    contents.gatewayId = __expectString(data.gatewayId);
   }
   return Promise.resolve(contents);
 };
@@ -3282,19 +3313,19 @@ export const deserializeAws_restJson1CreatePortalCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.portalArn !== undefined && data.portalArn !== null) {
-    contents.portalArn = data.portalArn;
+    contents.portalArn = __expectString(data.portalArn);
   }
   if (data.portalId !== undefined && data.portalId !== null) {
-    contents.portalId = data.portalId;
+    contents.portalId = __expectString(data.portalId);
   }
   if (data.portalStartUrl !== undefined && data.portalStartUrl !== null) {
-    contents.portalStartUrl = data.portalStartUrl;
+    contents.portalStartUrl = __expectString(data.portalStartUrl);
   }
   if (data.portalStatus !== undefined && data.portalStatus !== null) {
     contents.portalStatus = deserializeAws_restJson1PortalStatus(data.portalStatus, context);
   }
   if (data.ssoApplicationId !== undefined && data.ssoApplicationId !== null) {
-    contents.ssoApplicationId = data.ssoApplicationId;
+    contents.ssoApplicationId = __expectString(data.ssoApplicationId);
   }
   return Promise.resolve(contents);
 };
@@ -3382,10 +3413,10 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.projectArn !== undefined && data.projectArn !== null) {
-    contents.projectArn = data.projectArn;
+    contents.projectArn = __expectString(data.projectArn);
   }
   if (data.projectId !== undefined && data.projectId !== null) {
-    contents.projectId = data.projectId;
+    contents.projectId = __expectString(data.projectId);
   }
   return Promise.resolve(contents);
 };
@@ -4039,13 +4070,13 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accessPolicyArn !== undefined && data.accessPolicyArn !== null) {
-    contents.accessPolicyArn = data.accessPolicyArn;
+    contents.accessPolicyArn = __expectString(data.accessPolicyArn);
   }
   if (data.accessPolicyCreationDate !== undefined && data.accessPolicyCreationDate !== null) {
     contents.accessPolicyCreationDate = new Date(Math.round(data.accessPolicyCreationDate * 1000));
   }
   if (data.accessPolicyId !== undefined && data.accessPolicyId !== null) {
-    contents.accessPolicyId = data.accessPolicyId;
+    contents.accessPolicyId = __expectString(data.accessPolicyId);
   }
   if (data.accessPolicyIdentity !== undefined && data.accessPolicyIdentity !== null) {
     contents.accessPolicyIdentity = deserializeAws_restJson1Identity(data.accessPolicyIdentity, context);
@@ -4054,7 +4085,7 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
     contents.accessPolicyLastUpdateDate = new Date(Math.round(data.accessPolicyLastUpdateDate * 1000));
   }
   if (data.accessPolicyPermission !== undefined && data.accessPolicyPermission !== null) {
-    contents.accessPolicyPermission = data.accessPolicyPermission;
+    contents.accessPolicyPermission = __expectString(data.accessPolicyPermission);
   }
   if (data.accessPolicyResource !== undefined && data.accessPolicyResource !== null) {
     contents.accessPolicyResource = deserializeAws_restJson1Resource(data.accessPolicyResource, context);
@@ -4145,7 +4176,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.assetArn !== undefined && data.assetArn !== null) {
-    contents.assetArn = data.assetArn;
+    contents.assetArn = __expectString(data.assetArn);
   }
   if (data.assetCompositeModels !== undefined && data.assetCompositeModels !== null) {
     contents.assetCompositeModels = deserializeAws_restJson1AssetCompositeModels(data.assetCompositeModels, context);
@@ -4157,16 +4188,16 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
     contents.assetHierarchies = deserializeAws_restJson1AssetHierarchies(data.assetHierarchies, context);
   }
   if (data.assetId !== undefined && data.assetId !== null) {
-    contents.assetId = data.assetId;
+    contents.assetId = __expectString(data.assetId);
   }
   if (data.assetLastUpdateDate !== undefined && data.assetLastUpdateDate !== null) {
     contents.assetLastUpdateDate = new Date(Math.round(data.assetLastUpdateDate * 1000));
   }
   if (data.assetModelId !== undefined && data.assetModelId !== null) {
-    contents.assetModelId = data.assetModelId;
+    contents.assetModelId = __expectString(data.assetModelId);
   }
   if (data.assetName !== undefined && data.assetName !== null) {
-    contents.assetName = data.assetName;
+    contents.assetName = __expectString(data.assetName);
   }
   if (data.assetProperties !== undefined && data.assetProperties !== null) {
     contents.assetProperties = deserializeAws_restJson1AssetProperties(data.assetProperties, context);
@@ -4260,7 +4291,7 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.assetModelArn !== undefined && data.assetModelArn !== null) {
-    contents.assetModelArn = data.assetModelArn;
+    contents.assetModelArn = __expectString(data.assetModelArn);
   }
   if (data.assetModelCompositeModels !== undefined && data.assetModelCompositeModels !== null) {
     contents.assetModelCompositeModels = deserializeAws_restJson1AssetModelCompositeModels(
@@ -4272,19 +4303,19 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
     contents.assetModelCreationDate = new Date(Math.round(data.assetModelCreationDate * 1000));
   }
   if (data.assetModelDescription !== undefined && data.assetModelDescription !== null) {
-    contents.assetModelDescription = data.assetModelDescription;
+    contents.assetModelDescription = __expectString(data.assetModelDescription);
   }
   if (data.assetModelHierarchies !== undefined && data.assetModelHierarchies !== null) {
     contents.assetModelHierarchies = deserializeAws_restJson1AssetModelHierarchies(data.assetModelHierarchies, context);
   }
   if (data.assetModelId !== undefined && data.assetModelId !== null) {
-    contents.assetModelId = data.assetModelId;
+    contents.assetModelId = __expectString(data.assetModelId);
   }
   if (data.assetModelLastUpdateDate !== undefined && data.assetModelLastUpdateDate !== null) {
     contents.assetModelLastUpdateDate = new Date(Math.round(data.assetModelLastUpdateDate * 1000));
   }
   if (data.assetModelName !== undefined && data.assetModelName !== null) {
-    contents.assetModelName = data.assetModelName;
+    contents.assetModelName = __expectString(data.assetModelName);
   }
   if (data.assetModelProperties !== undefined && data.assetModelProperties !== null) {
     contents.assetModelProperties = deserializeAws_restJson1AssetModelProperties(data.assetModelProperties, context);
@@ -4373,13 +4404,13 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.assetId !== undefined && data.assetId !== null) {
-    contents.assetId = data.assetId;
+    contents.assetId = __expectString(data.assetId);
   }
   if (data.assetModelId !== undefined && data.assetModelId !== null) {
-    contents.assetModelId = data.assetModelId;
+    contents.assetModelId = __expectString(data.assetModelId);
   }
   if (data.assetName !== undefined && data.assetName !== null) {
-    contents.assetName = data.assetName;
+    contents.assetName = __expectString(data.assetName);
   }
   if (data.assetProperty !== undefined && data.assetProperty !== null) {
     contents.assetProperty = deserializeAws_restJson1Property(data.assetProperty, context);
@@ -4471,28 +4502,28 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dashboardArn !== undefined && data.dashboardArn !== null) {
-    contents.dashboardArn = data.dashboardArn;
+    contents.dashboardArn = __expectString(data.dashboardArn);
   }
   if (data.dashboardCreationDate !== undefined && data.dashboardCreationDate !== null) {
     contents.dashboardCreationDate = new Date(Math.round(data.dashboardCreationDate * 1000));
   }
   if (data.dashboardDefinition !== undefined && data.dashboardDefinition !== null) {
-    contents.dashboardDefinition = data.dashboardDefinition;
+    contents.dashboardDefinition = __expectString(data.dashboardDefinition);
   }
   if (data.dashboardDescription !== undefined && data.dashboardDescription !== null) {
-    contents.dashboardDescription = data.dashboardDescription;
+    contents.dashboardDescription = __expectString(data.dashboardDescription);
   }
   if (data.dashboardId !== undefined && data.dashboardId !== null) {
-    contents.dashboardId = data.dashboardId;
+    contents.dashboardId = __expectString(data.dashboardId);
   }
   if (data.dashboardLastUpdateDate !== undefined && data.dashboardLastUpdateDate !== null) {
     contents.dashboardLastUpdateDate = new Date(Math.round(data.dashboardLastUpdateDate * 1000));
   }
   if (data.dashboardName !== undefined && data.dashboardName !== null) {
-    contents.dashboardName = data.dashboardName;
+    contents.dashboardName = __expectString(data.dashboardName);
   }
   if (data.projectId !== undefined && data.projectId !== null) {
-    contents.projectId = data.projectId;
+    contents.projectId = __expectString(data.projectId);
   }
   return Promise.resolve(contents);
 };
@@ -4576,10 +4607,10 @@ export const deserializeAws_restJson1DescribeDefaultEncryptionConfigurationComma
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
   if (data.encryptionType !== undefined && data.encryptionType !== null) {
-    contents.encryptionType = data.encryptionType;
+    contents.encryptionType = __expectString(data.encryptionType);
   }
   if (data.kmsKeyArn !== undefined && data.kmsKeyArn !== null) {
-    contents.kmsKeyArn = data.kmsKeyArn;
+    contents.kmsKeyArn = __expectString(data.kmsKeyArn);
   }
   return Promise.resolve(contents);
 };
@@ -4659,7 +4690,7 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
     contents.creationDate = new Date(Math.round(data.creationDate * 1000));
   }
   if (data.gatewayArn !== undefined && data.gatewayArn !== null) {
-    contents.gatewayArn = data.gatewayArn;
+    contents.gatewayArn = __expectString(data.gatewayArn);
   }
   if (data.gatewayCapabilitySummaries !== undefined && data.gatewayCapabilitySummaries !== null) {
     contents.gatewayCapabilitySummaries = deserializeAws_restJson1GatewayCapabilitySummaries(
@@ -4668,10 +4699,10 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
     );
   }
   if (data.gatewayId !== undefined && data.gatewayId !== null) {
-    contents.gatewayId = data.gatewayId;
+    contents.gatewayId = __expectString(data.gatewayId);
   }
   if (data.gatewayName !== undefined && data.gatewayName !== null) {
-    contents.gatewayName = data.gatewayName;
+    contents.gatewayName = __expectString(data.gatewayName);
   }
   if (data.gatewayPlatform !== undefined && data.gatewayPlatform !== null) {
     contents.gatewayPlatform = deserializeAws_restJson1GatewayPlatform(data.gatewayPlatform, context);
@@ -4759,16 +4790,16 @@ export const deserializeAws_restJson1DescribeGatewayCapabilityConfigurationComma
   };
   const data: any = await parseBody(output.body, context);
   if (data.capabilityConfiguration !== undefined && data.capabilityConfiguration !== null) {
-    contents.capabilityConfiguration = data.capabilityConfiguration;
+    contents.capabilityConfiguration = __expectString(data.capabilityConfiguration);
   }
   if (data.capabilityNamespace !== undefined && data.capabilityNamespace !== null) {
-    contents.capabilityNamespace = data.capabilityNamespace;
+    contents.capabilityNamespace = __expectString(data.capabilityNamespace);
   }
   if (data.capabilitySyncStatus !== undefined && data.capabilitySyncStatus !== null) {
-    contents.capabilitySyncStatus = data.capabilitySyncStatus;
+    contents.capabilitySyncStatus = __expectString(data.capabilitySyncStatus);
   }
   if (data.gatewayId !== undefined && data.gatewayId !== null) {
-    contents.gatewayId = data.gatewayId;
+    contents.gatewayId = __expectString(data.gatewayId);
   }
   return Promise.resolve(contents);
 };
@@ -4943,28 +4974,28 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
     contents.alarms = deserializeAws_restJson1Alarms(data.alarms, context);
   }
   if (data.notificationSenderEmail !== undefined && data.notificationSenderEmail !== null) {
-    contents.notificationSenderEmail = data.notificationSenderEmail;
+    contents.notificationSenderEmail = __expectString(data.notificationSenderEmail);
   }
   if (data.portalArn !== undefined && data.portalArn !== null) {
-    contents.portalArn = data.portalArn;
+    contents.portalArn = __expectString(data.portalArn);
   }
   if (data.portalAuthMode !== undefined && data.portalAuthMode !== null) {
-    contents.portalAuthMode = data.portalAuthMode;
+    contents.portalAuthMode = __expectString(data.portalAuthMode);
   }
   if (data.portalClientId !== undefined && data.portalClientId !== null) {
-    contents.portalClientId = data.portalClientId;
+    contents.portalClientId = __expectString(data.portalClientId);
   }
   if (data.portalContactEmail !== undefined && data.portalContactEmail !== null) {
-    contents.portalContactEmail = data.portalContactEmail;
+    contents.portalContactEmail = __expectString(data.portalContactEmail);
   }
   if (data.portalCreationDate !== undefined && data.portalCreationDate !== null) {
     contents.portalCreationDate = new Date(Math.round(data.portalCreationDate * 1000));
   }
   if (data.portalDescription !== undefined && data.portalDescription !== null) {
-    contents.portalDescription = data.portalDescription;
+    contents.portalDescription = __expectString(data.portalDescription);
   }
   if (data.portalId !== undefined && data.portalId !== null) {
-    contents.portalId = data.portalId;
+    contents.portalId = __expectString(data.portalId);
   }
   if (data.portalLastUpdateDate !== undefined && data.portalLastUpdateDate !== null) {
     contents.portalLastUpdateDate = new Date(Math.round(data.portalLastUpdateDate * 1000));
@@ -4973,16 +5004,16 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
     contents.portalLogoImageLocation = deserializeAws_restJson1ImageLocation(data.portalLogoImageLocation, context);
   }
   if (data.portalName !== undefined && data.portalName !== null) {
-    contents.portalName = data.portalName;
+    contents.portalName = __expectString(data.portalName);
   }
   if (data.portalStartUrl !== undefined && data.portalStartUrl !== null) {
-    contents.portalStartUrl = data.portalStartUrl;
+    contents.portalStartUrl = __expectString(data.portalStartUrl);
   }
   if (data.portalStatus !== undefined && data.portalStatus !== null) {
     contents.portalStatus = deserializeAws_restJson1PortalStatus(data.portalStatus, context);
   }
   if (data.roleArn !== undefined && data.roleArn !== null) {
-    contents.roleArn = data.roleArn;
+    contents.roleArn = __expectString(data.roleArn);
   }
   return Promise.resolve(contents);
 };
@@ -5067,25 +5098,25 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.portalId !== undefined && data.portalId !== null) {
-    contents.portalId = data.portalId;
+    contents.portalId = __expectString(data.portalId);
   }
   if (data.projectArn !== undefined && data.projectArn !== null) {
-    contents.projectArn = data.projectArn;
+    contents.projectArn = __expectString(data.projectArn);
   }
   if (data.projectCreationDate !== undefined && data.projectCreationDate !== null) {
     contents.projectCreationDate = new Date(Math.round(data.projectCreationDate * 1000));
   }
   if (data.projectDescription !== undefined && data.projectDescription !== null) {
-    contents.projectDescription = data.projectDescription;
+    contents.projectDescription = __expectString(data.projectDescription);
   }
   if (data.projectId !== undefined && data.projectId !== null) {
-    contents.projectId = data.projectId;
+    contents.projectId = __expectString(data.projectId);
   }
   if (data.projectLastUpdateDate !== undefined && data.projectLastUpdateDate !== null) {
     contents.projectLastUpdateDate = new Date(Math.round(data.projectLastUpdateDate * 1000));
   }
   if (data.projectName !== undefined && data.projectName !== null) {
-    contents.projectName = data.projectName;
+    contents.projectName = __expectString(data.projectName);
   }
   return Promise.resolve(contents);
 };
@@ -5251,7 +5282,7 @@ export const deserializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     contents.aggregatedValues = deserializeAws_restJson1AggregatedValues(data.aggregatedValues, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5432,7 +5463,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueHistoryCommand = async
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5526,7 +5557,7 @@ export const deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand =
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5617,7 +5648,7 @@ export const deserializeAws_restJson1ListAccessPoliciesCommand = async (
     contents.accessPolicySummaries = deserializeAws_restJson1AccessPolicySummaries(data.accessPolicySummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5692,7 +5723,7 @@ export const deserializeAws_restJson1ListAssetModelsCommand = async (
     contents.assetModelSummaries = deserializeAws_restJson1AssetModelSummaries(data.assetModelSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5770,7 +5801,7 @@ export const deserializeAws_restJson1ListAssetRelationshipsCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5853,7 +5884,7 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
     contents.assetSummaries = deserializeAws_restJson1AssetSummaries(data.assetSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -5936,7 +5967,7 @@ export const deserializeAws_restJson1ListAssociatedAssetsCommand = async (
     contents.assetSummaries = deserializeAws_restJson1AssociatedAssetsSummaries(data.assetSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6019,7 +6050,7 @@ export const deserializeAws_restJson1ListDashboardsCommand = async (
     contents.dashboardSummaries = deserializeAws_restJson1DashboardSummaries(data.dashboardSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6094,7 +6125,7 @@ export const deserializeAws_restJson1ListGatewaysCommand = async (
     contents.gatewaySummaries = deserializeAws_restJson1GatewaySummaries(data.gatewaySummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6166,7 +6197,7 @@ export const deserializeAws_restJson1ListPortalsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.portalSummaries !== undefined && data.portalSummaries !== null) {
     contents.portalSummaries = deserializeAws_restJson1PortalSummaries(data.portalSummaries, context);
@@ -6244,7 +6275,7 @@ export const deserializeAws_restJson1ListProjectAssetsCommand = async (
     contents.assetIds = deserializeAws_restJson1AssetIDs(data.assetIds, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -6316,7 +6347,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.projectSummaries !== undefined && data.projectSummaries !== null) {
     contents.projectSummaries = deserializeAws_restJson1ProjectSummaries(data.projectSummaries, context);
@@ -6498,10 +6529,10 @@ export const deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand = 
     contents.configurationStatus = deserializeAws_restJson1ConfigurationStatus(data.configurationStatus, context);
   }
   if (data.encryptionType !== undefined && data.encryptionType !== null) {
-    contents.encryptionType = data.encryptionType;
+    contents.encryptionType = __expectString(data.encryptionType);
   }
   if (data.kmsKeyArn !== undefined && data.kmsKeyArn !== null) {
-    contents.kmsKeyArn = data.kmsKeyArn;
+    contents.kmsKeyArn = __expectString(data.kmsKeyArn);
   }
   return Promise.resolve(contents);
 };
@@ -7392,10 +7423,10 @@ export const deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
   };
   const data: any = await parseBody(output.body, context);
   if (data.capabilityNamespace !== undefined && data.capabilityNamespace !== null) {
-    contents.capabilityNamespace = data.capabilityNamespace;
+    contents.capabilityNamespace = __expectString(data.capabilityNamespace);
   }
   if (data.capabilitySyncStatus !== undefined && data.capabilitySyncStatus !== null) {
-    contents.capabilitySyncStatus = data.capabilitySyncStatus;
+    contents.capabilitySyncStatus = __expectString(data.capabilitySyncStatus);
   }
   return Promise.resolve(contents);
 };
@@ -7653,13 +7684,13 @@ const deserializeAws_restJson1ConflictingOperationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceArn !== undefined && data.resourceArn !== null) {
-    contents.resourceArn = data.resourceArn;
+    contents.resourceArn = __expectString(data.resourceArn);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   return contents;
 };
@@ -7676,7 +7707,7 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7693,7 +7724,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7710,7 +7741,7 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7729,13 +7760,13 @@ const deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceArn !== undefined && data.resourceArn !== null) {
-    contents.resourceArn = data.resourceArn;
+    contents.resourceArn = __expectString(data.resourceArn);
   }
   if (data.resourceId !== undefined && data.resourceId !== null) {
-    contents.resourceId = data.resourceId;
+    contents.resourceId = __expectString(data.resourceId);
   }
   return contents;
 };
@@ -7752,7 +7783,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7769,7 +7800,7 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7786,7 +7817,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -7804,10 +7835,10 @@ const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   if (data.resourceName !== undefined && data.resourceName !== null) {
-    contents.resourceName = data.resourceName;
+    contents.resourceName = __expectString(data.resourceName);
   }
   return contents;
 };
@@ -7824,7 +7855,7 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -8199,7 +8230,7 @@ const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -8247,7 +8278,8 @@ const serializeAws_restJson1VariableValue = (input: VariableValue, context: __Se
 const serializeAws_restJson1Variant = (input: Variant, context: __SerdeContext): any => {
   return {
     ...(input.booleanValue !== undefined && input.booleanValue !== null && { booleanValue: input.booleanValue }),
-    ...(input.doubleValue !== undefined && input.doubleValue !== null && { doubleValue: input.doubleValue }),
+    ...(input.doubleValue !== undefined &&
+      input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.integerValue !== undefined && input.integerValue !== null && { integerValue: input.integerValue }),
     ...(input.stringValue !== undefined && input.stringValue !== null && { stringValue: input.stringValue }),
   };
@@ -8270,7 +8302,7 @@ const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __Ser
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
     identity:
       output.identity !== undefined && output.identity !== null
         ? deserializeAws_restJson1Identity(output.identity, context)
@@ -8279,7 +8311,7 @@ const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __Ser
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    permission: output.permission !== undefined && output.permission !== null ? output.permission : undefined,
+    permission: __expectString(output.permission),
     resource:
       output.resource !== undefined && output.resource !== null
         ? deserializeAws_restJson1Resource(output.resource, context)
@@ -8289,7 +8321,7 @@ const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __Ser
 
 const deserializeAws_restJson1AggregatedValue = (output: any, context: __SerdeContext): AggregatedValue => {
   return {
-    quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
+    quality: __expectString(output.quality),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? new Date(Math.round(output.timestamp * 1000))
@@ -8314,37 +8346,31 @@ const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
   return {
-    average: output.average !== undefined && output.average !== null ? output.average : undefined,
-    count: output.count !== undefined && output.count !== null ? output.count : undefined,
-    maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
-    minimum: output.minimum !== undefined && output.minimum !== null ? output.minimum : undefined,
-    standardDeviation:
-      output.standardDeviation !== undefined && output.standardDeviation !== null
-        ? output.standardDeviation
-        : undefined,
-    sum: output.sum !== undefined && output.sum !== null ? output.sum : undefined,
+    average: __handleFloat(output.average),
+    count: __handleFloat(output.count),
+    maximum: __handleFloat(output.maximum),
+    minimum: __handleFloat(output.minimum),
+    standardDeviation: __handleFloat(output.standardDeviation),
+    sum: __handleFloat(output.sum),
   } as any;
 };
 
 const deserializeAws_restJson1Alarms = (output: any, context: __SerdeContext): Alarms => {
   return {
-    alarmRoleArn: output.alarmRoleArn !== undefined && output.alarmRoleArn !== null ? output.alarmRoleArn : undefined,
-    notificationLambdaArn:
-      output.notificationLambdaArn !== undefined && output.notificationLambdaArn !== null
-        ? output.notificationLambdaArn
-        : undefined,
+    alarmRoleArn: __expectString(output.alarmRoleArn),
+    notificationLambdaArn: __expectString(output.notificationLambdaArn),
   } as any;
 };
 
 const deserializeAws_restJson1AssetCompositeModel = (output: any, context: __SerdeContext): AssetCompositeModel => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    description: __expectString(output.description),
+    name: __expectString(output.name),
     properties:
       output.properties !== undefined && output.properties !== null
         ? deserializeAws_restJson1AssetProperties(output.properties, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -8361,9 +8387,9 @@ const deserializeAws_restJson1AssetCompositeModels = (output: any, context: __Se
 
 const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __SerdeContext): AssetErrorDetails => {
   return {
-    assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    assetId: __expectString(output.assetId),
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -8380,16 +8406,15 @@ const deserializeAws_restJson1AssetHierarchies = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AssetHierarchy = (output: any, context: __SerdeContext): AssetHierarchy => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    id: __expectString(output.id),
+    name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_restJson1AssetHierarchyInfo = (output: any, context: __SerdeContext): AssetHierarchyInfo => {
   return {
-    childAssetId: output.childAssetId !== undefined && output.childAssetId !== null ? output.childAssetId : undefined,
-    parentAssetId:
-      output.parentAssetId !== undefined && output.parentAssetId !== null ? output.parentAssetId : undefined,
+    childAssetId: __expectString(output.childAssetId),
+    parentAssetId: __expectString(output.parentAssetId),
   } as any;
 };
 
@@ -8400,7 +8425,7 @@ const deserializeAws_restJson1AssetIDs = (output: any, context: __SerdeContext):
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -8409,13 +8434,13 @@ const deserializeAws_restJson1AssetModelCompositeModel = (
   context: __SerdeContext
 ): AssetModelCompositeModel => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    description: __expectString(output.description),
+    name: __expectString(output.name),
     properties:
       output.properties !== undefined && output.properties !== null
         ? deserializeAws_restJson1AssetModelProperties(output.properties, context)
         : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -8446,12 +8471,9 @@ const deserializeAws_restJson1AssetModelHierarchies = (output: any, context: __S
 
 const deserializeAws_restJson1AssetModelHierarchy = (output: any, context: __SerdeContext): AssetModelHierarchy => {
   return {
-    childAssetModelId:
-      output.childAssetModelId !== undefined && output.childAssetModelId !== null
-        ? output.childAssetModelId
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    childAssetModelId: __expectString(output.childAssetModelId),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
   } as any;
 };
 
@@ -8468,15 +8490,15 @@ const deserializeAws_restJson1AssetModelProperties = (output: any, context: __Se
 
 const deserializeAws_restJson1AssetModelProperty = (output: any, context: __SerdeContext): AssetModelProperty => {
   return {
-    dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
-    dataTypeSpec: output.dataTypeSpec !== undefined && output.dataTypeSpec !== null ? output.dataTypeSpec : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    dataType: __expectString(output.dataType),
+    dataTypeSpec: __expectString(output.dataTypeSpec),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
     type:
       output.type !== undefined && output.type !== null
         ? deserializeAws_restJson1PropertyType(output.type, context)
         : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    unit: __expectString(output.unit),
   } as any;
 };
 
@@ -8486,7 +8508,7 @@ const deserializeAws_restJson1AssetModelStatus = (output: any, context: __SerdeC
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1ErrorDetails(output.error, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -8503,18 +8525,18 @@ const deserializeAws_restJson1AssetModelSummaries = (output: any, context: __Ser
 
 const deserializeAws_restJson1AssetModelSummary = (output: any, context: __SerdeContext): AssetModelSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1AssetModelStatus(output.status, context)
@@ -8535,22 +8557,22 @@ const deserializeAws_restJson1AssetProperties = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeContext): AssetProperty => {
   return {
-    alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
-    dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
-    dataTypeSpec: output.dataTypeSpec !== undefined && output.dataTypeSpec !== null ? output.dataTypeSpec : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    alias: __expectString(output.alias),
+    dataType: __expectString(output.dataType),
+    dataTypeSpec: __expectString(output.dataTypeSpec),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
     notification:
       output.notification !== undefined && output.notification !== null
         ? deserializeAws_restJson1PropertyNotification(output.notification, context)
         : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    unit: __expectString(output.unit),
   } as any;
 };
 
 const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
   return {
-    quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
+    quality: __expectString(output.quality),
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
         ? deserializeAws_restJson1TimeInNanos(output.timestamp, context)
@@ -8599,8 +8621,7 @@ const deserializeAws_restJson1AssetRelationshipSummary = (
       output.hierarchyInfo !== undefined && output.hierarchyInfo !== null
         ? deserializeAws_restJson1AssetHierarchyInfo(output.hierarchyInfo, context)
         : undefined,
-    relationshipType:
-      output.relationshipType !== undefined && output.relationshipType !== null ? output.relationshipType : undefined,
+    relationshipType: __expectString(output.relationshipType),
   } as any;
 };
 
@@ -8610,7 +8631,7 @@ const deserializeAws_restJson1AssetStatus = (output: any, context: __SerdeContex
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1ErrorDetails(output.error, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -8627,8 +8648,8 @@ const deserializeAws_restJson1AssetSummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    assetModelId: output.assetModelId !== undefined && output.assetModelId !== null ? output.assetModelId : undefined,
+    arn: __expectString(output.arn),
+    assetModelId: __expectString(output.assetModelId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -8637,12 +8658,12 @@ const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeConte
       output.hierarchies !== undefined && output.hierarchies !== null
         ? deserializeAws_restJson1AssetHierarchies(output.hierarchies, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1AssetStatus(output.status, context)
@@ -8669,8 +8690,8 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
   context: __SerdeContext
 ): AssociatedAssetsSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    assetModelId: output.assetModelId !== undefined && output.assetModelId !== null ? output.assetModelId : undefined,
+    arn: __expectString(output.arn),
+    assetModelId: __expectString(output.assetModelId),
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -8679,12 +8700,12 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
       output.hierarchies !== undefined && output.hierarchies !== null
         ? deserializeAws_restJson1AssetHierarchies(output.hierarchies, context)
         : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1AssetStatus(output.status, context)
@@ -8694,7 +8715,7 @@ const deserializeAws_restJson1AssociatedAssetsSummary = (
 
 const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
+    defaultValue: __expectString(output.defaultValue),
   } as any;
 };
 
@@ -8731,8 +8752,8 @@ const deserializeAws_restJson1BatchPutAssetPropertyError = (
   context: __SerdeContext
 ): BatchPutAssetPropertyError => {
   return {
-    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
     timestamps:
       output.timestamps !== undefined && output.timestamps !== null
         ? deserializeAws_restJson1Timestamps(output.timestamps, context)
@@ -8759,7 +8780,7 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrorEntry = (
   context: __SerdeContext
 ): BatchPutAssetPropertyErrorEntry => {
   return {
-    entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
+    entryId: __expectString(output.entryId),
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_restJson1BatchPutAssetPropertyErrors(output.errors, context)
@@ -8790,8 +8811,8 @@ const deserializeAws_restJson1CompositeModelProperty = (
       output.assetProperty !== undefined && output.assetProperty !== null
         ? deserializeAws_restJson1Property(output.assetProperty, context)
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    name: __expectString(output.name),
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -8800,8 +8821,8 @@ const deserializeAws_restJson1ConfigurationErrorDetails = (
   context: __SerdeContext
 ): ConfigurationErrorDetails => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -8811,7 +8832,7 @@ const deserializeAws_restJson1ConfigurationStatus = (output: any, context: __Ser
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1ConfigurationErrorDetails(output.error, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -8832,26 +8853,26 @@ const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeC
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_restJson1ExpressionVariable = (output: any, context: __SerdeContext): ExpressionVariable => {
   return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
     value:
       output.value !== undefined && output.value !== null
         ? deserializeAws_restJson1VariableValue(output.value, context)
@@ -8889,14 +8910,8 @@ const deserializeAws_restJson1GatewayCapabilitySummary = (
   context: __SerdeContext
 ): GatewayCapabilitySummary => {
   return {
-    capabilityNamespace:
-      output.capabilityNamespace !== undefined && output.capabilityNamespace !== null
-        ? output.capabilityNamespace
-        : undefined,
-    capabilitySyncStatus:
-      output.capabilitySyncStatus !== undefined && output.capabilitySyncStatus !== null
-        ? output.capabilitySyncStatus
-        : undefined,
+    capabilityNamespace: __expectString(output.capabilityNamespace),
+    capabilitySyncStatus: __expectString(output.capabilitySyncStatus),
   } as any;
 };
 
@@ -8930,8 +8945,8 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
       output.gatewayCapabilitySummaries !== undefined && output.gatewayCapabilitySummaries !== null
         ? deserializeAws_restJson1GatewayCapabilitySummaries(output.gatewayCapabilitySummaries, context)
         : undefined,
-    gatewayId: output.gatewayId !== undefined && output.gatewayId !== null ? output.gatewayId : undefined,
-    gatewayName: output.gatewayName !== undefined && output.gatewayName !== null ? output.gatewayName : undefined,
+    gatewayId: __expectString(output.gatewayId),
+    gatewayName: __expectString(output.gatewayName),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
@@ -8941,25 +8956,25 @@ const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Greengrass = (output: any, context: __SerdeContext): Greengrass => {
   return {
-    groupArn: output.groupArn !== undefined && output.groupArn !== null ? output.groupArn : undefined,
+    groupArn: __expectString(output.groupArn),
   } as any;
 };
 
 const deserializeAws_restJson1GroupIdentity = (output: any, context: __SerdeContext): GroupIdentity => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
 const deserializeAws_restJson1IAMRoleIdentity = (output: any, context: __SerdeContext): IAMRoleIdentity => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
   } as any;
 };
 
 const deserializeAws_restJson1IAMUserIdentity = (output: any, context: __SerdeContext): IAMUserIdentity => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
   } as any;
 };
 
@@ -8986,8 +9001,8 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ImageLocation = (output: any, context: __SerdeContext): ImageLocation => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    url: output.url !== undefined && output.url !== null ? output.url : undefined,
+    id: __expectString(output.id),
+    url: __expectString(output.url),
   } as any;
 };
 
@@ -9023,7 +9038,7 @@ const deserializeAws_restJson1InterpolatedAssetPropertyValues = (
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
   return {
-    level: output.level !== undefined && output.level !== null ? output.level : undefined,
+    level: __expectString(output.level),
   } as any;
 };
 
@@ -9033,7 +9048,7 @@ const deserializeAws_restJson1Measurement = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): Metric => {
   return {
-    expression: output.expression !== undefined && output.expression !== null ? output.expression : undefined,
+    expression: __expectString(output.expression),
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_restJson1ExpressionVariables(output.variables, context)
@@ -9056,14 +9071,14 @@ const deserializeAws_restJson1MetricWindow = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1MonitorErrorDetails = (output: any, context: __SerdeContext): MonitorErrorDetails => {
   return {
-    code: output.code !== undefined && output.code !== null ? output.code : undefined,
-    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
 const deserializeAws_restJson1PortalResource = (output: any, context: __SerdeContext): PortalResource => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
@@ -9073,7 +9088,7 @@ const deserializeAws_restJson1PortalStatus = (output: any, context: __SerdeConte
       output.error !== undefined && output.error !== null
         ? deserializeAws_restJson1MonitorErrorDetails(output.error, context)
         : undefined,
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    state: __expectString(output.state),
   } as any;
 };
 
@@ -9094,15 +9109,15 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
-    startUrl: output.startUrl !== undefined && output.startUrl !== null ? output.startUrl : undefined,
+    name: __expectString(output.name),
+    roleArn: __expectString(output.roleArn),
+    startUrl: __expectString(output.startUrl),
     status:
       output.status !== undefined && output.status !== null
         ? deserializeAws_restJson1PortalStatus(output.status, context)
@@ -9112,7 +9127,7 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ProjectResource = (output: any, context: __SerdeContext): ProjectResource => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
@@ -9133,22 +9148,22 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lastUpdateDate:
       output.lastUpdateDate !== undefined && output.lastUpdateDate !== null
         ? new Date(Math.round(output.lastUpdateDate * 1000))
         : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    name: __expectString(output.name),
   } as any;
 };
 
 const deserializeAws_restJson1Property = (output: any, context: __SerdeContext): Property => {
   return {
-    alias: output.alias !== undefined && output.alias !== null ? output.alias : undefined,
-    dataType: output.dataType !== undefined && output.dataType !== null ? output.dataType : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    alias: __expectString(output.alias),
+    dataType: __expectString(output.dataType),
+    id: __expectString(output.id),
+    name: __expectString(output.name),
     notification:
       output.notification !== undefined && output.notification !== null
         ? deserializeAws_restJson1PropertyNotification(output.notification, context)
@@ -9157,14 +9172,14 @@ const deserializeAws_restJson1Property = (output: any, context: __SerdeContext):
       output.type !== undefined && output.type !== null
         ? deserializeAws_restJson1PropertyType(output.type, context)
         : undefined,
-    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    unit: __expectString(output.unit),
   } as any;
 };
 
 const deserializeAws_restJson1PropertyNotification = (output: any, context: __SerdeContext): PropertyNotification => {
   return {
-    state: output.state !== undefined && output.state !== null ? output.state : undefined,
-    topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined,
+    state: __expectString(output.state),
+    topic: __expectString(output.topic),
   } as any;
 };
 
@@ -9209,17 +9224,15 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContext): TimeInNanos => {
   return {
-    offsetInNanos:
-      output.offsetInNanos !== undefined && output.offsetInNanos !== null ? output.offsetInNanos : undefined,
-    timeInSeconds:
-      output.timeInSeconds !== undefined && output.timeInSeconds !== null ? output.timeInSeconds : undefined,
+    offsetInNanos: __expectNumber(output.offsetInNanos),
+    timeInSeconds: __expectNumber(output.timeInSeconds),
   } as any;
 };
 
@@ -9236,7 +9249,7 @@ const deserializeAws_restJson1Timestamps = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext): Transform => {
   return {
-    expression: output.expression !== undefined && output.expression !== null ? output.expression : undefined,
+    expression: __expectString(output.expression),
     variables:
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_restJson1ExpressionVariables(output.variables, context)
@@ -9246,29 +9259,29 @@ const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1TumblingWindow = (output: any, context: __SerdeContext): TumblingWindow => {
   return {
-    interval: output.interval !== undefined && output.interval !== null ? output.interval : undefined,
+    interval: __expectString(output.interval),
   } as any;
 };
 
 const deserializeAws_restJson1UserIdentity = (output: any, context: __SerdeContext): UserIdentity => {
   return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    id: __expectString(output.id),
   } as any;
 };
 
 const deserializeAws_restJson1VariableValue = (output: any, context: __SerdeContext): VariableValue => {
   return {
-    hierarchyId: output.hierarchyId !== undefined && output.hierarchyId !== null ? output.hierarchyId : undefined,
-    propertyId: output.propertyId !== undefined && output.propertyId !== null ? output.propertyId : undefined,
+    hierarchyId: __expectString(output.hierarchyId),
+    propertyId: __expectString(output.propertyId),
   } as any;
 };
 
 const deserializeAws_restJson1Variant = (output: any, context: __SerdeContext): Variant => {
   return {
-    booleanValue: output.booleanValue !== undefined && output.booleanValue !== null ? output.booleanValue : undefined,
-    doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
-    integerValue: output.integerValue !== undefined && output.integerValue !== null ? output.integerValue : undefined,
-    stringValue: output.stringValue !== undefined && output.stringValue !== null ? output.stringValue : undefined,
+    booleanValue: __expectBoolean(output.booleanValue),
+    doubleValue: __handleFloat(output.doubleValue),
+    integerValue: __expectNumber(output.integerValue),
+    stringValue: __expectString(output.stringValue),
   } as any;
 };
 

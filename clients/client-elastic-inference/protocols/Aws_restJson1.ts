@@ -31,6 +31,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -44,10 +46,12 @@ export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
   input: DescribeAcceleratorOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describe-accelerator-offerings";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerator-offerings";
   let body: any;
   body = JSON.stringify({
     ...(input.acceleratorTypes !== undefined &&
@@ -56,7 +60,6 @@ export const serializeAws_restJson1DescribeAcceleratorOfferingsCommand = async (
       }),
     ...(input.locationType !== undefined && input.locationType !== null && { locationType: input.locationType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -72,10 +75,11 @@ export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
   input: DescribeAcceleratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describe-accelerators";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerators";
   let body: any;
   body = JSON.stringify({
     ...(input.acceleratorIds !== undefined &&
@@ -87,7 +91,6 @@ export const serializeAws_restJson1DescribeAcceleratorsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -103,13 +106,14 @@ export const serializeAws_restJson1DescribeAcceleratorTypesCommand = async (
   input: DescribeAcceleratorTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/describe-accelerator-types";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-accelerator-types";
   let body: any;
   body = "";
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -125,8 +129,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -137,7 +142,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -153,10 +157,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -170,7 +175,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -186,8 +190,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -201,7 +206,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -305,7 +309,7 @@ export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
     contents.acceleratorSet = deserializeAws_restJson1ElasticInferenceAcceleratorSet(data.acceleratorSet, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -635,7 +639,7 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -652,7 +656,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -669,7 +673,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -716,7 +720,7 @@ const serializeAws_restJson1FilterList = (input: Filter[], context: __SerdeConte
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -740,10 +744,7 @@ const serializeAws_restJson1ValueStringList = (input: string[], context: __Serde
 
 const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
   return {
-    acceleratorTypeName:
-      output.acceleratorTypeName !== undefined && output.acceleratorTypeName !== null
-        ? output.acceleratorTypeName
-        : undefined,
+    acceleratorTypeName: __expectString(output.acceleratorTypeName),
     memoryInfo:
       output.memoryInfo !== undefined && output.memoryInfo !== null
         ? deserializeAws_restJson1MemoryInfo(output.memoryInfo, context)
@@ -771,10 +772,9 @@ const deserializeAws_restJson1AcceleratorTypeOffering = (
   context: __SerdeContext
 ): AcceleratorTypeOffering => {
   return {
-    acceleratorType:
-      output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
-    location: output.location !== undefined && output.location !== null ? output.location : undefined,
-    locationType: output.locationType !== undefined && output.locationType !== null ? output.locationType : undefined,
+    acceleratorType: __expectString(output.acceleratorType),
+    location: __expectString(output.location),
+    locationType: __expectString(output.locationType),
   } as any;
 };
 
@@ -801,14 +801,10 @@ const deserializeAws_restJson1ElasticInferenceAccelerator = (
       output.acceleratorHealth !== undefined && output.acceleratorHealth !== null
         ? deserializeAws_restJson1ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
         : undefined,
-    acceleratorId:
-      output.acceleratorId !== undefined && output.acceleratorId !== null ? output.acceleratorId : undefined,
-    acceleratorType:
-      output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
-    attachedResource:
-      output.attachedResource !== undefined && output.attachedResource !== null ? output.attachedResource : undefined,
-    availabilityZone:
-      output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
+    acceleratorId: __expectString(output.acceleratorId),
+    acceleratorType: __expectString(output.acceleratorType),
+    attachedResource: __expectString(output.attachedResource),
+    availabilityZone: __expectString(output.availabilityZone),
   } as any;
 };
 
@@ -817,7 +813,7 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorHealth = (
   context: __SerdeContext
 ): ElasticInferenceAcceleratorHealth => {
   return {
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -837,14 +833,14 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
 
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
-    key: output.key !== undefined && output.key !== null ? output.key : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    key: __expectString(output.key),
+    value: __expectNumber(output.value),
   } as any;
 };
 
 const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   return {
-    sizeInMiB: output.sizeInMiB !== undefined && output.sizeInMiB !== null ? output.sizeInMiB : undefined,
+    sizeInMiB: __expectNumber(output.sizeInMiB),
   } as any;
 };
 
@@ -855,7 +851,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

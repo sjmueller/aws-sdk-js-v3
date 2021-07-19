@@ -43,6 +43,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -57,10 +58,11 @@ export const serializeAws_restJson1CreateEventIntegrationCommand = async (
   input: CreateEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/eventIntegrations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -72,7 +74,6 @@ export const serializeAws_restJson1CreateEventIntegrationCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -88,8 +89,10 @@ export const serializeAws_restJson1DeleteEventIntegrationCommand = async (
   input: DeleteEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/eventIntegrations/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -100,7 +103,6 @@ export const serializeAws_restJson1DeleteEventIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -116,8 +118,10 @@ export const serializeAws_restJson1GetEventIntegrationCommand = async (
   input: GetEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/eventIntegrations/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -128,7 +132,6 @@ export const serializeAws_restJson1GetEventIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -144,8 +147,11 @@ export const serializeAws_restJson1ListEventIntegrationAssociationsCommand = asy
   input: ListEventIntegrationAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/eventIntegrations/{EventIntegrationName}/associations";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/eventIntegrations/{EventIntegrationName}/associations";
   if (input.EventIntegrationName !== undefined) {
     const labelValue: string = input.EventIntegrationName;
     if (labelValue.length <= 0) {
@@ -160,7 +166,6 @@ export const serializeAws_restJson1ListEventIntegrationAssociationsCommand = asy
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -177,14 +182,14 @@ export const serializeAws_restJson1ListEventIntegrationsCommand = async (
   input: ListEventIntegrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/eventIntegrations";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -201,8 +206,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -213,7 +219,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -229,10 +234,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -246,7 +252,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -262,8 +267,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -277,7 +283,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -294,10 +299,12 @@ export const serializeAws_restJson1UpdateEventIntegrationCommand = async (
   input: UpdateEventIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/eventIntegrations/{Name}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/eventIntegrations/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -311,7 +318,6 @@ export const serializeAws_restJson1UpdateEventIntegrationCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -336,7 +342,7 @@ export const deserializeAws_restJson1CreateEventIntegrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.EventIntegrationArn !== undefined && data.EventIntegrationArn !== null) {
-    contents.EventIntegrationArn = data.EventIntegrationArn;
+    contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
   }
   return Promise.resolve(contents);
 };
@@ -519,19 +525,19 @@ export const deserializeAws_restJson1GetEventIntegrationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Description !== undefined && data.Description !== null) {
-    contents.Description = data.Description;
+    contents.Description = __expectString(data.Description);
   }
   if (data.EventBridgeBus !== undefined && data.EventBridgeBus !== null) {
-    contents.EventBridgeBus = data.EventBridgeBus;
+    contents.EventBridgeBus = __expectString(data.EventBridgeBus);
   }
   if (data.EventFilter !== undefined && data.EventFilter !== null) {
     contents.EventFilter = deserializeAws_restJson1EventFilter(data.EventFilter, context);
   }
   if (data.EventIntegrationArn !== undefined && data.EventIntegrationArn !== null) {
-    contents.EventIntegrationArn = data.EventIntegrationArn;
+    contents.EventIntegrationArn = __expectString(data.EventIntegrationArn);
   }
   if (data.Name !== undefined && data.Name !== null) {
-    contents.Name = data.Name;
+    contents.Name = __expectString(data.Name);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -628,7 +634,7 @@ export const deserializeAws_restJson1ListEventIntegrationAssociationsCommand = a
     );
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -719,7 +725,7 @@ export const deserializeAws_restJson1ListEventIntegrationsCommand = async (
     contents.EventIntegrations = deserializeAws_restJson1EventIntegrationsList(data.EventIntegrations, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1109,7 +1115,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1126,7 +1132,7 @@ const deserializeAws_restJson1DuplicateResourceExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1143,7 +1149,7 @@ const deserializeAws_restJson1InternalServiceErrorResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1160,7 +1166,7 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1177,7 +1183,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1194,7 +1200,7 @@ const deserializeAws_restJson1ResourceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1211,7 +1217,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -1223,7 +1229,7 @@ const serializeAws_restJson1EventFilter = (input: EventFilter, context: __SerdeC
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1244,31 +1250,27 @@ const deserializeAws_restJson1ClientAssociationMetadata = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1EventFilter = (output: any, context: __SerdeContext): EventFilter => {
   return {
-    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
+    Source: __expectString(output.Source),
   } as any;
 };
 
 const deserializeAws_restJson1EventIntegration = (output: any, context: __SerdeContext): EventIntegration => {
   return {
-    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
-    EventBridgeBus:
-      output.EventBridgeBus !== undefined && output.EventBridgeBus !== null ? output.EventBridgeBus : undefined,
+    Description: __expectString(output.Description),
+    EventBridgeBus: __expectString(output.EventBridgeBus),
     EventFilter:
       output.EventFilter !== undefined && output.EventFilter !== null
         ? deserializeAws_restJson1EventFilter(output.EventFilter, context)
         : undefined,
-    EventIntegrationArn:
-      output.EventIntegrationArn !== undefined && output.EventIntegrationArn !== null
-        ? output.EventIntegrationArn
-        : undefined,
-    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    EventIntegrationArn: __expectString(output.EventIntegrationArn),
+    Name: __expectString(output.Name),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1TagMap(output.Tags, context)
@@ -1285,23 +1287,11 @@ const deserializeAws_restJson1EventIntegrationAssociation = (
       output.ClientAssociationMetadata !== undefined && output.ClientAssociationMetadata !== null
         ? deserializeAws_restJson1ClientAssociationMetadata(output.ClientAssociationMetadata, context)
         : undefined,
-    ClientId: output.ClientId !== undefined && output.ClientId !== null ? output.ClientId : undefined,
-    EventBridgeRuleName:
-      output.EventBridgeRuleName !== undefined && output.EventBridgeRuleName !== null
-        ? output.EventBridgeRuleName
-        : undefined,
-    EventIntegrationAssociationArn:
-      output.EventIntegrationAssociationArn !== undefined && output.EventIntegrationAssociationArn !== null
-        ? output.EventIntegrationAssociationArn
-        : undefined,
-    EventIntegrationAssociationId:
-      output.EventIntegrationAssociationId !== undefined && output.EventIntegrationAssociationId !== null
-        ? output.EventIntegrationAssociationId
-        : undefined,
-    EventIntegrationName:
-      output.EventIntegrationName !== undefined && output.EventIntegrationName !== null
-        ? output.EventIntegrationName
-        : undefined,
+    ClientId: __expectString(output.ClientId),
+    EventBridgeRuleName: __expectString(output.EventBridgeRuleName),
+    EventIntegrationAssociationArn: __expectString(output.EventIntegrationAssociationArn),
+    EventIntegrationAssociationId: __expectString(output.EventIntegrationAssociationId),
+    EventIntegrationName: __expectString(output.EventIntegrationName),
   } as any;
 };
 
@@ -1337,7 +1327,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

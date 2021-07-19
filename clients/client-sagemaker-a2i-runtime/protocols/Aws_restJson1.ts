@@ -19,6 +19,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -32,8 +33,10 @@ export const serializeAws_restJson1DeleteHumanLoopCommand = async (
   input: DeleteHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/human-loops/{HumanLoopName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
     const labelValue: string = input.HumanLoopName;
     if (labelValue.length <= 0) {
@@ -44,7 +47,6 @@ export const serializeAws_restJson1DeleteHumanLoopCommand = async (
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -60,8 +62,10 @@ export const serializeAws_restJson1DescribeHumanLoopCommand = async (
   input: DescribeHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/human-loops/{HumanLoopName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
     const labelValue: string = input.HumanLoopName;
     if (labelValue.length <= 0) {
@@ -72,7 +76,6 @@ export const serializeAws_restJson1DescribeHumanLoopCommand = async (
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -88,8 +91,9 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
   input: ListHumanLoopsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/human-loops";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops";
   const query: any = {
     ...(input.CreationTimeAfter !== undefined && {
       CreationTimeAfter: (input.CreationTimeAfter.toISOString().split(".")[0] + "Z").toString(),
@@ -103,7 +107,6 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -120,10 +123,11 @@ export const serializeAws_restJson1StartHumanLoopCommand = async (
   input: StartHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/human-loops";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops";
   let body: any;
   body = JSON.stringify({
     ...(input.DataAttributes !== undefined &&
@@ -138,7 +142,6 @@ export const serializeAws_restJson1StartHumanLoopCommand = async (
       }),
     ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -154,15 +157,15 @@ export const serializeAws_restJson1StopHumanLoopCommand = async (
   input: StopHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/human-loops/stop";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/human-loops/stop";
   let body: any;
   body = JSON.stringify({
     ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -272,25 +275,25 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
   if (data.FailureCode !== undefined && data.FailureCode !== null) {
-    contents.FailureCode = data.FailureCode;
+    contents.FailureCode = __expectString(data.FailureCode);
   }
   if (data.FailureReason !== undefined && data.FailureReason !== null) {
-    contents.FailureReason = data.FailureReason;
+    contents.FailureReason = __expectString(data.FailureReason);
   }
   if (data.FlowDefinitionArn !== undefined && data.FlowDefinitionArn !== null) {
-    contents.FlowDefinitionArn = data.FlowDefinitionArn;
+    contents.FlowDefinitionArn = __expectString(data.FlowDefinitionArn);
   }
   if (data.HumanLoopArn !== undefined && data.HumanLoopArn !== null) {
-    contents.HumanLoopArn = data.HumanLoopArn;
+    contents.HumanLoopArn = __expectString(data.HumanLoopArn);
   }
   if (data.HumanLoopName !== undefined && data.HumanLoopName !== null) {
-    contents.HumanLoopName = data.HumanLoopName;
+    contents.HumanLoopName = __expectString(data.HumanLoopName);
   }
   if (data.HumanLoopOutput !== undefined && data.HumanLoopOutput !== null) {
     contents.HumanLoopOutput = deserializeAws_restJson1HumanLoopOutput(data.HumanLoopOutput, context);
   }
   if (data.HumanLoopStatus !== undefined && data.HumanLoopStatus !== null) {
-    contents.HumanLoopStatus = data.HumanLoopStatus;
+    contents.HumanLoopStatus = __expectString(data.HumanLoopStatus);
   }
   return Promise.resolve(contents);
 };
@@ -373,7 +376,7 @@ export const deserializeAws_restJson1ListHumanLoopsCommand = async (
     contents.HumanLoopSummaries = deserializeAws_restJson1HumanLoopSummaries(data.HumanLoopSummaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
-    contents.NextToken = data.NextToken;
+    contents.NextToken = __expectString(data.NextToken);
   }
   return Promise.resolve(contents);
 };
@@ -452,7 +455,7 @@ export const deserializeAws_restJson1StartHumanLoopCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.HumanLoopArn !== undefined && data.HumanLoopArn !== null) {
-    contents.HumanLoopArn = data.HumanLoopArn;
+    contents.HumanLoopArn = __expectString(data.HumanLoopArn);
   }
   return Promise.resolve(contents);
 };
@@ -613,7 +616,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -630,7 +633,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -647,7 +650,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -664,7 +667,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -681,7 +684,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -698,7 +701,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
-    contents.Message = data.Message;
+    contents.Message = __expectString(data.Message);
   }
   return contents;
 };
@@ -737,7 +740,7 @@ const serializeAws_restJson1HumanLoopInput = (input: HumanLoopInput, context: __
 
 const deserializeAws_restJson1HumanLoopOutput = (output: any, context: __SerdeContext): HumanLoopOutput => {
   return {
-    OutputS3Uri: output.OutputS3Uri !== undefined && output.OutputS3Uri !== null ? output.OutputS3Uri : undefined,
+    OutputS3Uri: __expectString(output.OutputS3Uri),
   } as any;
 };
 
@@ -758,16 +761,10 @@ const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeC
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
-    FlowDefinitionArn:
-      output.FlowDefinitionArn !== undefined && output.FlowDefinitionArn !== null
-        ? output.FlowDefinitionArn
-        : undefined,
-    HumanLoopName:
-      output.HumanLoopName !== undefined && output.HumanLoopName !== null ? output.HumanLoopName : undefined,
-    HumanLoopStatus:
-      output.HumanLoopStatus !== undefined && output.HumanLoopStatus !== null ? output.HumanLoopStatus : undefined,
+    FailureReason: __expectString(output.FailureReason),
+    FlowDefinitionArn: __expectString(output.FlowDefinitionArn),
+    HumanLoopName: __expectString(output.HumanLoopName),
+    HumanLoopStatus: __expectString(output.HumanLoopStatus),
   } as any;
 };
 

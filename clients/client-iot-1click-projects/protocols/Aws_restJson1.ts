@@ -42,6 +42,7 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -55,10 +56,13 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
   input: AssociateDeviceWithPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -90,7 +94,6 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
   body = JSON.stringify({
     ...(input.deviceId !== undefined && input.deviceId !== null && { deviceId: input.deviceId }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -106,10 +109,12 @@ export const serializeAws_restJson1CreatePlacementCommand = async (
   input: CreatePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectName}/placements";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -127,7 +132,6 @@ export const serializeAws_restJson1CreatePlacementCommand = async (
       }),
     ...(input.placementName !== undefined && input.placementName !== null && { placementName: input.placementName }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -143,10 +147,11 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
@@ -157,7 +162,6 @@ export const serializeAws_restJson1CreateProjectCommand = async (
     ...(input.projectName !== undefined && input.projectName !== null && { projectName: input.projectName }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -173,8 +177,11 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
   input: DeletePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}/placements/{placementName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
@@ -194,7 +201,6 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -210,8 +216,9 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -222,7 +229,6 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -238,8 +244,11 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
   input: DescribePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}/placements/{placementName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
@@ -259,7 +268,6 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -275,8 +283,9 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -287,7 +296,6 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -303,8 +311,11 @@ export const serializeAws_restJson1DisassociateDeviceFromPlacementCommand = asyn
   input: DisassociateDeviceFromPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -333,7 +344,6 @@ export const serializeAws_restJson1DisassociateDeviceFromPlacementCommand = asyn
     throw new Error("No value provided for input HTTP label: deviceTemplateName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -349,8 +359,11 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
   input: GetDevicesInPlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/projects/{projectName}/placements/{placementName}/devices";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -370,7 +383,6 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -386,8 +398,10 @@ export const serializeAws_restJson1ListPlacementsCommand = async (
   input: ListPlacementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects/{projectName}/placements";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -402,7 +416,6 @@ export const serializeAws_restJson1ListPlacementsCommand = async (
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -419,14 +432,14 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/projects";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -443,8 +456,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -455,7 +469,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -471,10 +484,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -488,7 +502,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -504,8 +517,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -519,7 +533,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -536,10 +549,13 @@ export const serializeAws_restJson1UpdatePlacementCommand = async (
   input: UpdatePlacementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectName}/placements/{placementName}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
@@ -565,7 +581,6 @@ export const serializeAws_restJson1UpdatePlacementCommand = async (
         attributes: serializeAws_restJson1PlacementAttributeMap(input.attributes, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -581,10 +596,11 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/projects/{projectName}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectName}";
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -602,7 +618,6 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
         placementTemplate: serializeAws_restJson1PlacementTemplate(input.placementTemplate, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1283,7 +1298,7 @@ export const deserializeAws_restJson1ListPlacementsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.placements !== undefined && data.placements !== null) {
     contents.placements = deserializeAws_restJson1PlacementSummaryList(data.placements, context);
@@ -1358,7 +1373,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   if (data.projects !== undefined && data.projects !== null) {
     contents.projects = deserializeAws_restJson1ProjectSummaryList(data.projects, context);
@@ -1779,10 +1794,10 @@ const deserializeAws_restJson1InternalFailureExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1800,10 +1815,10 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1821,10 +1836,10 @@ const deserializeAws_restJson1ResourceConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1842,10 +1857,10 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1863,10 +1878,10 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.code !== undefined && data.code !== null) {
-    contents.code = data.code;
+    contents.code = __expectString(data.code);
   }
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1875,7 +1890,7 @@ const serializeAws_restJson1DefaultPlacementAttributeMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1890,7 +1905,7 @@ const serializeAws_restJson1DeviceCallbackOverrideMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1915,7 +1930,7 @@ const serializeAws_restJson1DeviceTemplateMap = (
   input: { [key: string]: DeviceTemplate },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: DeviceTemplate }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1930,7 +1945,7 @@ const serializeAws_restJson1PlacementAttributeMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1955,7 +1970,7 @@ const serializeAws_restJson1PlacementTemplate = (input: PlacementTemplate, conte
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1976,7 +1991,7 @@ const deserializeAws_restJson1DefaultPlacementAttributeMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1991,7 +2006,7 @@ const deserializeAws_restJson1DeviceCallbackOverrideMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2003,7 +2018,7 @@ const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2014,7 +2029,7 @@ const deserializeAws_restJson1DeviceTemplate = (output: any, context: __SerdeCon
       output.callbackOverrides !== undefined && output.callbackOverrides !== null
         ? deserializeAws_restJson1DeviceCallbackOverrideMap(output.callbackOverrides, context)
         : undefined,
-    deviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
+    deviceType: __expectString(output.deviceType),
   } as any;
 };
 
@@ -2043,7 +2058,7 @@ const deserializeAws_restJson1PlacementAttributeMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2058,9 +2073,8 @@ const deserializeAws_restJson1PlacementDescription = (output: any, context: __Se
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    placementName:
-      output.placementName !== undefined && output.placementName !== null ? output.placementName : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    placementName: __expectString(output.placementName),
+    projectName: __expectString(output.projectName),
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
         ? new Date(Math.round(output.updatedDate * 1000))
@@ -2074,9 +2088,8 @@ const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeC
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    placementName:
-      output.placementName !== undefined && output.placementName !== null ? output.placementName : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    placementName: __expectString(output.placementName),
+    projectName: __expectString(output.projectName),
     updatedDate:
       output.updatedDate !== undefined && output.updatedDate !== null
         ? new Date(Math.round(output.updatedDate * 1000))
@@ -2110,17 +2123,17 @@ const deserializeAws_restJson1PlacementTemplate = (output: any, context: __Serde
 
 const deserializeAws_restJson1ProjectDescription = (output: any, context: __SerdeContext): ProjectDescription => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    description: __expectString(output.description),
     placementTemplate:
       output.placementTemplate !== undefined && output.placementTemplate !== null
         ? deserializeAws_restJson1PlacementTemplate(output.placementTemplate, context)
         : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    projectName: __expectString(output.projectName),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -2134,12 +2147,12 @@ const deserializeAws_restJson1ProjectDescription = (output: any, context: __Serd
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
   return {
-    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: __expectString(output.arn),
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
-    projectName: output.projectName !== undefined && output.projectName !== null ? output.projectName : undefined,
+    projectName: __expectString(output.projectName),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -2169,7 +2182,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

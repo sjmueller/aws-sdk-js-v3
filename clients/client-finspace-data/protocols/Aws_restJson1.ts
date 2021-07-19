@@ -17,6 +17,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -30,10 +32,12 @@ export const serializeAws_restJson1CreateChangesetCommand = async (
   input: CreateChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/datasets/{datasetId}/changesets";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/changesets";
   if (input.datasetId !== undefined) {
     const labelValue: string = input.datasetId;
     if (labelValue.length <= 0) {
@@ -55,7 +59,6 @@ export const serializeAws_restJson1CreateChangesetCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1stringMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -71,14 +74,15 @@ export const serializeAws_restJson1GetProgrammaticAccessCredentialsCommand = asy
   input: GetProgrammaticAccessCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/credentials/programmatic";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/credentials/programmatic";
   const query: any = {
     ...(input.durationInMinutes !== undefined && { durationInMinutes: input.durationInMinutes.toString() }),
     ...(input.environmentId !== undefined && { environmentId: input.environmentId }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -95,15 +99,15 @@ export const serializeAws_restJson1GetWorkingLocationCommand = async (
   input: GetWorkingLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/workingLocationV1";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workingLocationV1";
   let body: any;
   body = JSON.stringify({
     ...(input.locationType !== undefined && input.locationType !== null && { locationType: input.locationType }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -219,7 +223,7 @@ export const deserializeAws_restJson1GetProgrammaticAccessCredentialsCommand = a
     contents.credentials = deserializeAws_restJson1Credentials(data.credentials, context);
   }
   if (data.durationInMinutes !== undefined && data.durationInMinutes !== null) {
-    contents.durationInMinutes = data.durationInMinutes;
+    contents.durationInMinutes = __expectNumber(data.durationInMinutes);
   }
   return Promise.resolve(contents);
 };
@@ -292,13 +296,13 @@ export const deserializeAws_restJson1GetWorkingLocationCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.s3Bucket !== undefined && data.s3Bucket !== null) {
-    contents.s3Bucket = data.s3Bucket;
+    contents.s3Bucket = __expectString(data.s3Bucket);
   }
   if (data.s3Path !== undefined && data.s3Path !== null) {
-    contents.s3Path = data.s3Path;
+    contents.s3Path = __expectString(data.s3Path);
   }
   if (data.s3Uri !== undefined && data.s3Uri !== null) {
-    contents.s3Uri = data.s3Uri;
+    contents.s3Uri = __expectString(data.s3Uri);
   }
   return Promise.resolve(contents);
 };
@@ -376,7 +380,7 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -393,7 +397,7 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -410,7 +414,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -440,13 +444,13 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
 
 const serializeAws_restJson1stringMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -459,8 +463,8 @@ const serializeAws_restJson1stringMap = (input: { [key: string]: string }, conte
 
 const deserializeAws_restJson1ChangesetInfo = (output: any, context: __SerdeContext): ChangesetInfo => {
   return {
-    changeType: output.changeType !== undefined && output.changeType !== null ? output.changeType : undefined,
-    changesetArn: output.changesetArn !== undefined && output.changesetArn !== null ? output.changesetArn : undefined,
+    changeType: __expectString(output.changeType),
+    changesetArn: __expectString(output.changesetArn),
     changesetLabels:
       output.changesetLabels !== undefined && output.changesetLabels !== null
         ? deserializeAws_restJson1stringMap(output.changesetLabels, context)
@@ -469,7 +473,7 @@ const deserializeAws_restJson1ChangesetInfo = (output: any, context: __SerdeCont
       output.createTimestamp !== undefined && output.createTimestamp !== null
         ? new Date(Math.round(output.createTimestamp * 1000))
         : undefined,
-    datasetId: output.datasetId !== undefined && output.datasetId !== null ? output.datasetId : undefined,
+    datasetId: __expectString(output.datasetId),
     errorInfo:
       output.errorInfo !== undefined && output.errorInfo !== null
         ? deserializeAws_restJson1ErrorInfo(output.errorInfo, context)
@@ -478,39 +482,31 @@ const deserializeAws_restJson1ChangesetInfo = (output: any, context: __SerdeCont
       output.formatParams !== undefined && output.formatParams !== null
         ? deserializeAws_restJson1stringMap(output.formatParams, context)
         : undefined,
-    formatType: output.formatType !== undefined && output.formatType !== null ? output.formatType : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    formatType: __expectString(output.formatType),
+    id: __expectString(output.id),
     sourceParams:
       output.sourceParams !== undefined && output.sourceParams !== null
         ? deserializeAws_restJson1stringMap(output.sourceParams, context)
         : undefined,
-    sourceType: output.sourceType !== undefined && output.sourceType !== null ? output.sourceType : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
-    updatedByChangesetId:
-      output.updatedByChangesetId !== undefined && output.updatedByChangesetId !== null
-        ? output.updatedByChangesetId
-        : undefined,
-    updatesChangesetId:
-      output.updatesChangesetId !== undefined && output.updatesChangesetId !== null
-        ? output.updatesChangesetId
-        : undefined,
+    sourceType: __expectString(output.sourceType),
+    status: __expectString(output.status),
+    updatedByChangesetId: __expectString(output.updatedByChangesetId),
+    updatesChangesetId: __expectString(output.updatesChangesetId),
   } as any;
 };
 
 const deserializeAws_restJson1Credentials = (output: any, context: __SerdeContext): Credentials => {
   return {
-    accessKeyId: output.accessKeyId !== undefined && output.accessKeyId !== null ? output.accessKeyId : undefined,
-    secretAccessKey:
-      output.secretAccessKey !== undefined && output.secretAccessKey !== null ? output.secretAccessKey : undefined,
-    sessionToken: output.sessionToken !== undefined && output.sessionToken !== null ? output.sessionToken : undefined,
+    accessKeyId: __expectString(output.accessKeyId),
+    secretAccessKey: __expectString(output.secretAccessKey),
+    sessionToken: __expectString(output.sessionToken),
   } as any;
 };
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
-    errorCategory:
-      output.errorCategory !== undefined && output.errorCategory !== null ? output.errorCategory : undefined,
-    errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    errorCategory: __expectString(output.errorCategory),
+    errorMessage: __expectString(output.errorMessage),
   } as any;
 };
 
@@ -521,7 +517,7 @@ const deserializeAws_restJson1stringMap = (output: any, context: __SerdeContext)
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };

@@ -64,6 +64,8 @@ import {
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
 } from "@aws-sdk/smithy-client";
 import {
@@ -78,10 +80,11 @@ export const serializeAws_restJson1CreateExperimentTemplateCommand = async (
   input: CreateExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/experimentTemplates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates";
   let body: any;
   body = JSON.stringify({
     ...(input.actions !== undefined &&
@@ -104,7 +107,6 @@ export const serializeAws_restJson1CreateExperimentTemplateCommand = async (
         targets: serializeAws_restJson1CreateExperimentTemplateTargetInputMap(input.targets, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -120,8 +122,10 @@ export const serializeAws_restJson1DeleteExperimentTemplateCommand = async (
   input: DeleteExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/experimentTemplates/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -132,7 +136,6 @@ export const serializeAws_restJson1DeleteExperimentTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -148,8 +151,9 @@ export const serializeAws_restJson1GetActionCommand = async (
   input: GetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/actions/{id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -160,7 +164,6 @@ export const serializeAws_restJson1GetActionCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -176,8 +179,9 @@ export const serializeAws_restJson1GetExperimentCommand = async (
   input: GetExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/experiments/{id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -188,7 +192,6 @@ export const serializeAws_restJson1GetExperimentCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -204,8 +207,10 @@ export const serializeAws_restJson1GetExperimentTemplateCommand = async (
   input: GetExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/experimentTemplates/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -216,7 +221,6 @@ export const serializeAws_restJson1GetExperimentTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -232,14 +236,14 @@ export const serializeAws_restJson1ListActionsCommand = async (
   input: ListActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/actions";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -256,14 +260,14 @@ export const serializeAws_restJson1ListExperimentsCommand = async (
   input: ListExperimentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/experiments";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -280,14 +284,14 @@ export const serializeAws_restJson1ListExperimentTemplatesCommand = async (
   input: ListExperimentTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/experimentTemplates";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -304,8 +308,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -316,7 +321,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -332,10 +336,11 @@ export const serializeAws_restJson1StartExperimentCommand = async (
   input: StartExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/experiments";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -343,7 +348,6 @@ export const serializeAws_restJson1StartExperimentCommand = async (
       input.experimentTemplateId !== null && { experimentTemplateId: input.experimentTemplateId }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -359,8 +363,9 @@ export const serializeAws_restJson1StopExperimentCommand = async (
   input: StopExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/experiments/{id}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -371,7 +376,6 @@ export const serializeAws_restJson1StopExperimentCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -387,10 +391,11 @@ export const serializeAws_restJson1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -404,7 +409,6 @@ export const serializeAws_restJson1TagResourceCommand = async (
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -420,8 +424,9 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = "/tags/{resourceArn}";
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
@@ -435,7 +440,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -452,10 +456,12 @@ export const serializeAws_restJson1UpdateExperimentTemplateCommand = async (
   input: UpdateExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/experimentTemplates/{id}";
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
     if (labelValue.length <= 0) {
@@ -485,7 +491,6 @@ export const serializeAws_restJson1UpdateExperimentTemplateCommand = async (
         targets: serializeAws_restJson1UpdateExperimentTemplateTargetInputMap(input.targets, context),
       }),
   });
-  const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
     hostname,
@@ -845,7 +850,7 @@ export const deserializeAws_restJson1ListActionsCommand = async (
     contents.actions = deserializeAws_restJson1ActionSummaryList(data.actions, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -904,7 +909,7 @@ export const deserializeAws_restJson1ListExperimentsCommand = async (
     contents.experiments = deserializeAws_restJson1ExperimentSummaryList(data.experiments, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -966,7 +971,7 @@ export const deserializeAws_restJson1ListExperimentTemplatesCommand = async (
     );
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
+    contents.nextToken = __expectString(data.nextToken);
   }
   return Promise.resolve(contents);
 };
@@ -1366,7 +1371,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1383,7 +1388,7 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1400,7 +1405,7 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1417,7 +1422,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
+    contents.message = __expectString(data.message);
   }
   return contents;
 };
@@ -1448,18 +1453,15 @@ const serializeAws_restJson1CreateExperimentTemplateActionInputMap = (
   input: { [key: string]: CreateExperimentTemplateActionInput },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: CreateExperimentTemplateActionInput }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1CreateExperimentTemplateActionInput(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1CreateExperimentTemplateActionInput(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1CreateExperimentTemplateStopConditionInput = (
@@ -1510,25 +1512,22 @@ const serializeAws_restJson1CreateExperimentTemplateTargetInputMap = (
   input: { [key: string]: CreateExperimentTemplateTargetInput },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: CreateExperimentTemplateTargetInput }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1CreateExperimentTemplateTargetInput(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1CreateExperimentTemplateTargetInput(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ExperimentTemplateActionParameterMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1557,7 +1556,7 @@ const serializeAws_restJson1ExperimentTemplateActionTargetMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1618,7 +1617,7 @@ const serializeAws_restJson1ResourceArnList = (input: string[], context: __Serde
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
@@ -1655,18 +1654,15 @@ const serializeAws_restJson1UpdateExperimentTemplateActionInputMap = (
   input: { [key: string]: UpdateExperimentTemplateActionInputItem },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: UpdateExperimentTemplateActionInputItem }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1UpdateExperimentTemplateActionInputItem(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1UpdateExperimentTemplateActionInputItem(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1UpdateExperimentTemplateStopConditionInput = (
@@ -1717,24 +1713,21 @@ const serializeAws_restJson1UpdateExperimentTemplateTargetInputMap = (
   input: { [key: string]: UpdateExperimentTemplateTargetInput },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: UpdateExperimentTemplateTargetInput }, [key, value]: [string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1UpdateExperimentTemplateTargetInput(value, context),
-      };
-    },
-    {}
-  );
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1UpdateExperimentTemplateTargetInput(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ActionParameterMap(output.parameters, context)
@@ -1752,8 +1745,8 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
 
 const deserializeAws_restJson1ActionParameter = (output: any, context: __SerdeContext): ActionParameter => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    required: output.required !== undefined && output.required !== null ? output.required : undefined,
+    description: __expectString(output.description),
+    required: __expectBoolean(output.required),
   } as any;
 };
 
@@ -1774,8 +1767,8 @@ const deserializeAws_restJson1ActionParameterMap = (
 
 const deserializeAws_restJson1ActionSummary = (output: any, context: __SerdeContext): ActionSummary => {
   return {
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -1800,7 +1793,7 @@ const deserializeAws_restJson1ActionSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ActionTarget = (output: any, context: __SerdeContext): ActionTarget => {
   return {
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    resourceType: __expectString(output.resourceType),
   } as any;
 };
 
@@ -1831,12 +1824,9 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
         : undefined,
     endTime:
       output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
-    experimentTemplateId:
-      output.experimentTemplateId !== undefined && output.experimentTemplateId !== null
-        ? output.experimentTemplateId
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    experimentTemplateId: __expectString(output.experimentTemplateId),
+    id: __expectString(output.id),
+    roleArn: __expectString(output.roleArn),
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
@@ -1862,8 +1852,8 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ExperimentAction = (output: any, context: __SerdeContext): ExperimentAction => {
   return {
-    actionId: output.actionId !== undefined && output.actionId !== null ? output.actionId : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    actionId: __expectString(output.actionId),
+    description: __expectString(output.description),
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ExperimentActionParameterMap(output.parameters, context)
@@ -1908,7 +1898,7 @@ const deserializeAws_restJson1ExperimentActionParameterMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -1920,14 +1910,14 @@ const deserializeAws_restJson1ExperimentActionStartAfterList = (output: any, con
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
 const deserializeAws_restJson1ExperimentActionState = (output: any, context: __SerdeContext): ExperimentActionState => {
   return {
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    reason: __expectString(output.reason),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -1941,15 +1931,15 @@ const deserializeAws_restJson1ExperimentActionTargetMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
 
 const deserializeAws_restJson1ExperimentState = (output: any, context: __SerdeContext): ExperimentState => {
   return {
-    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
-    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    reason: __expectString(output.reason),
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -1958,8 +1948,8 @@ const deserializeAws_restJson1ExperimentStopCondition = (
   context: __SerdeContext
 ): ExperimentStopCondition => {
   return {
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    source: __expectString(output.source),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -1983,11 +1973,8 @@ const deserializeAws_restJson1ExperimentSummary = (output: any, context: __Serde
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    experimentTemplateId:
-      output.experimentTemplateId !== undefined && output.experimentTemplateId !== null
-        ? output.experimentTemplateId
-        : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    experimentTemplateId: __expectString(output.experimentTemplateId),
+    id: __expectString(output.id),
     state:
       output.state !== undefined && output.state !== null
         ? deserializeAws_restJson1ExperimentState(output.state, context)
@@ -2024,9 +2011,8 @@ const deserializeAws_restJson1ExperimentTarget = (output: any, context: __SerdeC
       output.resourceTags !== undefined && output.resourceTags !== null
         ? deserializeAws_restJson1TagMap(output.resourceTags, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    selectionMode:
-      output.selectionMode !== undefined && output.selectionMode !== null ? output.selectionMode : undefined,
+    resourceType: __expectString(output.resourceType),
+    selectionMode: __expectString(output.selectionMode),
   } as any;
 };
 
@@ -2035,7 +2021,7 @@ const deserializeAws_restJson1ExperimentTargetFilter = (
   context: __SerdeContext
 ): ExperimentTargetFilter => {
   return {
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    path: __expectString(output.path),
     values:
       output.values !== undefined && output.values !== null
         ? deserializeAws_restJson1ExperimentTargetFilterValues(output.values, context)
@@ -2064,7 +2050,7 @@ const deserializeAws_restJson1ExperimentTargetFilterValues = (output: any, conte
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2093,13 +2079,13 @@ const deserializeAws_restJson1ExperimentTemplate = (output: any, context: __Serd
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    roleArn: __expectString(output.roleArn),
     stopConditions:
       output.stopConditions !== undefined && output.stopConditions !== null
         ? deserializeAws_restJson1ExperimentTemplateStopConditionList(output.stopConditions, context)
@@ -2120,8 +2106,8 @@ const deserializeAws_restJson1ExperimentTemplateAction = (
   context: __SerdeContext
 ): ExperimentTemplateAction => {
   return {
-    actionId: output.actionId !== undefined && output.actionId !== null ? output.actionId : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    actionId: __expectString(output.actionId),
+    description: __expectString(output.description),
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ExperimentTemplateActionParameterMap(output.parameters, context)
@@ -2165,7 +2151,7 @@ const deserializeAws_restJson1ExperimentTemplateActionParameterMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2180,7 +2166,7 @@ const deserializeAws_restJson1ExperimentTemplateActionStartAfterList = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2194,7 +2180,7 @@ const deserializeAws_restJson1ExperimentTemplateActionTargetMap = (
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2204,8 +2190,8 @@ const deserializeAws_restJson1ExperimentTemplateStopCondition = (
   context: __SerdeContext
 ): ExperimentTemplateStopCondition => {
   return {
-    source: output.source !== undefined && output.source !== null ? output.source : undefined,
-    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    source: __expectString(output.source),
+    value: __expectString(output.value),
   } as any;
 };
 
@@ -2232,8 +2218,8 @@ const deserializeAws_restJson1ExperimentTemplateSummary = (
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    description: output.description !== undefined && output.description !== null ? output.description : undefined,
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    description: __expectString(output.description),
+    id: __expectString(output.id),
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -2276,9 +2262,8 @@ const deserializeAws_restJson1ExperimentTemplateTarget = (
       output.resourceTags !== undefined && output.resourceTags !== null
         ? deserializeAws_restJson1TagMap(output.resourceTags, context)
         : undefined,
-    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
-    selectionMode:
-      output.selectionMode !== undefined && output.selectionMode !== null ? output.selectionMode : undefined,
+    resourceType: __expectString(output.resourceType),
+    selectionMode: __expectString(output.selectionMode),
   } as any;
 };
 
@@ -2287,7 +2272,7 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilter = (
   context: __SerdeContext
 ): ExperimentTemplateTargetFilter => {
   return {
-    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    path: __expectString(output.path),
     values:
       output.values !== undefined && output.values !== null
         ? deserializeAws_restJson1ExperimentTemplateTargetFilterValues(output.values, context)
@@ -2319,7 +2304,7 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilterValues = (
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2348,7 +2333,7 @@ const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeCo
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return __expectString(entry) as any;
     });
 };
 
@@ -2359,7 +2344,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
     }
     return {
       ...acc,
-      [key]: value,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
