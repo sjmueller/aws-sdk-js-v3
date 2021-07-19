@@ -307,7 +307,7 @@ import {
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "../types/mod.ts";
-import { Readable } from "https://deno.land/std@0.97.0/node/stream.ts";
+import { Readable } from "https://deno.land/std@0.101.0/node/stream.ts";
 
 export type ServiceInputTypes =
   | AbortMultipartUploadCommandInput

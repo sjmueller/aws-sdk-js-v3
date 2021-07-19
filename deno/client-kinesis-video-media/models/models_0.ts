@@ -1,6 +1,6 @@
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
-import { Readable } from "https://deno.land/std@0.97.0/node/stream.ts";
+import { Readable } from "https://deno.land/std@0.101.0/node/stream.ts";
 
 /**
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of

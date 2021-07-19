@@ -4,10 +4,10 @@ export default class LRUCache<K, V> extends LRU<K, V> {
   constructor(capacity: number) {
     super({
       max: capacity,
-    })
+    });
   }
 
   public clear() {
-    this.reset()
+    this.reset();
   }
 }

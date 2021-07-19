@@ -1,4 +1,4 @@
-import process from "https://deno.land/std@0.97.0/node/process.ts";
+import process from "https://deno.land/std@0.101.0/node/process.ts";
 import { BackupClient } from "./BackupClient.ts";
 import {
   CreateBackupPlanCommand,
