@@ -1,38 +1,27 @@
-import { getMasterProfileName, parseKnownFiles } from "../credential-provider-ini/mod.ts";
-import { ProviderError } from "../property-provider/mod.ts";
-import { ParsedIniData, SharedConfigFiles, SharedConfigInit } from "../shared-ini-file-loader/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
+import { ParsedIniData } from "../shared-ini-file-loader/mod.ts";
 import { CredentialProvider, Credentials } from "../types/mod.ts";
+import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "../util-credentials/mod.ts";
 
+/**
+ * @internal
+ */
 export const ENV_PROFILE = "AWS_PROFILE";
 
-export interface FromProcessInit extends SharedConfigInit {
-  /**
-   * The configuration profile to use.
-   */
-  profile?: string;
-
-  /**
-   * A promise that will be resolved with loaded and parsed credentials files.
-   * Used to avoid loading shared config files multiple times.
-   */
-  loadedConfig?: Promise<SharedConfigFiles>;
-}
+export interface FromProcessInit extends SourceProfileInit {}
 
 /**
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  */
-export function fromProcess(init: FromProcessInit = {}): CredentialProvider {
-  return () =>
-    parseKnownFiles(init).then((profiles) => resolveProcessCredentials(getMasterProfileName(init), profiles, init));
-}
+export const fromProcess =
+  (init: FromProcessInit = {}): CredentialProvider =>
+  async () => {
+    const profiles = await parseKnownFiles(init);
+    return resolveProcessCredentials(getMasterProfileName(init), profiles);
+  };
 
-async function resolveProcessCredentials(
-  profileName: string,
-  profiles: ParsedIniData,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  options: FromProcessInit
-): Promise<Credentials> {
+const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<Credentials> => {
   const profile = profiles[profileName];
 
   if (profiles[profileName]) {
@@ -82,19 +71,19 @@ async function resolveProcessCredentials(
           };
         })
         .catch((error: Error) => {
-          throw new ProviderError(error.message);
+          throw new CredentialsProviderError(error.message);
         });
     } else {
-      throw new ProviderError(`Profile ${profileName} did not contain credential_process.`);
+      throw new CredentialsProviderError(`Profile ${profileName} did not contain credential_process.`);
     }
   } else {
     // If the profile cannot be parsed or does not contain the default or
     // specified profile throw an error. This should be considered a terminal
     // resolution error if a profile has been specified by the user (whether via
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
-    throw new ProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
+    throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
-}
+};
 
 async function execPromise(command: string) {
   const process = Deno.run({
