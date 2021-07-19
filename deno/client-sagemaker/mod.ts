@@ -250,6 +250,8 @@ export * from "./commands/RegisterDevicesCommand.ts";
 export * from "./commands/RenderUiTemplateCommand.ts";
 export * from "./commands/SearchCommand.ts";
 export * from "./pagination/SearchPaginator.ts";
+export * from "./commands/SendPipelineExecutionStepFailureCommand.ts";
+export * from "./commands/SendPipelineExecutionStepSuccessCommand.ts";
 export * from "./commands/StartMonitoringScheduleCommand.ts";
 export * from "./commands/StartNotebookInstanceCommand.ts";
 export * from "./commands/StartPipelineExecutionCommand.ts";

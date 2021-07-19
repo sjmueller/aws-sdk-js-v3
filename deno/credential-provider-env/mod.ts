@@ -1,5 +1,5 @@
 import process from "https://deno.land/std@0.101.0/node/process.ts";
-import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
 
 export const ENV_KEY = "AWS_ACCESS_KEY_ID";
@@ -26,6 +26,6 @@ export function fromEnv(): CredentialProvider {
       });
     }
 
-    return Promise.reject(new ProviderError("Unable to find environment variable credentials."));
+    return Promise.reject(new CredentialsProviderError("Unable to find environment variable credentials."));
   };
 }

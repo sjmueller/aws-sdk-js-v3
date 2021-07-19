@@ -488,6 +488,10 @@ import {
   UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand.ts";
 import {
+  UpdateSipMediaApplicationCallCommandInput,
+  UpdateSipMediaApplicationCallCommandOutput,
+} from "./commands/UpdateSipMediaApplicationCallCommand.ts";
+import {
   UpdateSipMediaApplicationCommandInput,
   UpdateSipMediaApplicationCommandOutput,
 } from "./commands/UpdateSipMediaApplicationCommand.ts";
@@ -731,6 +735,7 @@ export type ServiceInputTypes =
   | UpdateProxySessionCommandInput
   | UpdateRoomCommandInput
   | UpdateRoomMembershipCommandInput
+  | UpdateSipMediaApplicationCallCommandInput
   | UpdateSipMediaApplicationCommandInput
   | UpdateSipRuleCommandInput
   | UpdateUserCommandInput
@@ -916,6 +921,7 @@ export type ServiceOutputTypes =
   | UpdateProxySessionCommandOutput
   | UpdateRoomCommandOutput
   | UpdateRoomMembershipCommandOutput
+  | UpdateSipMediaApplicationCallCommandOutput
   | UpdateSipMediaApplicationCommandOutput
   | UpdateSipRuleCommandOutput
   | UpdateUserCommandOutput

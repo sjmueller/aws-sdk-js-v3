@@ -1,5 +1,5 @@
 import { GetCredentialsForIdentityCommand } from "../client-cognito-identity/mod.ts";
-import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
 import { Credentials, Provider } from "../types/mod.ts";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters.ts";
@@ -56,13 +56,13 @@ export interface FromCognitoIdentityParameters extends CognitoProviderParameters
 }
 
 function throwOnMissingAccessKeyId(): never {
-  throw new ProviderError("Response from Amazon Cognito contained no access key ID");
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no access key ID");
 }
 
 function throwOnMissingCredentials(): never {
-  throw new ProviderError("Response from Amazon Cognito contained no credentials");
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no credentials");
 }
 
 function throwOnMissingSecretKey(): never {
-  throw new ProviderError("Response from Amazon Cognito contained no secret key");
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no secret key");
 }

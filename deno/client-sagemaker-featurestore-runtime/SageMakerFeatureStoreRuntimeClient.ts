@@ -1,3 +1,4 @@
+import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "./commands/BatchGetRecordCommand.ts";
 import { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "./commands/DeleteRecordCommand.ts";
 import { GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand.ts";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand.ts";
@@ -52,9 +53,17 @@ import {
   UserAgent as __UserAgent,
 } from "../types/mod.ts";
 
-export type ServiceInputTypes = DeleteRecordCommandInput | GetRecordCommandInput | PutRecordCommandInput;
+export type ServiceInputTypes =
+  | BatchGetRecordCommandInput
+  | DeleteRecordCommandInput
+  | GetRecordCommandInput
+  | PutRecordCommandInput;
 
-export type ServiceOutputTypes = DeleteRecordCommandOutput | GetRecordCommandOutput | PutRecordCommandOutput;
+export type ServiceOutputTypes =
+  | BatchGetRecordCommandOutput
+  | DeleteRecordCommandOutput
+  | GetRecordCommandOutput
+  | PutRecordCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

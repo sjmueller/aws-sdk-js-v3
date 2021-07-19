@@ -479,6 +479,14 @@ import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "./com
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand.ts";
 import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand.ts";
 import {
+  SendPipelineExecutionStepFailureCommandInput,
+  SendPipelineExecutionStepFailureCommandOutput,
+} from "./commands/SendPipelineExecutionStepFailureCommand.ts";
+import {
+  SendPipelineExecutionStepSuccessCommandInput,
+  SendPipelineExecutionStepSuccessCommandOutput,
+} from "./commands/SendPipelineExecutionStepSuccessCommand.ts";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "./commands/StartMonitoringScheduleCommand.ts";
@@ -811,6 +819,8 @@ export type ServiceInputTypes =
   | RegisterDevicesCommandInput
   | RenderUiTemplateCommandInput
   | SearchCommandInput
+  | SendPipelineExecutionStepFailureCommandInput
+  | SendPipelineExecutionStepSuccessCommandInput
   | StartMonitoringScheduleCommandInput
   | StartNotebookInstanceCommandInput
   | StartPipelineExecutionCommandInput
@@ -1046,6 +1056,8 @@ export type ServiceOutputTypes =
   | RegisterDevicesCommandOutput
   | RenderUiTemplateCommandOutput
   | SearchCommandOutput
+  | SendPipelineExecutionStepFailureCommandOutput
+  | SendPipelineExecutionStepSuccessCommandOutput
   | StartMonitoringScheduleCommandOutput
   | StartNotebookInstanceCommandOutput
   | StartPipelineExecutionCommandOutput

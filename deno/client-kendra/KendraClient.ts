@@ -2,6 +2,10 @@ import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand.ts";
+import {
+  BatchGetDocumentStatusCommandInput,
+  BatchGetDocumentStatusCommandOutput,
+} from "./commands/BatchGetDocumentStatusCommand.ts";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand.ts";
 import {
   ClearQuerySuggestionsCommandInput,
@@ -131,6 +135,7 @@ import {
 
 export type ServiceInputTypes =
   | BatchDeleteDocumentCommandInput
+  | BatchGetDocumentStatusCommandInput
   | BatchPutDocumentCommandInput
   | ClearQuerySuggestionsCommandInput
   | CreateDataSourceCommandInput
@@ -171,6 +176,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | BatchDeleteDocumentCommandOutput
+  | BatchGetDocumentStatusCommandOutput
   | BatchPutDocumentCommandOutput
   | ClearQuerySuggestionsCommandOutput
   | CreateDataSourceCommandOutput

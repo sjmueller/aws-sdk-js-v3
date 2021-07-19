@@ -70,6 +70,7 @@ import {
 } from "./commands/ListRetirableGrantsCommand.ts";
 import { PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput } from "./commands/PutKeyPolicyCommand.ts";
 import { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand.ts";
+import { ReplicateKeyCommandInput, ReplicateKeyCommandOutput } from "./commands/ReplicateKeyCommand.ts";
 import { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand.ts";
 import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand.ts";
 import {
@@ -88,6 +89,10 @@ import {
   UpdateKeyDescriptionCommandInput,
   UpdateKeyDescriptionCommandOutput,
 } from "./commands/UpdateKeyDescriptionCommand.ts";
+import {
+  UpdatePrimaryRegionCommandInput,
+  UpdatePrimaryRegionCommandOutput,
+} from "./commands/UpdatePrimaryRegionCommand.ts";
 import { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -177,6 +182,7 @@ export type ServiceInputTypes =
   | ListRetirableGrantsCommandInput
   | PutKeyPolicyCommandInput
   | ReEncryptCommandInput
+  | ReplicateKeyCommandInput
   | RetireGrantCommandInput
   | RevokeGrantCommandInput
   | ScheduleKeyDeletionCommandInput
@@ -186,6 +192,7 @@ export type ServiceInputTypes =
   | UpdateAliasCommandInput
   | UpdateCustomKeyStoreCommandInput
   | UpdateKeyDescriptionCommandInput
+  | UpdatePrimaryRegionCommandInput
   | VerifyCommandInput;
 
 export type ServiceOutputTypes =
@@ -225,6 +232,7 @@ export type ServiceOutputTypes =
   | ListRetirableGrantsCommandOutput
   | PutKeyPolicyCommandOutput
   | ReEncryptCommandOutput
+  | ReplicateKeyCommandOutput
   | RetireGrantCommandOutput
   | RevokeGrantCommandOutput
   | ScheduleKeyDeletionCommandOutput
@@ -234,6 +242,7 @@ export type ServiceOutputTypes =
   | UpdateAliasCommandOutput
   | UpdateCustomKeyStoreCommandOutput
   | UpdateKeyDescriptionCommandOutput
+  | UpdatePrimaryRegionCommandOutput
   | VerifyCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

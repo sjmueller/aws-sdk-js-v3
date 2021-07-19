@@ -2766,6 +2766,33 @@ export namespace CreateResourcePolicyStatementResponse {
   });
 }
 
+/**
+ * <p>Indicates whether a slot can return multiple values.</p>
+ */
+export interface MultipleValuesSetting {
+  /**
+   * <p>Indicates whether a slot can return multiple values. When
+   *             <code>true</code>, the slot may return more than one value in a
+   *          response. When <code>false</code>, the slot returns only a single
+   *          value.</p>
+   *          <p>Multi-value slots are only available in the en-US locale. If you
+   *          set this value to <code>true</code> in any other locale, Amazon Lex throws a
+   *          <code>ValidationException</code>.</p>
+   *          <p>If the <code>allowMutlipleValues</code> is not set, the default
+   *             value is <code>false</code>.</p>
+   */
+  allowMultipleValues?: boolean;
+}
+
+export namespace MultipleValuesSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultipleValuesSetting): any => ({
+    ...obj,
+  });
+}
+
 export enum ObfuscationSettingType {
   DefaultObfuscation = "DefaultObfuscation",
   None = "None",
@@ -3016,6 +3043,16 @@ export interface CreateSlotRequest {
    * <p>The identifier of the intent that contains the slot.</p>
    */
   intentId: string | undefined;
+
+  /**
+   * <p>Indicates whether the slot returns multiple values in one response.
+   *          Multi-value slots are only available in the en-US locale. If you set
+   *          this value to <code>true</code> in any other locale, Amazon Lex throws a
+   *             <code>ValidationException</code>. </p>
+   *          <p>If the <code>multipleValuesSetting</code> is not set, the default
+   *       value is <code>false</code>.</p>
+   */
+  multipleValuesSetting?: MultipleValuesSetting;
 }
 
 export namespace CreateSlotRequest {
@@ -3085,6 +3122,12 @@ export interface CreateSlotResponse {
    * <p>The timestamp of the date and time that the slot was created.</p>
    */
   creationDateTime?: Date;
+
+  /**
+   * <p>Indicates whether the slot returns multiple values in one
+   *          response.</p>
+   */
+  multipleValuesSetting?: MultipleValuesSetting;
 }
 
 export namespace CreateSlotResponse {
@@ -4828,6 +4871,14 @@ export interface DescribeSlotResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Indicates whether the slot accepts multiple values in a
+   *          single utterance.</p>
+   *          <p>If the <code>multipleValuesSetting</code> is not set, the default
+   *          value is <code>false</code>.</p>
+   */
+  multipleValuesSetting?: MultipleValuesSetting;
 }
 
 export namespace DescribeSlotResponse {
@@ -7438,6 +7489,16 @@ export interface UpdateSlotRequest {
    * <p>The identifier of the intent that contains the slot.</p>
    */
   intentId: string | undefined;
+
+  /**
+   * <p>Determines whether the slot accepts multiple values in one response.
+   *          Multiple value slots are only available in the en-US locale. If you set
+   *          this value to <code>true</code> in any other locale, Amazon Lex throws a
+   *             <code>ValidationException</code>.</p>
+   *          <p>If the <code>multipleValuesSetting</code> is not set, the default
+   *          value is <code>false</code>.</p>
+   */
+  multipleValuesSetting?: MultipleValuesSetting;
 }
 
 export namespace UpdateSlotRequest {
@@ -7514,6 +7575,12 @@ export interface UpdateSlotResponse {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>Indicates whether the slot accepts multiple values in one
+   *          response.</p>
+   */
+  multipleValuesSetting?: MultipleValuesSetting;
 }
 
 export namespace UpdateSlotResponse {

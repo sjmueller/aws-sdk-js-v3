@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DescribeUserProfileRequest, DescribeUserProfileResponse } from "../models/models_1.ts";
+import { DescribeUserProfileRequest, DescribeUserProfileResponse } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1DescribeUserProfileCommand,
   serializeAws_json1_1DescribeUserProfileCommand,

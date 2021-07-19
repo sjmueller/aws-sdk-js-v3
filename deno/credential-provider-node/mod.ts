@@ -11,7 +11,7 @@ import { ENV_PROFILE, fromIni, FromIniInit } from "../credential-provider-ini/mo
 import { fromProcess, FromProcessInit } from "../credential-provider-process/mod.ts";
 import { fromSSO, FromSSOInit } from "../credential-provider-sso/mod.ts";
 import { fromTokenFile, FromTokenFileInit } from "../credential-provider-web-identity/mod.ts";
-import { chain, memoize, ProviderError } from "../property-provider/mod.ts";
+import { chain, CredentialsProviderError, memoize } from "../property-provider/mod.ts";
 import { loadSharedConfigFiles } from "../shared-ini-file-loader/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
 
@@ -62,6 +62,9 @@ export const defaultProvider = (
     fromProcess(options),
     fromTokenFile(options),
     remoteProvider(options),
+    async () => {
+      throw new CredentialsProviderError("Could not load credentials from any providers", false);
+    },
   ];
   if (!options.profile) providers.unshift(fromEnv());
   const providerChain = chain(...providers);
@@ -79,7 +82,7 @@ const remoteProvider = (init: RemoteProviderInit): CredentialProvider => {
   }
 
   if (process.env[ENV_IMDS_DISABLED]) {
-    return () => Promise.reject(new ProviderError("EC2 Instance Metadata Service access disabled"));
+    return () => Promise.reject(new CredentialsProviderError("EC2 Instance Metadata Service access disabled"));
   }
 
   return fromInstanceMetadata(init);

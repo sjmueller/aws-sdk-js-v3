@@ -1,6 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeInstanceTypeOfferingsRequest } from "../models/models_2.ts";
-import { DescribeInstanceTypeOfferingsResult } from "../models/models_3.ts";
+import { DescribeInstanceTypeOfferingsRequest, DescribeInstanceTypeOfferingsResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeInstanceTypeOfferingsCommand,
   serializeAws_ec2DescribeInstanceTypeOfferingsCommand,

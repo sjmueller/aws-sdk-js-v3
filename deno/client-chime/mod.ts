@@ -203,6 +203,7 @@ export * from "./commands/UpdateProxySessionCommand.ts";
 export * from "./commands/UpdateRoomCommand.ts";
 export * from "./commands/UpdateRoomMembershipCommand.ts";
 export * from "./commands/UpdateSipMediaApplicationCommand.ts";
+export * from "./commands/UpdateSipMediaApplicationCallCommand.ts";
 export * from "./commands/UpdateSipRuleCommand.ts";
 export * from "./commands/UpdateUserCommand.ts";
 export * from "./commands/UpdateUserSettingsCommand.ts";

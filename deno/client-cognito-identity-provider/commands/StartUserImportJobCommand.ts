@@ -3,7 +3,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { StartUserImportJobRequest, StartUserImportJobResponse } from "../models/models_0.ts";
+import { StartUserImportJobRequest } from "../models/models_0.ts";
+import { StartUserImportJobResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1StartUserImportJobCommand,
   serializeAws_json1_1StartUserImportJobCommand,

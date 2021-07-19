@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/models_4.ts";
+import { ReplaceNetworkAclAssociationRequest, ReplaceNetworkAclAssociationResult } from "../models/models_5.ts";
 import {
   deserializeAws_ec2ReplaceNetworkAclAssociationCommand,
   serializeAws_ec2ReplaceNetworkAclAssociationCommand,

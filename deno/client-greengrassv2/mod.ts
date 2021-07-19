@@ -1,5 +1,7 @@
 export * from "./GreengrassV2Client.ts";
 export * from "./GreengrassV2.ts";
+export * from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand.ts";
+export * from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand.ts";
 export * from "./commands/CancelDeploymentCommand.ts";
 export * from "./commands/CreateComponentVersionCommand.ts";
 export * from "./commands/CreateDeploymentCommand.ts";
@@ -10,6 +12,8 @@ export * from "./commands/GetComponentCommand.ts";
 export * from "./commands/GetComponentVersionArtifactCommand.ts";
 export * from "./commands/GetCoreDeviceCommand.ts";
 export * from "./commands/GetDeploymentCommand.ts";
+export * from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand.ts";
+export * from "./pagination/ListClientDevicesAssociatedWithCoreDevicePaginator.ts";
 export * from "./commands/ListComponentsCommand.ts";
 export * from "./pagination/ListComponentsPaginator.ts";
 export * from "./commands/ListComponentVersionsCommand.ts";

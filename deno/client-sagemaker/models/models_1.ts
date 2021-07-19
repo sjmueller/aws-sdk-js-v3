@@ -41,8 +41,8 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   EdgeOutputConfig,
+  EdgePresetDeploymentType,
   EndpointInput,
-  Explainability,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
   GitConfig,
@@ -64,7 +64,6 @@ import {
   LabelingJobStoppingConditions,
   MetadataProperties,
   MetricsSource,
-  ModelApprovalStatus,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
@@ -105,6 +104,47 @@ import {
   VpcConfig,
 } from "./models_0.ts";
 import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
+
+export interface CreateModelExplainabilityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+export namespace CreateModelExplainabilityJobDefinitionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ModelApprovalStatus {
+  APPROVED = "Approved",
+  PENDING_MANUAL_APPROVAL = "PendingManualApproval",
+  REJECTED = "Rejected",
+}
+
+/**
+ * <p>Contains explainability metrics for a model.</p>
+ */
+export interface Explainability {
+  /**
+   * <p>The explainability report for a model.</p>
+   */
+  Report?: MetricsSource;
+}
+
+export namespace Explainability {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Explainability): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Data quality constraints and statistics for a model.</p>
@@ -1848,6 +1888,15 @@ export interface ProcessingClusterConfig {
   /**
    * <p>The size of the ML storage volume in gigabytes that you want to provision. You must
    *             specify sufficient ML storage for your scenario.</p>
+   *         <note>
+   *             <p>Certain Nitro-based instances include local storage with a fixed total size,
+   *                 dependent on the instance type. When using these instances for processing, Amazon SageMaker mounts
+   *                 the local instance storage instead of Amazon EBS gp2 storage. You can't request a
+   *                 <code>VolumeSizeInGB</code> greater than the total size of the local instance
+   *                 storage.</p>
+   *             <p>For a list of instance types that support local instance storage, including the
+   *                 total size per instance type, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *         </note>
    */
   VolumeSizeInGB: number | undefined;
 
@@ -1855,6 +1904,15 @@ export interface ProcessingClusterConfig {
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the
    *             storage volume attached to the ML compute instance(s) that run the processing job.
    *         </p>
+   *         <note>
+   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
+   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
+   *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
+   *                 local storage.</p>
+   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+   *                 Instance Store Volumes</a>.</p>
+   *         </note>
    */
   VolumeKmsKeyId?: string;
 }
@@ -2382,7 +2440,6 @@ export interface CreateTrainingJobRequest {
   /**
    * <p>An array of <code>Channel</code> objects. Each channel is a named input source.
    *                 <code>InputDataConfig</code>
-   *
    *             describes the input data and its location. </p>
    *         <p>Algorithms can accept input data from one or more channels. For example, an
    *             algorithm might have two channels of input data, <code>training_data</code> and
@@ -2424,10 +2481,9 @@ export interface CreateTrainingJobRequest {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run.
-   *             It also specifies how long a managed Spot training job has to complete.
-   *             When the job reaches the time limit, Amazon SageMaker ends
-   *             the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, Amazon SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
@@ -2539,7 +2595,7 @@ export interface CreateTrainingJobRequest {
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
-   *             <code>InternalServerError</code>.</p>
+   *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
 }
@@ -2611,20 +2667,20 @@ export interface DataProcessing {
    *             are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
    *             which specifies not to join the input with the transformed data. If you want the batch
    *             transform job to join the original input data with the transformed data, set
-   *             <code>JoinSource</code> to <code>Input</code>. You can specify <code>OutputFilter</code>
-   *             as an additional filter to select a portion of the joined dataset and store it in the output file.</p>
+   *                 <code>JoinSource</code> to <code>Input</code>. You can specify
+   *                 <code>OutputFilter</code> as an additional filter to select a portion of the joined
+   *             dataset and store it in the output file.</p>
    *         <p>For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker adds the transformed data to
    *             the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined
    *             result for JSON must be a key-value pair object. If the input is not a key-value pair
    *             object, Amazon SageMaker creates a new JSON file. In the new JSON file, and the input data is stored
    *             under the <code>SageMakerInput</code> key and the results are stored in
    *                 <code>SageMakerOutput</code>.</p>
-   *         <p>For CSV data, Amazon SageMaker takes each row as a JSON array and joins the transformed
-   *             data with the input by appending each transformed row to the end of the input.
-   *             The joined data has the original input data followed by the transformed data and
-   *             the output is a CSV file.</p>
-   *         <p>For information on how joining in applied, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
+   *         <p>For CSV data, Amazon SageMaker takes each row as a JSON array and joins the transformed data with
+   *             the input by appending each transformed row to the end of the input. The joined data has
+   *             the original input data followed by the transformed data and the output is a CSV
+   *             file.</p>
+   *         <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
    */
   JoinSource?: JoinSource | string;
 }
@@ -4095,8 +4151,9 @@ export namespace DeleteModelExplainabilityJobDefinitionRequest {
 
 export interface DeleteModelPackageInput {
   /**
-   * <p>The name of the model package. The name must have 1 to 63 characters. Valid characters
-   *             are a-z, A-Z, 0-9, and - (hyphen).</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model package to delete.</p>
+   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
+   *           characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   ModelPackageName: string | undefined;
 }
@@ -5835,6 +5892,46 @@ export enum EdgePackagingJobStatus {
   Stopping = "STOPPING",
 }
 
+export enum EdgePresetDeploymentStatus {
+  Completed = "COMPLETED",
+  Failed = "FAILED",
+}
+
+/**
+ * <p>The output of a SageMaker Edge Manager deployable resource.</p>
+ */
+export interface EdgePresetDeploymentOutput {
+  /**
+   * <p>The deployment type created by SageMaker Edge Manager. Currently only
+   *      supports AWS IoT Greengrass Version 2 components.</p>
+   */
+  Type: EdgePresetDeploymentType | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the generated deployable resource.</p>
+   */
+  Artifact?: string;
+
+  /**
+   * <p>The status of the deployable resource.</p>
+   */
+  Status?: EdgePresetDeploymentStatus | string;
+
+  /**
+   * <p>Returns a message describing the status of the deployed resource.</p>
+   */
+  StatusMessage?: string;
+}
+
+export namespace EdgePresetDeploymentOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EdgePresetDeploymentOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeEdgePackagingJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the edge packaging job.</p>
@@ -5905,6 +6002,11 @@ export interface DescribeEdgePackagingJobResponse {
    * <p>The signature document of files in the model artifact.</p>
    */
   ModelSignature?: string;
+
+  /**
+   * <p>The output of a SageMaker Edge Manager deployable resource.</p>
+   */
+  PresetDeploymentOutput?: EdgePresetDeploymentOutput;
 }
 
 export namespace DescribeEdgePackagingJobResponse {
@@ -7643,7 +7745,9 @@ export namespace DescribeModelExplainabilityJobDefinitionResponse {
 
 export interface DescribeModelPackageInput {
   /**
-   * <p>The name of the model package to describe.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
+   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
+   *           characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   ModelPackageName: string | undefined;
 }
@@ -8550,6 +8654,30 @@ export enum PipelineExecutionStatus {
   SUCCEEDED = "Succeeded",
 }
 
+/**
+ * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+ */
+export interface PipelineExperimentConfig {
+  /**
+   * <p>The name of the experiment.</p>
+   */
+  ExperimentName?: string;
+
+  /**
+   * <p>The name of the trial.</p>
+   */
+  TrialName?: string;
+}
+
+export namespace PipelineExperimentConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PipelineExperimentConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribePipelineExecutionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
@@ -8575,6 +8703,16 @@ export interface DescribePipelineExecutionResponse {
    * <p>The description of the pipeline execution.</p>
    */
   PipelineExecutionDescription?: string;
+
+  /**
+   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+   */
+  PipelineExperimentConfig?: PipelineExperimentConfig;
+
+  /**
+   * <p>If the execution failed, a message describing why.</p>
+   */
+  FailureReason?: string;
 
   /**
    * <p>The time when the pipeline execution was created.</p>
@@ -9199,8 +9337,8 @@ export interface SecondaryStatusTransition {
    *                             <p>Starting the training job.</p>
    *                         </li>
    *                   <li>
-   *                             <p>Launching
-   *                                 requested ML instances.</p>
+   *                             <p>Launching requested ML
+   *                                 instances.</p>
    *                         </li>
    *                   <li>
    *                             <p>Insufficient
@@ -9491,10 +9629,9 @@ export interface DescribeTrainingJobResponse {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run.
-   *             It also specifies how long a managed Spot training job has to complete.
-   *             When the job reaches the time limit, Amazon SageMaker ends
-   *             the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, Amazon SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
@@ -9660,7 +9797,7 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
-   *             <code>InternalServerError</code>.</p>
+   *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
 
@@ -10185,232 +10322,5 @@ export namespace DescribeTrialComponentResponse {
         {}
       ),
     }),
-  });
-}
-
-export interface DescribeUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name. This value is not case sensitive.</p>
-   */
-  UserProfileName: string | undefined;
-}
-
-export namespace DescribeUserProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum UserProfileStatus {
-  Delete_Failed = "Delete_Failed",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  InService = "InService",
-  Pending = "Pending",
-  Update_Failed = "Update_Failed",
-  Updating = "Updating",
-}
-
-export interface DescribeUserProfileResponse {
-  /**
-   * <p>The ID of the domain that contains the profile.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   */
-  UserProfileArn?: string;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName?: string;
-
-  /**
-   * <p>The ID of the user's profile in the Amazon Elastic File System (EFS) volume.</p>
-   */
-  HomeEfsFileSystemUid?: string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: UserProfileStatus | string;
-
-  /**
-   * <p>The last modified time.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The failure reason.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The SSO user identifier.</p>
-   */
-  SingleSignOnUserIdentifier?: string;
-
-  /**
-   * <p>The SSO user value.</p>
-   */
-  SingleSignOnUserValue?: string;
-
-  /**
-   * <p>A collection of settings.</p>
-   */
-  UserSettings?: UserSettings;
-}
-
-export namespace DescribeUserProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserProfileResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeWorkforceRequest {
-  /**
-   * <p>The name of the private workforce whose access you want to restrict.
-   *                 <code>WorkforceName</code> is automatically set to <code>default</code> when a
-   *             workforce is created and cannot be modified. </p>
-   */
-  WorkforceName: string | undefined;
-}
-
-export namespace DescribeWorkforceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkforceRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Your OIDC IdP workforce configuration.</p>
- */
-export interface OidcConfigForResponse {
-  /**
-   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
-   */
-  ClientId?: string;
-
-  /**
-   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
-   */
-  Issuer?: string;
-
-  /**
-   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
-   */
-  AuthorizationEndpoint?: string;
-
-  /**
-   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
-   */
-  TokenEndpoint?: string;
-
-  /**
-   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
-   */
-  UserInfoEndpoint?: string;
-
-  /**
-   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
-   */
-  LogoutEndpoint?: string;
-
-  /**
-   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
-   */
-  JwksUri?: string;
-}
-
-export namespace OidcConfigForResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OidcConfigForResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A single private workforce, which is automatically created when you create your first
- *             private work team. You can create one private work force in each AWS Region. By default,
- *             any workforce-related API operation used in a specific region will apply to the
- *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
- */
-export interface Workforce {
-  /**
-   * <p>The name of the private workforce.</p>
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the private workforce.</p>
-   */
-  WorkforceArn: string | undefined;
-
-  /**
-   * <p>The most recent date that  was used to
-   *             successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's
-   *             allow list.</p>
-   */
-  LastUpdatedDate?: Date;
-
-  /**
-   * <p>A list of one to ten IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to be added to the
-   *             workforce allow list. By default, a workforce isn't restricted to specific IP addresses.</p>
-   */
-  SourceIpConfig?: SourceIpConfig;
-
-  /**
-   * <p>The subdomain for your OIDC Identity Provider.</p>
-   */
-  SubDomain?: string;
-
-  /**
-   * <p>The configuration of an Amazon Cognito workforce.
-   *       A single Cognito workforce is created using and corresponds to a single
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
-   *       Amazon Cognito user pool</a>.</p>
-   */
-  CognitoConfig?: CognitoConfig;
-
-  /**
-   * <p>The configuration of an OIDC Identity Provider (IdP) private workforce.</p>
-   */
-  OidcConfig?: OidcConfigForResponse;
-
-  /**
-   * <p>The date that the workforce is created.</p>
-   */
-  CreateDate?: Date;
-}
-
-export namespace Workforce {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workforce): any => ({
-    ...obj,
   });
 }

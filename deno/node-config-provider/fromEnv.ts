@@ -1,5 +1,5 @@
 import process from "https://deno.land/std@0.101.0/node/process.ts";
-import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
 import { Provider } from "../types/mod.ts";
 
 export type GetterFromEnv<T> = (env: {[key: string]: string}) => T | undefined;
@@ -18,7 +18,7 @@ export const fromEnv =
       }
       return config as T;
     } catch (e) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         e.message || `Cannot load config from environment variables with getter: ${envVarSelector}`
       );
     }

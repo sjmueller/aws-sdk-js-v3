@@ -1,5 +1,5 @@
 import process from "https://deno.land/std@0.101.0/node/process.ts";
-import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
 import {
   loadSharedConfigFiles,
   Profile,
@@ -62,7 +62,7 @@ export const fromSharedConfigFiles =
       }
       return configValue;
     } catch (e) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         e.message ||
           `Cannot load config for profile ${profile} in SDK configuration files with getter: ${configSelector}`
       );

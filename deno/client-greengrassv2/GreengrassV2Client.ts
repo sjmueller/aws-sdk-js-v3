@@ -1,3 +1,11 @@
+import {
+  BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+  BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
+} from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand.ts";
+import {
+  BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+  BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
+} from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand.ts";
 import { CancelDeploymentCommandInput, CancelDeploymentCommandOutput } from "./commands/CancelDeploymentCommand.ts";
 import {
   CreateComponentVersionCommandInput,
@@ -14,6 +22,10 @@ import {
 } from "./commands/GetComponentVersionArtifactCommand.ts";
 import { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "./commands/GetCoreDeviceCommand.ts";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand.ts";
+import {
+  ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+  ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
+} from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand.ts";
 import {
   ListComponentVersionsCommandInput,
   ListComponentVersionsCommandOutput,
@@ -91,6 +103,8 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | BatchAssociateClientDeviceWithCoreDeviceCommandInput
+  | BatchDisassociateClientDeviceFromCoreDeviceCommandInput
   | CancelDeploymentCommandInput
   | CreateComponentVersionCommandInput
   | CreateDeploymentCommandInput
@@ -101,6 +115,7 @@ export type ServiceInputTypes =
   | GetComponentVersionArtifactCommandInput
   | GetCoreDeviceCommandInput
   | GetDeploymentCommandInput
+  | ListClientDevicesAssociatedWithCoreDeviceCommandInput
   | ListComponentVersionsCommandInput
   | ListComponentsCommandInput
   | ListCoreDevicesCommandInput
@@ -113,6 +128,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchAssociateClientDeviceWithCoreDeviceCommandOutput
+  | BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
   | CancelDeploymentCommandOutput
   | CreateComponentVersionCommandOutput
   | CreateDeploymentCommandOutput
@@ -123,6 +140,7 @@ export type ServiceOutputTypes =
   | GetComponentVersionArtifactCommandOutput
   | GetCoreDeviceCommandOutput
   | GetDeploymentCommandOutput
+  | ListClientDevicesAssociatedWithCoreDeviceCommandOutput
   | ListComponentVersionsCommandOutput
   | ListComponentsCommandOutput
   | ListCoreDevicesCommandOutput

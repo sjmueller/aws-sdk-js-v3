@@ -1,5 +1,5 @@
 import process from "https://deno.land/std@0.101.0/node/process.ts";
-import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
 import { CredentialProvider, Credentials } from "../types/mod.ts";
 import { readFileSync } from "https://deno.land/std@0.101.0/node/fs.ts";
 
@@ -31,7 +31,7 @@ const resolveTokenFile = (init?: FromTokenFileInit): Promise<Credentials> => {
   const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];
 
   if (!webIdentityTokenFile || !roleArn) {
-    throw new ProviderError("Web identity configuration not specified");
+    throw new CredentialsProviderError("Web identity configuration not specified");
   }
 
   return fromWebToken({

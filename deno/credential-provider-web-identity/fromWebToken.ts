@@ -1,4 +1,4 @@
-import { ProviderError } from "../property-provider/mod.ts";
+import { CredentialsProviderError } from "../property-provider/mod.ts";
 import { CredentialProvider, Credentials } from "../types/mod.ts";
 
 export interface AssumeRoleWithWebIdentityParams {
@@ -142,7 +142,7 @@ export const fromWebToken =
     } = init;
 
     if (!roleAssumerWithWebIdentity) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         `Role Arn '${roleArn}' needs to be assumed with web identity,` +
           ` but no role assumption callback was provided.`,
         false

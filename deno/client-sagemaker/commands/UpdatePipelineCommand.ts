@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_2.ts";
+import { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_3.ts";
 import {
   deserializeAws_json1_1UpdatePipelineCommand,
   serializeAws_json1_1UpdatePipelineCommand,

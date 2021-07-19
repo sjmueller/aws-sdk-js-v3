@@ -4,6 +4,7 @@ import {
   deserializeAws_restXmlPutObjectAclCommand,
   serializeAws_restXmlPutObjectAclCommand,
 } from "../protocols/Aws_restXml.ts";
+import { getApplyMd5BodyChecksumPlugin } from "../../middleware-apply-body-checksum/mod.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
@@ -239,6 +240,7 @@ export class PutObjectAclCommand extends $Command<
   ): Handler<PutObjectAclCommandInput, PutObjectAclCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

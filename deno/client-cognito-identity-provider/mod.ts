@@ -88,6 +88,7 @@ export * from "./commands/ListUsersInGroupCommand.ts";
 export * from "./pagination/ListUsersInGroupPaginator.ts";
 export * from "./commands/ResendConfirmationCodeCommand.ts";
 export * from "./commands/RespondToAuthChallengeCommand.ts";
+export * from "./commands/RevokeTokenCommand.ts";
 export * from "./commands/SetRiskConfigurationCommand.ts";
 export * from "./commands/SetUICustomizationCommand.ts";
 export * from "./commands/SetUserMFAPreferenceCommand.ts";

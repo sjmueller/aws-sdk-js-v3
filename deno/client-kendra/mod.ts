@@ -1,6 +1,7 @@
 export * from "./KendraClient.ts";
 export * from "./Kendra.ts";
 export * from "./commands/BatchDeleteDocumentCommand.ts";
+export * from "./commands/BatchGetDocumentStatusCommand.ts";
 export * from "./commands/BatchPutDocumentCommand.ts";
 export * from "./commands/ClearQuerySuggestionsCommand.ts";
 export * from "./commands/CreateDataSourceCommand.ts";
