@@ -232,17 +232,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -257,6 +246,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -304,11 +304,10 @@ type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Firewall Manager</fullname>
- *          <p>This is the <i>AWS Firewall Manager API Reference</i>. This guide is for
- *       developers who need detailed information about the AWS Firewall Manager API actions, data
- *       types, and errors. For detailed information about AWS Firewall Manager features, see the
- *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">AWS Firewall Manager Developer Guide</a>.</p>
+ * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
+ *       developers who need detailed information about the Firewall Manager API actions, data
+ *       types, and errors. For detailed information about Firewall Manager features, see the
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
  *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
  *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
  * </p>

@@ -51,6 +51,10 @@ import {
 } from "./commands/DescribeLoggingOptionsCommand";
 import { DescribePortalCommandInput, DescribePortalCommandOutput } from "./commands/DescribePortalCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import {
+  DescribeStorageConfigurationCommandInput,
+  DescribeStorageConfigurationCommandOutput,
+} from "./commands/DescribeStorageConfigurationCommand";
 import { DisassociateAssetsCommandInput, DisassociateAssetsCommandOutput } from "./commands/DisassociateAssetsCommand";
 import {
   GetAssetPropertyAggregatesCommandInput,
@@ -93,6 +97,10 @@ import {
   PutDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/PutDefaultEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
+import {
+  PutStorageConfigurationCommandInput,
+  PutStorageConfigurationCommandOutput,
+} from "./commands/PutStorageConfigurationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from "./commands/UpdateAccessPolicyCommand";
@@ -191,6 +199,7 @@ export type ServiceInputTypes =
   | DescribeLoggingOptionsCommandInput
   | DescribePortalCommandInput
   | DescribeProjectCommandInput
+  | DescribeStorageConfigurationCommandInput
   | DisassociateAssetsCommandInput
   | GetAssetPropertyAggregatesCommandInput
   | GetAssetPropertyValueCommandInput
@@ -209,6 +218,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutDefaultEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
+  | PutStorageConfigurationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccessPolicyCommandInput
@@ -251,6 +261,7 @@ export type ServiceOutputTypes =
   | DescribeLoggingOptionsCommandOutput
   | DescribePortalCommandOutput
   | DescribeProjectCommandOutput
+  | DescribeStorageConfigurationCommandOutput
   | DisassociateAssetsCommandOutput
   | GetAssetPropertyAggregatesCommandOutput
   | GetAssetPropertyValueCommandOutput
@@ -269,6 +280,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutDefaultEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
+  | PutStorageConfigurationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccessPolicyCommandOutput
@@ -349,17 +361,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -374,6 +375,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -421,8 +433,8 @@ type IoTSiteWiseClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpH
 export interface IoTSiteWiseClientResolvedConfig extends IoTSiteWiseClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the AWS IoT SiteWise API Reference. AWS IoT SiteWise is an AWS service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the AWS Cloud. For more information, see the
- *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">AWS IoT SiteWise User Guide</a>. For information about AWS IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ * <p>Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the Amazon Web Services Cloud. For more information, see the
+ *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/">IoT SiteWise User Guide</a>. For information about IoT SiteWise quotas, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  */
 export class IoTSiteWiseClient extends __Client<
   __HttpHandlerOptions,

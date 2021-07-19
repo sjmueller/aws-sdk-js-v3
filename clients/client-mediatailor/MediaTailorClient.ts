@@ -33,6 +33,7 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
+import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
@@ -131,6 +132,7 @@ export type ServiceInputTypes =
   | GetChannelPolicyCommandInput
   | GetChannelScheduleCommandInput
   | GetPlaybackConfigurationCommandInput
+  | ListAlertsCommandInput
   | ListChannelsCommandInput
   | ListPlaybackConfigurationsCommandInput
   | ListSourceLocationsCommandInput
@@ -164,6 +166,7 @@ export type ServiceOutputTypes =
   | GetChannelPolicyCommandOutput
   | GetChannelScheduleCommandOutput
   | GetPlaybackConfigurationCommandOutput
+  | ListAlertsCommandOutput
   | ListChannelsCommandOutput
   | ListPlaybackConfigurationsCommandOutput
   | ListSourceLocationsCommandOutput
@@ -247,17 +250,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -272,6 +264,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
