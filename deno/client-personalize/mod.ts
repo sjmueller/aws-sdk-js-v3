@@ -57,6 +57,7 @@ export * from "./commands/ListSolutionsCommand.ts";
 export * from "./pagination/ListSolutionsPaginator.ts";
 export * from "./commands/ListSolutionVersionsCommand.ts";
 export * from "./pagination/ListSolutionVersionsPaginator.ts";
+export * from "./commands/StopSolutionVersionCreationCommand.ts";
 export * from "./commands/UpdateCampaignCommand.ts";
 export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

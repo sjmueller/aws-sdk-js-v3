@@ -3,21 +3,47 @@ import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "./comma
 import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand.ts";
 import { CreateBotLocaleCommandInput, CreateBotLocaleCommandOutput } from "./commands/CreateBotLocaleCommand.ts";
 import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand.ts";
+import { CreateExportCommandInput, CreateExportCommandOutput } from "./commands/CreateExportCommand.ts";
 import { CreateIntentCommandInput, CreateIntentCommandOutput } from "./commands/CreateIntentCommand.ts";
+import {
+  CreateResourcePolicyCommandInput,
+  CreateResourcePolicyCommandOutput,
+} from "./commands/CreateResourcePolicyCommand.ts";
+import {
+  CreateResourcePolicyStatementCommandInput,
+  CreateResourcePolicyStatementCommandOutput,
+} from "./commands/CreateResourcePolicyStatementCommand.ts";
 import { CreateSlotCommandInput, CreateSlotCommandOutput } from "./commands/CreateSlotCommand.ts";
 import { CreateSlotTypeCommandInput, CreateSlotTypeCommandOutput } from "./commands/CreateSlotTypeCommand.ts";
+import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "./commands/CreateUploadUrlCommand.ts";
 import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand.ts";
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand.ts";
 import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "./commands/DeleteBotLocaleCommand.ts";
 import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand.ts";
+import { DeleteExportCommandInput, DeleteExportCommandOutput } from "./commands/DeleteExportCommand.ts";
+import { DeleteImportCommandInput, DeleteImportCommandOutput } from "./commands/DeleteImportCommand.ts";
 import { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand.ts";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand.ts";
+import {
+  DeleteResourcePolicyStatementCommandInput,
+  DeleteResourcePolicyStatementCommandOutput,
+} from "./commands/DeleteResourcePolicyStatementCommand.ts";
 import { DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand.ts";
 import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand.ts";
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand.ts";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand.ts";
 import { DescribeBotLocaleCommandInput, DescribeBotLocaleCommandOutput } from "./commands/DescribeBotLocaleCommand.ts";
 import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "./commands/DescribeBotVersionCommand.ts";
+import { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand.ts";
+import { DescribeImportCommandInput, DescribeImportCommandOutput } from "./commands/DescribeImportCommand.ts";
 import { DescribeIntentCommandInput, DescribeIntentCommandOutput } from "./commands/DescribeIntentCommand.ts";
+import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand.ts";
 import { DescribeSlotCommandInput, DescribeSlotCommandOutput } from "./commands/DescribeSlotCommand.ts";
 import { DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput } from "./commands/DescribeSlotTypeCommand.ts";
 import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "./commands/ListBotAliasesCommand.ts";
@@ -29,6 +55,8 @@ import {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "./commands/ListBuiltInSlotTypesCommand.ts";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand.ts";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand.ts";
 import { ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand.ts";
 import { ListSlotTypesCommandInput, ListSlotTypesCommandOutput } from "./commands/ListSlotTypesCommand.ts";
 import { ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand.ts";
@@ -36,12 +64,18 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput } from "./commands/UpdateBotAliasCommand.ts";
 import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand.ts";
 import { UpdateBotLocaleCommandInput, UpdateBotLocaleCommandOutput } from "./commands/UpdateBotLocaleCommand.ts";
+import { UpdateExportCommandInput, UpdateExportCommandOutput } from "./commands/UpdateExportCommand.ts";
 import { UpdateIntentCommandInput, UpdateIntentCommandOutput } from "./commands/UpdateIntentCommand.ts";
+import {
+  UpdateResourcePolicyCommandInput,
+  UpdateResourcePolicyCommandOutput,
+} from "./commands/UpdateResourcePolicyCommand.ts";
 import { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "./commands/UpdateSlotCommand.ts";
 import { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "./commands/UpdateSlotTypeCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
@@ -101,21 +135,32 @@ export type ServiceInputTypes =
   | CreateBotCommandInput
   | CreateBotLocaleCommandInput
   | CreateBotVersionCommandInput
+  | CreateExportCommandInput
   | CreateIntentCommandInput
+  | CreateResourcePolicyCommandInput
+  | CreateResourcePolicyStatementCommandInput
   | CreateSlotCommandInput
   | CreateSlotTypeCommandInput
+  | CreateUploadUrlCommandInput
   | DeleteBotAliasCommandInput
   | DeleteBotCommandInput
   | DeleteBotLocaleCommandInput
   | DeleteBotVersionCommandInput
+  | DeleteExportCommandInput
+  | DeleteImportCommandInput
   | DeleteIntentCommandInput
+  | DeleteResourcePolicyCommandInput
+  | DeleteResourcePolicyStatementCommandInput
   | DeleteSlotCommandInput
   | DeleteSlotTypeCommandInput
   | DescribeBotAliasCommandInput
   | DescribeBotCommandInput
   | DescribeBotLocaleCommandInput
   | DescribeBotVersionCommandInput
+  | DescribeExportCommandInput
+  | DescribeImportCommandInput
   | DescribeIntentCommandInput
+  | DescribeResourcePolicyCommandInput
   | DescribeSlotCommandInput
   | DescribeSlotTypeCommandInput
   | ListBotAliasesCommandInput
@@ -124,16 +169,21 @@ export type ServiceInputTypes =
   | ListBotsCommandInput
   | ListBuiltInIntentsCommandInput
   | ListBuiltInSlotTypesCommandInput
+  | ListExportsCommandInput
+  | ListImportsCommandInput
   | ListIntentsCommandInput
   | ListSlotTypesCommandInput
   | ListSlotsCommandInput
   | ListTagsForResourceCommandInput
+  | StartImportCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBotAliasCommandInput
   | UpdateBotCommandInput
   | UpdateBotLocaleCommandInput
+  | UpdateExportCommandInput
   | UpdateIntentCommandInput
+  | UpdateResourcePolicyCommandInput
   | UpdateSlotCommandInput
   | UpdateSlotTypeCommandInput;
 
@@ -143,21 +193,32 @@ export type ServiceOutputTypes =
   | CreateBotCommandOutput
   | CreateBotLocaleCommandOutput
   | CreateBotVersionCommandOutput
+  | CreateExportCommandOutput
   | CreateIntentCommandOutput
+  | CreateResourcePolicyCommandOutput
+  | CreateResourcePolicyStatementCommandOutput
   | CreateSlotCommandOutput
   | CreateSlotTypeCommandOutput
+  | CreateUploadUrlCommandOutput
   | DeleteBotAliasCommandOutput
   | DeleteBotCommandOutput
   | DeleteBotLocaleCommandOutput
   | DeleteBotVersionCommandOutput
+  | DeleteExportCommandOutput
+  | DeleteImportCommandOutput
   | DeleteIntentCommandOutput
+  | DeleteResourcePolicyCommandOutput
+  | DeleteResourcePolicyStatementCommandOutput
   | DeleteSlotCommandOutput
   | DeleteSlotTypeCommandOutput
   | DescribeBotAliasCommandOutput
   | DescribeBotCommandOutput
   | DescribeBotLocaleCommandOutput
   | DescribeBotVersionCommandOutput
+  | DescribeExportCommandOutput
+  | DescribeImportCommandOutput
   | DescribeIntentCommandOutput
+  | DescribeResourcePolicyCommandOutput
   | DescribeSlotCommandOutput
   | DescribeSlotTypeCommandOutput
   | ListBotAliasesCommandOutput
@@ -166,16 +227,21 @@ export type ServiceOutputTypes =
   | ListBotsCommandOutput
   | ListBuiltInIntentsCommandOutput
   | ListBuiltInSlotTypesCommandOutput
+  | ListExportsCommandOutput
+  | ListImportsCommandOutput
   | ListIntentsCommandOutput
   | ListSlotTypesCommandOutput
   | ListSlotsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartImportCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBotAliasCommandOutput
   | UpdateBotCommandOutput
   | UpdateBotLocaleCommandOutput
+  | UpdateExportCommandOutput
   | UpdateIntentCommandOutput
+  | UpdateResourcePolicyCommandOutput
   | UpdateSlotCommandOutput
   | UpdateSlotTypeCommandOutput;
 
@@ -253,7 +319,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -261,6 +327,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

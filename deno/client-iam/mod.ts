@@ -134,6 +134,7 @@ export * from "./pagination/ListUserPoliciesPaginator.ts";
 export * from "./commands/ListUsersCommand.ts";
 export * from "./pagination/ListUsersPaginator.ts";
 export * from "./commands/ListUserTagsCommand.ts";
+export * from "./pagination/ListUserTagsPaginator.ts";
 export * from "./commands/ListVirtualMFADevicesCommand.ts";
 export * from "./pagination/ListVirtualMFADevicesPaginator.ts";
 export * from "./commands/PutGroupPolicyCommand.ts";

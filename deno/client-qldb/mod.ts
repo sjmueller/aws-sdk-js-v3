@@ -23,5 +23,6 @@ export * from "./commands/StreamJournalToKinesisCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateLedgerCommand.ts";
+export * from "./commands/UpdateLedgerPermissionsModeCommand.ts";
 export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

@@ -19,9 +19,11 @@ export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webId
 /**
  * Represents OIDC credentials from a file on disk.
  */
-export const fromTokenFile = (init: FromTokenFileInit = {}): CredentialProvider => async () => {
-  return resolveTokenFile(init);
-};
+export const fromTokenFile =
+  (init: FromTokenFileInit = {}): CredentialProvider =>
+  async () => {
+    return resolveTokenFile(init);
+  };
 
 const resolveTokenFile = (init?: FromTokenFileInit): Promise<Credentials> => {
   const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
@@ -36,6 +38,6 @@ const resolveTokenFile = (init?: FromTokenFileInit): Promise<Credentials> => {
     ...init,
     webIdentityToken: readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
     roleArn,
-    roleSessionName
+    roleSessionName,
   })();
 };

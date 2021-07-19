@@ -3,18 +3,42 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand.ts";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand.ts";
+import {
+  ClearQuerySuggestionsCommandInput,
+  ClearQuerySuggestionsCommandOutput,
+} from "./commands/ClearQuerySuggestionsCommand.ts";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand.ts";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand.ts";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand.ts";
+import {
+  CreateQuerySuggestionsBlockListCommandInput,
+  CreateQuerySuggestionsBlockListCommandOutput,
+} from "./commands/CreateQuerySuggestionsBlockListCommand.ts";
 import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand.ts";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand.ts";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand.ts";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand.ts";
+import {
+  DeleteQuerySuggestionsBlockListCommandInput,
+  DeleteQuerySuggestionsBlockListCommandOutput,
+} from "./commands/DeleteQuerySuggestionsBlockListCommand.ts";
 import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand.ts";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand.ts";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand.ts";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand.ts";
+import {
+  DescribeQuerySuggestionsBlockListCommandInput,
+  DescribeQuerySuggestionsBlockListCommandOutput,
+} from "./commands/DescribeQuerySuggestionsBlockListCommand.ts";
+import {
+  DescribeQuerySuggestionsConfigCommandInput,
+  DescribeQuerySuggestionsConfigCommandOutput,
+} from "./commands/DescribeQuerySuggestionsConfigCommand.ts";
 import { DescribeThesaurusCommandInput, DescribeThesaurusCommandOutput } from "./commands/DescribeThesaurusCommand.ts";
+import {
+  GetQuerySuggestionsCommandInput,
+  GetQuerySuggestionsCommandOutput,
+} from "./commands/GetQuerySuggestionsCommand.ts";
 import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
@@ -22,6 +46,10 @@ import {
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand.ts";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand.ts";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand.ts";
+import {
+  ListQuerySuggestionsBlockListsCommandInput,
+  ListQuerySuggestionsBlockListsCommandOutput,
+} from "./commands/ListQuerySuggestionsBlockListsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -41,6 +69,14 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand.ts";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand.ts";
+import {
+  UpdateQuerySuggestionsBlockListCommandInput,
+  UpdateQuerySuggestionsBlockListCommandOutput,
+} from "./commands/UpdateQuerySuggestionsBlockListCommand.ts";
+import {
+  UpdateQuerySuggestionsConfigCommandInput,
+  UpdateQuerySuggestionsConfigCommandOutput,
+} from "./commands/UpdateQuerySuggestionsConfigCommand.ts";
 import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "./commands/UpdateThesaurusCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -96,22 +132,29 @@ import {
 export type ServiceInputTypes =
   | BatchDeleteDocumentCommandInput
   | BatchPutDocumentCommandInput
+  | ClearQuerySuggestionsCommandInput
   | CreateDataSourceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
+  | CreateQuerySuggestionsBlockListCommandInput
   | CreateThesaurusCommandInput
   | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
+  | DeleteQuerySuggestionsBlockListCommandInput
   | DeleteThesaurusCommandInput
   | DescribeDataSourceCommandInput
   | DescribeFaqCommandInput
   | DescribeIndexCommandInput
+  | DescribeQuerySuggestionsBlockListCommandInput
+  | DescribeQuerySuggestionsConfigCommandInput
   | DescribeThesaurusCommandInput
+  | GetQuerySuggestionsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
   | ListIndicesCommandInput
+  | ListQuerySuggestionsBlockListsCommandInput
   | ListTagsForResourceCommandInput
   | ListThesauriCommandInput
   | QueryCommandInput
@@ -122,27 +165,36 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput
+  | UpdateQuerySuggestionsBlockListCommandInput
+  | UpdateQuerySuggestionsConfigCommandInput
   | UpdateThesaurusCommandInput;
 
 export type ServiceOutputTypes =
   | BatchDeleteDocumentCommandOutput
   | BatchPutDocumentCommandOutput
+  | ClearQuerySuggestionsCommandOutput
   | CreateDataSourceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
+  | CreateQuerySuggestionsBlockListCommandOutput
   | CreateThesaurusCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
+  | DeleteQuerySuggestionsBlockListCommandOutput
   | DeleteThesaurusCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeFaqCommandOutput
   | DescribeIndexCommandOutput
+  | DescribeQuerySuggestionsBlockListCommandOutput
+  | DescribeQuerySuggestionsConfigCommandOutput
   | DescribeThesaurusCommandOutput
+  | GetQuerySuggestionsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
   | ListIndicesCommandOutput
+  | ListQuerySuggestionsBlockListsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThesauriCommandOutput
   | QueryCommandOutput
@@ -153,6 +205,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput
+  | UpdateQuerySuggestionsBlockListCommandOutput
+  | UpdateQuerySuggestionsConfigCommandOutput
   | UpdateThesaurusCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -229,7 +283,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -237,6 +291,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

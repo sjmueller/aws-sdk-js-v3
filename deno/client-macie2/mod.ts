@@ -56,6 +56,8 @@ export * from "./pagination/ListOrganizationAdminAccountsPaginator.ts";
 export * from "./commands/ListTagsForResourceCommand.ts";
 export * from "./commands/PutClassificationExportConfigurationCommand.ts";
 export * from "./commands/PutFindingsPublicationConfigurationCommand.ts";
+export * from "./commands/SearchResourcesCommand.ts";
+export * from "./pagination/SearchResourcesPaginator.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/TestCustomDataIdentifierCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";

@@ -3,6 +3,10 @@ import {
   AssociateTrackerConsumerCommandOutput,
 } from "./commands/AssociateTrackerConsumerCommand.ts";
 import {
+  BatchDeleteDevicePositionHistoryCommandInput,
+  BatchDeleteDevicePositionHistoryCommandOutput,
+} from "./commands/BatchDeleteDevicePositionHistoryCommand.ts";
+import {
   BatchDeleteGeofenceCommandInput,
   BatchDeleteGeofenceCommandOutput,
 } from "./commands/BatchDeleteGeofenceCommand.ts";
@@ -19,12 +23,17 @@ import {
   BatchUpdateDevicePositionCommandInput,
   BatchUpdateDevicePositionCommandOutput,
 } from "./commands/BatchUpdateDevicePositionCommand.ts";
+import { CalculateRouteCommandInput, CalculateRouteCommandOutput } from "./commands/CalculateRouteCommand.ts";
 import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand.ts";
 import { CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand.ts";
 import { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "./commands/CreatePlaceIndexCommand.ts";
+import {
+  CreateRouteCalculatorCommandInput,
+  CreateRouteCalculatorCommandOutput,
+} from "./commands/CreateRouteCalculatorCommand.ts";
 import { CreateTrackerCommandInput, CreateTrackerCommandOutput } from "./commands/CreateTrackerCommand.ts";
 import {
   DeleteGeofenceCollectionCommandInput,
@@ -32,6 +41,10 @@ import {
 } from "./commands/DeleteGeofenceCollectionCommand.ts";
 import { DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand.ts";
 import { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "./commands/DeletePlaceIndexCommand.ts";
+import {
+  DeleteRouteCalculatorCommandInput,
+  DeleteRouteCalculatorCommandOutput,
+} from "./commands/DeleteRouteCalculatorCommand.ts";
 import { DeleteTrackerCommandInput, DeleteTrackerCommandOutput } from "./commands/DeleteTrackerCommand.ts";
 import {
   DescribeGeofenceCollectionCommandInput,
@@ -39,6 +52,10 @@ import {
 } from "./commands/DescribeGeofenceCollectionCommand.ts";
 import { DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand.ts";
 import { DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput } from "./commands/DescribePlaceIndexCommand.ts";
+import {
+  DescribeRouteCalculatorCommandInput,
+  DescribeRouteCalculatorCommandOutput,
+} from "./commands/DescribeRouteCalculatorCommand.ts";
 import { DescribeTrackerCommandInput, DescribeTrackerCommandOutput } from "./commands/DescribeTrackerCommand.ts";
 import {
   DisassociateTrackerConsumerCommandInput,
@@ -58,12 +75,24 @@ import {
 } from "./commands/GetMapStyleDescriptorCommand.ts";
 import { GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand.ts";
 import {
+  ListDevicePositionsCommandInput,
+  ListDevicePositionsCommandOutput,
+} from "./commands/ListDevicePositionsCommand.ts";
+import {
   ListGeofenceCollectionsCommandInput,
   ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand.ts";
 import { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand.ts";
 import { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand.ts";
 import { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand.ts";
+import {
+  ListRouteCalculatorsCommandInput,
+  ListRouteCalculatorsCommandOutput,
+} from "./commands/ListRouteCalculatorsCommand.ts";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import {
   ListTrackerConsumersCommandInput,
   ListTrackerConsumersCommandOutput,
@@ -78,6 +107,8 @@ import {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -131,22 +162,27 @@ import {
 
 export type ServiceInputTypes =
   | AssociateTrackerConsumerCommandInput
+  | BatchDeleteDevicePositionHistoryCommandInput
   | BatchDeleteGeofenceCommandInput
   | BatchEvaluateGeofencesCommandInput
   | BatchGetDevicePositionCommandInput
   | BatchPutGeofenceCommandInput
   | BatchUpdateDevicePositionCommandInput
+  | CalculateRouteCommandInput
   | CreateGeofenceCollectionCommandInput
   | CreateMapCommandInput
   | CreatePlaceIndexCommandInput
+  | CreateRouteCalculatorCommandInput
   | CreateTrackerCommandInput
   | DeleteGeofenceCollectionCommandInput
   | DeleteMapCommandInput
   | DeletePlaceIndexCommandInput
+  | DeleteRouteCalculatorCommandInput
   | DeleteTrackerCommandInput
   | DescribeGeofenceCollectionCommandInput
   | DescribeMapCommandInput
   | DescribePlaceIndexCommandInput
+  | DescribeRouteCalculatorCommandInput
   | DescribeTrackerCommandInput
   | DisassociateTrackerConsumerCommandInput
   | GetDevicePositionCommandInput
@@ -156,34 +192,44 @@ export type ServiceInputTypes =
   | GetMapSpritesCommandInput
   | GetMapStyleDescriptorCommandInput
   | GetMapTileCommandInput
+  | ListDevicePositionsCommandInput
   | ListGeofenceCollectionsCommandInput
   | ListGeofencesCommandInput
   | ListMapsCommandInput
   | ListPlaceIndexesCommandInput
+  | ListRouteCalculatorsCommandInput
+  | ListTagsForResourceCommandInput
   | ListTrackerConsumersCommandInput
   | ListTrackersCommandInput
   | PutGeofenceCommandInput
   | SearchPlaceIndexForPositionCommandInput
-  | SearchPlaceIndexForTextCommandInput;
+  | SearchPlaceIndexForTextCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateTrackerConsumerCommandOutput
+  | BatchDeleteDevicePositionHistoryCommandOutput
   | BatchDeleteGeofenceCommandOutput
   | BatchEvaluateGeofencesCommandOutput
   | BatchGetDevicePositionCommandOutput
   | BatchPutGeofenceCommandOutput
   | BatchUpdateDevicePositionCommandOutput
+  | CalculateRouteCommandOutput
   | CreateGeofenceCollectionCommandOutput
   | CreateMapCommandOutput
   | CreatePlaceIndexCommandOutput
+  | CreateRouteCalculatorCommandOutput
   | CreateTrackerCommandOutput
   | DeleteGeofenceCollectionCommandOutput
   | DeleteMapCommandOutput
   | DeletePlaceIndexCommandOutput
+  | DeleteRouteCalculatorCommandOutput
   | DeleteTrackerCommandOutput
   | DescribeGeofenceCollectionCommandOutput
   | DescribeMapCommandOutput
   | DescribePlaceIndexCommandOutput
+  | DescribeRouteCalculatorCommandOutput
   | DescribeTrackerCommandOutput
   | DisassociateTrackerConsumerCommandOutput
   | GetDevicePositionCommandOutput
@@ -193,15 +239,20 @@ export type ServiceOutputTypes =
   | GetMapSpritesCommandOutput
   | GetMapStyleDescriptorCommandOutput
   | GetMapTileCommandOutput
+  | ListDevicePositionsCommandOutput
   | ListGeofenceCollectionsCommandOutput
   | ListGeofencesCommandOutput
   | ListMapsCommandOutput
   | ListPlaceIndexesCommandOutput
+  | ListRouteCalculatorsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListTrackerConsumersCommandOutput
   | ListTrackersCommandOutput
   | PutGeofenceCommandOutput
   | SearchPlaceIndexForPositionCommandOutput
-  | SearchPlaceIndexForTextCommandOutput;
+  | SearchPlaceIndexForTextCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -277,7 +328,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -285,6 +336,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -337,7 +394,7 @@ type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface LocationClientResolvedConfig extends LocationClientResolvedConfigType {}
 
 /**
- * Suite of geospatial services including Maps, Places, Tracking, and Geofencing
+ * Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing
  */
 export class LocationClient extends __Client<
   __HttpHandlerOptions,

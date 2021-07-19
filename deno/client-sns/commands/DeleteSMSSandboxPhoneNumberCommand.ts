@@ -1,0 +1,105 @@
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
+import { DeleteSMSSandboxPhoneNumberInput, DeleteSMSSandboxPhoneNumberResult } from "../models/models_0.ts";
+import {
+  deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand,
+  serializeAws_queryDeleteSMSSandboxPhoneNumberCommand,
+} from "../protocols/Aws_query.ts";
+import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
+import { Command as $Command } from "../../smithy-client/mod.ts";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "../../types/mod.ts";
+
+export interface DeleteSMSSandboxPhoneNumberCommandInput extends DeleteSMSSandboxPhoneNumberInput {}
+export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandboxPhoneNumberResult, __MetadataBearer {}
+
+/**
+ * <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p>
+ *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+ *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+ *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+ *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+ *                 SMS messages only to verified destination phone numbers. For more information, including how to
+ *                 move out of the sandbox to send messages without restrictions,
+ *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+ *                 the <i>Amazon SNS Developer Guide</i>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SNSClient, DeleteSMSSandboxPhoneNumberCommand } from "../../client-sns/mod.ts";
+ * // const { SNSClient, DeleteSMSSandboxPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * const client = new SNSClient(config);
+ * const command = new DeleteSMSSandboxPhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link DeleteSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
+ */
+export class DeleteSMSSandboxPhoneNumberCommand extends $Command<
+  DeleteSMSSandboxPhoneNumberCommandInput,
+  DeleteSMSSandboxPhoneNumberCommandOutput,
+  SNSClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DeleteSMSSandboxPhoneNumberCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: SNSClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DeleteSMSSandboxPhoneNumberCommandInput, DeleteSMSSandboxPhoneNumberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "DeleteSMSSandboxPhoneNumberCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: DeleteSMSSandboxPhoneNumberInput.filterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSMSSandboxPhoneNumberResult.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: DeleteSMSSandboxPhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDeleteSMSSandboxPhoneNumberCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> {
+    return deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

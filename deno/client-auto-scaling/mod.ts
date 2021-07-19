@@ -57,6 +57,7 @@ export * from "./commands/EnableMetricsCollectionCommand.ts";
 export * from "./commands/EnterStandbyCommand.ts";
 export * from "./commands/ExecutePolicyCommand.ts";
 export * from "./commands/ExitStandbyCommand.ts";
+export * from "./commands/GetPredictiveScalingForecastCommand.ts";
 export * from "./commands/PutLifecycleHookCommand.ts";
 export * from "./commands/PutNotificationConfigurationCommand.ts";
 export * from "./commands/PutScalingPolicyCommand.ts";

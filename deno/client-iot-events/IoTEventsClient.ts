@@ -1,13 +1,16 @@
+import { CreateAlarmModelCommandInput, CreateAlarmModelCommandOutput } from "./commands/CreateAlarmModelCommand.ts";
 import {
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand.ts";
 import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand.ts";
+import { DeleteAlarmModelCommandInput, DeleteAlarmModelCommandOutput } from "./commands/DeleteAlarmModelCommand.ts";
 import {
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand.ts";
 import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand.ts";
+import { DescribeAlarmModelCommandInput, DescribeAlarmModelCommandOutput } from "./commands/DescribeAlarmModelCommand.ts";
 import {
   DescribeDetectorModelAnalysisCommandInput,
   DescribeDetectorModelAnalysisCommandOutput,
@@ -26,10 +29,16 @@ import {
   GetDetectorModelAnalysisResultsCommandOutput,
 } from "./commands/GetDetectorModelAnalysisResultsCommand.ts";
 import {
+  ListAlarmModelVersionsCommandInput,
+  ListAlarmModelVersionsCommandOutput,
+} from "./commands/ListAlarmModelVersionsCommand.ts";
+import { ListAlarmModelsCommandInput, ListAlarmModelsCommandOutput } from "./commands/ListAlarmModelsCommand.ts";
+import {
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput,
 } from "./commands/ListDetectorModelVersionsCommand.ts";
 import { ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput } from "./commands/ListDetectorModelsCommand.ts";
+import { ListInputRoutingsCommandInput, ListInputRoutingsCommandOutput } from "./commands/ListInputRoutingsCommand.ts";
 import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
@@ -42,6 +51,7 @@ import {
 } from "./commands/StartDetectorModelAnalysisCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAlarmModelCommandInput, UpdateAlarmModelCommandOutput } from "./commands/UpdateAlarmModelCommand.ts";
 import {
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput,
@@ -99,44 +109,58 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CreateAlarmModelCommandInput
   | CreateDetectorModelCommandInput
   | CreateInputCommandInput
+  | DeleteAlarmModelCommandInput
   | DeleteDetectorModelCommandInput
   | DeleteInputCommandInput
+  | DescribeAlarmModelCommandInput
   | DescribeDetectorModelAnalysisCommandInput
   | DescribeDetectorModelCommandInput
   | DescribeInputCommandInput
   | DescribeLoggingOptionsCommandInput
   | GetDetectorModelAnalysisResultsCommandInput
+  | ListAlarmModelVersionsCommandInput
+  | ListAlarmModelsCommandInput
   | ListDetectorModelVersionsCommandInput
   | ListDetectorModelsCommandInput
+  | ListInputRoutingsCommandInput
   | ListInputsCommandInput
   | ListTagsForResourceCommandInput
   | PutLoggingOptionsCommandInput
   | StartDetectorModelAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAlarmModelCommandInput
   | UpdateDetectorModelCommandInput
   | UpdateInputCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAlarmModelCommandOutput
   | CreateDetectorModelCommandOutput
   | CreateInputCommandOutput
+  | DeleteAlarmModelCommandOutput
   | DeleteDetectorModelCommandOutput
   | DeleteInputCommandOutput
+  | DescribeAlarmModelCommandOutput
   | DescribeDetectorModelAnalysisCommandOutput
   | DescribeDetectorModelCommandOutput
   | DescribeInputCommandOutput
   | DescribeLoggingOptionsCommandOutput
   | GetDetectorModelAnalysisResultsCommandOutput
+  | ListAlarmModelVersionsCommandOutput
+  | ListAlarmModelsCommandOutput
   | ListDetectorModelVersionsCommandOutput
   | ListDetectorModelsCommandOutput
+  | ListInputRoutingsCommandOutput
   | ListInputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutLoggingOptionsCommandOutput
   | StartDetectorModelAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAlarmModelCommandOutput
   | UpdateDetectorModelCommandOutput
   | UpdateInputCommandOutput;
 
@@ -214,7 +238,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -222,6 +246,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

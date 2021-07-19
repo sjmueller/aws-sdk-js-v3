@@ -1,6 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { ListIngestionsRequest } from "../models/models_0.ts";
-import { ListIngestionsResponse } from "../models/models_1.ts";
+import { ListIngestionsRequest, ListIngestionsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListIngestionsCommand,
   serializeAws_restJson1ListIngestionsCommand,

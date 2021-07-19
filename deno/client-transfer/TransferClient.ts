@@ -1,8 +1,11 @@
+import { CreateAccessCommandInput, CreateAccessCommandOutput } from "./commands/CreateAccessCommand.ts";
 import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand.ts";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
+import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand.ts";
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand.ts";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand.ts";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
+import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand.ts";
 import {
   DescribeSecurityPolicyCommandInput,
   DescribeSecurityPolicyCommandOutput,
@@ -10,6 +13,7 @@ import {
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand.ts";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand.ts";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand.ts";
+import { ListAccessesCommandInput, ListAccessesCommandOutput } from "./commands/ListAccessesCommand.ts";
 import {
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
@@ -28,6 +32,7 @@ import {
   TestIdentityProviderCommandOutput,
 } from "./commands/TestIdentityProviderCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "./commands/UpdateAccessCommand.ts";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand.ts";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
@@ -82,15 +87,19 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CreateAccessCommandInput
   | CreateServerCommandInput
   | CreateUserCommandInput
+  | DeleteAccessCommandInput
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
   | DeleteUserCommandInput
+  | DescribeAccessCommandInput
   | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
   | ImportSshPublicKeyCommandInput
+  | ListAccessesCommandInput
   | ListSecurityPoliciesCommandInput
   | ListServersCommandInput
   | ListTagsForResourceCommandInput
@@ -100,19 +109,24 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestIdentityProviderCommandInput
   | UntagResourceCommandInput
+  | UpdateAccessCommandInput
   | UpdateServerCommandInput
   | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAccessCommandOutput
   | CreateServerCommandOutput
   | CreateUserCommandOutput
+  | DeleteAccessCommandOutput
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
   | DeleteUserCommandOutput
+  | DescribeAccessCommandOutput
   | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
   | ImportSshPublicKeyCommandOutput
+  | ListAccessesCommandOutput
   | ListSecurityPoliciesCommandOutput
   | ListServersCommandOutput
   | ListTagsForResourceCommandOutput
@@ -122,6 +136,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestIdentityProviderCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccessCommandOutput
   | UpdateServerCommandOutput
   | UpdateUserCommandOutput;
 
@@ -199,7 +214,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -207,6 +222,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

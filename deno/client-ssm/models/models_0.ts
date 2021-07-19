@@ -492,6 +492,9 @@ export namespace DuplicateInstanceId {
   });
 }
 
+/**
+ * <p>The specified command ID is not valid. Verify the ID and try again.</p>
+ */
 export interface InvalidCommandId extends __SmithyException, $MetadataBearer {
   name: "InvalidCommandId";
   $fault: "client";
@@ -1923,7 +1926,7 @@ export interface CreateDocumentRequest {
    * <p>Specify a target type to define the kinds of resources the document can run on. For example,
    *    to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you
    *    specify a value of '/' the document can run on all types of resources. If you don't specify a
-   *    value, the document can't run on any resources. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+   *    value, the document can't run on any resources. For a list of valid resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
    *     reference</a> in the <i>AWS CloudFormation User Guide</i>. </p>
    */
   TargetType?: string;
@@ -2185,7 +2188,7 @@ export interface DocumentDescription {
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
-   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
    *     reference</a> in the <i>AWS CloudFormation User Guide</i>. </p>
    */
   TargetType?: string;
@@ -3391,7 +3394,7 @@ export interface ResourceDataSyncSource {
   /**
    * <p>The type of data source for the resource data sync. <code>SourceType</code> is either
    *     <code>AwsOrganizations</code> (if an organization is present in AWS Organizations) or
-   *     <code>singleAccountMultiRegions</code>.</p>
+   *     <code>SingleAccountMultiRegions</code>.</p>
    */
   SourceType: string | undefined;
 
@@ -6556,8 +6559,8 @@ export interface InstanceInformation {
    * <p>The Amazon Identity and Access Management (IAM) role assigned to the on-premises Systems Manager
    *    managed instance. This call does not return the IAM role for EC2 instances. To retrieve the IAM
    *    role for an EC2 instance, use the Amazon EC2 <code>DescribeInstances</code> action. For information,
-   *    see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
-   *     <i>Amazon EC2 API Reference</i> or <a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>AWS CLI Command Reference</i>.</p>
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
+   *    <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in the <i>AWS CLI Command Reference</i>.</p>
    */
   IamRole?: string;
 
@@ -6576,11 +6579,11 @@ export interface InstanceInformation {
    *    Systems Manager managed instance. The name is specified as the <code>DefaultInstanceName</code> property
    *    using the <a>CreateActivation</a> command. It is applied to the managed instance by
    *    specifying the Activation Code and Activation ID when you install SSM Agent on the instance, as
-   *    explained in <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
-   *     hybrid environment (Linux)</a> and <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a hybrid environment
+   *    explained in <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
+   *     hybrid environment (Linux)</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a hybrid environment
    *     (Windows)</a>. To retrieve the Name tag of an EC2 instance, use the Amazon EC2
-   *     <code>DescribeInstances</code> action. For information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
-   *     <i>Amazon EC2 API Reference</i> or <a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>AWS CLI Command Reference</i>.</p>
+   *    <code>DescribeInstances</code> action. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the
+   *    <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html">describe-instances</a> in the <i>AWS CLI Command Reference</i>.</p>
    */
   Name?: string;
 
