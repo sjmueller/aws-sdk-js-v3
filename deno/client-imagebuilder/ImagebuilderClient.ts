@@ -346,17 +346,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -371,6 +360,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -418,7 +418,7 @@ type ImagebuilderClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface ImagebuilderClientResolvedConfig extends ImagebuilderClientResolvedConfigType {}
 
 /**
- * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the
+ * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
  *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
  *       images that are pre-installed and pre-configured with software and settings to meet specific
  *       IT standards.</p>

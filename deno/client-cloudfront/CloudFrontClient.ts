@@ -1,3 +1,4 @@
+import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand.ts";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand.ts";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -144,6 +145,10 @@ import {
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "./commands/ListCloudFrontOriginAccessIdentitiesCommand.ts";
 import {
+  ListConflictingAliasesCommandInput,
+  ListConflictingAliasesCommandOutput,
+} from "./commands/ListConflictingAliasesCommand.ts";
+import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand.ts";
@@ -277,6 +282,7 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | AssociateAliasCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
   | CreateDistributionCommandInput
@@ -329,6 +335,7 @@ export type ServiceInputTypes =
   | GetStreamingDistributionConfigCommandInput
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
+  | ListConflictingAliasesCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
@@ -362,6 +369,7 @@ export type ServiceInputTypes =
   | UpdateStreamingDistributionCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateAliasCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
   | CreateDistributionCommandOutput
@@ -414,6 +422,7 @@ export type ServiceOutputTypes =
   | GetStreamingDistributionConfigCommandOutput
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
+  | ListConflictingAliasesCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
@@ -514,17 +523,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -539,6 +537,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -587,7 +596,8 @@ export interface CloudFrontClientResolvedConfig extends CloudFrontClientResolved
 
 /**
  * <fullname>Amazon CloudFront</fullname>
- * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about
+ * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide
+ *             is for developers who need detailed information about
  * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFrontClient extends __Client<

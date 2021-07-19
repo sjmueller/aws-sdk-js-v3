@@ -19,6 +19,8 @@ export * from "./commands/DescribeClusterCommand.ts";
 export * from "./waiters/waitForClusterActive.ts";
 export * from "./waiters/waitForClusterDeleted.ts";
 export * from "./commands/DescribeFargateProfileCommand.ts";
+export * from "./waiters/waitForFargateProfileActive.ts";
+export * from "./waiters/waitForFargateProfileDeleted.ts";
 export * from "./commands/DescribeIdentityProviderConfigCommand.ts";
 export * from "./commands/DescribeNodegroupCommand.ts";
 export * from "./waiters/waitForNodegroupActive.ts";

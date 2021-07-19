@@ -18,6 +18,8 @@ export * from "./commands/GetChannelPolicyCommand.ts";
 export * from "./commands/GetChannelScheduleCommand.ts";
 export * from "./pagination/GetChannelSchedulePaginator.ts";
 export * from "./commands/GetPlaybackConfigurationCommand.ts";
+export * from "./commands/ListAlertsCommand.ts";
+export * from "./pagination/ListAlertsPaginator.ts";
 export * from "./commands/ListChannelsCommand.ts";
 export * from "./pagination/ListChannelsPaginator.ts";
 export * from "./commands/ListPlaybackConfigurationsCommand.ts";

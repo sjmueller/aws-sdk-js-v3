@@ -797,6 +797,10 @@ import {
   DescribeSecurityGroupReferencesCommandOutput,
 } from "./commands/DescribeSecurityGroupReferencesCommand.ts";
 import {
+  DescribeSecurityGroupRulesCommandInput,
+  DescribeSecurityGroupRulesCommandOutput,
+} from "./commands/DescribeSecurityGroupRulesCommand.ts";
+import {
   DescribeSecurityGroupsCommandInput,
   DescribeSecurityGroupsCommandOutput,
 } from "./commands/DescribeSecurityGroupsCommand.ts";
@@ -1252,6 +1256,10 @@ import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand.ts";
+import {
+  ModifySecurityGroupRulesCommandInput,
+  ModifySecurityGroupRulesCommandOutput,
+} from "./commands/ModifySecurityGroupRulesCommand.ts";
 import {
   ModifySnapshotAttributeCommandInput,
   ModifySnapshotAttributeCommandOutput,
@@ -1809,6 +1817,7 @@ export type ServiceInputTypes =
   | DescribeScheduledInstanceAvailabilityCommandInput
   | DescribeScheduledInstancesCommandInput
   | DescribeSecurityGroupReferencesCommandInput
+  | DescribeSecurityGroupRulesCommandInput
   | DescribeSecurityGroupsCommandInput
   | DescribeSnapshotAttributeCommandInput
   | DescribeSnapshotsCommandInput
@@ -1938,6 +1947,7 @@ export type ServiceInputTypes =
   | ModifyManagedPrefixListCommandInput
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyReservedInstancesCommandInput
+  | ModifySecurityGroupRulesCommandInput
   | ModifySnapshotAttributeCommandInput
   | ModifySpotFleetRequestCommandInput
   | ModifySubnetAttributeCommandInput
@@ -2265,6 +2275,7 @@ export type ServiceOutputTypes =
   | DescribeScheduledInstanceAvailabilityCommandOutput
   | DescribeScheduledInstancesCommandOutput
   | DescribeSecurityGroupReferencesCommandOutput
+  | DescribeSecurityGroupRulesCommandOutput
   | DescribeSecurityGroupsCommandOutput
   | DescribeSnapshotAttributeCommandOutput
   | DescribeSnapshotsCommandOutput
@@ -2394,6 +2405,7 @@ export type ServiceOutputTypes =
   | ModifyManagedPrefixListCommandOutput
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyReservedInstancesCommandOutput
+  | ModifySecurityGroupRulesCommandOutput
   | ModifySnapshotAttributeCommandOutput
   | ModifySpotFleetRequestCommandOutput
   | ModifySubnetAttributeCommandOutput
@@ -2542,17 +2554,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -2567,6 +2568,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.

@@ -1,5 +1,6 @@
 export * from "./CloudFrontClient.ts";
 export * from "./CloudFront.ts";
+export * from "./commands/AssociateAliasCommand.ts";
 export * from "./commands/CreateCachePolicyCommand.ts";
 export * from "./commands/CreateCloudFrontOriginAccessIdentityCommand.ts";
 export * from "./commands/CreateDistributionCommand.ts";
@@ -56,6 +57,7 @@ export * from "./commands/GetStreamingDistributionConfigCommand.ts";
 export * from "./commands/ListCachePoliciesCommand.ts";
 export * from "./commands/ListCloudFrontOriginAccessIdentitiesCommand.ts";
 export * from "./pagination/ListCloudFrontOriginAccessIdentitiesPaginator.ts";
+export * from "./commands/ListConflictingAliasesCommand.ts";
 export * from "./commands/ListDistributionsCommand.ts";
 export * from "./pagination/ListDistributionsPaginator.ts";
 export * from "./commands/ListDistributionsByCachePolicyIdCommand.ts";

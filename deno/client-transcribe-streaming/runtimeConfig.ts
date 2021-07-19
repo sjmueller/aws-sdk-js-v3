@@ -1,4 +1,4 @@
-const packageInfo = { version: "3.20.0" };
+const packageInfo = { version: "3.21.0" };
 
 import { decorateDefaultCredentialProvider } from "../client-sts/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
@@ -34,7 +34,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   eventStreamSerdeProvider,
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
-  requestHandler: new NodeHttp2Handler(),
+  requestHandler: new NodeHttp2Handler({ disableConcurrentStreams: true }),
   retryModeProvider: loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
   sha256: Hash.bind(null, "sha256"),
   streamCollector,

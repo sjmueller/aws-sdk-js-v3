@@ -22,6 +22,7 @@ export * from "./pagination/ListEndpointsByPlatformApplicationPaginator.ts";
 export * from "./commands/ListOriginationNumbersCommand.ts";
 export * from "./pagination/ListOriginationNumbersPaginator.ts";
 export * from "./commands/ListPhoneNumbersOptedOutCommand.ts";
+export * from "./pagination/ListPhoneNumbersOptedOutPaginator.ts";
 export * from "./commands/ListPlatformApplicationsCommand.ts";
 export * from "./pagination/ListPlatformApplicationsPaginator.ts";
 export * from "./commands/ListSMSSandboxPhoneNumbersCommand.ts";

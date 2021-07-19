@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { GetFieldLevelEncryptionConfigRequest, GetFieldLevelEncryptionConfigResult } from "../models/models_0.ts";
+import { GetFieldLevelEncryptionConfigRequest, GetFieldLevelEncryptionConfigResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlGetFieldLevelEncryptionConfigCommand,
   serializeAws_restXmlGetFieldLevelEncryptionConfigCommand,

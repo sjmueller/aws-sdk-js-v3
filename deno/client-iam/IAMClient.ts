@@ -820,17 +820,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -845,6 +834,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -892,11 +892,11 @@ type IAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface IAMClientResolvedConfig extends IAMClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Identity and Access Management</fullname>
- *          <p>AWS Identity and Access Management (IAM) is a web service for securely controlling
- *       access to AWS services. With IAM, you can centrally manage users, security credentials
- *       such as access keys, and permissions that control which AWS resources users and
- *       applications can access. For more information about IAM, see <a href="http://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> and the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">AWS Identity and Access Management User Guide</a>.</p>
+ * <fullname>Identity and Access Management</fullname>
+ *          <p>Identity and Access Management (IAM) is a web service for securely controlling
+ *       access to Amazon Web Services services. With IAM, you can centrally manage users, security credentials
+ *       such as access keys, and permissions that control which Amazon Web Services resources users and
+ *       applications can access. For more information about IAM, see <a href="http://aws.amazon.com/iam/">Identity and Access Management (IAM)</a> and the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/">Identity and Access Management User Guide</a>.</p>
  */
 export class IAMClient extends __Client<
   __HttpHandlerOptions,

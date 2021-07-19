@@ -146,17 +146,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -171,6 +160,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -218,9 +218,9 @@ type STSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface STSClientResolvedConfig extends STSClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Security Token Service</fullname>
- *          <p>AWS Security Token Service (STS) enables you to request temporary, limited-privilege
- *       credentials for AWS Identity and Access Management (IAM) users or for users that you
+ * <fullname>Security Token Service</fullname>
+ *          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
+ *       credentials for Identity and Access Management (IAM) users or for users that you
  *       authenticate (federated users). This guide provides descriptions of the STS API. For
  *       more information about using this service, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a>.</p>
  */

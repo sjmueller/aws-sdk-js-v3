@@ -397,17 +397,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -422,6 +411,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
@@ -469,13 +469,13 @@ type LambdaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
 export interface LambdaClientResolvedConfig extends LambdaClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Lambda</fullname>
+ * <fullname>Lambda</fullname>
  *          <p>
  *             <b>Overview</b>
  *          </p>
- *          <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional
+ *          <p>This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional
  *       information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is
- *         AWS Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+ *         Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda: How it Works</a> in the <b>Lambda Developer Guide</b>.</p>
  */
 export class LambdaClient extends __Client<
   __HttpHandlerOptions,

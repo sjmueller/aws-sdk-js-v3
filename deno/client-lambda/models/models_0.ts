@@ -18,7 +18,7 @@ export interface AccountLimit {
   CodeSizeUnzipped?: number;
 
   /**
-   * <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger
+   * <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger
    *       files.</p>
    */
   CodeSizeZipped?: number;
@@ -90,7 +90,10 @@ export interface AddLayerVersionPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
+   * <p>An account ID, or <code>*</code> to grant layer usage permission to all
+   *       accounts in an organization, or all Amazon Web Services accounts (if <code>organizationId</code> is not specified).
+   *       For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer.
+   *     </p>
    */
   Principal: string | undefined;
 
@@ -257,7 +260,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>The AWS Lambda service encountered an internal error.</p>
+ * <p>The Lambda service encountered an internal error.</p>
  */
 export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
@@ -345,13 +348,13 @@ export interface AddPermissionRequest {
   Action: string | undefined;
 
   /**
-   * <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
+   * <p>The Amazon Web Services service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
    *         <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
    */
   Principal: string | undefined;
 
   /**
-   * <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or
+   * <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or
    *       Amazon SNS topic.</p>
    */
   SourceArn?: string;
@@ -551,7 +554,7 @@ export enum CodeSigningPolicy {
 }
 
 /**
- * <p>Code signing configuration policies specifies the validation failure action for signature mismatch or
+ * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or
  *        expiry.</p>
  */
 export interface CodeSigningPolicies {
@@ -601,7 +604,7 @@ export namespace CreateCodeSigningConfigRequest {
 }
 
 /**
- * <p>Details about a Code signing configuration. </p>
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
  */
 export interface CodeSigningConfig {
   /**
@@ -753,6 +756,7 @@ export enum SourceAccessType {
   BASIC_AUTH = "BASIC_AUTH",
   SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH",
   SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH",
+  VIRTUAL_HOST = "VIRTUAL_HOST",
   VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP",
   VPC_SUBNET = "VPC_SUBNET",
 }
@@ -783,6 +787,10 @@ export interface SourceAccessConfiguration {
    *             <li>
    *                <p>
    *                   <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIRTUAL_HOST</code> - The name of the virtual host in your RabbitMQ broker. Lambda will use this host as the event source.</p>
    *             </li>
    *          </ul>
    */
@@ -899,7 +907,7 @@ export interface CreateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
+   * <p>(Streams only) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
@@ -916,27 +924,27 @@ export interface CreateEventSourceMappingRequest {
   StartingPositionTimestamp?: Date;
 
   /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
    */
   TumblingWindowInSeconds?: number;
 
@@ -963,7 +971,7 @@ export interface CreateEventSourceMappingRequest {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -978,7 +986,7 @@ export namespace CreateEventSourceMappingRequest {
 }
 
 /**
- * <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
+ * <p>A mapping between an Amazon Web Services resource and an Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
  */
 export interface EventSourceMappingConfiguration {
   /**
@@ -1009,7 +1017,7 @@ export interface EventSourceMappingConfiguration {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams) The number of batches to process from each shard concurrently. The default value is 1.</p>
+   * <p>(Streams only) The number of batches to process from each shard concurrently. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
@@ -1029,7 +1037,7 @@ export interface EventSourceMappingConfiguration {
   LastModified?: Date;
 
   /**
-   * <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
+   * <p>The result of the last Lambda invocation of your Lambda function.</p>
    */
   LastProcessingResult?: string;
 
@@ -1047,7 +1055,7 @@ export interface EventSourceMappingConfiguration {
   StateTransitionReason?: string;
 
   /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
@@ -1074,27 +1082,29 @@ export interface EventSourceMappingConfiguration {
   SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
-   * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Streams only) Discard records older than the specified age. The default value is -1,
+   * which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.  </p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+   * <p>(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   * <p>(Streams only) Discard records after the specified number of retries. The default value is -1,
+   * which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
    */
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -1177,13 +1187,13 @@ export namespace CodeVerificationFailedException {
  */
 export interface FunctionCode {
   /**
-   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for
    *   you.</p>
    */
   ZipFile?: Uint8Array;
 
   /**
-   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
    */
   S3Bucket?: string;
 
@@ -1198,7 +1208,7 @@ export interface FunctionCode {
   S3ObjectVersion?: string;
 
   /**
-   * <p>URI of a container image in the Amazon ECR registry.</p>
+   * <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
    */
   ImageUri?: string;
 }
@@ -1234,11 +1244,14 @@ export namespace DeadLetterConfig {
 }
 
 /**
- * <p>A function's environment variable settings.</p>
+ * <p>A function's environment variable settings.
+ *     You can use environment variables to adjust your function's behavior without updating code.
+ *     An environment variable is a pair of strings that are stored in a function's version-specific configuration. </p>
  */
 export interface Environment {
   /**
-   * <p>Environment variable key-value pairs.</p>
+   * <p>Environment variable key-value pairs. For more information, see
+   *     <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
    */
   Variables?: { [key: string]: string };
 }
@@ -1254,7 +1267,8 @@ export namespace Environment {
 }
 
 /**
- * <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
+ * <p>Details about the connection between a Lambda function and an
+ *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  */
 export interface FileSystemConfig {
   /**
@@ -1346,8 +1360,8 @@ export enum TracingMode {
 }
 
 /**
- * <p>The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set <code>Mode</code>
- *       to <code>Active</code>.</p>
+ * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a> tracing configuration.
+ *       To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
  */
 export interface TracingConfig {
   /**
@@ -1443,13 +1457,13 @@ export interface CreateFunctionRequest {
 
   /**
    * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds.</p>
+   *       maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    */
   Timeout?: number;
 
   /**
-   * <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+   * <p>The amount of  <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime.
+   *       Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
    */
   MemorySize?: number;
 
@@ -1459,7 +1473,7 @@ export interface CreateFunctionRequest {
   Publish?: boolean;
 
   /**
-   * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+   * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.
    *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
    *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    */
@@ -1482,14 +1496,14 @@ export interface CreateFunctionRequest {
   Environment?: Environment;
 
   /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
+   * <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment
+   *       variables. If it's not provided, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
 
   /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-   *       X-Ray.</p>
+   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
    */
   TracingConfig?: TracingConfig;
 
@@ -1511,8 +1525,7 @@ export interface CreateFunctionRequest {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
-   * <p>
-   *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
+   * <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings">configuration
    *       values</a> that override the values in the container image Dockerfile.</p>
    */
   ImageConfig?: ImageConfig;
@@ -1657,7 +1670,7 @@ export enum LastUpdateStatusReasonCode {
 }
 
 /**
- * <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
 export interface Layer {
@@ -1715,7 +1728,7 @@ export enum StateReasonCode {
 }
 
 /**
- * <p>The function's AWS X-Ray tracing configuration.</p>
+ * <p>The function's X-Ray tracing configuration.</p>
  */
 export interface TracingConfigResponse {
   /**
@@ -1837,7 +1850,7 @@ export interface FunctionConfiguration {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The function's environment variables.</p>
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>.</p>
    */
   Environment?: EnvironmentResponse;
 
@@ -1848,7 +1861,7 @@ export interface FunctionConfiguration {
   KMSKeyArn?: string;
 
   /**
-   * <p>The function's AWS X-Ray tracing configuration.</p>
+   * <p>The function's X-Ray tracing configuration.</p>
    */
   TracingConfig?: TracingConfigResponse;
 
@@ -1902,7 +1915,7 @@ export interface FunctionConfiguration {
   LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
 
   /**
-   * <p>Connection settings for an Amazon EFS file system.</p>
+   * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
    */
   FileSystemConfigs?: FileSystemConfig[];
 
@@ -2802,7 +2815,7 @@ export namespace GetLayerVersionRequest {
 }
 
 /**
- * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
 export interface LayerVersionContentOutput {
@@ -3137,7 +3150,7 @@ export namespace EC2AccessDeniedException {
 }
 
 /**
- * <p>AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
+ * <p>Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
  *       for the Lambda function.</p>
  */
 export interface EC2ThrottledException extends __SmithyException, $MetadataBearer {
@@ -3157,7 +3170,7 @@ export namespace EC2ThrottledException {
 }
 
 /**
- * <p>AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
+ * <p>Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
  */
 export interface EC2UnexpectedException extends __SmithyException, $MetadataBearer {
   name: "EC2UnexpectedException";
@@ -3254,7 +3267,7 @@ export namespace EFSMountTimeoutException {
 }
 
 /**
- * <p>AWS Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
+ * <p>Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
  *       function configuration, because the limit for network interfaces has been reached.</p>
  */
 export interface ENILimitReachedException extends __SmithyException, $MetadataBearer {
@@ -3357,7 +3370,7 @@ export namespace InvalidSubnetIDException {
 }
 
 /**
- * <p>AWS Lambda could not unzip the deployment package.</p>
+ * <p>Lambda could not unzip the deployment package.</p>
  */
 export interface InvalidZipFileException extends __SmithyException, $MetadataBearer {
   name: "InvalidZipFileException";
@@ -3635,7 +3648,7 @@ export namespace ResourceNotReadyException {
 }
 
 /**
- * <p>AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
+ * <p>Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
  *       has no available IP addresses.</p>
  */
 export interface SubnetIPAddressLimitReachedException extends __SmithyException, $MetadataBearer {
@@ -4012,7 +4025,7 @@ export enum FunctionVersion {
 
 export interface ListFunctionsRequest {
   /**
-   * <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters
+   * <p>For Lambda@Edge functions, the Region of the master function. For example, <code>us-east-1</code> filters
    *       the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.
    *       Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
    */
@@ -4143,7 +4156,7 @@ export namespace ListLayersRequest {
 }
 
 /**
- * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
 export interface LayerVersionsListItem {
@@ -4188,7 +4201,7 @@ export namespace LayerVersionsListItem {
 }
 
 /**
- * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
  */
 export interface LayersListItem {
@@ -4468,7 +4481,8 @@ export interface ListVersionsByFunctionRequest {
   Marker?: string;
 
   /**
-   * <p>The maximum number of versions to return.</p>
+   * <p>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response,
+   *       even if you set the number higher.</p>
    */
   MaxItems?: number;
 }
@@ -4505,7 +4519,7 @@ export namespace ListVersionsByFunctionResponse {
 }
 
 /**
- * <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+ * <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>. You can specify either an Amazon S3 location,
  *       or upload a layer archive directly.</p>
  */
@@ -4526,7 +4540,7 @@ export interface LayerVersionContentInput {
   S3ObjectVersion?: string;
 
   /**
-   * <p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for
+   * <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for
    *       you.</p>
    */
   ZipFile?: Uint8Array;
@@ -5285,27 +5299,27 @@ export interface UpdateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
    */
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
 
   /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   * <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
    */
   BisectBatchOnFunctionError?: boolean;
 
   /**
-   * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+   * <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
+   * <p>(Streams only) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
 
@@ -5315,12 +5329,12 @@ export interface UpdateEventSourceMappingRequest {
   SourceAccessConfigurations?: SourceAccessConfiguration[];
 
   /**
-   * <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   * <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
    */
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -5360,13 +5374,13 @@ export interface UpdateFunctionCodeRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for
    *       you.</p>
    */
   ZipFile?: Uint8Array;
 
   /**
-   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
    */
   S3Bucket?: string;
 
@@ -5458,18 +5472,18 @@ export interface UpdateFunctionConfigurationRequest {
 
   /**
    * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds.</p>
+   *       maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
    */
   Timeout?: number;
 
   /**
-   * <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+   * <p>The amount of  <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime.
+   *       Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
    */
   MemorySize?: number;
 
   /**
-   * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+   * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.
    *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
    *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
    */
@@ -5492,14 +5506,14 @@ export interface UpdateFunctionConfigurationRequest {
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
+   * <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment
+   *       variables. If it's not provided, Lambda uses a default service key.</p>
    */
   KMSKeyArn?: string;
 
   /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-   *       X-Ray.</p>
+   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
    */
   TracingConfig?: TracingConfig;
 

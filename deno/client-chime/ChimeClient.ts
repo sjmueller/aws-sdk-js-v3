@@ -59,6 +59,10 @@ import {
   CreateChannelModeratorCommandInput,
   CreateChannelModeratorCommandOutput,
 } from "./commands/CreateChannelModeratorCommand.ts";
+import {
+  CreateMediaCapturePipelineCommandInput,
+  CreateMediaCapturePipelineCommandOutput,
+} from "./commands/CreateMediaCapturePipelineCommand.ts";
 import { CreateMeetingCommandInput, CreateMeetingCommandOutput } from "./commands/CreateMeetingCommand.ts";
 import {
   CreateMeetingDialOutCommandInput,
@@ -129,6 +133,10 @@ import {
   DeleteEventsConfigurationCommandInput,
   DeleteEventsConfigurationCommandOutput,
 } from "./commands/DeleteEventsConfigurationCommand.ts";
+import {
+  DeleteMediaCapturePipelineCommandInput,
+  DeleteMediaCapturePipelineCommandOutput,
+} from "./commands/DeleteMediaCapturePipelineCommand.ts";
 import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "./commands/DeleteMeetingCommand.ts";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand.ts";
 import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "./commands/DeleteProxySessionCommand.ts";
@@ -238,6 +246,10 @@ import {
   GetEventsConfigurationCommandOutput,
 } from "./commands/GetEventsConfigurationCommand.ts";
 import { GetGlobalSettingsCommandInput, GetGlobalSettingsCommandOutput } from "./commands/GetGlobalSettingsCommand.ts";
+import {
+  GetMediaCapturePipelineCommandInput,
+  GetMediaCapturePipelineCommandOutput,
+} from "./commands/GetMediaCapturePipelineCommand.ts";
 import { GetMeetingCommandInput, GetMeetingCommandOutput } from "./commands/GetMeetingCommand.ts";
 import {
   GetMessagingSessionEndpointCommandInput,
@@ -338,6 +350,10 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand.ts";
+import {
+  ListMediaCapturePipelinesCommandInput,
+  ListMediaCapturePipelinesCommandOutput,
+} from "./commands/ListMediaCapturePipelinesCommand.ts";
 import { ListMeetingTagsCommandInput, ListMeetingTagsCommandOutput } from "./commands/ListMeetingTagsCommand.ts";
 import { ListMeetingsCommandInput, ListMeetingsCommandOutput } from "./commands/ListMeetingsCommand.ts";
 import {
@@ -580,6 +596,7 @@ export type ServiceInputTypes =
   | CreateChannelCommandInput
   | CreateChannelMembershipCommandInput
   | CreateChannelModeratorCommandInput
+  | CreateMediaCapturePipelineCommandInput
   | CreateMeetingCommandInput
   | CreateMeetingDialOutCommandInput
   | CreateMeetingWithAttendeesCommandInput
@@ -605,6 +622,7 @@ export type ServiceInputTypes =
   | DeleteChannelMessageCommandInput
   | DeleteChannelModeratorCommandInput
   | DeleteEventsConfigurationCommandInput
+  | DeleteMediaCapturePipelineCommandInput
   | DeleteMeetingCommandInput
   | DeletePhoneNumberCommandInput
   | DeleteProxySessionCommandInput
@@ -642,6 +660,7 @@ export type ServiceInputTypes =
   | GetChannelMessageCommandInput
   | GetEventsConfigurationCommandInput
   | GetGlobalSettingsCommandInput
+  | GetMediaCapturePipelineCommandInput
   | GetMeetingCommandInput
   | GetMessagingSessionEndpointCommandInput
   | GetPhoneNumberCommandInput
@@ -679,6 +698,7 @@ export type ServiceInputTypes =
   | ListChannelModeratorsCommandInput
   | ListChannelsCommandInput
   | ListChannelsModeratedByAppInstanceUserCommandInput
+  | ListMediaCapturePipelinesCommandInput
   | ListMeetingTagsCommandInput
   | ListMeetingsCommandInput
   | ListPhoneNumberOrdersCommandInput
@@ -766,6 +786,7 @@ export type ServiceOutputTypes =
   | CreateChannelCommandOutput
   | CreateChannelMembershipCommandOutput
   | CreateChannelModeratorCommandOutput
+  | CreateMediaCapturePipelineCommandOutput
   | CreateMeetingCommandOutput
   | CreateMeetingDialOutCommandOutput
   | CreateMeetingWithAttendeesCommandOutput
@@ -791,6 +812,7 @@ export type ServiceOutputTypes =
   | DeleteChannelMessageCommandOutput
   | DeleteChannelModeratorCommandOutput
   | DeleteEventsConfigurationCommandOutput
+  | DeleteMediaCapturePipelineCommandOutput
   | DeleteMeetingCommandOutput
   | DeletePhoneNumberCommandOutput
   | DeleteProxySessionCommandOutput
@@ -828,6 +850,7 @@ export type ServiceOutputTypes =
   | GetChannelMessageCommandOutput
   | GetEventsConfigurationCommandOutput
   | GetGlobalSettingsCommandOutput
+  | GetMediaCapturePipelineCommandOutput
   | GetMeetingCommandOutput
   | GetMessagingSessionEndpointCommandOutput
   | GetPhoneNumberCommandOutput
@@ -865,6 +888,7 @@ export type ServiceOutputTypes =
   | ListChannelModeratorsCommandOutput
   | ListChannelsCommandOutput
   | ListChannelsModeratedByAppInstanceUserCommandOutput
+  | ListMediaCapturePipelinesCommandOutput
   | ListMeetingTagsCommandOutput
   | ListMeetingsCommandOutput
   | ListPhoneNumberOrdersCommandOutput
@@ -997,17 +1021,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   disableHostPrefix?: boolean;
 
   /**
-   * Unique service identifier.
-   * @internal
-   */
-  serviceId?: string;
-
-  /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -1022,6 +1035,17 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Unique service identifier.
+   * @internal
+   */
+  serviceId?: string;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
