@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.14.0",
+  "version": "3.18.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "tslib": "^2.0.0"
@@ -8,7 +8,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
-    "typescript": "~4.2.4"
+    "typescript": "~4.3.2"
   },
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",

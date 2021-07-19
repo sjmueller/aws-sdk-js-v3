@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.17.0",
+  "version": "3.18.0",
   "description": "Storage higher order operation",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -21,8 +21,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.15.0",
-    "@aws-sdk/client-s3": "3.17.0",
+    "@aws-sdk/abort-controller": "3.18.0",
+    "@aws-sdk/client-s3": "3.18.0",
     "buffer": "^5.6.0",
     "stream-browserify": "^3.0.0",
     "tslib": "^2.0.0"
@@ -38,7 +38,7 @@
     "karma-spec-reporter": "^0.0.32",
     "karma-typescript": "^5.2.0",
     "ts-jest": "^26.4.1",
-    "typescript": "~4.2.4",
+    "typescript": "~4.3.2",
     "web-streams-polyfill": "^3.0.0"
   },
   "typesVersions": {

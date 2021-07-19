@@ -12,14 +12,15 @@ import { STSClient, STSClientConfig } from "./STSClient";
 /**
  * The default role assumer that used by credential providers when sts:AssumeRole API is needed.
  */
-export const getDefaultRoleAssumer = (stsOptions: Pick<STSClientConfig, "logger" | "region"> = {}): RoleAssumer =>
-  StsGetDefaultRoleAssumer(stsOptions, STSClient);
+export const getDefaultRoleAssumer = (
+  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler"> = {}
+): RoleAssumer => StsGetDefaultRoleAssumer(stsOptions, STSClient);
 
 /**
  * The default role assumer that used by credential providers when sts:AssumeRoleWithWebIdentity API is needed.
  */
 export const getDefaultRoleAssumerWithWebIdentity = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region"> = {}
+  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler"> = {}
 ): RoleAssumerWithWebIdentity => StsGetDefaultRoleAssumerWithWebIdentity(stsOptions, STSClient);
 
 /**
@@ -30,11 +31,11 @@ export const getDefaultRoleAssumerWithWebIdentity = (
  *
  * @internal
  */
-export const decorateDefaultCredentialProvider = (provider: DefaultCredentialProvider): DefaultCredentialProvider => (
-  input: any
-) =>
-  provider({
-    roleAssumer: getDefaultRoleAssumer(input),
-    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input),
-    ...input,
-  });
+export const decorateDefaultCredentialProvider =
+  (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
+  (input: any) =>
+    provider({
+      roleAssumer: getDefaultRoleAssumer(input),
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input),
+      ...input,
+    });

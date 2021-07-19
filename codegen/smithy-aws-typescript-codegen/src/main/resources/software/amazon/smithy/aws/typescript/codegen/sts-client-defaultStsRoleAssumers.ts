@@ -35,7 +35,7 @@ const decorateDefaultRegion = (region: string | Provider<string> | undefined): s
  * @internal
  */
 export const getDefaultRoleAssumer = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region">,
+  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler">,
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
   let stsClient: STSClient;
@@ -43,12 +43,13 @@ export const getDefaultRoleAssumer = (
   return async (sourceCreds, params) => {
     closureSourceCreds = sourceCreds;
     if (!stsClient) {
-      const { logger, region } = stsOptions;
+      const { logger, region, requestHandler } = stsOptions;
       stsClient = new stsClientCtor({
         logger,
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
-        region: decorateDefaultRegion(region),
+        region: decorateDefaultRegion(region || stsOptions.region),
+        ...(requestHandler ? { requestHandler } : {}),
       });
     }
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
@@ -74,16 +75,17 @@ export type RoleAssumerWithWebIdentity = (params: AssumeRoleWithWebIdentityComma
  * @internal
  */
 export const getDefaultRoleAssumerWithWebIdentity = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region">,
+  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler">,
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumerWithWebIdentity => {
   let stsClient: STSClient;
   return async (params) => {
     if (!stsClient) {
-      const { logger, region } = stsOptions;
+      const { logger, region, requestHandler } = stsOptions;
       stsClient = new stsClientCtor({
         logger,
-        region: decorateDefaultRegion(region),
+        region: decorateDefaultRegion(region || stsOptions.region),
+        ...(requestHandler ? { requestHandler } : {}),
       });
     }
     const { Credentials } = await stsClient.send(new AssumeRoleWithWebIdentityCommand(params));
@@ -112,11 +114,11 @@ export type DefaultCredentialProvider = (input: any) => Provider<Credentials>;
  *
  * @internal
  */
-export const decorateDefaultCredentialProvider = (provider: DefaultCredentialProvider): DefaultCredentialProvider => (
-  input: STSClientResolvedConfig
-) =>
-  provider({
-    roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor),
-    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor),
-    ...input,
-  });
+export const decorateDefaultCredentialProvider =
+  (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
+  (input: STSClientResolvedConfig) =>
+    provider({
+      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor),
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor),
+      ...input,
+    });
