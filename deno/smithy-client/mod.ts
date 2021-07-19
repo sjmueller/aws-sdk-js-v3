@@ -9,4 +9,4 @@ export * from "./ser-utils.ts";
 export * from "./date-utils.ts";
 export * from "./split-every.ts";
 export * from "./constants.ts";
-export { DocumentType, SdkError, SmithyException } from "../types/mod.ts";
+export type { DocumentType, SdkError, SmithyException } from "../types/mod.ts";
