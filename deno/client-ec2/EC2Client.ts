@@ -55,6 +55,10 @@ import {
   AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand.ts";
 import {
+  AssociateInstanceEventWindowCommandInput,
+  AssociateInstanceEventWindowCommandOutput,
+} from "./commands/AssociateInstanceEventWindowCommand.ts";
+import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand.ts";
@@ -169,6 +173,10 @@ import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/Cr
 import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "./commands/CreateFlowLogsCommand.ts";
 import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "./commands/CreateFpgaImageCommand.ts";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand.ts";
+import {
+  CreateInstanceEventWindowCommandInput,
+  CreateInstanceEventWindowCommandOutput,
+} from "./commands/CreateInstanceEventWindowCommand.ts";
 import {
   CreateInstanceExportTaskCommandInput,
   CreateInstanceExportTaskCommandOutput,
@@ -350,6 +358,10 @@ import {
 import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "./commands/DeleteFleetsCommand.ts";
 import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "./commands/DeleteFlowLogsCommand.ts";
 import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "./commands/DeleteFpgaImageCommand.ts";
+import {
+  DeleteInstanceEventWindowCommandInput,
+  DeleteInstanceEventWindowCommandOutput,
+} from "./commands/DeleteInstanceEventWindowCommand.ts";
 import {
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput,
@@ -656,6 +668,10 @@ import {
   DescribeInstanceEventNotificationAttributesCommandInput,
   DescribeInstanceEventNotificationAttributesCommandOutput,
 } from "./commands/DescribeInstanceEventNotificationAttributesCommand.ts";
+import {
+  DescribeInstanceEventWindowsCommandInput,
+  DescribeInstanceEventWindowsCommandOutput,
+} from "./commands/DescribeInstanceEventWindowsCommand.ts";
 import {
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
@@ -1016,6 +1032,10 @@ import {
   DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand.ts";
 import {
+  DisassociateInstanceEventWindowCommandInput,
+  DisassociateInstanceEventWindowCommandOutput,
+} from "./commands/DisassociateInstanceEventWindowCommand.ts";
+import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
 } from "./commands/DisassociateRouteTableCommand.ts";
@@ -1232,6 +1252,10 @@ import {
   ModifyInstanceEventStartTimeCommandInput,
   ModifyInstanceEventStartTimeCommandOutput,
 } from "./commands/ModifyInstanceEventStartTimeCommand.ts";
+import {
+  ModifyInstanceEventWindowCommandInput,
+  ModifyInstanceEventWindowCommandOutput,
+} from "./commands/ModifyInstanceEventWindowCommand.ts";
 import {
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
@@ -1561,6 +1585,7 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -1588,6 +1613,7 @@ export type ServiceInputTypes =
   | AssociateDhcpOptionsCommandInput
   | AssociateEnclaveCertificateIamRoleCommandInput
   | AssociateIamInstanceProfileCommandInput
+  | AssociateInstanceEventWindowCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSubnetCidrBlockCommandInput
   | AssociateTransitGatewayMulticastDomainCommandInput
@@ -1628,6 +1654,7 @@ export type ServiceInputTypes =
   | CreateFlowLogsCommandInput
   | CreateFpgaImageCommandInput
   | CreateImageCommandInput
+  | CreateInstanceEventWindowCommandInput
   | CreateInstanceExportTaskCommandInput
   | CreateInternetGatewayCommandInput
   | CreateKeyPairCommandInput
@@ -1686,6 +1713,7 @@ export type ServiceInputTypes =
   | DeleteFleetsCommandInput
   | DeleteFlowLogsCommandInput
   | DeleteFpgaImageCommandInput
+  | DeleteInstanceEventWindowCommandInput
   | DeleteInternetGatewayCommandInput
   | DeleteKeyPairCommandInput
   | DeleteLaunchTemplateCommandInput
@@ -1779,6 +1807,7 @@ export type ServiceInputTypes =
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCreditSpecificationsCommandInput
   | DescribeInstanceEventNotificationAttributesCommandInput
+  | DescribeInstanceEventWindowsCommandInput
   | DescribeInstanceStatusCommandInput
   | DescribeInstanceTypeOfferingsCommandInput
   | DescribeInstanceTypesCommandInput
@@ -1877,6 +1906,7 @@ export type ServiceInputTypes =
   | DisassociateClientVpnTargetNetworkCommandInput
   | DisassociateEnclaveCertificateIamRoleCommandInput
   | DisassociateIamInstanceProfileCommandInput
+  | DisassociateInstanceEventWindowCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSubnetCidrBlockCommandInput
   | DisassociateTransitGatewayMulticastDomainCommandInput
@@ -1941,6 +1971,7 @@ export type ServiceInputTypes =
   | ModifyInstanceCapacityReservationAttributesCommandInput
   | ModifyInstanceCreditSpecificationCommandInput
   | ModifyInstanceEventStartTimeCommandInput
+  | ModifyInstanceEventWindowCommandInput
   | ModifyInstanceMetadataOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyLaunchTemplateCommandInput
@@ -2046,6 +2077,7 @@ export type ServiceOutputTypes =
   | AssociateDhcpOptionsCommandOutput
   | AssociateEnclaveCertificateIamRoleCommandOutput
   | AssociateIamInstanceProfileCommandOutput
+  | AssociateInstanceEventWindowCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
   | AssociateTransitGatewayMulticastDomainCommandOutput
@@ -2086,6 +2118,7 @@ export type ServiceOutputTypes =
   | CreateFlowLogsCommandOutput
   | CreateFpgaImageCommandOutput
   | CreateImageCommandOutput
+  | CreateInstanceEventWindowCommandOutput
   | CreateInstanceExportTaskCommandOutput
   | CreateInternetGatewayCommandOutput
   | CreateKeyPairCommandOutput
@@ -2144,6 +2177,7 @@ export type ServiceOutputTypes =
   | DeleteFleetsCommandOutput
   | DeleteFlowLogsCommandOutput
   | DeleteFpgaImageCommandOutput
+  | DeleteInstanceEventWindowCommandOutput
   | DeleteInternetGatewayCommandOutput
   | DeleteKeyPairCommandOutput
   | DeleteLaunchTemplateCommandOutput
@@ -2237,6 +2271,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCreditSpecificationsCommandOutput
   | DescribeInstanceEventNotificationAttributesCommandOutput
+  | DescribeInstanceEventWindowsCommandOutput
   | DescribeInstanceStatusCommandOutput
   | DescribeInstanceTypeOfferingsCommandOutput
   | DescribeInstanceTypesCommandOutput
@@ -2335,6 +2370,7 @@ export type ServiceOutputTypes =
   | DisassociateClientVpnTargetNetworkCommandOutput
   | DisassociateEnclaveCertificateIamRoleCommandOutput
   | DisassociateIamInstanceProfileCommandOutput
+  | DisassociateInstanceEventWindowCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
   | DisassociateTransitGatewayMulticastDomainCommandOutput
@@ -2399,6 +2435,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceCapacityReservationAttributesCommandOutput
   | ModifyInstanceCreditSpecificationCommandOutput
   | ModifyInstanceEventStartTimeCommandOutput
+  | ModifyInstanceEventWindowCommandOutput
   | ModifyInstanceMetadataOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyLaunchTemplateCommandOutput
@@ -2493,7 +2530,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the @aws-sdk/types.Hash interface
+   * A constructor for a class implementing the {@link __Hash} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */

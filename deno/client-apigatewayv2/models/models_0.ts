@@ -1,5 +1,4 @@
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>Represents a CORS configuration. Supported only for HTTP APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html">Configuring CORS</a> for more information.</p>

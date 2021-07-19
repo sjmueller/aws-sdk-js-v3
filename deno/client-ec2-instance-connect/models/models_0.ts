@@ -1,5 +1,4 @@
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>

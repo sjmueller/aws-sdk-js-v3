@@ -1,5 +1,5 @@
-import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { LazyJsonString as __LazyJsonString } from "../../smithy-client/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>You are not authorized to perform the action.</p>

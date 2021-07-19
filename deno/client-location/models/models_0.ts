@@ -1,5 +1,5 @@
-import { SENSITIVE_STRING, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>The request was denied due to insufficient access or permission. Check with an

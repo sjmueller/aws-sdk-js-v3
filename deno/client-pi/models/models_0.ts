@@ -1,5 +1,4 @@
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>

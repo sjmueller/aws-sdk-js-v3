@@ -65,8 +65,7 @@ import {
   SmoothGroupStreamManifestBehavior,
   VpcOutputSettingsDescription,
 } from "./models_0.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 import { Readable } from "https://deno.land/std@0.101.0/node/stream.ts";
 
 export enum SmoothGroupTimestampOffsetMode {

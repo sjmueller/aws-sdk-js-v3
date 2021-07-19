@@ -23,6 +23,10 @@ import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./c
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand.ts";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand.ts";
 import {
+  DeletePrincipalMappingCommandInput,
+  DeletePrincipalMappingCommandOutput,
+} from "./commands/DeletePrincipalMappingCommand.ts";
+import {
   DeleteQuerySuggestionsBlockListCommandInput,
   DeleteQuerySuggestionsBlockListCommandOutput,
 } from "./commands/DeleteQuerySuggestionsBlockListCommand.ts";
@@ -30,6 +34,10 @@ import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./com
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand.ts";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand.ts";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand.ts";
+import {
+  DescribePrincipalMappingCommandInput,
+  DescribePrincipalMappingCommandOutput,
+} from "./commands/DescribePrincipalMappingCommand.ts";
 import {
   DescribeQuerySuggestionsBlockListCommandInput,
   DescribeQuerySuggestionsBlockListCommandOutput,
@@ -49,6 +57,10 @@ import {
 } from "./commands/ListDataSourceSyncJobsCommand.ts";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand.ts";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand.ts";
+import {
+  ListGroupsOlderThanOrderingIdCommandInput,
+  ListGroupsOlderThanOrderingIdCommandOutput,
+} from "./commands/ListGroupsOlderThanOrderingIdCommand.ts";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand.ts";
 import {
   ListQuerySuggestionsBlockListsCommandInput,
@@ -59,6 +71,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import { ListThesauriCommandInput, ListThesauriCommandOutput } from "./commands/ListThesauriCommand.ts";
+import {
+  PutPrincipalMappingCommandInput,
+  PutPrincipalMappingCommandOutput,
+} from "./commands/PutPrincipalMappingCommand.ts";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand.ts";
 import {
   StartDataSourceSyncJobCommandInput,
@@ -124,6 +140,7 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -146,11 +163,13 @@ export type ServiceInputTypes =
   | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
+  | DeletePrincipalMappingCommandInput
   | DeleteQuerySuggestionsBlockListCommandInput
   | DeleteThesaurusCommandInput
   | DescribeDataSourceCommandInput
   | DescribeFaqCommandInput
   | DescribeIndexCommandInput
+  | DescribePrincipalMappingCommandInput
   | DescribeQuerySuggestionsBlockListCommandInput
   | DescribeQuerySuggestionsConfigCommandInput
   | DescribeThesaurusCommandInput
@@ -158,10 +177,12 @@ export type ServiceInputTypes =
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
+  | ListGroupsOlderThanOrderingIdCommandInput
   | ListIndicesCommandInput
   | ListQuerySuggestionsBlockListsCommandInput
   | ListTagsForResourceCommandInput
   | ListThesauriCommandInput
+  | PutPrincipalMappingCommandInput
   | QueryCommandInput
   | StartDataSourceSyncJobCommandInput
   | StopDataSourceSyncJobCommandInput
@@ -187,11 +208,13 @@ export type ServiceOutputTypes =
   | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
+  | DeletePrincipalMappingCommandOutput
   | DeleteQuerySuggestionsBlockListCommandOutput
   | DeleteThesaurusCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeFaqCommandOutput
   | DescribeIndexCommandOutput
+  | DescribePrincipalMappingCommandOutput
   | DescribeQuerySuggestionsBlockListCommandOutput
   | DescribeQuerySuggestionsConfigCommandOutput
   | DescribeThesaurusCommandOutput
@@ -199,10 +222,12 @@ export type ServiceOutputTypes =
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
+  | ListGroupsOlderThanOrderingIdCommandOutput
   | ListIndicesCommandOutput
   | ListQuerySuggestionsBlockListsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThesauriCommandOutput
+  | PutPrincipalMappingCommandOutput
   | QueryCommandOutput
   | StartDataSourceSyncJobCommandOutput
   | StopDataSourceSyncJobCommandOutput
@@ -222,7 +247,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the @aws-sdk/types.Hash interface
+   * A constructor for a class implementing the {@link __Hash} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */

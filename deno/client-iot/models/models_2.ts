@@ -42,8 +42,7 @@ import {
   ThingIndexingConfiguration,
   ViolationEventOccurrenceRange,
 } from "./models_1.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>The input to the RegisterCACertificate operation.</p>

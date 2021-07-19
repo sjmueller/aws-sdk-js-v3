@@ -1,6 +1,6 @@
 import { HttpRequest } from "../protocol-http/mod.ts";
 import { isThrottlingError } from "../service-error-classification/mod.ts";
-import { SdkError } from "../smithy-client/mod.ts";
+import { SdkError } from "../types/mod.ts";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "../types/mod.ts";
 import { v4 } from "../uuid/mod.ts";
 

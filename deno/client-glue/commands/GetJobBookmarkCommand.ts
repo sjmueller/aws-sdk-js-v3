@@ -1,6 +1,5 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetJobBookmarkRequest } from "../models/models_0.ts";
-import { GetJobBookmarkResponse } from "../models/models_1.ts";
+import { GetJobBookmarkRequest, GetJobBookmarkResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetJobBookmarkCommand,
   serializeAws_json1_1GetJobBookmarkCommand,

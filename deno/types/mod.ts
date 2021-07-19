@@ -10,6 +10,7 @@ export * from "./pagination.ts";
 export * from "./serde.ts";
 export * from "./middleware.ts";
 export * from "./response.ts";
+export * from "./shapes.ts";
 export * from "./signature.ts";
 export * from "./transfer.ts";
 export * from "./util.ts";

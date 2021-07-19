@@ -19,8 +19,16 @@ import {
   DescribeFHIRImportJobCommandOutput,
 } from "./commands/DescribeFHIRImportJobCommand.ts";
 import { ListFHIRDatastoresCommandInput, ListFHIRDatastoresCommandOutput } from "./commands/ListFHIRDatastoresCommand.ts";
+import { ListFHIRExportJobsCommandInput, ListFHIRExportJobsCommandOutput } from "./commands/ListFHIRExportJobsCommand.ts";
+import { ListFHIRImportJobsCommandInput, ListFHIRImportJobsCommandOutput } from "./commands/ListFHIRImportJobsCommand.ts";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import { StartFHIRExportJobCommandInput, StartFHIRExportJobCommandOutput } from "./commands/StartFHIRExportJobCommand.ts";
 import { StartFHIRImportJobCommandInput, StartFHIRImportJobCommandOutput } from "./commands/StartFHIRImportJobCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
@@ -63,6 +71,7 @@ import {
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -79,8 +88,13 @@ export type ServiceInputTypes =
   | DescribeFHIRExportJobCommandInput
   | DescribeFHIRImportJobCommandInput
   | ListFHIRDatastoresCommandInput
+  | ListFHIRExportJobsCommandInput
+  | ListFHIRImportJobsCommandInput
+  | ListTagsForResourceCommandInput
   | StartFHIRExportJobCommandInput
-  | StartFHIRImportJobCommandInput;
+  | StartFHIRImportJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CreateFHIRDatastoreCommandOutput
@@ -89,8 +103,13 @@ export type ServiceOutputTypes =
   | DescribeFHIRExportJobCommandOutput
   | DescribeFHIRImportJobCommandOutput
   | ListFHIRDatastoresCommandOutput
+  | ListFHIRExportJobsCommandOutput
+  | ListFHIRImportJobsCommandOutput
+  | ListTagsForResourceCommandOutput
   | StartFHIRExportJobCommandOutput
-  | StartFHIRImportJobCommandOutput;
+  | StartFHIRImportJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -99,7 +118,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the @aws-sdk/types.Hash interface
+   * A constructor for a class implementing the {@link __Hash} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */

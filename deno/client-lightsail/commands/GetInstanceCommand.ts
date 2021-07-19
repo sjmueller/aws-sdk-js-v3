@@ -1,5 +1,6 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetInstanceRequest, GetInstanceResult } from "../models/models_0.ts";
+import { GetInstanceRequest } from "../models/models_0.ts";
+import { GetInstanceResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetInstanceCommand,
   serializeAws_json1_1GetInstanceCommand,

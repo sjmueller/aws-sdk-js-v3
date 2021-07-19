@@ -1,6 +1,6 @@
 import process from "https://deno.land/std@0.101.0/node/process.ts";
-import { SENSITIVE_STRING, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>The Microsoft AD attributes of the Amazon FSx for Windows File Server file system.</p>

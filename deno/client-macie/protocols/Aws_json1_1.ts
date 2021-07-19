@@ -43,13 +43,14 @@ import {
   UpdateS3ResourcesResult,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import { SmithyException as __SmithyException, expectString as __expectString } from "../../smithy-client/mod.ts";
+import { expectString as __expectString } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "../../types/mod.ts";
 
 export const serializeAws_json1_1AssociateMemberAccountCommand = async (

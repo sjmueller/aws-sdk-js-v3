@@ -5,16 +5,13 @@ import {
 import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand.ts";
 import { EdgeMetric, InternalServiceException, Model } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
-import {
-  SmithyException as __SmithyException,
-  expectString as __expectString,
-  serializeFloat as __serializeFloat,
-} from "../../smithy-client/mod.ts";
+import { expectString as __expectString, serializeFloat as __serializeFloat } from "../../smithy-client/mod.ts";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "../../types/mod.ts";
 
 export const serializeAws_restJson1GetDeviceRegistrationCommand = async (

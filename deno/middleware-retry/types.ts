@@ -1,4 +1,4 @@
-import { SdkError } from "../smithy-client/mod.ts";
+import { SdkError } from "../types/mod.ts";
 
 /**
  * Determines whether an error is retryable based on the number of retries

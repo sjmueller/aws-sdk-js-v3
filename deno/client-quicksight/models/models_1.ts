@@ -43,8 +43,8 @@ import {
   VpcConnectionProperties,
   _Parameters,
 } from "./models_0.ts";
-import { SENSITIVE_STRING, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>This error indicates that you are calling an embedding operation in Amazon QuickSight

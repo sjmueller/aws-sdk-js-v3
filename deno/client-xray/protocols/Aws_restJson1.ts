@@ -114,7 +114,6 @@ import {
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
-  SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -126,6 +125,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "../../types/mod.ts";
 
 export const serializeAws_restJson1BatchGetTracesCommand = async (

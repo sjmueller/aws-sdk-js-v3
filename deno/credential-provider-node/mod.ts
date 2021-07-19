@@ -7,13 +7,14 @@ import {
   fromInstanceMetadata,
   RemoteProviderInit,
 } from "../credential-provider-imds/mod.ts";
-import { ENV_PROFILE, fromIni, FromIniInit } from "../credential-provider-ini/mod.ts";
+import { fromIni, FromIniInit } from "../credential-provider-ini/mod.ts";
 import { fromProcess, FromProcessInit } from "../credential-provider-process/mod.ts";
 import { fromSSO, FromSSOInit } from "../credential-provider-sso/mod.ts";
 import { fromTokenFile, FromTokenFileInit } from "../credential-provider-web-identity/mod.ts";
 import { chain, CredentialsProviderError, memoize } from "../property-provider/mod.ts";
 import { loadSharedConfigFiles } from "../shared-ini-file-loader/mod.ts";
 import { CredentialProvider } from "../types/mod.ts";
+import { ENV_PROFILE } from "../util-credentials/mod.ts";
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
 

@@ -158,7 +158,6 @@ import {
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
-  SmithyException as __SmithyException,
   expectBoolean as __expectBoolean,
   expectString as __expectString,
   handleFloat as __handleFloat,
@@ -169,6 +168,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "../../types/mod.ts";
 
 export const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand = async (

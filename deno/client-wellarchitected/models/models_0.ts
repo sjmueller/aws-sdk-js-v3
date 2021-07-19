@@ -1,6 +1,5 @@
 import process from "https://deno.land/std@0.101.0/node/process.ts";
-import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
-import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 
 /**
  * <p>User does not have sufficient access to perform this action.</p>
@@ -19,6 +18,54 @@ export namespace AccessDeniedException {
    * @internal
    */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
+export enum ChoiceReason {
+  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
+  NONE = "NONE",
+  OTHER = "OTHER",
+  OUT_OF_SCOPE = "OUT_OF_SCOPE",
+}
+
+export enum ChoiceStatus {
+  NOT_APPLICABLE = "NOT_APPLICABLE",
+  SELECTED = "SELECTED",
+  UNSELECTED = "UNSELECTED",
+}
+
+/**
+ * <p>A choice that has been answered on a question in your workload.</p>
+ */
+export interface ChoiceAnswer {
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>The status of a choice.</p>
+   */
+  Status?: ChoiceStatus | string;
+
+  /**
+   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   */
+  Reason?: ChoiceReason | string;
+
+  /**
+   * <p>The notes associated with a choice.</p>
+   */
+  Notes?: string;
+}
+
+export namespace ChoiceAnswer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChoiceAnswer): any => ({
     ...obj,
   });
 }
@@ -50,6 +97,14 @@ export namespace Choice {
   export const filterSensitiveLog = (obj: Choice): any => ({
     ...obj,
   });
+}
+
+export enum AnswerReason {
+  ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
+  BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
+  NONE = "NONE",
+  OTHER = "OTHER",
+  OUT_OF_SCOPE = "OUT_OF_SCOPE",
 }
 
 export enum Risk {
@@ -87,6 +142,7 @@ export interface Answer {
 
   /**
    * <p>The improvement plan URL for a question.</p>
+   *         <p>This value is only available if the question has been answered.</p>
    */
   ImprovementPlanUrl?: string;
 
@@ -107,6 +163,11 @@ export interface Answer {
   SelectedChoices?: string[];
 
   /**
+   * <p>A list of selected choices to a question in your workload.</p>
+   */
+  ChoiceAnswers?: ChoiceAnswer[];
+
+  /**
    * <p>Defines whether this question is applicable to a lens review.</p>
    */
   IsApplicable?: boolean;
@@ -120,6 +181,11 @@ export interface Answer {
    * <p>The notes associated with the workload.</p>
    */
   Notes?: string;
+
+  /**
+   * <p>The reason why the question is not applicable to your workload.</p>
+   */
+  Reason?: AnswerReason | string;
 }
 
 export namespace Answer {
@@ -127,6 +193,35 @@ export namespace Answer {
    * @internal
    */
   export const filterSensitiveLog = (obj: Answer): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A choice summary that has been answered on a question in your workload.</p>
+ */
+export interface ChoiceAnswerSummary {
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>The status of a choice.</p>
+   */
+  Status?: ChoiceStatus | string;
+
+  /**
+   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   */
+  Reason?: ChoiceReason | string;
+}
+
+export namespace ChoiceAnswerSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChoiceAnswerSummary): any => ({
     ...obj,
   });
 }
@@ -163,6 +258,11 @@ export interface AnswerSummary {
   SelectedChoices?: string[];
 
   /**
+   * <p>A list of selected choices to a question in your workload.</p>
+   */
+  ChoiceAnswerSummaries?: ChoiceAnswerSummary[];
+
+  /**
    * <p>Defines whether this question is applicable to a lens review.</p>
    */
   IsApplicable?: boolean;
@@ -171,6 +271,11 @@ export interface AnswerSummary {
    * <p>The risk for a given workload, lens review, pillar, or question.</p>
    */
   Risk?: Risk | string;
+
+  /**
+   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   */
+  Reason?: AnswerReason | string;
 }
 
 export namespace AnswerSummary {
@@ -379,6 +484,35 @@ export namespace ValidationException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of choices to be updated.</p>
+ */
+export interface ChoiceUpdate {
+  /**
+   * <p>The status of a choice.</p>
+   */
+  Status: ChoiceStatus | string | undefined;
+
+  /**
+   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   */
+  Reason?: ChoiceReason | string;
+
+  /**
+   * <p>The notes associated with a choice.</p>
+   */
+  Notes?: string;
+}
+
+export namespace ChoiceUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChoiceUpdate): any => ({
     ...obj,
   });
 }
@@ -1819,6 +1953,7 @@ export interface ImprovementSummary {
 
   /**
    * <p>The improvement plan URL for a question.</p>
+   *         <p>This value is only available if the question has been answered.</p>
    */
   ImprovementPlanUrl?: string;
 }
@@ -2833,7 +2968,8 @@ export interface UntagResourceInput {
   WorkloadArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to be removed.</p>
+   * <p>A list of tag keys. Existing tags of the resource
+   *             whose keys are members of this list are removed from the resource.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -2885,6 +3021,12 @@ export interface UpdateAnswerInput {
   SelectedChoices?: string[];
 
   /**
+   * <p>A list of choices to update on a question in your workload.  The String key
+   *             corresponds to the choice ID to be updated.</p>
+   */
+  ChoiceUpdates?: { [key: string]: ChoiceUpdate };
+
+  /**
    * <p>The notes associated with the workload.</p>
    */
   Notes?: string;
@@ -2893,6 +3035,11 @@ export interface UpdateAnswerInput {
    * <p>Defines whether this question is applicable to a lens review.</p>
    */
   IsApplicable?: boolean;
+
+  /**
+   * <p>The reason why a question is not applicable to your workload.</p>
+   */
+  Reason?: AnswerReason | string;
 }
 
 export namespace UpdateAnswerInput {

@@ -4,7 +4,7 @@ import {
   isThrottlingError,
   isTransientError,
 } from "../service-error-classification/mod.ts";
-import { SdkError } from "../smithy-client/mod.ts";
+import { SdkError } from "../types/mod.ts";
 
 export const defaultRetryDecider = (error: SdkError) => {
   if (!error) {

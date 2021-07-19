@@ -221,7 +221,6 @@ import {
   isValidHostname as __isValidHostname,
 } from "../../protocol-http/mod.ts";
 import {
-  SmithyException as __SmithyException,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
@@ -233,6 +232,7 @@ import {
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
 } from "../../types/mod.ts";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "../../xml-builder/mod.ts";
 import { decodeHTML } from "https://jspm.dev/entities";

@@ -1,4 +1,4 @@
-import { SdkError } from "../smithy-client/mod.ts";
+import { SdkError } from "../types/mod.ts";
 
 import {
   CLOCK_SKEW_ERROR_CODES,
