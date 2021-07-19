@@ -197,9 +197,21 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
 
     queryInteger: 3,
 
-    queryIntegerList: [1, 2, 3],
+    queryIntegerList: [
+      1,
 
-    queryIntegerSet: [1, 2, 3],
+      2,
+
+      3,
+    ],
+
+    queryIntegerSet: [
+      1,
+
+      2,
+
+      3,
+    ],
 
     queryLong: 4,
 
@@ -207,7 +219,13 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
 
     queryDouble: 1.1,
 
-    queryDoubleList: [1.1, 2.1, 3.1],
+    queryDoubleList: [
+      1.1,
+
+      2.1,
+
+      3.1,
+    ],
 
     queryBoolean: true,
 
@@ -306,6 +324,38 @@ it("RestJsonQueryStringMap:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("QueryParamsStringKeyA=Foo");
     expect(queryString).toContain("QueryParamsStringKeyB=Bar");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Handles escaping all required characters in the query string.
+ */
+it("RestJsonQueryStringEscaping:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryString: "%:/?#[]@!$&'()*+,;=😹",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("String=%25%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D%F0%9F%98%B9");
 
     expect(r.body).toBeFalsy();
   }
@@ -1631,7 +1681,7 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
   });
 
   const command = new HttpRequestWithGreedyLabelInPathCommand({
-    foo: "hello",
+    foo: "hello/escape",
 
     baz: "there/guy",
   } as any);
@@ -1646,7 +1696,7 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy");
+    expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello%2Fescape/baz/there/guy");
 
     expect(r.body).toBeFalsy();
   }
@@ -1690,6 +1740,51 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Sends a GET request that uses URI label bindings
+ */
+it("RestJsonHttpRequestLabelEscaping:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpRequestWithLabelsCommand({
+    string: "%:/?#[]@!$&'()*+,;=😹",
+
+    short: 1,
+
+    integer: 2,
+
+    long: 3,
+
+    float: 4.1,
+
+    double: 5.1,
+
+    boolean: true,
+
+    timestamp: new Date(1576540098000),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe(
+      "/HttpRequestWithLabels/%25%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2A%2B%2C%3B%3D%F0%9F%98%B9/1/2/3/4.1/5.1/true/2019-12-16T23%3A48%3A18Z"
+    );
 
     expect(r.body).toBeFalsy();
   }
@@ -2163,7 +2258,13 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
 
     headerDouble: 1.1,
 
-    headerIntegerList: [1, 2, 3],
+    headerIntegerList: [
+      1,
+
+      2,
+
+      3,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -2386,7 +2487,13 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
 
       headerDouble: 1.1,
 
-      headerIntegerList: [1, 2, 3],
+      headerIntegerList: [
+        1,
+
+        2,
+
+        3,
+      ],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2729,7 +2836,11 @@ it("RestJsonLists:Request", async () => {
 
     stringSet: ["foo", "bar"],
 
-    integerList: [1, 2],
+    integerList: [
+      1,
+
+      2,
+    ],
 
     booleanList: [true, false],
 
@@ -2983,7 +3094,11 @@ it("RestJsonLists:Response", async () => {
 
       stringSet: ["foo", "bar"],
 
-      integerList: [1, 2],
+      integerList: [
+        1,
+
+        2,
+      ],
 
       booleanList: [true, false],
 
