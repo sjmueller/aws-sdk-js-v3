@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-hex-encoding",
-  "version": "3.22.0",
+  "version": "3.23.0",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -17,7 +17,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
