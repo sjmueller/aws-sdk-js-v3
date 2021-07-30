@@ -1,5 +1,6 @@
 export * from "./RedshiftDataClient.ts";
 export * from "./RedshiftData.ts";
+export * from "./commands/BatchExecuteStatementCommand.ts";
 export * from "./commands/CancelStatementCommand.ts";
 export * from "./commands/DescribeStatementCommand.ts";
 export * from "./commands/DescribeTableCommand.ts";

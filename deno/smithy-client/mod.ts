@@ -1,5 +1,6 @@
 export * from "./client.ts";
 export * from "./command.ts";
+export * from "./emitWarningIfUnsupportedVersion.ts";
 export * from "./extended-encode-uri-component.ts";
 export * from "./get-array-if-single-item.ts";
 export * from "./get-value-from-text-node.ts";

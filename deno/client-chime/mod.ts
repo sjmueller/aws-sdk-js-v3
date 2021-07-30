@@ -187,6 +187,8 @@ export * from "./commands/RestorePhoneNumberCommand.ts";
 export * from "./commands/SearchAvailablePhoneNumbersCommand.ts";
 export * from "./pagination/SearchAvailablePhoneNumbersPaginator.ts";
 export * from "./commands/SendChannelMessageCommand.ts";
+export * from "./commands/StartMeetingTranscriptionCommand.ts";
+export * from "./commands/StopMeetingTranscriptionCommand.ts";
 export * from "./commands/TagAttendeeCommand.ts";
 export * from "./commands/TagMeetingCommand.ts";
 export * from "./commands/TagResourceCommand.ts";

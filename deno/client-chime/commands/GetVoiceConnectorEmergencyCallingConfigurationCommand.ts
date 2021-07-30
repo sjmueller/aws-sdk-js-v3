@@ -2,7 +2,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   GetVoiceConnectorEmergencyCallingConfigurationRequest,
   GetVoiceConnectorEmergencyCallingConfigurationResponse,
-} from "../models/models_0.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
   serializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,

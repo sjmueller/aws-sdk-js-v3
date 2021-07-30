@@ -58,6 +58,8 @@ export * from "./commands/DescribeThemeCommand.ts";
 export * from "./commands/DescribeThemeAliasCommand.ts";
 export * from "./commands/DescribeThemePermissionsCommand.ts";
 export * from "./commands/DescribeUserCommand.ts";
+export * from "./commands/GenerateEmbedUrlForAnonymousUserCommand.ts";
+export * from "./commands/GenerateEmbedUrlForRegisteredUserCommand.ts";
 export * from "./commands/GetDashboardEmbedUrlCommand.ts";
 export * from "./commands/GetSessionEmbedUrlCommand.ts";
 export * from "./commands/ListAnalysesCommand.ts";

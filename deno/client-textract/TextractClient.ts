@@ -1,4 +1,5 @@
 import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "./commands/AnalyzeDocumentCommand.ts";
+import { AnalyzeExpenseCommandInput, AnalyzeExpenseCommandOutput } from "./commands/AnalyzeExpenseCommand.ts";
 import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "./commands/DetectDocumentTextCommand.ts";
 import {
   GetDocumentAnalysisCommandInput,
@@ -70,6 +71,7 @@ import {
 
 export type ServiceInputTypes =
   | AnalyzeDocumentCommandInput
+  | AnalyzeExpenseCommandInput
   | DetectDocumentTextCommandInput
   | GetDocumentAnalysisCommandInput
   | GetDocumentTextDetectionCommandInput
@@ -78,6 +80,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AnalyzeDocumentCommandOutput
+  | AnalyzeExpenseCommandOutput
   | DetectDocumentTextCommandOutput
   | GetDocumentAnalysisCommandOutput
   | GetDocumentTextDetectionCommandOutput

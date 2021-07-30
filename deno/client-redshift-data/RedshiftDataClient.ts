@@ -1,3 +1,7 @@
+import {
+  BatchExecuteStatementCommandInput,
+  BatchExecuteStatementCommandOutput,
+} from "./commands/BatchExecuteStatementCommand.ts";
 import { CancelStatementCommandInput, CancelStatementCommandOutput } from "./commands/CancelStatementCommand.ts";
 import { DescribeStatementCommandInput, DescribeStatementCommandOutput } from "./commands/DescribeStatementCommand.ts";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand.ts";
@@ -60,6 +64,7 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | BatchExecuteStatementCommandInput
   | CancelStatementCommandInput
   | DescribeStatementCommandInput
   | DescribeTableCommandInput
@@ -71,6 +76,7 @@ export type ServiceInputTypes =
   | ListTablesCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchExecuteStatementCommandOutput
   | CancelStatementCommandOutput
   | DescribeStatementCommandOutput
   | DescribeTableCommandOutput
@@ -222,7 +228,7 @@ export interface RedshiftDataClientResolvedConfig extends RedshiftDataClientReso
 
 /**
  * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
- *       can run individual SQL statements, which are committed if the statement succeeds. </p>
+ *       can run SQL statements, which are committed if the statement succeeds. </p>
  *          <p>For more information about the Amazon Redshift Data API, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
  *        <i>Amazon Redshift Cluster Management Guide</i>. </p>

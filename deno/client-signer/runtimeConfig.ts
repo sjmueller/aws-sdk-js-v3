@@ -1,4 +1,5 @@
-const packageInfo = { version: "3.23.0" };
+import process from "https://deno.land/std@0.101.0/node/process.ts";
+const packageInfo = { version: "3.24.0" };
 
 import { decorateDefaultCredentialProvider } from "../client-sts/mod.ts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
@@ -13,11 +14,13 @@ import { defaultUserAgent } from "../util-user-agent-node/mod.ts";
 import { fromUtf8, toUtf8 } from "../util-utf8-node/mod.ts";
 import { SignerClientConfig } from "./SignerClient.ts";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared.ts";
+import { emitWarningIfUnsupportedVersion } from "../smithy-client/mod.ts";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: SignerClientConfig = {}) => {
+  emitWarningIfUnsupportedVersion(process.version);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

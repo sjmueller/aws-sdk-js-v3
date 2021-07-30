@@ -1,6 +1,7 @@
 export * from "./TextractClient.ts";
 export * from "./Textract.ts";
 export * from "./commands/AnalyzeDocumentCommand.ts";
+export * from "./commands/AnalyzeExpenseCommand.ts";
 export * from "./commands/DetectDocumentTextCommand.ts";
 export * from "./commands/GetDocumentAnalysisCommand.ts";
 export * from "./commands/GetDocumentTextDetectionCommand.ts";
