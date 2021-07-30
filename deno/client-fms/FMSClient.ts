@@ -57,7 +57,7 @@ import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPol
 import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "./commands/PutProtocolsListCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -325,10 +325,7 @@ export class FMSClient extends __Client<
   readonly config: FMSClientResolvedConfig;
 
   constructor(configuration: FMSClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

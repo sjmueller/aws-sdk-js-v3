@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeVpcEndpointConnectionsRequest, DescribeVpcEndpointConnectionsResult } from "../models/models_3.ts";
+import { DescribeVpcEndpointConnectionsRequest, DescribeVpcEndpointConnectionsResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2DescribeVpcEndpointConnectionsCommand,
   serializeAws_ec2DescribeVpcEndpointConnectionsCommand,

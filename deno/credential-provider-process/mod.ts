@@ -92,4 +92,4 @@ async function execPromise(command: string) {
   });
   const data = await process.output();
   return new TextDecoder().decode(data);
-};
+}

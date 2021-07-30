@@ -20,7 +20,7 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./command
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand.ts";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand.ts";
 import { WriteRecordsCommandInput, WriteRecordsCommandOutput } from "./commands/WriteRecordsCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -274,10 +274,7 @@ export class TimestreamWriteClient extends __Client<
   readonly config: TimestreamWriteClientResolvedConfig;
 
   constructor(configuration: TimestreamWriteClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

@@ -1,7 +1,7 @@
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand.ts";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand.ts";
 import { PostToConnectionCommandInput, PostToConnectionCommandOutput } from "./commands/PostToConnectionCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -214,10 +214,7 @@ export class ApiGatewayManagementApiClient extends __Client<
   readonly config: ApiGatewayManagementApiClientResolvedConfig;
 
   constructor(configuration: ApiGatewayManagementApiClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

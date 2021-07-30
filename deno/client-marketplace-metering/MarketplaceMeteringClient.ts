@@ -3,7 +3,7 @@ import { BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput } from "./com
 import { MeterUsageCommandInput, MeterUsageCommandOutput } from "./commands/MeterUsageCommand.ts";
 import { RegisterUsageCommandInput, RegisterUsageCommandOutput } from "./commands/RegisterUsageCommand.ts";
 import { ResolveCustomerCommandInput, ResolveCustomerCommandOutput } from "./commands/ResolveCustomerCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -277,10 +277,7 @@ export class MarketplaceMeteringClient extends __Client<
   readonly config: MarketplaceMeteringClientResolvedConfig;
 
   constructor(configuration: MarketplaceMeteringClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

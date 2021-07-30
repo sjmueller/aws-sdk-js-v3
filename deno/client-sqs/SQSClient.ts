@@ -27,7 +27,7 @@ import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/Se
 import { SetQueueAttributesCommandInput, SetQueueAttributesCommandOutput } from "./commands/SetQueueAttributesCommand.ts";
 import { TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand.ts";
 import { UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -352,10 +352,7 @@ export class SQSClient extends __Client<
   readonly config: SQSClientResolvedConfig;
 
   constructor(configuration: SQSClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

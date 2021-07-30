@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints.ts";
 import { Logger as __Logger } from "../types/mod.ts";
 import { parseUrl } from "../url-parser/mod.ts";
+import { NetworkFirewallClientConfig } from "./NetworkFirewallClient.ts";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: NetworkFirewallClientConfig = {}) => ({
   apiVersion: "2020-11-12",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Network Firewall",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Network Firewall",
+  urlParser: config.urlParser ?? parseUrl,
+});

@@ -2,7 +2,7 @@ import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./comma
 import { GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand.ts";
 import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "./commands/GetShardIteratorCommand.ts";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -225,10 +225,7 @@ export class DynamoDBStreamsClient extends __Client<
   readonly config: DynamoDBStreamsClientResolvedConfig;
 
   constructor(configuration: DynamoDBStreamsClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

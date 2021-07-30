@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints.ts";
 import { Logger as __Logger } from "../types/mod.ts";
 import { parseUrl } from "../url-parser/mod.ts";
+import { ShieldClientConfig } from "./ShieldClient.ts";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: ShieldClientConfig = {}) => ({
   apiVersion: "2016-06-02",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Shield",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Shield",
+  urlParser: config.urlParser ?? parseUrl,
+});

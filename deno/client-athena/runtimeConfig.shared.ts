@@ -1,15 +1,16 @@
 import { defaultRegionInfoProvider } from "./endpoints.ts";
 import { Logger as __Logger } from "../types/mod.ts";
 import { parseUrl } from "../url-parser/mod.ts";
+import { AthenaClientConfig } from "./AthenaClient.ts";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: AthenaClientConfig = {}) => ({
   apiVersion: "2017-05-18",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "Athena",
-  urlParser: parseUrl,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "Athena",
+  urlParser: config.urlParser ?? parseUrl,
+});

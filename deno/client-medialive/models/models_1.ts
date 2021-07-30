@@ -61,12 +61,21 @@ import {
   SmoothGroupEventIdMode,
   SmoothGroupEventStopBehavior,
   SmoothGroupSegmentationMode,
-  SmoothGroupSparseTrackType,
-  SmoothGroupStreamManifestBehavior,
   VpcOutputSettingsDescription,
 } from "./models_0.ts";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "../../types/mod.ts";
 import { Readable } from "https://deno.land/std@0.101.0/node/stream.ts";
+
+export enum SmoothGroupSparseTrackType {
+  NONE = "NONE",
+  SCTE_35 = "SCTE_35",
+  SCTE_35_WITHOUT_SEGMENTATION = "SCTE_35_WITHOUT_SEGMENTATION",
+}
+
+export enum SmoothGroupStreamManifestBehavior {
+  DO_NOT_SEND = "DO_NOT_SEND",
+  SEND = "SEND",
+}
 
 export enum SmoothGroupTimestampOffsetMode {
   USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",

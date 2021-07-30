@@ -133,7 +133,7 @@ import {
   UpdatePrimaryEmailAddressCommandOutput,
 } from "./commands/UpdatePrimaryEmailAddressCommand.ts";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -486,10 +486,7 @@ export class WorkMailClient extends __Client<
   readonly config: WorkMailClientResolvedConfig;
 
   constructor(configuration: WorkMailClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

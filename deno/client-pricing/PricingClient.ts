@@ -1,7 +1,7 @@
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand.ts";
 import { GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput } from "./commands/GetAttributeValuesCommand.ts";
 import { GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -237,10 +237,7 @@ export class PricingClient extends __Client<
   readonly config: PricingClientResolvedConfig;
 
   constructor(configuration: PricingClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

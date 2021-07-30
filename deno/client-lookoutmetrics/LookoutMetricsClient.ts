@@ -56,7 +56,7 @@ import {
   UpdateAnomalyDetectorCommandOutput,
 } from "./commands/UpdateAnomalyDetectorCommand.ts";
 import { UpdateMetricSetCommandInput, UpdateMetricSetCommandOutput } from "./commands/UpdateMetricSetCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -318,10 +318,7 @@ export class LookoutMetricsClient extends __Client<
   readonly config: LookoutMetricsClientResolvedConfig;
 
   constructor(configuration: LookoutMetricsClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

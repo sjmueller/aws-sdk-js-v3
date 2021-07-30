@@ -20,7 +20,7 @@ import { StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/Stop
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "./commands/UpdateCanaryCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -271,10 +271,7 @@ export class SyntheticsClient extends __Client<
   readonly config: SyntheticsClientResolvedConfig;
 
   constructor(configuration: SyntheticsClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

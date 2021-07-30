@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteCustomerGatewayRequest } from "../models/models_1.ts";
+import { DeleteCustomerGatewayRequest } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteCustomerGatewayCommand,
   serializeAws_ec2DeleteCustomerGatewayCommand,

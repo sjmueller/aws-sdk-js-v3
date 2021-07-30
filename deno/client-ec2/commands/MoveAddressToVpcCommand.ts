@@ -1,6 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { MoveAddressToVpcRequest } from "../models/models_4.ts";
-import { MoveAddressToVpcResult } from "../models/models_5.ts";
+import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_5.ts";
 import {
   deserializeAws_ec2MoveAddressToVpcCommand,
   serializeAws_ec2MoveAddressToVpcCommand,

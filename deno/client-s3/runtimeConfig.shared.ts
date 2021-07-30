@@ -1,17 +1,18 @@
 import { defaultRegionInfoProvider } from "./endpoints.ts";
 import { Logger as __Logger } from "../types/mod.ts";
 import { parseUrl } from "../url-parser/mod.ts";
+import { S3ClientConfig } from "./S3Client.ts";
 
 /**
  * @internal
  */
-export const ClientSharedValues = {
+export const getRuntimeConfig = (config: S3ClientConfig = {}) => ({
   apiVersion: "2006-03-01",
-  disableHostPrefix: false,
-  logger: {} as __Logger,
-  regionInfoProvider: defaultRegionInfoProvider,
-  serviceId: "S3",
-  signingEscapePath: false,
-  urlParser: parseUrl,
-  useArnRegion: false,
-};
+  disableHostPrefix: config.disableHostPrefix ?? false,
+  logger: config.logger ?? ({} as __Logger),
+  regionInfoProvider: config.regionInfoProvider ?? defaultRegionInfoProvider,
+  serviceId: config.serviceId ?? "S3",
+  signingEscapePath: config.signingEscapePath ?? false,
+  urlParser: config.urlParser ?? parseUrl,
+  useArnRegion: config.useArnRegion ?? false,
+});

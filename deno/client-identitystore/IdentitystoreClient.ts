@@ -2,7 +2,7 @@ import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./command
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand.ts";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -217,10 +217,7 @@ export class IdentitystoreClient extends __Client<
   readonly config: IdentitystoreClientResolvedConfig;
 
   constructor(configuration: IdentitystoreClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);

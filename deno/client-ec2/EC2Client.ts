@@ -256,6 +256,10 @@ import {
   CreateStoreImageTaskCommandInput,
   CreateStoreImageTaskCommandOutput,
 } from "./commands/CreateStoreImageTaskCommand.ts";
+import {
+  CreateSubnetCidrReservationCommandInput,
+  CreateSubnetCidrReservationCommandOutput,
+} from "./commands/CreateSubnetCidrReservationCommand.ts";
 import { CreateSubnetCommandInput, CreateSubnetCommandOutput } from "./commands/CreateSubnetCommand.ts";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
 import {
@@ -428,6 +432,10 @@ import {
   DeleteSpotDatafeedSubscriptionCommandInput,
   DeleteSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand.ts";
+import {
+  DeleteSubnetCidrReservationCommandInput,
+  DeleteSubnetCidrReservationCommandOutput,
+} from "./commands/DeleteSubnetCidrReservationCommand.ts";
 import { DeleteSubnetCommandInput, DeleteSubnetCommandOutput } from "./commands/DeleteSubnetCommand.ts";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
 import {
@@ -1169,6 +1177,10 @@ import {
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand.ts";
 import {
+  GetSubnetCidrReservationsCommandInput,
+  GetSubnetCidrReservationsCommandOutput,
+} from "./commands/GetSubnetCidrReservationsCommand.ts";
+import {
   GetTransitGatewayAttachmentPropagationsCommandInput,
   GetTransitGatewayAttachmentPropagationsCommandOutput,
 } from "./commands/GetTransitGatewayAttachmentPropagationsCommand.ts";
@@ -1543,7 +1555,7 @@ import {
   UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand.ts";
 import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "./commands/WithdrawByoipCidrCommand.ts";
-import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -1680,6 +1692,7 @@ export type ServiceInputTypes =
   | CreateSnapshotsCommandInput
   | CreateSpotDatafeedSubscriptionCommandInput
   | CreateStoreImageTaskCommandInput
+  | CreateSubnetCidrReservationCommandInput
   | CreateSubnetCommandInput
   | CreateTagsCommandInput
   | CreateTrafficMirrorFilterCommandInput
@@ -1735,6 +1748,7 @@ export type ServiceInputTypes =
   | DeleteSecurityGroupCommandInput
   | DeleteSnapshotCommandInput
   | DeleteSpotDatafeedSubscriptionCommandInput
+  | DeleteSubnetCidrReservationCommandInput
   | DeleteSubnetCommandInput
   | DeleteTagsCommandInput
   | DeleteTrafficMirrorFilterCommandInput
@@ -1944,6 +1958,7 @@ export type ServiceInputTypes =
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetSerialConsoleAccessStatusCommandInput
+  | GetSubnetCidrReservationsCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
   | GetTransitGatewayPrefixListReferencesCommandInput
@@ -2144,6 +2159,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotsCommandOutput
   | CreateSpotDatafeedSubscriptionCommandOutput
   | CreateStoreImageTaskCommandOutput
+  | CreateSubnetCidrReservationCommandOutput
   | CreateSubnetCommandOutput
   | CreateTagsCommandOutput
   | CreateTrafficMirrorFilterCommandOutput
@@ -2199,6 +2215,7 @@ export type ServiceOutputTypes =
   | DeleteSecurityGroupCommandOutput
   | DeleteSnapshotCommandOutput
   | DeleteSpotDatafeedSubscriptionCommandOutput
+  | DeleteSubnetCidrReservationCommandOutput
   | DeleteSubnetCommandOutput
   | DeleteTagsCommandOutput
   | DeleteTrafficMirrorFilterCommandOutput
@@ -2408,6 +2425,7 @@ export type ServiceOutputTypes =
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
+  | GetSubnetCidrReservationsCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
   | GetTransitGatewayPrefixListReferencesCommandOutput
@@ -2702,10 +2720,7 @@ export class EC2Client extends __Client<
   readonly config: EC2ClientResolvedConfig;
 
   constructor(configuration: EC2ClientConfig) {
-    let _config_0 = {
-      ...__ClientDefaultValues,
-      ...configuration,
-    };
+    let _config_0 = __getRuntimeConfig(configuration);
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
