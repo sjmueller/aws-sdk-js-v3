@@ -131,6 +131,10 @@ async function denoifyTsFile(file, depth) {
       extraHeaderLines["process"] = `import process from "https://deno.land/std@${DENO_STD_VERSION}/node/process.ts";`;
     }
 
+    if (line.match(/\bprocess\.emitWarning/)) {
+      replaced = line.replace("process.emitWarning", "console.warn");
+    }
+
     if (line.match(/\bNodeJS\.ProcessEnv\b/)) {
       replaced = line.replace("NodeJS.ProcessEnv", "{[key: string]: string}");
     }
@@ -290,6 +294,11 @@ async function denoifyTsFile(file, depth) {
       let match;
       if ((match = line.match(/runtime: "node"/))) {
         replaced = line.replace(match[0], 'runtime: "deno"');
+      }
+
+      // Don't show warnings for deno versions
+      if (line.match(/emitWarningIfUnsupportedVersion\(process\.version\);/)) {
+        continue;
       }
 
       // Use fetch API instead of http module

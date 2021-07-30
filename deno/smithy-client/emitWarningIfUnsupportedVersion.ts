@@ -10,7 +10,7 @@ let warningEmitted = false;
 export const emitWarningIfUnsupportedVersion = (version: string) => {
   if (version && !warningEmitted && parseInt(version.substring(1, version.indexOf("."))) < 12) {
     warningEmitted = true;
-    process.emitWarning(
+    console.warn(
       `The AWS SDK for JavaScript (v3) will\n` +
         `no longer support Node.js ${version} as of January 1, 2022.\n` +
         `To continue receiving updates to AWS services, bug fixes, and security\n` +

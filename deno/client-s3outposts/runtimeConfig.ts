@@ -20,7 +20,6 @@ import { emitWarningIfUnsupportedVersion } from "../smithy-client/mod.ts";
  * @internal
  */
 export const getRuntimeConfig = (config: S3OutpostsClientConfig = {}) => {
-  emitWarningIfUnsupportedVersion(process.version);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,

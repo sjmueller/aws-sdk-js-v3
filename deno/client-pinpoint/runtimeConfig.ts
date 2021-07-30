@@ -20,7 +20,6 @@ import { emitWarningIfUnsupportedVersion } from "../smithy-client/mod.ts";
  * @internal
  */
 export const getRuntimeConfig = (config: PinpointClientConfig = {}) => {
-  emitWarningIfUnsupportedVersion(process.version);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
