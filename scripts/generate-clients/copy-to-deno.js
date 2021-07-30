@@ -298,8 +298,8 @@ async function denoifyTsFile(file, depth) {
           match[0],
           'import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";'
         );
-      } else if ((match = line.match(/requestHandler: *new NodeHttpHandler\(/))) {
-        replaced = line.replace(match[0], "requestHandler: new FetchHttpHandler(");
+      } else if ((match = line.match(/new NodeHttpHandler\(/))) {
+        replaced = line.replace(match[0], "new FetchHttpHandler(");
       }
 
       // Use blobHasher instead of fileStreamHasher
