@@ -3,7 +3,7 @@ import { Provider } from "./util.ts";
 /**
  * An object representing temporary or permanent AWS credentials.
  */
-export interface Credentials {
+interface ICredentials {
   /**
    * AWS access key ID
    */
@@ -26,4 +26,6 @@ export interface Credentials {
   readonly expiration?: Date;
 }
 
-export type CredentialProvider = Provider<Credentials>;
+export type Credenshals = ICredentials;
+
+export type CredentialProvider = Provider<ICredentials>;

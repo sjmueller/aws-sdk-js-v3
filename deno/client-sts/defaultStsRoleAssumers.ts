@@ -1,6 +1,29 @@
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultStsRoleAssumers.ts
-import { Credentials, Provider } from "../types/mod.ts";
+import { Provider } from "../types/mod.ts";
+
+interface Credentials {
+  /**
+   * AWS access key ID
+   */
+  readonly accessKeyId: string;
+
+  /**
+   * AWS secret access key
+   */
+  readonly secretAccessKey: string;
+
+  /**
+   * A security or session token to use with these credentials. Usually
+   * present for temporary credentials.
+   */
+  readonly sessionToken?: string;
+
+  /**
+   * A {Date} when these credentials will no longer be accepted.
+   */
+  readonly expiration?: Date;
+}
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand.ts";
 import {
